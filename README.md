@@ -11,9 +11,10 @@
 
 ### Forma de trabajo
 - Cada uno trabajará en una rama **SECUNDARIA**, **NUNCA** sobre la rama principal.
+- Cada rama corresponde a una entidad y para cada una de las operaciones **CRUD** se hará una rama de dicha rama secundaria.
 - **NUNCA** se hará commit sobre la rama **PRINCIPAL**.
 - Antes de unir la rama secundaria con la **PRINCIPAL**, se expondrá a los demás el código realizado y se decidirá en grupo si realmente se unen los cambios a la rama principal o no.
-- Cuando se termine una rama se añadirá una etiqueta con el nombre de la parte del proyecto que se acaba de terminar.
+- Cuando se termine una rama o subrama se añadirá una etiqueta con el nombre de la parte del proyecto que se acaba de terminar.
 - Se tratará de optimizar el código en la medida de lo posible y de explotar al máximo todos los beneficios de Laravel.
     
     
