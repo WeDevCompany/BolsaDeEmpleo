@@ -20,3 +20,7 @@
 ![Ejemplo Principal] (/Imagenes/Ejemplo de Ramas.png "Ejemplo Principal")  
 ![Ejemplo Simplificado] (/Imagenes/Explicación ramas GitHub.png "Ejemplo Simplificado")
     
+### Ideas pendientes de implantar
+- Un profesor puede sugerir una oferta a un profesor en concreto.
+- Un profesor tutor puede contactar con el administrador desde la aplicacion para poderle sugerir nuevas etiquetas para añadir a la base de datos.
+- Campo descripción el la tabla Cycles_Subjects
