@@ -16,6 +16,7 @@
 - Antes de unir la rama secundaria con la **PRINCIPAL**, se expondrá a los demás el código realizado y se decidirá en grupo si realmente se unen los cambios a la rama principal o no.
 - Cuando se termine una rama o subrama se añadirá una etiqueta con el nombre de la parte del proyecto que se acaba de terminar.
 - Se tratará de optimizar el código en la medida de lo posible y de explotar al máximo todos los beneficios de Laravel.
-    
-    
+
+> Ejemplo 1: https://drive.google.com/file/d/0Bz09qvWEeTxFbGZSZmlseUxDRzg/view?usp=sharing
+> Ejemplo 2: https://drive.google.com/file/d/0B8ZiAxepQMjXQ01BQTR6TTlYNWs/view?usp=sharing
     
