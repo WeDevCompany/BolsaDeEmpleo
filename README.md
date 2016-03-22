@@ -17,6 +17,6 @@
 - Cuando se termine una rama o subrama se añadirá una etiqueta con el nombre de la parte del proyecto que se acaba de terminar.
 - Se tratará de optimizar el código en la medida de lo posible y de explotar al máximo todos los beneficios de Laravel.
 
-![Ejemplo Principal] (https://drive.google.com/file/d/0Bz09qvWEeTxFbGZSZmlseUxDRzg/view?usp=sharing)  
-![Ejemplo Simplificado] (https://drive.google.com/file/d/0B8ZiAxepQMjXQ01BQTR6TTlYNWs/view?usp=sharing)
+![Ejemplo Principal] (/Imagenes/Ejemplo de Ramas.jpg "Ejemplo Principal")  
+![Ejemplo Simplificado] (/Imagenes/Explicación ramas GitHub.png "Ejemplo Simplificado")
     
