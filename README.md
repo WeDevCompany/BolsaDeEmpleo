@@ -21,7 +21,16 @@
 ![Ejemplo Simplificado] (/Imagenes/Explicación ramas GitHub.png "Ejemplo Simplificado")
     
 ### Diagrama de la base de datos
-![Ejemplo Simplificado] (/Imagenes/Diagrama_sessión6_v1.png "Diagrama de la base de datos a día [28/03/2016]")
+![Ejemplo Simplificado] (/Imagenes/Diagrama_sessión6_v2.png "Diagrama de la base de datos a día [28/03/2016:16:07]")
+
+![Ingeniería inversa] (/Imagenes/ingeniería inversa.png "Ingeniería inersa de la base de datos a día [28/03/2016:16:07]")
+
+### ID para pruebas
+![Pruebas] (/Imagenes/2016-03-28.png "Ingeniería inersa de la base de datos a día [28/03/2016:16:07]")
+
+
+
+
 ### Ideas pendientes de implantar
 - Un profesor puede sugerir una oferta a un profesor en concreto.
 - Un profesor tutor puede contactar con el administrador desde la aplicacion para poderle sugerir nuevas etiquetas para añadir a la base de datos.
