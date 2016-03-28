@@ -86,37 +86,37 @@ class VerifiedSeeder extends Seeder
 
 /*
  * <<<<<<------------------------------------------------>>>>>>
- * <<<<<<-------INSERCION DE PROFESORES VERIFICADOS------>>>>>>
+ * <<<<<<------INSERCION DE ESTUDIANTES VERIFICADOS------>>>>>>
  * <<<<<<------------------------------------------------>>>>>>
  */
         \DB::table('verifiedStudents')->insertGetId([
-            'teacher_id' => 1,
-            'admin_id' => 5,
-            'created_at' => date('YmdHms')
-        ]);
-        \DB::table('verifiedStudents')->insertGetId([
-            'teacher_id' => 2,
-            'admin_id' => 6,
-            'created_at' => date('YmdHms')
-        ]);
-        \DB::table('verifiedStudents')->insertGetId([
-            'teacher_id' => 3,
-            'admin_id' => 1,
-            'created_at' => date('YmdHms')
-        ]);
-        \DB::table('verifiedStudents')->insertGetId([
-            'teacher_id' => 4,
-            'admin_id' => 2,
-            'created_at' => date('YmdHms')
-        ]);
-        \DB::table('verifiedStudents')->insertGetId([
+            'students_id' => 1,
             'teacher_id' => 5,
-            'admin_id' => 4,
             'created_at' => date('YmdHms')
         ]);
         \DB::table('verifiedStudents')->insertGetId([
+            'students_id' => 2,
             'teacher_id' => 6,
-            'admin_id' => 3,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedStudents')->insertGetId([
+            'students_id' => 3,
+            'teacher_id' => 1,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedStudents')->insertGetId([
+            'students_id' => 4,
+            'teacher_id' => 2,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedStudents')->insertGetId([
+            'students_id' => 5,
+            'teacher_id' => 4,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedStudents')->insertGetId([
+            'students_id' => 6,
+            'teacher_id' => 3,
             'created_at' => date('YmdHms')
         ]);
     }
