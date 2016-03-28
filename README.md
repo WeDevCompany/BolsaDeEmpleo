@@ -26,7 +26,10 @@
 ![Ingeniería inversa] (/Imagenes/ingeniería inversa.png "Ingeniería inersa de la base de datos a día [28/03/2016:16:07]")
 
 ### ID para pruebas
-![Pruebas] (/Imagenes/2016-03-28.png "Ingeniería inersa de la base de datos a día [28/03/2016:16:07]")
+![Usuarios de prueba] (/Imagenes/Datos de los seeder.png "Usuarios de prueba")
+
+### Usuarios de acceso
+![Usuarios] (/Imagenes/Datos de acceso a la aplicación.png "Usuarios de acceso")
 
 
 
