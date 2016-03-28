@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -172,7 +172,7 @@ return [
 
         // Excel
         // URL: https://styde.net/exportar-hoja-de-calculo-con-eloquent-y-laravel-excel/
-        Maatwebsite\Excel\ExcelServiceProvider::calss,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         // Librerias de Laracast
         Collective\Html\HtmlServiceProvider::class,
