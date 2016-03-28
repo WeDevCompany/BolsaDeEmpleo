@@ -20,6 +20,8 @@
 ![Ejemplo Principal] (/Imagenes/Ejemplo de Ramas.png "Ejemplo Principal")  
 ![Ejemplo Simplificado] (/Imagenes/Explicación ramas GitHub.png "Ejemplo Simplificado")
     
+### Diagrama de la base de datos
+![Ejemplo Simplificado] (/Imagenes/Diagrama_sessión6_v1.png "Diagrama de la base de datos a día [28/03/2016]")
 ### Ideas pendientes de implantar
 - Un profesor puede sugerir una oferta a un profesor en concreto.
 - Un profesor tutor puede contactar con el administrador desde la aplicacion para poderle sugerir nuevas etiquetas para añadir a la base de datos.
