@@ -577,5 +577,3 @@ class SubjectTeachersSeeder extends Seeder
 
     }
 }
-
-select subjects.name, teachers.firstName, teachers.id, subjects.id from teachers, subjects, subjectTeachers where teachers.id=subjectTeachers.teacher_id and subjectTeachers.subject_id=subjects.id order by subjects.id;
