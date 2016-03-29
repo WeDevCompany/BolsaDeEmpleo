@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProvinceSeeder::class);
         $this->call(CitySeeder::class);
         $this->call(WorkCentersSeeder::class);
-        //$this->call(CyclesProfFamiliesSeeder::class);
+        $this->call(CyclesProfFamiliesSeeder::class);
         //$this->call(JobOffersSeeder::class);
     	Model::reguard();
     }

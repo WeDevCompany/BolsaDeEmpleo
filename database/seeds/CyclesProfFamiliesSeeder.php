@@ -17,7 +17,8 @@ class CyclesProfFamiliesSeeder extends Seeder
      ****************************************************/
      $profFamilie_id = \DB::table('profFamilies')->insertGetId([
          'name' => 'Actividades Físicas y Deportivas',
-         'active' => false
+         'active' => false,
+            'created_at' => date('YmdHms')
      ]);
 
             /***************************************************
@@ -129,7 +130,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Administración y Gestión',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -242,7 +244,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
             $cycle_id = \DB::table('cycles')->insertGetId([
                 'profFamilie_id' => $profFamilie_id,
-                'name' => ' Gestión Administrativa (LOE)',
+                'name' => 'Gestión Administrativa (LOE)',
                 'level' => 'Medio',
                 'active' => false,
                 'created_at' => date('YmdHms')
@@ -377,7 +379,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Agraria',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -1596,7 +1599,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                      $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Formación y orientación laboral',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -1623,7 +1627,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Artes Gráficas',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -2037,13 +2042,13 @@ class CyclesProfFamiliesSeeder extends Seeder
 
             /***************************************************
                                 CYCLE
-                	Impresión Gráfica (LOE)
+                	Postimpresión y Acabados Gráficos (LOE)
                     		GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
                 'profFamilie_id' => $profFamilie_id,
-                'name' => 'Impresión Gráfica (LOE)',
+                'name' => 'Postimpresión y Acabados Gráficos (LOE)',
                 'level' => 'Medio',
                 'active' => false,
                 'created_at' => date('YmdHms')
@@ -2304,7 +2309,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Comercio y Marketing',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -2552,7 +2558,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Edificación y Obra Civil',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -3273,7 +3280,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Electricidad y Electrónica',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -3818,8 +3826,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Empresa e iniciativa emprendedora',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -3835,7 +3842,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Fabricación Mecánica',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -4303,8 +4311,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Empresa e iniciativa emprendedora',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -4416,8 +4423,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Relaciones en el entorno de trabajo',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -4427,8 +4433,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Seguridad en las industrias de construcciones metálicas',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -4438,8 +4443,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Formación y orientación laboral',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -4767,8 +4771,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Empresa e iniciativa emprendedora',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -4783,7 +4786,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Hostelería y Turismo',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -4890,7 +4894,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Formación y orientación laboral',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -5196,8 +5201,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Empresa e iniciativa emprendedora',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -5309,8 +5313,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Inglés',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -5320,8 +5323,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Empresa e iniciativa emprendedora',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -5331,8 +5333,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Formación y orientación laboral',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -5348,7 +5349,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Imagen Personal',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -5455,7 +5457,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Procesos audiovisuales y espectáculos',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -5466,7 +5469,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Formación y Orientación Laboral',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -5714,8 +5718,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Anatomía y fisiología humanas básicas',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -5725,8 +5728,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Cosmetología aplicada a la peluquería',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -5736,8 +5738,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Formación y Orientación Laboral',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -5849,8 +5850,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Cosmetología para Estética y Belleza',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -5995,8 +5995,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Estética de manos y pies',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -6006,8 +6005,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Imagen corporal y hábitos saludables',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -6017,8 +6015,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Marketing y venta en Imagen Personal',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -6028,8 +6025,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Formación y orientación laboral',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -6039,8 +6035,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Empresa e iniciativa emprendedora',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -6054,7 +6049,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Imagen y Sonido',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -6258,7 +6254,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Industrias Alimentarias',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -6343,7 +6340,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Sistemas de control y auxiliares de los procesos',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -6354,7 +6352,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Formación y Orientación Laboral',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -6390,7 +6389,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                     ]);
 
                 $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => 'Operaciones de proceso de extracción de aceites y jugos',
+                    'name' => 'Operaciones de Pproceso de extracción de aceites y jugos',
                     'created_at' => date('YmdHms')
                 ]);
 
@@ -7104,8 +7103,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Seguridad e higiene en la manipulación de alimentos',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -7415,7 +7413,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Industrias Extractivas',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -7500,7 +7499,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Excavaciones con arranque selectivo',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -7511,7 +7511,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Operación y manejo de maquinaria de excavación',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -7709,7 +7710,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Informática y Comunicaciones',
-            'active' => true
+            'active' => true,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -7794,7 +7796,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Administración, gestión y comercialización en la pequeña empresa',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -7805,7 +7808,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Sistemas operativos en entornos monousuarios y multiusuarios',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -7970,7 +7974,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Instalación y Mantenimiento',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -8077,7 +8082,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Seguridad en el montaje y mantenimiento de equipos e instalaciones',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -8328,7 +8334,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Electrotecnia',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -8339,7 +8346,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Seguridad en el montaje y mantenimiento de equipos e instalaciones',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -8723,7 +8731,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Madera, Mueble y Corcho',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -9304,7 +9313,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Marítimo - Pesquera',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -9406,7 +9416,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
             $cycle_id = \DB::table('cycles')->insertGetId([
                 'profFamilie_id' => $profFamilie_id,
-                'name' => ' Operación, Control y Mantenimiento de Máquinas e Instalaciones del Buque (LOGSE)',
+                'name' => 'Operación, Control y Mantenimiento de Máquinas e Instalaciones del Buque (LOGSE)',
                 'level' => 'Medio',
                 'active' => false,
                 'created_at' => date('YmdHms')
@@ -9480,7 +9490,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                      $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Lengua extranjera',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -9951,7 +9962,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                     $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Seguridad marítima',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -10286,7 +10298,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Química',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -10808,7 +10821,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                     $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Ensayos de materiales',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -11000,7 +11014,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Sanidad',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -11468,7 +11483,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Seguridad y Medio Ambiente',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -11575,7 +11591,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Coordinación de equipos y unidades de emergencias',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -11613,7 +11630,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Servicios Socioculturales y a la Comunidad',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -11720,7 +11738,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Necesidades físicas y psicosociales de colectivos específicos',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -11732,7 +11751,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Comunicación alternativa',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -11922,7 +11942,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Textil, Confección y Piel',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -12007,8 +12028,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Seguridad en la industria textil, confección y piel',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -12046,7 +12066,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
             $cycle_id = \DB::table('cycles')->insertGetId([
                 'profFamilie_id' => $profFamilie_id,
-                'name' => ' Confección (LOGSE)',
+                'name' => 'Confección (LOGSE)',
                 'level' => 'Medio',
                 'active' => false,
                 'created_at' => date('YmdHms')
@@ -12120,7 +12140,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                      $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Seguridad en la industria textil, confección y piel',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -12500,7 +12521,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                     $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Procesos de elaboración de calzado a medida',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -12846,7 +12868,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Transporte y Mantenimiento de Vehículos',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -12931,8 +12954,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Adminsitración, gestión y comercialización en la pequeña empresa',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -12970,7 +12992,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
             $cycle_id = \DB::table('cycles')->insertGetId([
                 'profFamilie_id' => $profFamilie_id,
-                'name' => ' Carrocería (LOE)',
+                'name' => 'Carrocería (LOE)',
                 'level' => 'Medio',
                 'active' => false,
                 'created_at' => date('YmdHms')
@@ -13044,7 +13066,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                      $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Mecanizado básico',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -13066,8 +13089,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Empresa e iniciativa emprendedora',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -13180,7 +13202,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                    $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Técnicas de mecanizado para el mantenimiento de vehículos',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -13469,7 +13492,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                     $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Formación y orientación laboral',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -13584,7 +13608,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                     $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Mecanizado básico',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -13761,7 +13786,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Vidrio y Cerámica',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -13960,8 +13986,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Relaciones en el Entorno de Trabajo',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -14111,149 +14136,6 @@ class CyclesProfFamiliesSeeder extends Seeder
 
 
 
-     /***************************************************
-                         PROF. FAMILY
-                 Actividades Físicas y Deportivas
-     ****************************************************/
-     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
-         'name' => 'Actividades Físicas y Deportivas',
-        'active' => false
-     ]);
-
-            /***************************************************
-                                CYCLE
-            Animación de Actividades Físicas y Deportivas (LOGSE)
-                            GRADO SUPERIOR
-            ****************************************************/
-
-            $cycle_id = \DB::table('cycles')->insertGetId([
-                'profFamilie_id' => $profFamilie_id,
-                'name' => 'Animación de Actividades Físicas y Deportivas (LOGSE)',
-                'level' => 'Superior',
-                'active' => false,
-                'created_at' => date('YmdHms')
-            ]);
-
-                $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => 'Actividades físico-deportivas individuales', 
-                    'created_at' => date('YmdHms')
-                ]);
-
-                    \DB::table('cycleSubjects')->insert([
-                        'subject_id' => $subject_id,
-                        'cycle_id' => $cycle_id,
-                        'created_at' => date('YmdHms')
-                    ]);
-
-                $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => 'Actividades físico-deportivas de equipo',
-                    'created_at' => date('YmdHms')
-                ]);
-
-                    \DB::table('cycleSubjects')->insert([
-                        'subject_id' => $subject_id,
-                        'cycle_id' => $cycle_id,
-                        'created_at' => date('YmdHms')
-                    ]);
-
-                $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => 'Actividades físico-deportivas con implementos',
-                    'created_at' => date('YmdHms')
-                ]);
-
-                    \DB::table('cycleSubjects')->insert([
-                        'subject_id' => $subject_id,
-                        'cycle_id' => $cycle_id,
-                        'created_at' => date('YmdHms')
-                    ]);
-
-                $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => 'Fundamentos biológicos y bases de acondicionamiento físico',
-                    'created_at' => date('YmdHms')
-                ]);
-
-                    \DB::table('cycleSubjects')->insert([
-                        'subject_id' => $subject_id,
-                        'cycle_id' => $cycle_id,
-                        'created_at' => date('YmdHms')
-                    ]);
-
-                $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => 'Organización y gestión de una pequeña empresa de actividades de tiempo libre y socioeducativas',
-                    'created_at' => date('YmdHms')
-                ]);
-
-                    \DB::table('cycleSubjects')->insert([
-                        'subject_id' => $subject_id,
-                        'cycle_id' => $cycle_id,
-                        'created_at' => date('YmdHms')
-                    ]);
-
-                $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => 'Primeros auxilios y socorrismo acuático',
-                    'created_at' => date('YmdHms')
-                ]);
-
-                    \DB::table('cycleSubjects')->insert([
-                        'subject_id' => $subject_id,
-                        'cycle_id' => $cycle_id,
-                        'created_at' => date('YmdHms')
-                    ]);
-
-                $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => 'Animación y dinámica de grupos',
-                    'created_at' => date('YmdHms')
-                ]);
-
-                    \DB::table('cycleSubjects')->insert([
-                        'subject_id' => $subject_id,
-                        'cycle_id' => $cycle_id,
-                        'created_at' => date('YmdHms')
-                    ]);
-
-                $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => 'Juegos y actividades físicas recreativas para animación',
-                    'created_at' => date('YmdHms')
-                ]);
-
-                    \DB::table('cycleSubjects')->insert([
-                        'subject_id' => $subject_id,
-                        'cycle_id' => $cycle_id,
-                        'created_at' => date('YmdHms')
-                    ]);
-
-                $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => 'Metodología didáctica de las actividades físico-deportivas',
-                    'created_at' => date('YmdHms')
-                ]);
-
-                    \DB::table('cycleSubjects')->insert([
-                        'subject_id' => $subject_id,
-                        'cycle_id' => $cycle_id,
-                        'created_at' => date('YmdHms')
-                    ]);
-
-                $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => 'Actividades físicas para personas con discapacidades',
-                    'created_at' => date('YmdHms')
-                ]);
-
-                    \DB::table('cycleSubjects')->insert([
-                        'subject_id' => $subject_id,
-                        'cycle_id' => $cycle_id,
-                        'created_at' => date('YmdHms')
-                    ]);
-
-                $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => 'Formación y Orientación Laboral',
-                    'created_at' => date('YmdHms')
-                ]);
-
-                    \DB::table('cycleSubjects')->insert([
-                        'subject_id' => $subject_id,
-                        'cycle_id' => $cycle_id,
-                        'created_at' => date('YmdHms')
-                    ]);
 
 
 
@@ -14263,7 +14145,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Administración y Gestión',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -14537,7 +14420,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                     ]);
 
                 $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => '^Proyecto de administración y finanzas',
+                    'name' => 'Proyecto de administración y finanzas',
                     'created_at' => date('YmdHms')
                 ]);
 
@@ -14812,7 +14695,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Agraria',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -15529,7 +15413,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Artes Gráficas',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -16035,7 +15920,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Artes y Artesanías',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -16179,7 +16065,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Comercio y Marketing',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -17238,7 +17125,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Edificación y Obra Civil',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -18026,7 +17914,8 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Electricidad y Electrónica',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -19389,7 +19278,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Energía y Agua',
-            'active' => false
+            'active' => false,
+            'created_at' => date('YmdHms')
         ]);
 
             /***************************************************
@@ -19824,7 +19714,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Fabricación Mecánica',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -20963,7 +20854,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Hostelería y Turismo',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -21513,7 +21405,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                     ]);
 
                 $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => ' Marketing turístico',
+                    'name' => 'Marketing turístico',
                     'created_at' => date('YmdHms')
                 ]);
 
@@ -21579,7 +21471,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                     ]);
 
                 $subject_id = \DB::table('subjects')->insertGetId([
-                    'name' => ' Inglés',
+                    'name' => 'Inglés',
                     'created_at' => date('YmdHms')
                 ]);
 
@@ -22275,7 +22167,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Imagen Personal',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -23116,7 +23009,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Imagen y Sonido',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -24318,7 +24212,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Industrias Alimentarias',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -24797,7 +24692,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Informática y Comunicaciones',
-        'active' => true
+        'active' => true,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -24808,7 +24704,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
             $cycle_id = \DB::table('cycles')->insertGetId([
                 'profFamilie_id' => $profFamilie_id,
-                'name' => 'Industria Alimentaria (LOGSE)',
+                'name' => 'Administración de Sistemas Informáticos (LOGSE)',
                 'level' => 'Superior',
                 'active' => true,
                 'created_at' => date('YmdHms')
@@ -25458,7 +25354,8 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Instalación y Mantenimiento',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -26399,7 +26296,8 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
 
                     $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Proyecto de mecatrónica industrial',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -26436,7 +26334,8 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Madera, Mueble y Corcho',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -26447,7 +26346,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
 
             $cycle_id = \DB::table('cycles')->insertGetId([
                 'profFamilie_id' => $profFamilie_id,
-                'name' => 'Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención (LOGSE)',
+                'name' => 'Desarrollo de Productos en Carpintería y Mueble (LOGSE)',
                 'level' => 'Superior',
                 'active' => false,
                 'created_at' => date('YmdHms')
@@ -26655,7 +26554,8 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
 
                     $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Gestión de la calidad en industrias de la madera y el mueble',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -26666,7 +26566,8 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
 
                     $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Planes de seguridad en industrias de la madera y el mueble',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -26801,7 +26702,8 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
 
                                 $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Gestión de la producción en carpintería y mueble',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -26812,7 +26714,8 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
 
                                 $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Proyecto en diseño y amueblamiento',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -26849,7 +26752,8 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Marítimo - Pesquera',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -27625,7 +27529,8 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Química',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -27917,7 +27822,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
 
             $cycle_id = \DB::table('cycles')->insertGetId([
                 'profFamilie_id' => $profFamilie_id,
-                'name' => 'Acuicultura (LOE)',
+                'name' => 'Industrias de Proceso Químico (LOGSE)',
                 'level' => 'Superior',
                 'active' => false,
                 'created_at' => date('YmdHms')
@@ -28494,7 +28399,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
 
             $cycle_id = \DB::table('cycles')->insertGetId([
                 'profFamilie_id' => $profFamilie_id,
-                'name' => 'Química Ambiental (LOGSE)',
+                'name' => 'Química Industrial (LOE)',
                 'level' => 'Superior',
                 'active' => false,
                 'created_at' => date('YmdHms')
@@ -28650,7 +28555,8 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Sanidad',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -29644,8 +29550,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                     ]);
                   $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Fisiopatología general',
-                ])  'created_at' => date('YmdHms')
-                  ;
+                    'created_at' => date('YmdHms')]);
 
                     \DB::table('cycleSubjects')->insert([
                         'subject_id' => $subject_id,
@@ -29667,7 +29572,8 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
 
                     $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Empresa e iniciativa emprendedora',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -30977,7 +30883,8 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Seguridad y Medio Ambiente',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -30988,7 +30895,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
 
             $cycle_id = \DB::table('cycles')->insertGetId([
                 'profFamilie_id' => $profFamilie_id,
-                'name' => 'Audioprótesis (LOGSE)',
+                'name' => 'Educación y Control Ambiental (LOE)',
                 'level' => 'Superior',
                 'active' => false,
                 'created_at' => date('YmdHms')
@@ -31297,7 +31204,8 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Servicios Socioculturales y a la Comunidad',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -32186,7 +32094,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
 
             $cycle_id = \DB::table('cycles')->insertGetId([
                 'profFamilie_id' => $profFamilie_id,
-                'name' => 'Animación Sociocultural y Turística (LOE)',
+                'name' => 'Mediación Comunicativa (LOE)',
                 'level' => 'Superior',
                 'active' => false,
                 'created_at' => date('YmdHms')
@@ -32508,7 +32416,8 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Textil, Confección y Piel',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -33666,7 +33575,8 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Transporte y Mantenimiento de Vehículos',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -33751,7 +33661,8 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
 
                     $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Preparación y embellecimiento de superficies',
-                ]); 'created_at' => date('YmdHms')
+                    'created_at' => date('YmdHms')
+                    ]);
 
 
                     \DB::table('cycleSubjects')->insert([
@@ -34252,7 +34163,8 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Vidrio y Cerámica',
-        'active' => false
+        'active' => false,
+            'created_at' => date('YmdHms')
     ]);
 
             /***************************************************
@@ -34263,7 +34175,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
 
             $cycle_id = \DB::table('cycles')->insertGetId([
                 'profFamilie_id' => $profFamilie_id,
-                'name' => 'Curtidos (LOGSE)',
+                'name' => 'Desarrollo y Fabricación de Productos Cerámicos (LOGSE)',
                 'level' => 'Superior',
                 'active' => false,
                 'created_at' => date('YmdHms')
