@@ -27,34 +27,33 @@ class WorkCentersSeeder extends Seeder
         	'enterprise_id' => 1,
         	'citie_id' => 7603,
         	'principalCenter' => true,
-        	'created_at' => date('YmdHms'),
-
+        	'created_at' => date('YmdHms')
         ]);
 
         	$enterpriseResponsable_id = \DB::table('enterpriseResponsables')->insertGetId([
         		'firstName' => strtoupper('Jaime'),
         		'lastName' => strtoupper('Molto Zapata'),
         		'dni' => strtoupper('53261921Q'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         	$enterpriseResponsable_id = \DB::table('enterpriseResponsables')->insertGetId([
         		'firstName' => strtoupper('Eugenio'),
         		'lastName' => strtoupper('Lage Vivas'),
         		'dni' => strtoupper('49824109Z'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         /************************************************
@@ -71,7 +70,7 @@ class WorkCentersSeeder extends Seeder
         	'enterprise_id' => 2,
         	'citie_id' => 500,
         	'principalCenter' => true,
-        	'created_at' => date('YmdHms'),
+        	'created_at' => date('YmdHms')
 
         ]);
 
@@ -79,26 +78,26 @@ class WorkCentersSeeder extends Seeder
         		'firstName' => strtoupper('Francisco Javier'),
         		'lastName' => strtoupper('Romeu Campillo'),
         		'dni' => strtoupper('68976371S'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         	$enterpriseResponsable_id = \DB::table('enterpriseResponsables')->insertGetId([
         		'firstName' => strtoupper('Aitor'),
         		'lastName' => strtoupper('Gimenez Peinado'),
         		'dni' => strtoupper('22844831N'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         $workCenter_id = \DB::table('workCenters')->insertGetId([
@@ -110,7 +109,7 @@ class WorkCentersSeeder extends Seeder
         	'phone2' => '654340976',
         	'enterprise_id' => 2,
         	'citie_id' => 6089,
-        	'created_at' => date('YmdHms'),
+        	'created_at' => date('YmdHms')
 
         ]);
 
@@ -118,13 +117,13 @@ class WorkCentersSeeder extends Seeder
         		'firstName' => strtoupper('Eva Maria'),
         		'lastName' => strtoupper('Vacas Anguita'),
         		'dni' => strtoupper('07225965D'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         /************************************************
@@ -143,7 +142,7 @@ class WorkCentersSeeder extends Seeder
         	'enterprise_id' => 3,
         	'citie_id' => 5480,
         	'principalCenter' => true,
-        	'created_at' => date('YmdHms'),
+        	'created_at' => date('YmdHms')
 
         ]);
 
@@ -151,26 +150,26 @@ class WorkCentersSeeder extends Seeder
         		'firstName' => strtoupper('Olga'),
         		'lastName' => strtoupper('Selles Roman'),
         		'dni' => strtoupper('55613110F'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         	$enterpriseResponsable_id = \DB::table('enterpriseResponsables')->insertGetId([
         		'firstName' => strtoupper('Mercedes'),
         		'lastName' => strtoupper('Bnedicto Pachon'),
         		'dni' => strtoupper('14729696J'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         $workCenter_id = \DB::table('workCenters')->insertGetId([
@@ -181,7 +180,7 @@ class WorkCentersSeeder extends Seeder
         	'phone1' => '987679809',
         	'enterprise_id' => 3,
         	'citie_id' => 4536,
-        	'created_at' => date('YmdHms'),
+        	'created_at' => date('YmdHms')
 
         ]);
 
@@ -189,39 +188,39 @@ class WorkCentersSeeder extends Seeder
         		'firstName' => strtoupper('Aurora'),
         		'lastName' => strtoupper('Palomo Pariente'),
         		'dni' => strtoupper('23848911G'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         	$enterpriseResponsable_id = \DB::table('enterpriseResponsables')->insertGetId([
         		'firstName' => strtoupper('Maria Elena'),
         		'lastName' => strtoupper('Santos Cerda'),
         		'dni' => strtoupper('55627050D'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         	$enterpriseResponsable_id = \DB::table('enterpriseResponsables')->insertGetId([
         		'firstName' => strtoupper('Concepcion'),
         		'lastName' => strtoupper('Ovejero Cuello'),
         		'dni' => strtoupper('19591310W'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         $workCenter_id = \DB::table('workCenters')->insertGetId([
@@ -233,7 +232,7 @@ class WorkCentersSeeder extends Seeder
         	'fax' => '34947650059',
         	'enterprise_id' => 3,
         	'citie_id' => 6134,
-        	'created_at' => date('YmdHms'),
+        	'created_at' => date('YmdHms')
 
         ]);
 
@@ -241,13 +240,13 @@ class WorkCentersSeeder extends Seeder
         		'firstName' => strtoupper('Victoria'),
         		'lastName' => strtoupper('Borja Albert'),
         		'dni' => strtoupper('60613245B'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         /************************************************
@@ -264,7 +263,7 @@ class WorkCentersSeeder extends Seeder
         	'enterprise_id' => 4,
         	'citie_id' => 670,
         	'principalCenter' => true,
-        	'created_at' => date('YmdHms'),
+        	'created_at' => date('YmdHms')
 
         ]);
 
@@ -272,26 +271,26 @@ class WorkCentersSeeder extends Seeder
         		'firstName' => strtoupper('Paula'),
         		'lastName' => strtoupper('Palomino Medrano'),
         		'dni' => strtoupper('94643853A'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         	$enterpriseResponsable_id = \DB::table('enterpriseResponsables')->insertGetId([
         		'firstName' => strtoupper('Natalia'),
         		'lastName' => strtoupper('Roda de Juan'),
         		'dni' => strtoupper('41997739S'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         /************************************************
@@ -308,7 +307,7 @@ class WorkCentersSeeder extends Seeder
         	'enterprise_id' => 5,
         	'citie_id' => 7301,
         	'principalCenter' => true,
-        	'created_at' => date('YmdHms'),
+        	'created_at' => date('YmdHms')
 
         ]);
 
@@ -316,13 +315,13 @@ class WorkCentersSeeder extends Seeder
         		'firstName' => strtoupper('Jose'),
         		'lastName' => strtoupper('Mengual Vizcano'),
         		'dni' => strtoupper('68274521X'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         /************************************************
@@ -339,7 +338,7 @@ class WorkCentersSeeder extends Seeder
         	'enterprise_id' => 6,
         	'citie_id' => 3529,
         	'principalCenter' => true,
-        	'created_at' => date('YmdHms'),
+        	'created_at' => date('YmdHms')
 
         ]);
 
@@ -347,26 +346,26 @@ class WorkCentersSeeder extends Seeder
         		'firstName' => strtoupper('Jose Manuel'),
         		'lastName' => strtoupper('Pillina Aragones'),
         		'dni' => strtoupper('69831534S'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
         	$enterpriseResponsable_id = \DB::table('enterpriseResponsables')->insertGetId([
         		'firstName' => strtoupper('Esteban'),
         		'lastName' => strtoupper('Picon Villarejo'),
         		'dni' => strtoupper('87575857E'),
-        		'created_at' => date('YmdHms'),
+        		'created_at' => date('YmdHms')
         	]);
 
         		\DB::table('enterpriseCenterResponsables')->insert([
         			'workCenter_id' => $workCenter_id,
         			'enterpriseResponsable_id' => $enterpriseResponsable_id,
-        			'created_at' => date('YmdHms'),
+        			'created_at' => date('YmdHms')
         		]);
 
     }
