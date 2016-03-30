@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         //$this->call(JobOffersSeeder::class);
         $this->call(TeacherProfFamiliesSeeder::class);
         $this->call(SubjectTeachersSeeder::class);
+        $this->call(TutorsSeeder::class);
     	Model::reguard();
     }
 }

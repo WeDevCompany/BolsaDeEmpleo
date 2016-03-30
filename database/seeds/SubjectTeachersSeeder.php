@@ -575,5 +575,124 @@ class SubjectTeachersSeeder extends Seeder
             'created_at' => date('YmdHms')
         ]);
 
+        /******************************************
+                    EDUARDO ADMIN
+                    SUBJECTS
+        *******************************************/
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 77,
+            'teacher_id' => 1,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 78,
+            'teacher_id' => 1,
+            'created_at' => date('YmdHms')
+        ]);
+
+        /******************************************
+                    CARLOS ADMIN
+                    SUBJECTS
+        *******************************************/
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 77,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 78,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 79,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 80,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 81,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 82,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 83,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 84,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 85,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 86,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 87,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 88,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('subjectTeachers')->insert([
+            'dateFrom' => date('YmdHms'),
+            'subject_id' => 89,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
     }
+<<<<<<< HEAD
 }
+
+=======
+}
+>>>>>>> be71fc6df0cb19c66adf97fabc9975ce385ade81

@@ -22,6 +22,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             'created_at' => date('YmdHms')
         ]);
 
+
             /***************************************************
                                 CYCLE
             Explotación de Sistemas Informáticos (LOGSE)
@@ -927,7 +928,211 @@ class CyclesProfFamiliesSeeder extends Seeder
                         'created_at' => date('YmdHms')
                     ]);
 
- 	 /***************************************************
+            /***************************************************
+                                CYCLE
+                        Informática de Oficina
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Informática de Oficina',
+                'level' => 'Básico',
+                'active' => true,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Montaje y mantenimiento de sistemas y componentes informáticos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares para la configuración y la explotación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ofimática y archivo de documentos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Instalación y mantenimiento de redes para transmisión de datos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            /***************************************************
+                                CYCLE
+                    Informática y Comunicaciones
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Informática y Comunicaciones',
+                'level' => 'Básico',
+                'active' => true,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Montaje y mantenimiento de sistemas y componentes informáticos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares para la configuración y la explotación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Equipos eléctricos y electrónicos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Instalación y mantenimiento de redes para transmisión de datos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+     /***************************************************
                          PROF. FAMILY
                  Actividades Físicas y Deportivas
      ****************************************************/
@@ -940,7 +1145,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
             Animación de Actividades Físicas y Deportivas (LOGSE)
-            				GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -1184,10 +1389,237 @@ class CyclesProfFamiliesSeeder extends Seeder
             'created_at' => date('YmdHms')
     ]);
 
+
+            /***************************************************
+                                CYCLE
+                        Informática de Oficina
+                            GRADO BÄSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Informática de Oficina',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Montaje y mantenimiento de sistemas y componentes informáticos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares para la configuración y la explotación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ofimática y archivo de documentos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Instalación y mantenimiento de redes para transmisión de datos',
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            /***************************************************
+                                CYCLE
+                       Servicios Administrativos
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => ' Servicios Administrativos',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Tratamiento informático de datos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Aplicaciones básicas de ofimática',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Técnicas administrativas básicas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Archivo y comunicación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Atención al cliente',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Preparación de pedidos y venta de productos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
             /***************************************************
                                 CYCLE
                     Gestión Administrativa (LOGSE)
-                    		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -1289,7 +1721,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
                         Gestión Administrativa (LOE)
-                        	GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -1964,7 +2396,7 @@ class CyclesProfFamiliesSeeder extends Seeder
           
     /***************************************************
                         PROF. FAMILY
-               			Agraria
+                        Agraria
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Agraria',
@@ -1972,10 +2404,400 @@ class CyclesProfFamiliesSeeder extends Seeder
             'created_at' => date('YmdHms')
     ]);
 
+
+             /***************************************************
+                                CYCLE
+                        Actividades Agropecuarias
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Actividades Agropecuarias',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares de preparación del terreno, plantación y siembra de cultivos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares de obtención y recolección de cultivos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Envasado y distribución de materias primas agroalimentarias',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares de cría y alimentación del ganado',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas de manejo de la producción ganadera',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares de mantenimiento e higiene en instalaciones ganaderas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+
+             /***************************************************
+                                CYCLE
+                       Agro-jardinería y Composiciones Florales
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Agro-jardinería y Composiciones Florales',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Actividades de riego, abonado y tratamientos en cultivos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares de preparación del terreno, plantación y siembra de cultivos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas de producción y mantenimiento de plantas en viveros y centros de jardinería',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares en la elaboración de composiciones con flores y plantas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas en instalación de jardines, parques y zonas verdes',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas para el mantenimiento de jardines, parques y zonas verdes',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Materiales de floristería',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                   $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+
+
+             /***************************************************
+                                CYCLE
+                       Aprovechamientos Forestales
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Aprovechamientos Forestales',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas de producción y mantenimiento de plantas en viveros y centros de jardinería',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas para el mantenimiento de jardines, parques y zonas verdes',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Repoblacion e infraestructuras forestales',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Trabajos de aprovechamientos forestales',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Silvicultura y plagas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Recolecciónde productos forestales',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
             /***************************************************
                                 CYCLE
             Explotaciones Agrarias Extensivas (LOGSE)
-                    		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -2099,7 +2921,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
             Explotaciones Agrícolas Intensivas (LOGSE)
-                    		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -2212,7 +3034,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
                 Explotaciones Ganaderas (LOGSE)
-                    		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -2337,7 +3159,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
                             Jardinería (LOGSE)
-                    		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -2472,7 +3294,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
         Trabajos Forestales y Conservación del Medio Natural (LOGSE)
-                    		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -3919,7 +4741,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
     /***************************************************
                         PROF. FAMILY
-               			Artes Gráficas
+                        Artes Gráficas
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Artes Gráficas',
@@ -3927,10 +4749,145 @@ class CyclesProfFamiliesSeeder extends Seeder
             'created_at' => date('YmdHms')
     ]);
 
+     /***************************************************
+                                CYCLE
+                            Artes Gráficas
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Artes Gráficas',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Informática básica aplicada en industrias gráficas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Trabajos de reprografía',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Acabados en reprografía y finalización de productos gráficos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones de almacén en industrias gráficas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones de producción gráfica',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Manipulados en industrias gráficas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Atención al cliente',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
             /***************************************************
                                 CYCLE
-            		Encuadernación y Manipulados de Papel y Cartón (LOGSE)
-                    		GRADO MEDIO
+                    Encuadernación y Manipulados de Papel y Cartón (LOGSE)
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -4021,7 +4978,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
                  Impresión en Artes Gráficas (LOGSE)
-                    		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -4113,7 +5070,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
                       Preimpresión en Artes Gráficas (LOGSE)
-                    		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -4226,7 +5183,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
                      Impresión Gráfica (LOE)
-                    		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -4338,8 +5295,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
             /***************************************************
                                 CYCLE
-                	Postimpresión y Acabados Gráficos (LOE)
-                    		GRADO MEDIO
+                    Postimpresión y Acabados Gráficos (LOE)
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -5095,7 +6052,7 @@ class CyclesProfFamiliesSeeder extends Seeder
    
     /***************************************************
                         PROF. FAMILY
-               		Comercio y Marketing
+                    Comercio y Marketing
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Comercio y Marketing',
@@ -5103,10 +6060,137 @@ class CyclesProfFamiliesSeeder extends Seeder
             'created_at' => date('YmdHms')
     ]);
 
+
             /***************************************************
                                 CYCLE
-            			Comercio (LOGSE)
-                    		GRADO MEDIO
+                        Servicios Comerciales
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Servicios Comerciales',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Técnicas básicas de merchandising',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares de almacenaje',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Tratamiento informático de datos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Aplicaciones básicas de ofimática',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Atención al cliente',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Preparación de Pedidos y venta de productos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+
+            /***************************************************
+                                CYCLE
+                        Comercio (LOGSE)
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -5183,7 +6267,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                         'created_at' => date('YmdHms')
                     ]);
 
- 				$subject_id = \DB::table('subjects')->insertGetId([
+                $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Formación y Orientación Laboral',
                     'created_at' => date('YmdHms')
                 ]);
@@ -5197,8 +6281,8 @@ class CyclesProfFamiliesSeeder extends Seeder
  
             /***************************************************
                                 CYCLE
-            			Actividades Comerciales (LOE)
-                    		GRADO MEDIO
+                        Actividades Comerciales (LOE)
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -5275,7 +6359,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                         'created_at' => date('YmdHms')
                     ]);
 
- 				$subject_id = \DB::table('subjects')->insertGetId([
+                $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Procesos de venta',
                     'created_at' => date('YmdHms')
                 ]);
@@ -6394,7 +7478,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
     /***************************************************
                         PROF. FAMILY
-               		Edificación y Obra Civil
+                    Edificación y Obra Civil
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Edificación y Obra Civil',
@@ -6402,10 +7486,135 @@ class CyclesProfFamiliesSeeder extends Seeder
             'created_at' => date('YmdHms')
     ]);
 
+
+            /***************************************************
+                                CYCLE
+                       Reforma y Mantenimiento de Edificios
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Reforma y Mantenimiento de Edificios',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Albañilería básica',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Guarnecidos y enlucidos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Falsos techos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Pintura y empapelado',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Reformas y mantenimiento básico de edificios',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Trabajos de pavimentación exterior y de urbanización',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
             /***************************************************
                                 CYCLE
                 Acabados de Construcción (LOGSE)
-                    		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -6496,7 +7705,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
                      Obras de Albañilería (LOGSE)
-                    		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -6573,7 +7782,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                         'created_at' => date('YmdHms')
                     ]);
 
- 				$subject_id = \DB::table('subjects')->insertGetId([
+                $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Administración, gestión y comercialización en la pequeña empresa',
                     'created_at' => date('YmdHms')
                 ]);
@@ -6597,8 +7806,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
             /***************************************************
                                 CYCLE
-            		Obras de Hormigón (LOGSE)
-                    		GRADO MEDIO
+                    Obras de Hormigón (LOGSE)
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -6711,7 +7920,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
         Operación y Mantenimiento de Maquinaria de Construcción (LOGSE)
-                      		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -6788,7 +7997,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                         'created_at' => date('YmdHms')
                     ]);
 
- 				$subject_id = \DB::table('subjects')->insertGetId([
+                $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Administración, gestión y comercialización en la pequeña empresa',
                     'created_at' => date('YmdHms')
                 ]);
@@ -6812,8 +8021,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
             /***************************************************
                                 CYCLE
-            		      Construcción (LOE)
-                    		GRADO MEDIO
+                          Construcción (LOE)
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -6970,7 +8179,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
            Obras de Interior, Decoración y Rehabilitación (LOE)
-                    		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -7047,7 +8256,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                         'created_at' => date('YmdHms')
                     ]);
 
- 				$subject_id = \DB::table('subjects')->insertGetId([
+                $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Techos suspendidos',
                     'created_at' => date('YmdHms')
                 ]);
@@ -7091,8 +8300,8 @@ class CyclesProfFamiliesSeeder extends Seeder
                         'cycle_id' => $cycle_id,
                         'created_at' => date('YmdHms')
                     ]);
-				
-				$subject_id = \DB::table('subjects')->insertGetId([
+                
+                $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Empresa e iniciativa emprendedora',
                     'created_at' => date('YmdHms')
                 ]);
@@ -7895,7 +9104,7 @@ class CyclesProfFamiliesSeeder extends Seeder
 
         /***************************************************
                             PROF. FAMILY
-                   		Electricidad y Electrónica
+                        Electricidad y Electrónica
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Electricidad y Electrónica',
@@ -7903,10 +9112,344 @@ class CyclesProfFamiliesSeeder extends Seeder
             'created_at' => date('YmdHms')
         ]);
 
+
             /***************************************************
                                 CYCLE
-    			Equipos e Instalaciones Electrotécnicas (LOGSE)
-                    		GRADO MEDIO
+                       Electricidad y Electrónica
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Electricidad y Electrónica',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Instalaciones eléctricas y domóticas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Instalaciones de telecomunicaciones',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Equipos eléctricos y electrónicos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Instalación y mantenimiento de redes para transmisión de datos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+               
+            
+            /***************************************************
+                                CYCLE
+                       Fabricación de Elementos Metálicos
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Fabricación de Elementos Metálicos',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Equipos eléctricos y electrónicos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas de fabricación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Soldadura y carpintería metálica',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Carpintería de aluminio y PVC',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas de calderería ligera',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+           
+            /***************************************************
+                                CYCLE
+                       Instalaciones Electrotécnicas y Mecánica
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Instalaciones Electrotécnicas y Mecánica',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Instalaciones eléctricas y domóticas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Instalaciones de telecomunicaciones',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas de fabricación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Soldadura y carpintería metálica',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Carpintería de aluminio y PVC',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+            /***************************************************
+                                CYCLE
+                Equipos e Instalaciones Electrotécnicas (LOGSE)
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -8051,8 +9594,8 @@ class CyclesProfFamiliesSeeder extends Seeder
 
             /***************************************************
                                 CYCLE
-        			Equipos Electrónicos de Consumo (LOGSE)
-                    		GRADO MEDIO
+                    Equipos Electrónicos de Consumo (LOGSE)
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -8129,7 +9672,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                         'created_at' => date('YmdHms')
                     ]);
 
- 				$subject_id = \DB::table('subjects')->insertGetId([
+                $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Calidad',
                     'created_at' => date('YmdHms')
                 ]);
@@ -8140,7 +9683,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                         'created_at' => date('YmdHms')
                     ]);                               
 
- 				$subject_id = \DB::table('subjects')->insertGetId([
+                $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Electrónica digital y microprogramable',
                     'created_at' => date('YmdHms')
                 ]);
@@ -8187,7 +9730,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
             Instalaciones de Telecomunicaciones (LOE)
-                    		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -8322,7 +9865,7 @@ class CyclesProfFamiliesSeeder extends Seeder
             /***************************************************
                                 CYCLE
            Instalaciones Eléctricas y Automáticas (LOE)
-                      		GRADO MEDIO
+                            GRADO MEDIO
             ****************************************************/
 
             $cycle_id = \DB::table('cycles')->insertGetId([
@@ -8399,7 +9942,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                         'created_at' => date('YmdHms')
                     ]);
 
- 				$subject_id = \DB::table('subjects')->insertGetId([
+                $subject_id = \DB::table('subjects')->insertGetId([
                     'name' => 'Instalaciones domóticas',
                     'created_at' => date('YmdHms')
                 ]);
@@ -9047,7 +10590,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Sistemas de Telecomunicaciones e Informáticos (LOE)',
                 'level' => 'Superior',
-                'active' => true,
+                'active' => false,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -9816,6 +11359,368 @@ class CyclesProfFamiliesSeeder extends Seeder
             'active' => false,
             'created_at' => date('YmdHms')
         ]);
+
+
+             /***************************************************
+                                CYCLE
+                       Fabricación de Elementos Metálicos
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Fabricación de Elementos Metálicos',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Equipos eléctricos y electrónicos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas de fabricación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Soldadura y carpintería metálica',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Carpintería de aluminio y PVC',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas de calderería ligera',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+
+            /***************************************************
+                                CYCLE
+                       Fabricación y Montaje
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Fabricación y Montaje',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas de fabricación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Soldadura y carpintería metálica',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Carpintería de aluminio y PVC',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Redes de evacuación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Fontanería y calefacción básica',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Montaje de equipos de climatización',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+
+            /***************************************************
+                                CYCLE
+                       Instalaciones Electrotécnicas y Mecánica
+                            GRADO BÁSICO
+
+      NOTA: Es insertado 2 veces, 1 en la familia prof. de electricidad
+                    y otra en ésta, la de mecánica.
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Instalaciones Electrotécnicas y Mecánica',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Instalaciones eléctricas y domóticas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Instalaciones de telecomunicaciones',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas de fabricación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Soldadura y carpintería metálica',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Carpintería de aluminio y PVC',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+
 
             /***************************************************
                                 CYCLE
@@ -11890,6 +13795,396 @@ class CyclesProfFamiliesSeeder extends Seeder
             'created_at' => date('YmdHms')
         ]);
 
+
+
+            /***************************************************
+                                CYCLE
+                       Actividades de Panadería y Pastelería
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Actividades de Panadería y Pastelería',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Procesos básicos de panadería',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Procesos básicos de pastelería',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Dispensación en panadería y pastelería',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares en la industria alimentaria',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Atención al cliente',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+             /***************************************************
+                                CYCLE
+                       Alojamiento y Lavandería
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Alojamiento y Lavandería',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Puesta a punto de habitaciones y zonas comunes en alojamiento',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Materiales y productos textiles',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Lavado y secado de ropa',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Planchado y embolsado de ropa',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Lavandería y mantenimiento de lencería en el alojamiento',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Preparación y montaje de materiales para colectividades y catering',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                 $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Atención al cliente',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+             /***************************************************
+                                CYCLE
+                       Cocina y Restauración
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Cocina y Restauración',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Técnicas elementales de preelaboración',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Procesos básicos de producción culinaria',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Aprovisionamiento y conservación de materias primas e higiene en la manipulación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Técnicas elementales de servicio',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Procesos básicos de preparación de alimentos y bebidas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Preparación y montaje de materiales para colectividades y catering',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                  $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Atención al cliente',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+
             /***************************************************
                                 CYCLE
                           Cocina (LOGSE)
@@ -13752,6 +16047,147 @@ class CyclesProfFamiliesSeeder extends Seeder
             'active' => false,
             'created_at' => date('YmdHms')
         ]);
+
+
+            /***************************************************
+                                CYCLE
+                       Peluquería y Estética
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Peluquería y Estética',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Preparación del entorno profesional',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Cuidados estéticos básicos de uñas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Depilación mecánica y decoloración del vello superfluo',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Maquillaje',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Lavado y cambios de forma del cabello',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Cambio de color del cabello',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Atención al cliente',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+     
+
+
 
             /***************************************************
                                 CYCLE
@@ -16681,6 +19117,232 @@ class CyclesProfFamiliesSeeder extends Seeder
             'created_at' => date('YmdHms')
         ]);
 
+                  /***************************************************
+                                CYCLE
+                    Actividades de Panadería y Pastelería
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Actividades de Panadería y Pastelería',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Procesos básicos de panadería',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Procesos básicos de pastelería',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Dispensación en panadería y pastelería',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares en la industria alimentaria',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Atención al cliente',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            /***************************************************
+                                CYCLE
+                    Industrias Alimentarias
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Industrias Alimentarias',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares en la industria alimentaria',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Elaboración de productos alimentarios',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Limpieza y mantenimiento de instalaciones y equipos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas de laboratorio',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones auxiliares de almacenaje',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+                    
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
             /***************************************************
                                 CYCLE
           Conservería Vegetal, Cárnica y de Pescado (LOGSE)
@@ -18606,6 +21268,244 @@ class CyclesProfFamiliesSeeder extends Seeder
             'created_at' => date('YmdHms')
         ]);
 
+
+              /***************************************************
+                                CYCLE
+                       Fabricación y Montaje
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Fabricación y Montaje',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas de fabricación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Soldadura y carpintería metálica',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Carpintería de aluminio y PVC',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Redes de evacuación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Fontanería y calefacción básica',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+                  $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Montaje de equipos de climatización',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                  /***************************************************
+                                CYCLE
+                       Mantenimiento de Viviendas
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Mantenimiento de Viviendas',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mantenimiento básico de instalaciones electrotécnicas en viviendas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones de conservación en la vivienda y montaje de accesorios',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Redes de evacuación',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Fontanería y calefacción básica',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Montaje de equipos de climatización',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
             /***************************************************
                                 CYCLE
             Instalación y Mantenimiento Electromecánico de Maquinaria y Conducción de Líneas (LOGSE)
@@ -20327,9 +23227,134 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
             ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Madera, Mueble y Corcho',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
+
+
+            /***************************************************
+                                CYCLE
+                       Carpintería y Mueble
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Carpintería y Mueble',
+                'level' => 'Básico',
+                'active' => true,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Operaciones básicas de mecanizado de madera y derivados',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Instalación de elementos de carpintería y mueble',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Acabados básicos de la madera',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Materiales y productos textiles',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Tapizado de muebles',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Atención al cliente',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
 
             /***************************************************
                                 CYCLE
@@ -21318,6 +24343,254 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
             'active' => false,
             'created_at' => date('YmdHms')
         ]);
+
+             /***************************************************
+                                CYCLE
+                    Actividades Marítimo-Pesqueras
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Actividades Marítimo-Pesqueras',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Actividades en cubiertas de barcos de pesca',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Pesca con artes de enmalle y marisqueo',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Pesca con palangre, arrastre y cerco',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mantenimiento de motores en barcos de pesca',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mantenimiento de equipos auxiliares en barcos de pesca',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Seguridad y primeros auxilios en barcos de pesca',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            /***************************************************
+                                CYCLE
+            Mantenimiento de Embarcaciones Deportivas y de Recreo
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Mantenimiento de Embarcaciones Deportivas y de Recreo',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mecanizado y soldadura',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Reparación estructural básica de embarcaciones deportivas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Protección y embellecimiento de superficies de embarcaciones',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Manteminiento básico de la planta propulsora y equipos asociados',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mantenimiento básico de sistemas eléctricos e informáticos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mantenimiento básico de aparejos de embarcaciones deportivas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
 
             /***************************************************
                                 CYCLE
@@ -28041,6 +31314,130 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
             'created_at' => date('YmdHms')
         ]);
 
+             /***************************************************
+                                CYCLE
+            Actividades Domésticas y Limpieza de edificios
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Actividades Domésticas y Limpieza de edificios',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mantenimiento de prendas de vestir y ropa de hogar',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Cocina doméstica',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Limpieza de domicilios particulares, edificios, oficinas y locales',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Limpieza con máquinas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Actividades de apoyo a personas no dependienes en la unidad convivencial',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Seguridad en el ámbito doméstico',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
             /***************************************************
                                 CYCLE
                      Atención Sociosanitaria (LOGSE)
@@ -29552,6 +32949,255 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
             'active' => false,
             'created_at' => date('YmdHms')
         ]);
+
+             /***************************************************
+                                CYCLE
+            Arreglo y Reparación de Artículos Textiles y de Piel
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Arreglo y Reparación de Artículos Textiles y de Piel',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Materiales y productos textiles',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Reparación de artículos de marroquinería y creación de pequeños artículos de guarnicionería',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Reparación de calzado y actividades complementarias',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Arreglos y adaptaciones en prendas de vestir y ropa de hogar',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Confección de artículos textiles para decoración',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Atención al cliente',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            /***************************************************
+                                CYCLE
+                        Tapicería y Cortinaje
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Tapicería y Cortinaje',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Materiales y productos textiles',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Tapizado de muebles',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Tapizado de murales y entelado de superficies',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Confección y montaje de cortinas y estores',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Confección de artículos textiles para decoración',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Atención al cliente',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
 
             /***************************************************
                                 CYCLE
@@ -31626,6 +35272,244 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
             'created_at' => date('YmdHms')
         ]);
 
+              /***************************************************
+                                CYCLE
+            Mantenimiento de Embarcaciones Deportivas y de Recreo
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Mantenimiento de Embarcaciones Deportivas y de Recreo',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mecanizado y soldadura',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Reparación estructural básica de embarcaciones deportivas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Protección y embellecimiento de superficies de embarcaciones',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Manteminiento básico de la planta propulsora y equipos asociados',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mantenimiento básico de sistemas eléctricos e informáticos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mantenimiento básico de aparejos de embarcaciones deportivas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            /***************************************************
+                                CYCLE
+                        Mantenimiento de Vehículos
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Mantenimiento de Vehículos',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mecanizado y soldadura',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Amovibles',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Preparación de superficies',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Electricidad del vehículo',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mecánica del vehículo',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
             /***************************************************
                                 CYCLE
                         Carrocería (LOGSE)
@@ -33120,6 +37004,149 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
             'active' => false,
             'created_at' => date('YmdHms')
         ]);
+
+             /***************************************************
+                                CYCLE
+                          Vidriería y Alfarería
+                            GRADO BÁSICO
+            ****************************************************/
+
+            $cycle_id = \DB::table('cycles')->insertGetId([
+                'profFamilie_id' => $profFamilie_id,
+                'name' => 'Vidriería y Alfarería',
+                'level' => 'Básico',
+                'active' => false,
+                'created_at' => date('YmdHms')
+            ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Reproducción de moldes',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Conformado de piezas cerámicas',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Acabado de productos cerámicos',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mecanizados manuales y aplicaciones superficiales',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Termoformado, fusing y vidrieras',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Mecanizados manuales y semiautomáticos con vidrio fundido y tubos de vidrio',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Atención al cliente',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+            $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Ciencias aplicadas II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad I',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                $subject_id = \DB::table('subjects')->insertGetId([
+                    'name' => 'Comunicación y sociedad II',
+                    'created_at' => date('YmdHms')
+                ]);
+
+                    \DB::table('cycleSubjects')->insert([
+                        'subject_id' => $subject_id,
+                        'cycle_id' => $cycle_id,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+
+
+
+
+
+
+          
 
             /***************************************************
                                 CYCLE
