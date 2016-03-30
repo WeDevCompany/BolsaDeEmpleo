@@ -1111,7 +1111,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Admin10 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => strtoupper('Prueba4@admin.com'),
+        	'email' => strtoupper('iescierva_daw37@hotmail.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -1124,7 +1124,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Admin11 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => strtoupper('Prueba5@admin.com'),
+        	'email' => strtoupper('iescierva_daw38@hotmail.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -1137,7 +1137,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Admin12 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => strtoupper('Prueba6@admin.com'),
+        	'email' => strtoupper('iescierva_daw39@hotmail.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -1191,7 +1191,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Teacher10 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => strtoupper('Prueba4@teacher.com'),
+        	'email' => strtoupper('iescierva_daw40@hotmail.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -1204,7 +1204,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Teacher11 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => strtoupper('Prueba5@teacher.com'),
+        	'email' => strtoupper('iescierva_daw41@hotmail.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -1217,7 +1217,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Teacher12 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => strtoupper('Prueba6@teacher.com'),
+        	'email' => strtoupper('iescierva_daw42@hotmail.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -1271,7 +1271,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Student10 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => strtoupper('Prueba4@Student.com'),
+        	'email' => strtoupper('iescierva_daw43@hotmail.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -1284,7 +1284,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Student11 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => strtoupper('Prueba5@Student.com'),
+        	'email' => strtoupper('iescierva_daw44@hotmail.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -1297,7 +1297,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Student12 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => strtoupper('Prueba6@Student.com'),
+        	'email' => strtoupper('iescierva_daw45@hotmail.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -1366,7 +1366,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Enterprise10 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => strtoupper('Prueba4@enterprise.com'),
+        	'email' => strtoupper('iescierva_daw46@hotmail.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -1379,7 +1379,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Enterprise11 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => strtoupper('Prueba5@enterprise.com'),
+        	'email' => strtoupper('iescierva_daw47@hotmail.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -1392,7 +1392,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Enterprise12 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => strtoupper('Prueba6@enterprise.com'),
+        	'email' => strtoupper('iescierva_daw48@hotmail.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
