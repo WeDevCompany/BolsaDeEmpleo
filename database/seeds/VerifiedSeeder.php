@@ -91,17 +91,17 @@ class VerifiedSeeder extends Seeder
  */
         \DB::table('verifiedStudents')->insert([
             'student_id' => 1,
-            'teacher_id' => 11,
-            'created_at' => date('YmdHms')
-        ]);
-        \DB::table('verifiedStudents')->insert([
-            'student_id' => 2,
             'teacher_id' => 10,
             'created_at' => date('YmdHms')
         ]);
         \DB::table('verifiedStudents')->insert([
+            'student_id' => 2,
+            'teacher_id' => 12,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedStudents')->insert([
             'student_id' => 3,
-            'teacher_id' => 7,
+            'teacher_id' => 11,
             'created_at' => date('YmdHms')
         ]);
         \DB::table('verifiedStudents')->insert([
@@ -111,12 +111,12 @@ class VerifiedSeeder extends Seeder
         ]);
         \DB::table('verifiedStudents')->insert([
             'student_id' => 5,
-            'teacher_id' => 10,
+            'teacher_id' => 9,
             'created_at' => date('YmdHms')
         ]);
         \DB::table('verifiedStudents')->insert([
             'student_id' => 6,
-            'teacher_id' => 7,
+            'teacher_id' => 11,
             'created_at' => date('YmdHms')
         ]);
     }
