@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CitySeeder::class);
         $this->call(WorkCentersSeeder::class);
         $this->call(CyclesProfFamiliesSeeder::class);
-        //$this->call(JobOffersSeeder::class);
+        $this->call(JobOffersSeeder::class);
+        // Excepción desde aquí para abajo.
         $this->call(TeacherProfFamiliesSeeder::class);
         $this->call(SubjectTeachersSeeder::class);
         $this->call(TutorsSeeder::class);
