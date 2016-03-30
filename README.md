@@ -21,7 +21,7 @@
 ![Ejemplo Simplificado] (/Imagenes/Explicación ramas GitHub.png "Ejemplo Simplificado")
     
 ### Diagrama de la base de datos
-![Ejemplo Simplificado] (/Imagenes/Diagrama_sessión7_v1.png "Diagrama de la base de datos a día [28/03/2016:16:07]")
+![Diagrama BD] (/Imagenes/Diagrama_sessión8_v1.png "Diagrama de la base de datos a día [28/03/2016:16:07]")
 
 **Actualmente necesita actualizarse**
 ![Ingeniería inversa] (/Imagenes/ingeniería inversa.png "Ingeniería inersa de la base de datos a día [28/03/2016:16:07]")
