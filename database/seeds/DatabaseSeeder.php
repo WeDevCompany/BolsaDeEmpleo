@@ -18,12 +18,18 @@ class DatabaseSeeder extends Seeder
         $this->call(ProvinceSeeder::class);
         $this->call(CitySeeder::class);
         $this->call(WorkCentersSeeder::class);
+
+        //Pruebas ciclos
         $this->call(CyclesProfFamiliesSeeder::class);
+        //$this->call(InformaticaSeeder::class);
+
         $this->call(JobOffersSeeder::class);
         $this->call(TeacherProfFamiliesSeeder::class);
         $this->call(SubjectTeachersSeeder::class);
         $this->call(TutorsSeeder::class);
         $this->call(StudentCyclesSeeder::class);
+        $this->call(SubcriptionsSeeder::class);
+        $this->call(SentEmailsSeeder::class);
     	Model::reguard();
     }
 }
