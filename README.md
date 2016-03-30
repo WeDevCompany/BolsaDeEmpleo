@@ -32,8 +32,8 @@
 ### Usuarios de acceso
 ![Usuarios] (/Imagenes/Datos de acceso a la aplicación.png "Usuarios de acceso")
 
-
-
+### Relaciones de pruebas entre Empresas - WorkCenter - JobOffers
+![Referencias] (/Imagenes/Referencias_empresas_workcenter_ofertas.png "Relaciones de pruebas entre Empresas - WorkCenter - JobOffers")
 
 ### Ideas pendientes de implantar
 - Un profesor puede sugerir una oferta a un profesor en concreto.
