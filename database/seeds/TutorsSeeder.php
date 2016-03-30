@@ -30,7 +30,7 @@ class TutorsSeeder extends Seeder
 
     	\DB::table('tutors')->insert([
             'dateFrom' => '2002',
-            'cycle_id' => 7,
+            'cycle_id' => 2,
             'teacher_id' => 8,
             'created_at' => date('YmdHms')
         ]);
@@ -56,7 +56,7 @@ class TutorsSeeder extends Seeder
     	\DB::table('tutors')->insert([
             'dateFrom' => '2006',
             'dateTo' => '2012',
-            'cycle_id' => 8,
+            'cycle_id' => 3,
             'teacher_id' => 10,
             'created_at' => date('YmdHms')
         ]);
@@ -81,7 +81,7 @@ class TutorsSeeder extends Seeder
 
         \DB::table('tutors')->insert([
             'dateFrom' => '2008',
-            'cycle_id' => 10,
+            'cycle_id' => 8,
             'teacher_id' => 1,
             'created_at' => date('YmdHms')
         ]);
@@ -93,7 +93,7 @@ class TutorsSeeder extends Seeder
 
         \DB::table('tutors')->insert([
             'dateFrom' => '2014',
-            'cycle_id' => 11,
+            'cycle_id' => 9,
             'teacher_id' => 6,
             'created_at' => date('YmdHms')
         ]);

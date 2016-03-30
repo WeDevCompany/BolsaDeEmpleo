@@ -690,9 +690,4 @@ class SubjectTeachersSeeder extends Seeder
             'created_at' => date('YmdHms')
         ]);
     }
-<<<<<<< HEAD
 }
-
-=======
-}
->>>>>>> be71fc6df0cb19c66adf97fabc9975ce385ade81
