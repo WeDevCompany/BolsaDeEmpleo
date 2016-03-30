@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TeacherProfFamiliesSeeder::class);
         $this->call(SubjectTeachersSeeder::class);
         $this->call(TutorsSeeder::class);
+        $this->call(StudentCyclesSeeder::class);
     	Model::reguard();
     }
 }
