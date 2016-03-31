@@ -1,2 +1,5 @@
 /.project
 vendor/
+.gitattributes
+.env.example
+composer.json.save
