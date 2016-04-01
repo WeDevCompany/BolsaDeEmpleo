@@ -28,5 +28,8 @@ class Kernel extends ConsoleKernel
             \DB::select("call fechaExpiracion(" . date('Ymd') . ")");
         })->daily();
 
+        $schedule->call(function () {
+            \DB::select("call updateAlumno(" . date('Ymd') . ")");
+        })->daily();
     }
 }
