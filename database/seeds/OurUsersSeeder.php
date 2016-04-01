@@ -491,7 +491,8 @@ class OurUsersSeeder extends Seeder
         	'birthdate' => '1995-11-09',
         	'image' => '/images/student/student1.png',
         	'user_id' => $user_ids[12],
-            'created_at' => date('YmdHms')
+            'created_at' => date('YmdHms'),
+            'updated_at' => date('YmdHms'),
         ]);
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
@@ -509,7 +510,8 @@ class OurUsersSeeder extends Seeder
         	'birthdate' => '1992-06-09',
         	'image' => '/images/student/student2.png',
         	'user_id' => $user_ids[13],
-            'created_at' => date('YmdHms')
+            'created_at' => date('YmdHms'),
+            'updated_at' => date('YmdHms')
         ]);
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
@@ -527,7 +529,8 @@ class OurUsersSeeder extends Seeder
         	'birthdate' => '1992-04-17',
         	'image' => '/images/student/student3.png',
         	'user_id' => $user_ids[14],
-            'created_at' => date('YmdHms')
+            'created_at' => date('YmdHms'),
+            'updated_at' => date('YmdHms')
         ]);
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
@@ -545,7 +548,8 @@ class OurUsersSeeder extends Seeder
         	'birthdate' => '1987-08-20',
         	'image' => '/images/student/student4.png',
         	'user_id' => $user_ids[15],
-            'created_at' => date('YmdHms')
+            'created_at' => date('YmdHms'),
+            'updated_at' => date('YmdHms')
         ]);
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
@@ -563,7 +567,8 @@ class OurUsersSeeder extends Seeder
         	'birthdate' => '1984-11-17',
         	'image' => '/images/student/student5.png',
         	'user_id' => $user_ids[16],
-            'created_at' => date('YmdHms')
+            'created_at' => date('YmdHms'),
+            'updated_at' => date('YmdHms')
         ]);
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
@@ -581,7 +586,8 @@ class OurUsersSeeder extends Seeder
         	'birthdate' => '1990-01-06',
         	'image' => '/images/student/student6.png',
         	'user_id' => $user_ids[17],
-            'created_at' => date('YmdHms')
+            'created_at' => date('YmdHms'),
+            'updated_at' => date('YmdHms')
         ]);
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
@@ -978,7 +984,8 @@ class OurUsersSeeder extends Seeder
         	'birthdate' => '1974-07-19',
         	'image' => '/images/student/student7.png',
         	'user_id' => $user_ids[30],
-            'created_at' => date('YmdHms')
+            'created_at' => date('YmdHms'),
+            'updated_at' => date('YmdHms')
         ]);
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
@@ -996,7 +1003,8 @@ class OurUsersSeeder extends Seeder
         	'birthdate' => '1966-11-17',
         	'image' => '/images/student/student8.png',
         	'user_id' => $user_ids[31],
-            'created_at' => date('YmdHms')
+            'created_at' => date('YmdHms'),
+            'updated_at' => date('YmdHms')
         ]);
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
@@ -1014,7 +1022,8 @@ class OurUsersSeeder extends Seeder
         	'birthdate' => '1978-08-10',
         	'image' => '/images/student/student9.png',
         	'user_id' => $user_ids[32],
-            'created_at' => date('YmdHms')
+            'created_at' => date('YmdHms'),
+            'updated_at' => date('YmdHms')
         ]);
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
@@ -1321,7 +1330,8 @@ class OurUsersSeeder extends Seeder
         	'birthdate' => '1979-05-03',
         	'image' => '/images/student/student10.png',
         	'user_id' => $user_ids[42],
-            'created_at' => date('YmdHms')
+            'created_at' => date('YmdHms'),
+            'updated_at' => date('YmdHms')
         ]);
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
@@ -1339,7 +1349,8 @@ class OurUsersSeeder extends Seeder
         	'birthdate' => '1982-04-27',
         	'image' => '/images/student/student11.png',
         	'user_id' => $user_ids[43],
-            'created_at' => date('YmdHms')
+            'created_at' => date('YmdHms'),
+            'updated_at' => date('YmdHms')
         ]);
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
@@ -1357,7 +1368,8 @@ class OurUsersSeeder extends Seeder
         	'birthdate' => '1993-07-30',
         	'image' => '/images/student/student12.png',
         	'user_id' => $user_ids[44],
-            'created_at' => date('YmdHms')
+            'created_at' => date('YmdHms'),
+            'updated_at' => date('YmdHms')
         ]);
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
