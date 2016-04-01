@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(StudentCyclesSeeder::class);
         $this->call(SubcriptionsSeeder::class);
         $this->call(SentEmailsSeeder::class);
+        $this->call(CommentsSeeder::class);
     	Model::reguard();
     }
 }
