@@ -21,7 +21,7 @@
 ![Ejemplo Simplificado] (/Imagenes/Explicación ramas GitHub.png "Ejemplo Simplificado")
     
 ### Diagrama de la base de datos
-![Diagrama BD] (/Imagenes/Diagrama_sessión8_v1.png "Diagrama de la base de datos a día [28/03/2016:16:07]")
+![Diagrama BD] (/Imagenes/Diagrama_sesión10_v1.png "Diagrama de la base de datos a día [01/04/2016 13:56]")
 
 **Actualmente necesita actualizarse**
 ![Ingeniería inversa] (/Imagenes/ingeniería inversa.png "Ingeniería inersa de la base de datos a día [28/03/2016:16:07]")
@@ -40,3 +40,4 @@
 - Un profesor tutor puede contactar con el administrador desde la aplicacion para poderle sugerir nuevas etiquetas para añadir a la base de datos.
 - Fotografía para el profesor (útil a la hora de ver los comentarios que han puesto en una oferta).
 - Campo descripción el la tabla Cycles_Subjects
+- Procedimiento que compruebe los ciclos activos que aún no tienen un tutor año tras año.
