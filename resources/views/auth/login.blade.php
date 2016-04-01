@@ -21,7 +21,6 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             {{ Form::label('password', 'Contraseña', ['class' => 'col-md-4 control-label']) }}
                             <div class="col-md-6">
@@ -39,7 +38,7 @@
                                     <i class="fa fa-btn fa-sign-in"></i>Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Has olvidado tú contraseña?</a>
                             </div>
                         </div>
                     </form>

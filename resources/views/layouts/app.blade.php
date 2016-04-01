@@ -24,6 +24,7 @@
 <link href="{{ url('css/mdb.css') }}" rel="stylesheet">
 </head>
 <body id="app-layout">
+    <!-- Probar el menú con navbar-fixed-top -->
     <nav class="navbar black navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -45,7 +46,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/home') }}">Inicio</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -75,15 +76,12 @@
 <!-- SCRIPTS -->
 
 <!-- JQuery -->
-
 <script type="text/javascript" src="{{ url('js/jquery.min.js') }}"></script>
 
 <!-- Bootstrap core JavaScript -->
-
 <script type="text/javascript" src="{{ url('js/bootstrap.min.js') }}"></script>
 
 <!-- Material Design Bootstrap -->
-
 <script type="text/javascript" src="{{ url('js/mdb.js') }}"></script>
 
 <!-- Script que permite crear un procesador de texto en un textarea -->
