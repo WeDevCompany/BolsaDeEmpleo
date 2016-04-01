@@ -297,7 +297,7 @@ class JobOffersSeeder extends Seeder
              'dueDate' => $nuevafecha,
              'wanted' => 3,
              'enterpriseResponsable_id' => 15,
-             'workCenter_id' => 6,
+             'workCenter_id' => 9,
              'created_at' => date('YmdHms')
             ]
         );
