@@ -11,11 +11,9 @@
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
-
+                            {{ Form::label('email', 'E-Mail', ['class' => 'col-md-4 control-label']) }}
                             <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-
+                                {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email de usuario']) }}
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -25,28 +23,14 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
-
+                            {{ Form::label('password', 'Contraseña', ['class' => 'col-md-4 control-label']) }}
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
-
+                                {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Contraseña de usuario']) }}
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                <p>
-                                    <input type="checkbox" name="remember" id="remember">
-                                    <label for="remember">Remember Me</label>
-                                </p>
-
-                                </div>
                             </div>
                         </div>
 
