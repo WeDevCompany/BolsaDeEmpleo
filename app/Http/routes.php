@@ -23,4 +23,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+
+    Route::resource('/profesores', 'UsersController@teacherSignUp');
+    Route::resource('/estudiantes', 'UsersController@studentSignUp');
+    Route::resource('/empresas', 'UsersController@enterpriseSignUp');
+
 });
