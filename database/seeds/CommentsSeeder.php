@@ -20,6 +20,7 @@ class CommentsSeeder extends Seeder
         $cantidad = 10;
         // creamos tantos comentarios como cantidad tengamos estipulado
  		for ($i=0; $i < $cantidad; $i++) {
+ 			// Comentarios en ingés
  			$id = \DB::table('comments')->insert(
 	            ['title'=> $faker->realText($maxNbChars = 50, $indexSize = 1),
 	            'body'=> $faker->realText($maxNbChars = 200, $indexSize = 2),
