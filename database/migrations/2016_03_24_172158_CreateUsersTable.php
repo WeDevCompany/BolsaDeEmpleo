@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id', 10)->comment('Identificador del usuario');
             $table->string('email', 100)->comment('Email del usuario')->unique();
-            $table->string('password', 30)->comment('Contrasenya del usuario');
+            $table->string('password', 60)->comment('Contrasenya del usuario');
             $table->string('code', 32)->comment('Codigo de verificacion/recuperacion de usuario mandado por email');
             $table->boolean('verifiedEmail')->default(false)->comment('Booleano para saber si el email ha sido verificado o no');
             $table->enum('rol', ['admin', 'teacher', 'student', 'enterprise'])->comment('Enumerado para el rol de usuario');
