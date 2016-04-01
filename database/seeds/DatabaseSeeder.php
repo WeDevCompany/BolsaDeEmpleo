@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
     {
     	Model::unguard();
         $this->call(OurUsersSeeder::class);
-        $this->call(VerifiedSeeder::class);
         $this->call(ProvinceSeeder::class);
         $this->call(CitySeeder::class);
         $this->call(WorkCentersSeeder::class);
@@ -30,6 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SubcriptionsSeeder::class);
         $this->call(SentEmailsSeeder::class);
         $this->call(CommentsSeeder::class);
+        $this->call(VerifiedSeeder::class);
     	Model::reguard();
     }
 }

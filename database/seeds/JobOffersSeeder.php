@@ -33,7 +33,7 @@ class JobOffersSeeder extends Seeder
     	// Ofertas para la empresa de Eduardo
         // OFERTA 1 - Primera oferta de la empresa de Eduardo
         \DB::table('jobOffers')->insert(
-            ['title' => 'Desarrollador Web',
+            ['title' => mb_strtolower('Desarrollador Web'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -51,7 +51,7 @@ class JobOffersSeeder extends Seeder
 
         // OFERTA 2 - 2º Oferta de la empresa de Edu
         \DB::table('jobOffers')->insert(
-            ['title' => 'Especialista en redes',
+            ['title' => mb_strtolower('Especialista en redes'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -70,7 +70,7 @@ class JobOffersSeeder extends Seeder
         // Ofertas para la empresa de Emmanuel
         // Oferta 3 - Primera oferta de la empresa 2
         \DB::table('jobOffers')->insert(
-            ['title' => 'Desarrollador Web',
+            ['title' => mb_strtolower('Desarrollador Web'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -88,7 +88,7 @@ class JobOffersSeeder extends Seeder
 
         // Oferta 4 - Primera oferta de la empresa 3
         \DB::table('jobOffers')->insert(
-            ['title' => 'Desarrollador Web',
+            ['title' => mb_strtolower('Desarrollador Web'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -106,7 +106,7 @@ class JobOffersSeeder extends Seeder
 
         // Oferta 5 - Segunda oferta de la empresa 3
         \DB::table('jobOffers')->insert(
-            ['title' => 'Especialista en redes',
+            ['title' => mb_strtolower('Especialista en redes'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -124,7 +124,7 @@ class JobOffersSeeder extends Seeder
 
         // Oferta 6 - Primera oferta de la empresa 4
         \DB::table('jobOffers')->insert(
-            ['title' => 'Especialista en redes',
+            ['title' => mb_strtolower('Especialista en redes'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -142,7 +142,7 @@ class JobOffersSeeder extends Seeder
 
         // Oferta 7 - Segunda oferta de la empresa 4
         \DB::table('jobOffers')->insert(
-            ['title' => 'Especialista en redes',
+            ['title' => mb_strtolower('Especialista en redes'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -160,7 +160,7 @@ class JobOffersSeeder extends Seeder
 
         // Oferta 8 - Tercera oferta de la empresa 4
         \DB::table('jobOffers')->insert(
-            ['title' => 'Desarrollador Web',
+            ['title' => mb_strtolower('Desarrollador Web'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -178,7 +178,7 @@ class JobOffersSeeder extends Seeder
 
         // Oferta 9
         \DB::table('jobOffers')->insert(
-            ['title' => 'Desarrollador Web',
+            ['title' => mb_strtolower('Desarrollador Web'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -196,7 +196,7 @@ class JobOffersSeeder extends Seeder
 
         // Oferta 10
         \DB::table('jobOffers')->insert(
-            ['title' => 'Desarrollador Web',
+            ['title' => mb_strtolower('Desarrollador Web'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -214,7 +214,7 @@ class JobOffersSeeder extends Seeder
 
         // Oferta 11
         \DB::table('jobOffers')->insert(
-            ['title' => 'Desarrollador Web',
+            ['title' => mb_strtolower('Desarrollador Web'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -232,7 +232,7 @@ class JobOffersSeeder extends Seeder
 
         // Oferta 12
         \DB::table('jobOffers')->insert(
-            ['title' => 'Desarrollador Web',
+            ['title' => mb_strtolower('Desarrollador Web'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -250,7 +250,7 @@ class JobOffersSeeder extends Seeder
 
         // Oferta 13
         \DB::table('jobOffers')->insert(
-            ['title' => 'Desarrollador Web',
+            ['title' => mb_strtolower('Desarrollador Web'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -268,7 +268,7 @@ class JobOffersSeeder extends Seeder
 
         // Oferta 14
         \DB::table('jobOffers')->insert(
-            ['title' => 'Desarrollador Web',
+            ['title' => mb_strtolower('Desarrollador Web'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
@@ -286,7 +286,7 @@ class JobOffersSeeder extends Seeder
 
         // Oferta 15
         \DB::table('jobOffers')->insert(
-            ['title' => 'Desarrollador Web',
+            ['title' => mb_strtolower('Desarrollador Web'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,

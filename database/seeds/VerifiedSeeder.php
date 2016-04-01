@@ -119,5 +119,76 @@ class VerifiedSeeder extends Seeder
             'teacher_id' => 11,
             'created_at' => date('YmdHms')
         ]);
+
+/*
+ * <<<<<<------------------------------------------------>>>>>>
+ * <<<<<<--------INSERCION DE OFERTAS VERIFICADAS-------->>>>>>
+ * <<<<<<------------------------------------------------>>>>>>
+ */
+        \DB::table('verifiedOffers')->insert([
+            'jobOffer_id' => 1,
+            'teacher_id' => 2,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedOffers')->insert([
+            'jobOffer_id' => 3,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedOffers')->insert([
+            'jobOffer_id' => 4,
+            'teacher_id' => 8,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedOffers')->insert([
+            'jobOffer_id' => 5,
+            'teacher_id' => 10,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedOffers')->insert([
+            'jobOffer_id' => 6,
+            'teacher_id' => 1,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedOffers')->insert([
+            'jobOffer_id' => 7,
+            'teacher_id' => 12,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedOffers')->insert([
+            'jobOffer_id' => 8,
+            'teacher_id' => 5,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedOffers')->insert([
+            'jobOffer_id' => 9,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedOffers')->insert([
+            'jobOffer_id' => 10,
+            'teacher_id' => 7,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedOffers')->insert([
+            'jobOffer_id' => 11,
+            'teacher_id' => 9,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedOffers')->insert([
+            'jobOffer_id' => 13,
+            'teacher_id' => 11,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedOffers')->insert([
+            'jobOffer_id' => 14,
+            'teacher_id' => 3,
+            'created_at' => date('YmdHms')
+        ]);
+        \DB::table('verifiedOffers')->insert([
+            'jobOffer_id' => 15,
+            'teacher_id' => 7,
+            'created_at' => date('YmdHms')
+        ]);
     }
 }
