@@ -86,6 +86,9 @@
 
 <script type="text/javascript" src="{{ url('js/mdb.js') }}"></script>
 
+<!-- Script que permite crear un procesador de texto en un textarea -->
+<script src="{{ asset('/js/ckeditor/ckeditor.js') }}"></script>
+
 @yield('scripts')
 </body>
 </html>
