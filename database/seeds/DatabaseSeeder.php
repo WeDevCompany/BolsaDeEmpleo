@@ -19,10 +19,10 @@ class DatabaseSeeder extends Seeder
         $this->call(CitySeeder::class);
         $this->call(WorkCentersSeeder::class);
         $this->call(CyclesProfFamiliesSeeder::class);
-        $this->call(InformaticaSeeder::class);
+        //$this->call(InformaticaSeeder::class);
         $this->call(TagsSeeder::class);
         $this->call(JobOffersSeeder::class);
-        //$this->call(OfferTagsSeeder::class);
+        $this->call(OfferTagsSeeder::class);
         $this->call(TeacherProfFamiliesSeeder::class);
         $this->call(SubjectTeachersSeeder::class);
         $this->call(TutorsSeeder::class);
