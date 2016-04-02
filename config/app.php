@@ -174,8 +174,11 @@ return [
         // URL: https://styde.net/exportar-hoja-de-calculo-con-eloquent-y-laravel-excel/
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
-        // Librerias de Laracast
+        // Librerias 'Intervention\Image\ImageServiceProvider'de Laracast
         Collective\Html\HtmlServiceProvider::class,
+
+        // Librería que permite hacer thumnails
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -229,6 +232,7 @@ return [
         'NoCaptcha' => Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Slug' => Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
