@@ -27,6 +27,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/profesor', 'UsersController@teacherSignUp');
     Route::resource('/estudiante', 'UsersController@studentSignUp');
     Route::resource('/empresa', 'UsersController@enterpriseSignUp');
+    Route::resource('/uso', 'UsoController@index');
 
 });
 

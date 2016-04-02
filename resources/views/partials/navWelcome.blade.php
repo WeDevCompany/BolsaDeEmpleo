@@ -20,8 +20,9 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav  waves-effect waves-light">
-                    <li><a href="{{ url('/home') }}">Inicio</a></li>
+                 <ul class="nav navbar-nav">
+                    <li><a class="waves-effect waves-light" href="{{ url('/home') }}">Inicio</a></li>
+                    <li><a class="waves-effect waves-light" href="{{ url('/uso') }}">Uso de la Web</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
