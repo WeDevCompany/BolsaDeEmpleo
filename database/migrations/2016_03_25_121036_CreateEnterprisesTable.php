@@ -18,7 +18,6 @@ class CreateEnterprisesTable extends Migration
             $table->string('cif',9)->unique()->comment('CIF de la empresa');
             $table->string('web',255)->nullable()->comment('Url de la web de la empresa');
             $table->string('description',255)->comment('Descripcion de la empresa');
-            $table->string('logo',255)->nullable()->comment('Ruta hacia el logo de la empresa');
             $table->integer('user_id')->unsigned()->comment('Identificador de los datos de usuario de la empresa');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

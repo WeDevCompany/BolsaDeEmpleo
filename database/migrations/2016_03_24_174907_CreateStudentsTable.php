@@ -23,7 +23,6 @@ class CreateStudentsTable extends Migration
             $table->string('address', 255)->comment('Direccion del estudiante');
             $table->string('curriculum', 255)->comment('Ruta del curriculum del estudiante');
             $table->date('birthdate','Y-m-d')->comment('Fecha de nacimiento del estudiante');
-            $table->string('image', 255)->comment('Ruta de la imagen de perfil del estudiante');
 
             // Campo de los estudiantes que será el
             // que permita la actualización del perfil

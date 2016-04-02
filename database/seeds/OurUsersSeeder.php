@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+// Incluimos la librería faker
+use Faker\Factory as Faker;
 
 class OurUsersSeeder extends Seeder
 {
@@ -30,6 +32,9 @@ class OurUsersSeeder extends Seeder
      */
     public function run()
     {
+        // Creamos una instancia de Faker
+        $faker = Faker::create('es_ES');
+
     	$user_ids = [];
     	$cont_user = 0;
         $code_generated = [];
@@ -63,6 +68,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -76,6 +82,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -89,6 +96,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -102,6 +110,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -115,6 +124,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -128,6 +138,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -149,6 +160,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -162,6 +174,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -175,6 +188,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -188,6 +202,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -201,6 +216,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -214,6 +230,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -232,7 +249,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('López Pardo'),
         	'dni' => mb_strtoupper('26834560T'),
         	'phone' => '666666661',
-        	'image' => '/images/admin/admin1.png',
         	'user_id' => $user_ids[0],
             'created_at' => date('YmdHms')
         ]);
@@ -245,7 +261,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Valverde Ramos'),
         	'dni' => mb_strtoupper('80946137Y'),
         	'phone' => '666666662',
-        	'image' => '/images/admin/admin2.png',
         	'user_id' => $user_ids[1],
             'created_at' => date('YmdHms')
         ]);
@@ -258,7 +273,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Hernández-Mora de Fuentes'),
         	'dni' => mb_strtoupper('60735733R'),
         	'phone' => '666666663',
-        	'image' => '/images/admin/admin3.png',
         	'user_id' => $user_ids[2],
             'created_at' => date('YmdHms')
         ]);
@@ -271,7 +285,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Barcelona Pérez'),
         	'dni' => mb_strtoupper('94776325H'),
         	'phone' => '666666664',
-        	'image' => '/images/admin/admin4.png',
         	'user_id' => $user_ids[3],
             'created_at' => date('YmdHms')
         ]);
@@ -284,7 +297,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Montejo Rodríguez'),
         	'dni' => mb_strtoupper('88779523Y'),
         	'phone' => '666666665',
-        	'image' => '/images/admin/admin5.png',
         	'user_id' => $user_ids[4],
             'created_at' => date('YmdHms')
         ]);
@@ -297,7 +309,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Abrisqueta'),
         	'dni' => mb_strtoupper('27015870R'),
         	'phone' => '666666666',
-        	'image' => '/images/admin/admin6.png',
         	'user_id' => $user_ids[5],
             'created_at' => date('YmdHms')
         ]);
@@ -314,7 +325,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('López Pardo'),
         	'dni' => mb_strtoupper('64283714W'),
         	'phone' => '666666667',
-        	'image' => '/images/teacher/teacher1.png',
         	'user_id' => $user_ids[6],
             'created_at' => date('YmdHms')
         ]);
@@ -327,7 +337,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Valverde Ramos'),
         	'dni' => mb_strtoupper('84241523K'),
         	'phone' => '666666668',
-        	'image' => '/images/teacher/teacher2.png',
         	'user_id' => $user_ids[7],
             'created_at' => date('YmdHms')
         ]);
@@ -340,7 +349,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Hernández-Mora de Fuentes'),
         	'dni' => mb_strtoupper('53943588D'),
         	'phone' => '666666669',
-        	'image' => '/images/teacher/teacher3.png',
         	'user_id' => $user_ids[8],
             'created_at' => date('YmdHms')
         ]);
@@ -353,7 +361,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Barcelona Pérez'),
         	'dni' => mb_strtoupper('38017641K'),
         	'phone' => '666666670',
-        	'image' => '/images/teacher/teacher4.png',
         	'user_id' => $user_ids[9],
             'created_at' => date('YmdHms')
         ]);
@@ -366,7 +373,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Montejo Rodríguez'),
         	'dni' => mb_strtoupper('92215623K'),
         	'phone' => '666666671',
-        	'image' => '/images/teacher/teacher5.png',
         	'user_id' => $user_ids[10],
             'created_at' => date('YmdHms')
         ]);
@@ -379,7 +385,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Abrisqueta'),
         	'dni' => mb_strtoupper('73682145N'),
         	'phone' => '666666672',
-        	'image' => '/images/teacher/teacher6.png',
         	'user_id' => $user_ids[11],
             'created_at' => date('YmdHms')
         ]);
@@ -401,6 +406,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -414,6 +420,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -427,6 +434,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -440,6 +448,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -453,6 +462,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -466,6 +476,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -489,7 +500,6 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Rio Ring, 3',
         	'curriculum' => '/curriculum/curriculum1.pdf',
         	'birthdate' => '1995-11-09',
-        	'image' => '/images/student/student1.png',
         	'user_id' => $user_ids[12],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms'),
@@ -508,7 +518,6 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Santa Maria, 1 1ºC Escalera sur',
         	'curriculum' => '/curriculum/curriculum2.pdf',
         	'birthdate' => '1992-06-09',
-        	'image' => '/images/student/student2.png',
         	'user_id' => $user_ids[13],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
@@ -527,7 +536,6 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Constitucion, 4 4ºA escalera norte',
         	'curriculum' => '/curriculum/curriculum3.pdf',
         	'birthdate' => '1992-04-17',
-        	'image' => '/images/student/student3.png',
         	'user_id' => $user_ids[14],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
@@ -543,10 +551,9 @@ class OurUsersSeeder extends Seeder
         	'nre' => '4567890',
         	'phone' => '666666676',
         	'road' => 'Alameda',
-        	'address' => 'Jirona, 3 4ºC',
+        	'address' => 'Girona, 3 4ºC',
         	'curriculum' => '/curriculum/curriculum4.pdf',
         	'birthdate' => '1987-08-20',
-        	'image' => '/images/student/student4.png',
         	'user_id' => $user_ids[15],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
@@ -565,7 +572,6 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Rio Pisuerga, 8 1ºB',
         	'curriculum' => '/curriculum/curriculim5.pdf',
         	'birthdate' => '1984-11-17',
-        	'image' => '/images/student/student5.png',
         	'user_id' => $user_ids[16],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
@@ -584,7 +590,6 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Marques de rozalejo, 9',
         	'curriculum' => '/curriculum/curriculim6.pdf',
         	'birthdate' => '1990-01-06',
-        	'image' => '/images/student/student6.png',
         	'user_id' => $user_ids[17],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
@@ -607,6 +612,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -620,6 +626,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -633,6 +640,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -646,6 +654,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -659,6 +668,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -672,6 +682,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -690,7 +701,6 @@ class OurUsersSeeder extends Seeder
         	'cif' => mb_strtoupper('N9210188J'),
         	'web' => 'https://www.latabernadeeduardo.es/',
         	'description' => 'La mejor taberna si no tenemos en cuenta a las demás.',
-        	'logo' => '/enterprises/logo1.png',
         	'user_id' => $user_ids[18],
             'created_at' => date('YmdHms')
         ]);
@@ -703,7 +713,6 @@ class OurUsersSeeder extends Seeder
         	'cif' => mb_strtoupper('P8426294H'),
         	'web' => 'http://www.elmesondemanu.es/',
         	'description' => 'Ven corriendo o ven andando, pero ven.',
-        	'logo' => '/enterprises/logo2.png',
            	'user_id' => $user_ids[19],
             'created_at' => date('YmdHms')
         ]);
@@ -716,7 +725,6 @@ class OurUsersSeeder extends Seeder
         	'cif' => mb_strtoupper('V9683948E'),
         	'web' => 'https://www.laopticadepedro.es/',
         	'description' => 'No vendemos gafas graduadas, sólo gafas de postureo.',
-        	'logo' => '/enterprises/logo3.png',
         	'user_id' => $user_ids[20],
             'created_at' => date('YmdHms')
         ]);
@@ -729,7 +737,6 @@ class OurUsersSeeder extends Seeder
         	'cif' => mb_strtoupper('P9516378H'),
         	'web' => 'https://www.ferferreteros.com/',
         	'description' => 'Nunca me sobran tuercas ni se me cae un solo tornillo.',
-        	'logo' => '/enterprises/logo4.png',
         	'user_id' => $user_ids[21],
             'created_at' => date('YmdHms')
         ]);
@@ -742,7 +749,6 @@ class OurUsersSeeder extends Seeder
         	'cif' => mb_strtoupper('Q9693683F'),
         	'web' => 'https://www.elhoteldeabel.es/',
         	'description' => 'Hoteles de lujo a precio de pensión, vendrás solo por diversión.',
-        	'logo' => '/enterprises/logo5.png',
         	'user_id' => $user_ids[22],
             'created_at' => date('YmdHms')
         ]);
@@ -755,7 +761,6 @@ class OurUsersSeeder extends Seeder
         	'cif' => mb_strtoupper('U5279210H'),
         	'web' => 'https://www.laflordecarlos.es/',
         	'description' => 'Vendemos flores de todos los colores.',
-        	'logo' => '/enterprises/logo6.png',
         	'user_id' => $user_ids[23],
             'created_at' => date('YmdHms')
         ]);
@@ -779,6 +784,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -792,6 +798,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -805,6 +812,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -817,7 +825,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Uno sin activar'),
         	'dni' => mb_strtoupper('82562226T'),
         	'phone' => '666666679',
-        	'image' => '/images/admin/admin7.png',
         	'user_id' => $user_ids[24],
             'created_at' => date('YmdHms')
         ]);
@@ -830,7 +837,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Dos sin activar'),
         	'dni' => mb_strtoupper('98962211L'),
         	'phone' => '666666680',
-        	'image' => '/images/admin/admin8.png',
         	'user_id' => $user_ids[25],
             'created_at' => date('YmdHms')
         ]);
@@ -843,7 +849,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Tres sin activar'),
         	'dni' => mb_strtoupper('68999560C'),
         	'phone' => '666666681',
-        	'image' => '/images/admin/admin9.png',
         	'user_id' => $user_ids[26],
             'created_at' => date('YmdHms')
         ]);
@@ -859,6 +864,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -872,6 +878,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -885,6 +892,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -897,7 +905,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Uno sin activar'),
         	'dni' => mb_strtoupper('63163636R'),
         	'phone' => '666666682',
-        	'image' => '/images/teacher/teacher7.png',
         	'user_id' => $user_ids[27],
             'created_at' => date('YmdHms')
         ]);
@@ -910,7 +917,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Dos sin activar'),
         	'dni' => mb_strtoupper('54529857P'),
         	'phone' => '666666683',
-        	'image' => '/images/teacher/teacher8.png',
         	'user_id' => $user_ids[28],
             'created_at' => date('YmdHms')
         ]);
@@ -923,7 +929,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Tres sin activar'),
         	'dni' => mb_strtoupper('19927079V'),
         	'phone' => '666666684',
-        	'image' => '/images/teacher/teacher9.png',
         	'user_id' => $user_ids[29],
             'created_at' => date('YmdHms')
         ]);
@@ -939,6 +944,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -952,6 +958,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -965,6 +972,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -982,7 +990,6 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Mariano Sanz, S/N 3ºB',
         	'curriculum' => '/curriculum/curriculim7.pdf',
         	'birthdate' => '1974-07-19',
-        	'image' => '/images/student/student7.png',
         	'user_id' => $user_ids[30],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
@@ -1001,7 +1008,6 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Don Federico Trujillo, 125 10ºD',
         	'curriculum' => '/curriculum/curriculum8.pdf',
         	'birthdate' => '1966-11-17',
-        	'image' => '/images/student/student8.png',
         	'user_id' => $user_ids[31],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
@@ -1020,7 +1026,6 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Mi casa de campo, 16',
         	'curriculum' => '/curriculum/curriculum9.pdf',
         	'birthdate' => '1978-08-10',
-        	'image' => '/images/student/student9.png',
         	'user_id' => $user_ids[32],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
@@ -1037,6 +1042,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1050,6 +1056,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1063,6 +1070,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1075,7 +1083,6 @@ class OurUsersSeeder extends Seeder
         	'cif' => mb_strtoupper('S6420524H'),
         	'web' => 'http://www.pensionprueba1.com/',
         	'description' => 'Pensión de pobre para los pobres.',
-        	'logo' => '/enterprises/logo7.png',
         	'user_id' => $user_ids[33],
             'created_at' => date('YmdHms')
         ]);
@@ -1088,7 +1095,6 @@ class OurUsersSeeder extends Seeder
         	'cif' => mb_strtoupper('D81320566'),
         	'web' => 'http://www.heladosamontones.com/',
         	'description' => 'Todo tipo de helados ¡sólo en invierno!',
-        	'logo' => '/enterprises/logo8.png',
            	'user_id' => $user_ids[34],
             'created_at' => date('YmdHms')
         ]);
@@ -1101,7 +1107,6 @@ class OurUsersSeeder extends Seeder
         	'cif' => mb_strtoupper('J1260117E'),
         	'web' => 'https://www.elasador.es/',
         	'description' => 'Asamos todo tipo de carnes (oso, búfalo, spetec marca mercadona... ).',
-        	'logo' => '/enterprises/logo9.png',
         	'user_id' => $user_ids[35],
             'created_at' => date('YmdHms')
         ]);
@@ -1125,6 +1130,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1138,6 +1144,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1151,6 +1158,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1163,7 +1171,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Cuatro sin verificar ni activar'),
         	'dni' => mb_strtoupper('63721866K'),
         	'phone' => '666666688',
-        	'image' => '/images/admin/admin10.png',
         	'user_id' => $user_ids[36],
             'created_at' => date('YmdHms')
         ]);
@@ -1176,7 +1183,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Cinco sin verificar ni activar'),
         	'dni' => mb_strtoupper('95373581X'),
         	'phone' => '666666689',
-        	'image' => '/images/admin/admin11.png',
         	'user_id' => $user_ids[37],
             'created_at' => date('YmdHms')
         ]);
@@ -1189,7 +1195,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Seis sin verificar ni activar'),
         	'dni' => mb_strtoupper('73823872J'),
         	'phone' => '666666690',
-        	'image' => '/images/admin/admin12.png',
         	'user_id' => $user_ids[38],
             'created_at' => date('YmdHms')
         ]);
@@ -1205,6 +1210,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1218,6 +1224,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1231,6 +1238,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1243,7 +1251,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Cuatro sin verificar ni activar'),
         	'dni' => mb_strtoupper('41234333W'),
         	'phone' => '666666691',
-        	'image' => '/images/teacher/teacher10.png',
         	'user_id' => $user_ids[39],
             'created_at' => date('YmdHms')
         ]);
@@ -1256,7 +1263,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Cinco sin verificar ni activar'),
         	'dni' => mb_strtoupper('40779802C'),
         	'phone' => '666666692',
-        	'image' => '/images/teacher/teacher11.png',
         	'user_id' => $user_ids[40],
             'created_at' => date('YmdHms')
         ]);
@@ -1269,7 +1275,6 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Seis sin verificar ni activar'),
         	'dni' => mb_strtoupper('21516193S'),
         	'phone' => '666666693',
-        	'image' => '/images/teacher/teacher12.png',
         	'user_id' => $user_ids[41],
             'created_at' => date('YmdHms')
         ]);
@@ -1285,6 +1290,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1298,6 +1304,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1311,6 +1318,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1328,7 +1336,6 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Miguel Hernandez, 17 3ºF',
         	'curriculum' => '/curriculum/curriculim10.pdf',
         	'birthdate' => '1979-05-03',
-        	'image' => '/images/student/student10.png',
         	'user_id' => $user_ids[42],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
@@ -1347,7 +1354,6 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Plaza Españolita, 10',
         	'curriculum' => '/curriculum/curriculum11.pdf',
         	'birthdate' => '1982-04-27',
-        	'image' => '/images/student/student11.png',
         	'user_id' => $user_ids[43],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
@@ -1366,7 +1372,6 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Condado de Rozas, 12 1ºC',
         	'curriculum' => '/curriculum/curriculum12.pdf',
         	'birthdate' => '1993-07-30',
-        	'image' => '/images/student/student12.png',
         	'user_id' => $user_ids[44],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
@@ -1383,6 +1388,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1396,6 +1402,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1409,6 +1416,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
+            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1421,7 +1429,6 @@ class OurUsersSeeder extends Seeder
         	'cif' => mb_strtoupper('J3593030D'),
         	'web' => 'http://www.peluquerosdeprueba4.com/',
         	'description' => 'Cortamos el pelo a todo aquel que pague.',
-        	'logo' => '/enterprises/logo10.png',
         	'user_id' => $user_ids[45],
             'created_at' => date('YmdHms')
         ]);
@@ -1434,7 +1441,6 @@ class OurUsersSeeder extends Seeder
         	'cif' => mb_strtoupper('V1639094J'),
         	'web' => 'https://www.dientesprueba5.com/',
         	'description' => 'Clinica abierta desde 1703.',
-        	'logo' => '/enterprises/logo11.png',
            	'user_id' => $user_ids[46],
             'created_at' => date('YmdHms')
         ]);
@@ -1447,7 +1453,6 @@ class OurUsersSeeder extends Seeder
         	'cif' => mb_strtoupper('N2786048E'),
         	'web' => 'https://www.panespan.es/',
         	'description' => 'El pan nos sale muy rico, y lo sabes.',
-        	'logo' => '/enterprises/logo12.png',
         	'user_id' => $user_ids[47],
             'created_at' => date('YmdHms')
         ]);
