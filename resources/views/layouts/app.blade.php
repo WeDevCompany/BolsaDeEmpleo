@@ -42,7 +42,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand waves-effect waves-light" href="{{ url('/') }}">
                 <i class="fa fa-rocket"></i>
                     Bolsa de empleo
                 </a>
@@ -50,7 +50,7 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav  waves-effect waves-light">
                     <li><a href="{{ url('/home') }}">Inicio</a></li>
                 </ul>
 
@@ -58,15 +58,15 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <li><a href="{{ url('/login') }}" class=" waves-effect waves-light">Login</a></li>
                         <li class = "dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Registro<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/estudiantes') }}">Estudiante</a></li>
-                                <li><a href="{{ url('/profesores') }}">Profesor</a></li>
-                                <li><a href="{{ url('/empresas') }}">Empresa</a></li>
+                                <li><a href="{{ url('/estudiantes') }}" class="waves-effect waves-light">Estudiante</a></li>
+                                <li><a href="{{ url('/profesores') }}" class="waves-effect waves-light">Profesor</a></li>
+                                <li><a href="{{ url('/empresas') }}" class="waves-effect waves-light">Empresa</a></li>
                             </ul>
                         </li>
                     @else
