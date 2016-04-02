@@ -154,23 +154,7 @@
                                 </div>
                                 <div class="card-content">
                                     <h5>Alumnos</h5>
-                                    <p><i class="fa fa-quote-left"></i> Esta bolsa de trabajo es una gran oportunidad para los estudiantes que tengan interes en trabajar o simplemente esten buscando una empresa donde hacer las practicas, puesto que les ofrece la oportunidad tanto de encontrar las ofertas que más se ajustan a sus conocimientos. <i class="fa fa-quote-right"></i></p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-            </div>
-            <div class="col-md-4">
-                    <div class="testimonial-card z-depth-1 hoverable">
-                        <a href="{{ url('/profesor') }}">
-                            <div class="mask waves-effect waves-light">
-                                <div class="card-up g light-blue">
-                                </div>
-                                <div class="avatar"><img src="http://mdbootstrap.com/wp-content/uploads/2015/10/avatar-2.jpg" class="img-circle img-responsive">
-                                </div>
-                                <div class="card-content">
-                                    <h5>Empresas</h5>
-                                    <p><i class="fa fa-quote-left"></i> En esta aplicación las empresas dedicadas a todo tipo de negocios podrán públicar las ofertas de trabajo y/o FCT para obtener a estudiantes altamente cualificados en distintas áreas, lo cual beneficiará tanto a la empresa como al alumno. <i class="fa fa-quote-right"></i></p>
+                                    <p><i class="fa fa-quote-left"></i> Esta bolsa de trabajo es una gran oportunidad para los estudiantes que tengan interés en trabajar o simplemente estén buscando una empresa donde hacer las prácticas, puesto que les ofrece la oportunidad de encontrar las ofertas que más se ajustan a sus conocimientos. <i class="fa fa-quote-right"></i></p>
                                 </div>
                             </div>
                         </a>
@@ -180,13 +164,29 @@
                     <div class="testimonial-card z-depth-1 hoverable">
                         <a href="{{ url('/empresa') }}">
                             <div class="mask waves-effect waves-light">
+                                <div class="card-up g light-blue">
+                                </div>
+                                <div class="avatar"><img src="http://mdbootstrap.com/wp-content/uploads/2015/10/avatar-2.jpg" class="img-circle img-responsive">
+                                </div>
+                                <div class="card-content">
+                                    <h5>Empresas</h5>
+                                    <p><i class="fa fa-quote-left"></i> En esta aplicación las empresas dedicadas a todo tipo de negocios podrán publicar las ofertas de trabajo y/o FCT para obtener a estudiantes altamente cualificados en distintas áreas, lo cual beneficiará tanto a la empresa como al alumno. <i class="fa fa-quote-right"></i></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                    <div class="testimonial-card z-depth-1 hoverable">
+                        <a href="{{ url('/profesor') }}">
+                            <div class="mask waves-effect waves-light">
                                 <div class="card-up yellow">
                                 </div>
                                 <div class="avatar"><img src="http://mdbootstrap.com/wp-content/uploads/2015/10/avatar-2.jpg" class="img-circle img-responsive">
                                 </div>
                                 <div class="card-content">
                                     <h5>Profesores</h5>
-                                    <p><i class="fa fa-quote-left"></i> En esta web los profesores podrán gestionar toda la información sobre ofertas de trabajo y/o practicas para sus estudiantes ya sean de su rama o de otra rama, permitiendo que sean los mismos estudiantes quienes se suscriban dichas ofertas. <i class="fa fa-quote-right"></i></p>
+                                    <p><i class="fa fa-quote-left"></i> En esta web los profesores podrán gestionar toda la información sobre ofertas de trabajo y/o prácticas para sus estudiantes ya sean de su rama o de otra, permitiendo que sean los mismos estudiantes quienes se suscriban dichas ofertas. <i class="fa fa-quote-right"></i></p>
                                 </div>
                             </div>
                         </a>
