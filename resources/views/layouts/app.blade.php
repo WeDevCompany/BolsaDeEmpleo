@@ -43,7 +43,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Bolsa de Empleo
+                    <img src="{{url('/img/iescierva.png') }}" alt="Bolsa de Empleo" style="height: 100%">
                 </a>
             </div>
 
@@ -70,7 +70,7 @@
                         </li>
                     @else
                         <li class="dropdown">
-                            <img src="cinqueterre.jpg" class="img-rounded dropdown-toggle" alt="Cinque Terre" data-toggle="dropdown" role="button" width="50" height="50">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Intel-logo.svg/2000px-Intel-logo.svg.png" class="img-rounded dropdown-toggle" alt="Cinque Terre" data-toggle="dropdown" role="button" width="50" height="50">
                             
                            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->email }} <span class="caret"></span>
