@@ -71,6 +71,7 @@
                     @else
                         <li class="dropdown">
                             <img src="cinqueterre.jpg" class="img-rounded dropdown-toggle" alt="Cinque Terre" data-toggle="dropdown" role="button" width="50" height="50">
+                            
                            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->email }} <span class="caret"></span>
                             </a>-->
