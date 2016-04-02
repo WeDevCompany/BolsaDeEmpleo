@@ -1,56 +1,91 @@
-<!-- Probar el menú con navbar-fixed-top -->
-    <nav class="navbar black navbar-default navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    <header class="header-admin">
 
-                <!-- Branding Image -->
-                <a class="navbar-brand waves-effect waves-light" href="{{ url('/') }}">
-                <i class="fa fa-rocket"></i>
-                    Bolsa de empleo
-                </a>
-            </div>
+        <!-- Navbar -->
+        <!--Navbar-->
+        <nav class="double-navbar navbar black navbar-static-top z-depth-1" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header pull-left">
+                    <!-- SideNav slide-out button -->
+                    <a href="#" data-activates="slide-out" class="button-collapse hidden-lg hidden-md"><i class="fa fa-bars"></i></a>
+                    <!--/. SideNav slide-out button -->
+                    <div class="breadcrumbs hidden-xs hidden-sm">
+                        <h6>MDB Magazine Template</h6>
+                    </div>
+                </div>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav  waves-effect waves-light">
-                    <li><a href="{{ url('/home') }}">Inicio</a></li>
+                <!-- Navbar Icons -->
+                <ul class="list-inline pull-right text-center">
+                    <li><a href="#" class="waves-effect waves-light" data-toggle="modal" data-target="#contact-form"><i class="fa fa-envelope"></i><br><span>Contact</span></a></li>
+                    <li><a href="#" class="waves-effect waves-light"><i class="fa fa-book"></i><br><span>Blog</span></a></li>
+                    <li><a href="#" class="waves-effect waves-light"><i class="fa fa-map"></i><br><span>Shop</span></a></li>
+                    <li><a href="#" class="waves-effect waves-light" data-toggle="modal" data-target="#cart-modal"><i class="fa fa-shopping-cart"></i><br><span>Cart</span></a></li>
+                    <!--Main acocunt with dropdown-->
+                    <li><a href="#" class="waves-effect waves-light dropdown-button" data-activates="account"><i class="fa fa-user"></i><br><span>Account</span></a>
+                        <!-- Account Dropdown -->
+                        <ul id='account' class='dropdown-content'>
+                            <li><a href="#!">Login</a></li>
+                            <li><a href="#!">Logout</a></li>
+                            <li><a href="#!">Settings</a></li>
+                        </ul>
+                        <!-- /.Account Dropdown -->
+                    </li>
+                    <!--/.Main acocunt with dropdown-->
+
                 </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}" class=" waves-effect waves-light">Login</a></li>
-                        <li class = "dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                Registro<span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/estudiante') }}">Estudiante</a></li>
-                                <li><a href="{{ url('/profesor') }}">Profesor</a></li>
-                                <li><a href="{{ url('/empresa') }}">Empresa</a></li>
-                            </ul>
-                        </li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{-- Auth::user()->email --}} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
+                <!--/. Navbar Icons -->
             </div>
+        </nav>
+        <!--/.Navbar-->
+        <!--/. Navbar -->
+
+    </header>
+
+    <!-- Sidebar navigation -->
+    <ul id="slide-out" class="side-nav fixed admin-side-nav light-side-nav">
+        <!-- Logo -->
+        <div class="logo-wrapper">
+            <img src="http://0.gravatar.com/avatar/60efa32c26a19f3ed2e42798afb705ba?s=100&d=mm&r=g" class="img-responsive img-circle">
+            <div class="rgba-stylish-strong"><p class="user white-text">Admin<br>
+            admin@gmail.com</p></div>
+
         </div>
-    </nav>
+        <!--/. Logo -->
+
+        <!-- Side navigation links -->
+        <ul class="collapsible collapsible-accordion">
+            <li><a href="#" class="waves-effect"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#" class="waves-effect"><i class="fa fa-money"></i> Sales</a></li>
+            <li><a href="#" class="waves-effect"><i class="fa fa-line-chart"></i> Conversion</a></li>
+            <li><a href="#" class="waves-effect"><i class="fa fa-users"></i> Website Traffic</a></li>
+            <li><a href="#" class="waves-effect"><i class="fa fa-search"></i> SEO</a></li>
+            <li><a href="#" class="waves-effect"><i class="fa fa-share-alt"></i> Social</a></li>
+        </ul>
+        <!--/. Side navigation links -->
+
+    </ul>
+    <!--/. Sidebar navigation -->
+
+
+
+
+
+
+    <!-- SCRIPTS -->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <!-- Material Design Bootstrap -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+
+    <script>
+        // Initialize collapse button
+        $(".button-collapse").sideNav();
+        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+        $('.collapsible').collapsible();
+    </script>
+
