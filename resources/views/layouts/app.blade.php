@@ -43,7 +43,8 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{url('/img/iescierva.png') }}" alt="Bolsa de Empleo" style="height: 100%">
+                <i class="fa fa-rocket"></i>
+                    Bolsa de empleo
                 </a>
             </div>
 
@@ -71,7 +72,7 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->email }} <span class="caret"></span>
+                                {{-- Auth::user()->email --}} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
