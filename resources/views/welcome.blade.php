@@ -24,13 +24,12 @@
 
                 <!-- 1 slide -->
                 <div class="item active">
-                    <div class="view overlay hm-blue-slight">
-                        <a>
-                            <div class="mask waves-effect waves-light"></div>
-                        </a>
-                        <div class="carousel-caption hidden-xs">
+                    <div class="carousel-caption">
+                        <div class="verticalcenter">
                             <div class="animated fadeInDown">
-                                <h5>Lorem ipsum dolor sit amet</h5>
+                                <h4>Si eres un estudiante y deseas trabajar o buscar una empresa donde hacer practicas</h4>
+                                <h5>No dudes en darte alta y trabajar con empresas punteras en tú sector, demuestra de que eres capaz y crece junto </h5>
+                                <a href="/empresa" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-user right"></i>Registrate</a>
                             </div>
                         </div>
                     </div>
@@ -150,7 +149,7 @@
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up red">
                                 </div>
-                                <div class="avatar"><img src="http://mdbootstrap.com/wp-content/uploads/2015/10/avatar-2.jpg" class="img-circle img-responsive">
+                                <div class="avatar"><img src="{{ url('/img/global/estudiante_off.png')}}" class="img-circle img-responsive">
                                 </div>
                                 <div class="card-content">
                                     <h5>Alumnos</h5>
@@ -166,7 +165,7 @@
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up g light-blue">
                                 </div>
-                                <div class="avatar"><img src="http://mdbootstrap.com/wp-content/uploads/2015/10/avatar-2.jpg" class="img-circle img-responsive">
+                                <div class="avatar"><img src="{{ url('/img/global/empresario_off.png')}}">
                                 </div>
                                 <div class="card-content">
                                     <h5>Empresas</h5>
@@ -182,7 +181,7 @@
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up yellow">
                                 </div>
-                                <div class="avatar"><img src="http://mdbootstrap.com/wp-content/uploads/2015/10/avatar-2.jpg" class="img-circle img-responsive">
+                                <div class="avatar"><img src="{{ url('/img/global/profesor.jpg')}}" class="img-circle img-responsive">
                                 </div>
                                 <div class="card-content">
                                     <h5>Profesores</h5>
