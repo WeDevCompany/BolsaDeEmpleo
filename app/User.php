@@ -24,6 +24,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
     /**
      * Si se edita la contraseña se cifra
      */
