@@ -7,6 +7,7 @@
 
     <title>Bolsa de empleo - I.E.S. Ingeniero de la cierva</title>
 
+<!-- Font Awsome Icons (Preenir el error de descarga XML) -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 <!-- Material Design Icons -->
@@ -25,11 +26,13 @@
 <!-- Estilos de dropzone -->
 <link href="{{ url('css/dropzone.css') }}" rel="stylesheet">
 
+<!-- Estilos diseñados por nosotros -->
+<link href="{{ url('css/style.css') }}" rel="stylesheet">
 
 </head>
 <body id="app-layout">
-    <!-- Probar el menú con navbar-fixed-top -->
-    <nav class="navbar black navbar-default navbar-static-top">
+    <!-- Probar el menú con navbar-static-top -->
+    <nav class="navbar black navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
 
@@ -64,9 +67,9 @@
                                 Registro<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/estudiantes') }}" class="waves-effect waves-light">Estudiante</a></li>
-                                <li><a href="{{ url('/profesores') }}" class="waves-effect waves-light">Profesor</a></li>
-                                <li><a href="{{ url('/empresas') }}" class="waves-effect waves-light">Empresa</a></li>
+                                <li><a href="{{ url('/estudiantes') }}">Estudiante</a></li>
+                                <li><a href="{{ url('/profesores') }}">Profesor</a></li>
+                                <li><a href="{{ url('/empresas') }}">Empresa</a></li>
                             </ul>
                         </li>
                     @else

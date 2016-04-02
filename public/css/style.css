@@ -1,0 +1,53 @@
+/***********************************
+  Estilos personalizados:
+  @author Emmanuel Valverde Ramos
+  @author Pedro Hernandéz Mora
+  @author Eduardo López Pardo
+  @author Fernando Manuel Barcelona
+  @author Abel Montejo
+
+*************************************/
+
+/*********************
+  NAV
+**********************/
+.navbar {
+  background-color: transparent !important;
+}
+
+.top-nav-collapse {
+  background-color: #1C2331 !important;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #1C2331 !important;
+  }
+  /*-- Arreglar errores del estilo --*/
+  	/* ------------------------------------------
+  		Error con el margen izquierdo del menú
+		y con la longitud del menú
+  	--------------------------------------------- */
+  .navbar-nav{
+	width:100%;
+	margin-left: 0px !important;
+  }
+  	/* ------------------------------------------
+  		Error con el hover en los submenus
+  	--------------------------------------------- */
+  .navbar .navbar-nav .open .dropdown-menu > li > a:hover, .navbar .navbar-nav .open .dropdown-menu > li > a:focus {
+  	background-color: black !important;
+  }
+  .navbar .navbar-nav .open .dropdown-menu > li > a:hover, .navbar .navbar-nav .open .dropdown-menu > li > a:focus {
+    background-color: black !important;
+  }
+  .navbar .navbar-nav .open .dropdown-menu > .disabled > a, .navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    background-color: black !important;
+  }
+  .navbar .navbar-nav .open .dropdown-menu .divider {
+    background-color: black !important;
+  }
+  /*---------------------------------*/
+}
+
