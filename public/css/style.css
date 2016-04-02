@@ -148,13 +148,24 @@ body {
 }
 
 .verticalcenter{
-  background-color:rgba(255, 255, 255, 0.1);
+  background-color:rgba(26, 35, 126, 0.1);
+  color:#FA5540;
 }
 
 .carousel-inner {
   height: 100%;
 }
-
+@media only screen and (max-width: 600px){
+  .carousel-caption {
+    margin-bottom:0px;
+  }
+}
+@media only screen and (max-width: 300px){
+  .carousel-caption {
+    left:5%;
+    right:5%;
+  }
+}
 /***************
   CARDS
 ****************/
@@ -170,6 +181,11 @@ body {
 #parallax-1 {
     min-height:500px;
     background-image: url(https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg);
+}
+.white{
+  background-color:rgba(26, 35, 126, 0.1) !important;
+  color:white !important;
+  font-weight: bold;
 }
 /* Small Devices, Tablets - no ver el parallax */
 @media only screen and (max-width: 768px) {
