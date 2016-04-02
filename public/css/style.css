@@ -7,6 +7,13 @@
   @author Abel Montejo
 
 *************************************/
+/*********************
+  GENERAL
+**********************/
+html,
+body {
+  height: 100%;
+}
 
 /*********************
   NAV
@@ -51,3 +58,69 @@
   /*---------------------------------*/
 }
 
+/*********************
+  IMAGENES CARROUSEL FIXED
+**********************/
+
+/* Primera imagen carrousel */
+.item:nth-child(1) {
+  background-image: url("/../img/carrousel/1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Segunda imagen carrousel */
+.item:nth-child(2) {
+  background-image: url("/../img/carrousel/3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Tercera imagen carrousel */
+.item:nth-child(3) {
+  background-image: url("/../img/carrousel/4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Cuarta imagen carrousel */
+.item:nth-child(4) {
+  background-image: url("/../img/carrousel/5.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Quinta imagen carrousel */
+.item:nth-child(5) {
+  background-image: url("/../img/carrousel/10.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Sexta imagen carrousel */
+.item:nth-child(6) {
+  background-image: url("/../img/carrousel/12.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Septima imagen carrousel */
+.item:nth-child(7) {
+  background-image: url("/../img/carrousel/13.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Octava imagen carrousel */
+.item:nth-child(8) {
+  background-image: url("/../img/carrousel/17.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/***************
+  CARROUSEL
+****************/
+
+.carousel,
+.item,
+.active {
+  height: 100%;
+}
+
+.carousel-inner {
+  height: 100%;
+}
