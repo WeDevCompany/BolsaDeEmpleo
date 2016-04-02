@@ -13,7 +13,8 @@
         "cviebrock/eloquent-sluggable": "^3.1",
         "maatwebsite/excel": "~2.0",
         "anhskohbo/no-captcha": "2.*",
-        "intervention/image": "^2.3"
+        "intervention/image": "^2.3",
+        "enyo/dropzone": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
