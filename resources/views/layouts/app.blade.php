@@ -43,7 +43,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Bolsa de Empleo
+                    <img src="{{url('/img/iescierva.png') }}" alt="Bolsa de Empleo" style="height: 100%">
                 </a>
             </div>
 
