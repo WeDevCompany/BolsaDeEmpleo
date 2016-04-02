@@ -14,6 +14,18 @@ html,
 body {
   height: 100%;
 }
+
+/* Para hacer responsive el panel de admin */
+.header-admin, .main-admin, .footer-admin {
+   padding-left: 240px;
+ }
+
+ @media only screen and (max-width : 992px) {
+   .header-admin, .main-admin, .footer-admin {
+     padding-left: 0;
+   }
+ }
+
 /*********************
   LOGO
 **********************/
@@ -135,8 +147,8 @@ body {
   transition-duration: 0.6s;
 }
 
-.animated{
-  background-color:rgba(250, 85, 64, 0.1);
+.verticalcenter{
+  background-color:rgba(255, 255, 255, 0.1);
 }
 
 .carousel-inner {
