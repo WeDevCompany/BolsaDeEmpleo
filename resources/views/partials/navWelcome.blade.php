@@ -12,7 +12,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand waves-effect waves-light" href="{{ url('/') }}">
+                <a class="logo navbar-brand waves-effect waves-light" href="{{ url('/') }}">
                 <i class="fa fa-rocket"></i>
                     Bolsa de empleo
                 </a>

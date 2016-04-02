@@ -51,6 +51,9 @@
 <!-- Script que permite crear un dropzone -->
 <script src="{{ asset('/js/dropzone/dropzone.js') }}"></script>
 
+<!-- Script que permite el back-to-top -->
+<script src="{{ asset('/js/back-to-top.js') }}"></script>
+
 @yield('scripts')
 
 </body>

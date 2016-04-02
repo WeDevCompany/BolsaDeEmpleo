@@ -14,11 +14,18 @@ html,
 body {
   height: 100%;
 }
-
+/*********************
+  LOGO
+**********************/
+.logo{
+  color:#FA5540 !important;
+  text-shadow:1px 1px 1px black;
+  font-weight:bold;
+}
 /*********************
   NAV
 **********************/
-.navbar {
+.navbar-transparent {
   /*background-color: transparent !important;*/
   /*background-color: rgba(255, 255, 255, 0.1) !important;*/
   background-color: rgba(26, 35, 126, 0.1) !important;
@@ -40,8 +47,8 @@ body {
 		y con la longitud del menú
   	--------------------------------------------- */
   .navbar-nav{
-	width:100%;
-	margin-left: 0px !important;
+    width:100%;
+    margin-left: 0px !important;
   }
   	/* ------------------------------------------
   		Error con el hover en los submenus
@@ -121,6 +128,16 @@ body {
 .active {
   height: 100%;
 }
+.carousel-indicators >.active{
+  background-color: #FA5540 !important;
+  border: 2px white solid;
+  /* Tiempo que dura la transición */
+  transition-duration: 0.6s;
+}
+
+.animated{
+  background-color:rgba(250, 85, 64, 0.1);
+}
 
 .carousel-inner {
   height: 100%;
@@ -130,8 +147,9 @@ body {
   CARDS
 ****************/
 .container-card{
-  margin-top: 45px;
+  margin-top: 50px;
   width: 100%;
+  margin-bottom: 50px;
 }
 
 /***************
@@ -140,4 +158,33 @@ body {
 #parallax-1 {
     min-height:500px;
     background-image: url(https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg);
+}
+/* Small Devices, Tablets - no ver el parallax */
+@media only screen and (max-width: 768px) {
+  #parallax-1 {
+    display:none;
+  }
+}
+
+/***************
+  BACK-TO-TOP
+****************/
+a.back-to-top {
+  display: none;
+  width: 50px;
+  height: 50px;
+  text-indent: -9999px;
+  position: fixed;
+  z-index: 999;
+  right: 10px;
+  bottom: 10px;
+  background: black url("../img/up-arrow.png") no-repeat center 43%;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+a:hover.back-to-top {
+  background-color: #FA5540;
+  /* Tiempo que dura la transición */
+  transition-duration: 0.6s;
 }
