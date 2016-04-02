@@ -1,47 +1,21 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Be right back.</title>
+@extends('layouts.app')
+@section('content')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 72px;
-                margin-bottom: 40px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Be right back.</div>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template">
+                <h1>Oops! 503 Service unavailable</h1>
+                <div class="error-details">
+                    Lamentablemente el servicio no esta disponible
+                </div>
+                <br>
+                <div class="error-actions">
+                    <a href="/" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-home"></span> Llevame a mi perfil</a>
+                </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+</div>
+
+@endsection

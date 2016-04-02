@@ -193,6 +193,13 @@
         </div>
         <!-- /.Cards -->
 
+        <!-- Parallax effect -->
+        <section class="parallax" id="parallax-1">
+            <div class="container text-center">
+
+            </div>
+        </section>
+        <!-- / .Parallax -->
         <!--Footer section-->
         <footer class="page-footer elegant-color center-on-small-only">
             <div class="container-fluid">
