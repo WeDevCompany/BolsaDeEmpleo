@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@include('partials.navAdmin')
+@include('partials.nav.navAdmin')
     <main class="main-admin">
         <div class="main-wrapper">
             <section>

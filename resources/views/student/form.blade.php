@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@include('partials.navEstudiante')
+@include('partials.nav.navEstudiante')
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">

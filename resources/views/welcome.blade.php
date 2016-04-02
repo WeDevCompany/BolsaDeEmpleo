@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('partials.navWelcome')
+    @include('partials.nav.navWelcome')
 
     <!-- Carousel -->
         <div id="carousel1" class="carousel slide carousel-fade hoverable" style="height: 100%;">
