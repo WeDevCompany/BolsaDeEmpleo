@@ -29,3 +29,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/empresas', 'UsersController@enterpriseSignUp');
 
 });
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
+
+    Route::resource('/', 'TeachersController');
+
+});
