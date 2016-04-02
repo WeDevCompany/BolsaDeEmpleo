@@ -1,5 +1,5 @@
 <!-- Probar el menú con navbar-static-top -->
-    <nav class="navbar black navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-transparent black navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
 
