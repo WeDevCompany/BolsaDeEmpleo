@@ -14,7 +14,6 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <!-- Font Awesome -->
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font­awesome/4.5.0/css/font­awesome.min.css">
 
 <!-- Bootstrap core CSS -->
@@ -67,15 +66,15 @@
                                 Registro<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/estudiantes') }}">Estudiante</a></li>
-                                <li><a href="{{ url('/profesores') }}">Profesor</a></li>
-                                <li><a href="{{ url('/empresas') }}">Empresa</a></li>
+                                <li><a href="{{ url('/estudiante') }}">Estudiante</a></li>
+                                <li><a href="{{ url('/profesor') }}">Profesor</a></li>
+                                <li><a href="{{ url('/empresa') }}">Empresa</a></li>
                             </ul>
                         </li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{-- Auth::user()->email --}} <span class="caret"></span>
+                                {{ Auth::user()->email }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
