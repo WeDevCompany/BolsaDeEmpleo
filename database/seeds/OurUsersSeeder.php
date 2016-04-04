@@ -68,7 +68,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -82,7 +82,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -96,7 +96,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -110,7 +110,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -124,7 +124,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -138,7 +138,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -160,7 +160,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -174,7 +174,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -188,7 +188,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -202,7 +202,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -216,7 +216,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -230,7 +230,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -406,7 +406,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -420,7 +420,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -434,7 +434,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -448,7 +448,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -462,7 +462,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -476,7 +476,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -498,7 +498,7 @@ class OurUsersSeeder extends Seeder
         	'phone' => '666666673',
         	'road' => 'Alto',
         	'address' => 'Rio Ring, 3',
-        	'curriculum' => '/curriculum/curriculum1.pdf',
+        	'curriculum' => '/storage/app/curriculums/eduardo-' . date('d-m-Y') . '/curriculum1-' . date('dmY') . '.pdf',
         	'birthdate' => '1995-11-09',
         	'user_id' => $user_ids[12],
             'created_at' => date('YmdHms'),
@@ -516,7 +516,7 @@ class OurUsersSeeder extends Seeder
         	'phone' => '666666674',
         	'road' => 'Rambla',
         	'address' => 'Santa Maria, 1 1ºC Escalera sur',
-        	'curriculum' => '/curriculum/curriculum2.pdf',
+        	'curriculum' => '/storage/app/curriculums/emmanuel-' . date('d-m-Y') . '/curriculum21-' . date('dmY') . '.pdf',
         	'birthdate' => '1992-06-09',
         	'user_id' => $user_ids[13],
             'created_at' => date('YmdHms'),
@@ -534,7 +534,7 @@ class OurUsersSeeder extends Seeder
         	'phone' => '666666675',
         	'road' => 'Camino',
         	'address' => 'Constitucion, 4 4ºA escalera norte',
-        	'curriculum' => '/curriculum/curriculum3.pdf',
+        	'curriculum' => '/storage/app/curriculums/pedro-' . date('d-m-Y') . '/curriculum31-' . date('dmY') . '.pdf',
         	'birthdate' => '1992-04-17',
         	'user_id' => $user_ids[14],
             'created_at' => date('YmdHms'),
@@ -552,7 +552,7 @@ class OurUsersSeeder extends Seeder
         	'phone' => '666666676',
         	'road' => 'Alameda',
         	'address' => 'Girona, 3 4ºC',
-        	'curriculum' => '/curriculum/curriculum4.pdf',
+        	'curriculum' => '/storage/app/curriculums/fernando-' . date('d-m-Y') . '/curriculum41-' . date('dmY') . '.pdf',
         	'birthdate' => '1987-08-20',
         	'user_id' => $user_ids[15],
             'created_at' => date('YmdHms'),
@@ -570,7 +570,7 @@ class OurUsersSeeder extends Seeder
         	'phone' => '666666677',
         	'road' => 'Bulevar',
         	'address' => 'Rio Pisuerga, 8 1ºB',
-        	'curriculum' => '/curriculum/curriculim5.pdf',
+        	'curriculum' => '/storage/app/curriculums/abel-' . date('d-m-Y') . '/curriculum5-' . date('dmY') . '.pdf',
         	'birthdate' => '1984-11-17',
         	'user_id' => $user_ids[16],
             'created_at' => date('YmdHms'),
@@ -588,7 +588,7 @@ class OurUsersSeeder extends Seeder
         	'phone' => '666666678',
         	'road' => 'Plazuela',
         	'address' => 'Marques de rozalejo, 9',
-        	'curriculum' => '/curriculum/curriculim6.pdf',
+        	'curriculum' => '/storage/app/curriculums/carlos-' . date('d-m-Y') . '/curriculum6-' . date('dmY') . '.pdf',
         	'birthdate' => '1990-01-06',
         	'user_id' => $user_ids[17],
             'created_at' => date('YmdHms'),
@@ -612,7 +612,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -626,7 +626,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -640,7 +640,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -654,7 +654,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -668,7 +668,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -682,7 +682,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -784,7 +784,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -798,7 +798,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -812,7 +812,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -864,7 +864,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -878,7 +878,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -892,7 +892,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -944,7 +944,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -958,7 +958,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -972,7 +972,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -988,7 +988,7 @@ class OurUsersSeeder extends Seeder
         	'phone' => '666666685',
         	'road' => 'Pasaje',
         	'address' => 'Mariano Sanz, S/N 3ºB',
-        	'curriculum' => '/curriculum/curriculim7.pdf',
+        	'curriculum' => '/storage/app/curriculums/prueba1-' . date('d-m-Y') . '/curriculum7-' . date('dmY') . '.pdf',
         	'birthdate' => '1974-07-19',
         	'user_id' => $user_ids[30],
             'created_at' => date('YmdHms'),
@@ -1006,7 +1006,7 @@ class OurUsersSeeder extends Seeder
         	'phone' => '666666686',
         	'road' => 'Pista',
         	'address' => 'Don Federico Trujillo, 125 10ºD',
-        	'curriculum' => '/curriculum/curriculum8.pdf',
+        	'curriculum' => '/storage/app/curriculums/prueba2-' . date('d-m-Y') . '/curriculum81-' . date('dmY') . '.pdf',
         	'birthdate' => '1966-11-17',
         	'user_id' => $user_ids[31],
             'created_at' => date('YmdHms'),
@@ -1024,7 +1024,7 @@ class OurUsersSeeder extends Seeder
         	'phone' => '666666687',
         	'road' => 'Paseo',
         	'address' => 'Mi casa de campo, 16',
-        	'curriculum' => '/curriculum/curriculum9.pdf',
+        	'curriculum' => '/storage/app/curriculums/prueba3-' . date('d-m-Y') . '/curriculum91-' . date('dmY') . '.pdf',
         	'birthdate' => '1978-08-10',
         	'user_id' => $user_ids[32],
             'created_at' => date('YmdHms'),
@@ -1042,7 +1042,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1056,7 +1056,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1070,7 +1070,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1130,7 +1130,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1144,7 +1144,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1158,7 +1158,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1210,7 +1210,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1224,7 +1224,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1238,7 +1238,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1290,7 +1290,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1304,7 +1304,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1318,7 +1318,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1334,7 +1334,7 @@ class OurUsersSeeder extends Seeder
         	'phone' => '666666694',
         	'road' => 'Senda',
         	'address' => 'Miguel Hernandez, 17 3ºF',
-        	'curriculum' => '/curriculum/curriculim10.pdf',
+        	'curriculum' => '/storage/app/curriculums/iescierva_daw43-' . date('d-m-Y') . '/curriculum10-' . date('dmY') . '.pdf',
         	'birthdate' => '1979-05-03',
         	'user_id' => $user_ids[42],
             'created_at' => date('YmdHms'),
@@ -1352,7 +1352,7 @@ class OurUsersSeeder extends Seeder
         	'phone' => '666666695',
         	'road' => 'Via',
         	'address' => 'Plaza Españolita, 10',
-        	'curriculum' => '/curriculum/curriculum11.pdf',
+        	'curriculum' => '/storage/app/curriculums/iescierva_daw44-' . date('d-m-Y') . '/curriculum11-' . date('dmY') . '.pdf',
         	'birthdate' => '1982-04-27',
         	'user_id' => $user_ids[43],
             'created_at' => date('YmdHms'),
@@ -1370,7 +1370,7 @@ class OurUsersSeeder extends Seeder
         	'phone' => '666666696',
         	'road' => 'Travesia',
         	'address' => 'Condado de Rozas, 12 1ºC',
-        	'curriculum' => '/curriculum/curriculum12.pdf',
+        	'curriculum' => '/storage/app/curriculums/iescierva_daw45-' . date('d-m-Y') . '/curriculum12-' . date('dmY') . '.pdf',
         	'birthdate' => '1993-07-30',
         	'user_id' => $user_ids[44],
             'created_at' => date('YmdHms'),
@@ -1388,7 +1388,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1402,7 +1402,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1416,7 +1416,7 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['/uploads/imagenes/default/default1.png', '/uploads/imagenes/default/default2.png', '/uploads/imagenes/default/default3.png', '/uploads/imagenes/default/default4.png', '/uploads/imagenes/default/default5.png', '/uploads/imagenes/default/default6.png', '/uploads/imagenes/default/default7.png', '/uploads/imagenes/default/default8.png', '/uploads/imagenes/default/default9.png', '/uploads/imagenes/default/default10.png', '/uploads/imagenes/default/default11.png']),
+            'image' => $faker->randomElement(['/storage/app/public/images/profile/default/default1.png', '/storage/app/public/images/profile/default/default2.png', '/storage/app/public/images/profile/default/default3.png', '/storage/app/public/images/profile/default/default4.png', '/storage/app/public/images/profile/default/default5.png', '/storage/app/public/images/profile/default/default6.png', '/storage/app/public/images/profile/default/default7.png', '/storage/app/public/images/profile/default/default8.png', '/storage/app/public/images/profile/default/default9.png', '/storage/app/public/images/profile/default/default10.png', '/storage/app/public/images/profile/default/default11.png']),
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
