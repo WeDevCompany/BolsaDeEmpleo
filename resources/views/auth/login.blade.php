@@ -10,7 +10,6 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {!! csrf_field() !!}
-
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             {{ Form::label('email', 'E-Mail', ['class' => 'col-md-4 control-label']) }}
                             <div class="col-md-6">

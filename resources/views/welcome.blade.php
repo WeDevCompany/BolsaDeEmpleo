@@ -209,6 +209,12 @@
             </div>
         </section>
         <!-- / .Parallax -->
+
+        <!-- Contact information-->
+        <div class="container-fluid">
+
+        </div>
+
         <!--Footer section-->
         <footer class="page-footer elegant-color center-on-small-only">
             <div class="container-fluid">
