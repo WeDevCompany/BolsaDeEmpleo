@@ -12,6 +12,7 @@
     <meta name="author" content="Fernando Barcelona" />
     <meta name="author" content="Abel Montejo" />
     <meta name="keywords" content="ingeniero de la cierva, empleo, trabajo, estudiantes fct, bolsa de empleo" />
+    <meta name="organization" content="IES Ingeniero de la cierva" />
     <!-- Etiquetas para el Posicionamiento SEO -->
     <title>Bolsa de empleo - I.E.S. Ingeniero de la cierva</title>
 
