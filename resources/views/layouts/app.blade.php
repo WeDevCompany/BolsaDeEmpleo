@@ -37,25 +37,25 @@
     <!-- . /favicon -->
 
     <!-- Font Awsome Icons (Prevenir el error de descarga XML) -->
-    <link title="estilo-font-awsome-directo" title="estilo-personalizado" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link title="estilo-personalizado" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!-- Material Design Icons -->
-    <link title="estilo-funetes-material" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link title="estilo-font-awsome-bootstrap-material" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font­awesome/4.5.0/css/font­awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font­awesome/4.5.0/css/font­awesome.min.css">
 
     <!-- Bootstrap core CSS -->
-    <link title="estilo-boostrap" href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Material Design Bootstrap -->
-    <link title="estilo-boostrap-material" href="{{ url('css/mdb.css') }}" rel="stylesheet">
+    <link href="{{ url('css/mdb.css') }}" rel="stylesheet">
 
     <!-- Estilos de dropzone -->
-    <link title="estilo-dropzone" href="{{ url('css/dropzone.css') }}" rel="stylesheet">
+    <link href="{{ url('css/dropzone.css') }}" rel="stylesheet">
 
     <!-- Estilos diseñados por nosotros -->
-    <link title="estilo-personalizado" href="{{ url('css/style.css') }}" rel="stylesheet">
+    <link href="{{ url('css/style.css') }}" rel="stylesheet">
 
 </head>
 <body id="app-layout">
