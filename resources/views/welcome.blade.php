@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="card-content">
                                     <h5>Empresas</h5>
-                                    <p><i class="fa fa-quote-left"></i> En esta aplicación las empresas dedicadas a todo tipo de negocios podrán publicar las ofertas de trabajo y/o FCT para obtener a estudiantes altamente cualificados en distintas áreas, lo cual beneficiará tanto a la empresa como al alumno. <i class="fa fa-quote-right"></i></p>
+                                    <p><i class="fa fa-quote-left"></i> En esta aplicación las empresas dedicadas a todo tipo de negocios podrán publicar las ofertas de trabajo y/o FCT para obtener estudiantes altamente cualificados en distintas áreas, lo cual beneficiará tanto a la empresa como al alumno. <i class="fa fa-quote-right"></i></p>
                                 </div>
                             </div>
                         </a>
