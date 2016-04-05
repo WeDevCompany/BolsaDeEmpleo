@@ -13,8 +13,8 @@
 
                 <!-- Branding Image -->
                 <a class="logo navbar-brand waves-effect waves-light" href="{{ url('/') }}">
-                <i class="fa fa-rocket"></i>
-                    Bolsa de empleo
+                    <img style="height: 125%" src="{{ url('/img/icon.png') }}" alt="Bolsa-de-empleo-logo">
+
                 </a>
             </div>
 
