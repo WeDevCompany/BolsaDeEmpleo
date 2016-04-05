@@ -21,8 +21,8 @@
                     <div class="carousel-caption">
                         <div class="verticalcenter">
                             <div class="animated fadeInDown">
-                                <h4>Si eres un estudiante y deseas trabajar o buscar una empresa donde hacer practicas</h4>
-                                <h5>No dudes en darte alta y trabajar con empresas punteras en tú sector, demuestra de que eres capaz y crece junto </h5>
+                                <h4>Si eres un estudiante y deseas trabajar o buscar una empresa donde hacer prácticas</h4>
+                                <h5>No dudes en darte alta y trabajar con empresas punteras en tu sector, demuestra de que eres capaz y crece junto </h5>
                                 <a href="/empresa" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-user right"></i>Registrate</a>
                             </div>
                         </div>
@@ -50,8 +50,8 @@
                     <div class="carousel-caption">
                         <div class="verticalcenter">
                             <div class="animated fadeInDown">
-                                <h4>Si eres una empresa y buscas trabajadores</h4>
-                                <h5>Si necesitas trabajadores cualificados y con altos conocimientos en su área de especialización no dude en registrarse</h5>
+                                <h4>Si es una empresa y busca trabajadores</h4>
+                                <h5>Si necesita trabajadores cualificados y con altos conocimientos en su área de especialización no dude en registrarse</h5>
                                 <a href="/empresa" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-user right"></i>Registrate</a>
                             </div>
                         </div>
