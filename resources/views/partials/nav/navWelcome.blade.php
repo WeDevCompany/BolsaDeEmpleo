@@ -22,7 +22,7 @@
                 <!-- Left Side Of Navbar -->
                  <ul class="nav navbar-nav">
                     <li><a class="waves-effect waves-light" href="{{ url('/home') }}">Inicio</a></li>
-                    <li><a class="waves-effect waves-light" href="{{ url('/uso') }}">Uso de la Web</a></li>
+                    <li><a class="waves-effect waves-light" href="{{ url('/uso') }}">FAQ</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -41,14 +41,14 @@
                             </ul>
                         </li>
                     @else
-                            
+
                         <div class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <img src="images/profile" alt="" class="img-responsive img-circle img-navegador">
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Cambiar Imagen</a></li>
-                                <li><a href="#">Cambiar Contraseña</a></li>
+                                <li><a href="#">Editar perfil</a></li>
+                                <li><a href="#">Cambiar contraseña</a></li>
                                 <li><a href="{{ url('/logout') }}">Logout</a></li>
                             </ul>
                         </div>

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
     @include('partials.nav.navWelcome')
 
      @include('partials.carrousel.carrouselWelcome')
 
-           
-       
+
+
          <!--Cards Section-->
          <div class="container page-content container-card">
             <!--Card 1-->
@@ -20,7 +20,7 @@
                         <div class="mask waves-effect waves-light"> </div>
                     </div>
 
-                   
+
                     <!-- Content -->
                     <div class="card-content">
                         <h5>Alumnos</h5>
@@ -28,7 +28,7 @@
                     </div>
                     <!-- Footer -->
                     <div class="card-footer red">
-                        
+
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                         <div class="mask waves-effect waves-light"> </div>
                     </div>
 
-                   
+
                     <!-- Content -->
                     <div class="card-content">
                         <h5>Empresas</h5>
@@ -51,7 +51,7 @@
                     </div>
                     <!-- Footer -->
                     <div class="card-footer light-blue">
-                        
+
                     </div>
                 </div>
             </div>
@@ -62,11 +62,11 @@
                     <!-- Image wrapper -->
                     <div class="card-up view overlay">
                         <h5 class="card-label"></h5>
-                        <img src="http://img.youtube.com/vi/V_ubJtcVpns/maxresdefault.jpg" class="img-responsive">
+                        <img src="https://www.tes.com/sites/default/files/computer%20class.jpg" class="img-responsive">
                         <div class="mask waves-effect waves-light"> </div>
                     </div>
 
-                   
+
                     <!-- Content -->
                     <div class="card-content">
                         <h5>Profesores</h5>
@@ -74,14 +74,14 @@
                     </div>
                     <!-- Footer -->
                     <div class="card-footer yellow">
-                        
+
                     </div>
                 </div>
             </div>
             <!--/.Card 3-->
         </div>
             <!--/.Cards Section-->
-     
+
 
         @include('partials.parallax.parallaxWelcome')
 
