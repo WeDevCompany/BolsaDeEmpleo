@@ -63,7 +63,15 @@
 
         <!-- Contact information-->
         <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                  <h3>Información de contacto</h3>
 
+              </div>
+              <div class="col-md-6 map" id="map">
+
+              </div>
+            </div>
         </div>
 
         @include('partials.footer.footerWelcome')

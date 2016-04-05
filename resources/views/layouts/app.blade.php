@@ -79,6 +79,12 @@
     <!-- Script que permite crear un dropzone -->
     <script src="{{ asset('/js/dropzone/dropzone.js') }}"></script>
 
+    <!-- Librería de google maps -->
+    <script language="JavaScript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/gmap3.min.js"></script>
+
+
     <!-- Script que permite el back-to-top -->
     <script src="{{ asset('/js/back-to-top.js') }}"></script>
 
