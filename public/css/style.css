@@ -227,3 +227,36 @@ a:hover.back-to-top {
   max-width: 50px;
   margin-top: 5px;
 }
+
+/****************
+  INFORMACIÓN DE CONTACTO
+*****************/
+.centrado{
+  text-align:center;
+}
+
+.centrado > h3 {
+  font-weight:bold;
+  margin-top:40px;
+  margin-bottom:40px;
+}
+
+/****************
+  MAPA
+*****************/
+
+#map {
+  min-height:600px;
+}
+
+@media only screen and (max-width: 900px) {
+  min-height:200px !important;
+}
+
+/****************
+  FOOTER
+*****************/
+/* Quitamos el margin top del footer */
+.sin-margin-top{
+  margin-top: 5px !important;
+}

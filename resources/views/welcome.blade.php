@@ -6,8 +6,14 @@
 
     @include('partials.carrousel.carrouselWelcome')
 
+        <!-- titulo de la section-->
+
+
         <!--Cards section-->
         <div class="container page-content container-card">
+        <div class="container-fluid centrado">
+            <h3>¿Qué hacemos?</h3>
+        </div>
             <div class="col-md-4">
                     <div class="testimonial-card z-depth-1 hoverable">
                         <a href="{{ url('/estudiante') }}">
@@ -34,7 +40,7 @@
                                 </div>
                                 <div class="card-content">
                                     <h5>Empresas</h5>
-                                    <p><i class="fa fa-quote-left"></i> En esta aplicación las empresas dedicadas a todo tipo de negocios podrán publicar las ofertas de trabajo y/o FCT para obtener estudiantes altamente cualificados en distintas áreas, lo cual beneficiará tanto a la empresa como al alumno. <i class="fa fa-quote-right"></i></p>
+                                    <p><i class="fa fa-quote-left"></i> Esta aplicación tiene como objetivo principal que las empresas dedicadas a todo tipo de negocios publiquen las ofertas de trabajo y/o FCT para obtener estudiantes altamente cualificados en distintas áreas, lo cual beneficiará tanto a la empresa como al alumno. <i class="fa fa-quote-right"></i></p>
                                 </div>
                             </div>
                         </a>
@@ -50,7 +56,7 @@
                                 </div>
                                 <div class="card-content">
                                     <h5>Profesores</h5>
-                                    <p><i class="fa fa-quote-left"></i> En esta web los profesores podrán gestionar toda la información sobre ofertas de trabajo y/o prácticas para sus estudiantes ya sean de su rama o de otra, permitiendo que sean los mismos estudiantes quienes se suscriban dichas ofertas. <i class="fa fa-quote-right"></i></p>
+                                    <p><i class="fa fa-quote-left"></i> En esta web los profesores podrán gestionar toda la información sobre ofertas de trabajo y/o prácticas para sus estudiantes ya sean de su rama o de otra, permitiendo que sean los mismos estudiantes quienes se suscriban dichas ofertas, facilitando esto su labor de selección de empresas. <i class="fa fa-quote-right"></i></p>
                                 </div>
                             </div>
                         </a>
@@ -64,12 +70,20 @@
         <!-- Contact information-->
         <div class="container-fluid">
             <div class="row">
-              <div class="col-md-6">
-                  <h3>Información de contacto</h3>
-
+              <div class="col-md-6 centrado">
+                    <h3>Información de contacto</h3>
+                    <p class="lead"><strong>Email del centro:</strong> <a href="mailto:30010978@murciaeduca.es?subject=Bolsa%20Empleo">30010978@murciaeduca.es</a></p>
+                    <p class="lead"><strong>Teléfono:</strong> 968266922</p>
+                    <p class="lead"><strong>Fax:</strong> 968342085</p>
+                    <p class="lead"><strong>Web:</strong> <a target="_blank" href="http://www.iescierva.net">www.iescierva.net</a></p>
+                    <p class="lead"><strong>Moodle:</strong> <a target="_blank" href="http://moodle.iescierva.net/">moodle.iescierva.net</a></p>
+                    <p class="lead"><strong>Email de la bolsa de empleo:</strong> <a href="mailto:bolsa@iescierva.net?subject=Bolsa%20Empleo">bolsa@iescierva.net</a></p>
               </div>
               <div class="col-md-6 map" id="map">
-
+              <!-- Librería de google maps + API key -->
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGyfVQZ3XHG7GRD51OlVNw1kACBKrg8Ww" type="text/javascript"></script>
+                <!-- Script que inicializa el mapa -->
+               <script src="/js/maps.js" type="text/javascript"></script>
               </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
     <!--Footer section-->
-        <footer class="page-footer elegant-color center-on-small-only">
+        <footer class="page-footer elegant-color center-on-small-only sin-margin-top">
             <div class="container-fluid">
                 <div class="row">
 
