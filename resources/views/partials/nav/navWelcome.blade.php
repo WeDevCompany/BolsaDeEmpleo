@@ -41,17 +41,21 @@
                             </ul>
                         </li>
                     @else
-                        <li class="dropdown">
+                            
+                        <div class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->email }} <span class="caret"></span>
+                                <img src="images/profile" alt="" class="img-responsive img-circle img-navegador">
                             </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Cambiar Imagen</a></li>
+                                <li><a href="#">Cambiar Contraseña</a></li>
+                                <li><a href="{{ url('/logout') }}">Logout</a></li>
                             </ul>
-                        </li>
+                        </div>
+
                     @endif
                 </ul>
             </div>
         </div>
     </nav>
+

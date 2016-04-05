@@ -45,7 +45,9 @@
     <ul id="slide-out" class="side-nav fixed admin-side-nav light-side-nav">
         <!-- Logo -->
         <div class="logo-wrapper">
-            <img src="http://0.gravatar.com/avatar/60efa32c26a19f3ed2e42798afb705ba?s=100&d=mm&r=g" class="img-responsive img-circle">
+
+            {{ Html::image('images/profile', '', array('class' => 'img-responsive img-circle')) }}
+            
             <div class="rgba-stylish-strong"><p class="user white-text">Admin<br>
             admin@gmail.com</p></div>
 
