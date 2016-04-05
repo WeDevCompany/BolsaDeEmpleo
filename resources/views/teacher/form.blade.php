@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('partials.nav.navProfesor')
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -9,69 +10,74 @@
 
                 <div class="panel-body">
                     <p>Formulario de registro para PROFESORES</p>
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                        
+                     {{ Form::open(['route' => 'profesor.create.store', 'method' => 'POST']) }}
+                        {!! csrf_field() !!}
                         <fieldset>
                         <legend style="width:auto;">Profesor</legend>
 
-                        <div class="control-group">
-                        {{ Form::label('first_name', 'Nombre', ['class' => 'col-md-4 control-label']) }}
-
-                            <div class="col-md-6">
-                            {{ Form::text('first_name', null, ['class' => 'form-control']) }}
-
-                                @if ($errors->has('first_name'))
+                        <div class="control-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
+                            <div class="row">
+                                <div class="input-field col-md-12">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    {{ Form::text('firstName', null) }}
+                                    <label for="firstName">Nombre</label>
+                                </div>
+                            </div>
+                                @if ($errors->has('firstName'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                        <strong>{{ $errors->first('firstName') }}</strong>
                                     </span>
                                 @endif
-                            </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-                        {{ Form::label('last_name', 'Apellidos', ['class' => 'col-md-4 control-label']) }}
-
-                            <div class="col-md-6">
-                            {{ Form::text('last_name', null, ['class' => 'form-control']) }}
-
-                                @if ($errors->has('last_name'))
+                        <div class="control-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
+                            <div class="row">
+                                <div class="input-field col-md-12">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    {{ Form::text('lastName', null) }}
+                                    <label for="lastName">Apellidos</label>
+                                </div>
+                            </div>
+                                @if ($errors->has('lastName'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                        <strong>{{ $errors->first('lastName') }}</strong>
                                     </span>
                                 @endif
-                            </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('dni') ? ' has-error' : '' }}">
-                        {{ Form::label('dni', 'DNI', ['class' => 'col-md-4 control-label']) }}
-
-                            <div class="col-md-6">
-                            {{ Form::text('dni', null, ['class' => 'form-control']) }}
-
+                        <div class="control-group{{ $errors->has('dni') ? ' has-error' : '' }}">
+                            <div class="row">
+                                <div class="input-field col-md-12">
+                                    <i class="material-icons prefix">assignment_ind</i>
+                                    {{ Form::text('dni', null) }}
+                                    <label for="dni">DNI</label>
+                                </div>
+                            </div>
                                 @if ($errors->has('dni'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('dni') }}</strong>
                                     </span>
                                 @endif
+                        </div>                        
+
+                        <div class="control-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                            <div class="row">
+                                <div class="input-field col-md-12">
+                                    <i class="material-icons prefix">phone</i>
+                                    {{ Form::text('phone', null) }}
+                                    <label for="phone">Teléfono</label>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                        {{ Form::label('phone', 'Teléfono', ['class' => 'col-md-4 control-label']) }}
-
-                            <div class="col-md-6">
-                            {{ Form::text('phone', null, ['class' => 'form-control']) }}
-
                                 @if ($errors->has('phone'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
+                        </div>                        
+                        
                         <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
-                        {{ Form::label('image', 'Subir Imágen', ['class' => 'col-md-4 control-label']) }}
-
+                        {{ Form::label('image', 'Subir Imágen', ['class' => 'col-md-12']) }}
+                          
                             <div class="col-md-6">
                             {{ Form::file('image', null, ['class' => 'form-control']) }}
 
@@ -96,7 +102,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>
