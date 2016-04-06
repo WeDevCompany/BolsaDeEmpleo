@@ -54,7 +54,7 @@
                 <div class="verticalcenter">
                     <div class="animated fadeInDown">
                         <h4>Si eres un estudiante y buscas trabajo</h4>
-                        <h5>“El trabajo va a ocupar gran parte de tu vida. La única forma de estar realmente satisfecho es hacer aquello que crees que es un buen trabajo, y la única forma de hacer un gran trabajo es amar aquello que haces” – Steve Jobs.</h5>
+                        <h5>“El trabajo va a ocupar gran parte de tu vida. La única forma de estar realmente satisfecho es hacer aquello que crees que es un buen trabajo, y la única forma de hacer un gran trabajo es amar aquello que haces” – <i>Steve Jobs</i>.</h5>
                          <a href="/estudiante" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-graduation-cap right"></i>Estudiante</a>
                         <a href="/empresa" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-building right"></i>Empresa</a>
                         <a href="/profesor" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-university right"></i>Profesor</a>

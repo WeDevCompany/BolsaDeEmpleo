@@ -71,13 +71,15 @@
         <div class="container-fluid">
             <div class="row">
               <div class="col-md-6 centrado">
-                    <h3>Información de contacto</h3>
-                    <p class="lead"><strong>Email del centro:</strong> <a href="mailto:30010978@murciaeduca.es?subject=Bolsa%20Empleo">30010978@murciaeduca.es</a></p>
-                    <p class="lead"><strong>Teléfono:</strong> 968266922</p>
-                    <p class="lead"><strong>Fax:</strong> 968342085</p>
-                    <p class="lead"><strong>Web:</strong> <a target="_blank" href="http://www.iescierva.net">www.iescierva.net</a></p>
-                    <p class="lead"><strong>Moodle:</strong> <a target="_blank" href="http://moodle.iescierva.net/">moodle.iescierva.net</a></p>
-                    <p class="lead"><strong>Email de la bolsa de empleo:</strong> <a href="mailto:bolsa@iescierva.net?subject=Bolsa%20Empleo">bolsa@iescierva.net</a></p>
+                    <h3><i class="fa fa-paper-plane"></i> Información de contacto</h3>
+                    <p class="lead"><strong><i class="fa fa-envelope"></i> Email del centro:</strong> <a href="mailto:30010978@murciaeduca.es?subject=Bolsa%20Empleo">30010978@murciaeduca.es</a></p>
+                    <p class="lead"><strong><i class="fa fa-phone"></i> Teléfono:</strong> 968266922</p>
+                    <p class="lead"><strong><i class="fa fa-fax"></i> Fax:</strong> 968342085</p>
+                    <p class="lead"><strong><i class="fa fa-globe"></i> Web:</strong> <a target="_blank" href="http://www.iescierva.net">www.iescierva.net</a></p>
+                    <p class="lead"><strong><i class="fa fa-link"></i> Moodle:</strong> <a target="_blank" href="http://moodle.iescierva.net/">moodle.iescierva.net</a></p>
+                    <p class="lead"><strong><i class="fa fa-envelope-o"></i> Email de la bolsa de empleo:</strong> <a href="mailto:bolsa@iescierva.net?subject=Bolsa%20Empleo">bolsa@iescierva.net</a></p>
+
+
               </div>
               <div class="col-md-6 map" id="map">
               <!-- Librería de google maps + API key -->
