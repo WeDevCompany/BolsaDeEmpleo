@@ -6,7 +6,7 @@
                             <div class="animated fadeInDown">
                                 <h4>Si eres una empresa y buscas trabajadores</h4>
                                 <h5>Si necesitas trabajadores cualificados y con altos conocimientos en su área de especialización no dude en registrarse</h5>
-                                <a href="/empresa" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-user right"></i>Registrate</a>
+                                <a href="/empresa" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-building right"></i>Empresa</a>
                             </div>
                         </div>
                     </div>

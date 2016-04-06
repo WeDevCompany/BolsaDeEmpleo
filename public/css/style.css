@@ -52,6 +52,7 @@ body {
   /* Tiempo que dura la transición */
   transition:all 0.25s ease-in-out;
   border-bottom:2px transparent solid;
+  font-weight:bold;
 }
 .subrayado:hover {
   border-bottom:2px white solid !important;
@@ -153,12 +154,12 @@ body {
   background-color: #FA5540 !important;
   border: 2px white solid;
   /* Tiempo que dura la transición */
-  transition-duration: 0.6s;
+  transition:all 0.6s ease-in-out;
 }
 
 .verticalcenter{
   background-color:rgba(26, 35, 126, 0.1);
-  color:#FA5540;
+  color:white /*#FA5540*/;
 }
 
 .carousel-inner {

@@ -82,6 +82,8 @@
     <!-- Script que permite el back-to-top -->
     <script src="{{ asset('/js/back-to-top.js') }}"></script>
 
+    <script src="{{url("/js/carrusel.js")}}" type="text/javascript" charset="utf-8"></script>
+
     @yield('scripts')
 
 </body>
