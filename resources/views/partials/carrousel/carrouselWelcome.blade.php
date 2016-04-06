@@ -121,7 +121,7 @@
                         <h5>"Los hombres geniales empiezan grandes obras, los hombres trabajadores las terminan" – <i>Leonardo Da Vinci</i></h5>
                          <a href="/estudiante" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-graduation-cap right"></i>Estudiante</a>
                         <a href="/empresa" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-building right"></i>Empresa</a>
-                        <a href="/profesor" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-university right"></i>Profesor</a>>
+                        <a href="/profesor" target="_blank" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-university right"></i>Profesor</a>
                     </div>
                 </div>
             </div>
