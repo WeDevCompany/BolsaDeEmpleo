@@ -33,7 +33,7 @@ body {
 .logo{
   color:#FA5540 !important;
   text-shadow:1px 1px 1px black;
-  font-weight:bold;
+  /*font-weight:bold;*/
 }
 /*********************
   NAV

@@ -29,9 +29,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}" class=" waves-effect waves-light">Login</a></li>
+                        <li><a href="{{ url('/login') }}" class=" waves-effect waves-light subrayado"><i class="fa fa-sign-in"></i> Login</a></li>
                         <li class = "dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle subrayado" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Registro<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
