@@ -10,6 +10,7 @@
 /*********************
   GENERAL
 **********************/
+
 html,
 body {
   height: 100%;
@@ -46,6 +47,14 @@ body {
 
 .top-nav-collapse {
   background-color: #000000 !important;
+}
+.subrayado{
+  /* Tiempo que dura la transición */
+  transition:all 0.25s ease-in-out;
+  border-bottom:2px transparent solid;
+}
+.subrayado:hover {
+  border-bottom:2px white solid !important;
 }
 
 /* Small Devices, Tablets */
@@ -226,6 +235,11 @@ a:hover.back-to-top {
 .img-navegador {
   max-width: 50px;
   margin-top: 5px;
+  transition:all 0.25s ease-in-out;
+}
+
+.img-navegador:hover{
+  background-color:white;
 }
 
 /****************
