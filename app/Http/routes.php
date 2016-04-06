@@ -33,7 +33,7 @@ Route::group(['middleware' => 'web'], function () {
     //Ruta en la que mandamos por get la imagen de perfil del usuario
     Route::get('images/profile', function()
     {
-        $filepath = storage_path() . '/app/public/default/' . Auth::user()->image;
+        $filepath = storage_path() . '/app/public/' . Auth::user()->image;
         return Response::download($filepath);
     });
 
