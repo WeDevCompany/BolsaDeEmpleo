@@ -56,7 +56,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => "admin_bolsa_empleo@iescierva.net", 'name' => "Admin iescierva"],
 
     /*
     |--------------------------------------------------------------------------

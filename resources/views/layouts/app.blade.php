@@ -36,14 +36,14 @@
     <meta name="theme-color" content="#ffffff">
     <!-- . /favicon -->
 
-    <!-- Font Awsome Icons (Prevenir el error de descarga XML) -->
+    <!-- Estilos diseñados por nosotros -->
+    <link href="{{ url('css/normalize.css') }}" rel="stylesheet">
+
+    <!-- Font Awsome Icons -->
     <link title="estilo-personalizado" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!-- Material Design Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font­awesome/4.5.0/css/font­awesome.min.css">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -82,6 +82,7 @@
     <!-- Script que permite el back-to-top -->
     <script src="{{ asset('/js/back-to-top.js') }}"></script>
 
+    <!-- Script queautomatiza el carrusel -->
     <script src="{{url("/js/carrusel.js")}}" type="text/javascript" charset="utf-8"></script>
 
     @yield('scripts')
