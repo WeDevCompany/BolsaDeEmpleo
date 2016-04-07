@@ -169,6 +169,14 @@ body {
   .carousel-caption {
     margin-bottom:0px;
   }
+
+  /*
+      modificado para que se pueda ver
+      en dispositivos móviles
+   */
+  .verticalcenter{
+    transform:translateY(-10%);
+  }
 }
 @media only screen and (max-width: 300px){
   .carousel-caption {
