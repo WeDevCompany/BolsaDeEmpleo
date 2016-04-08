@@ -17,6 +17,18 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     });
 
+    Route::get('registro-profesor', function () {
+        return view('teacher.form');
+    });
+
+    Route::get('registro-estudiante', function () {
+        return view('student.form');
+    });
+
+    Route::get('registro-empresa', function () {
+        return view('enterprise.form');
+    });
+
 });
 
 Route::group(['middleware' => 'web'], function () {
@@ -24,10 +36,14 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
 
+
+    /*Route::resource('/perfil', 'UsersController@imagenPerfil');
+    Route::post('/uploadImage', 'UsersController@uploadImage');*/
+
     //Ruta en la que mandamos por get la imagen de perfil del usuario
     Route::get('images/profile', function()
     {
-        $filepath = storage_path() . '/app/public/default/' . Auth::user()->image;
+        $filepath = storage_path() . '/app/public/' . Auth::user()->image;
         return Response::download($filepath);
     });
 
