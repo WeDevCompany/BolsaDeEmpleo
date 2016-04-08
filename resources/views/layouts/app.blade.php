@@ -54,8 +54,12 @@
     <!-- Estilos de dropzone -->
     <link href="{{ url('css/dropzone.css') }}" rel="stylesheet">
 
+    <!-- Estilos para TagBox -->
+    <link href="{{ url('css/tag-basic-style.css') }}" rel="stylesheet">
+
     <!-- Estilos diseñados por nosotros -->
     <link href="{{ url('css/style.css') }}" rel="stylesheet">
+
 
 </head>
 <body id="app-layout">
@@ -66,6 +70,15 @@
 
     <!-- JQuery -->
     <script type="text/javascript" src="{{ url('js/jquery.min.js') }}"></script>
+
+    <!-- Validator -->
+    <script type="text/javascript" src="{{ url('js/validator/validator.min.js') }}"></script>
+
+    <!-- Script TagBox -->
+    <script src="{{ url('js/tagging.min.js') }}"></script>
+
+    <!-- Script Jquery -->
+    <script src="{{ url('js/jquery-2.2.3.js') }}"></script>
 
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="{{ url('js/bootstrap.min.js') }}"></script>

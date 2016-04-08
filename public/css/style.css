@@ -325,3 +325,21 @@ a:hover.back-to-top {
     width: 100% !important;
     overflow: auto;
   }
+}
+
+/**************
+  CAPTCHA
+***************/
+.g-recaptcha > div > iframe {
+  width:100% !important;
+  margin:auto !important;
+}
+.g-recaptcha{
+  width:100% !important;
+  margin:auto !important;
+}
+.g-recaptcha > div{
+  width:100% !important;
+  margin:auto !important;
+}
+

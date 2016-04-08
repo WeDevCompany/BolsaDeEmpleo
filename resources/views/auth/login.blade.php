@@ -43,6 +43,7 @@
                                     @endif
                                 </div>
                                 <div class="text-center{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+
                                     {!! app('captcha')->display(); !!}
                                 </div>
                                 <div class="text-center">
