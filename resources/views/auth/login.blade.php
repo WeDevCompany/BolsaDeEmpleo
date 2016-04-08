@@ -15,11 +15,12 @@
                         <form class="col-md-12" role="form" method="POST" action="{{ url('/login') }}">
                             {!! csrf_field() !!}
                             <div class="row">
-                                <div class="input-field{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <div class="input-field{{ $errors->has('email') ? ' has-error' : '' }} col-md-12">
                                     <i class="material-icons prefix">email</i>
-                                    {{ Form::text('email', null, ['class' => 'validate', 'id' => 'icon_email', 'placeholder' => 'Email de usuario']) }}
+                                    {{ Form::text('email', null,['class' => 'validate', 'id' => 'email']) }}
                                     {{ Form::label('email', 'E-Mail', ['for' => 'icon_email']) }}   
                                 </div>
+                            </div>
                                 <div class="text-center">
                                     @if ($errors->has('email'))
                                         <span class="help-block">
@@ -27,11 +28,13 @@
                                         </span>
                                     @endif
                                 </div>
-                                <div class="input-field{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <div class="row">
+                                <div class="input-field{{ $errors->has('password') ? ' has-error' : '' }} col-md-12">
                                     <i class="material-icons prefix">lock</i>
-                                    {{ Form::password('password', ['class' => 'validate', 'id' => 'password', 'placeholder' => 'Contraseña de usuario']) }}
+                                    {{ Form::password('password', ['class' => 'validate', 'id' => 'password']) }}
                                     {{ Form::label('password', 'Contraseña', ['for' => 'password']) }} 
                                 </div>
+                            </div>
                                 <div class="text-center">
                                     @if ($errors->has('password'))
                                         <span class="help-block">
@@ -58,7 +61,6 @@
                                 <div class="text-center">
                                     <a  href="{{ url('/password/reset') }}">Has olvidado tú contraseña?</a>
                                 </div>
-                            </div>
                         </form>
                     </div>
                 </div>

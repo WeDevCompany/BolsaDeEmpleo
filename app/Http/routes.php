@@ -1,4 +1,5 @@
 <?php
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -29,11 +30,16 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/empresa', 'UsersController@enterpriseSignUp');
     Route::resource('/uso', 'UsoController@index');
 
+    Route::resource('/perfil', 'UsersController@imagenPerfil');
+    Route::post('/uploadImage', 'UsersController@uploadImage');
+
     //Ruta en la que mandamos por get la imagen de perfil del usuario
     Route::get('images/profile', function()
     {
         $filepath = storage_path() . '/app/public/' . Auth::user()->image;
-        return Response::download($filepath);
+
+        return response()->download($filepath);
+
     });
 
 });
