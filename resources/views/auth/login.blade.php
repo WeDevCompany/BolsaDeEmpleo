@@ -18,7 +18,7 @@
                                 <div class="input-field{{ $errors->has('email') ? ' has-error' : '' }} col-md-12">
                                     <i class="material-icons prefix">email</i>
                                     {{ Form::text('email', null,['class' => 'validate', 'id' => 'email']) }}
-                                    {{ Form::label('email', 'E-Mail', ['for' => 'icon_email']) }}   
+                                    {{ Form::label('email', 'E-Mail', ['for' => 'icon_email']) }}
                                 </div>
                             </div>
                                 <div class="text-center">
@@ -32,7 +32,7 @@
                                 <div class="input-field{{ $errors->has('password') ? ' has-error' : '' }} col-md-12">
                                     <i class="material-icons prefix">lock</i>
                                     {{ Form::password('password', ['class' => 'validate', 'id' => 'password']) }}
-                                    {{ Form::label('password', 'Contraseña', ['for' => 'password']) }} 
+                                    {{ Form::label('password', 'Contraseña', ['for' => 'password']) }}
                                 </div>
                             </div>
                                 <div class="text-center">
@@ -59,7 +59,7 @@
                                     </button>
                                 </div>
                                 <div class="text-center">
-                                    <a  href="{{ url('/password/reset') }}">Has olvidado tú contraseña?</a>
+                                    <a  href="{{ url('/password/reset') }}">¿Has olvidado tú contraseña?</a>
                                 </div>
                         </form>
                     </div>
