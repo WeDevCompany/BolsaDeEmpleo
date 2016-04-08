@@ -24,22 +24,11 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
 
-    Route::resource('/profesor', 'UsersController@teacherSignUp');
-    Route::resource('/admin', 'UsersController@teacherSignUp');
-    Route::resource('/estudiante', 'UsersController@studentSignUp');
-    Route::resource('/empresa', 'UsersController@enterpriseSignUp');
-    Route::resource('/uso', 'UsoController@index');
-
-    Route::resource('/perfil', 'UsersController@imagenPerfil');
-    Route::post('/uploadImage', 'UsersController@uploadImage');
-
     //Ruta en la que mandamos por get la imagen de perfil del usuario
     Route::get('images/profile', function()
     {
-        $filepath = storage_path() . '/app/public/' . Auth::user()->image;
-
-        return response()->download($filepath);
-
+        $filepath = storage_path() . '/app/public/default/' . Auth::user()->image;
+        return Response::download($filepath);
     });
 
 });
@@ -47,5 +36,29 @@ Route::group(['middleware' => 'web'], function () {
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
 
     Route::resource('/', 'TeachersController');
+
+});
+
+Route::group(['prefix' => 'profesor', 'namespace' => 'Profesor'], function(){
+
+    Route::resource('/', 'TeachersController');
+
+});
+
+Route::group(['prefix' => 'estudiante', 'namespace' => 'Estudiante'], function(){
+
+    Route::resource('/', 'StudentsController');
+
+});
+
+Route::group(['prefix' => 'empresa', 'namespace' => 'Empresa'], function(){
+
+    Route::resource('/', 'EnterprisesController');
+
+});
+
+Route::group(['prefix' => 'uso', 'namespace' => 'Uso'], function(){
+
+    Route::resource('/', 'UsoController');
 
 });
