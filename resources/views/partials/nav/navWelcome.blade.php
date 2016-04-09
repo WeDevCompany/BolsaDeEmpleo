@@ -31,7 +31,7 @@
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}" class=" waves-effect waves-light subrayado"><i class="fa fa-sign-in"></i> Login</a></li>
                         <li class = "dropdown">
-                            <a href="#" class="dropdown-toggle subrayado" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle subrayado " data-toggle="dropdown" role="button" aria-expanded="false">
                                 Registro<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
@@ -43,8 +43,10 @@
                     @else
 
                         <div class="dropdown">
+
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                <img src="images/profile" alt="" class="img-responsive img-circle img-navegador">
+                                <img src="images/profile" alt="Imagen de perfil" class="img-responsive img-circle img-navegador">
+                                <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ url('/perfil') }}">Editar perfil</a></li>
@@ -53,9 +55,9 @@
                             </ul>
                         </div>
 
+
                     @endif
                 </ul>
             </div>
         </div>
     </nav>
-
