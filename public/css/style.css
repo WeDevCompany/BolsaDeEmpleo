@@ -322,8 +322,9 @@ a:hover.back-to-top {
 
 @media only screen and (max-width: 768px) {
   .btn-login-media {
-    width: 100% !important;
-    overflow: auto;
+    width: 90% !important;
+    padding:0px 0px;
+    margin-left:0px;
   }
 }
 
@@ -343,3 +344,27 @@ a:hover.back-to-top {
   margin:auto !important;
 }
 
+
+/**************
+  FORMULARIOS RESPONSIVE
+***************/
+.model-body > .row{
+  padding:40px 50px !important;
+}
+
+
+@media only screen and (max-width : 700px) {
+  .material-icons, .prefix{
+    display:none !important;
+  }
+
+  .input-field .prefix ~ input{
+    margin-left:5px !important;
+    width:95% !important;
+
+  }
+
+  .input-field > label {
+    margin-left:5px !important;
+  }
+}

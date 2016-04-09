@@ -10,7 +10,7 @@
                 <div class="modal-header text-center">
                     <h4><i class="fa fa-user"></i> Login</h4>
                 </div>
-                <div class="modal-body" style="padding:40px 50px;">
+                <div class="modal-body">
                     <div class="row">
                         <form class="col-md-12" role="form" method="POST" action="{{ url('/login') }}">
                             {!! csrf_field() !!}

@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Madrid',
 
     /*
     |--------------------------------------------------------------------------
@@ -180,6 +180,9 @@ return [
         // Librería que permite hacer thumnails
         Intervention\Image\ImageServiceProvider::class,
 
+        // Librerías barra de debug
+        Barryvdh\Debugbar\ServiceProvider::class,
+
     ],
 
     /*
@@ -233,6 +236,8 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Slug' => Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        // Librería de debug
+        'Debugbar'  => Barryvdh\Debugbar\Facade::class,
 
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,

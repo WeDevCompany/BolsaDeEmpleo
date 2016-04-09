@@ -14,7 +14,8 @@
         "maatwebsite/excel": "~2.0",
         "anhskohbo/no-captcha": "2.*",
         "intervention/image": "^2.3",
-        "enyo/dropzone": "*"
+        "enyo/dropzone": "*",
+        "barryvdh/laravel-debugbar" : "^2.0dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

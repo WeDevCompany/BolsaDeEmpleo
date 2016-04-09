@@ -23,7 +23,7 @@ class UsersController extends Controller
     {
         $this->middleware('auth');
         $this->request = $request;
-        
+
         // Reglas de usuarios.
         $this->rules = [
             'email' => 'required',
@@ -70,16 +70,16 @@ class UsersController extends Controller
     {
         //obtenemos el campo file definido en el formulario
         $file = $request->file('imagen');
- 
+
         //obtenemos el nombre del archivo
         $nombre = $file->getClientOriginalName();
 
         //indicamos que queremos guardar un nuevo archivo en el disco local
         $save = $file->move(storage_path() . '/app/public/' . \Auth::user()->email, $nombre);
-        
+
         if ($save) {
             $user = new User;
-            $user->where('id', '=', \Auth::user()->id)->update(['image' => \Auth::user()->email . '/' . $nombre]); 
+            $user->where('id', '=', \Auth::user()->id)->update(['image' => \Auth::user()->email . '/' . $nombre]);
         }
         return Redirect::to('/perfil');
     } // uploadImage()
