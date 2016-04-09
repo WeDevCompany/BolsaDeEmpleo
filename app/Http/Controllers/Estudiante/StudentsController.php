@@ -70,6 +70,11 @@ class StudentsController extends UsersController
 
     public function register()
     {
+        if (\Auth::user()) {
+            
+            return redirect()->to('/');
+
+        }
         return view('student.form');
     }
 

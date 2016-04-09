@@ -32,6 +32,11 @@ class EnterprisesController extends UsersController
 
     public function register()
     {
+        if (\Auth::user()) {
+            
+            return redirect()->to('/');
+
+        }
         return view('enterprise.form');
     }
 
