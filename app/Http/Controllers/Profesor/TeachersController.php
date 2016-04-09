@@ -9,6 +9,9 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class TeachersController extends UsersController
 {
@@ -16,26 +19,48 @@ class TeachersController extends UsersController
 	public function __construct(Request $request)
     {
         Parent::__construct($request);
-        $this->rules += [
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'dni' => 'required',
-            'phone' => 'required',
-        ];
+
+        /*$this->rules += [
+            'firstName'        => 'required|alpha|max:100',
+            'lastName'         => 'required|alpha|max:100',
+            'email'            => 'required|email',
+            'password'         => 'required|min:8|confirmed',
+            'dni'              => 'required',
+            'phone'            => 'required',
+        ];*/
         $this->rol = 'teacher';
         $this->redirectTo = "/profesor";
     }
 
-    protected function index()
-    {
-    	return view('home');
+    protected function index(){
+           	return view('home');
     } // index()
 
     protected function store()
     {
+        $input = [
+        'firstName'        => Input::get('firstName'),
+        'lastName'         => Input::get('lastName'),
+        'email'             => Input::get('email'),
+        'password'          => Hash::make(Input::get('password')),
+        'password_confirm'  => Hash::make(Input::get('password2')),
+    ];
 
+        $rules = [
+            'firstName'        => 'required|alpha|max:100|min:3',
+            'lastName'         => 'required|alpha|max:100|min:3',
+            'email'            => 'required|email',
+            'password'         => 'required|min:8|confirmed',
+            'dni'              => 'required',
+            'phone'            => 'required',
+        ];
+
+       
+         $validation = Validator::make($input, $rules);
+
+    if($validation->passes()) {
         // Valido la peticion.
-        $this->validate($this->request, $this->rules);
+        //$this->validate($this->request, $this->input, $this->rules, $this->messages);
 
         // Comenzamos la transaccion.
         \DB::beginTransaction();
@@ -72,6 +97,11 @@ class TeachersController extends UsersController
 	        }
         }
         return redirect()->route('profesor..index');
+    }else {
+        $errors = $validation->errors();
+
+        return view('teacher/form')->withErrors($errors);
+    }
     } // store()
 
     protected function create(array $data)
