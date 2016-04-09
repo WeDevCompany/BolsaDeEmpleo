@@ -110,7 +110,7 @@ return [
 
     'attributes'           => [
         'firstName'             => 'nombre',
-        'lastName'             => 'apellidos',
+        'lastName'              => 'apellidos',
         'name'                  => 'nombre',
         'username'              => 'usuario',
         'email'                 => 'correo electrónico',
