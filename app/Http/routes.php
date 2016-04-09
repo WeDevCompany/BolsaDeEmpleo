@@ -17,9 +17,7 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     });
 
-    Route::get('registro-profesor', function () {
-        return view('teacher.form');
-    });
+    
 
     Route::get('registro-estudiante', function () {
         return view('student.form');
@@ -28,6 +26,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('registro-empresa', function () {
         return view('enterprise.form');
     });
+
+
 
 });
 
@@ -49,31 +49,34 @@ Route::group(['middleware' => 'web'], function () {
 
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'], function(){
 
     Route::resource('/', 'TeachersController');
 
 });
 
-Route::group(['prefix' => 'profesor', 'namespace' => 'Profesor'], function(){
+Route::group(['prefix' => 'profesor', 'middleware' => 'web', 'namespace' => 'Profesor'], function(){
 
     Route::resource('/', 'TeachersController');
+    Route::resource('registro', 'TeachersController@register');
 
 });
 
-Route::group(['prefix' => 'estudiante', 'namespace' => 'Estudiante'], function(){
+Route::group(['prefix' => 'estudiante', 'middleware' => 'web', 'namespace' => 'Estudiante'], function(){
 
     Route::resource('/', 'StudentsController');
+    Route::resource('registro', 'StudentsController@register');
 
 });
 
-Route::group(['prefix' => 'empresa', 'namespace' => 'Empresa'], function(){
+Route::group(['prefix' => 'empresa', 'middleware' => 'web', 'namespace' => 'Empresa'], function(){
 
     Route::resource('/', 'EnterprisesController');
+    Route::resource('registro', 'EnterprisesController@register');
 
 });
 
-Route::group(['prefix' => 'uso', 'namespace' => 'Uso'], function(){
+Route::group(['prefix' => 'uso', 'middleware' => 'web', 'namespace' => 'Uso'], function(){
 
     Route::resource('/', 'UsoController');
 

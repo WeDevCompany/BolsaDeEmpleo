@@ -68,4 +68,9 @@ class StudentsController extends UsersController
         return redirect()->route('student.index');
     } // store()
 
+    public function register()
+    {
+        return view('student.form');
+    }
+
 }

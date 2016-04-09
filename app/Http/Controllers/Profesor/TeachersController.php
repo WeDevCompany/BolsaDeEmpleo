@@ -95,5 +95,10 @@ class TeachersController extends UsersController
     	return false;
     } // create()
 
+    public function register()
+    {
+        return view('teacher.form');
+    }
+
 
 }

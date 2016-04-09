@@ -30,4 +30,9 @@ class EnterprisesController extends UsersController
         return view('home');
     } // index()
 
+    public function register()
+    {
+        return view('enterprise.form');
+    }
+
 }
