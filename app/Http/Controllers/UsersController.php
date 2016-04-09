@@ -21,7 +21,7 @@ class UsersController extends Controller
 
     protected function __construct(Request $request)
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
         $this->request = $request;
 
         // Reglas de usuarios.

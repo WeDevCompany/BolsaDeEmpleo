@@ -16,7 +16,7 @@
         </div>
             <div class="col-md-4">
                     <div class="testimonial-card z-depth-1 hoverable">
-                        <a href="{{ url('/estudiante') }}">
+                        <a href="{{ url('estudiante/registro') }}">
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up red">
                                 </div>
@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-4">
                     <div class="testimonial-card z-depth-1 hoverable">
-                        <a href="{{ url('/empresa') }}">
+                        <a href="{{ url('empresa/registro') }}">
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up g light-blue">
                                 </div>
@@ -48,7 +48,7 @@
             </div>
             <div class="col-md-4">
                     <div class="testimonial-card z-depth-1 hoverable">
-                        <a href="{{ url('/profesor') }}">
+                        <a href="{{ url('profesor/registro') }}">
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up yellow">
                                 </div>
