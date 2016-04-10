@@ -1,4 +1,9 @@
 @extends('layouts.app')
+@section('scripts')
+    {{-- Incluimos los scripts de validaciones --}}
+    <script src="/js/validaciones/email.js" charset="utf-8"></script>
+    <script src="/js/validaciones/password.js" charset="utf-8"></script>
+@endsection
 
 @section('content')
 @include('partials.nav.navGuest')
@@ -12,12 +17,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <form class="col-md-12" role="form" method="POST" action="{{ url('/login') }}">
+                        <form class="col-md-12" id="" role="form" method="POST" action="{{ url('/login') }}">
                             {!! csrf_field() !!}
                             <div class="row">
                                 <div class="input-field{{ $errors->has('email') ? ' has-error' : '' }} col-md-12">
                                     <i class="material-icons prefix">email</i>
-                                    {{ Form::text('email', null,['class' => 'validate', 'id' => 'email']) }}
+                                    {{ Form::email('email', null,['class' => 'validate', 'id' => 'email', 'data-error' => 'Introduzca un email valido', 'maxlength' => '75']) }}
                                     {{ Form::label('email', 'E-Mail', ['for' => 'icon_email']) }}
                                 </div>
                             </div>
@@ -31,7 +36,7 @@
                             <div class="row">
                                 <div class="input-field{{ $errors->has('password') ? ' has-error' : '' }} col-md-12">
                                     <i class="material-icons prefix">lock</i>
-                                    {{ Form::password('password', ['class' => 'validate', 'id' => 'password']) }}
+                                    {{ Form::password('password', ['class' => 'validate', 'id' => 'password','data-error' => 'Introduzca un password valido', 'maxlength' => '25']) }}
                                     {{ Form::label('password', 'Contraseña', ['for' => 'password']) }}
                                 </div>
                             </div>
@@ -54,7 +59,7 @@
                                     @endif
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary waves-effect waves-light btn-login-media">
+                                    <button type="submit" id="submit" class="btn btn-primary waves-effect waves-light btn-login-media">
                                         <i class="fa fa-sign-in"></i>
                                         Login
                                     </button>

@@ -84,7 +84,7 @@
 
 
               </div>
-              <div class="col-md-6 map" id="map">
+              <div class="col-md-6 map card-panel hoverable wow fadeInUp" id="map">
               <!-- Librería de google maps + API key -->
                 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGyfVQZ3XHG7GRD51OlVNw1kACBKrg8Ww" type="text/javascript"></script>
                 <!-- Script que inicializa el mapa -->

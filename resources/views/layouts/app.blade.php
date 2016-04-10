@@ -15,7 +15,7 @@
     <meta name="organization" content="IES Ingeniero de la cierva" />
     <!-- Etiquetas para el Posicionamiento SEO -->
     <title>Bolsa de empleo - I.E.S. Ingeniero de la cierva</title>
-
+    <noscript>Su navegador no tiene activado javascript, por favor activelo y recarge la página</noscript>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="{{ url('img/favicon/apple-icon-57x57.png') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ url('img/favicon/apple-icon-60x60.png') }}">
@@ -71,8 +71,9 @@
     <!-- JQuery -->
     <script type="text/javascript" src="{{ url('js/jquery.min.js') }}"></script>
 
-    <!-- Validator -->
-    <script type="text/javascript" src="{{ url('js/validator/validator.min.js') }}"></script>
+    <!-- jQuery Validation -->
+   <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
+   type="text/javascript"></script>
 
     <!-- Script TagBox -->
     <script src="{{ url('js/tagging.min.js') }}"></script>
