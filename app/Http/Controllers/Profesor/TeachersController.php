@@ -28,6 +28,8 @@ class TeachersController extends UsersController
             'dni'              => 'required',
             'phone'            => 'required',
         ];*/
+
+		// Le damos valor a las variables del padre
         $this->rol = 'teacher';
         $this->redirectTo = "/profesor";
     }
@@ -55,7 +57,7 @@ class TeachersController extends UsersController
             'phone'            => 'required',
         ];
 
-       
+
          $validation = Validator::make($input, $rules);
 
     if($validation->passes()) {
@@ -76,7 +78,7 @@ class TeachersController extends UsersController
 
         // Creo el usuario y añado el id.
         $user = Parent::create($this->request->all());
-        
+
         if($user === false){
         	Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
       	} else {
@@ -104,19 +106,23 @@ class TeachersController extends UsersController
     }
     } // store()
 
-    protected function create(array $data)
+    protected function create()
     {
+		// Creamos una variable local con el request
+		$request = $this->request;
+		// En un bloque try-catch intentmos realizar la transacción
     	try {
 	    	$insercion = Teacher::create([
-	            'firstName' => $data['firstName'],
-	            'lastName' => $data['lastName'],
-	            'dni' => $data['dni'],
-	            'phone' => $data['phone'],
-	            'user_id' => $data['user_id'],
+	            'firstName' => $request['firstName'],
+	            'lastName' => $request['lastName'],
+	            'dni' => $request['dni'],
+	            'phone' => $request['phone'],
+	            'user_id' => $request['user_id'],
 	            'created_at' => date('YmdHms'),
 	    	]);
 	    } catch(\PDOException $e){
         	//dd($e);
+        	abort(500);
 	    }
 
     	if(isset($insercion)){
@@ -128,7 +134,7 @@ class TeachersController extends UsersController
     public function register()
     {
         if (\Auth::user()) {
-            
+
             return redirect()->to('/');
 
         }
