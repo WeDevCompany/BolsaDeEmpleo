@@ -17,8 +17,9 @@ class OurUsersSeeder extends Seeder
         $cad = "";
         //                                        AÑO   HORA MIN  SEG
         // Montamos una cadena aleatoria con 63 + 0000 + 00 + 00 + 00
+        // Total de caracteres 25 - aleatorios + el string bolsaempleo
         for($i=0;$i<15;$i++) {
-            $cad .= mb_substr($str,rand(0,73),1);
+            $cad .= mb_substr($str,rand(0,73),1) . date("Yhis") . "bolsaempleo";
         }
         return $cad;
     } // generarCodigo()
