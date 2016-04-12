@@ -12,22 +12,29 @@ $('#password').blur(function(){
         var mensaje = "El password esta vacio";
         // Añadimos justo después del campo password, el mensaje de error
         password.after( '<div id="error-password" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>' ).fadeIn("slow");
+        password.addClass('invalid');
+        return false;
     } else if (password.val().length < 6) {
         // Escribimos el mensaje de error de forma que en el futuro
         // podamos modificarlo
         var mensaje = "El password es demasiado corto";
         // Añadimos justo después del campo password, el mensaje de error
         password.after( '<div id="error-password" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>' ).fadeIn("slow");
+        password.addClass('invalid');
+        return false;
     } else if (!regexPass(password.val())) {
         // Escribimos el mensaje de error de forma que en el futuro
         // podamos modificarlo
         var mensaje = "El password es no cumple el formato mínimo";
         // Añadimos justo después del campo password, el mensaje de error
         password.after( '<div id="error-password" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>' ).fadeIn("slow");
+        password.addClass('invalid');
+        return false;
     } else {
         // realizamos el saneamiento del campo
         password.value = $.trim(password.val());
         password.value = password.text(password.val());
+        password.removeClass('invalid');
     }
 })// Validar #password
 

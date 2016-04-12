@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('scripts')
     {{-- Incluimos los scripts de validaciones --}}
-    <script src="/js/validaciones/email.js" charset="utf-8"></script>
-    <script src="/js/validaciones/password.js" charset="utf-8"></script>
+    <!--script src="/js/validaciones/email.js" charset="utf-8"></script>
+    <script src="/js/validaciones/password.js" charset="utf-8"></script-->
+    <script src="/js/validaciones/facada.js" charset="utf-8"></script>
 @endsection
 
 @section('content')
@@ -17,7 +18,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <form class="col-md-12" id="" role="form" method="POST" action="{{ url('/login') }}">
+                        <form class="col-md-12" id="login-form" role="form" method="POST" action="{{ url('/login') }}">
                             {!! csrf_field() !!}
                             <div class="row">
                                 <div class="input-field{{ $errors->has('email') ? ' has-error' : '' }} col-md-12">

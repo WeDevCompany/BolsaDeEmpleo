@@ -1,3 +1,4 @@
+
 // Cuando pierda el foco validamos el email
 $('#email').blur(function(){
     // =============================
@@ -12,18 +13,21 @@ $('#email').blur(function(){
         var mensaje = "El email esta vacio";
         // Añadimos justo después del campo email, el mensaje de error
         email.after( '<div id="error-email" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>' ).fadeIn("slow");
+        email.addClass('invalid');
     } else if (email.val().length < 6) {
         // Escribimos el mensaje de error de forma que en el futuro
         // podamos modificarlo
         var mensaje = "El email es demasiado corto";
         // Añadimos justo después del campo email, el mensaje de error
         email.after( '<div id="error-email" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>' ).fadeIn("slow");
+        email.addClass('invalid');
     } else if (!validarEmail(email.val())) {
         // Escribimos el mensaje de error de forma que en el futuro
         // podamos modificarlo
-        var mensaje = "El emai no es valido";
+        var mensaje = "El email no es valido";
         // Añadimos justo después del campo email, el mensaje de error
         email.after( '<div id="error-email" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>' ).fadeIn("slow");
+        email.addClass('invalid');
     } else {
         // realizamos el saneamiento del campo
         email.value = $.trim(email.val());
@@ -38,7 +42,9 @@ $('#email').focus(function(){
     if(errorEmail){
         errorEmail.fadeOut("fast");
     }
+    email.removeClass('invalid');
 })// resetear email
+
 
 /**
  * función que comprueba si un email es valido o no
