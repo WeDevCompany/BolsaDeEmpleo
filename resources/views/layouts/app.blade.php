@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es-ES">
 <head>
+
+    
+    
     <meta name="encoding" charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -60,6 +63,9 @@
     <!-- Estilos diseñados por nosotros -->
     <link href="{{ url('css/style.css') }}" rel="stylesheet">
 
+    <!-- Estilos para chosen (select multiple) -->
+    <link rel="stylesheet" href="{{ url('plugin/chosen/chosen.css') }}">
+
 
 </head>
 <body id="app-layout">
@@ -98,6 +104,9 @@
 
     <!-- Script queautomatiza el carrusel -->
     <script src="{{url("/js/carrusel.js")}}" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Script de chosen (select multiple) -->
+    <script src="{{ url('plugin/chosen/chosen.jquery.js') }}"></script>
 
     @yield('scripts')
 
