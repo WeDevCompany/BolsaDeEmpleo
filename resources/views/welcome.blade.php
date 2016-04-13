@@ -79,7 +79,8 @@
                     <p class="lead"><strong><i class="fa fa-link"></i> Moodle:</strong> <a target="_blank" href="http://moodle.iescierva.net/">moodle.iescierva.net</a></p>
                     <p class="lead"><strong><i class="fa fa-envelope-o"></i> Email de la bolsa de empleo:</strong> <a href="mailto:bolsa@iescierva.net?subject=Bolsa%20Empleo">bolsa@iescierva.net</a></p>
                     <p class="lead hide">
-                        <a target="_blank" href="https://maps.google.com/maps?ll=37.961896,-1.133224&amp;z=15&amp;t=m&amp;hl=es-ES&amp;gl=US&amp;mapclient=apiv3&amp;cid=5114021630982515677">Ver en Google Maps
+                        <i class="fa fa-map-marker"></i>
+                        <a target="_blank" href="https://maps.google.com/maps?ll=37.961896,-1.133224&amp;z=15&amp;t=m&amp;hl=es-ES&amp;gl=US&amp;mapclient=apiv3&amp;cid=5114021630982515677">Ver en Google Maps</a>
                     </p>
 
 

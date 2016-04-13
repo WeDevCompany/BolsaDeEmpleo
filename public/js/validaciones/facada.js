@@ -50,5 +50,18 @@ $(document).ready(function(){
                 }
             }
         });
+    }// Comprobación de si el formulario es el de login
+
+    // Comprobamos si el formulario
+    // es el formulario de send-email-reset
+    if((form = $('#send-email-reset'))){
+        // Cargamos las validaciones del email
+        form.after('<script src="/js/validaciones/email.js" charset="utf-8"></script>');
+        // Deshabilitamos el botón si los campos estan vacios
+        $("#submit").mouseover(function(){
+            if($.trim(email.val()) === "" || $.trim(email.val()) === null){
+                $("#submit").prop('disabled', true);
+            }
+        });
     }
 })

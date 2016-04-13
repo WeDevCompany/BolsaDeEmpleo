@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('scripts')
     {{-- Incluimos los scripts de validaciones --}}
-    <!--script src="/js/validaciones/email.js" charset="utf-8"></script>
-    <script src="/js/validaciones/password.js" charset="utf-8"></script-->
     <script src="/js/validaciones/facada.js" charset="utf-8"></script>
 @endsection
 
@@ -27,13 +25,13 @@
                                     {{ Form::label('email', 'E-Mail', ['for' => 'icon_email']) }}
                                 </div>
                             </div>
-                                <div class="text-center">
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
+                            <div class="text-center">
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                             <div class="row">
                                 <div class="input-field{{ $errors->has('password') ? ' has-error' : '' }} col-md-12">
                                     <i class="material-icons prefix">lock</i>

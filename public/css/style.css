@@ -90,6 +90,19 @@ body {
 }
 
 /*********************
+  PANEL-BODY
+**********************/
+@media only screen and (max-width: 600px){
+    .container-a-medida{
+        padding:1px;
+    }
+    .panel-body-a-medida {
+        padding: 5px;
+    }
+}
+
+
+/*********************
   IMAGENES CARROUSEL FIXED
 **********************/
 
@@ -335,7 +348,6 @@ a:hover.back-to-top {
 
 .help-block {
   color: red;
-  padding: 10px;
 }
 
 @media only screen and (max-width: 768px) {
