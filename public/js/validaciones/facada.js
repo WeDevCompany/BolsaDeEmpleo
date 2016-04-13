@@ -33,34 +33,21 @@ $(document).ready(function(){
             }
         });
 
-        // Deshabilitamos el botón de login si el email da error
-        $("#submit").mouseover(function(){
-            if((email = $('#email'))){
-                if (email.hasClass('invalid')) {
-                    $("#submit").prop('disabled', true);
-                }
-            }
-        });
-
-        // Deshabilitamos el botón de login si el password da error
-        $("#submit").mouseover(function(){
-            if((password = $('#password'))){
-                if (password.hasClass('invalid')) {
-                    $("#submit").prop('disabled', true);
-                }
-            }
-        });
     }// Comprobación de si el formulario es el de login
 
     // Comprobamos si el formulario
     // es el formulario de send-email-reset
-    if((form = $('#send-email-reset'))){
+    else if((form = $('#send-email-reset'))){
+        console.log("ERROR");
         // Cargamos las validaciones del email
         form.after('<script src="/js/validaciones/email.js" charset="utf-8"></script>');
+
         // Deshabilitamos el botón si los campos estan vacios
         $("#submit").mouseover(function(){
             if($.trim(email.val()) === "" || $.trim(email.val()) === null){
                 $("#submit").prop('disabled', true);
+            }else {
+                $("#submit").prop('disabled', false);
             }
         });
     }
