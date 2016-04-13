@@ -24,58 +24,69 @@ class StudentsController extends UsersController
             'phone' => 'required',
             'road' => 'required',
             'address' => 'required',
-            'curriculum' => 'required',
+            //'curriculum' => 'required',
             'birthdate' => 'required',
-            'updates' => 'required',
         ];
         $this->rol = 'student';
-        $this->redirectTo = "/estudiante";
     }
 
-    public function index(){
-        return view('home');
+    protected function index(){
+        return view('student.form');
     } // index()
 
-
-
-    public function store()
+    protected function store()
     {
-
-        // Obtengo el array con los datos de la peticion.
-        $req = array_map('trim', $this->request->all());
-
-        // Añado el rol
-        $req['rol'] = $this->rol;
-        unset($req['_token']);
-
-        // Valido la peticion.
-        $this->validate($this->request, $this->rules);
-
-        // Remplazo en la peticion los cambios.
-        $this->request->replace($req);
-
         // Comenzamos la transaccion.
         \DB::beginTransaction();
 
-        // Creo el usuario.
-        Parent::create($this->request->all());
+        $user = Parent::store();
 
-        // Creo el profesor.
-        Student::create($this->request->all());
+        if($user === false){
+            \DB::rollBack();
+            Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
+        } else {
+            // Llamo al metodo para crear el estudiante.
+            $insercion = Self::create();
 
-        \DB::commit();
-        //\DB::rollBack()
-        return redirect()->route('student.index');
+            if($insercion === true){
+                \DB::commit();
+                \Auth::loginUsingId($user['id']);
+            } else {
+                \DB::rollBack();
+                Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
+            }
+        }
+        
+        // Redireccionamos a la vista de validacion del email. (index provisional).
+        return redirect()->route('estudiante..index');
     } // store()
 
-    public function register()
+    private function create()
     {
-        if (\Auth::user()) {
-            
-            return redirect()->to('/');
+        $data = $this->request->all();
 
+        try {
+            $insercion = Student::create([
+                'firstName' => $data['firstName'],
+                'lastName' => $data['lastName'],
+                'dni' => $data['dni'],
+                'nre' => $data['nre'],
+                'phone' => $data['phone'],
+                'road' => $data['road'],
+                'address' => $data['address'],
+                //'curriculum' => $data['curriculum'],
+                'birthdate' => $data['birthdate'],
+                'user_id' => $data['user_id'],
+                'created_at' => date('YmdHms'),
+            ]);
+        } catch(\PDOException $e){
+            //dd($e);
         }
-        return view('student.form');
-    }
+
+        if(isset($insercion)){
+            return true;
+        }
+        return false;
+    } // create()
 
 }

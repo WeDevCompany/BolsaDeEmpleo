@@ -53,48 +53,80 @@ class UsersController extends Controller
             'email' => 'required',
             'password' => 'required',
             'password2' => 'required',
+            //'image' => 'required',
         ];
     }
 
+    protected function store()
+    {
+
+        // Valido la peticion.
+        $this->validate($this->request, $this->rules);
+
+        // Obtengo el array con los datos de la peticion.
+        $req = array_map('trim', $this->request->all());
+
+        // Añado el rol.
+        $req['rol'] = $this->rol;
+
+        // Remplazo en la peticion los cambios para añadir el rol.
+        $this->request->replace($req);
+
+        // Creo el usuario y devuelvo los datos de la insercion.
+        $user = Self::create();
+
+        if($user === false){
+            return false;
+        } else {
+            $req['user_id'] = $user['id'];
+
+            // Remplazo en la peticion los cambios para añadir el user_id.
+            $this->request->replace($req);
+
+            // Devuelvo los datos de la insercion.
+            return $user;
+        }
+    } // store()
+
     /**
      * Método de creación de los usuarios
-     * (no se le pasa un array de datos ¬¬)
      * @return [type] [description]
      */
-    protected function create()
+    private function create()
     {
-        // variable local
-        $request = $this->request;
-    	// Creamos una instancia de Faker
+        // Creamos una instancia de Faker
         $faker = Faker::create('es_ES');
 
         // Tratamiento de la imagen
         if (!empty($request->file('file'))) {
             $imagen = $request->file('file');
         } else {
-              $imagen = $faker->randomElement(['default/default_1.png', 'default/default_2.png',
-               'default/default_3.png', 'default/default_4.png', 'default/default_5.png',
-               'default/default_6.png', 'default/default_7.png', 'default/default_8.png',
-               'default/default_9.png', 'default/default_10.png', 'default/default_11.png']);
+            $imagen = $faker->randomElement(['default/default_1.png', 'default/default_2.png',
+             'default/default_3.png', 'default/default_4.png', 'default/default_5.png',
+             'default/default_6.png', 'default/default_7.png', 'default/default_8.png',
+             'default/default_9.png', 'default/default_10.png', 'default/default_11.png']);
         }
+
+        // Variable local
+        $data = $this->request->all();
 
         try {
-	    	$insercion = User::create([
-	            'email' => $request['email'],
-	            'password' => \Hash::make($request['password']),
-	            //'code' => //llamada a la funcion que crea el codigo
-	            'rol' => $request['rol'],
-	            'image' => $imagen,
-	            'created_at' => date('YmdHms'),
-	    	]);
+            $insercion = User::create([
+                'email' => $data['email'],
+                'password' => \Hash::make($data['password']),
+                //'code' => //llamada a la funcion que crea el codigo
+                'rol' => $data['rol'],
+                'image' => $imagen,
+                'created_at' => date('YmdHms'),
+            ]);
         } catch(\PDOException $e){
-        	//dd($e);
+            //dd($e);
         }
 
-    	if(isset($insercion['id'])){
-    		return $insercion;
-    	}
-    	return false;
+        if(isset($insercion['id'])){
+            return $insercion;
+        }
+        return false;
     } // create()
 
     /**
