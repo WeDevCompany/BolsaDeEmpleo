@@ -405,3 +405,33 @@ a:hover.back-to-top {
     margin-left:5px !important;
   }
 }
+
+/*******************
+   DRAG AND DROP
+********************/
+
+.drop img {
+  width: 100px;
+  height: 100px;
+}
+
+#file-info {
+    text-align: center;
+    display: block;
+}
+
+.drop{
+  border:2px dotted #bdc3c7;
+  padding:20px;
+  margin-bottom:20px;
+  width:100%;
+  height:125px;
+  color: #bdc3c7;
+  font-size:200%;
+  padding-top: 10px; 
+  padding-left: 10px
+}
+
+div.drop:hover {
+  border:2px solid #16a085;
+}
