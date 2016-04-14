@@ -37,8 +37,7 @@ $(document).ready(function(){
 
     // Comprobamos si el formulario
     // es el formulario de send-email-reset
-    else if((form = $('#send-email-reset'))){
-        console.log("ERROR");
+    if((form = $('#send-email-reset'))){
         // Cargamos las validaciones del email
         form.after('<script src="/js/validaciones/email.js" charset="utf-8"></script>');
 
