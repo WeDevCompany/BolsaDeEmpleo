@@ -89,6 +89,7 @@ class UsersController extends Controller
     } // store()
 
     /**
+     * 
      * Método de creación de los usuarios
      * @return [type] [description]
      */
@@ -98,7 +99,7 @@ class UsersController extends Controller
         $faker = Faker::create('es_ES');
 
         // Tratamiento de la imagen
-        if (!empty($request->file('file'))) {
+        if (!empty($this->request->file('file'))) {
             $imagen = $request->file('file');
         } else {
             $imagen = $faker->randomElement(['default/default_1.png', 'default/default_2.png',
@@ -121,6 +122,7 @@ class UsersController extends Controller
             ]);
         } catch(\PDOException $e){
             //dd($e);
+            abort(500);
         }
 
         if(isset($insercion['id'])){
