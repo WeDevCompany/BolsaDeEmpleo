@@ -8,125 +8,128 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Bienvenido Profesor</div>
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4><i class="fa fa-university"></i>Formulario de alta de profesores</h4>
 
-                <div class="panel-body">
-                    <p>Alta de profesores</p>
-                     {{ Form::open(['route' => 'profesor..store', 'method' => 'POST', 'files' => 'true']) }}
-                        {!! csrf_field() !!}
-                        <fieldset>
-                        <legend style="width:auto;">Profesor</legend>
+                    </div>
+                    <div class="panel-body">
+                         {{ Form::open(['route' => 'profesor..store', 'method' => 'POST', 'files' => 'true']) }}
+                            {!! csrf_field() !!}
+                            <fieldset>
+                            <legend style="width:auto;">Profesor</legend>
 
-                        <div class="control-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
-                            <div class="row">
-                                <div class="input-field col-md-12">
-                                    <i class="material-icons prefix">account_circle</i>
-                                    {{ Form::text('firstName', null,['id' => "firstName"]) }}
-                                    {{ Form::label('firstName', 'Nombre') }}
+                            <div class="control-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
+                                <div class="row">
+                                    <div class="input-field col-md-12">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        {{ Form::text('firstName', null,['id' => "firstName"]) }}
+                                        {{ Form::label('firstName', 'Nombre') }}
 
+                                    </div>
+                                </div>
+                                    @if ($errors->has('firstName'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('firstName') }}</strong>
+                                        </span>
+                                    @endif
+                            </div>
+
+                            <div class="control-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
+                                <div class="row">
+                                    <div class="input-field col-md-12">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        {{ Form::text('lastName', null,['id' => "lastName"]) }}
+                                        {{ Form::label('lastName', 'Apellidos') }}
+                                    </div>
+                                </div>
+                                    @if ($errors->has('lastName'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('lastName') }}</strong>
+                                        </span>
+                                    @endif
+                            </div>
+
+                            <div class="control-group{{ $errors->has('dni') ? ' has-error' : '' }}">
+                                <div class="row">
+                                    <div class="input-field col-md-12">
+                                        <i class="material-icons prefix">assignment_ind</i>
+                                        {{ Form::text('dni', null,['id' => "dni"]) }}
+                                        {{ Form::label('dni', 'DNI') }}
+                                    </div>
+                                </div>
+                                    @if ($errors->has('dni'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('dni') }}</strong>
+                                        </span>
+                                    @endif
+                            </div>
+
+                            <div class="control-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                                <div class="row">
+                                    <div class="input-field col-md-12">
+                                        <i class="material-icons prefix">phone</i>
+                                        {{ Form::text('phone', null,['id' => "phone"]) }}
+                                        {{ Form::label('phone', 'Phone') }}
+                                    </div>
+                                </div>
+                                    @if ($errors->has('phone'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('phone') }}</strong>
+                                        </span>
+                                    @endif
+                            </div>
+
+                            <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
+
+                                <div class="col-md-12">
+
+                                <!-- Drag and Drop -->
+                                <a id="file-select">
+                                    <div class="drop" id="drop">
+                                            <img id="show" src="">
+                                            <div class="text-center">
+                                                <span class="fa fa-file-image-o" aria-hidden="true"></span>
+                                            </div>
+                                    </div>
+                                <a>
+                                <!-- FIN Drag and Drop -->
+
+                                <span class="alert alert-info" id="file-info">No hay archivo aún</span>
+                                {{ Form::file('file', null, ['id' => 'file', 'class' => 'hide']) }}
+
+                                    @if ($errors->has('file'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('file') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
-                                @if ($errors->has('firstName'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('firstName') }}</strong>
-                                    </span>
-                                @endif
-                        </div>
+                            <div class="form-control">
+                            {{ Form::select('select',['L' => 'Large', 'S' => 'Small'], null,['class' => 'chosen-select form-control', 'multiple']) }}
 
-                        <div class="control-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
-                            <div class="row">
-                                <div class="input-field col-md-12">
-                                    <i class="material-icons prefix">account_circle</i>
-                                    {{ Form::text('lastName', null,['id' => "lastName"]) }}
-                                    {{ Form::label('lastName', 'Apellidos') }}
-                                </div>
                             </div>
-                                @if ($errors->has('lastName'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('lastName') }}</strong>
-                                    </span>
-                                @endif
-                        </div>
+                            </fieldset>
 
-                        <div class="control-group{{ $errors->has('dni') ? ' has-error' : '' }}">
-                            <div class="row">
-                                <div class="input-field col-md-12">
-                                    <i class="material-icons prefix">assignment_ind</i>
-                                    {{ Form::text('dni', null,['id' => "dni"]) }}
-                                    {{ Form::label('dni', 'DNI') }}
-                                </div>
-                            </div>
-                                @if ($errors->has('dni'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('dni') }}</strong>
-                                    </span>
-                                @endif
-                        </div>
 
-                        <div class="control-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                            <div class="row">
-                                <div class="input-field col-md-12">
-                                    <i class="material-icons prefix">phone</i>
-                                    {{ Form::text('phone', null,['id' => "phone"]) }}
-                                    {{ Form::label('phone', 'Phone') }}
-                                </div>
-                            </div>
-                                @if ($errors->has('phone'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('phone') }}</strong>
-                                    </span>
-                                @endif
-                        </div>
-
-                        <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-
-                            <div class="col-md-12">
-
-                            <!-- Drag and Drop -->
-                            <a id="file-select">
-                                <div class="drop" id="drop">
-                                        <img id="show" src="">
-                                        <div class="text-center">
-                                            <span class="fa fa-file-image-o" aria-hidden="true"></span>
+                            <fieldset>
+                                <legend style="width: auto;">Usuario</legend>
+                                @include('generic.userfields')
+                            </fieldset>
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4 text-center">
+                                    <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light">
+                                        <div class="show-responsive">
+                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
                                         </div>
+                                        <div class="hidden-media">
+                                            <i class="fa fa-btn fa-user"></i> <span class="hidden-media">Registrar</span>
+                                        </div>
+                                    </button>
                                 </div>
-                            <a>
-                            <!-- FIN Drag and Drop -->
-
-                            <span class="alert alert-info" id="file-info">No hay archivo aún</span>
-                            {{ Form::file('file', null, ['id' => 'file', 'class' => 'hide']) }}
-
-                                @if ($errors->has('file'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('file') }}</strong>
-                                    </span>
-                                @endif
                             </div>
-                        </div>
-                        <div class="form-control">
-                        {{ Form::select('select',['L' => 'Large', 'S' => 'Small'], null,['class' => 'chosen-select form-control', 'multiple']) }}
-
-                        </div>
-                        </fieldset>
-
-
-                        <fieldset>
-                            <legend style="width: auto;">Usuario</legend>
-                            @include('generic.userfields')
-                        </fieldset>
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4 text-center">
-                                <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light">
-                                    <div class="show-responsive">
-                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="hidden-media">
-                                        <i class="fa fa-btn fa-user"></i> <span class="hidden-media">Registrar</span>
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
-                    {{ Form::close() }}
+                        {{ Form::close() }}
+                    </div>
                 </div>
             </div>
         </div>
