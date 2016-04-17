@@ -20,7 +20,8 @@ class CreateUsersTable extends Migration
             $table->boolean('verifiedEmail')->default(false)->comment('Booleano para saber si el email ha sido verificado o no');
             $table->enum('rol', ['admin', 'teacher', 'student', 'enterprise'])->comment('Enumerado para el rol de usuario');
             $table->boolean('active')->default(false)->comment('Booleano para saber si ha sido validado como usuario real');
-            $table->string('image', 255)->comment('Ruta de la imagen de perfil por defecto');
+            $table->string('image', 255)->comment('Imagen de perfil por defecto');
+            $table->string('carpeta', 255)->comment('Carpeta que contendra la imagen');
             $table->timestamps();
             $table->softDeletes();
             $table->rememberToken();

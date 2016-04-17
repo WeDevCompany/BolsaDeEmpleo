@@ -69,7 +69,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -83,7 +84,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -97,7 +99,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -111,7 +114,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -125,7 +129,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -139,7 +144,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -161,7 +167,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -175,7 +182,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -189,7 +197,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -203,7 +212,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -217,7 +227,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -231,7 +242,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -407,7 +419,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -421,7 +434,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -435,7 +449,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -449,7 +464,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -463,7 +479,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -477,7 +494,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -613,7 +631,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -627,7 +646,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -641,7 +661,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -655,7 +676,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -669,7 +691,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -683,7 +706,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -785,7 +809,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -799,7 +824,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -813,7 +839,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -865,7 +892,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -879,7 +907,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -893,7 +922,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -945,7 +975,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -959,7 +990,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -973,7 +1005,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1043,7 +1076,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1057,7 +1091,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1071,7 +1106,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1131,7 +1167,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1145,7 +1182,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1159,7 +1197,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1211,7 +1250,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1225,7 +1265,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1239,7 +1280,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1291,7 +1333,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1305,7 +1348,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1319,7 +1363,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1389,7 +1434,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1403,7 +1449,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
@@ -1417,7 +1464,8 @@ class OurUsersSeeder extends Seeder
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
         	'rol' => $rol,
-            'image' => $faker->randomElement(['default/default_1.png', 'default/default_2.png', 'default/default_3.png', 'default/default_4.png', 'default/default_5.png', 'default/default_6.png', 'default/default_7.png', 'default/default_8.png', 'default/default_9.png', 'default/default_10.png', 'default/default_11.png']),
+            'image' => $faker->randomElement(['default_1.png', 'default_2.png', 'default_3.png', 'default_4.png', 'default_5.png', 'default_6.png', 'default_7.png', 'default_8.png', 'default_9.png', 'default_10.png', 'default_11.png']),
+            'carpeta' => $code_generated[$cont_user],
         	'active' => $active,
             'created_at' => date('YmdHms')
         ]);
