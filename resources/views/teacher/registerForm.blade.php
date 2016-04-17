@@ -1,6 +1,7 @@
-
 @extends('layouts.app')
-
+@section('css')
+    @include('keyword.teacher.registerFormKeywords')
+@endsection
 @section('content')
 @include('partials.nav.navProfesor')
 <div class="container">

@@ -38,7 +38,7 @@ Route::group(['middleware' => 'web'], function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'], function(){
 
-    Route::resource(config('routes.resource.index'), 'AdminsController');
+    Route::resource(config('routes.index'), 'AdminsController');
     Route::get(config('routes.perfil'), 'AdminsController@imagenPerfil');
     Route::post(config('routes.UploadImg'), 'AdminsController@uploadImage');
 

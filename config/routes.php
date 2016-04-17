@@ -45,7 +45,8 @@ return [
         ],
     'index'     => '/',
     'perfil'    => '/perfil',
-    'UploadImg' => '/UploadImg'
+    'UploadImg' => '/UploadImg',
+	'uso'		=> '/uso',
 
 
 ];

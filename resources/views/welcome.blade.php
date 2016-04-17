@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('css')
+    @include('keyword.index')
+@endsection()
 @section('content')
 
     @include('partials.nav.navWelcome')
@@ -8,7 +10,6 @@
 
         <!-- titulo de la section-->
 
-
         <!--Cards section-->
         <div class="container page-content container-card">
         <div class="container-fluid centrado">
@@ -16,7 +17,7 @@
         </div>
             <div class="col-md-4">
                     <div class="testimonial-card z-depth-1 hoverable">
-                        <a href="{{ url('estudiante/registro') }}">
+                        <a href="{{ url(config('routes.registro.registroEstudiante')) }}">
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up red">
                                 </div>
@@ -32,7 +33,7 @@
             </div>
             <div class="col-md-4">
                     <div class="testimonial-card z-depth-1 hoverable">
-                        <a href="{{ url('empresa/registro') }}">
+                        <a href="{{ url(config('routes.registro.registroEmpresa')) }}">
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up g light-blue">
                                 </div>
@@ -48,7 +49,7 @@
             </div>
             <div class="col-md-4">
                     <div class="testimonial-card z-depth-1 hoverable">
-                        <a href="{{ url('profesor/registro') }}">
+                        <a href="{{ url(config('routes.registro.registroProfesor')) }}">
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up yellow">
                                 </div>

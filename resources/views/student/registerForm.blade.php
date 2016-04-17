@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('css')
+    @include('keyword.student.registerFormKeywords')
+@endsection
 @section('content')
 @include('partials.nav.navEstudiante')
 <div class="container">

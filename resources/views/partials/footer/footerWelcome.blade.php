@@ -19,11 +19,11 @@
                         <p class="column-title white-text">Enlaces útiles</p>
 
                         <ul>
-                            <li><a href="/empresa">Empresas</a></li>
-                            <li><a href="/profesor">Profesores</a></li>
-                            <li><a href="/estudiante">Estudiantes</a></li>
-                            <li><a href="/uso">FAQ</a></li>
-                            <li><a href="/terminos" class="modal-trigger">Terminos LOPD</a></li>
+                            <li><a href="{{config('routes.registro.registroEmpresa')}}">Empresas</a></li>
+                            <li><a href="{{config('routes.registro.registroProfesor')}}">Profesores</a></li>
+                            <li><a href="{{config('routes.registro.registroEstudiante')}}">Estudiantes</a></li>
+                            <li><a href="{{config('routes.uso')}}">FAQ</a></li>
+                            <li><a href="{{config('routes.terminos')}}" class="modal-trigger">Terminos LOPD</a></li>
                         </ul>
 
                     </div>

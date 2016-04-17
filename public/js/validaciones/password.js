@@ -41,7 +41,7 @@ $('#password').focus(function(){
  * @return {Boolean}    True = Si es valido False = Si no es valido
  */
 function regexPass(str){
-    var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/;
+    var regex = "/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z-_$@ñÑáéíóúÁÉÍÓÚÀÈÌÒÙäëïöüÄËÏÖÜ]{6,20}$/";
     return regex.test(str);
 }// regexPass()
 
@@ -90,7 +90,7 @@ function passwordValido(password){
     if (!regexPass(password.val())) {
         // Escribimos el mensaje de error de forma que en el futuro
         // podamos modificarlo
-        var mensaje = "El password es no cumple el formato mínimo";
+        var mensaje = "El password puede contener, minúsculas, mayúsculas, números y caracteres especiales";
         // Añadimos justo después del campo password, el mensaje de error
         password.after( '<div id="error-password" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>' ).fadeIn("slow");
         password.addClass('invalid');

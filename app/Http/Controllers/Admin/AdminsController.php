@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 
-class AdminsController extends Controller
+class AdminsController extends TeachersController
 {
 	public function index(){
         return view('admin/index');

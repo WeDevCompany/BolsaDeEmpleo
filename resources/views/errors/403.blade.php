@@ -5,9 +5,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="error-template">
-                <h1>Oops! 503 Service unavailable</h1>
+                <h1>Oops! 403 Not Found</h1>
                 <div class="error-details">
-                    Lamentablemente el servicio no esta disponible
+                    Acceso prohibido, por favor no intente acceder a lugares a los que no tiene acceso.
                 </div>
                 <br>
                 <div class="error-actions">

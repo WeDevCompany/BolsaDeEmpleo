@@ -11,7 +11,7 @@
                 </div>
                 <br>
                 <div class="error-actions">
-                    <a href="/" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-home"></span> Llevame a mi perfil</a>
+                    <a href="/" class="btn btn-primary btn-lg btn-block"><i class="fa fa-home" aria-hidden="true"></i></span> Llevame al inicio</a>
                 </div>
             </div>
         </div>

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="es-ES">
 <head>
-
-    
-    
     <meta name="encoding" charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -14,9 +11,9 @@
     <meta name="author" content="Pedro Hernandéz Mora" />
     <meta name="author" content="Fernando Barcelona" />
     <meta name="author" content="Abel Montejo" />
-    <meta name="keywords" content="ingeniero de la cierva, empleo, trabajo, estudiantes fct, bolsa de empleo" />
     <meta name="organization" content="IES Ingeniero de la cierva" />
     <!-- Etiquetas para el Posicionamiento SEO -->
+    @yield('css')
     <title>Bolsa de empleo - I.E.S. Ingeniero de la cierva</title>
     <noscript>Su navegador no tiene activado javascript, por favor activelo y recarge la página</noscript>
     <!-- Favicon -->
