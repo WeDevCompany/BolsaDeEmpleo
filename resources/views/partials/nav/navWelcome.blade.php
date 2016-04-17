@@ -49,7 +49,7 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ url('/perfil') }}">Editar perfil</a></li>
+                                <li><a href="{{ url(\Auth::user()->rol . config('routes.perfil')) }}">Editar perfil</a></li>
                                 <li><a href="#">Cambiar contraseña</a></li>
                                 <li><a href="{{ url('/logout') }}">Logout</a></li>
                             </ul>
