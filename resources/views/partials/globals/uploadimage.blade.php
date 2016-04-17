@@ -13,11 +13,11 @@
                     {{ Auth::user()->image }}
                 </div>
                 <div style="margin: auto;">
-                	<img src="images/profile" alt="" class="img-responsive img-circle img-resize">
+                	<img src="{{ url('/img/imgUser/' . \Auth::user()->carpeta . '/' .  \Auth::user()->image) }}" alt="" class="img-responsive img-circle img-resize">
                 </div>
-                <form method="POST" action="/uploadImage" accept-charset="UTF-8" enctype="multipart/form-data">
+                <form method="POST" action="UploadImg" accept-charset="UTF-8" enctype="multipart/form-data">
 					<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                	{{ Form::file('imagen',['id' => 'holi'])}}
+                	{{ Form::file('file',['id' => 'holi'])}}
                 	{{ Form::submit('Cambiar Imagen', ['class' => 'btn btn-primary'])}}
                 	
                 </form>

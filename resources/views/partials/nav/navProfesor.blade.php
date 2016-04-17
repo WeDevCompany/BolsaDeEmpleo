@@ -45,7 +45,7 @@
                         <div class="dropdown">
 
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                <img src="images/profile" alt="Imagen de perfil" class="img-responsive img-circle img-navegador">
+                                <img src="{{ url('/img/imgUser/' . \Auth::user()->carpeta . '/' .  \Auth::user()->image) }}" alt="Imagen de perfil" class="img-responsive img-circle img-navegador">
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">

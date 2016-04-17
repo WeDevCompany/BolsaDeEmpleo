@@ -18,6 +18,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Requests\UploadImageRequest;
 use App\User;
+use Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -54,6 +55,10 @@ class UsersController extends Controller
             'password' => 'required',
             'password2' => 'required',
             //'image' => 'required',
+        ];
+
+        $this->rules_image = [
+            'file' => 'required|image'
         ];
     }
 
@@ -98,28 +103,49 @@ class UsersController extends Controller
         // Creamos una instancia de Faker
         $faker = Faker::create('es_ES');
 
-        // Tratamiento de la imagen
-        if (!empty($this->request->file('file'))) {
-            $imagen = $request->file('file');
-        } else {
-            $imagen = $faker->randomElement(['default/default_1.png', 'default/default_2.png',
-             'default/default_3.png', 'default/default_4.png', 'default/default_5.png',
-             'default/default_6.png', 'default/default_7.png', 'default/default_8.png',
-             'default/default_9.png', 'default/default_10.png', 'default/default_11.png']);
-        }
-
-        // Variable local
-        $data = $this->request->all();
-
         try {
-            $insercion = User::create([
-                'email' => $data['email'],
-                'password' => \Hash::make($data['password']),
-                //'code' => //llamada a la funcion que crea el codigo
-                'rol' => $data['rol'],
-                'image' => $imagen,
-                'created_at' => date('YmdHms'),
-            ]);
+
+            // Creacion de la carpeta de usuario
+            $carpeta = $this->generarCodigo();
+
+            // Tratamiento de la imagen
+            if (!empty($this->request->file('file'))) {
+
+                $file = $this->request->file('file');
+                $imagen = $file->getClientOriginalName();
+
+
+            } else {
+                $imagen = $faker->randomElement(['default_1.png', 'default_2.png',
+                 'default_3.png', 'default_4.png', 'default_5.png',
+                 'default_6.png', 'default_7.png', 'default_8.png',
+                 'default_9.png', 'default_10.png', 'default_11.png']);
+            }
+
+            $this->request['image'] = $imagen;
+
+            $insercion = User::create($this->request->all());
+
+            $user = new User;
+            $user->where('id', '=', $insercion['id'])->update(['carpeta' => $carpeta]);
+
+
+
+            if (!empty($file)) {
+
+                $save = $file->move(public_path() . '/img/imgUser/' . $carpeta, $imagen);
+
+                \Image::make(public_path() . '/img/imgUser/' . $carpeta . '/' . $imagen)->resize(200, 200)->save(public_path() . '/img/imgUser/' . $carpeta . '/' . $imagen);
+
+            } else {
+
+                \File::makeDirectory(public_path() . '/img/imgUser/' . $carpeta);
+                \Image::make(storage_path() . '/app/public/default/' . $imagen)->resize(200, 200)->save(public_path() . '/img/imgUser/' . $carpeta . '/' . $imagen);
+
+            }
+            
+            
+
         } catch(\PDOException $e){
             //dd($e);
             abort(500);
@@ -132,36 +158,47 @@ class UsersController extends Controller
     } // create()
 
     /**
-     * Método para hacer pruebas con las imágenes
-     * @return view llamada a la vista para realizar pruebas
-     */
-    protected function imagenPerfil()
-    {
-        return view('globals/uploadimage');
-    } // imagenPerfil()
-
-    /**
      * Método de subida de imagenes [Pruebas]
      * @param  UploadImageRequest $request middleware hecho
      *                                     expresamente para validar la imagen
      * @return [type]                      [description]
      */
-    protected function uploadImage(UploadImageRequest $request)
+    protected function uploadImage()
     {
+        // Validamos la imagen
+        $this->validate($this->request, $this->rules_image);
+
         //obtenemos el campo file definido en el formulario
-        $file = $request->file('imagen');
+        $file = $this->request->file('file');
 
         //obtenemos el nombre del archivo
         $nombre = $file->getClientOriginalName();
 
         //indicamos que queremos guardar un nuevo archivo en el disco local
-        $save = $file->move(storage_path() . '/app/public/' . \Auth::user()->email, $nombre);
+        $save = $file->move(public_path() . '/img/imgUser/' . \Auth::user()->carpeta, $nombre);
+
+        \Image::make(public_path() . '/img/imgUser/' . \Auth::user()->carpeta . '/' . $nombre)->resize(200, 200)->save(public_path() . '/img/imgUser/' . \Auth::user()->carpeta . '/' . $nombre);
 
         if ($save) {
             $user = new User;
-            $user->where('id', '=', \Auth::user()->id)->update(['image' => \Auth::user()->email . '/' . $nombre]);
+            $user->where('id', '=', \Auth::user()->id)->update(['image' => $nombre]);
         }
-        return Redirect::to('/perfil');
+        
     } // uploadImage()
+
+    protected function generarCodigo()
+    {
+        $str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_1234567890" . date("Yhis");
+        $cad = "";
+        //                                        AÑO   HORA MIN  SEG
+        // Montamos una cadena aleatoria con 63 + 0000 + 00 + 00 + 00
+        // Total de caracteres 25 - aleatorios + el string bolsaempleo
+        for($i=0;$i<15;$i++) {
+            $cad .= mb_substr($str,rand(0,73),1);
+        }
+        $cadEncryp = md5($cad);
+        return $cadEncryp;
+
+    }
 
 }// fin del controlador 

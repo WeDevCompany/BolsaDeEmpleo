@@ -80,4 +80,18 @@ class TeachersController extends UsersController
         return false;
     } // create()
 
+    public function imagenPerfil()
+    {
+        return view('partials/globals/uploadImage');
+    } // imagenPerfil()
+
+    public function uploadImage()
+    {
+        //$this->validate($this->request, $this->rules_image);
+        Parent::uploadImage();
+        return \Redirect::to('profesor/perfil');
+    }
+
 }
+
+

@@ -46,7 +46,7 @@
         <!-- Logo -->
         <div class="logo-wrapper">
 
-            {{ Html::image('images/profile', '', array('class' => 'img-responsive img-circle')) }}
+            <img src="{{ url('/img/imgUser/' . \Auth::user()->carpeta . '/' .  \Auth::user()->image) }}" alt="Imagen de perfil" class="img-responsive img-circle img-navegador">
             
             <div class="rgba-stylish-strong"><p class="user white-text">Admin<br>
             admin@gmail.com</p></div>
