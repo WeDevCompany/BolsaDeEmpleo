@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Empresa;
+namespace App\Http\Controllers\Enterprise;
 
 use App\Enterprise;
 use App\Http\Controllers\UsersController;
@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Session;
 
 class EnterprisesController extends UsersController
 {
-	
+
 	public function __construct(Request $request)
-    {	
+    {
         Parent::__construct($request);
         $this->rules += [
             'firstName' => 'required',
@@ -33,7 +33,7 @@ class EnterprisesController extends UsersController
     public function register()
     {
         if (\Auth::user()) {
-            
+
             return redirect()->to('/');
 
         }

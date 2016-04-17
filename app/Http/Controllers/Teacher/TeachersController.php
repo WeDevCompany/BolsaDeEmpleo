@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Profesor;
+namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\UsersController;
 use App\Http\Requests;
@@ -27,7 +27,7 @@ class TeachersController extends UsersController
 
     protected function index()
     {
-        return view('teacher.form');
+        return view('teacher.registerForm');
     } // index()
 
     protected function store()
@@ -52,7 +52,7 @@ class TeachersController extends UsersController
                 Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
             }
         }
-        
+
         // Redireccionamos a la vista de validacion del email. (index provisional).
         return redirect()->route('profesor..index');
     } // store()

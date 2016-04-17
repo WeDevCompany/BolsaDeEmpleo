@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Estudiante;
+namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\UsersController;
 use App\Http\Requests;
@@ -15,7 +15,7 @@ class StudentsController extends UsersController
 {
 
 	public function __construct(Request $request)
-    {	
+    {
         Parent::__construct($request);
         $this->rules += [
             // Reglas para el estudiante
@@ -38,7 +38,8 @@ class StudentsController extends UsersController
     }
 
     protected function index(){
-        return view('student.form');
+        return view('student.registerForm
+		');
     } // index()
 
     protected function store()
@@ -72,7 +73,7 @@ class StudentsController extends UsersController
                 Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
             }
         }
-        
+
         // Redireccionamos a la vista de validacion del email. (index provisional).
         return redirect()->route('estudiante..index');
     } // store()

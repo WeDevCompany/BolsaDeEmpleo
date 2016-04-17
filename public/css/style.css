@@ -248,7 +248,7 @@ a.back-to-top {
   z-index: 999;
   right: 10px;
   bottom: 10px;
-  background: black url("../img/up-arrow.png") no-repeat center 43%;
+  background: black url("../img/up-arrow.png") no-repeat center 43% !important;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
@@ -259,6 +259,20 @@ a:hover.back-to-top {
   transition-duration: 0.6s;
 }
 
+@media only screen and (max-width : 400px) {
+    a.back-to-top {
+        width: 20px;
+        height: 30px;
+        text-indent: -9999px;
+        position: fixed;
+        z-index: 999;
+        right: 5px;
+        bottom: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+}
 
 /****************
   IMAGEN PERFIL
@@ -389,6 +403,13 @@ a:hover.back-to-top {
   padding:40px 50px !important;
 }
 
+.show-responsive {
+    display:none !important;
+}
+
+input[type = "file"]{
+    width: 100%;
+}
 
 @media only screen and (max-width : 700px) {
   .material-icons, .prefix{
@@ -405,7 +426,16 @@ a:hover.back-to-top {
     margin-left:5px !important;
   }
 }
+@media only screen and (max-width : 500px) {
+    .hidden-media{
+        display: none !important;
+        padding: 0px;
+    }
 
+    .show-responsive {
+        display:block!important;
+    }
+}
 /*******************
    DRAG AND DROP
 ********************/
@@ -428,7 +458,7 @@ a:hover.back-to-top {
   height:125px;
   color: #bdc3c7;
   font-size:200%;
-  padding-top: 10px; 
+  padding-top: 10px;
   padding-left: 10px
 }
 

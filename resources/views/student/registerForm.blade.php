@@ -11,20 +11,25 @@
 
                 <div class="panel-body">
                     <p>Formulario de registro para ESTUDIANTE</p>
-                     {{ Form::open(['route' => 'estudiante..store', 'method' => 'POST', 'files' => 'true']) }}
+                     {{ Form::open(['route' => 'estudiante..store', 'method' => 'POST', 'files' => 'true', 'id' => 'register-student-form']) }}
                         {!! csrf_field() !!}
                         <fieldset>
                             <legend style="width:auto;">Estudiante</legend>
-                            @include('student.studentfields')
+                            @include('student.partials.studentfields')
                         </fieldset>
                         <fieldset>
                             <legend style="width: auto;">Usuario</legend>
                             @include('generic.userfields')
                         </fieldset>
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i>Registrar
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light" id="submit">
+                                    <div class="show-responsive">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="hidden-media">
+                                        <i class="fa fa-btn fa-user"></i> <span class="hidden-media">Registrar</span>
+                                    </div>
                                 </button>
                             </div>
                         </div>
@@ -35,4 +40,3 @@
     </div>
 </div>
 @endsection
-                
