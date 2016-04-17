@@ -9,11 +9,11 @@ use App\Http\Requests;
 
 class UsoController extends Controller
 {
-    
+
 
     public function __construct()
     {
-        
+
     }
 
     /**
@@ -21,7 +21,7 @@ class UsoController extends Controller
      */
     public function index()
     {
-        return view('globals/uso');
+        return view('partials/globals/uso');
     }
 
 }

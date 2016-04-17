@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// La función config no funciona con Route::resource
 
 Route::group(['middleware' => ['web']], function () {
 
@@ -17,61 +18,58 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     });
 
-    Route::get(config('routes.routes.registroProfesor'), 'Teacher\TeachersController@index');
-    Route::get(config('routes.routes.registroEstudiante'), 'Student\StudentsController@index');
-    Route::get(config('routes.routes.registroEmpresa'), 'Enterprise\EnterprisesController@index');
+    Route::get(config('routes.registro.registroProfesor'), 'Teacher\TeachersController@index');
+    Route::get(config('routes.registro.registroEstudiante'), 'Student\StudentsController@index');
+    Route::get(config('routes.registro.registroEmpresa'), 'Enterprise\EnterprisesController@index');
 
 });
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::get('/home', 'HomeController@index');
-    Route::get('/terminos', function(){
+    //Route::get('/home', 'HomeController@index');
+
+    // Ruta para protección de datos
+    Route::get(config('routes.terminos'), function(){
         return view('partials.protecciondatos');
-    });
-
-
-    Route::resource('/perfil', 'UsersController@imagenPerfil');
-    Route::post('/uploadImage', 'UsersController@uploadImage');
-
-    //Ruta en la que mandamos por get la imagen de perfil del usuario
-    Route::get('images/profile', function()
-    {
-        $filepath = storage_path() . '/app/public/' . Auth::user()->image;
-        return Response::download($filepath);
     });
 
 });
 
-// Las rutas del admin no pueden ser con resource
-// porque si intentamos ir a /admin nos llevaal index del profesor.
 Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'], function(){
 
-    Route::resource('/', 'TeachersController');
+    Route::resource(config('routes.resource.index'), 'AdminController');
+    Route::get(config('routes.perfil'), 'AdminController@imagenPerfil');
+    Route::post(config('routes.UploadImg'), 'AdminController@uploadImage');
 
 });
 
 Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespace' => 'Teacher'], function(){
 
-    Route::resource('/', 'TeachersController');
+    Route::resource(config('routes.index'), 'TeachersController');
+    Route::get(config('routes.perfil'), 'TeachersController@imagenPerfil');
+    Route::post(config('routes.UploadImg'), 'TeachersController@uploadImage');
 
 });
 
 Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth'], 'namespace' => 'Student'], function(){
 
-    Route::resource('/', 'StudentsController');
+    Route::resource(config('routes.index'), 'StudentsController');
+    Route::get(config('routes.perfil'), 'StudentsController@imagenPerfil');
+    Route::post(config('routes.UploadImg'), 'StudentsController@uploadImage');
 
 });
 
 Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth'], 'namespace' => 'Enterprise'], function(){
 
-    Route::resource('/', 'EnterprisesController');
+    Route::resource(config('routes.index'), 'EnterprisesController');
+    Route::get(config('routes.perfil'), 'EnterprisesController@imagenPerfil');
+    Route::post(config('routes.UploadImg'), 'EnterprisesController@uploadImage');
 
 });
 
 Route::group(['prefix' => 'uso', 'middleware' => 'web', 'namespace' => 'Uso'], function(){
 
-    Route::resource('/', 'UsoController');
+    Route::resource(config('routes.index'), 'UsoController');
 
 });
