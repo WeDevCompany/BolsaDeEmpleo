@@ -162,7 +162,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Teacher1
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('eduardo@teacher.com'),
+        	'email' => mb_strtolower('profesor1@iescierva.net'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -177,7 +177,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Teacher2
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('emmanuel@teacher.com'),
+        	'email' => mb_strtolower('profesor2@iescierva.net'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -192,7 +192,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Teacher3
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('pedro@teacher.com'),
+        	'email' => mb_strtolower('profesor3@iescierva.net'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -414,7 +414,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Student1
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('eduardo@student.com'),
+        	'email' => mb_strtolower('alumno1@iescierva.net'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -429,7 +429,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Student2
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('emmanuel@student.com'),
+        	'email' => mb_strtolower('alumno2@iescierva.net'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -444,7 +444,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Student3
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('pedro@student.com'),
+        	'email' => mb_strtolower('alumno3@iescierva.net'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -626,7 +626,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Enterprise1
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('eduardo@enterprise.com'),
+        	'email' => mb_strtolower('empresa1@iescierva.net'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -641,7 +641,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Enterprise2
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('emmanuel@enterprise.com'),
+        	'email' => mb_strtolower('empresa2@iescierva.net'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -656,7 +656,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Enterprise3
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('pedro@enterprise.com'),
+        	'email' => mb_strtolower('empresa3@iescierva.net'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
