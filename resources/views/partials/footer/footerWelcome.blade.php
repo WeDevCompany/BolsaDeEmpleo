@@ -23,7 +23,7 @@
                             <li><a href="/profesor">Profesores</a></li>
                             <li><a href="/estudiante">Estudiantes</a></li>
                             <li><a href="/uso">FAQ</a></li>
-                            <li><a href="#">License</a></li>
+                            <li><a href="/terminos" class="modal-trigger">Terminos LOPD</a></li>
                         </ul>
 
                     </div>
@@ -73,6 +73,5 @@
                     © 2015 Copyright: <a target="_blank" href="http://www.iescierva.net/"> iescierva.net</a>
                 </div>
             </div>
-
         </footer>
     <!--/.Footer section-->
