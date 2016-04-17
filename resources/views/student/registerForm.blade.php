@@ -9,7 +9,6 @@
                 <div class="panel-heading">Alta de estudiantes</div>
 
                 <div class="panel-body">
-                    <p>Formulario de alta de estuciantes</p>
                      {{ Form::open(['route' => 'estudiante..store', 'method' => 'POST', 'files' => 'true', 'id' => 'register-student-form']) }}
                         {!! csrf_field() !!}
                         <fieldset>

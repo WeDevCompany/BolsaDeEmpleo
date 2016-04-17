@@ -17,9 +17,9 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     });
 
-    Route::get('profesor/registro', 'Teacher\TeachersController@index');
-    Route::get('estudiante/registro', 'Student\StudentsController@index');
-    Route::get('empresa/registro', 'Enterprise\EnterprisesController@index');
+    Route::get(config('routes.routes.registroProfesor'), 'Teacher\TeachersController@index');
+    Route::get(config('routes.routes.registroEstudiante'), 'Student\StudentsController@index');
+    Route::get(config('routes.routes.registroEmpresa'), 'Enterprise\EnterprisesController@index');
 
 });
 
@@ -44,25 +44,27 @@ Route::group(['middleware' => 'web'], function () {
 
 });
 
+// Las rutas del admin no pueden ser con resource
+// porque si intentamos ir a /admin nos llevaal index del profesor.
 Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'], function(){
 
     Route::resource('/', 'TeachersController');
 
 });
 
-Route::group(['prefix' => 'profesor', 'middleware' => ['web'/*, 'auth'*/], 'namespace' => 'Teacher'], function(){
+Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespace' => 'Teacher'], function(){
 
     Route::resource('/', 'TeachersController');
 
 });
 
-Route::group(['prefix' => 'estudiante', 'middleware' => ['web'/*, 'auth'*/], 'namespace' => 'Student'], function(){
+Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth'], 'namespace' => 'Student'], function(){
 
     Route::resource('/', 'StudentsController');
 
 });
 
-Route::group(['prefix' => 'empresa', 'middleware' => ['web'/*, 'auth'*/], 'namespace' => 'Enterprise'], function(){
+Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth'], 'namespace' => 'Enterprise'], function(){
 
     Route::resource('/', 'EnterprisesController');
 

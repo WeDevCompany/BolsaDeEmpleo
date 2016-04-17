@@ -35,9 +35,9 @@
                                 Registro<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/estudiante') }}"><i class="fa fa-graduation-cap right"></i> Estudiante</a></li>
-                                <li><a href="{{ url('/profesor') }}"><i class="fa fa-university right"></i> Profesor</a></li>
-                                <li><a href="{{ url('/empresa') }}"><i class="fa fa-building right"></i> Empresa</a></li>
+                                <li><a href="{{ url(config('routes.routes.registroEstudiante')) }}"><i class="fa fa-graduation-cap right"></i> Estudiante</a></li>
+                                <li><a href="{{ url(config('routes.routes.registroProfesor')) }}"><i class="fa fa-university right"></i> Profesor</a></li>
+                                <li><a href="{{ url(config('routes.routes.registroEmpresa')) }}"><i class="fa fa-building right"></i> Empresa</a></li>
                             </ul>
                         </li>
                     @else
