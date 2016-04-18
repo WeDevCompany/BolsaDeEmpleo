@@ -20,8 +20,10 @@
                         <fieldset>
                             <legend style="width: auto;">Usuario</legend>
                             @include('generic.userfields')
+                            @include('student.partials.cyclesfields')
                         </fieldset>
                             @include('generic.terms')
+
                         <div class="form-group">
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light" id="submit">
@@ -34,10 +36,22 @@
                                 </button>
                             </div>
                         </div>
+
                     {{ Form::close() }}
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    
+    <script>
+
+        // Indicamos cual sera el campo select multiple
+        $('.chosen-select').chosen([]);
+
+    </script>
+
 @endsection
