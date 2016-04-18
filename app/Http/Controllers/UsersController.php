@@ -114,7 +114,6 @@ class UsersController extends Controller
                 $file = $this->request->file('file');
                 $imagen = $file->getClientOriginalName();
 
-
             } else {
                 $imagen = $faker->randomElement(['default_1.png', 'default_2.png',
                  'default_3.png', 'default_4.png', 'default_5.png',
@@ -124,12 +123,16 @@ class UsersController extends Controller
 
             $this->request['image'] = $imagen;
 
+            // Obtengo el array con los datos de la peticion.
+            $req = array_map('trim', $this->request->all());
+
+            // Añado la carpeta.
+            $req['carpeta'] = $carpeta;
+
+            // Remplazo en la peticion los cambios para añadir el rol.
+            $this->request->replace($req);
+
             $insercion = User::create($this->request->all());
-
-            $user = new User;
-            $user->where('id', '=', $insercion['id'])->update(['carpeta' => $carpeta]);
-
-
 
             if (!empty($file)) {
 
@@ -144,8 +147,6 @@ class UsersController extends Controller
 
             }
             
-            
-
         } catch(\PDOException $e){
             //dd($e);
             abort(500);
