@@ -294,6 +294,10 @@ a:hover.back-to-top {
 .img-resize {
   width: 300px;
   height: 300px;
+  margin: auto;
+  margin-bottom: 25px;
+  margin-top: 15px;
+  border: 2px solid black;
 }
 
 /****************
@@ -465,3 +469,15 @@ input[type = "file"]{
 div.drop:hover {
   border:2px solid #16a085;
 }
+
+
+/**************
+  DROPZONE
+***************/
+
+.dropzone-width {
+  margin: auto;
+  width: 95%;
+}
+
+
