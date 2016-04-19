@@ -26,17 +26,17 @@
             </span>
         @endif
     </div>
-    <div class="form-group{{ $errors->has('password2') ? ' has-error' : '' }}">
+    <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
        <div class="row">
         <div class="input-field col-md-12">
             <i class="material-icons prefix">lock</i>
-        {{ Form::label('password2', 'Confirmar contraseña') }}
-        {{ Form::text('password2', null) }}
+        {{ Form::label('password_confirmation', 'Confirmar contraseña') }}
+        {{ Form::text('password_confirmation', null) }}
                 </div>
     </div>
-        @if ($errors->has('password2'))
+        @if ($errors->has('password_confirmation'))
             <span class="help-block">
-                <strong>{{ $errors->first('password2') }}</strong>
+                <strong>{{ $errors->first('password_confirmation') }}</strong>
             </span>
         @endif
     </div>
