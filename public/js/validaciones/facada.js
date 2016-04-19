@@ -1,3 +1,4 @@
+
 /**
  * Este archivo es una fachada desarrollada para
  * automatizar la validación de cualquier formulario
@@ -84,7 +85,7 @@ $(document).ready(function(){
     // Comprobamos si el formulario
     // es el formulario de registro de empresas
     if((enterpriseRegisterForm = $('#enterprise-register-form'))) {
-        
+
         // Script Drag and Drop Personalizado
         enterpriseRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
 
