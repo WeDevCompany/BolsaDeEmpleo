@@ -47,6 +47,7 @@ return [
     'perfil'    => '/perfil',
     'UploadImg' => '/UploadImg',
 	'uso'		=> '/uso',
+    'authLogin' => '/authLogin',
 
 
 ];

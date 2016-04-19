@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('scripts')
     {{-- Incluimos los scripts de valbolaciones --}}
-    <script src="/js/validaciones/facada.js" charset="utf-8"></script>
 @endsection
 
 @section('content')
@@ -16,7 +15,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <form class="col-md-12" id="login-form" role="form" method="POST" action="{{ url('/login') }}">
+                        <form class="col-md-12" id="login-form" role="form" method="POST" action="{{ url('/authLogin') }}">
                             {!! csrf_field() !!}
                             <div class="row">
                                 <div class="input-field{{ $errors->has('email') ? ' has-error' : '' }} col-md-12">

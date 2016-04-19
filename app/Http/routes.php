@@ -25,6 +25,8 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 Route::group(['middleware' => 'web'], function () {
+
+    Route::post(config('routes.authlogin'), 'Auth\AuthController@authLogin');
     Route::auth();
 
     //Route::get('/home', 'HomeController@index');
@@ -44,7 +46,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'
 
 });
 
-Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespace' => 'Teacher'], function(){
+Route::group(['prefix' => 'profesor', 'middleware' => ['web'], 'namespace' => 'Teacher'], function(){
 
     Route::resource(config('routes.index'), 'TeachersController');
     Route::get(config('routes.perfil'), 'TeachersController@imagenPerfil');
