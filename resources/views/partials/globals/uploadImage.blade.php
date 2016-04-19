@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     
-                    {!! Form::open(['url' => 'profesor/UploadImg', 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone dropzone-width']) !!}
+                    {!! Form::open(['url' => \Auth::user()->rol . config('routes.UploadImg'), 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone dropzone-width']) !!}
                         <div class="dz-message">
                             <h4><i class="fa fa-file-image-o" aria-hidden="true"></i></h4>
                         </div>
