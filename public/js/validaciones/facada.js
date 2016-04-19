@@ -50,4 +50,49 @@ $(document).ready(function(){
             }
         });
     }
+
+    // Comprobamos si el formulario
+    // es el formulario de registro de profesores
+    if((teacherRegisterForm = $('#teacher-register-form'))) {
+
+        // Script Drag and Drop Personalizado
+        teacherRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
+
+        // Script de chosen (select multiple)
+        teacherRegisterForm.after('<script src="/plugin/chosen/chosen.jquery.js"></script>');
+
+        // Script personalizado de chosen
+        teacherRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
+
+    }
+
+    // Comprobamos si el formulario
+    // es el formulario de registro de alumnos
+    if((studentRegisterForm = $('#student-register-form'))) {
+
+        // Script Drag and Drop Personalizado
+        studentRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
+
+        // Script de chosen (select multiple)
+        studentRegisterForm.after('<script src="/plugin/chosen/chosen.jquery.js"></script>');
+
+        // Script personalizado de chosen
+        studentRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
+
+    }
+
+    // Comprobamos si el formulario
+    // es el formulario de registro de empresas
+    if((enterpriseRegisterForm = $('#enterprise-register-form'))) {
+        
+        // Script Drag and Drop Personalizado
+        enterpriseRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
+
+        // Script de chosen (select multiple)
+        enterpriseRegisterForm.after('<script src="/plugin/chosen/chosen.jquery.js"></script>');
+
+        // Script personalizado de chosen
+        enterpriseRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
+
+    }
 })

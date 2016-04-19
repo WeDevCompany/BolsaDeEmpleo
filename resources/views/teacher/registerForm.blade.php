@@ -2,6 +2,10 @@
 @section('css')
     @include('keyword.teacher.registerFormKeywords')
 @endsection
+@section('scripts')
+    {{-- Incluimos los scripts de valbolaciones --}}
+    <script src="/js/validaciones/facada.js" charset="utf-8"></script>
+@endsection
 @section('content')
 @include('partials.nav.navProfesor')
 <div class="container">
@@ -14,7 +18,7 @@
 
                     </div>
                     <div class="panel-body">
-                         {{ Form::open(['route' => 'profesor..store', 'method' => 'POST', 'files' => 'true']) }}
+                         {{ Form::open(['route' => 'profesor..store', 'method' => 'POST', 'files' => 'true', 'id' => 'teacher-register-form']) }}
                             {!! csrf_field() !!}
                             <fieldset>
                             <legend style="width:auto;">Profesor</legend>
@@ -80,7 +84,7 @@
                                     @endif
                             </div>
 
-                            <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
+                            <div class="control-group{{ $errors->has('file') ? ' has-error' : '' }}">
 
                                 <div class="col-md-12">
 
@@ -105,10 +109,22 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-control">
-                            {{ Form::select('select',['L' => 'Large', 'S' => 'Small'], null,['class' => 'chosen-select form-control', 'multiple']) }}
 
+                            <div class="control-group{{ $errors->has('select') ? ' has-error' : '' }}">
+                                <div class="row">
+                                     <div class="input-field col-md-12">
+
+                                        {{ Form::select('select[]',['L' => 'Large', 'S' => 'Small'], old('select', null),['class' => 'chosen-select form-control', 'multiple' => 'multiple']) }}
+
+                                    </div>
+                                </div>
+                                    @if ($errors->has('select'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('select') }}</strong>
+                                        </span>
+                                    @endif
                             </div>
+
                             </fieldset>
 
 
@@ -135,87 +151,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('scripts')
-
-<script>
-
-    // Indicamos cual sera el campo select multiple
-    $('.chosen-select').chosen([]);
-
-    // Ocultar campos al iniciar el documento
-    $(document).on('ready', function(){
-        $('input[type=file]').hide();
-        $('#file-info').hide();
-        $('.drop img').hide();
-
-    });
-
-    // Funcion para mostrar la imagen
-    $('input[type=file]').change(function() {
-
-        // Nombre archivo usuario
-        var file = (this.files[0].name).toString();
-        var reader = new FileReader();
-
-        // Vaciamos el contenido y añadimos el nuevo donde mostraremos el nombre del archivo
-        $('#file-info').text('');
-        $('#file-info').text(file);
-
-        reader.onload = function (e) {
-
-            // Mostrar imagen
-            $('.drop img').attr('src', e.target.result);
-
-            $('.drop img').show();
-            $('#file-info').show();
-            $('.drop span').hide();
-
-        }
-
-        reader.readAsDataURL(this.files[0]);
-
-    });
-
-    // Funcion para drag and drop
-    $('.drop').on("dragover drop", function(e) {
-        e.stopPropagation();
-        e.preventDefault();
-
-    }).on("drop", function(e) {
-
-            // objeto FileList
-            var files = e.originalEvent.dataTransfer.files;
-            var file = files[0];
-
-            var metadata = [];
-
-            // Comprobamos que es una imagen
-            if (file.type.match('image.*')) {
-
-                // "Introducimos" la imagen en el input file
-                $("input[type='file']").prop("files", e.originalEvent.dataTransfer.files);
-
-                $(this).css("border", "2px solid green");
-
-            } else {
-
-                $(this).css("border", "2px solid red");
-
-                // error
-
-            }
-
-    });
-
-    // Al hacer click en el drag and drop se abre la ventana de subida de archivos
-    $('.drop').on('click', function(e) {
-
-        $("input[type='file']").click();
-
-    })
-
-</script>
-
 @endsection
