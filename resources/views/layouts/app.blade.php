@@ -8,7 +8,7 @@
     <meta name="Bolsa de empleo IES Ingeniero de la cierva" content="Bolsa de empleo IES Ingeniero de la cierva" />
     <meta name="author" content="Emmanuel Valverde Ramos" />
     <meta name="author" content="Eduardo López Pardo" />
-    <meta name="author" content="Pedro Hernandéz Mora" />
+    <meta name="author" content="Pedro Hernandéz-Mora de Fuentes" />
     <meta name="author" content="Fernando Barcelona" />
     <meta name="author" content="Abel Montejo" />
     <meta name="organization" content="IES Ingeniero de la cierva" />
@@ -75,8 +75,7 @@
     <script type="text/javascript" src="{{ url('js/jquery.min.js') }}"></script>
 
     <!-- jQuery Validation -->
-   <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
-   type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js" type="text/javascript"></script>
 
     <!-- Script TagBox -->
     <script src="{{ url('js/tagging.min.js') }}"></script>
@@ -101,9 +100,6 @@
 
     <!-- Script queautomatiza el carrusel -->
     <script src="{{url("/js/carrusel.js")}}" type="text/javascript" charset="utf-8"></script>
-
-    <!-- Script de chosen (select multiple) -->
-    <script src="{{ url('plugin/chosen/chosen.jquery.js') }}"></script>
 
     @yield('scripts')
 
