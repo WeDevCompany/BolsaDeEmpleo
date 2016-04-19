@@ -2,6 +2,10 @@
 @section('css')
     @include('keyword.student.registerFormKeywords')
 @endsection
+@section('scripts')
+    {{-- Incluimos los scripts de valbolaciones --}}
+    <script src="/js/validaciones/facada.js" charset="utf-8"></script>
+@endsection
 @section('content')
 @include('partials.nav.navEstudiante')
 <div class="container">
@@ -11,7 +15,7 @@
                 <div class="panel-heading">Alta de estudiantes</div>
 
                 <div class="panel-body">
-                     {{ Form::open(['route' => 'estudiante..store', 'method' => 'POST', 'files' => 'true', 'id' => 'register-student-form']) }}
+                     {{ Form::open(['route' => 'estudiante..store', 'method' => 'POST', 'files' => 'true', 'id' => 'student-register-form']) }}
                         {!! csrf_field() !!}
                         <fieldset>
                             <legend style="width:auto;">Estudiante</legend>
@@ -20,7 +24,10 @@
                         <fieldset>
                             <legend style="width: auto;">Usuario</legend>
                             @include('generic.userfields')
+                        <fieldset>
+                            <legend style="width: auto;">Ciclos</legend>
                             @include('student.partials.cyclesfields')
+                        </fieldset> 
                         </fieldset>
                             @include('generic.terms')
 
@@ -45,13 +52,3 @@
 </div>
 @endsection
 
-@section('scripts')
-    
-    <script>
-
-        // Indicamos cual sera el campo select multiple
-        $('.chosen-select').chosen([]);
-
-    </script>
-
-@endsection
