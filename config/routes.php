@@ -34,7 +34,7 @@ return [
         ],
     'enterprise'    =>
         [
-            'enterpriseIndex'     => '/empresa/',
+            'enterpriseIndex'     => '/empresa',
             'enterprisePerfil'    => '/empresa/perfil',
             'enterpriseUploadImg' => '/empresa/uploadImage',
         ],

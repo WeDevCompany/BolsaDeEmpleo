@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('scripts')
-    {{-- Incluimos los scripts de valbolaciones --}}
+    {{-- Incluimos los scripts de validaciones --}}
+    <script src="/js/validaciones/facada.js" charset="utf-8"></script>
 @endsection
 
 @section('content')

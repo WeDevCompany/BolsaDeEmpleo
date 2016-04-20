@@ -7,5 +7,8 @@ studentRegisterForm.after('<script src="/plugin/chosen/chosen.jquery.js"></scrip
 // Script personalizado de chosen
 studentRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
 
-// Script de validación de terminos de uso
+// Script personalizado de chosen
+studentRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
+
+// Script personalizado para aceptar terminos
 studentRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>');

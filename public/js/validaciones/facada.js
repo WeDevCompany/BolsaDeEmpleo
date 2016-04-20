@@ -14,6 +14,14 @@
  */
 $(document).ready(function(){
 
+    //Deshabilitamos el botón de submit de forma
+    //que no se pueda enviar un formulario vacio
+    submit = $('#submit');
+    submit.prop('disabled', true);
+    // quitamos efectos que generan un bug
+    submit.removeClass("waves-effect  waves-light");
+
+
     // Declaración de variables
     // =================================
     email = $('#email');
@@ -34,7 +42,7 @@ $(document).ready(function(){
     // y dependiendo de eso
     // cargamos una validaciones u otras
     if (login.length) {
-        console.log(login.length);
+
         // Cargamos el archivo que se encarga únicamente de cargar los cambios
         login.after('<script src="/js/validaciones/includes/loginForm.js" charset="utf-8"></script>');
 
@@ -65,7 +73,6 @@ $(document).ready(function(){
     // Comprobamos si el formulario
     // es el formulario de registro de alumnos
     if(studentRegisterForm.length) {
-        console.log('dentro');
         // Script Drag and Drop Personalizado
         studentRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
 
@@ -79,7 +86,7 @@ $(document).ready(function(){
         studentRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
 
         // Script personalizado para aceptar terminos
-        studentRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>');
+        studentRegisterForm.after('<script src="/js/validaciones/includes/studentRegisterForm.js" charset="utf-8"></script>');
 
     }
 
