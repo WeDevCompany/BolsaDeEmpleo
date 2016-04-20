@@ -1,9 +1,9 @@
-    <div class="form-group{{ $errors->has('cycles') ? ' has-error' : '' }}">    
+    <div class="form-group{{ $errors->has('cycles') ? ' has-error' : '' }}">
         <div class="row">
             <div class="input-field col-md-12">
         {{ Form::label('cycles', 'Ciclos cursados',['style' => 'margin-top: -5%']) }}
-        {{ Form::select('cycles',array('1' => 'Large', '2' => 'Small'), null,['class' => 'chosen-select form-control', 'multiple']) }}
-                </div>
+        {{ Form::select('cycles',array('1' => 'Large', '2' => 'Small'), null,['class' => 'chosen-select form-control', 'multiple' => true]) }}
+            </div>
     </div>
         @if ($errors->has('cycles'))
             <span class="help-block">
