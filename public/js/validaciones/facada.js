@@ -13,48 +13,43 @@
  *
  */
 $(document).ready(function(){
+
+    // Declaración de variables
+    // =================================
+    email = $('#email');
+    password = $('#password');
+    terminos = $('#termnos');
+
+    // Declaración de formularios
+    // ==============================
+    login = $('#login-form');
+    form = $('#send-email-reset');
+    teacherRegisterForm = $('#teacher-register-form');
+    studentRegisterForm = $('#student-register-form');
+    enterpriseRegisterForm = $('#enterprise-register-form');
+
+
     // Comprobamos en
     // que formulario nos encontramos
     // y dependiendo de eso
     // cargamos una validaciones u otras
-    if ((login = $('#login-form'))) {
-        // Cargamos las validaciones del email
-        login.after('<script src="/js/validaciones/email.js" charset="utf-8"></script>');
-        // Cargamos las validaciones de la contraseña
-        login.after('<script src="/js/validaciones/password.js" charset="utf-8"></script>');
-
-        // Declaramos las variables del formulario
-        email = $('#email');
-        password = $('#password');
-
-        // Deshabilitamos el botón si los campos estan vacios
-        $("#submit").mouseover(function(){
-            if($.trim(email.val()) === "" || $.trim(email.val()) === null || $.trim(password.val()) === "" || $.trim(password.val()) === null ){
-                $("#submit").prop('disabled', true);
-            }
-        });
+    if (login.length) {
+        console.log(login.length);
+        // Cargamos el archivo que se encarga únicamente de cargar los cambios
+        login.after('<script src="/js/validaciones/includes/loginForm.js" charset="utf-8"></script>');
 
     }// Comprobación de si el formulario es el de login
 
     // Comprobamos si el formulario
     // es el formulario de send-email-reset
-    if((form = $('#send-email-reset'))){
+    if(form.length){
         // Cargamos las validaciones del email
         form.after('<script src="/js/validaciones/email.js" charset="utf-8"></script>');
-
-        // Deshabilitamos el botón si los campos estan vacios
-        $("#submit").mouseover(function(){
-            if($.trim(email.val()) === "" || $.trim(email.val()) === null){
-                $("#submit").prop('disabled', true);
-            }else {
-                $("#submit").prop('disabled', false);
-            }
-        });
     }
 
     // Comprobamos si el formulario
     // es el formulario de registro de profesores
-    if((teacherRegisterForm = $('#teacher-register-form'))) {
+    if(teacherRegisterForm.length) {
 
         // Script Drag and Drop Personalizado
         teacherRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
@@ -63,14 +58,14 @@ $(document).ready(function(){
         teacherRegisterForm.after('<script src="/plugin/chosen/chosen.jquery.js"></script>');
 
         // Script personalizado de chosen
-        teacherRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
+        teacherRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>');
 
     }
 
     // Comprobamos si el formulario
     // es el formulario de registro de alumnos
-    if((studentRegisterForm = $('#student-register-form'))) {
-
+    if(studentRegisterForm.length) {
+        console.log('dentro');
         // Script Drag and Drop Personalizado
         studentRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
 
@@ -80,11 +75,17 @@ $(document).ready(function(){
         // Script personalizado de chosen
         studentRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
 
+        // Script personalizado de chosen
+        studentRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
+
+        // Script personalizado para aceptar terminos
+        studentRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>');
+
     }
 
     // Comprobamos si el formulario
     // es el formulario de registro de empresas
-    if((enterpriseRegisterForm = $('#enterprise-register-form'))) {
+    if(enterpriseRegisterForm.length) {
 
         // Script Drag and Drop Personalizado
         enterpriseRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
@@ -96,4 +97,5 @@ $(document).ready(function(){
         enterpriseRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
 
     }
-})
+
+})// document.ready

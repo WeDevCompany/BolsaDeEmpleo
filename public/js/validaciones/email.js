@@ -9,17 +9,21 @@ $('#email').blur(function(){
     var submit  = $('#submit');
     // Si el email está vacio
     if(!emailVacio(email)){
+        submit.removeClass("waves-effect waves-light");
         submit.prop('disabled', true);
         return false;   // devuelvo false
     } else if (!emailCorto(email)) {    // Si el email es muy corto
+        submit.removeClass("waves-effect waves-light");
         submit.prop('disabled', true);
         return false;   // devuelvo false
     } else if (!emailValido(email)) {
+        submit.removeClass("waves-effect waves-light");
         submit.prop('disabled', true);
         return false;   // devuelvo false
     } else {
         // realizamos el saneamiento del campo
         email.text($.trim(email.val()));
+        submit.removeClass("waves-effect  waves-light");
         submit.prop('disabled', false);
         return true;
     }

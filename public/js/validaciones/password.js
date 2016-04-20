@@ -8,15 +8,19 @@ $('#password').blur(function(){
     var submit  = $('#submit');
     // Si el password está vacio
     if(!passwordVacio(password)){
+        submit.removeClass("waves-effect waves-light");
         submit.prop('disabled', true);
         return false;   // devolvemos false
     } else if (!passwordCorto(password)) {
+        submit.removeClass("waves-effect waves-light");
         submit.prop('disabled', true);
         return false;
     } else if (!passwordValido(password)) {
+        submit.removeClass("waves-effect waves-light");
         submit.prop('disabled', true);
         return false;
     } else {
+        submit.addClass("waves-effect waves-light");
         // realizamos el saneamiento del campo
         password.text($.trim(password.val()));
         submit.prop('disabled', false);
