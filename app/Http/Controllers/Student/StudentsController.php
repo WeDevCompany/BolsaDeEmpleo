@@ -38,8 +38,7 @@ class StudentsController extends UsersController
     }
 
     protected function index(){
-        return view('student.registerForm
-		');
+        return view('student.registerForm');
     } // index()
 
     protected function store()

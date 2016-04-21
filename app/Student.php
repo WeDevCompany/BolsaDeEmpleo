@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Cycle;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -23,7 +24,7 @@ class Student extends Model
 
     public function manyCycles()
     {
-    	return $this->belongsToMany('\App\Cycle', 'studentCycles')
+    	return $this->belongsToMany(Cycle::class, 'studentCycles')
     			->withPivot('cycle_id');
     } // manyCycles()
 
