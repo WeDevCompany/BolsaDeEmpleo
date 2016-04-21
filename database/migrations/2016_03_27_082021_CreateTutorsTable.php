@@ -14,8 +14,8 @@ class CreateTutorsTable extends Migration
     {
         Schema::create('tutors', function (Blueprint $table) {
             $table->increments('id', 10)->comment('Identificador del tutor');
-            $table->string('dateTo',4)->nullable()->comment('Anyo en la que un profesor deja de ser tutor de un ciclo');
-            $table->string('dateFrom',4)->comment('Anyo en la que un profesor empieza como tutor');
+            $table->integer('dateTo',4)->nullable()->comment('Anyo en la que un profesor deja de ser tutor de un ciclo');
+            $table->integer('dateFrom',4)->comment('Anyo en la que un profesor empieza como tutor');
             $table->integer('teacher_id')->unsigned()->comment('Identificador del profesor');
             $table->integer('cycle_id')->unsigned()->comment('Identificador del ciclo del que es tutor');
             $table->foreign('teacher_id')->references('id')->on('teachers')->onUpdate('cascade')->onDelete('cascade');
