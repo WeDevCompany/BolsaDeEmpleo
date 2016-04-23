@@ -46,6 +46,20 @@ Route::group(['middleware' => 'web'], function () {
 
 });
 
+// Rutas de peticiones Ajax
+Route::group(['middleware' => 'web'], function () {
+
+    // Familias profesionales
+    Route::get('profFamilies'   , function(Illuminate\Http\Request  $request) {
+        $profFamilies = App\ProfFamilie::where('active', '=', '1')->lists('name', 'id');
+        $valid_profFamilies = [];
+        foreach ($profFamilies as $id => $profFamilie) {
+            $valid_profFamilies[] = ['id' => $id, 'familia' => $profFamilie];
+        }
+        return \Response::json($valid_profFamilies);
+    });
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'], function(){
 
     Route::resource(config('routes.index'), 'AdminsController');

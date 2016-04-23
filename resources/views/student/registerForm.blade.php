@@ -6,6 +6,10 @@
     {{-- Incluimos los scripts de valbolaciones --}}
     <script src="/js/validaciones/facada.js" charset="utf-8"></script>
 @endsection
+@section('scripts')
+    {{-- Incluimos lo necesario para la peticion Ajax --}}
+    <script src="/js/ajax/profFamilies.js" charset="utf-8"></script>
+@endsection
 @section('content')
 @include('partials.nav.navEstudiante')
 <div class="container">
@@ -25,9 +29,13 @@
                             <legend style="width: auto;">Usuario</legend>
                             @include('generic.userfields')
                         <fieldset>
+                            <legend style="width: auto;">Familia Profesional</legend>
+                            @include('generic.profFamiliesfields')
+                        </fieldset>
+                        <fieldset>
                             <legend style="width: auto;">Ciclos</legend>
                             @include('student.partials.cyclesfields')
-                        </fieldset> 
+                        </fieldset>
                         </fieldset>
                             @include('generic.terms')
 
