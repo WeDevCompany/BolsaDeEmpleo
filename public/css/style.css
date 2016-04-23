@@ -403,6 +403,11 @@ a:hover.back-to-top {
 /**************
   FORMULARIOS RESPONSIVE
 ***************/
+.chosen-search input[type="text"]{
+    padding: 4px !important;
+    width: 98% !important;
+}
+
 .family-cycle{
     /*margin-top: 80px;*/
     display: block;
