@@ -10,7 +10,7 @@
     <script src="/js/funcionalidad/addFamilyCycles.js" charset="utf-8"></script>
 
     {{-- Incluimos lo necesario para la peticion Ajax --}}
-    <!--script src="/js/ajax/profFamilies.js" charset="utf-8"></script-->
+    <script src="/js/ajax/cycles.js" charset="utf-8"></script>
 @endsection
 @section('content')
 @include('partials.nav.navEstudiante')

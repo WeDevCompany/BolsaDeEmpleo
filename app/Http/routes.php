@@ -47,27 +47,18 @@ Route::group(['middleware' => 'web'], function () {
 });
 
 // Rutas de peticiones Ajax
-Route::group(['middleware' => 'web'], function () {
+Route::group(['prefix' => 'ajax', 'middleware' => 'web', 'namespace' => 'Ajax'], function(){
 
-    // Familias profesionales
-    Route::get('profFamilies', function(Illuminate\Http\Request  $request) {
-        $profFamilies = App\ProfFamilie::where('active', '=', '1')->lists('name', 'id');
-        $valid_profFamilies = [];
-        foreach ($profFamilies as $id => $profFamilie) {
-            $valid_profFamilies[] = ['id' => $id, 'familia' => $profFamilie];
-        }
-        return \Response::json($valid_profFamilies);
+    // Ciclos
+    Route::get('/cycles', function() {
+
+        $familyId = Input::get('familyId');
+
+        $cycles = App\Cycles::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->get();
+
+        return \Response::json($cycles);
     });
 
-    // Provincias
-    Route::get('states', function(Illuminate\Http\Request  $request) {
-        $states = App\State::lists('name', 'id');
-        $valid_states = [];
-        foreach ($states as $id => $state) {
-            $valid_states[] = ['id' => $id, 'state' => $state];
-        }
-        return \Response::json($valid_states);
-    });
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'], function(){
@@ -86,7 +77,7 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web'], 'namespace' => 'T
 
 });
 
-Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth'], 'namespace' => 'Student'], function(){
+Route::group(['prefix' => 'estudiante', 'middleware' => ['web'], 'namespace' => 'Student'], function(){
 
     Route::resource(config('routes.index'), 'StudentsController');
     Route::get(config('routes.perfil'), 'StudentsController@imagenPerfil');
