@@ -16,6 +16,7 @@ $(document).ready(function(){
 
     //Deshabilitamos el botón de submit de forma
     //que no se pueda enviar un formulario vacio
+    // [BUG] con el auto recordar
     submit = $('#submit');
     submit.prop('disabled', true);
     // quitamos efectos que generan un bug
@@ -53,7 +54,7 @@ $(document).ready(function(){
     if(form.length){
         // Cargamos las validaciones del email
         form.after('<script src="/js/validaciones/email.js" charset="utf-8"></script>');
-    }
+    }// Comprobación de que el formulario es el de reseteo de contraseña
 
     // Comprobamos si el formulario
     // es el formulario de registro de profesores
@@ -68,7 +69,7 @@ $(document).ready(function(){
         // Script personalizado de chosen
         teacherRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>');
 
-    }
+    }// Comprobación de que el formulario es el de los profesores
 
     // Comprobamos si el formulario
     // es el formulario de registro de alumnos
@@ -77,7 +78,7 @@ $(document).ready(function(){
         // Script personalizado para aceptar terminos
         studentRegisterForm.after('<script src="/js/validaciones/includes/studentRegisterForm.js" charset="utf-8"></script>');
 
-    }
+    }// comprobación de que el formulario es el de estudiantes
 
     // Comprobamos si el formulario
     // es el formulario de registro de empresas
@@ -92,6 +93,6 @@ $(document).ready(function(){
         // Script personalizado de chosen
         enterpriseRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
 
-    }
+    }// Comprobación de que el formulario es el de las empresas
 
 })// document.ready
