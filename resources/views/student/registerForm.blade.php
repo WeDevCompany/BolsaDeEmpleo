@@ -35,7 +35,6 @@
                                     <legend style="width: auto;">Ciclos</legend>
                                     @include('student.partials.cyclesfields')
                                 </fieldset>
-
                             <div id="divAddFamilyCycle" class="text-center">
                                 @include('student.partials.btnAddFamilyCycle')
                             </div>
