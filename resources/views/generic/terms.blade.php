@@ -1,5 +1,5 @@
 
-<div class="input-field{{ $errors->has('terminos') ? ' has-error' : '' }} col-md-12">
+<div class="input-field{{ $errors->has('terminos') ? ' has-error' : '' }} col-md-12 terminos">
 
     {{ Form::checkbox('terminos', 'acepto', true, ['id' => 'terminos']) }}
     {{ Form::label('terminos', 'Acepto los terminos de esta aplicación', ['for' => 'terminos']) }}

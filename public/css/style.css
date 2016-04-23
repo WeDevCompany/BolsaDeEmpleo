@@ -439,7 +439,39 @@ input[type = "file"]{
     .show-responsive {
         display:block!important;
     }
+    legend{
+        font-size: 8vw;
+    }
+
+    label{
+        overflow: hidden;
+    }
 }
+
+@media only screen and (max-width : 300px) {
+    fieldset {
+        border:0px;
+        width: 100%;
+        padding: 0px;
+    }
+    .terminos{
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+    .terminos a {
+        padding: 0px;
+        font-size: 5vw;
+    }
+    .ancho {
+        width: 100% !important;
+        paddin:3px !important;
+    }
+    .sin-margen{
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+}
+
 /*******************
    DRAG AND DROP
 ********************/
@@ -488,5 +520,3 @@ div.drop:hover {
 .chosen-container {
   width: 100% !important;
 }
-
-

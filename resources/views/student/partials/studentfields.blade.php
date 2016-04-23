@@ -1,3 +1,4 @@
+<div class="">
     <div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
         {{ Form::label('firstName', 'Nombre') }}
         {{ Form::text('firstName', null, ['class' => 'form-control']) }}
@@ -72,7 +73,7 @@
     </div>
     <div class="form-group{{ $errors->has('curriculum') ? ' has-error' : '' }}">
     {{ Form::label('curriculum', 'Subir Curriculum', ['class' => 'col-md-12']) }}
-      
+
         <div class="col-md-6">
         {{ Form::file('curriculum', null, ['class' => 'form-control']) }}
 
@@ -85,7 +86,7 @@
     </div>
     <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
     {{ Form::label('image', 'Subir Imágen de perfil', ['class' => 'col-md-12']) }}
-      
+
         <div class="col-md-6">
         {{ Form::file('image', null, ['class' => 'form-control']) }}
 
@@ -96,3 +97,4 @@
             @endif
         </div>
     </div>
+</div>
