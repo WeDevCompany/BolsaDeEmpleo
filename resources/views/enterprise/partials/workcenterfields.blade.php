@@ -1,25 +1,3 @@
-    <div class="form-group{{ $errors->has('road') ? ' has-error' : '' }}">
-        <div class="row">
-            <div class="input-field col-md-12">
-                {{ Form::label('road', 'Tipo de vía',['style' => 'margin-top: -5%']) }}
-                {{ Form::select('road',array('1' => 'Alto', '2' => 'Camino', '3' => 'Plaza', '4' => 'Calle', '5' => 'Avenida', '6' => 'Carril'), null,['class' => 'form-control']) }}
-            </div>
-        </div>
-        @if ($errors->has('road'))
-            <span class="help-block">
-                <strong>{{ $errors->first('road') }}</strong>
-            </span>
-        @endif
-    </div>
-    <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-        {{ Form::label('address', 'Direccion') }}
-        {{ Form::text('address', null, ['class' => 'form-control']) }}
-        @if ($errors->has('address'))
-            <span class="help-block">
-                <strong>{{ $errors->first('address') }}</strong>
-            </span>
-        @endif
-    </div>
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
         {{ Form::label('name', 'Nombre del centro') }}
         {{ Form::text('name', null, ['class' => 'form-control']) }}
@@ -35,6 +13,28 @@
         @if ($errors->has('emailContact'))
             <span class="help-block">
                 <strong>{{ $errors->first('emailContact') }}</strong>
+            </span>
+        @endif
+    </div>
+    <div class="form-group{{ $errors->has('road') ? ' has-error' : '' }}">
+        <div class="row">
+            <div class="input-field col-md-12">
+                {{ Form::label('road', 'Tipo de vía',['style' => 'margin-top: -4%']) }}
+                {{ Form::select('road',array('1' => 'Alto', '2' => 'Camino', '3' => 'Plaza', '4' => 'Calle', '5' => 'Avenida', '6' => 'Carril'), null,['class' => 'form-control']) }}
+            </div>
+        </div>
+        @if ($errors->has('road'))
+            <span class="help-block">
+                <strong>{{ $errors->first('road') }}</strong>
+            </span>
+        @endif
+    </div>
+    <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+        {{ Form::label('address', 'Direccion') }}
+        {{ Form::text('address', null, ['class' => 'form-control']) }}
+        @if ($errors->has('address'))
+            <span class="help-block">
+                <strong>{{ $errors->first('address') }}</strong>
             </span>
         @endif
     </div>
@@ -64,4 +64,8 @@
                 <strong>{{ $errors->first('fax') }}</strong>
             </span>
         @endif
+    </div>
+    <div class="input-field{{ $errors->has('principalCenter') ? ' has-error' : '' }} col-md-12">
+        {{ Form::checkbox('principalCenter', 'si', false, ['id' => 'principalCenter']) }}
+        {{ Form::label('principalCenter', '¿Es este centro de trabajo el centro principal/sede de la empresa?', ['for' => 'principalCenter']) }}
     </div>

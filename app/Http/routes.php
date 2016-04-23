@@ -50,13 +50,23 @@ Route::group(['middleware' => 'web'], function () {
 Route::group(['middleware' => 'web'], function () {
 
     // Familias profesionales
-    Route::get('profFamilies'   , function(Illuminate\Http\Request  $request) {
+    Route::get('profFamilies', function(Illuminate\Http\Request  $request) {
         $profFamilies = App\ProfFamilie::where('active', '=', '1')->lists('name', 'id');
         $valid_profFamilies = [];
         foreach ($profFamilies as $id => $profFamilie) {
             $valid_profFamilies[] = ['id' => $id, 'familia' => $profFamilie];
         }
         return \Response::json($valid_profFamilies);
+    });
+
+    // Provincias
+    Route::get('states', function(Illuminate\Http\Request  $request) {
+        $states = App\State::lists('name', 'id');
+        $valid_states = [];
+        foreach ($states as $id => $state) {
+            $valid_states[] = ['id' => $id, 'state' => $state];
+        }
+        return \Response::json($valid_states);
     });
 });
 

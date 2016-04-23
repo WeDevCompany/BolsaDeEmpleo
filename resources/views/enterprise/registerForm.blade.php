@@ -11,25 +11,28 @@
                      {{ Form::open(['route' => 'empresa..store', 'method' => 'POST', 'files' => 'true', 'id' => 'enterprise-register-form']) }}
                         {!! csrf_field() !!}
                         <fieldset>
-                            <legend style="width:auto;">Empresa</legend>
+                            <legend style="width: auto;">Usuario</legend>
+                            @include('generic.userfields')
+                        </fieldset>
+                        <fieldset>
+                            <legend style="width:auto;  ">Empresa</legend>
                             @include('enterprise.partials.enterprisefields')
                         </fieldset>
                         <fieldset>
-                            <legend style="width: auto;">Centro de trabajo principal</legend>
-                            @include('enterprise.partials.workcenterfields')
-                        </fieldset>
-                        <fieldset>
-                            <legend style="width: auto;">Localización</legend>
-                            @include('generic.statefields')
-                            @include('generic.citiefields')
-                        </fieldset>
-                        <fieldset>
-                            <legend style="width: auto;">Responsable del centro de trabajo</legend>
-                            @include('enterprise.partials.enterpriseresponsablefields')
-                        </fieldset>
-                        <fieldset>
-                            <legend style="width: auto;">Usuario</legend>
-                            @include('generic.userfields')
+                            <legend style="width: auto;">Centro de trabajo</legend>
+                            <fieldset>
+                                <legend style="width: auto;">Contacto</legend>
+                                @include('enterprise.partials.workcenterfields')
+                            </fieldset>
+                            <fieldset>
+                                <legend style="width: auto;">Localización</legend>
+                                @include('generic.statefields')
+                                @include('generic.citiefields')
+                            </fieldset>
+                            <fieldset>
+                                <legend style="width: auto;">Responsable del centro de trabajo</legend>
+                                @include('enterprise.partials.enterpriseresponsablefields')
+                            </fieldset>
                         </fieldset>
                             @include('generic.terms')
                             <div class="form-group">
