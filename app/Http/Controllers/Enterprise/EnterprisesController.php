@@ -17,27 +17,17 @@ class EnterprisesController extends UsersController
     {
         Parent::__construct($request);
         $this->rules += [
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'dni' => 'required',
-            'phone' => 'required',
+            'name' => 'required',
+            'cif' => 'required',
+            'web' => 'required',
+            'description' => 'required',
         ];
         $this->rol = 'enterprise';
         $this->redirectTo = "/empresa";
     }
 
     public function index(){
-        return view('home');
+        return view('enterprise.registerForm');
     } // index()
-
-    public function register()
-    {
-        if (\Auth::user()) {
-
-            return redirect()->to('/');
-
-        }
-        return view('enterprise.form');
-    }
 
 }
