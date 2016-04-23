@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ProfFamilieController;
 use App\Http\Requests;
 use App\Student;
 use App\Cycle;
@@ -38,7 +39,11 @@ class StudentsController extends UsersController
     }
 
     protected function index(){
-        return view('student.registerForm');
+        // Llamo al metodo getAllProfFamilies del controlador de las familias profesionales
+        $profFamilies = app(ProfFamilieController::class)->getAllProfFamilies();
+
+        // Devuelvo la vista junto con las familias
+        return view('student.registerForm', compact('profFamilies'));
     } // index()
 
     protected function store()
