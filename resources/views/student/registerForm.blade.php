@@ -5,8 +5,6 @@
 @section('scripts')
     {{-- Incluimos los scripts de valbolaciones --}}
     <script src="/js/validaciones/facada.js" charset="utf-8"></script>
-@endsection
-@section('scripts')
     {{-- Incluimos lo necesario para la peticion Ajax --}}
     <script src="/js/ajax/profFamilies.js" charset="utf-8"></script>
 @endsection
@@ -24,21 +22,22 @@
                         <fieldset>
                             <legend style="width:auto;">Estudiante</legend>
                             @include('student.partials.studentfields')
+                            <section class="family-cycle">
+                                <fieldset>
+                                    <legend style="width: auto;">Familia Profesional</legend>
+                                    @include('generic.profFamiliesfields')
+                                </fieldset>
+                                <fieldset>
+                                    <legend style="width: auto;">Ciclos</legend>
+                                    @include('student.partials.cyclesfields')
+                                </fieldset>
+                            </section>
                         </fieldset>
                         <fieldset>
                             <legend style="width: auto;">Usuario</legend>
                             @include('generic.userfields')
-                        <fieldset>
-                            <legend style="width: auto;">Familia Profesional</legend>
-                            @include('generic.profFamiliesfields')
-                        </fieldset>
-                        <fieldset>
-                            <legend style="width: auto;">Ciclos</legend>
-                            @include('student.partials.cyclesfields')
-                        </fieldset>
                         </fieldset>
                             @include('generic.terms')
-
                         <div class="form-group">
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light" id="submit">
@@ -59,4 +58,3 @@
     </div>
 </div>
 @endsection
-
