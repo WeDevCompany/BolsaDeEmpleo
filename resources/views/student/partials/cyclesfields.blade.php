@@ -12,7 +12,7 @@
         @endif
     </div>
     <div class="form-group{{ $errors->has('yearFrom') ? ' has-error' : '' }}">
-        <div class="row" id="years">
+        <div id="years">
 
         </div>
         @if ($errors->has('yearFrom') || $errors->has('yearTo'))

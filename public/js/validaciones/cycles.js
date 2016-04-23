@@ -1,7 +1,8 @@
 $("#select-chosen").chosen({max_selected_options: 5}).change(function(){
     var resultados = $('.result-selected');
+    var resultadosNoSelecionados = $('.active-result');
     var years = $("#years");
-    var longitudYears = $("#years section").length;
+    var longitudYears = $("#years fieldset").length;
     var longitudResultados = resultados.length;
     var valor;
     var i;
@@ -25,7 +26,8 @@ $("#select-chosen").chosen({max_selected_options: 5}).change(function(){
     //console.log("El indice es: " + i + " El Valor es: " + valor);
     console.log("Los resultados son: " + longitudResultados + " Los años son: " + longitudYears);
     if((longitudResultados > longitudYears) && (!(longitudYears >= longitudResultados))){
-        years.append('<section class="row" data="years-from-to[' + longitudYears + ']">' +
+        years.append('<fieldset id="' + valor + '"> ' +
+            '<legend style="width:auto;">' + valor + '</legend>' + '<section">' +
             '<div class="input-field col-md-6">' +
                 '<label for="yearFrom[' + i + ']">A&ntilde;o de inicio</label>' +
                 '<input name="yearFrom[' + i + ']" type="text" id="yearFrom[' + i + ']">' +
@@ -34,11 +36,28 @@ $("#select-chosen").chosen({max_selected_options: 5}).change(function(){
                 '<label for="yearTo[' + i + ']">A&ntilde;o de fin</label>' +
                 '<input name="yearTo[' + i + ']" type="text" id="yearTo[' + i + ']">' +
             '</div>' +
-        '</section>');
+        '</section>'+ '</fieldset>');
     } else {
-        var ultimoYear = $("#years section");
-        console.log(ultimoYear);
-        ultimoYear.remove();
+        var fieldset = $("#years fieldset");
+        fieldset.each(function(index2, field){
+            // obtenemos el id de un elemento creado
+            // en el drom
+            aux = $(field).attr('id');
+            console.log(aux);
+            $(resultadosNoSelecionados).each(function(index3, noSelected){
+                valorNoselected = $(noSelected).text();
+                console.log("El valor de aux es: " + aux + " El valor de noSelected es: " + valorNoselected);
+                if(valorNoselected === aux){
+                    $(noSelected).remove();
+                } else {
+                    // Mostrar un error en la web
+                    // porque no se sabe que elemento se intenta añadir
+                    // bloquear botón de submit
+                    // return false
+                }
+            });
+        });
+
         //years.get(longitudYears).fadeOut("fast");
     }
 });
