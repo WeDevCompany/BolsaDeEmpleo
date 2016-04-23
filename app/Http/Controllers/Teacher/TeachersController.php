@@ -22,7 +22,7 @@ class TeachersController extends UsersController
             'dni' => 'required',
             'phone' => 'required',
         ];
-        $this->rol = 'teacher';
+        $this->rol = 'profesor';
     }
 
     protected function index()
@@ -45,9 +45,13 @@ class TeachersController extends UsersController
             $insercion = Self::create();
 
             if($insercion === true){
+
                 \DB::commit();
-                \Auth::loginUsingId($user['id']);
+
+                return \Redirect::to('login');
+
             } else {
+
                 \DB::rollBack();
                 Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
             }

@@ -98,6 +98,9 @@ class UsersController extends Controller
             // Creacion de la carpeta de usuario
             $carpeta = $this->generarCodigo();
 
+            // Codigo de verificacion de email
+            $code = $this->generarCodigo();
+
             // Tratamiento de la imagen
             if (!empty($this->request->file('file'))) {
 
@@ -120,6 +123,9 @@ class UsersController extends Controller
             // Añado la carpeta.
             $this->request['carpeta'] = $carpeta;
 
+            // Añado el codigo de verificacion
+            $this->request['code'] = $code;
+
             //Insertamos todos los campos
             $insercion = User::create($this->request->all());
 
@@ -141,6 +147,20 @@ class UsersController extends Controller
                 \Image::make(storage_path() . '/app/public/default/' . $imagen)->resize(200, 200)->save(public_path() . '/img/imgUser/' . $carpeta . '/' . $imagen);
 
             }
+
+            // Envio de email de verificacion
+            $user = $insercion;
+
+            // Ruta en la que el usuario se verificara
+            $url = route('confirmation', ['token' => $user->code]);
+
+            // Mandamos el email al usuario con los datos de la vista
+            \Mail::send('auth/emails/emailRegister', compact('user', 'url'), function ($m) use ($user){
+
+                $m->to($user->email)->subject('Activa tu cuenta');
+
+            });
+
             
         } catch(\PDOException $e){
             //dd($e);

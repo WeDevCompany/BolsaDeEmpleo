@@ -43,11 +43,13 @@ return [
             'images'        => '/img/imgUser',
             'curriculum'    => storage_path( 'app/curriculum'),
         ],
-    'index'     => '/',
-    'perfil'    => '/perfil',
-    'UploadImg' => '/UploadImg',
-	'uso'		=> '/uso',
-    'authLogin' => '/authLogin',
+    'index'         => '/',
+    'perfil'        => '/perfil',
+    'UploadImg'     => '/UploadImg',
+	'uso'		    => '/uso',
+    'authLogin'     => '/authLogin',
+    'confirmation'  => '/confirmation/{token}',
+    'confirmado'    => '/confirmado',
 
 
 ];

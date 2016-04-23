@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use Validator;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\ConfirmationRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -66,32 +67,40 @@ class AuthController extends Controller
      */
     public function authLogin(LoginRequest $request)
     {
+        
+        $user = User::where('email', $request->email)->firstOrFail();
 
-        // If the class is using the ThrottlesLogins trait, we can automatically throttle
-        // the login attempts for this application. We'll key this by the username and
-        // the IP address of the client making these requests into this application.
-        $throttles = $this->isUsingThrottlesLoginsTrait();
+        if (!$user->verifiedEmail) {
 
-        if ($throttles && $lockedOut = $this->hasTooManyLoginAttempts($request)) {
-            $this->fireLockoutEvent($request);
+            return \Redirect::to('confirmation/' . $user->code);
 
-            return $this->sendLockoutResponse($request);
+        } else {
+            // If the class is using the ThrottlesLogins trait, we can automatically throttle
+            // the login attempts for this application. We'll key this by the username and
+            // the IP address of the client making these requests into this application.
+            $throttles = $this->isUsingThrottlesLoginsTrait();
+
+            if ($throttles && $lockedOut = $this->hasTooManyLoginAttempts($request)) {
+                $this->fireLockoutEvent($request);
+
+                return $this->sendLockoutResponse($request);
+            }
+
+            $credentials = $this->getCredentials($request);
+
+            if (\Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+                return $this->handleUserWasAuthenticated($request, $throttles);
+            }
+
+            // If the login attempt was unsuccessful we will increment the number of attempts
+            // to login and redirect the user back to the login form. Of course, when this
+            // user surpasses their maximum number of attempts they will get locked out.
+            if ($throttles && ! $lockedOut) {
+                $this->incrementLoginAttempts($request);
+            }
+
+            return $this->sendFailedLoginResponse($request);
         }
-
-        $credentials = $this->getCredentials($request);
-
-        if (\Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
-            return $this->handleUserWasAuthenticated($request, $throttles);
-        }
-
-        // If the login attempt was unsuccessful we will increment the number of attempts
-        // to login and redirect the user back to the login form. Of course, when this
-        // user surpasses their maximum number of attempts they will get locked out.
-        if ($throttles && ! $lockedOut) {
-            $this->incrementLoginAttempts($request);
-        }
-
-        return $this->sendFailedLoginResponse($request);
     }
 
     /**
@@ -108,4 +117,52 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+     * Método que recibe el codigo para verificar el email
+     * @param  ConfirmationRequest $request Validacion del codigo
+     * @return Redireccion                       welcome
+     */
+    protected function postConfirmation(ConfirmationRequest $request)
+    {
+        // Buscamos el usuario en base al codigo
+        $user = User::where('code', $request['code'])->firstOrFail();
+
+        // Si ya ha verificado el email se redirecciona a welcome
+        if($user->verifiedEmail){
+
+            return \Redirect::to('/');
+
+        }
+
+        // Modificamos el campo y lo guardamos
+        $user->verifiedEmail = 1;
+        $user->save();
+
+        // Logeamos al usuario automaticamente y lo redireccionamos
+        \Auth::loginUsingId($user['id']);
+        return \Redirect::to('/');
+    }
+
+    /**
+     * Metodo que recibe por get el codigo de verificacion
+     * @param  String $token    Codigo de verificacion
+     * @return Vista        Confirmation
+     */
+    protected function getConfirmation($token)
+    {
+        // Buscamos el usuario en base al codigo
+        $user = User::where('code', $token)->firstOrFail();
+
+        // Si ya ha verificado el email salta error 404
+        if($user->verifiedEmail){
+
+            abort(404);
+
+        }
+
+        return view('auth.emails.confirmation');
+    }
+
+
 }

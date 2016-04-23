@@ -26,7 +26,15 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => 'web'], function () {
 
-    Route::post(config('routes.authlogin'), 'Auth\AuthController@authLogin');
+    Route::post('/authLogin', 'Auth\AuthController@authLogin');
+
+    Route::get(config('routes.confirmation'), [
+        'uses'  => 'Auth\AuthController@getConfirmation',
+        'as'    => 'confirmation'
+    ]);
+
+    Route::post(config('routes.confirmado'), 'Auth\AuthController@postConfirmation');
+
     Route::auth();
 
     //Route::get('/home', 'HomeController@index');
