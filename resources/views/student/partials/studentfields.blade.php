@@ -72,10 +72,9 @@
         @endif
     </div>
     <div class="form-group{{ $errors->has('curriculum') ? ' has-error' : '' }}">
-    {{ Form::label('curriculum', 'Subir Curriculum', ['class' => 'col-md-12']) }}
-
         <div class="col-md-6">
-        {{ Form::file('curriculum', null, ['class' => 'form-control']) }}
+            {{ Form::label('curriculum', 'Subir Curriculum', ['class' => 'col-md-12']) }}
+            {{ Form::file('curriculum', null, ['class' => 'form-control']) }}
 
             @if ($errors->has('curriculum'))
                 <span class="help-block">
@@ -85,10 +84,9 @@
         </div>
     </div>
     <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
-    {{ Form::label('image', 'Subir Imágen de perfil', ['class' => 'col-md-12']) }}
-
         <div class="col-md-6">
-        {{ Form::file('image', null, ['class' => 'form-control']) }}
+            {{ Form::label('image', 'Subir Imágen de perfil', ['class' => 'col-md-12']) }}
+            {{ Form::file('image', null, ['class' => 'form-control']) }}
 
             @if ($errors->has('image'))
                 <span class="help-block">
