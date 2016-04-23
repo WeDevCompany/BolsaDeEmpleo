@@ -26,7 +26,7 @@ $("#select-chosen").chosen({max_selected_options: 5}).change(function(){
     //console.log("El indice es: " + i + " El Valor es: " + valor);
     console.log("Los resultados son: " + longitudResultados + " Los años son: " + longitudYears);
     if((longitudResultados > longitudYears) && (!(longitudYears >= longitudResultados))){
-        years.append('<fieldset id="' + valor + '"> ' +
+        years.append('<fieldset id="' + i + '"> ' +
             '<legend style="width:auto;">' + valor + '</legend>' + '<section">' +
             '<div class="input-field col-md-6">' +
                 '<label for="yearFrom[' + i + ']">A&ntilde;o de inicio</label>' +
@@ -43,11 +43,10 @@ $("#select-chosen").chosen({max_selected_options: 5}).change(function(){
             // obtenemos el id de un elemento creado
             // en el drom
             aux = $(field).attr('id');
-            console.log(aux);
-            $(resultadosNoSelecionados).each(function(index3, noSelected){
-                valorNoselected = $(noSelected).text();
+            $(".chosen-select").each(function(index3, noSelected){
+                valorNoselected = $(noSelected[index3]).val();
                 console.log("El valor de aux es: " + aux + " El valor de noSelected es: " + valorNoselected);
-                if(valorNoselected === aux){
+                if(valorNoselected !== aux){
                     $(noSelected).remove();
                 } else {
                     // Mostrar un error en la web
@@ -57,7 +56,7 @@ $("#select-chosen").chosen({max_selected_options: 5}).change(function(){
                 }
             });
         });
-
+        console.log($(".chosen-select").val());
         //years.get(longitudYears).fadeOut("fast");
     }
 });
