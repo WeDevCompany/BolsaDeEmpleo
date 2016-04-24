@@ -80,7 +80,7 @@ function emailCorto(email){
         // podamos modificarlo
         var mensaje = "El email es demasiado corto";
         // Añadimos justo después del campo email, el mensaje de error
-        email.after( '<div id="error-email" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>' ).fadeIn("slow");
+        email.after('<div id="error-email" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>' ).fadeIn("slow");
         email.addClass('invalid');
         return false;
     }
