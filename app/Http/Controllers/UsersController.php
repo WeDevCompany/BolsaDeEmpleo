@@ -65,7 +65,7 @@ class UsersController extends Controller
 
         // Valido la peticion.
         $this->validate($this->request, $this->rules);
-        
+
         // Añado el rol.
         $this->request['rol'] = $this->rol;
 
@@ -84,7 +84,7 @@ class UsersController extends Controller
     } // store()
 
     /**
-     * 
+     *
      * Método de creación de los usuarios
      * @return [type] [description]
      */
@@ -161,9 +161,8 @@ class UsersController extends Controller
 
             });
 
-            
         } catch(\PDOException $e){
-            //dd($e);
+            // lanzamos una excepción
             abort(500);
         }
 
@@ -202,7 +201,7 @@ class UsersController extends Controller
             $user = new User;
             $user->where('id', '=', \Auth::user()->id)->update(['image' => $nombre]);
         }
-        
+
     } // uploadImage()
 
     protected function generarCodigo()
@@ -220,4 +219,4 @@ class UsersController extends Controller
 
     }
 
-}// fin del controlador 
+}// fin del controlador

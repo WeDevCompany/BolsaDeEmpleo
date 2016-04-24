@@ -61,13 +61,13 @@ class AuthController extends Controller
 
     /**
      * Sobreescribimos el metodo de login
-     * 
+     *
      * @param  LoginRequest
      * @return [type]
      */
     public function authLogin(LoginRequest $request)
     {
-        
+
         $user = User::where('email', $request->email)->firstOrFail();
 
         if (!$user->verifiedEmail) {
@@ -156,9 +156,7 @@ class AuthController extends Controller
 
         // Si ya ha verificado el email salta error 404
         if($user->verifiedEmail){
-
             abort(404);
-
         }
 
         return view('auth.emails.confirmation');
