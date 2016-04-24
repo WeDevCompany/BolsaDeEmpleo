@@ -49,12 +49,24 @@ Route::group(['middleware' => 'web'], function () {
 // Rutas de peticiones Ajax
 Route::group(['prefix' => 'json', 'middleware' => 'web', 'namespace' => 'Json'], function () {
 
+    // Ciclos
     Route::get('cycles/{familyId}', function($familyId) {
 
         $cycles = App\Cycle::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->get();
 
         return \Response::json($cycles);
     });
+
+    // Familias profesionales
+    Route::get('profFamilies', function(Illuminate\Http\Request  $request) {
+        $profFamilies = App\ProfFamilie::where('active', '=', '1')->lists('name', 'id');
+        $valid_profFamilies = [];
+        foreach ($profFamilies as $id => $profFamilie) {
+            $valid_profFamilies[] = ['id' => $id, 'familia' => $profFamilie];
+        }
+        return \Response::json($valid_profFamilies);
+    });
+
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'], function(){
