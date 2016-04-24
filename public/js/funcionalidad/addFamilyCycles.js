@@ -16,8 +16,7 @@
                             '</select>' +
                         '</div>' +
                     '</div>' +
-                '</div' +
-
+                '</div>' +
 
             '<div class="input-field col-md-6">' +
                 '<label for="yearFrom[' + texto + i + ']">A&ntilde;o de inicio</label>' +
@@ -27,6 +26,7 @@
                 '<label for="yearTo[' + texto + i + ']">A&ntilde;o de fin</label>' +
                 '<input name="yearTo[' + texto + i + ']" type="text" id="yearTo[' + texto + i + ']">' +
             '</div>' +
+            '<div class="text-center">' +
                 '<button type="button" value="'+ texto + i +'" id="btnRemoveFamilyCycle" class="btn-danger btn btn-login-media waves-effect waves-light text-center">' +
                     '<div class="show-responsive">' +
                         '<i class="fa fa fa-times" aria-hidden="true"></i>' +
@@ -35,10 +35,11 @@
                         '<i class="fa fa-btn fa fa-times"></i> <span class="hidden-media">Eliminar ciclo</span>' +
                     '</div>' +
                 '</button>' +
+            '</div>' +
         '</fieldset>').fadeIn("slow");
 
         i++;
         $('#btnRemoveFamilyCycle').click( function(e){
-            $(this).parent().remove();
+            $(this).parent().parent().remove();
         });
     });
