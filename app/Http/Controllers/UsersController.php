@@ -62,7 +62,6 @@ class UsersController extends Controller
 
     protected function store()
     {
-
         // Valido la peticion.
         $this->validate($this->request, $this->rules);
 
@@ -148,20 +147,8 @@ class UsersController extends Controller
 
             }
 
-            // Envio de email de verificacion
-            $user = $insercion;
-
-            // Ruta en la que el usuario se verificara
-            $url = route('confirmation', ['token' => $user->code]);
-
-            // Mandamos el email al usuario con los datos de la vista
-            \Mail::send('auth/emails/emailRegister', compact('user', 'url'), function ($m) use ($user){
-
-                $m->to($user->email)->subject('Activa tu cuenta');
-
-            });
-
         } catch(\PDOException $e){
+            //dd($e);
             // lanzamos una excepción
             abort(500);
         }
@@ -218,5 +205,37 @@ class UsersController extends Controller
         return $cadEncryp;
 
     }
+
+    protected function sendEmail()
+    {
+        
+        try{
+
+            $user = User::findOrFail($this->request['user_id']);
+
+            // Ruta en la que el usuario se verificara
+            $url = route('confirmation', ['token' => $user->code]);
+
+            // Mandamos el email al usuario con los datos de la vista
+            $email = \Mail::send('auth/emails/emailRegister', compact('user', 'url'), function ($m) use ($user){
+
+                $m->to($user->email)->subject('Activa tu cuenta');
+
+            });
+
+        } catch(\PDOException $e) {
+            //dd($e);
+            abort(500);
+        }
+
+        if(is_null($email)) {
+            return false;
+        } elseif ($email !== false) {
+            return true;
+        } else {
+            return false;
+        }
+
+    } // sendEmail()
 
 }// fin del controlador

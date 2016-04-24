@@ -31,9 +31,9 @@ class StudentsController extends UsersController
             'birthdate' => 'required',
 
             // Reglas de los ciclos.
-            //'cycles' => 'selected',
+            /*'cycles' => 'required',
             'yearFrom' => 'required',
-            'yearTo' => 'required',
+            'yearTo' => 'required',*/
         ];
         $this->rol = 'estudiante';
         $this->redirectTo = "/estudiante";
@@ -49,6 +49,7 @@ class StudentsController extends UsersController
 
     protected function store()
     {
+
         // Comenzamos la transaccion.
         \DB::beginTransaction();
 
@@ -65,12 +66,22 @@ class StudentsController extends UsersController
             if($insercion !== false){
 
                 // Llamo al metodo para almacenar sus grados.
-                $insercion = self::createStudentCycle($insercion);
+                
+                // INACABADO $insercion = self::createStudentCycle($insercion);
+                $insercion = true;
 
                 if ($insercion === true){
-                    \DB::commit();
-                    dd('usuario insertado, estudiante creado y ciclo x1');
-                    \Auth::loginUsingId($user['id']);
+
+                    // Llamo al metodo sendEmail del controlador de las familias profesionales
+                    $email = Parent::sendEmail();
+
+                    if($email === true) {
+                        \DB::commit();
+                        return \Redirect::to('login');
+                    } else {
+                        \DB::rollBack();
+                        Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
+                    }
                 } else {
                     \DB::rollBack();
                     Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
@@ -100,6 +111,7 @@ class StudentsController extends UsersController
         return false;
     } // create()
 
+    // INACABADO
     private function createStudentCycle($student)
     {
         $data = $this->request->all();
@@ -107,8 +119,8 @@ class StudentsController extends UsersController
         try {
             // Inserta 1 solo ciclo, falta hacer el foreach para cada uno de ellos y validar que exista previamente el
             $student->cycles()->attach($data['cycles'], [
-                'dateTo' => $data['yearTo'],
-                'dateFrom' => $data['yearFrom'],
+                'dateTo' => 1190,//$data['yearTo'],
+                'dateFrom' => 1820,//$data['yearFrom'],
                 'student_id' => $student['id'],
                 'cycle_id' => $data['cycles'],
                 'created_at' => date('YmdHms'),
@@ -121,7 +133,7 @@ class StudentsController extends UsersController
         if(isset($insercion)){
             return true;
         }
-        return false;
+        return true;
     } // createStudentCycle()
 
 }

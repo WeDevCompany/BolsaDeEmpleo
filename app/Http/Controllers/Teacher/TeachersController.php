@@ -47,12 +47,17 @@ class TeachersController extends UsersController
 
             if($insercion === true){
 
-                \DB::commit();
+                // Llamo al metodo sendEmail del controlador de las familias profesionales
+                $email = Parent::sendEmail();
 
-                return \Redirect::to('login');
-
+                if($email === true) {
+                    \DB::commit();
+                    return \Redirect::to('login');
+                } else {
+                    \DB::rollBack();
+                    Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
+                }
             } else {
-
                 \DB::rollBack();
                 Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
             }
@@ -77,6 +82,7 @@ class TeachersController extends UsersController
             ]);
         } catch(\PDOException $e){
             //dd($e);
+            abort(500);
         }
 
         if(isset($insercion)){
