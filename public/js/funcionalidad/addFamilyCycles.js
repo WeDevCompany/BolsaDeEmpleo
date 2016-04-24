@@ -52,6 +52,6 @@
 
         i++;
         $('#btnRemoveFamilyCycle').click( function(e){
-            $(this).parent().parent().slideUp( 500 ).fadeOut('slow');
+            $(this).parent().parent().slideUp( 500 );
         });
     });
