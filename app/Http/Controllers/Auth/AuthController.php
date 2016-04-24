@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Student;
+use App\Teacher;
+use App\VerifiedStudent;
+use App\VerifiedTeacher;
 use Illuminate\Http\Request;
 use Validator;
 use App\Http\Requests\LoginRequest;
@@ -67,40 +71,66 @@ class AuthController extends Controller
      */
     public function authLogin(LoginRequest $request)
     {
-
+        // Buscamos el usuario por su email
         $user = User::where('email', $request->email)->firstOrFail();
 
+        // Comprobamos si el usuario ha validado su email
         if (!$user->verifiedEmail) {
 
             return \Redirect::to('confirmation/' . $user->code);
 
-        } else {
-            // If the class is using the ThrottlesLogins trait, we can automatically throttle
-            // the login attempts for this application. We'll key this by the username and
-            // the IP address of the client making these requests into this application.
-            $throttles = $this->isUsingThrottlesLoginsTrait();
+        // Comprobamos que el profesor haya verificado al alumno
+        } else if ($user->rol == 'estudiante'){
 
-            if ($throttles && $lockedOut = $this->hasTooManyLoginAttempts($request)) {
-                $this->fireLockoutEvent($request);
-
-                return $this->sendLockoutResponse($request);
+            $student = Student::where('user_id', '=',$user['id'])->first();
+            $verifiedStudent = verifiedStudent::where('student_id', '=', $student['id'])->first();
+            
+            // Si no esta verificado ...
+            if(!$verifiedStudent){
+                dd('No estas verificado estudiante');
+                // Rellenar si el estudiante no esta validado
             }
 
-            $credentials = $this->getCredentials($request);
+        // Comprobamos que el admin haya verificado al profesor
+        } else if ($user->rol == 'profesor'){
 
-            if (\Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
-                return $this->handleUserWasAuthenticated($request, $throttles);
+            $teacher = Teacher::where('user_id', '=',$user['id'])->first();
+            $verifiedTeacher = verifiedTeacher::where('teacher_id', '=', $teacher['id'])->first();
+
+            // Si no esta verificado ...
+            if(!$verifiedTeacher){
+                dd('No estas verificado profesor');
+                // Rellenar si el estudiante no esta validado
             }
 
-            // If the login attempt was unsuccessful we will increment the number of attempts
-            // to login and redirect the user back to the login form. Of course, when this
-            // user surpasses their maximum number of attempts they will get locked out.
-            if ($throttles && ! $lockedOut) {
-                $this->incrementLoginAttempts($request);
-            }
-
-            return $this->sendFailedLoginResponse($request);
         }
+
+        // If the class is using the ThrottlesLogins trait, we can automatically throttle
+        // the login attempts for this application. We'll key this by the username and
+        // the IP address of the client making these requests into this application.
+        $throttles = $this->isUsingThrottlesLoginsTrait();
+
+        if ($throttles && $lockedOut = $this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        $credentials = $this->getCredentials($request);
+
+        if (\Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+            return $this->handleUserWasAuthenticated($request, $throttles);
+        }
+
+        // If the login attempt was unsuccessful we will increment the number of attempts
+        // to login and redirect the user back to the login form. Of course, when this
+        // user surpasses their maximum number of attempts they will get locked out.
+        if ($throttles && ! $lockedOut) {
+            $this->incrementLoginAttempts($request);
+        }
+
+        return $this->sendFailedLoginResponse($request);
+
     }
 
     /**
