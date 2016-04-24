@@ -22,7 +22,7 @@ class EnterprisesController extends UsersController
             'web' => 'required',
             'description' => 'required',
         ];
-        $this->rol = 'enterprise';
+        $this->rol = 'empresa';
         $this->redirectTo = "/empresa";
     }
 

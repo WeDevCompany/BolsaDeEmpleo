@@ -15,8 +15,14 @@ class ProfFamilieController extends Controller
     public function getAllProfFamilies()
     {
     	try {
-    		// Obtengo las familias activas
-        	$profFamilies = ProfFamilie::where('active', '=', 1)->lists('name', 'id');
+            // Añado la opcion por defecto
+            $profFamilies = ['0' => 'Selecciona una familia profesional'];
+    		
+            // Obtengo las familias activas 
+        	$profFamiliesDB = ProfFamilie::where('active', '=', 1)->lists('name', 'id')->toArray();
+
+            $profFamilies = $profFamilies + $profFamiliesDB;
+
     	} catch(\PDOException $e) {
     		//dd($e);
             abort(500);

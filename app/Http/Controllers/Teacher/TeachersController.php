@@ -23,6 +23,7 @@ class TeachersController extends UsersController
             'phone' => 'required',
         ];
         $this->rol = 'profesor';
+        $this->redirectTo = "/profesor";
     }
 
     protected function index()

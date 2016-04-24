@@ -60,7 +60,7 @@ class OurUsersSeeder extends Seeder
  * <<<<<<------------------------------------------------>>>>>>
  */
 
-    	$rol = 'admin';
+    	$rol = 'administrador';
 
         // Inserción del usuario Admin1
         $user_id = \DB::table('users')->insertGetId([
@@ -158,7 +158,7 @@ class OurUsersSeeder extends Seeder
  * <<<<<<------------------------------------------------>>>>>>
  */
 
-        $rol = 'teacher';
+        $rol = 'profesor';
 
         // Inserción del usuario Teacher1
         $user_id = \DB::table('users')->insertGetId([
@@ -410,7 +410,7 @@ class OurUsersSeeder extends Seeder
  * <<<<<<------------------------------------------------>>>>>>
  */
 
-        $rol = 'student';
+        $rol = 'estudiante';
 
         // Inserción del usuario Student1
         $user_id = \DB::table('users')->insertGetId([
@@ -622,7 +622,7 @@ class OurUsersSeeder extends Seeder
  * <<<<<<------------------------------------------------>>>>>>
  */
 
-        $rol = 'enterprise';
+        $rol = 'empresa';
 
         // Inserción del usuario Enterprise1
         $user_id = \DB::table('users')->insertGetId([
@@ -800,7 +800,7 @@ class OurUsersSeeder extends Seeder
 
 		$verifiedEmail = true;
         $active = false;
-        $rol = 'admin';
+        $rol = 'administrador';
 
         // Inserción del usuario Admin7 (Pendiente de activacion)
         $user_id = \DB::table('users')->insertGetId([
@@ -883,7 +883,7 @@ class OurUsersSeeder extends Seeder
         $teacher_ids[$cont_teacher] = $teacher_id;
         $cont_teacher++;
 
-        $rol = 'teacher';
+        $rol = 'profesor';
 
         // Inserción del usuario Teacher7 (Pendiente de activacion)
         $user_id = \DB::table('users')->insertGetId([
@@ -966,7 +966,7 @@ class OurUsersSeeder extends Seeder
         $teacher_ids[$cont_teacher] = $teacher_id;
         $cont_teacher++;
 
-        $rol = 'student';
+        $rol = 'estudiante';
 
         // Inserción del usuario Student7 (Pendiente de activacion)
         $user_id = \DB::table('users')->insertGetId([
@@ -1067,7 +1067,7 @@ class OurUsersSeeder extends Seeder
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
 
-        $rol = 'enterprise';
+        $rol = 'empresa';
 
         // Inserción del usuario Enterprise7 (Pendiente de activacion)
         $user_id = \DB::table('users')->insertGetId([
@@ -1158,7 +1158,7 @@ class OurUsersSeeder extends Seeder
 
 		$verifiedEmail = false;
         $active = false;
-        $rol = 'admin';
+        $rol = 'administrador';
 
         // Inserción del usuario Admin10 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
@@ -1241,7 +1241,7 @@ class OurUsersSeeder extends Seeder
         $teacher_ids[$cont_teacher] = $teacher_id;
         $cont_teacher++;
 
-        $rol = 'teacher';
+        $rol = 'profesor';
 
         // Inserción del usuario Teacher10 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
@@ -1324,7 +1324,7 @@ class OurUsersSeeder extends Seeder
         $teacher_ids[$cont_teacher] = $teacher_id;
         $cont_teacher++;
 
-        $rol = 'student';
+        $rol = 'estudiante';
 
         // Inserción del usuario Student10 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([
@@ -1425,7 +1425,7 @@ class OurUsersSeeder extends Seeder
         $student_ids[$cont_student] = $student_id;
         $cont_student++;
 
-        $rol = 'enterprise';
+        $rol = 'empresa';
 
         // Inserción del usuario Enterprise10 (Pendiente de validación de email y activación)
         $user_id = \DB::table('users')->insertGetId([

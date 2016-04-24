@@ -35,7 +35,8 @@ class StudentsController extends UsersController
             'yearFrom' => 'required',
             'yearTo' => 'required',
         ];
-        $this->rol = 'student';
+        $this->rol = 'estudiante';
+        $this->redirectTo = "/estudiante";
     }
 
     protected function index(){
@@ -57,6 +58,7 @@ class StudentsController extends UsersController
             \DB::rollBack();
             Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
         } else {
+
             // Llamo al metodo para crear el estudiante.
             $insercion = Self::create();
 
@@ -67,6 +69,7 @@ class StudentsController extends UsersController
 
                 if ($insercion === true){
                     \DB::commit();
+                    dd('usuario insertado, estudiante creado y ciclo x1');
                     \Auth::loginUsingId($user['id']);
                 } else {
                     \DB::rollBack();
@@ -84,22 +87,8 @@ class StudentsController extends UsersController
 
     private function create()
     {
-        $data = $this->request->all();
-
         try {
-            $insercion = Student::create([
-                'firstName' => $data['firstName'],
-                'lastName' => $data['lastName'],
-                'dni' => $data['dni'],
-                'nre' => $data['nre'],
-                'phone' => $data['phone'],
-                'road' => $data['road'],
-                'address' => $data['address'],
-                //'curriculum' => $data['curriculum'],
-                'birthdate' => $data['birthdate'],
-                'user_id' => $data['user_id'],
-                'created_at' => date('YmdHms'),
-            ]);
+            $insercion = Student::create($this->request->all());
         } catch(\PDOException $e){
             //dd($e);
             abort(500);
@@ -117,7 +106,7 @@ class StudentsController extends UsersController
 
         try {
             // Inserta 1 solo ciclo, falta hacer el foreach para cada uno de ellos y validar que exista previamente el
-            $insercion = $student->manyCycles()->attach($data['cycles'], [
+            $student->cycles()->attach($data['cycles'], [
                 'dateTo' => $data['yearTo'],
                 'dateFrom' => $data['yearFrom'],
                 'student_id' => $student['id'],
@@ -125,7 +114,7 @@ class StudentsController extends UsersController
                 'created_at' => date('YmdHms'),
             ]);
         } catch(\PDOException $e){
-            //dd($e);
+            dd($e);
             abort(500);
         }
 
