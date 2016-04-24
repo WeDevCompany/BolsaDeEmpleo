@@ -10,5 +10,5 @@ class VerifiedTeacher extends Model
 {
     use SoftDeletes;
 
-    public $table = 'verifiedStudents';
+    public $table = 'verifiedTeachers';
 }
