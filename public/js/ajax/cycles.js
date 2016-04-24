@@ -40,9 +40,9 @@ $('#family').on('change', function(e) {
 });
 */
 
-/* SELECT NORMAL YA CREADO - AÑADE LOS OPTION CORRECTAMENTE (VERSION ESTABLE) */
+/* SELECT NORMAL YA CREADO - AÑADE LOS OPTION CORRECTAMENTE (VERSION ESTABLE) 
 $('#family').on('change', function(e) {
-	console.log(e);
+	//console.log(e);
 
 	// Almaceno el valor que ha tomado el select
 	var familyId = e.target.value;
@@ -50,10 +50,49 @@ $('#family').on('change', function(e) {
 	// Peticion Ajax
 	// Tomo los datos de la ruta establecida a la que le concateno el identificador
 	$.get('/json/cycles/' + familyId, function(data){
-		console.log(data);
+		//console.log(data);
 		$('#cycles').empty();
 		$.each(data, function(index, cycleObj){
 			$('#cycles').append('<option value="' + cycleObj.id + '">' + cycleObj.name + ' [' + cycleObj.level + ']' + '</option>')
 		});
 	});
+}); */
+
+/* SELECT NORMAL YA CREADO - AÑADE EL CAMPO CICLOS ENTERO Y SI YA EXISTE AÑADE LOS OPTION */
+
+var p = 0;
+var cont = 0;
+
+$('#family'+p).on('change', function(e) {
+	//console.log(e);
+
+	// Almaceno el valor que ha tomado el select
+	var familyId = e.target.value;
+
+	// Peticion Ajax
+	// Tomo los datos de la ruta establecida a la que le concateno el identificador
+	$.get('/json/cycles/' + familyId, function(data){
+		//console.log(data);
+		
+		if(cont < 1){
+			$('#fieldCycles').removeClass('hidden');
+			$('#fieldCycles').append('<div class="row"><div class="input-field col-md-12"><label for="cycles" style="margin-top: -3em">Ciclos cursados</label><select name="cycles" class="form-control" id="cycles' + p + '"></select>');
+			$('#cycles'+p).empty();
+			$.each(data, function(index, cycleObj){
+				$('#cycles'+p).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+			});
+			cont++;
+		} else {
+			$('#cycles'+p).empty();
+			$.each(data, function(index, cycleObj){
+				$('#cycles'+p).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+			});
+		}
+	});
 });
+
+
+
+
+
+

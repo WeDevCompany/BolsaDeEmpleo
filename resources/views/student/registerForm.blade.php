@@ -31,9 +31,8 @@
                                     <legend style="width: auto;">Familia Profesional</legend>
                                     @include('generic.profFamiliesfields')
                                 </fieldset>
-                                <fieldset>
+                                <fieldset id="fieldCycles" class="hidden">
                                     <legend style="width: auto;">Ciclos</legend>
-                                    @include('student.partials.cyclesfields')
                                 </fieldset>
                             <div id="divAddFamilyCycle" class="text-center">
                                 @include('student.partials.btnAddFamilyCycle')
