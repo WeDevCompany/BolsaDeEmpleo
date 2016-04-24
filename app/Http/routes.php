@@ -47,18 +47,14 @@ Route::group(['middleware' => 'web'], function () {
 });
 
 // Rutas de peticiones Ajax
-Route::group(['prefix' => 'ajax', 'middleware' => 'web', 'namespace' => 'Ajax'], function(){
+Route::group(['prefix' => 'json', 'middleware' => 'web', 'namespace' => 'Json'], function () {
 
-    // Ciclos
-    Route::get('/cycles', function() {
+    Route::get('cycles/{familyId}', function($familyId) {
 
-        $familyId = Input::get('familyId');
-
-        $cycles = App\Cycles::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->get();
+        $cycles = App\Cycle::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->get();
 
         return \Response::json($cycles);
     });
-
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'], function(){
