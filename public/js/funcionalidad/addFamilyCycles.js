@@ -40,10 +40,5 @@
         i++;
         $('#btnRemoveFamilyCycle').click( function(e){
             $(this).parent().remove();
-            /*RemoveFamilyCycle = $('#btnRemoveFamilyCycle').val();
-            console.log(RemoveFamilyCycle);
-
-            $('.addFamilyCycle').attr('id', RemoveFamilyCycle).remove();
-            console.log($('.addFamilyCycle').attr('id', RemoveFamilyCycle));*/
         });
     });
