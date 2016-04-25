@@ -40,7 +40,7 @@ $('#family').on('change', function(e) {
 });
 */
 
-/* SELECT NORMAL YA CREADO - AÑADE LOS OPTION CORRECTAMENTE (VERSION ESTABLE) 
+/* SELECT NORMAL YA CREADO - AÑADE LOS OPTION CORRECTAMENTE (VERSION ESTABLE)
 $('#family').on('change', function(e) {
 	//console.log(e);
 
@@ -73,10 +73,20 @@ $('#family'+p).on('change', function(e) {
 	// Tomo los datos de la ruta establecida a la que le concateno el identificador
 	$.get('/json/cycles/' + familyId, function(data){
 		//console.log(data);
-		
+
 		if(cont < 1){
 			$('#fieldCycles').removeClass('hidden');
-			$('#fieldCycles').append('<div class="row"><div class="input-field col-md-12"><label for="cycles" style="margin-top: -3em">Ciclos cursados</label><select name="cycles" class="form-control" id="cycles' + p + '"></select>');
+			$('#fieldCycles').append('<div class="row"><div class="input-field col-md-12"><label for="cycles" style="margin-top: -3em">Ciclos cursados</label><select name="cycles[' + p + ']" class="form-control" id="cycles' + p + '"></select>' +
+			'<section">' +
+            '<div class="input-field col-md-6">' +
+                '<label for="yearFrom[' + p + ']">A&ntilde;o de inicio</label>' +
+                '<input name="yearFrom[' + p + ']" type="text" id="yearFrom[' + p + ']">' +
+            '</div>' +
+            '<div class="input-field col-md-6">' +
+                '<label for="yearTo[' + p + ']">A&ntilde;o de fin</label>' +
+                '<input name="yearTo[' + p + ']" type="text" id="yearTo[' + p + ']">' +
+            '</div>' +
+        '</section>');
 			$('#cycles'+p).empty();
 			$.each(data, function(index, cycleObj){
 				$('#cycles'+p).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
@@ -90,9 +100,3 @@ $('#family'+p).on('change', function(e) {
 		}
 	});
 });
-
-
-
-
-
-

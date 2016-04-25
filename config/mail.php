@@ -56,7 +56,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'me@example.com', 'name' => 'Your name'],
+    'from' => ['address' => 'no-replay@iescierva.net', 'name' => 'IES cierva Bolsa de empleo'],
 
     /*
     |--------------------------------------------------------------------------
