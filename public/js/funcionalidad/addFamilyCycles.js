@@ -2,37 +2,25 @@
     var texto = "Ciclo - ";
     var error = 0;
     $('#btnAddFamilyCycle').click(function(){
-        var divAddFamilyCycle = $('#divAddFamilyCycle');
-        var div1 = $('#clon1');
-        var div2 = $('#clon2');
-        var div3 = $('#clon3');
-        var div4 = $('#clon4');
-        var div5 = $('#clon5');
-        var div6 = $('#clon6');
-        var div7 = $('#clon7');
-        var div8 = $('#clon8');
+            var divAddFamilyCycle = $('#divAddFamilyCycle');
         if(i < 8){
             // obtenemos el div tras el cual
             // colocaremos los futuros ciclos
-
-            $("#clon0").clone().appendTo(div1);
-
 
             divAddFamilyCycle.after(
             '<div>'+
             '<fieldset>' +
                 '<legend style="width: auto;">Familia Profesional</legend>' +
-                    '<select name="family" class="form-control" id="family'+ i + '">' +
+                    '<select name="family" class="family form-control" id="family'+ i + '">' +
                     '</select>' +
             '</fieldset>' +
             '<fieldset class="addFamilyCycle" id="' + i + '"> ' +
                     '<legend style="width:auto;">' + texto + i + '</legend>' +
-                    '<div class="form-group{{ $errors->has("cycles[' + i +']") ? " has-error" : "" }}">' +
+                    '<div class="form-group">' +
                         '<div class="row">' +
                             '<div class="input-field col-md-12">' +
                                 '<label for="cycles[' + i +']" style="margin-top: -3em">Ciclos cursados</label>' +
-                                '<select name="cycles[' + i +']" class="form-control">' +
-                                    '<option value="1">A</option><option value="2">B</option><option value="50">C</option><option value="4">D</option><option value="5">E</option><option value="6">F</option>' +
+                                '<select name="cycles[' + i +']" class="form-control" id="cycles'+ i +'">' +
                                 '</select>' +
                             '</div>' +
                         '</div>' +
@@ -67,53 +55,40 @@
             error++;
         }
 
-
-        i++;
         $('#btnRemoveFamilyCycle').click( function(e){
+            //console.log(e);
             $(this).parent().parent().remove();
         });
 
-
-        /*$('#family'+i).on('change', function(e) {
-        	console.log(e);
-        });*/
+        $.get('/json/profFamilies', function(data){
+            //console.log(data);
+            $('#family'+i).empty();
+            $('#family'+i).append('<option value="0" disabled="disabled" selected="selected">Selecciona una familia profesional</option>');
+            $.each(data, function(index, familyObj){
+                $('#family'+i).append('<option value="' + familyObj.id + '">' + familyObj.familia + '</option>');
+            });
+            i++;
+        });
     });
 
+    $('.family-cycle').on('change', function(e) {
+        //console.log(e);
 
-    /*$('#family'+i).on('change', function(e) {
-    	console.log(e);
+        // Almaceno el valor que ha tomado el select
+        var familyId = e.target.value;
 
-    	// Almaceno el valor que ha tomado el select
-    	var familyId = e.target.value;
+        var identifier = e.target.id;
 
-    	// Peticion Ajax
-    	// Tomo los datos de la ruta establecida a la que le concateno el identificador
-    	$.get('/json/cycles/' + familyId, function(data){
-    		//console.log(data);
-
-    		if(contAux < 1){
-    			$('#fieldCycles').removeClass('hidden');
-    			$('#fieldCycles').append('<div class="row"><div class="input-field col-md-12"><label for="cycles" style="margin-top: -3em">Ciclos cursados</label><select name="cycles[' + i + ']" class="form-control" id="cycles' + i + '"></select>' +
-    			'<section">' +
-                '<div class="input-field col-md-6">' +
-                    '<label for="yearFrom[' + i + ']">A&ntilde;o de inicio</label>' +
-                    '<input name="yearFrom[' + i + ']" type="text" id="yearFrom[' + i + ']">' +
-                '</div>' +
-                '<div class="input-field col-md-6">' +
-                    '<label for="yearTo[' + i + ']">A&ntilde;o de fin</label>' +
-                    '<input name="yearTo[' + i + ']" type="text" id="yearTo[' + i + ']">' +
-                '</div>' +
-            '</section>');
-    			$('#cycles'+i).empty();
-    			$.each(data, function(index, cycleObj){
-    				$('#cycles'+i).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
-    			});
-    			cont++;
-    		} else {
-    			$('#cycles'+p).empty();
-    			$.each(data, function(index, cycleObj){
-    				$('#cycles'+p).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
-    			});
-    		}
-    	});
-    });*/
+        if( identifier.substring(0,6) == 'family' ){
+            identifier = identifier.substring(6,7);
+            // Peticion Ajax
+            // Tomo los datos de la ruta establecida a la que le concateno el identificador
+            $.get('/json/cycles/' + familyId, function(data){
+                //console.log(data);
+                $('#cycles'+identifier).empty();
+                $.each(data, function(index, cycleObj){
+                    $('#cycles'+identifier).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                });
+            });
+        }
+    });
