@@ -2,10 +2,20 @@
     var texto = "Ciclo - ";
     var error = 0;
     $('#btnAddFamilyCycle').click(function(){
-            var divAddFamilyCycle = $('#divAddFamilyCycle');
+        var divAddFamilyCycle = $('#divAddFamilyCycle');
+        var div1 = $('#clon1');
+        var div2 = $('#clon2');
+        var div3 = $('#clon3');
+        var div4 = $('#clon4');
+        var div5 = $('#clon5');
+        var div6 = $('#clon6');
+        var div7 = $('#clon7');
+        var div8 = $('#clon8');
         if(i < 8){
             // obtenemos el div tras el cual
             // colocaremos los futuros ciclos
+
+            $("#clon0").clone().appendTo(div1);
 
 
             divAddFamilyCycle.after(
@@ -61,18 +71,8 @@
         i++;
         $('#btnRemoveFamilyCycle').click( function(e){
             $(this).parent().parent().remove();
-            $('#family'+i).ready(function(){
-                // cargamos las familias profesionales
-                $('#family'+i).prepend('<option value="option6">option6</option>');
-            });
         });
 
-        $('#family'+i).ready(function(){
-            // cargamos las familias profesionales
-            //alert("hola");
-
-            //append('<option value="option6">option6</option>');
-        });
 
         /*$('#family'+i).on('change', function(e) {
         	console.log(e);
