@@ -26,7 +26,6 @@
                         <fieldset>
                             <legend style="width:auto;">Estudiante</legend>
                             @include('student.partials.studentfields')
-                            <div id="clon0">
                             <section class="family-cycle">
                                 <fieldset>
                                     <legend style="width: auto;">Familia Profesional</legend>
@@ -35,18 +34,10 @@
                                 <fieldset id="fieldCycles" class="hidden">
                                     <legend style="width: auto;">Ciclos</legend>
                                 </fieldset>
-                            </div>
                             <div id="divAddFamilyCycle" class="text-center">
                                 @include('student.partials.btnAddFamilyCycle')
                             </div>
                             </section>
-                            <div id="clon1"></div>
-                            <div id="clon2"></div>
-                            <div id="clon3"></div>
-                            <div id="clon4"></div>
-                            <div id="clon5"></div>
-                            <div id="clon6"></div>
-                            <div id="clon7"></div>
                         </fieldset>
                         <fieldset>
                             <legend style="width: auto;">Usuario</legend>
