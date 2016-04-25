@@ -229,6 +229,16 @@ body {
   color:white !important;
   font-weight: bold;
 }
+#parallax-2 {
+    min-height:100%;
+    background-image: url('/img/parallax/parallax-2.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 95%;
+}
+
 /* Small Devices, Tablets - no ver el parallax */
 @media only screen and (max-width: 768px) {
   #parallax-1 {
@@ -530,7 +540,36 @@ div.drop:hover {
   CHOSEN
 ****************/
 
-
 .chosen-container {
   width: 100% !important;
+}
+
+/***************
+  ERRORES
+****************/
+.full-width {
+    width: 95%;
+    padding:0px;
+    /*text-align: justify;*/
+}
+
+@media only screen and (max-width: 500px) {
+    .error-template{
+        font-size: 8vw;
+    }
+    .error-template > h1{
+        font-size: 14vw;
+    }
+    .error-actions > a{
+        font-size: 5vw;
+    }
+    .error-actions > i{
+        font-size: 5vw;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .error-actions > a{
+        font-size: 10px;
+    }
 }

@@ -24,6 +24,11 @@ Route::group(['middleware' => ['web']], function () {
 
 });
 
+// Ruta para pruebas
+Route::get("/pruebas", function(){
+    return view('errors.mailNotVerified');
+});
+
 Route::group(['middleware' => 'web'], function () {
 
     Route::post('/authLogin', 'Auth\AuthController@authLogin');
