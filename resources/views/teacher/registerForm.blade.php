@@ -85,7 +85,7 @@
                             </div>
                             
                             <!-- Drag and drop -->
-                            @include('partials.upload.uploadRegister')
+                            @include('partials.upload.dragDrop')
 
                             <div class="control-group{{ $errors->has('select') ? ' has-error' : '' }}">
                                 <div class="row">

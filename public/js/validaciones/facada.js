@@ -78,6 +78,9 @@ $(document).ready(function(){
         // Script personalizado para aceptar terminos
         studentRegisterForm.after('<script src="/js/validaciones/includes/studentRegisterForm.js" charset="utf-8"></script>');
 
+        // Script Drag and Drop Personalizado
+        teacherRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
+
     }// comprobación de que el formulario es el de estudiantes
 
     // Comprobamos si el formulario
