@@ -26,7 +26,7 @@ Route::group(['middleware' => ['web']], function () {
 
 // Ruta para pruebas
 Route::get("/pruebas", function(){
-    return view('errors.mailNotVerified');
+    return view('errors.notVerified', ['rol' => "Administrador"]);
 });
 
 Route::group(['middleware' => 'web'], function () {
