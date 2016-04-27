@@ -1,12 +1,12 @@
     var i = 1;
     var texto = "Ciclo - ";
     var error = 0;
+    var delay = 1000;
     $('#btnAddFamilyCycle').click(function(){
             var divAddFamilyCycle = $('#divAddFamilyCycle');
         if(i < 8){
             // obtenemos el div tras el cual
             // colocaremos los futuros ciclos
-
             divAddFamilyCycle.after(
             '<div>'+
             '<fieldset>' +

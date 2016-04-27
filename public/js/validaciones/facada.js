@@ -1,4 +1,3 @@
-
 /**
  * Este archivo es una fachada desarrollada para
  * automatizar la validación de cualquier formulario
@@ -68,6 +67,9 @@ $(document).ready(function(){
 
         // Script personalizado de chosen
         teacherRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>');
+        
+        // Script de Configuracion de chosen
+       teacherRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
 
     }// Comprobación de que el formulario es el de los profesores
 
