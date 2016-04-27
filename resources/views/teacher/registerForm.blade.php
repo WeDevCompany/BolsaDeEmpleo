@@ -10,7 +10,7 @@
 @include('partials.nav.navProfesor')
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-10 col-md-offset-1 sin-margen">
             <div class="panel panel-default">
                 <div class="modal-content">
                     <div class="modal-header text-center">
@@ -68,6 +68,7 @@
                                         </span>
                                     @endif
                             </div>
+                            @include('generic.tutor')
 
                             <div class="control-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                                 <div class="row">
@@ -83,7 +84,7 @@
                                         </span>
                                     @endif
                             </div>
-                            
+
                             <!-- Drag and drop -->
                             @include('partials.upload.dragDrop')
 
@@ -101,14 +102,12 @@
                                         </span>
                                     @endif
                             </div>
-
                             </fieldset>
-
-
                             <fieldset>
                                 <legend style="width: auto;">Usuario</legend>
                                 @include('generic.userfields')
                             </fieldset>
+                            @include('generic.terms')
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4 text-center">
                                     <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light">
