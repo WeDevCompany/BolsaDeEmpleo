@@ -1,7 +1,10 @@
 @extends('layouts.app')
+@section('scripts')
+
+@endsection
 
 @section('content')
-<div class="container">
+<div class="container navbar">
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
