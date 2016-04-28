@@ -1,33 +1,33 @@
-    $('document').ready(function(){
+    /*$('document').ready(function(){
         $('#drop img').hide();
         $('#file-info').hide();
         $('#drop-curriculum img').hide();
         $('#curriculum-info').hide();
         $('#curriculum-dragDrop').hide();
-    });
+    });*/
     // Funcion para mostrar la imagen
     $('#imagen-dragDrop').change(function() {
 
         // Nombre archivo usuario
         var file = (this.files[0].name).toString();
         var reader = new FileReader();
-        
+
         // Vaciamos el contenido y añadimos el nuevo donde mostraremos el nombre del archivo
         $('#file-info').text('');
         $('#file-info').text(file);
-        
+
         reader.onload = function (e) {
 
             // Mostrar imagen
             $('#drop img').attr('src', e.target.result);
 
-            $('#drop img').show();
-            $('#file-info').show();
-            $('#drop span').hide();
+            $('#drop img').removeClass('hidden');
+            $('#file-info').removeClass('hidden');
+            $('#drop span').addClass('hidden');
 
         }
-         
-        reader.readAsDataURL(this.files[0]); 
+
+        reader.readAsDataURL(this.files[0]);
 
     });
 
@@ -64,7 +64,7 @@
 
     // Al hacer click en el drag and drop se abre la ventana de subida de archivos
     $('#drop').on('click', function(e) {
-        
+
         $("#imagen-dragDrop").click();
 
     })
@@ -79,22 +79,22 @@
         // Nombre archivo usuario
         var file = (this.files[0].name).toString();
         var reader = new FileReader();
-        
+
         // Vaciamos el contenido y añadimos el nuevo donde mostraremos el nombre del archivo
         $('#curriculum-info').text('');
         $('#curriculum-info').text(file);
-        
+
         reader.onload = function (e) {
 
             // Mostrar curriculum
 
-            $('#drop-curriculum img').show();
-            $('#curriculum-info').show();
-            $('#drop-curriculum span').hide();
+            $('#drop-curriculum img').removeClass('hidden');
+            $('#curriculum-info').removeClass('hidden');
+            $('#drop-curriculum span').addClass('hidden');
 
         }
-         
-        reader.readAsDataURL(this.files[0]); 
+
+        reader.readAsDataURL(this.files[0]);
 
     });
 
@@ -131,7 +131,7 @@
 
     // Al hacer click en el drag and drop se abre la ventana de subida de archivos
     $('#drop-curriculum').on('click', function(e) {
-        
+
         $("#curriculum-dragDrop").click();
 
     })
