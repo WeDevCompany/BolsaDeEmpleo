@@ -22,10 +22,9 @@ class Student extends Model
     	return $this->belongsTo(User::class);
     } // user()
 
-    public function manyCycles()
+    public function cycles()
     {
-    	return $this->belongsToMany(Cycle::class, 'studentCycles')
-    			->withPivot('cycle_id');
-    } // manyCycles()
+        return $this->belongsToMany(Cycle::class, 'studentCycles')->withPivot('cycle_id');
+    } // cycles()
 
-}
+} // Student

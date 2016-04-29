@@ -61,16 +61,14 @@ class StudentsController extends UsersController
         } else {
 
             // Llamo al metodo para crear el estudiante.
-            $insercion = Self::create();
+            $insert = Self::create();
 
-            if($insercion !== false){
+            if($insert !== false){
 
                 // Llamo al metodo para almacenar sus grados.
-                
-                // INACABADO $insercion = self::createStudentCycle($insercion);
-                $insercion = true;
+                $insert = self::createStudentCycle($insert);
 
-                if ($insercion === true){
+                if ($insert === true){
 
                     // Llamo al metodo sendEmail del controlador de las familias profesionales
                     $email = Parent::sendEmail();
@@ -83,6 +81,7 @@ class StudentsController extends UsersController
                         Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
                     }
                 } else {
+                    // Aqui debo controlar los errores de inserción de ciclos
                     \DB::rollBack();
                     Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
                 }
@@ -99,14 +98,14 @@ class StudentsController extends UsersController
     private function create()
     {
         try {
-            $insercion = Student::create($this->request->all());
+            $insert = Student::create($this->request->all());
         } catch(\PDOException $e){
             //dd($e);
             abort(500);
         }
 
-        if(isset($insercion)){
-            return $insercion;
+        if(isset($insert)){
+            return $insert;
         }
         return false;
     } // create()
@@ -115,25 +114,42 @@ class StudentsController extends UsersController
     private function createStudentCycle($student)
     {
         $data = $this->request->all();
+        $cuantity = 0;
+        $cycles = count($data['cycles']);
 
         try {
-            // Inserta 1 solo ciclo, falta hacer el foreach para cada uno de ellos y validar que exista previamente el
-            $student->cycles()->attach($data['cycles'], [
-                'dateTo' => 1190,//$data['yearTo'],
-                'dateFrom' => 1820,//$data['yearFrom'],
-                'student_id' => $student['id'],
-                'cycle_id' => $data['cycles'],
-                'created_at' => date('YmdHms'),
-            ]);
+            // Para cada ciclo recibido hacemos una inserción
+            foreach ($data['cycles'] as $posicion => $id) {
+                $insert = null;
+
+                $student->cycles()->attach($id, [
+                    'dateTo' => $data['yearTo'][$posicion],
+                    'dateFrom' => $data['yearFrom'][$posicion],
+                    'student_id' => $student['id'],
+                    'created_at' => date('YmdHms'),
+                ]);
+
+                // Comprobamos si la inserción ha sido correcta
+                $insert = $student->cycles()
+                                ->where('cycle_id', '=', $id)
+                                ->select(['studentCycles.id'])
+                                ->get()
+                                ->toArray();
+                
+                if(!empty($insert) && !is_null($insert)){
+                    $cuantity++;
+                } else {
+                    // Añado los errores para devolverlos sacar en la consulta el nombre del ciclo tambien para devolverlo en el error
+                }
+            }
         } catch(\PDOException $e){
-            dd($e);
+            //dd($e);
             abort(500);
         }
 
-        if(isset($insercion)){
+        if($cuantity == $cycles){
             return true;
         }
-        return true;
+        return false; // devuelvo false (temporal) debo devolver los errores
     } // createStudentCycle()
-
 }
