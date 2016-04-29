@@ -204,13 +204,13 @@ class UsersController extends Controller
         // Total de caracteres 25
         for($i=0;$i<15;$i++) {
             $cad .= mb_substr($str,rand(0,73),1);
-            // Le añadimos los segundos por cada iteración
+            // Le añadimos los microsegundos [SOLO UNIX] por cada iteración
             // lo cual lo hace más aleatorio
-            $cad .= date("s");
+            $cad .= microtime();
         }
         // y al final le concatenamos la fecha de forma que sea una cadena
         // completamente aleaotria
-        $cad .=  date("Yhis");    // Total de caracteres 55 caracteres
+        $cad .=  date("Yhis");
         $cadEncryp = md5($cad);
         return $cadEncryp;
     }// generarCodigo()
