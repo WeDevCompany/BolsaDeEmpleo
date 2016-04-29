@@ -191,24 +191,38 @@ class UsersController extends Controller
 
     } // uploadImage()
 
+    /**
+     * Método que genera el código aleatorio
+     * @return String cadena aleatoria
+     */
     protected function generarCodigo()
     {
         $str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_1234567890" . date("Yhis");
         $cad = "";
         //                                        AÑO   HORA MIN  SEG
         // Montamos una cadena aleatoria con 63 + 0000 + 00 + 00 + 00
-        // Total de caracteres 25 - aleatorios + el string bolsaempleo
+        // Total de caracteres 25
         for($i=0;$i<15;$i++) {
             $cad .= mb_substr($str,rand(0,73),1);
+            // Le añadimos los segundos por cada iteración
+            // lo cual lo hace más aleatorio
+            $cad .= date("s");
         }
+        // y al final le concatenamos la fecha de forma que sea una cadena
+        // completamente aleaotria
+        $cad .=  date("Yhis");    // Total de caracteres 55 caracteres
         $cadEncryp = md5($cad);
         return $cadEncryp;
+    }// generarCodigo()
 
-    }
-
+    /**
+     * Método que envia un email de confirmación al usuario
+     * para validar su cuenta
+     * @return Boolean false si no se envia el email.
+     */
     protected function sendEmail()
     {
-        
+
         try{
 
             $user = User::findOrFail($this->request['user_id']);
