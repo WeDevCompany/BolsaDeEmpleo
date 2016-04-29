@@ -15,7 +15,6 @@
                 <div class="modal-content">
                     <div class="modal-header text-center">
                         <h4><i class="fa fa-university"></i>Formulario de alta de profesores</h4>
-
                     </div>
                     <div class="panel-body">
                          {{ Form::open(['route' => 'profesor..store', 'method' => 'POST', 'files' => 'true', 'id' => 'teacher-register-form']) }}
