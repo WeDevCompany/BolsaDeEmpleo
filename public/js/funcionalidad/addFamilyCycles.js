@@ -14,6 +14,7 @@ $('document').ready(function(){
 var i = 1;
 var texto = "Ciclo - ";
 var error = 0;
+// variable que ayuda a validar el estado de los ciclos
 
 $('#btnAddFamilyCycle').click(function(){
         var divAddFamilyCycle = $('#divAddFamilyCycle');
@@ -68,11 +69,19 @@ $('#btnAddFamilyCycle').click(function(){
         error++;
     }
 
+    /*
+        Borramos el elemento abuelo de quien haya
+        un evento click
+     */
     $('#btnRemoveFamilyCycle').click( function(e){
-        //console.log(e);
         $(this).parent().parent().remove();
     });
 
+    
+    /*
+        Obtenemos la información por JSON
+        con las familias profesionales
+     */
     $.get('/json/profFamilies', function(data){
         //console.log(data);
         $('#family'+i).empty();
@@ -89,7 +98,6 @@ $('.family-cycle').on('change', function(e) {
 
     // Almaceno el valor que ha tomado el select
     var familyId = e.target.value;
-
     var identifier = e.target.id;
 
     if( identifier.substring(0,6) == 'family' ){
@@ -104,4 +112,5 @@ $('.family-cycle').on('change', function(e) {
             });
         });
     }
+
 });

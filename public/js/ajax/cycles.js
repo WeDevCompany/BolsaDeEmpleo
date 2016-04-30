@@ -62,12 +62,20 @@ $('#family').on('change', function(e) {
 
 var p = 0;
 var cont = 0;
+var estadoCycles;
+var estadoFamily;
+var estadoInicio;
+var estadoFin;
+
+var fechaInicio;
+var fechaFin;
 
 $('#family'+p).on('change', function(e) {
 	//console.log(e);
 
 	// Almaceno el valor que ha tomado el select
 	var familyId = e.target.value;
+	estadoFamily = true;
 
 	// Peticion Ajax
 	// Tomo los datos de la ruta establecida a la que le concateno el identificador
@@ -92,11 +100,28 @@ $('#family'+p).on('change', function(e) {
 				$('#cycles'+p).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
 			});
 			cont++;
+			estadoCycles = true;
 		} else {
 			$('#cycles'+p).empty();
 			$.each(data, function(index, cycleObj){
 				$('#cycles'+p).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
 			});
+			estadoCycles = true;
 		}
+		if (estadoFamily && estadoCycles) {
+			// si existen los campos habilitamos el botón
+			// porque no podemos acceder a un elemento generado
+			// ya que no sabemos cuando va a ser generado dicho elemento
+			fechaInicio = $('#yearFrom[' + p + ']');
+			fechaFin = $('#yearTo[' + p +']');
+
+			if(fechaInicio && fechaFin){
+				console.log("skjfsdj");
+				$('#btnAddFamilyCycle').addClass("waves-effect  waves-light");
+		        $('#btnAddFamilyCycle').prop('disabled', false);
+			}
+	    }
+
+
 	});
 });

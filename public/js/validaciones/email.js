@@ -23,7 +23,7 @@ $('#email').blur(function(){
     } else {
         // realizamos el saneamiento del campo
         email.text($.trim(email.val()));
-        submit.removeClass("waves-effect  waves-light");
+        submit.addClass("waves-effect  waves-light");
         submit.prop('disabled', false);
         return true;
     }
