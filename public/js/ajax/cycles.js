@@ -62,11 +62,9 @@ $('#family').on('change', function(e) {
 
 var p = 0;
 var cont = 0;
+
 var estadoCycles;
 var estadoFamily;
-var estadoInicio;
-var estadoFin;
-
 var fechaInicio;
 var fechaFin;
 
