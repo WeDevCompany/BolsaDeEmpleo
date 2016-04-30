@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('css')
+<META HTTP-EQUIV="Refresh" CONTENT="5; URL="/">
+@endsection
 @section('content')
     <div class="container full-width">
     <div class="row">

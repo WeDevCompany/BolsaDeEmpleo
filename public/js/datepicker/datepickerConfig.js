@@ -22,7 +22,7 @@
         min: [1916,01,01],
         max: true,
         darktheme: true,
-    })
+    });
 
     // Cuando se haga click en el campo input se abra el datepicker
     $('.datepicker').on('click', function(){
