@@ -20,11 +20,18 @@
         // Rango de años que se mostraran
         selectYears: 1000,
         min: [1916,01,01],
-        max: true
+        max: true,
+        darktheme: true,
     })
 
     // Cuando se haga click en el campo input se abra el datepicker
-    $('#picker').on('click', function(){
+    $('.datepicker').on('click', function(){
+        $('div.picker').addClass('picker--opened');
+
+    });
+
+    // Cuando se haga click en el campo input se abra el datepicker
+    $('.labelpicker').on('click', function(){
         $('div.picker').addClass('picker--opened');
 
     });

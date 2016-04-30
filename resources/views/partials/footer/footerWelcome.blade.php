@@ -24,6 +24,7 @@
                             <li><a href="{{config('routes.registro.registroEstudiante')}}">Estudiantes</a></li>
                             <li><a href="{{config('routes.uso')}}">FAQ</a></li>
                             <li><a href="{{config('routes.terminos')}}" class="modal-trigger">Terminos LOPD</a></li>
+                            <li><a href="/autores">Autores de la aplicación</a></li>
                         </ul>
 
                     </div>
@@ -68,7 +69,7 @@
 
             <div class="footer-copyright text-center rgba-black-light">
                 <div class="container-fluid">
-                    © 2015 Copyright: <a target="_blank" href="http://www.iescierva.net/"> iescierva.net</a>
+                    © 2015 Copyright: <a target="_blank" href="http://www.iescierva.net/"> iescierva.net</a><a target="_blank" href="/autores"> @autores</a>
                 </div>
             </div>
         </footer>
