@@ -19,5 +19,5 @@ studentRegisterForm.after('<script src="/js/funcionalidad/addFamilyCycles.js" ch
 // Añadimos el cargado por ajax de la información de los ciclos
 studentRegisterForm.after('<script src="/js/ajax/cycles.js" charset="utf-8"></script>');
 
-// Añadimos las validaciones de las familias profesionales
-studentRegisterForm.after('<script src="/js/validaciones/familyProf.js" charset="utf-8"></script>');
+// Añadimos la configuracion de datepicker
+studentRegisterForm.after('<script src="/js/datepicker/datepickerConfig.js" charset="utf-8"></script>');

@@ -104,7 +104,7 @@
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">today</i>
 
-                {{ Form::date('birthdate',null, ['class' => 'datepicker']) }}
+                {{ Form::date('birthdate',null, ['class' => 'datepicker', 'id' => 'picker']) }}
             </div>
         </div>
         @if ($errors->has('birthdate'))
