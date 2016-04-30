@@ -91,11 +91,8 @@ return [
     |
     */
 
-    'custom'               => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
-    ],
+    'dni'           => 'El campo :attribute no es válido',
+    'cycleYearFrom' => 'Las fechas de los ciclos no son válidas',
 
     /*
     |--------------------------------------------------------------------------
