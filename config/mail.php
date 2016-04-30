@@ -56,7 +56,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'no-replay@iescierva.net', 'name' => 'IES cierva Bolsa de empleo'],
+    'from' => ['address' => 'bolsa@iescierva.net', 'name' => 'Bolsa de empleo del IES ingeniero de la cierva'],
 
     /*
     |--------------------------------------------------------------------------

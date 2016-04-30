@@ -42,9 +42,9 @@ class StudentsController extends UsersController
     protected function index(){
         // Llamo al metodo getAllProfFamilies del controlador de las familias profesionales
         $profFamilies = app(ProfFamilieController::class)->getAllProfFamilies();
-
+		$zona = 'Registro de estudiantes';
         // Devuelvo la vista junto con las familias
-        return view('student.registerForm', compact('profFamilies'));
+        return view('student.registerForm', compact('profFamilies', 'zona'));
     } // index()
 
     protected function store()
@@ -135,7 +135,7 @@ class StudentsController extends UsersController
                                 ->select(['studentCycles.id'])
                                 ->get()
                                 ->toArray();
-                
+
                 if(!empty($insert) && !is_null($insert)){
                     $cuantity++;
                 } else {

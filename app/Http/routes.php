@@ -15,7 +15,8 @@
 Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', function () {
-        return view('welcome');
+        $zona = "Inicio";
+        return view('welcome', compact('zona'));
     });
 
     Route::get(config('routes.registro.registroProfesor'), 'Teacher\TeachersController@index');
@@ -46,7 +47,8 @@ Route::group(['middleware' => 'web'], function () {
 
     // Ruta para protección de datos
     Route::get(config('routes.terminos'), function(){
-        return view('partials.protecciondatos');
+        $zona = "Terminos de uso";
+        return view('partials.protecciondatos', compact('zona'));
     });
 
 });

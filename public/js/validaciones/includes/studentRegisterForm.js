@@ -12,3 +12,12 @@ studentRegisterForm.after('<script src="/js/validaciones/cycles.js"></script>');
 
 // Script personalizado para aceptar terminos
 studentRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>');
+
+// Añadimos las funciones para añadir ciclos
+studentRegisterForm.after('<script src="/js/funcionalidad/addFamilyCycles.js" charset="utf-8"></script>');
+
+// Añadimos el cargado por ajax de la información de los ciclos
+studentRegisterForm.after('<script src="/js/ajax/cycles.js" charset="utf-8"></script>');
+
+// Añadimos las validaciones de las familias profesionales
+studentRegisterForm.after('<script src="/js/validaciones/familyProf.js" charset="utf-8"></script>');

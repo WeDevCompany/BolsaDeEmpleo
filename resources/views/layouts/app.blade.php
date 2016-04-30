@@ -9,12 +9,10 @@
     <meta name="author" content="Emmanuel Valverde Ramos" />
     <meta name="author" content="Eduardo López Pardo" />
     <meta name="author" content="Pedro Hernandéz-Mora de Fuentes" />
-    <meta name="author" content="Fernando Barcelona" />
-    <meta name="author" content="Abel Montejo" />
     <meta name="organization" content="IES Ingeniero de la cierva" />
     <!-- Etiquetas para el Posicionamiento SEO -->
     @yield('css')
-    <title>Bolsa de empleo - I.E.S. Ingeniero de la cierva</title>
+    <title>Bolsa de empleo - I.E.S. Ingeniero de la cierva @if(isset($zona))| {{$zona}} @endif</title>
     <noscript>Su navegador no tiene activado javascript, por favor activelo y recarge la página</noscript>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="{{ url('img/favicon/apple-icon-57x57.png') }}">

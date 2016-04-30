@@ -3,7 +3,7 @@
     @include('keyword.teacher.registerFormKeywords')
 @endsection
 @section('scripts')
-    {{-- Incluimos los scripts de valbolaciones --}}
+    {{-- Incluimos los scripts de validaciones --}}
     <script src="/js/validaciones/facada.js" charset="utf-8"></script>
 @endsection
 @section('content')
@@ -44,4 +44,5 @@
         </div>
     </div>
 </div>
+@include('partials.footer.footerWelcome')
 @endsection

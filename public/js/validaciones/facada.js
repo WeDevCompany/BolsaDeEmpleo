@@ -59,17 +59,8 @@ $(document).ready(function(){
     // es el formulario de registro de profesores
     if(teacherRegisterForm.length) {
 
-        // Script Drag and Drop Personalizado
-        teacherRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
-
-        // Script de chosen (select multiple)
-        teacherRegisterForm.after('<script src="/plugin/chosen/chosen.jquery.js"></script>');
-
         // Script personalizado de chosen
-        teacherRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>');
-        
-        // Script de Configuracion de chosen
-       teacherRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
+        teacherRegisterForm.after('<script src="/js/validaciones/includes/teacherRegisterForm.js"></script>');
 
     }// Comprobación de que el formulario es el de los profesores
 
@@ -79,9 +70,6 @@ $(document).ready(function(){
 
         // Script personalizado para aceptar terminos
         studentRegisterForm.after('<script src="/js/validaciones/includes/studentRegisterForm.js" charset="utf-8"></script>');
-
-        // Script Drag and Drop Personalizado
-        teacherRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
 
     }// comprobación de que el formulario es el de estudiantes
 

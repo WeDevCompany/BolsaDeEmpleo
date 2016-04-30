@@ -28,7 +28,8 @@ class TeachersController extends UsersController
 
     protected function index()
     {
-        return view('teacher.registerForm');
+        $zona = "Registro de profesores";
+        return view('teacher.registerForm', compact('zona'));
     } // index()
 
     protected function store()
@@ -104,5 +105,3 @@ class TeachersController extends UsersController
     }
 
 }
-
-

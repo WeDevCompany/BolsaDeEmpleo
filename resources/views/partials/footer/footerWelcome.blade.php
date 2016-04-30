@@ -16,7 +16,7 @@
 
                     <!--Second column-->
                     <div class="col-md-2 col-md-offset-1">
-                        <p class="column-title white-text">Enlaces útiles</p>
+                        <p class="column-title white-text">ENLACES ÚTILES</p>
 
                         <ul>
                             <li><a href="{{config('routes.registro.registroEmpresa')}}">Empresas</a></li>
@@ -31,28 +31,26 @@
 
                     <!--Third column-->
                     <div class="col-md-2">
-                        <p class="column-title white-text">MDB Free Popular</p>
+                        <p class="column-title white-text">ENLACES ANEXOS AL IES</p>
 
                         <ul>
-                            <li><a href="#">Animations</a></li>
-                            <li><a href="#">Forms</a></li>
-                            <li><a href="#">Carousel</a></li>
-                            <li><a href="#">Buttons</a></li>
-                            <li><a href="#">Parallax</a></li>
+                            <li><a target="_blank" href="http://moodle.iescierva.net/">MOODLE. Plataforma de Aprendizaje Virtual</a></li>
+                            <li><a target="_blank" href="http://www.adingenierocierva.com/inicio.htm">Asociación Deportiva Ingeniero de la Cierva.</a></li>
+                            <li><a target="_blank" href="http://fct.carm.es/fct/">Programa de control de la FCT.</a></li>
+                            <li><a target="_blank" href="https://infoalu.murciaeduca.es/infoalupxxi/30010978/">INFOALU PLUMIER XXI</a></li>
                         </ul>
                     </div>
                     <!--/.Third column-->
 
                     <!--Fourth column-->
                     <div class="col-md-2">
-                        <p class="column-title white-text">MDB Pro Popular</p>
+                        <p class="column-title white-text">ORGANISMOS OFICIALES</p>
 
                         <ul>
-                            <li><a href="#">E-commerce</a></li>
-                            <li><a href="#">Cards</a></li>
-                            <li><a href="#">SideNav</a></li>
-                            <li><a href="#">MaterialBox</a></li>
-                            <li><a href="#">Social Buttons</a></li>
+                            <li><a target="_blank" href="http://www.carm.es/educacion">Consejería de Educación, Formación y Empleo.</a></li>
+                            <li><a target="_blank" href="http://www.mec.es">Ministerio de Educación, Cultura y Deporte.</a></li>
+                            <li><a target="_blank" href="http://www.um.es">Universidad de Murcia.</a></li>
+                            <li><a target="_blank" href="http://www.cprregionmurcia.com/web/cpr-region-de-murcia/inicio">CPR de la Región de Murcia.</a></li>
                         </ul>
                     </div>
                     <!--/.Fourth column-->

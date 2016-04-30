@@ -6,11 +6,6 @@
     {{-- Incluimos los scripts de valbolaciones --}}
     <script src="/js/validaciones/facada.js" charset="utf-8"></script>
 
-    {{-- Incluimos lo necesario para añadir familias profesionales --}}
-    <script src="/js/funcionalidad/addFamilyCycles.js" charset="utf-8"></script>
-
-    {{-- Incluimos lo necesario para la peticion Ajax --}}
-    <script src="/js/ajax/cycles.js" charset="utf-8"></script>
 @endsection
 @section('content')
 @include('partials.nav.navEstudiante')
@@ -21,7 +16,6 @@
                 <div class="modal-content">
                     <div class="modal-header text-center">
                         <h4><i class="fa fa-graduation-cap"></i>Formulario de alta de estudiantes</h4>
-
                     </div>
 
                     <div class="panel-body ancho">
@@ -67,4 +61,5 @@
         </div>
     </div>
 </div>
+@include('partials.footer.footerWelcome')
 @endsection
