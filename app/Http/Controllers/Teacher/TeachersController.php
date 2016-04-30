@@ -17,10 +17,10 @@ class TeachersController extends UsersController
     {
         Parent::__construct($request);
         $this->rules += [
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'dni' => 'required',
-            'phone' => 'required',
+            'firstName' => 'required|between:2,45|regex:/^[A-Za-z0-9 ]+$/',
+            'lastName' => 'required|between:2,75|regex:/^[A-Za-z0-9 ]+$/',
+            'dni' => 'required|dni',
+            'phone' => 'required|digits_between:9,13',
         ];
         $this->rol = 'profesor';
         $this->redirectTo = "/profesor";

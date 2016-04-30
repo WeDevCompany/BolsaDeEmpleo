@@ -51,8 +51,9 @@ class UsersController extends Controller
 
         // Reglas de usuarios.
         $this->rules = [
-            'email' => 'required',
-            'password' => 'required|confirmed',
+            'email' => 'required|email|min:6|unique:users',
+            'password' => 'required|confirmed|between:4,20|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d).+$/',
+            'terminos' => 'accepted'
         ];
 
         $this->rules_image = [

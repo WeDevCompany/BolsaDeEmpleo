@@ -20,20 +20,21 @@ class StudentsController extends UsersController
         Parent::__construct($request);
         $this->rules += [
             // Reglas para el estudiante
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'dni' => 'required',
-            'nre' => 'required',
-            'phone' => 'required',
-            'road' => 'required',
-            'address' => 'required',
-            //'curriculum' => 'required',
-            'birthdate' => 'required',
+            'firstName'  => 'required|between:2,45|regex:/^[A-Za-z0-9 ]+$/',
+            'lastName'   => 'required|between:2,75|regex:/^[A-Za-z0-9 ]+$/',
+            'dni'        => 'required|dni',
+            'nre'        => 'digits:7',
+            'phone'      => 'required|digits_between:9,13',
+            'road'       => 'required',
+            'address'    => 'required|between:6,225',
+            'curriculum' => 'required|mimes:pdf',
+            'birthdate'  => 'required|date',
 
             // Reglas de los ciclos.
-            /*'cycles' => 'required',
-            'yearFrom' => 'required',
-            'yearTo' => 'required',*/
+            'family'     => 'required|exists:profFamilies,name',
+            'cycles'     => 'required|exists:cycles,name',
+            'yearFrom'   => 'required|digits:4|cycleYearFrom',
+            'yearTo'     => 'required|digits:4',
         ];
         $this->rol = 'estudiante';
         $this->redirectTo = "/estudiante";
