@@ -51,9 +51,9 @@ class UsersController extends Controller
 
         // Reglas de usuarios.
         $this->rules = [
-            'email' => 'required|email|min:6|unique:users',
-            'password' => 'required|confirmed|between:4,20|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d).+$/',
-            'terminos' => 'accepted'
+            'email'     => 'required|email|min:6|unique:users',
+            'password'  => 'required|confirmed|between:4,20|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d).+$/',
+            'terminos'  => 'required'
         ];
 
         $this->rules_image = [
@@ -106,7 +106,9 @@ class UsersController extends Controller
 
                 // Imagen recibida si existe
                 $file = $this->request->file('file');
-                $imagen = $file->getClientOriginalName();
+
+                // Generamos el nombre de la imagen
+                $imagen = $this->generarCodigo() . '.png';
 
             } else {
 
@@ -125,7 +127,7 @@ class UsersController extends Controller
 
             // Añado el codigo de verificacion
             $this->request['code'] = $code;
-
+            
             //Insertamos todos los campos
             $insercion = User::create($this->request->all());
 
@@ -176,7 +178,7 @@ class UsersController extends Controller
         $file = $this->request->file('file');
 
         //obtenemos el nombre del archivo
-        $nombre = $file->getClientOriginalName();
+        $nombre = $this->generarCodigo() . '.png';
 
         //indicamos que queremos guardar un nuevo archivo en el disco local
         $save = $file->move(public_path() . '/img/imgUser/' . \Auth::user()->carpeta, $nombre);
