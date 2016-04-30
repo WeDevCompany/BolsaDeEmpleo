@@ -26,8 +26,13 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 // Ruta para pruebas
-Route::get("/pruebas", function(){
+Route::get(config('routes.pruebas'), function(){
     return view('errors.notVerified', ['rol' => "Administrador"]);
+});
+
+// Ruta para pruebas
+Route::get(config('routes.authors'), function(){
+    return view('authors.authors');
 });
 
 Route::group(['middleware' => 'web'], function () {

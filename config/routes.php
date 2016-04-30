@@ -50,7 +50,13 @@ return [
     'authLogin'     => '/authLogin',
     'confirmation'  => '/confirmation/{token}',
     'confirmado'    => '/confirmado',
-
+	'pruebas'		=> '/pruebas',
+	'authors'		=> '/autores',
+		[
+			'manu'			=> '/autores/emmanuel',
+			'edu'			=> '/autores/eduardo',
+			'pedro'			=> '/autores/pedro',
+		],
 
 ];
 ?>
