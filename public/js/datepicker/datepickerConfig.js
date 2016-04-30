@@ -3,11 +3,15 @@
 
         // Cada vez que hace render datapicker hay que habilitar los botones
         onRender: function() {
+
+            // Habilitamos los siguientes campos por problemas con la libreria
             $('.picker__close').prop("disabled", false);
-            $('.picker__clear').prop("disabled", false);
             $('.picker__today').prop("disabled", false);
             $('.picker__select--month').prop("disabled", false);
             $('.picker__select--year').prop("disabled", false);
+
+            // Ocultamos el clear del datepiker por problemas con el label
+            $('.picker__clear').addClass('hidden');
           },
 
 
