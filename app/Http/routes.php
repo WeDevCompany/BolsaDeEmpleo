@@ -14,7 +14,7 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('/', [ 'as' => 'inicio'] , function () {
+    Route::get('/' , function () {
         $zona = "Inicio";
         return view('welcome', compact('zona'));
     });
