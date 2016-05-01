@@ -49,6 +49,7 @@ return [
 	'uso'		    => '/uso',
     'authLogin'     => '/authLogin',
     'confirmation'  => '/confirmation/{token}',
+    'confirmacion'  => '/confirmacion',
     'confirmado'    => '/confirmado',
 	'pruebas'		=> '/pruebas',
 	'authors'		=> '/autores',
