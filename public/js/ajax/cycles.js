@@ -114,7 +114,6 @@ $('#family'+p).on('change', function(e) {
 			fechaFin = $('#yearTo[' + p +']');
 
 			if(fechaInicio && fechaFin){
-				console.log("skjfsdj");
 				$('#btnAddFamilyCycle').addClass("waves-effect  waves-light");
 		        $('#btnAddFamilyCycle').prop('disabled', false);
 			}
