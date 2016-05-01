@@ -84,13 +84,13 @@ $('#family'+p).on('change', function(e) {
 			$('#fieldCycles').removeClass('hidden');
 			$('#fieldCycles').append('<div class="row"><div class="input-field col-md-12"><label for="cycles" style="margin-top: -3em">Ciclos cursados</label><select name="cycles[' + p + ']" class="form-control" id="cycles' + p + '"></select>' +
 			'<section">' +
-            '<div class="input-field col-md-6">' +
-                '<label for="yearFrom[' + p + ']">A&ntilde;o de inicio</label>' +
-                '<input name="yearFrom[' + p + ']" type="text" id="yearFrom[' + p + ']">' +
+            '<div class="input-field col-md-6"  style="padding-top: 5px">' +
+                '<label for="yearFrom[' + p + ']" style="margin-top: -2em">A&ntilde;o de inicio</label>' +
+				generarSelectYears('yearFrom[' + p + ']', 1990) +
             '</div>' +
             '<div class="input-field col-md-6">' +
-                '<label for="yearTo[' + p + ']">A&ntilde;o de fin</label>' +
-                '<input name="yearTo[' + p + ']" type="text" id="yearTo[' + p + ']">' +
+                '<label for="yearTo[' + p + ']" style="margin-top: -2em">A&ntilde;o de fin</label>' +
+                generarSelectYears('yearTo[' + p + ']', 1990) +
             '</div>' +
         '</section>');
 			$('#cycles'+p).empty();
@@ -118,7 +118,18 @@ $('#family'+p).on('change', function(e) {
 		        $('#btnAddFamilyCycle').prop('disabled', false);
 			}
 	    }
-
-
 	});
 });
+
+function generarSelectYears(id, end){
+	console.log(id);
+	var anyo = (new Date).getFullYear();
+	var select = '<select class="form-control" name="' + id + '" id="' + id + '">';
+	for (k = end; k <= anyo; k++)
+    {
+        select += '<option value="' + k + '">' + k + '</option>';
+    }
+	select += "</select>";
+	console.log(select);
+	return select;
+}
