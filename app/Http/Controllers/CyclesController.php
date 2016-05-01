@@ -38,11 +38,17 @@ class CyclesController extends Controller
     			// la caché dura 24 horas o 1440 minutos
     			// La unica forma de pasar como parametro a esta función anonima
     			// una variable es [use ($variable)]
-    			$cycles = \Cache::remember('cycles', 1440, function() use ($familyId){
+    			// En la cache se esta guardando un archivo que es identificado como
+    			// cycles, esto es un problema porque cada ciclo tiene un id distinto
+    			// es decir, necesitamos identificar los ciclos, para ello le concatenaremos el id de la familia.
+    		    $cycles = \Cache::remember('cycles_' . $familyId , 1440, function() use ($familyId){
     				// Los resultados de la consulta se almacenan en la variable
     			    return Cycle::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->get();
 
     		    });
+
+                // Método sin caché
+                /*$cycles = Cycle::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->get();*/
             } catch(\PDOException $e) {
                 abort('500');
             }
@@ -55,4 +61,4 @@ class CyclesController extends Controller
         abort('404');
     }// getCiclesJSON()
 
-}// final del controlador de ciclos
+}// final del controlador de
