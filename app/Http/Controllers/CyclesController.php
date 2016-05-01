@@ -32,7 +32,16 @@ class CyclesController extends Controller
         $familyId = (int) $familyId;
         // coprobamos que el id es valido
         if(is_numeric($familyId) && $familyId > 0){
-            $cycles = Cycle::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->get();
+            // Añadimos a la caché los resultados de los ciclos
+			// la caché dura 24 horas o 1440 minutos
+			// La unica forma de pasar como parametro a esta función anonima
+			// una variable es [use ($variable)]
+			$cycles = \Cache::remember('cycles', 1440, function() use ($familyId){
+				// Los resultados de la consulta se almacenan en la variable
+			    return Cycle::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->get();
+
+		    });
+            
             // devolvemos el resultado de la consulta en formato JSON
             return \Response::json($cycles);
         }
@@ -40,4 +49,5 @@ class CyclesController extends Controller
         // Si el id de la familia profesional ha sido modificado
         abort('404');
     }// getCiclesJSON()
+
 }

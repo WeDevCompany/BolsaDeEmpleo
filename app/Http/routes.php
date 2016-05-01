@@ -52,35 +52,28 @@ Route::group(['middleware' => 'web'], function () {
 
     // Ruta para protección de datos
     Route::get(config('routes.terminos'), function(){
+        // Puesto que los terminos no tienen controlador
+        // Redirecciono desde aqui a la vista y le paso un titulo
+        // Para mejorar el posicionamiento de la web
         $zona = "Terminos de uso";
         return view('partials.protecciondatos', compact('zona'));
     });
 
 });
 
-// Rutas de peticiones Ajax
-Route::group(['prefix' => 'json', 'middleware' => 'web', 'namespace' => 'Json'], function () {
+// Rutas de peticiones Ajax  JSON
+// NO SE UTILIZA NAMESPACES SINO SE ENCUENTRA EN LA CARPETA CON EL MISMO NOMBRE
+Route::group(['prefix' => 'json', 'middleware' => 'web'], function () {
 
     // Ciclos
-    Route::get('cycles/{familyId}', function($familyId) {
-
-        $cycles = App\Cycle::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->get();
-
-        return \Response::json($cycles);
-    });
+    Route::get('cycles/{familyId}', 'CyclesController@getCiclesJSON');
 
     // Familias profesionales
-    Route::get('profFamilies', function(Illuminate\Http\Request  $request) {
-        $profFamilies = App\ProfFamilie::where('active', '=', '1')->lists('name', 'id');
-        $valid_profFamilies = [];
-        foreach ($profFamilies as $id => $profFamilie) {
-            $valid_profFamilies[] = ['id' => $id, 'familia' => $profFamilie];
-        }
-        return \Response::json($valid_profFamilies);
-    });
+    Route::get('profFamilies', 'ProfFamilieController@getAllProfFamiliesJSON');
 
 });
 
+// Rutas para los administradores
 Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'], function(){
 
     Route::resource(config('routes.index'), 'AdminsController');
@@ -89,6 +82,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'
 
 });
 
+// Rutas para profesores
 Route::group(['prefix' => 'profesor', 'middleware' => ['web'], 'namespace' => 'Teacher'], function(){
 
     Route::resource(config('routes.index'), 'TeachersController');
