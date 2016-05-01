@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Student;
 use App\Teacher;
-use App\VerifiedStudent;
-use App\VerifiedTeacher;
 use Illuminate\Http\Request;
 use Validator;
 use App\Http\Requests\LoginRequest;
@@ -77,13 +75,15 @@ class AuthController extends Controller
         // Comprobamos si el usuario ha validado su email
         if (!$user->verifiedEmail) {
 
-            return \Redirect::to('confirmation/' . $user->code);
+            return \Redirect::to('confirmation');
 
         // Comprobamos que el profesor haya verificado al alumno
         } else if ($user->rol == 'estudiante'){
 
             $student = Student::where('user_id', '=',$user['id'])->first();
-            $verifiedStudent = verifiedStudent::where('student_id', '=', $student['id'])->first();
+            $verifiedStudent = Student::where('verifiedStudents.student_id', '=', $student['id'])
+                                        ->join('verifiedStudents', 'verifiedStudents.teacher_id', '=', 'students.id')
+                                        ->first();
             
             // Si no esta verificado ...
             if(!$verifiedStudent){
@@ -95,7 +95,9 @@ class AuthController extends Controller
         } else if ($user->rol == 'profesor'){
 
             $teacher = Teacher::where('user_id', '=',$user['id'])->first();
-            $verifiedTeacher = verifiedTeacher::where('teacher_id', '=', $teacher['id'])->first();
+            $verifiedTeacher = Teacher::where('verifiedTeachers.teacher_id', '=', $teacher['id'])
+                                        ->join('verifiedTeachers', 'verifiedTeachers.teacher_id', '=', 'teachers.id')
+                                        ->first();
 
             // Si no esta verificado ...
             if(!$verifiedTeacher){
@@ -174,22 +176,35 @@ class AuthController extends Controller
         return \Redirect::to('/');
     }
 
+    protected function getConfirmation()
+    {
+        return view('auth.emails.confirmation');
+    }
+
     /**
      * Metodo que recibe por get el codigo de verificacion
      * @param  String $token    Codigo de verificacion
      * @return Vista        Confirmation
      */
-    protected function getConfirmation($token)
+    protected function getDirectConfirmation($token)
     {
         // Buscamos el usuario en base al codigo
         $user = User::where('code', $token)->firstOrFail();
 
         // Si ya ha verificado el email salta error 404
         if($user->verifiedEmail){
-            abort(404);
+
+            return \Redirect::to('/');
         }
 
-        return view('auth.emails.confirmation');
+        // Modificamos el campo y lo guardamos
+        $user->verifiedEmail = 1;
+        $user->save();
+        
+        // Logeamos al usuario automaticamente y lo redireccionamos
+        \Auth::loginUsingId($user['id']);
+        return \Redirect::to('/');
+        
     }
 
 

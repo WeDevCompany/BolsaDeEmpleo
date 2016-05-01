@@ -233,8 +233,11 @@ class UsersController extends Controller
             // Ruta en la que el usuario se verificara
             $url = route('confirmation', ['token' => $user->code]);
 
+            // Ruta en la que el usuario introduce el codigo para validarse
+            $urlCode = route('confirmacion');
+
             // Mandamos el email al usuario con los datos de la vista
-            $email = \Mail::send('auth/emails/emailRegister', compact('user', 'url'), function ($m) use ($user){
+            $email = \Mail::send('auth/emails/emailRegister', compact('user', 'url', 'urlCode'), function ($m) use ($user){
 
                 $m->to($user->email)->subject('Activa tu cuenta');
 
