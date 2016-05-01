@@ -39,18 +39,19 @@ class User extends Authenticatable
         $this->attributes['password'] = \Hash::make($value);
     }
 
-    public function students()
+    // Relaciones one to many
+    public function student()
     {
-        return $this->belongsToMany(Student::class);
-    } // students()
+        return $this->belongsTo(Student::class);
+    } // student()
 
     public function teachers()
     {
-        return $this->belongsToMany(Teacher::class);
+        return $this->belongsTo(Teacher::class);
     } // teachers()
 
     public function enterprises()
     {
-        return $this->belongsToMany(Enterprise::class);
+        return $this->belongsTo(Enterprise::class);
     } // enterprises()
 }
