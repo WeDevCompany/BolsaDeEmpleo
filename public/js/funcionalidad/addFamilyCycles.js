@@ -40,13 +40,13 @@ $('#btnAddFamilyCycle').click(function(){
                     '</div>' +
                 '</div>' +
 
-            '<div class="input-field col-md-6">' +
-                '<label for="yearFrom[' + i + ']">A&ntilde;o de inicio</label>' +
-                '<input name="yearFrom[' + i + ']" type="text" id="yearFrom[' + i + ']">' +
+            '<div class="input-field col-md-6"  style="padding-top: 5px">' +
+                '<label for="yearFrom[' + i + ']" style="margin-top: -2em">A&ntilde;o de inicio</label>' +
+                generarSelectYears('yearFrom[' + i + ']', 1990) +
             '</div>' +
             '<div class="input-field col-md-6">' +
-                '<label for="yearTo[' + i + ']">A&ntilde;o de fin</label>' +
-                '<input name="yearTo[' + i + ']" type="text" id="yearTo[' + i + ']">' +
+                '<label for="yearTo[' + i + ']" style="margin-top: -2em">A&ntilde;o de fin</label>' +
+                generarSelectYears('yearTo[' + i + ']', 1990) +
             '</div>' +
         '</fieldset>' +
         '<div class="text-center">' +
@@ -85,12 +85,34 @@ $('#btnAddFamilyCycle').click(function(){
     $.get('/json/profFamilies', function(data){
         //console.log(data);
         $('#family'+i).empty();
-        $('#family'+i).append('<option value="0" disabled="disabled" selected="selected">Selecciona una familia profesional</option>');
+    //    $('#family'+i).append('<option value="0" disabled="disabled" selected="selected">Selecciona una familia profesional</option>');
         $.each(data, function(index, familyObj){
             $('#family'+i).append('<option value="' + familyObj.id + '">' + familyObj.familia + '</option>');
         });
-        i++;
+        estadoFamily = true;
+
+        $.get('/json/cycles/' + data[0].id, function(data){
+            $.each(data, function(index, cyclesObj){
+                $('#cycles'+i).append('<option value="' + cyclesObj.id + '">' + '[' + cyclesObj.level + '] ' + cyclesObj.name + '</option>');
+            });
+            estadoCycles = true;
+            i++;
+            if (estadoFamily && estadoCycles) {
+                // si existen los campos habilitamos el botón
+                // porque no podemos acceder a un elemento generado
+                // ya que no sabemos cuando va a ser generado dicho elemento
+                fechaInicio = $('#yearFrom[' + p + ']');
+                fechaFin = $('#yearTo[' + p +']');
+
+                if(fechaInicio && fechaFin){
+                    $('#btnAddFamilyCycle').addClass("waves-effect  waves-light");
+                    $('#btnAddFamilyCycle').prop('disabled', false);
+                }
+            }
+        });
     });
+
+
 });
 
 $('.family-cycle').on('change', function(e) {
