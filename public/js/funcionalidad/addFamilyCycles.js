@@ -42,11 +42,11 @@ $('#btnAddFamilyCycle').click(function(){
 
             '<div class="input-field col-md-6"  style="padding-top: 5px">' +
                 '<label for="yearFrom[' + i + ']" style="margin-top: -2em">A&ntilde;o de inicio</label>' +
-                generarSelectYears('yearFrom[' + i + ']', 1990) +
+                funciones.generarSelectYears('yearFrom[' + i + ']', 1990) +
             '</div>' +
             '<div class="input-field col-md-6">' +
                 '<label for="yearTo[' + i + ']" style="margin-top: -2em">A&ntilde;o de fin</label>' +
-                generarSelectYears('yearTo[' + i + ']', 1990) +
+                funciones.generarSelectYears('yearTo[' + i + ']', 1990) +
             '</div>' +
         '</fieldset>' +
         '<div class="text-center">' +
@@ -77,7 +77,7 @@ $('#btnAddFamilyCycle').click(function(){
         $(this).parent().parent().remove();
     });
 
-    
+
     /*
         Obtenemos la información por JSON
         con las familias profesionales

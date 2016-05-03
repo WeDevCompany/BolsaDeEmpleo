@@ -68,6 +68,7 @@ var estadoFamily;
 var fechaInicio;
 var fechaFin;
 
+
 $('#family'+p).on('change', function(e) {
 	//console.log(e);
 
@@ -86,11 +87,11 @@ $('#family'+p).on('change', function(e) {
 			'<section">' +
             '<div class="input-field col-md-6"  style="padding-top: 5px">' +
                 '<label for="yearFrom[' + p + ']" style="margin-top: -2em">A&ntilde;o de inicio</label>' +
-				generarSelectYears('yearFrom[' + p + ']', 1990) +
+				funciones.generarSelectYears('yearFrom[' + p + ']', 1990) +
             '</div>' +
             '<div class="input-field col-md-6">' +
                 '<label for="yearTo[' + p + ']" style="margin-top: -2em">A&ntilde;o de fin</label>' +
-                generarSelectYears('yearTo[' + p + ']', 1990) +
+                funciones.generarSelectYears('yearTo[' + p + ']', 1990) +
             '</div>' +
         '</section>');
 			$('#cycles'+p).empty();
@@ -120,16 +121,3 @@ $('#family'+p).on('change', function(e) {
 	    }
 	});
 });
-
-function generarSelectYears(id, end){
-	console.log(id);
-	var anyo = (new Date).getFullYear();
-	var select = '<select class="form-control" name="' + id + '" id="' + id + '">';
-	for (k = end; k <= anyo; k++)
-    {
-        select += '<option value="' + k + '">' + k + '</option>';
-    }
-	select += "</select>";
-	console.log(select);
-	return select;
-}
