@@ -75,7 +75,9 @@
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">add_location</i>
                 {{ Form::label('road', 'Tipo de vía') }}
-                {{ Form::text('road', null, ['class' => 'form-control']) }}
+                <div style="padding:3em 0em 1.5em 2.5em">
+                    {{ Form::select('road', config('roads.road'), null,['class' => 'chosen-select form-control']) }}
+                </div>
             </div>
         </div>
         @if ($errors->has('road'))
