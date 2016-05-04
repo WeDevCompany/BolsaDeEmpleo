@@ -1,6 +1,9 @@
 // Añadimos la configuracion de datepicker
 studentRegisterForm.after('<script src="/js/funcionalidad/funciones.js" charset="utf-8"></script>');
 
+// Script personalizado para las funciones de validación
+studentRegisterForm.after('<script src="/js/validaciones/validaciones.js"></script>');
+
 // Script Drag and Drop Personalizado
 studentRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
 
