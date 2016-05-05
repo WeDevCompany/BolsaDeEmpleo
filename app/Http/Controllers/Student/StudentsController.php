@@ -17,15 +17,16 @@ class StudentsController extends UsersController
 
 	public function __construct(Request $request)
     {
+        $role = app(Student::class)->road();
         Parent::__construct($request);
         $this->rules += [
             // Reglas para el estudiante
-            'firstName'          => 'required|between:2,45|regex:/^[A-Za-z0-9 ]+$/',
+            'firstName'         => 'required|between:2,45|regex:/^[A-Za-z0-9 ]+$/',
             'lastName'          => 'required|between:2,75|regex:/^[A-Za-z0-9 ]+$/',
-            'dni'               => 'required|dni',
+            'dni'               => 'required|min:9|unique:students,dni|dni',
             'nre'               => 'digits:7',
             'phone'             => 'required|digits_between:9,13',
-            'road'              => 'required',
+            'road'              => 'required|in:' . implode($role, ','),
             'address'           => 'required|between:6,225',
             'curriculum'        => 'required|mimes:pdf',
 
@@ -155,4 +156,5 @@ class StudentsController extends UsersController
         }
         return false; // devuelvo false (temporal) debo devolver los errores
     } // createStudentCycle()
+
 }
