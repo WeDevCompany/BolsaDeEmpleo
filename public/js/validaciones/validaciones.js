@@ -9,6 +9,33 @@
 
     // Objeto de validaciones
     var validaciones = {
+
+        /**
+         * typeOfErrors objeto que contiene todos los tipos de error
+         * @type Object
+         */
+        typeOfErrors : {
+            'empty'  : "El campo :campo: está vacio",
+            'short'  : "El campo :campo: es demasiado corto",
+            'long'   : "El campo :campo: es demasiado largo",
+            'format' : "El campo :campo: no cumple el formato correcto",
+            'equal'  : "El campo :campo: no es correcto",
+            'select' : "El campo :campo: ha de ser seleccionado",
+            'check'  : "El campo :campo: ha de ser marcado",
+        },
+
+        /**
+         * setTypeError método através del cual se generan los textos de error
+         * @param String error Error a selecionar
+         * @param String campo El nombre del campo
+         */
+        setTypeError : function(error, campo) {
+            errorType = $.extend( {}, this.typeOfErrors );
+            if(errorType[error].length > 0){
+                return errorType[error].replace(":campo:", campo);
+            }
+            return false;
+        },
         // ---------------------------------
         // Regex
         // ---------------------------------
@@ -31,7 +58,7 @@
         regexPass : function (pass){
             var regex = "/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z-_$@ñÑáéíóúÁÉÍÓÚÀÈÌÒÙäëïöüÄËÏÖÜ]{6,20}$/";
             return regex.test(pass);
-        }
+        },
 
         // ---------------------------------
         // Mostrar errores
@@ -44,12 +71,13 @@
          * [tiipos de error: error-email, error-LoQueSea]
          * @param  Object   object   Object de tipo DOM
          * @param  String   id       String con el id del error
-         * @param  String   mensaje  Mensaje a mostrarle al usuario
+         * @param  String error      Error a selecionar
+         * @param  String campo      El nombre del campo
          * @return boolean false     Si este mensaje aparece debe parar cualquier operación
          *                           que se esté realizando en el momento
          */
-        errorObject : function(object, id, mensaje) {
-            object.after( '<div id="' + id + '" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>' ).fadeIn("slow");
+        errorObject : function(object, id, error, campo) {
+            object.after( '<div id="' + id + '" class="text-center"><span class="help-block"><strong>'+ setTypeError(error, campo) +'<strong></span></div>' ).fadeIn("slow");
             object.addClass('invalid');
             return false;
         },
@@ -59,17 +87,18 @@
         // ---------------------------------
 
         /**
-         * objectVacio método que comprobará si un objeto está vacio
+         * isEmpty método que comprobará si un objeto está vacio
          * los campos del formulario, independientemente del campo.
          * este método recive 3 parametros, estos son:
          * [tiipos de error: error-email, error-LoQueSea]
          * @param  Object   object          Object de tipo DOM
          * @param  String   id              String con el id del error
-         * @param  String   mensaje         Mensaje a mostrarle al usuario
+         * @param  String error             Error a selecionar
+         * @param  String campo             El nombre del campo
          * @return boolean  true | false    false = si el objeto está vacio
          *                                  true = si el objeto esxiste
          */
-        objectVacio : function(object, id, mensaje) {
+        isEmpty : function(object, id, error, campo) {
             if($.trim(object.val()) === "" || object.val() === null){
                 return this.errorObject(object, id, mensaje);
             }
@@ -82,11 +111,12 @@
          * [tiipos de error: error-email, error-LoQueSea]
          * @param  Object  object       Objeto DOM del cual queremos conocer si cumple la longitud
          * @param  String  id           ID del error
-         * @param  String  mensaje      Mensaje a mostrar al usuario
+         * @param  String error        Error a selecionar
+         * @param  String campo        El nombre del campo
          * @param  Integer length       Longitud minínima
          * @return Boolean true | false        [description]
          */
-        objectShortLength : function (object, id, mensaje, length) {
+        objectShortLength : function (object, id, error, campo, length) {
             // si la longitud no se le pasa como parametro utilizará
             // por defecto el 6
             if(length === null || $.trim(length) === ""){
@@ -106,11 +136,12 @@
          * @param  Object  object       Objeto DOM del cual queremos conocer si cumple la
          *                              longitud
          * @param  String  id           ID del error
-         * @param  String  mensaje      Mensaje a mostrar al usuario
+         * @param  String  error        Error a selecionar
+         * @param  String  campo        El nombre del campo
          * @param  Integer length       Longitud minínima
          * @return Boolean true | false False = si hay error | True = sino hay error
          */
-        objectHighLength : function (object, id, mensaje, length) {
+        objectHighLength : function (object, id, error, campo, length) {
             // si la longitud no se le pasa como parametro utilizará
             // por defecto el 6
             if(length === null || $.trim(length) === ""){
@@ -118,7 +149,7 @@
             }
 
             if (object.val().length < length) {
-                return this.errorObject(object, id, mensaje);
+                return this.errorObject(object, id, error, campo);
             }
             return true;
         },
@@ -128,15 +159,16 @@
          * si esta comple el formato adecuado o no
          * @param  Object   object          Objeto a validar
          * @param  Integer  id              ID a darle al error en caso de que exista
-         * @param  String   mensaje         Mensaje de error en caso de que exista
+         * @param  String   error           Error a selecionar
+         * @param  String   campo           El nombre del campo
          * @param  Object   funcionRegex    Función a la que llamar como callBack
          * @return Booblean false | true    False = En caso de que haya error
          *                                  True = En caso de que no haya error
          */
-        objectValid : function (object, id, mensaje, funcionRegex){
+        objectValid : function (object, id, error, campo, funcionRegex){
             // comproamos si el email es valido
             if (!this.funcionRegex(object.val())) {
-               return this.errorObject(object, id, mensaje);
+               return this.errorObject(object, id, error, campo);
             }
             return true;
         },
@@ -177,7 +209,7 @@
         unchecked : function (object) {
             object.removeAttr('checked');
             return true;
-        }
+        },
 
         // ---------------------------------
         // Validaciones con particularidades
@@ -222,9 +254,10 @@
     // Esto se puede usar desde cualquier otro script
     // siempre y cuando este script este cargado
     // ya que es una variable accesible globalmente gracias al "var"
-    console.log(validaciones.validarEmail('evrtrabajo@gmail.com'));
+    console.log(validaciones.setTypeError('short', 'email'));
+
 
     // Objeto de saneamiento
     var saneamiento = {
 
-    }
+    };

@@ -7,8 +7,12 @@ $('#email').blur(function(){
     // obtenemos el email
     var email   = $('#email');
     var submit  = $('#submit');
+
+    // =============================
+    // lógica
+    // =============================
     // Si el email está vacio
-    if(!emailVacio(email)){
+    if(!validaciones.isEmpty(email)){
         submit.removeClass("waves-effect waves-light");
         submit.prop('disabled', true);
         return false;   // devuelvo false
