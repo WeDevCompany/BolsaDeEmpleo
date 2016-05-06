@@ -15,13 +15,27 @@
          * @type Object
          */
         typeOfErrors : {
-            'empty'  : "El campo :campo: está vacio",
-            'short'  : "El campo :campo: es demasiado corto",
-            'long'   : "El campo :campo: es demasiado largo",
-            'format' : "El campo :campo: no cumple el formato correcto",
-            'equal'  : "El campo :campo: no es correcto",
-            'select' : "El campo :campo: ha de ser seleccionado",
-            'check'  : "El campo :campo: ha de ser marcado",
+            'empty'     : "El campo :campo: está vacio",
+            'short'     : "El campo :campo: es demasiado corto",
+            'long'      : "El campo :campo: es demasiado largo",
+            'format'    : "El campo :campo: no cumple el formato correcto",
+            'equal'     : "El campo :campo: no es correcto",
+            'select'    : "El campo :campo: ha de ser seleccionado",
+            'check'     : "El campo :campo: ha de ser marcado",
+            'DNI'       : "El campo :campo: no es un DNI/NIE valido",
+            'CIF'       : "El campo :campo: no es un CIF valido",
+            'numbre'    : "El campo :campo: debe ser un número",
+            'alpha'     : "El campo :campo: debe contener números y letras",
+            'alphaC'    : "El campo :campo: debe contener números, letras mínusculas y letras mayúsculas",
+            'special'   : "El campo :campo: debe contener caracteres especiales",
+            '!specioal': "El campo :campo: no debe contener caracteres especiales",
+            'year'      : "El campo :campo: debe ser un año valido",
+            'date'      : "El campo :campo: debe ser una fecha valda",
+            // dateEq = dateEqual
+            'dateEq'    : "El campo :campo: no se debe repetir",
+            'phone'     : "El campo :campo: debe ser un número de teléfono valido",
+            'img'       : "El campo :campo: debe ser una imagen",
+            'pdf'       : "El campo :campo: debe ser un pdf",
         },
 
         /**
@@ -30,6 +44,9 @@
          * @param String campo El nombre del campo
          */
         setTypeError : function(error, campo) {
+            // obtenemos un array con el contenido del objeto
+            // typeOfErrors de forma que podamos tratar esta copia
+            // a tiempo real (tiempo de ejecución) según donde estemos
             errorType = $.extend( {}, this.typeOfErrors );
             if(errorType[error].length > 0){
                 return errorType[error].replace(":campo:", campo);
@@ -211,6 +228,23 @@
             return true;
         },
 
+        // Validaciones genericas que faltan
+        // Comparación de contraseñas
+        // Númericos,
+        // Alphanumericos,
+        // Caracteres especiales,
+        // Años,
+        // Fechas,
+        // Comaparción de fechas - Completas
+        // Comparación de años - Solo años
+        // Validaciones por ajax
+        //  GET - Ruta + Array de parametros
+        //  POST - Ruta + Array de parametros
+        // Telefonos
+        // DNI, NIE, CIF
+        // Imagenes
+        // PDF
+
         // ---------------------------------
         // Validaciones con particularidades
         // ---------------------------------
@@ -258,6 +292,9 @@
 
 
     // Objeto de saneamiento
+    // Necesitamos por lo menos una limpieza del valor de un objeto DOM
+    // De forma que se pueda utilizar en las validaciones y no tengamos que repetir
+    // le saneamiento.
     var saneamiento = {
 
     };

@@ -2,6 +2,8 @@
 studentRegisterForm.after('<script src="/js/funcionalidad/funciones.js" charset="utf-8"></script>');
 
 // Script personalizado para las funciones de validación
+// Estas contienen un objeto con métodos de validación que permiten
+// validar una serie de situacione genericas
 studentRegisterForm.after('<script src="/js/validaciones/validaciones.js"></script>');
 
 // Script Drag and Drop Personalizado
