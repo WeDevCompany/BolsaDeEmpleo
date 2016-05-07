@@ -7,18 +7,19 @@ $('#email').blur(function(){
     // obtenemos el email
     var email   = $('#email');
     var submit  = $('#submit');
+    var idError = 'error-email';
 
     // =============================
     // lógica
     // =============================
     // Si el email está vacio
-    if(!validaciones.isEmpty(email, 'error-email', 'empty', 'email')){
+    if(!validaciones.isEmpty(email, idError, 'empty', 'email')){
         result = (validaciones.submitDisable(submit)) ? false : true;
         return result;
-    } else if (!validaciones.objectShortLength(email, 'error-email', 'short', 'email')) {    // Si el email es muy corto
+    } else if (!validaciones.objectShortLength(email, idError, 'short', 'email')) {    // Si el email es muy corto
         result = (validaciones.submitDisable(submit)) ? false : true;
         return result;
-    } else if (!validaciones.objectValid(email, 'error-email', 'email', 'email', 'regexEmail')) {
+    } else if (!validaciones.objectValid(email, 'error-email', idError, 'email', 'regexEmail')) {
         result = (validaciones.submitDisable(submit)) ? false : true;
         return result;
     } else {
@@ -32,8 +33,9 @@ $('#email').blur(function(){
 
 // código para resetear los errores del email
 $('#email').focus(function(){
-    var email = $('#email');
-    var errorEmail = $('#error-email');
+    var idError = 'error-email';
+    var email = $('#' + idError);
+    var errorEmail = $('#' + idError);
     if(errorEmail){
         errorEmail.fadeOut("fast");
     }
