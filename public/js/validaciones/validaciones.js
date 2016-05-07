@@ -28,7 +28,7 @@
             'alpha'     : "El campo :campo: debe contener números y letras",
             'alphaC'    : "El campo :campo: debe contener números, letras mínusculas y letras mayúsculas",
             'special'   : "El campo :campo: debe contener caracteres especiales",
-            '!specioal': "El campo :campo: no debe contener caracteres especiales",
+            '!special'  : "El campo :campo: no debe contener caracteres especiales",
             'year'      : "El campo :campo: debe ser un año valido",
             'date'      : "El campo :campo: debe ser una fecha valda",
             // dateEq = dateEqual
@@ -36,6 +36,7 @@
             'phone'     : "El campo :campo: debe ser un número de teléfono valido",
             'img'       : "El campo :campo: debe ser una imagen",
             'pdf'       : "El campo :campo: debe ser un pdf",
+            'email'     : "El campo :campo: debe ser un email valido",
         },
 
         /**
@@ -64,6 +65,7 @@
          */
         regexEmail : function(email) {
             var regex = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+            console.log(regex.test(email));
             return regex.test(email);
         },
 
@@ -74,6 +76,7 @@
          */
         regexPass : function (pass){
             var regex = "/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z-_$@ñÑáéíóúÁÉÍÓÚÀÈÌÒÙäëïöüÄËÏÖÜ]{6,20}$/";
+            console.log(regex.test(pass));
             return regex.test(pass);
         },
 
@@ -94,7 +97,7 @@
          *                           que se esté realizando en el momento
          */
         errorObject : function(object, id, error, campo) {
-            object.after( '<div id="' + id + '" class="text-center"><span class="help-block"><strong>'+ setTypeError(error, campo) +'<strong></span></div>' ).fadeIn("slow");
+            object.after( '<div id="' + id + '" class="text-center"><span class="help-block"><strong>'+ this.setTypeError(error, campo) +'<strong></span></div>' ).fadeIn("slow");
             object.addClass('invalid');
             return false;
         },
@@ -117,7 +120,7 @@
          */
         isEmpty : function(object, id, error, campo) {
             if($.trim(object.val()) === "" || object.val() === null){
-                return this.errorObject(object, id, mensaje);
+                return this.errorObject(object, id, error, campo);
             }
             return true;
         },
@@ -141,7 +144,7 @@
             }
 
             if (object.val().length < length) {
-                return this.errorObject(object, id, mensaje);
+                return this.errorObject(object, id, error, campo);
             }
             return true;
         },
@@ -184,7 +187,9 @@
          */
         objectValid : function (object, id, error, campo, funcionRegex){
             // comproamos si el email es valido
-            if (!this.funcionRegex(object.val())) {
+            var callbacks = $.Callbacks();
+            callbacks.add( funcionRegex );
+            if (!callbacks.fire(object.val())) {
                return this.errorObject(object, id, error, campo);
             }
             return true;
@@ -296,5 +301,7 @@
     // De forma que se pueda utilizar en las validaciones y no tengamos que repetir
     // le saneamiento.
     var saneamiento = {
-
+        justNumbers : function(val){
+            return val = val.replace(/[^0-9]/g, '');
+        },
     };
