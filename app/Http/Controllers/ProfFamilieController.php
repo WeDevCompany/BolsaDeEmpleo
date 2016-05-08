@@ -26,6 +26,8 @@ class ProfFamilieController extends Controller
     		//dd($e);
             abort(500);
     	}
+
+    	return $profFamiliesDB;
     }// getAllProfFamilies()
 
 	/**
