@@ -43,17 +43,14 @@ class CyclesController extends Controller
     			// es decir, necesitamos identificar los ciclos, para ello le concatenaremos el id de la familia.
     		    $cycles = \Cache::remember('cycles_' . $familyId , 1440, function() use ($familyId){
     				// Los resultados de la consulta se almacenan en la variable
-    			    return Cycle::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->get();
+    			    return Cycle::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->orderBy('level', 'DESC')->orderBy('name', 'ASC')->get();
 
     		    });
-
-                // Método sin caché
-                /*$cycles = Cycle::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->get();*/
             } catch(\PDOException $e) {
                 abort('500');
             }
 
-            // devolvemos el resultado de la consulta en formato JSON
+            // devolvemos el resultado de la consulta, si falla la memoria caché, en formato JSON
             return \Response::json($cycles);
         }
 

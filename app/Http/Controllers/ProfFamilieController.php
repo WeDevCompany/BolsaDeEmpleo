@@ -20,21 +20,13 @@ class ProfFamilieController extends Controller
 			// la caché dura 24 horas o 1440 minutos
 			$profFamiliesDB = \Cache::remember('profFamiliesDB', 1440, function(){
 				// Los resultados de la consulta se almacenan en la variable
-			    return ProfFamilie::where('active', '=', 1)->lists('name', 'id')->toArray();
+			    return ProfFamilie::where('active', '=', 1)->orderBy('name', 'ASC')->lists('name', 'id')->toArray();
 
 		    });
-            // Añado la opcion por defecto
-            $profFamilies = ['0' => 'Selecciona una familia profesional'];
-
-			// Le "añadimos" a las familias profesionales una hecha
-			// por nosotros
-            $profFamilies = $profFamilies + $profFamiliesDB;
-
     	} catch(\PDOException $e) {
     		//dd($e);
             abort(500);
     	}
-    	return $profFamilies;
     }// getAllProfFamilies()
 
 	/**
@@ -52,8 +44,7 @@ class ProfFamilieController extends Controller
 			// la caché dura 24 horas o 1440 minutos
 			$profFamilies = \Cache::remember('profFamilies', 1440, function(){
 				// Los resultados de la consulta se almacenan en la variable
-			    return ProfFamilie::where('active', '=', '1')->lists('name', 'id');
-
+			    return ProfFamilie::where('active', '=', '1')->orderBy('name', 'ASC')->lists('name', 'id');
 		    });
 
 			// Formamos un array con las familias validas
