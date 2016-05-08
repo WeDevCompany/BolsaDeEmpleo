@@ -77,23 +77,42 @@ $('#btnAddFamilyCycle').click(function(){
         $(this).parent().parent().remove();
     });
 
-
     /*
         Obtenemos la información por JSON
         con las familias profesionales
      */
+    // Llamar a objeto AJAX
     $.get('/json/profFamilies', function(data){
-        //console.log(data);
         $('#family'+i).empty();
-    //    $('#family'+i).append('<option value="0" disabled="disabled" selected="selected">Selecciona una familia profesional</option>');
         $.each(data, function(index, familyObj){
             $('#family'+i).append('<option value="' + familyObj.id + '">' + familyObj.familia + '</option>');
         });
         estadoFamily = true;
 
+        basico = true;
+        medio = true;
+        superior = true;
         $.get('/json/cycles/' + data[0].id, function(data){
-            $.each(data, function(index, cyclesObj){
-                $('#cycles'+i).append('<option value="' + cyclesObj.id + '">' + '[' + cyclesObj.level + '] ' + cyclesObj.name + '</option>');
+            $.each(data, function(index, cycleObj){
+                if ( cycleObj.level === "Básico") {
+                    if( basico === true ) {
+                        $('#cycles'+i).append('<optgroup label="Grados básicos" id="basico'+i+'"></optgroup>');
+                        basico = false;
+                    }
+                    $('#basico'+i).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                } else if ( cycleObj.level === "Medio" ) {
+                    if ( medio === true ) {
+                        $('#cycles'+i).append('<optgroup label="Grados medios" id="medio'+i+'"></optgroup>');
+                        medio = false;
+                    }
+                    $('#medio'+i).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                } else if ( cycleObj.level === "Superior" ) {
+                    if ( superior === true ) {
+                        $('#cycles'+i).append('<optgroup label="Grados superiores" id="superior'+i+'"></optgroup>');
+                        superior = false;
+                    }
+                    $('#superior'+i).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                }
             });
             estadoCycles = true;
             i++;
@@ -116,7 +135,6 @@ $('#btnAddFamilyCycle').click(function(){
 });
 
 $('.family-cycle').on('change', function(e) {
-    //console.log(e);
 
     // Almaceno el valor que ha tomado el select
     var familyId = e.target.value;
@@ -127,10 +145,30 @@ $('.family-cycle').on('change', function(e) {
         // Peticion Ajax
         // Tomo los datos de la ruta establecida a la que le concateno el identificador
         $.get('/json/cycles/' + familyId, function(data){
-            //console.log(data);
             $('#cycles'+identifier).empty();
+            basico = true;
+            medio = true;
+            superior = true;
             $.each(data, function(index, cycleObj){
-                $('#cycles'+identifier).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                if ( cycleObj.level === "Básico") {
+                    if( basico === true ) {
+                        $('#cycles'+identifier).append('<optgroup label="Grados básicos" id="basico'+identifier+'"></optgroup>');
+                        basico = false;
+                    }
+                    $('#basico'+identifier).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                } else if ( cycleObj.level === "Medio" ) {
+                    if ( medio === true ) {
+                        $('#cycles'+identifier).append('<optgroup label="Grados medios" id="medio'+identifier+'"></optgroup>');
+                        medio = false;
+                    }
+                    $('#medio'+identifier).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                } else if ( cycleObj.level === "Superior" ) {
+                    if ( superior === true ) {
+                        $('#cycles'+identifier).append('<optgroup label="Grados superiores" id="superior'+identifier+'"></optgroup>');
+                        superior = false;
+                    }
+                    $('#superior'+identifier).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                }
             });
         });
     }
