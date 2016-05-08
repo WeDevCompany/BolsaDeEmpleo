@@ -21,7 +21,6 @@ class ProfFamilieController extends Controller
 			$profFamiliesDB = \Cache::remember('profFamiliesDB', 1440, function(){
 				// Los resultados de la consulta se almacenan en la variable
 			    return ProfFamilie::where('active', '=', 1)->orderBy('name', 'ASC')->lists('name', 'id')->toArray();
-
 		    });
     	} catch(\PDOException $e) {
     		//dd($e);
@@ -46,7 +45,6 @@ class ProfFamilieController extends Controller
 				// Los resultados de la consulta se almacenan en la variable
 			    return ProfFamilie::where('active', '=', '1')->orderBy('name', 'ASC')->lists('name', 'id');
 		    });
-
 			// Formamos un array con las familias validas
 	        $valid_profFamilies = [];
 	        foreach ($profFamilies as $id => $profFamilie) {
