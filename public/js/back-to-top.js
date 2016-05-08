@@ -1,5 +1,5 @@
 // hacemos que aparezca el botón
-$('body').prepend('<a href="#" id="back-to-top" class="btn back-to-top waves-effect waves-light">Back to Top</a>');
+$('body').prepend('<a href="#" id="back-to-top" class="hoverable btn back-to-top waves-effect waves-light">Back to Top</a>');
 // cantidad de scroll en la que aparecerá el botón
 var amountScrolled = 300;
 // cuando se realice el scroll

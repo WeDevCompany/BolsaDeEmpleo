@@ -4,7 +4,7 @@
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">account_circle</i>
                 {{ Form::text('firstName', null,['id' => "firstName"]) }}
-                {{ Form::label('firstName', 'Nombre') }}
+                {{ Form::label('firstName', 'Nombre(*)') }}
 
             </div>
         </div>
@@ -19,7 +19,7 @@
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">account_circle</i>
                 {{ Form::text('lastName', null,['id' => "lastName"]) }}
-                {{ Form::label('lastName', 'Apellidos') }}
+                {{ Form::label('lastName', 'Apellidos(*)') }}
             </div>
         </div>
             @if ($errors->has('lastName'))
@@ -33,7 +33,7 @@
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">assignment_ind</i>
                 {{ Form::text('dni', null,['id' => "dni"]) }}
-                {{ Form::label('dni', 'DNI') }}
+                {{ Form::label('dni', 'DNI(*)') }}
             </div>
         </div>
             @if ($errors->has('dni'))
@@ -61,7 +61,7 @@
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">phone</i>
                 {{ Form::text('phone', null,['id' => "phone"]) }}
-                {{ Form::label('phone', 'Phone') }}
+                {{ Form::label('phone', 'Teléfono(*)') }}
             </div>
         </div>
             @if ($errors->has('phone'))
@@ -72,13 +72,12 @@
     </div>
     <div class="control-group{{ $errors->has('road') ? ' has-error' : '' }}">
         <div class="row">
+        <div class="extra-padding">
             <div class="input-field col-md-12">
-                <i class="material-icons prefix">add_location</i>
-                {{ Form::label('road', 'Tipo de vía') }}
-                <div style="padding:3em 0em 1.5em 2.5em">
-                    {{ Form::select('road', config('roads.road'), null,['class' => 'chosen-select form-control']) }}
-                </div>
+                {{ Form::label('road', 'Tipo de vía(*)', ['class' => "label-select"]) }}
+                {{ Form::select('road', config('roads.road'), null,['class' => 'chosen-select form-control']) }}
             </div>
+        </div>
         </div>
         @if ($errors->has('road'))
             <span class="help-block">
@@ -90,7 +89,7 @@
         <div class="row">
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">person_pin_circle</i>
-                {{ Form::label('address', 'Dirección') }}
+                {{ Form::label('address', 'Dirección(*)') }}
                 {{ Form::text('address', null, ['class' => 'form-control']) }}
             </div>
         </div>
@@ -105,7 +104,7 @@
         <div class="row">
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">today</i>
-                {{ Form::label('birthdate', 'Fecha de nacimiento', ['class' => 'labelpicker']) }}
+                {{ Form::label('birthdate', 'Fecha de nacimiento(*)', ['class' => 'labelpicker']) }}
                 {{ Form::text('birthdate',null, ['class' => 'datepicker', 'id' => 'picker']) }}
             </div>
         </div>

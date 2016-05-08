@@ -31,6 +31,8 @@
             '!special'  : "El campo :campo: no debe contener caracteres especiales",
             'year'      : "El campo :campo: debe ser un año valido",
             'date'      : "El campo :campo: debe ser una fecha valda",
+            'month'     : "El campo :campo: debe ser un mes valido",
+            'day'       : "El campo :campo: debe ser un día valido",
             // dateEq = dateEqual
             'dateEq'    : "El campo :campo: no se debe repetir",
             'phone'     : "El campo :campo: debe ser un número de teléfono valido",
@@ -65,8 +67,37 @@
                     var regex = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
                         /*var regexObjce = new RegExp(nameRegex);*/
                         return regex.test(objectVal);
+
                 case 'regexPass':
-                        var regex = "/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z-_$@ñÑáéíóúÁÉÍÓÚÀÈÌÒÙäëïöüÄËÏÖÜ]{6,20}$/";
+                        var regex = /((?=.*d)(?=.*[a-z])(?=.*[A-Z]).{6,20})/gm;
+                        return regex.test(objectVal);
+
+                case 'regexPhone':
+                        // valida que el número de telefono sean simplemente
+                        // 9 digitos
+                        var regex = /^[0-9+]{9}$/;
+                        return regex.test(objectVal);
+
+                case 'regexDomainHTTP':
+                        //valida los nombres de dominio (con HTTP)
+                        var regex = /(.*?)[^w{3}.]([a-zA-Z0-9]([a-zA-Z0-9-]{0,65}[a-zA-Z0-9])?.)+[a-zA-Z]{2,6}/igm;
+                        return regex.test(objectVal);
+
+                case 'regexDomain':
+                        //valida nombres de dominio (www. solo)
+                        var regex = /[^w{3}.]([a-zA-Z0-9]([a-zA-Z0-9-]{0,65}[a-zA-Z0-9])?.)+[a-zA-Z]{2,6}/igm;
+                        return regex.test(objectVal);
+
+                case 'regexDate':
+                        // Regex para validar la fecha
+                        // en formato 12-05-1992
+                        var regex = /^(19|20)\d\d-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])/;
+                        return regex.test(objectVal);
+                case 'regexYear':
+                        // Regex que valida el año
+                        // Cuidado, porque no comprueba la fecha actul
+                        // puede salir una fecha por encima
+                        var regex = /(19|20|21)\d\d$/;
                         return regex.test(objectVal);
                 default:
                     return false;
@@ -84,9 +115,12 @@
          * [tiipos de error: error-email, error-LoQueSea]
          * @param  Object   object   Object de tipo DOM
          * @param  String   id       String con el id del error
-         * @param  String error      Error a selecionar
-         * @param  String campo      El nombre del campo
-         * @return boolean false     Si este mensaje aparece debe parar cualquier operación
+         * @param  String   error    Error a selecionar, o mensaje dependiendo
+         *                           de si el error es personalizado o no
+         * @param  Boolean  costume Campo que se enviará para mostrar
+         *                          errores personalizados
+         * @return boolean  false   Si este mensaje aparece debe parar
+         *                          cualquier operación
          *                           que se esté realizando en el momento
          */
         errorObject : function(object, id, error, campo) {
@@ -94,6 +128,25 @@
             object.addClass('invalid');
             return false;
         },
+
+
+        /**
+         * costumeErrorObject método que generá los errores para todos
+         * los campos del formulario de forma cosumizada,
+         * independientemente del campo.
+         * @param  Object   object   Object de tipo DOM
+         * @param  String   id       String con el id del error
+         * @param  String   content  Mensaje concretro
+         * @return boolean  false    Si este mensaje aparece debe parar
+         *                           cualquier operación
+         *                           que se esté realizando en el momento
+         */
+        costumeErrorObject : function(object, id, content) {
+            object.after( '<div id="' + id + '" class="text-center"><span class="help-block"><strong>'+ content +'<strong></span></div>' ).fadeIn("slow");
+            object.addClass('invalid');
+            return false;
+        },
+
 
         // ---------------------------------
         // Validaciones en general
@@ -245,8 +298,49 @@
         // Validaciones con particularidades
         // ---------------------------------
 
+        validDate : function (object) {
+            var result = object.val().split('-');
+            // La fecha no cumple el formato de fecha
+            if (result.length != 3) {
+                var str = "La fecha no cumple el formato YYYY-MM-DD";
+                return this.costumeErrorObject(object, id, str);
+            }
+            // Una vez comprobado que la fecha esta bien formada
+            // la dividimos en trozos para validarla individualmente
+            var year    = parseInt(result[0]);
+            var month   = parseInt(result[1]);
+            var day     = parseInt(result[2]);
+
+            // Validación del día
+            if (day < 1 || day > 31) {
+                var str = "El día debe estar comprendido entre el 01 y el 31";
+                return this.costumeErrorObject(object, id, str);
+            }
+            // validación de los meses
+            if (month < 1 || month > 12) {
+                var str = "El mes debe estar comprendido entre el 01 y el 12";
+                return this.costumeErrorObject(object, id, str);
+            }
+            //validación de los meses sin 31 días
+            if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+                var str = "El mes no tiene 31 días";
+                return this.costumeErrorObject(object, id, str);
+            }
+            // febrero de los años bisiestos
+            if (month == 2) { // bisiesto
+                var bisiesto = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+                if (dia > 29 || (dia==29 && !bisiesto)) {
+                    var str = "El año es bisiesto, por lo tanto Febrero no tiene 31 días";
+                    return this.costumeErrorObject(object, id, str);
+                }
+            }
+
+            return true;
+        },
+
+
         /**
-        * dniValido Método que comprueba si el dni/nie es válido
+        * validDNI Método que comprueba si el dni/nie es válido
         * @param  Object   object          Objeto a validar
         * @param  Integer  id              ID a darle al error en caso de que exista
         * @param  String   error           Error a selecionar
@@ -254,7 +348,7 @@
         * @return Booblean false | true    False = En caso de que haya error
         *                                  True = En caso de que no haya error
         */
-        dniValido: function(object, id, error, campo){
+        validDNI: function(object, id, error, campo){
 
             // Variables
             objectVal = object.val();
@@ -312,13 +406,6 @@
 
     };
 
-    // Ejemplo de uso de las validaciones
-    // Esto se puede usar desde cualquier otro script
-    // siempre y cuando este script este cargado
-    // ya que es una variable accesible globalmente gracias al "var"
-    console.log(validaciones.setTypeError('short', 'email'));
-
-
     // Objeto de saneamiento
     // Necesitamos por lo menos una limpieza del valor de un objeto DOM
     // De forma que se pueda utilizar en las validaciones y no tengamos que repetir
@@ -326,5 +413,10 @@
     var saneamiento = {
         justNumbers : function(val){
             return val = val.replace(/[^0-9]/g, '');
+        },
+
+        //cambia los saltos de linea por <br>
+        newLineToBr : function(str){
+            return str.replace(/(rn|[rn])/g, '<br>');
         },
     };

@@ -17,7 +17,6 @@ $('#password').blur(function(){
         //return result;
     } else if (!validaciones.objectValid(password, idError, 'pass', 'contraseña', 'regexPass')) {
         result = (validaciones.submitDisable(submit)) ? false : true;
-        console.log(result);
         return result;
     } else {
         // realizamos el saneamiento del campo

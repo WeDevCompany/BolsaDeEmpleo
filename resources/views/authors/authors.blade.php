@@ -172,6 +172,9 @@
                 </div>
             </div>
             <!-- /.Cards -->
+            <div class="text-center extra-padding">
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">bolsa de empleo</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="" property="cc:attributionName" rel="cc:attributionURL"><b>Emmanuel Valverde Ramos</b>, <b>Pedro Hernández-Mora de fuentes</b>, <b>Eduardo López Pardo</b></a> is licensed under a<br /><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional License</a>.
+            </div>
             <div class="text-center">
                 <a href="javascript:window.history.back();" class="btn btn-primary btn-login-media  waves-effect waves-light" id="volver">
                     <div class="show-responsive">

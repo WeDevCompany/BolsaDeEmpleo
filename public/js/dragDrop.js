@@ -50,11 +50,13 @@
                 // "Introducimos" la imagen en el input file
                 $("#imagen-dragDrop").prop("files", e.originalEvent.dataTransfer.files);
 
-                $(this).css("border", "2px solid green");
+                $(this).css("border", "2px solid #00E676");
+                $(this).css("background-color", "rgba(185, 246, 202, 0.17)");
 
             } else {
 
-                $(this).css("border", "2px solid red");
+                $(this).css("border", "2px solid #F44336");
+                $(this).css("background-color", "rgba(255, 235, 238, 0.17)");
 
                 // error
 

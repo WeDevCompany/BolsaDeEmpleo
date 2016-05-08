@@ -5,7 +5,7 @@
 
 
             <a id="file-select">
-                <div class="drop" id="drop-curriculum">
+                <div class="drop hoverable" id="drop-curriculum">
                     <img id="show" class="hidden" src="{{ url('/img/global/Pdf-icon.png') }}">
                     <div class="text-center">
                         <span class="fa fa-file-image-o" aria-hidden="true"></span>

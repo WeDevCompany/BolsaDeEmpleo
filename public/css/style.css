@@ -417,6 +417,13 @@ a:hover.back-to-top {
     padding: 4px !important;
     width: 98% !important;
 }
+.extra-padding{
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.label-select{
+  margin-top: -3em;
+}
 
 .family-cycle{
     /*margin-top: 80px;*/
@@ -516,13 +523,14 @@ input[type = "file"]{
   padding:20px;
   margin-bottom:20px;
   width:100%;
-
   font-size:200%;
   text-align: center;
+  transition:all 0.25s ease-in-out;
 }
 
 div.drop:hover {
-  border:2px solid #16a085;
+  border:2px solid #00E676;
+  background-color:rgba(185, 246, 202, 0.17);
 }
 
 #imagen-dragDrop {
