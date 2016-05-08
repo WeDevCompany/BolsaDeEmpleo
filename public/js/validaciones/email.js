@@ -19,20 +19,22 @@ $('#email').blur(function(){
     } else if (!validaciones.objectShortLength(email, idError, 'short', 'email')) {    // Si el email es muy corto
         result = (validaciones.submitDisable(submit)) ? false : true;
         return result;
-    } else if (!validaciones.objectValid(email, 'error-email', idError, 'email', 'regexEmail')) {
+    } else if (!validaciones.objectValid(email, idError, 'email', 'email', 'regexEmail')) {
         result = (validaciones.submitDisable(submit)) ? false : true;
         return result;
     } else {
         // realizamos el saneamiento del campo
         email.text($.trim(email.val()));
         // invertimos el resultado
-        result = (validaciones.submitDisable(submit)) ? true : false;
+        result = (validaciones.submitEnable(submit)) ? true : false;
         return result;
     }
 })// Validar #email
 
 // código para resetear los errores del email
 $('#email').focus(function(){
+    var submit = $('#submit');
+    validaciones.submitDisable(submit);
     var idError = 'error-email';
     var email = $('#' + idError);
     var errorEmail = $('#' + idError);
