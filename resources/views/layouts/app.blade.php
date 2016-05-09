@@ -96,6 +96,9 @@
     <!-- Script que permite el back-to-top -->
     <script src="{{ asset('/js/back-to-top.js') }}"></script>
 
+    <!-- Script con los parametros del spin -->
+    <script src="{{ asset('/js/spin/spin.min.js') }}"></script>
+
     <!-- Script queautomatiza el carrusel -->
     <script src="{{url("/js/carrusel.js")}}" type="text/javascript" charset="utf-8"></script>
 
