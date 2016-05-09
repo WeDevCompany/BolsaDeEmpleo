@@ -99,6 +99,10 @@
                         // puede salir una fecha por encima
                         var regex = /(19|20|21)\d\d$/;
                         return regex.test(objectVal);
+                case 'regexIdent':
+                        // Regex para validar DNI, NIE y CIF
+                        var regex = /((^[a-zA-Z]{1}[0-9]{7}[a-zA-Z0-9]{1}$|^[tT]{1}[a-zA-Z0-9]{8}$)|^[0-9]{8}[a-zA-Z]{1}$)/;
+                        return regex.test(objectVal);
                 default:
                     return false;
             }
@@ -353,22 +357,70 @@
             // Variables
             objectVal = object.val();
 
-            // Validacion del DNI
-            if (/^[0-9]{8}[a-zA-Z]{1}$/.test(objectVal) && "TRWAGMYFPDXBNJZSQVHLCKE".charAt(objectVal.substring( 8, 0 ) % 23 ) == objectVal.charAt(8).toUpperCase()) {
-
-                return true;
-
-            }
-
             // Validacion del NIE
-            if (/^[xyzXYZ]{1}[0-9]{7}[a-zA-Z]{1}$/.test(objectVal) && objectVal[8] == "TRWAGMYFPDXBNJZSQVHLCKE".charAt(objectVal.replace( 'X', '0' ).replace( 'Y', '1' ).replace( 'Z', '2' ).substring( 0, 8 ) % 23).toUpperCase()) {
+            if (/^[xyzXYZ]{1}/.test(objectVal) && objectVal[8] == "TRWAGMYFPDXBNJZSQVHLCKE".charAt(objectVal.replace( 'X', '0' ).replace( 'Y', '1' ).replace( 'Z', '2' ).substring( 0, 8 ) % 23).toUpperCase()) {
 
                 return true;
 
             }
 
+            // Validacion del DNI
+            if ("TRWAGMYFPDXBNJZSQVHLCKE".charAt(objectVal.substring( 8, 0 ) % 23 ) == objectVal.charAt(8).toUpperCase()) {
+
+                return true;
+
+            }
 
             return this.errorObject(object, id, error, campo);
+
+        },
+
+        /**
+        * validCIF Método que comprueba si el cif es válido
+        * @param  Object   object          Objeto a validar
+        * @param  Integer  id              ID a darle al error en caso de que exista
+        * @param  String   error           Error a selecionar
+        * @param  String   campo           El nombre del campo
+        * @return Booblean false | true    False = En caso de que haya error
+        *                                  True = En caso de que no haya error
+        */
+        ValidCIF: function (object, id, error, campo){
+
+            // Declaracion de variables
+            var sum, num = [], controlDigit;
+            
+            // Obtenemos el valor y convertimos las letras a mayusculas
+            objectVal = object.val().toUpperCase();
+            
+            // Extraemos los numeros que forman el cif, los separamos y los metemos en un array
+            for (var i = 0; i < 9; i++) {
+                num[i] = parseInt(objectVal.charAt(i), 10);
+            }
+
+            // Algoritmo del cif
+            sum = num[2] + num[4] + num[6];
+
+            for (var count = 1; count < 8; count += 2) {
+
+                var tmp = (2 * num[count]).toString(),
+                secondDigit = tmp.charAt(1);
+               
+                sum += parseInt(tmp.charAt(0), 10) + (secondDigit == '' ? 0 : parseInt(secondDigit, 10));
+            }
+
+            // Validamos el cif
+            if (/^[ABCDEFGHJNPQRSUVW]{1}/.test(objectVal)) {
+
+                sum += '';
+                controlDigit = 10 - parseInt(sum.charAt(sum.length - 1), 10);
+                objectVal += controlDigit;
+
+                if (objectVal.charAt(8).toString() == String.fromCharCode(64 + controlDigit) || num[8].toString() == objectVal.charAt(objectVal.length - 1)){
+
+                    return true;
+                }
+
+            }
 
         },
 

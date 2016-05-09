@@ -32,7 +32,7 @@
         <div class="row">
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">assignment_ind</i>
-                {{ Form::text('dni', null,['id' => "dni"]) }}
+                {{ Form::text('dni', null,['id' => "dni", 'class' => 'validate', 'pattern' => '(([x-zX-Z]{1})(\d{7})([a-zA-Z]{1}))|((\d{8})([a-zA-Z]{1}))']) }}
                 {{ Form::label('dni', 'DNI(*)') }}
             </div>
         </div>

@@ -21,6 +21,9 @@ studentRegisterForm.after('<script src="/js/validaciones/cycles.js"></script>');
 // Script personalizado para aceptar terminos
 studentRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>');
 
+// Script personalizado para validar DNI/NIE
+studentRegisterForm.after('<script src="/js/validaciones/dniNie.js"></script>');
+
 // Añadimos las funciones para añadir ciclos
 studentRegisterForm.after('<script src="/js/funcionalidad/addFamilyCycles.js" charset="utf-8"></script>');
 
