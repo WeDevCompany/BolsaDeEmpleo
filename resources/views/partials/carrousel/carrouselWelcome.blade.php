@@ -16,8 +16,30 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner z-depth-2" role="listbox">
 
-        <!-- 1 slide -->
+        <!-- 0 slide -->
         <div class="item active">
+                <!--Video-->
+                <div class="homepage-hero-module" style="height: 100%; min-height: 320px;">
+                    <video autoplay="" loop="" class="fillWidth" muted>
+                        <source src="video/carrusel.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <!--/.Video-->
+            <div class="carousel-caption">
+                <div class="verticalcenter">
+                    <div class="animated fadeInDown">
+                        <h4>Si eres un estudiante y deseas trabajar o buscar una empresa donde hacer prácticas</h4>
+                        <h5>No dudes en darte alta y trabajar con empresas punteras en tu sector, demuestra de que eres capaz y crece junto </h5>
+                         <a href="{{config('routes.registro.registroEstudiante')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-graduation-cap right"></i>Estudiante</a>
+                        <a href="{{config('routes.registro.registroEmpresa')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-building right"></i>Empresa</a>
+                        <a href="{{config('routes.registro.registroProfesor')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-university right"></i>Profesor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.item -->
+        <!-- 1 slide -->
+        <div class="item">
             <div class="carousel-caption">
                 <div class="verticalcenter">
                     <div class="animated fadeInDown">

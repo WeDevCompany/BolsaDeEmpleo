@@ -18,7 +18,7 @@ class CreateJobOffersTable extends Migration
             $table->enum('duration',['Indefinido','Duracion determinada','Por proyectos','Desconocida'])->comment('Duracion de la oferta');
             $table->enum('kind',['Fct','Job'])->comment('Tipo de la oferta');
             $table->text('description')->comment('Descripcion de la oferta');
-            $table->enum('level', ['Grado superior', 'Grado medio', 'Grado básico', 'Bachillerato'])->comment('Nivel de cualificación requerido');
+            $table->enum('level', ['Grado superior', 'Grado medio', 'Grado básico', 'Bachillerato', 'Sin estudios'])->comment('Nivel de cualificación requerido');
             $table->enum('experience', ['Un año', 'Dos años', 'Tres años', 'Cuadro años', 'Cinco años', 'No requerida'])->comment('Experiencia requerida');
             $table->text('others')->comment('Campo para almacenar los tags que no estén en la base de datos');
             $table->date('dueDate', 'Ymd')->comment('Fecha de expiracion de la oferta');

@@ -55,6 +55,7 @@
                                         <li><a class="icons-sm tw-ic" href="https://twitter.com/evrtrabajo" target="_blank"><i class="fa fa-twitter"></i></a></li>
                                         <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"></i></a></li>
                                         <li><a class="icons-sm li-ic"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a class="icons-sm git-ic" href="https://github.com/khru"><i class="fa fa-github" target="_blank"> </i></a></li>
                                     </ul>
                                 </div>
                             </div>

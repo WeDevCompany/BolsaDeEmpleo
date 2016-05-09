@@ -37,7 +37,7 @@ class JobOffersSeeder extends Seeder
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
-             'level' => $faker->randomElement(['Grado superior', 'Grado medio', 'Grado básico', 'Bachillerato']),
+             'level' => $faker->randomElement(['Grado superior', 'Grado medio', 'Grado básico', 'Bachillerato','Sin estudios']),
              'experience' => $faker->randomElement(['Un año', 'Dos años', 'Tres años', 'Cuadro años', 'Cinco años', 'No requerida']),
              'others' => 'base de datos NoSQL, Node.js, docker',
              'profFamilie_id' => $profFamilie_id,
