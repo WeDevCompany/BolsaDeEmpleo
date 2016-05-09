@@ -72,11 +72,11 @@
                             <!--Front Side-->
                             <div class="face card-rotating__front z-depth-1">
                                 <div class="card-up">
-                                    <img src="{{url("/img/authors/emmanuel-fondo.jpg")}}" class="img-responsive">
+                                    <img src="{{url("/img/authors/eduardo-fondo.jpg")}}" class="img-responsive">
                                 </div>
-                                <div class="avatar"><img src="{{url("/img/authors/emmanuel.jpg")}}" class="img-circle img-responsive">
+                                <div class="avatar"><img src="{{url("/img/authors/eduardo.jpg")}}" class="img-circle img-responsive">
                                 </div>
-                                <h4>Emmanuel Valverde Ramos</h4>
+                                <h4>Eduardo López Pardo</h4>
                                 <h5>Desarrollador Back-End</h5>
 
                                 <!--Triggering button-->
@@ -89,7 +89,7 @@
 
                             <!--Back Side-->
                             <div class="face card-rotating__back z-depth-1">
-                                <h4>Emmanuel Valverde Ramos</h4>
+                                <h4>Eduardo López Pardo</h4>
                                 <p class="card-content text-center">Jefe de proyecto
                                     <br> Conocimientos en:</p>
                                 <hr> PHP (PDO, MVC, Laravel,...)
@@ -105,7 +105,7 @@
                                 <div class="sm-container">
                                     <ul class="list-inline card-sm">
                                         <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="icons-sm tw-ic" href="https://twitter.com/evrtrabajo" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="icons-sm tw-ic" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
                                         <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"></i></a></li>
                                         <li><a class="icons-sm li-ic"><i class="fa fa-linkedin"></i></a></li>
                                     </ul>
@@ -125,11 +125,11 @@
                             <!--Front Side-->
                             <div class="face card-rotating__front z-depth-1">
                                 <div class="card-up">
-                                    <img src="{{url("/img/authors/emmanuel-fondo.jpg")}}" class="img-responsive">
+                                    <img src="{{url("/img/authors/pedro-fondo.jpg")}}" class="img-responsive">
                                 </div>
-                                <div class="avatar"><img src="{{url("/img/authors/emmanuel.jpg")}}" class="img-circle img-responsive">
+                                <div class="avatar"><img src="{{url("/img/authors/pedro.jpg")}}" class="img-circle img-responsive">
                                 </div>
-                                <h4>Emmanuel Valverde Ramos</h4>
+                                <h4>Pedro Hernandez-mora de Fuentes</h4>
                                 <h5>Desarrollador Back-End</h5>
 
                                 <!--Triggering button-->
@@ -142,7 +142,7 @@
 
                             <!--Back Side-->
                             <div class="face card-rotating__back z-depth-1">
-                                <h4>Emmanuel Valverde Ramos</h4>
+                                <h4>Pedro Hernandez-mora de Fuentes</h4>
                                 <p class="card-content text-center">Jefe de proyecto
                                     <br> Conocimientos en:</p>
                                 <hr> PHP (PDO, MVC, Laravel,...)
@@ -158,7 +158,7 @@
                                 <div class="sm-container">
                                     <ul class="list-inline card-sm">
                                         <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="icons-sm tw-ic" href="https://twitter.com/evrtrabajo" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="icons-sm tw-ic" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
                                         <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"></i></a></li>
                                         <li><a class="icons-sm li-ic"><i class="fa fa-linkedin"></i></a></li>
                                     </ul>
