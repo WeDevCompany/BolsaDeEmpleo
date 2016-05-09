@@ -61,6 +61,8 @@
     <!-- Estilos para chosen (select multiple) -->
     <link rel="stylesheet" href="{{ url('plugin/chosen/chosen.css') }}">
 
+    <!-- Estilos de spin.js -->
+    <link href="{{ url('css/spin.css') }}" rel="stylesheet">
 
 </head>
 <body id="app-layout">
@@ -96,8 +98,11 @@
     <!-- Script que permite el back-to-top -->
     <script src="{{ asset('/js/back-to-top.js') }}"></script>
 
-    <!-- Script con los parametros del spin -->
+    <!-- Script con la logica spin -->
     <script src="{{ asset('/js/spin/spin.min.js') }}"></script>
+
+    <!-- Script con los parametros del spin -->
+    <script src="{{ asset('/js/spin/spin.js') }}"></script>
 
     <!-- Script queautomatiza el carrusel -->
     <script src="{{url("/js/carrusel.js")}}" type="text/javascript" charset="utf-8"></script>

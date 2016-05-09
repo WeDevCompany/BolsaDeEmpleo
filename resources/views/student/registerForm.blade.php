@@ -29,7 +29,8 @@
                                         <legend style="width: auto;">Familia Profesional</legend>
                                         @include('generic.profFamiliesfields')
                                     </fieldset>
-                                    <fieldset id="fieldCycles" class="hidden">
+                                    <fieldset id="fieldCycles">
+                                    <div id="spinner"></div>
                                         <legend style="width: auto;">Ciclos</legend>
                                     </fieldset>
                                 <div id="divAddFamilyCycle" class="text-center">

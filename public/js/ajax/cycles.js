@@ -4,10 +4,10 @@ var estadoCycles;
 var estadoFamily;
 var fechaInicio;
 var fechaFin;
-
+var target = document.getElementById('spinner');
+var spinner = new Spinner(opts).spin(target);
 
 $(document).ready(function () {
-
 	// Almaceno el valor des primer option que aparezca en el select
 	var familyId = $('#family0').children('option:first').val();
 
@@ -18,8 +18,6 @@ $(document).ready(function () {
 		// Peticion Ajax
 		// Tomo los datos de la ruta establecida a la que le concateno el identificador
 		$.get('/json/cycles/' + familyId, function(data){
-			$('#fieldCycles').removeClass('hidden');
-
 			$('#fieldCycles').append('<div class="row"><div class="input-field col-md-12"><label for="cycles" style="margin-top: -3em">Ciclos cursados</label><select name="cycles[' + p + ']" class="form-control" id="cycles' + p + '"></select>' +
 			'<section">' +
 	        '<div class="input-field col-md-6"  style="padding-top: 5px">' +
@@ -32,7 +30,8 @@ $(document).ready(function () {
 	        '</div>' +
 	    '</section>');
 
-			$('#cycles'+p).empty();			
+			$('#cycles'+p).empty();
+			
 			basico = true;
 			medio = true;
 			superior = true;
@@ -56,7 +55,7 @@ $(document).ready(function () {
 					}
 					$('#superior'+p).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
 				}
-
+				
 			});
 
 			estadoCycles = true;
@@ -70,6 +69,8 @@ $(document).ready(function () {
 				if(fechaInicio && fechaFin){
 					$('#btnAddFamilyCycle').addClass("waves-effect  waves-light");
 			        $('#btnAddFamilyCycle').prop('disabled', false);
+			        $('#spinner').remove();
+			        spinner.stop();
 				}
 		    }
 		});
