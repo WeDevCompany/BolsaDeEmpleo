@@ -1,7 +1,14 @@
-#spinner {
+.spinnerC, .spinnerF {
 	height: 100%;
 	width: 100%;
-	padding-bottom: 2.5em; 
 	background-clip: #FFF;
 	border-radius: 3px;
+}
+
+.spinnerC {
+	padding-bottom: 2em;
+}
+
+.spinnerF {
+	padding-bottom: 0em;
 }

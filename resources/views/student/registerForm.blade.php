@@ -30,7 +30,7 @@
                                         @include('generic.profFamiliesfields')
                                     </fieldset>
                                     <fieldset id="fieldCycles">
-                                    <div id="spinner"></div>
+                                    <div id="spinnerC0" class="spinner"></div>
                                         <legend style="width: auto;">Ciclos</legend>
                                     </fieldset>
                                 <div id="divAddFamilyCycle" class="text-center">

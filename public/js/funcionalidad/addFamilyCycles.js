@@ -17,34 +17,46 @@ var error = 0;
 // variable que ayuda a validar el estado de los ciclos
 
 $('#btnAddFamilyCycle').click(function(){
-        var divAddFamilyCycle = $('#divAddFamilyCycle');
+    // Desactivamos el boton
+    $('#btnAddFamilyCycle').prop('disabled', true);
+
+    // Almacenamos su valor en una variable
+    var divAddFamilyCycle = $('#divAddFamilyCycle');
+    
+    // No permitimos mas de 7 ciclos extra
     if(i < 8){
-        // obtenemos el div tras el cual
-        // colocaremos los futuros ciclos
+        // Creamos la estructura html
         divAddFamilyCycle.after(
         '<div>'+
-        '<fieldset>' +
+        '<fieldset><div id="spinnerF' + i + '" class="spinnerF"></div>' +
             '<legend style="width: auto;">Familia Profesional</legend>' +
-                '<select name="family" class="family form-control" id="family'+ i + '">' +
-                '</select>' +
-        '</fieldset>' +
-        '<fieldset class="addFamilyCycle" id="' + i + '"> ' +
-                '<legend style="width:auto;">' + texto + i + '</legend>' +
                 '<div class="form-group">' +
                     '<div class="row">' +
                         '<div class="input-field col-md-12">' +
-                            '<label for="cycles[' + i +']" style="margin-top: -3em">Ciclos cursados</label>' +
-                            '<select name="cycles[' + i +']" class="form-control" id="cycles'+ i +'">' +
+                           '<label for="family'+ i + '" class="hidden" style="margin-top: -2.5em">Familia profesional perteneciente al ciclo</label>' +
+                            '<select name="family" class="family form-control hidden" id="family'+ i + '">' +
+                        '</div>' +
+                    '</div>' +    
+                '</div>' +
+                '</select>' +
+        '</fieldset>' +
+        '<fieldset class="addFamilyCycle" id="' + i + '"><div id="spinnerC' + i + '" class="spinnerc"></div>' +
+                '<legend style="width:auto;">' + texto + i + '</legend>' +
+                '<div class="form-group hidden">' +
+                    '<div class="row">' +
+                        '<div class="input-field col-md-12">' +
+                            '<label for="cycles[' + i +']" style="margin-top: -2.5em">Ciclos cursados</label>' +
+                            '<select name="cycles[' + i +']" class="form-control hidden" id="cycles'+ i +'">' +
                             '</select>' +
                         '</div>' +
                     '</div>' +
                 '</div>' +
 
-            '<div class="input-field col-md-6"  style="padding-top: 5px">' +
+            '<div class="input-field col-md-6 hidden"  style="padding-top: 5px">' +
                 '<label for="yearFrom[' + i + ']" style="margin-top: -2em">A&ntilde;o de inicio</label>' +
                 funciones.generarSelectYears('yearFrom[' + i + ']', 1990) +
             '</div>' +
-            '<div class="input-field col-md-6">' +
+            '<div class="input-field col-md-6 hidden">' +
                 '<label for="yearTo[' + i + ']" style="margin-top: -2em">A&ntilde;o de fin</label>' +
                 funciones.generarSelectYears('yearTo[' + i + ']', 1990) +
             '</div>' +
@@ -60,8 +72,12 @@ $('#btnAddFamilyCycle').click(function(){
             '</button>' +
         '</div>' +
         "</div>").fadeIn("slow");
+        
+        // Iniciamos los spinners
+        targetF = document.getElementById('spinnerF'+i);
+        spinnerF = new Spinner(optsF).spin(targetF);
     } else {
-
+        // Si se ha alcanzado el limite de 7 ciclos mostramos un error
         var mensaje = "Has excedido el máximo número de ciclos si quieres añadir más hazlo una vez registrado/a";
         if(error < 1){
             divAddFamilyCycle.after('<div id="error-prof-family" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>').fadeIn("slow");
@@ -70,8 +86,8 @@ $('#btnAddFamilyCycle').click(function(){
     }
 
     /*
-        Borramos el elemento abuelo de quien haya
-        un evento click
+        Borramos el elemento abuelo (el div que contiene al ciclo y su familia profesional)
+        del boton que haya dado lugar a un evento click
      */
     $('#btnRemoveFamilyCycle').click( function(e){
         $(this).parent().parent().remove();
@@ -83,16 +99,38 @@ $('#btnAddFamilyCycle').click(function(){
      */
     // Llamar a objeto AJAX
     $.get('/json/profFamilies', function(data){
+        
+        // Paramos el primer spin y borramos el div que lo contenia.
+        $('#spinnerF'+i).remove();
+        spinnerF.stop();
+        
+        // Mostramos el select con las familias profesionales ya listo.
+        $('#family'+i).removeClass('hidden');
+        $('label[for="family'+i+'"]').removeClass('hidden');
+
+        // Iniciamos el segundo spin.
+        targetC = document.getElementById('spinnerC'+i);
+        spinnerC = new Spinner(optsC).spin(targetC);
+
+
         $('#family'+i).empty();
+
+        // Por cada familia añadimos un option al select de familias profesionales
         $.each(data, function(index, familyObj){
             $('#family'+i).append('<option value="' + familyObj.id + '">' + familyObj.familia + '</option>');
         });
+
+        // Confirmamos la insercion de los option
         estadoFamily = true;
 
+        // Declaramos las variables para los distintos optgroups 
         basico = true;
         medio = true;
         superior = true;
+
+        // Lanzamos la peticion de los ciclos
         $.get('/json/cycles/' + data[0].id, function(data){
+            // Clasificamos dentro del select de ciclos cada resultado
             $.each(data, function(index, cycleObj){
                 if ( cycleObj.level === "Básico") {
                     if( basico === true ) {
@@ -113,9 +151,21 @@ $('#btnAddFamilyCycle').click(function(){
                     }
                     $('#superior'+i).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
                 }
+
+                // Borramos el contenedor del spin y lo paramos
+                $('#spinnerC'+i).remove();
+                spinnerC.stop();
+                
+                // Mostramos el select con los ciclos.
+                $('#cycles'+i).removeClass('hidden');
+                $('fieldset[id="'+i+'"]').children('div').removeClass('hidden');
             });
+            
+            // Confirmamos la insercion de los option
             estadoCycles = true;
             i++;
+
+            // Si los option de ambos select se han insertado bien añadimos las fechas
             if (estadoFamily && estadoCycles) {
                 // si existen los campos habilitamos el botón
                 // porque no podemos acceder a un elemento generado
@@ -124,14 +174,13 @@ $('#btnAddFamilyCycle').click(function(){
                 fechaFin = $('#yearTo[' + p +']');
 
                 if(fechaInicio && fechaFin){
+                    // Devolvemos el boton de añadir ciclos a la normalidad
                     $('#btnAddFamilyCycle').addClass("waves-effect  waves-light");
                     $('#btnAddFamilyCycle').prop('disabled', false);
                 }
             }
         });
     });
-
-
 });
 
 $('.family-cycle').on('change', function(e) {
@@ -142,6 +191,15 @@ $('.family-cycle').on('change', function(e) {
 
     if( identifier.substring(0,6) == 'family' ){
         identifier = identifier.substring(6,7);
+        
+        // Oculto el select
+        $('#cycles'+identifier).before('<div id="spinnerC'+identifier+'" class="spinnerF"></div>');
+        $('#cycles'+identifier).addClass('hidden');
+
+        // Inicio el spin
+        targetC = document.getElementById('spinnerC'+identifier);
+        spinnerC = new Spinner(optsC).spin(targetC);
+        
         // Peticion Ajax
         // Tomo los datos de la ruta establecida a la que le concateno el identificador
         $.get('/json/cycles/' + familyId, function(data){
@@ -170,7 +228,11 @@ $('.family-cycle').on('change', function(e) {
                     $('#superior'+identifier).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
                 }
             });
+
+            // Paro el spin, elimino su div y muestro el campo select
+            spinnerC.stop();
+            $('#spinnerC'+identifier).remove();
+            $('#cycles'+identifier).removeClass('hidden');
         });
     }
-
 });

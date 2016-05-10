@@ -1,7 +1,7 @@
 <div class="form-group{{ $errors->has('family') ? ' has-error' : '' }}">
     <div class="row">
         <div class="input-field col-md-12">
-	        {{ Form::label('family0', 'Ciclos cursados',['style' => 'margin-top: -3em']) }}
+	        {{ Form::label('family0', 'Familia profesional actual',['style' => 'margin-top: -3em']) }}
     		<select name="family" class="chosen-select form-control" id="family0">
 		    	@foreach($profFamilies as $id => $profFamilie)
 		    		@if ($id == 0)

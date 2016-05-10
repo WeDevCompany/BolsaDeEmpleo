@@ -37,7 +37,7 @@
                             <!--Back Side-->
                             <div class="face card-rotating__back z-depth-1">
                                 <h4>Emmanuel Valverde Ramos</h4>
-                                <p class="card-content text-center">Jefe de proyecto
+                                <p class="card-content text-center">
                                     <br> Conocimientos en:</p>
                                 <hr> PHP (PDO, MVC, Laravel,...)
                                 <br> MySQl
@@ -91,7 +91,7 @@
                             <!--Back Side-->
                             <div class="face card-rotating__back z-depth-1">
                                 <h4>Eduardo López Pardo</h4>
-                                <p class="card-content text-center">Jefe de proyecto
+                                <p class="card-content text-center">
                                     <br> Conocimientos en:</p>
                                 <hr> PHP (PDO, MVC, Laravel,...)
                                 <br> MySQl
@@ -144,7 +144,7 @@
                             <!--Back Side-->
                             <div class="face card-rotating__back z-depth-1">
                                 <h4>Pedro Hernandez-mora de Fuentes</h4>
-                                <p class="card-content text-center">Jefe de proyecto
+                                <p class="card-content text-center">
                                     <br> Conocimientos en:</p>
                                 <hr> PHP (PDO, MVC, Laravel,...)
                                 <br> MySQl

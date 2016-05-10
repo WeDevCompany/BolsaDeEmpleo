@@ -1,11 +1,11 @@
+var target = document.getElementById('spinnerC0');
+var spinner = new Spinner(optsC).spin(target);
 var p = 0;
 
 var estadoCycles;
 var estadoFamily;
 var fechaInicio;
 var fechaFin;
-var target = document.getElementById('spinner');
-var spinner = new Spinner(opts).spin(target);
 
 $(document).ready(function () {
 	// Almaceno el valor des primer option que aparezca en el select
@@ -18,7 +18,7 @@ $(document).ready(function () {
 		// Peticion Ajax
 		// Tomo los datos de la ruta establecida a la que le concateno el identificador
 		$.get('/json/cycles/' + familyId, function(data){
-			$('#fieldCycles').append('<div class="row"><div class="input-field col-md-12"><label for="cycles" style="margin-top: -3em">Ciclos cursados</label><select name="cycles[' + p + ']" class="form-control" id="cycles' + p + '"></select>' +
+			$('#fieldCycles').append('<div class="row"><div class="input-field col-md-12"><label for="cycles" style="margin-top: -2.5em">Ciclo actual</label><select name="cycles[' + p + ']" class="form-control" id="cycles' + p + '"></select>' +
 			'<section">' +
 	        '<div class="input-field col-md-6"  style="padding-top: 5px">' +
 	            '<label for="yearFrom[' + p + ']" style="margin-top: -2em">A&ntilde;o de inicio</label>' +
@@ -69,7 +69,7 @@ $(document).ready(function () {
 				if(fechaInicio && fechaFin){
 					$('#btnAddFamilyCycle').addClass("waves-effect  waves-light");
 			        $('#btnAddFamilyCycle').prop('disabled', false);
-			        $('#spinner').remove();
+			        $('#spinnerC0').remove();
 			        spinner.stop();
 				}
 		    }
