@@ -30,31 +30,33 @@
                 context : ajax,
 
                 // Función en caso de éxito
-                success : function(json, responseText, status) {
-                    aux = this.getResponse(responseText, status);
-                    console.log(responseText);
-                    console.log(status);
-                    console.log(variable);
-                },
+                success : function(json, status, response) {
+                    success = json;
+                }, // success
              
                 // Función en caso de error
-                error : function(xhr, status) {
-                    alert('Disculpe, existió un problema');
-                },
+                error : function(response, status) {
+                    success = false;
+                }, // error
              
                 // código a ejecutar sin importar si la petición falló o no
-                complete : function(xhr, status) {
-                    alert('Petición realizada');
-                }
+                complete : function(response, status) {
+                    if (success !== false) {
+                        // Compruebo la respuesta del servidor
+                        check = this.getResponse(response, status);
+                        //console.log(success);
+                        //console.log(status);
+                    } else {
+                        alert('liada colega');
+                    } 
+                } // complete
             });
 
         },
 
-        // Compruebo la respuesta del servidor
-        getResponse : function(responseText, status) {
-            console.log(responseText);
-                    console.log(status);
-            if(status === "200" && responseText === "OK") {
+        // Comprueba la respuesta del servidor
+        getResponse : function(response, status) {
+            if(response.status == "200" && response.statusText == "OK" && status == "success") {
                 return true;
             } else {
                 return false;
@@ -63,14 +65,10 @@
 
 
         addCycle : function (submit) {
-            submit.addClass("waves-effect waves-light");
-            submit.prop('disabled', false);
             return true;
         },
 
         addFamily : function (submit) {
-            submit.addClass("waves-effect waves-light");
-            submit.prop('disabled', false);
             return true;
         },
     };
