@@ -6,6 +6,9 @@ studentRegisterForm.after('<script src="/js/funcionalidad/funciones.js" charset=
 // validar una serie de situacione genericas
 studentRegisterForm.after('<script src="/js/validaciones/validaciones.js"></script>');
 
+//comporbación de fechas
+studentRegisterForm.after('<script src="/js/validaciones/years.js"></script>');
+
 // Script Drag and Drop Personalizado
 studentRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
 

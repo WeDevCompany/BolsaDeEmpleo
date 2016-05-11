@@ -301,7 +301,11 @@
         // ---------------------------------
         // Validaciones con particularidades
         // ---------------------------------
-
+        /**
+         * validDate Método que comprueba una fecha y dice si es valida o no
+         * @param  Object   object  Objeto DOM que será comprobado
+         * @return Boolean | error  Se devolverá true si la fecha es valida sino, se devolverá el error
+         */
         validDate : function (object) {
             var result = object.val().split('-');
             // La fecha no cumple el formato de fecha
@@ -338,7 +342,26 @@
                     return this.costumeErrorObject(object, id, str);
                 }
             }
+            // la fecha es valida
+            return true;
+        },
 
+        /**
+         * compareDates Método que compará 2 fechas y las valida en caso de encontrar
+         * la segunda null lo permitirá puesto el alumno puede estar cursando ese ciclo
+         * @param  String date1 YYYY-MM-DD
+         * @param  String date2 YYYY-MM-DD
+         * @return Boolean | error  Se devolverá true si la fecha es valida sino, se devolverá el error
+         */
+        compareDates : function (date1, date2) {
+            // Validamos las fechas teniendo en cuenta que el dateTo puede ser empty
+            if ( error = (this.validDate(date1) !== true) ) {
+                return error;
+            }else if ( date2 !== null ) {
+                if(error = (this.validDate(date2) !== true)){
+                   return error;
+               }
+            }
             return true;
         },
 
@@ -388,10 +411,10 @@
 
             // Declaracion de variables
             var sum, num = [], controlDigit;
-            
+
             // Obtenemos el valor y convertimos las letras a mayusculas
             objectVal = object.val().toUpperCase();
-            
+
             // Extraemos los numeros que forman el cif, los separamos y los metemos en un array
             for (var i = 0; i < 9; i++) {
                 num[i] = parseInt(objectVal.charAt(i), 10);
@@ -404,7 +427,7 @@
 
                 var tmp = (2 * num[count]).toString(),
                 secondDigit = tmp.charAt(1);
-               
+
                 sum += parseInt(tmp.charAt(0), 10) + (secondDigit == '' ? 0 : parseInt(secondDigit, 10));
             }
 

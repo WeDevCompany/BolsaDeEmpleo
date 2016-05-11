@@ -1,7 +1,7 @@
-    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">    
+    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
         <div class="row">
             <div class="input-field col-md-12">
-            <i class="material-icons prefix">email</i>
+            <i class="material-icons prefix">mail outline</i>
         {{ Form::label('email', 'Correo electrónico') }}
         {{ Form::text('email', null) }}
                 </div>

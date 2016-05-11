@@ -46,7 +46,6 @@
             </span>
         @endif
 </div>
-@include('generic.tutor')
 
 <div class="control-group{{ $errors->has('phone') ? ' has-error' : '' }}">
     <div class="row">
@@ -63,9 +62,12 @@
         @endif
 </div>
 
-<!-- Drag and drop -->
-@include('partials.upload.dragDrop')
+@include('generic.tutor')
 
+<!-- Drag and drop -->
+<div class="control-group row extra-padding">
+    @include('partials.upload.dragDrop')
+</div>
 <div class="control-group{{ $errors->has('select') ? ' has-error' : '' }}">
     <div class="row">
          <div class="input-field col-md-12">
