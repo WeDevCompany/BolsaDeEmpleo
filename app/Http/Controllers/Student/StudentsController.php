@@ -17,7 +17,7 @@ class StudentsController extends UsersController
 
 	public function __construct(Request $request)
     {
-        $role = app(Student::class)->road();
+        $roads = implode(',', config('roads.road'));
         Parent::__construct($request);
         $this->rules += [
             // Reglas para el estudiante
@@ -26,7 +26,7 @@ class StudentsController extends UsersController
             'dni'               => 'required|min:9|unique:students,dni|dni',
             'nre'               => 'digits:7',
             'phone'             => 'required|digits_between:9,13',
-            'road'              => 'required|in:' . implode($role, ','),
+            'road'              => 'required|in:'.$roads,
             'address'           => 'required|between:6,225',
             'curriculum'        => 'required|mimes:pdf',
 
