@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\UsersController;
 use App\Http\Requests;
+use App\Student;
 use App\Teacher;
 use App\User;
+use App\Http\Requests\StudentNotificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -19,7 +21,7 @@ class TeachersController extends UsersController
         $this->rules += [
             'firstName' => 'required|between:2,45|regex:/^[A-Za-z0-9 ]+$/',
             'lastName' => 'required|between:2,75|regex:/^[A-Za-z0-9 ]+$/',
-            'dni' => 'required|dni',
+            'dni' => 'required|min:9|unique:teachers,dni|dni',
             'phone' => 'required|digits_between:9,13',
         ];
         $this->rol = 'profesor';
@@ -43,6 +45,7 @@ class TeachersController extends UsersController
             \DB::rollBack();
             Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
         } else {
+
             // Llamo al metodo para crear el profesor.
             $insercion = Self::create();
 
@@ -53,6 +56,7 @@ class TeachersController extends UsersController
 
                 if($email === true) {
                     \DB::commit();
+                    Session::flash('message_Success', 'Se ha registrado correctamente.');
                     return \Redirect::to('login');
                 } else {
                     \DB::rollBack();
@@ -103,5 +107,76 @@ class TeachersController extends UsersController
         Parent::uploadImage();
         return \Redirect::to('profesor/perfil');
     }
+
+    /**
+     * Metodo que obtiene los estudiantes
+     * @return  view        vista en la que el profesor validara a los estudiantes
+     * @return  estudiante  Todos los datos de los estudiantes no validados
+     */
+    public function getStudentNotification()
+    {
+
+        // Subconsulta que obtiene todos los estudiantes que no estan verificados
+        // No la utilizaremos ya que al utilizar RAW perdemos la abstraccion a la base de datos
+        /*$estudiante = \DB::table('students as s1')
+                    ->select('s1.*')
+                    ->whereNotIn('s1.id', function($query){
+                        $query->select('verifiedStudents.student_id')
+                              ->from(\DB::raw('verifiedStudents, students as s2'))
+                              ->whereRaw('verifiedStudents.student_id = s2.id')
+                              ->whereRaw('s1.id = s2.id');
+                    })
+                    ->paginate();
+        */
+
+        // Obtenemos todos los estudiantes validados
+        $validStudent = \DB::table('verifiedStudents')->select('student_id')->get();
+
+        // Obtenemos los estudiantes que no estan validados
+        $invalidStudent = Student::select('*')->whereNotIn('id', array_column($validStudent, 'student_id'))->paginate();
+
+        //dd($invalidStudent);
+
+        return view('teacher/notification', compact('invalidStudent'));
+
+    } // getNotificationEstudiante()
+
+    /**
+     * Metodo que Valida los estudiantes y que profesor lo ha validado
+     * @return  view        redireccion a la vista en la que el profesor validara a los estudiantes
+     * 
+     */
+    public function postStudentNotification(StudentNotificationRequest $request)
+    {
+        // Array de los estudiantes a validar
+        $estudiante = $request->toArray();
+
+        foreach ($estudiante['estudiante'] as $id => $value) {
+
+            // Comprobamos si el alumno se encuentra validado o no
+            $verifiedStudent = Student::where('verifiedStudents.student_id', '=', $value)
+                                        ->join('verifiedStudents', 'verifiedStudents.student_id', '=', 'students.id')
+                                        ->first();
+
+            // Obtenemos el id del profesor logueado actualmente
+            $authTeacher = Teacher::where('user_id', '=', \Auth::user()->id)->first();
+
+            // Si no esta validado insertamos en la tabla su id junto al del
+            // profesor que lo ha validado
+            if(!$verifiedStudent){
+                
+                \DB::table('verifiedStudents')->insert([
+                    'student_id' => $value,
+                    'teacher_id' => $authTeacher['id'],
+                    'created_at' => date('YmdHms')
+                ]);
+                
+            }
+
+        }
+
+        return \Redirect::to('profesor/notificacion');
+
+    } // postNotificationEstudiante()
 
 }

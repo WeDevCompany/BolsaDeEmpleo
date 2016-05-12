@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Validator;
+use App\Student;
+use App\Teacher;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -26,10 +28,18 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('dni', function($attribute, $dni, $parameters) {
 
             // Separacion de la letra y los numeros
-            $letra = strtoupper(substr($dni, -1));
+            $dni = strtoupper($dni);
+            $letra = substr($dni, -1);
             $numero = substr($dni, 0, -1);
 
-            // Generamos la letra y comprobamos que coincida
+            // Validacion del nie, sustituimos caracteres especiales y el resto de la validacion es como el dni
+            if (preg_match('/^[XYZ]{1}/', $numero[0]) && substr("TRWAGMYFPDXBNJZSQVHLCKE", str_replace('Z', '2', str_replace('Y' ,'1', str_replace('X', '0', $numero))) % 23, 1) == $letra && strlen($letra) == 1 && strlen ($numero) == 8) {
+                
+                return true;
+
+            }
+
+            // Validacion dni, generamos la letra y comprobamos que coincida
             if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numero % 23, 1) == $letra && strlen($letra) == 1 && strlen ($numero) == 8){
 
                 return true;
@@ -91,6 +101,48 @@ class AppServiceProvider extends ServiceProvider
             return true;
 
         });// Validator cycleYearFrom fin
+
+        /**
+         * Validacion en la que comprobamos que es un estudiante
+         * para luego validarlo en la aplicacion por un profesor
+         */
+        Validator::extend('validStudentNotification', function($attribute, $id, $parameters){
+
+            foreach ($id as $key => $value) {
+                
+                $student = Student::where('id', '=', $value)->first();
+
+                if (!$student) {
+
+                    return false;
+
+                }
+            }
+
+            return true;
+
+        });// Validator validStudentNotification fin
+
+        /**
+         * Validacion en la que comprobamos que es un profesor
+         * para luego validarlo en la aplicacion por un admin
+         */
+        Validator::extend('validTeacherNotification', function($attribute, $id, $parameters){
+
+            foreach ($id as $key => $value) {
+                
+                $teacher = Teacher::where('id', '=', $value)->first();
+
+                if (!$teacher) {
+
+                    return false;
+
+                }
+            }
+
+            return true;
+
+        });// Validator validTeacherNotification fin
 
     }
 

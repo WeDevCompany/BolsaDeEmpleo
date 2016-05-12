@@ -96,6 +96,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'
     Route::get(config('routes.perfil'), 'AdminsController@imagenPerfil');
     Route::post(config('routes.UploadImg'), 'AdminsController@uploadImage');
 
+    // Validacion del Profesor
+    Route::get('notificacion', 'AdminsController@getTeacherNotification');
+    Route::post('validTeacherNotification', 'AdminsController@postTeacherNotification');
+
 });
 
 // Grupo de rutas para los profesores
@@ -107,6 +111,10 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web'], 'namespace' => 'T
     // Modificacion de la imagen de perfil de los profesores
     Route::get(config('routes.perfil'), 'TeachersController@imagenPerfil');
     Route::post(config('routes.UploadImg'), 'TeachersController@uploadImage');
+
+    // Validacion del Estudiante
+    Route::get('notificacion', 'TeachersController@getStudentNotification');
+    Route::post('validStudentNotification', 'TeachersController@postStudentNotification');
 
 });
 
