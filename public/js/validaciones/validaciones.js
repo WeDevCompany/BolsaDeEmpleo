@@ -23,7 +23,8 @@
             'select'     : "El campo :campo: ha de ser seleccionado",
             'check'      : "El campo :campo: ha de ser marcado",
             'DNI'        : "El campo :campo: no es un DNI/NIE valido",
-            'CIF'        : "El campo :campo: no es un CIF valido",
+            'CIF'        : "El campo :campo: no es un CIF válido",
+            'NRE'        : "El campo :campo: no es un NRE válido",
             'number'     : "El campo :campo: debe ser un número",
             'alpha'      : "El campo :campo: debe contener números y letras",
             'alphaC'     : "El campo :campo: debe contener números, letras mínusculas y letras mayúsculas",
@@ -114,6 +115,10 @@
                 case 'regexAddress':
                         // Regex para validar la direccion
                         var regex = /^[0-9A-Za-zÁÉÍÓÚáéíóúÑñ º]{6,225}$/;
+                        return regex.test(objectVal);
+                case 'regexNre':
+                        // Regex para validar el nre del estudiante
+                        var regex = /^[0-9]{7}$/;
                         return regex.test(objectVal);
                 default:
                     return false;
