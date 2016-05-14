@@ -7,6 +7,7 @@ use App\Student;
 use App\Teacher;
 use Illuminate\Http\Request;
 use Validator;
+use Session;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\ConfirmationRequest;
 use App\Http\Controllers\Controller;
@@ -84,12 +85,14 @@ class AuthController extends Controller
             $verifiedStudent = Student::where('verifiedStudents.student_id', '=', $student['id'])
                                         ->join('verifiedStudents', 'verifiedStudents.student_id', '=', 'students.id')
                                         ->first();
-            
+
             // Si no esta verificado ...
             if(!$verifiedStudent){
-                dd('No estas verificado estudiante');
                 // Rellenar si el estudiante no esta validado
+                $rol = "profesor";
+                return view('errors.notVerified', compact('rol'));
             }
+            Session::set('rol', 'estudiante');
 
         // Comprobamos que el admin haya verificado al profesor
         } else if ($user->rol == 'profesor'){
@@ -101,9 +104,19 @@ class AuthController extends Controller
 
             // Si no esta verificado ...
             if(!$verifiedTeacher){
-                dd('No estas verificado profesor');
                 // Rellenar si el estudiante no esta validado
+                $rol = "administrador";
+                return view('errors.notVerified', compact('rol'));
             }
+            Session::set('rol', 'profesor');
+
+        } else if ($user->rol == 'empresa'){
+
+            Session::set('rol', 'empresa');
+
+        } else if ($user->rol == 'administrador'){
+
+            Session::set('rol', 'administrador');
 
         }
 
@@ -200,11 +213,11 @@ class AuthController extends Controller
         // Modificamos el campo y lo guardamos
         $user->verifiedEmail = 1;
         $user->save();
-        
+
         // Logeamos al usuario automaticamente y lo redireccionamos
         \Auth::loginUsingId($user['id']);
         return \Redirect::to('/');
-        
+
     }
 
 

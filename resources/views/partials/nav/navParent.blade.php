@@ -23,26 +23,23 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                  <ul class="nav navbar-nav">
+                     <!-- Without session -->
                     <li><a class="waves-effect waves-light subrayado" href="{{ url(config('routes.index')) }}">Inicio</a></li>
-                    <li class = "dropdown">
-                        <a href="#" class="dropdown-toggle subrayado " data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="badge social-counter right notificacion">10</span> Notificaciones<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url(config('routes.registro.registroEstudiante')) }}"><i class="fa fa-graduation-cap right"></i><span class="badge social-counter right notificacion">5</span> Alumnos</a></li>
-                            <li><a href="{{ url(config('routes.registro.registroProfesor')) }}"><i class="fa fa-university right"></i><span class="badge social-counter right notificacion">5</span> Ofertas</a></li>
-                        </ul>
-                    </a></li>
-                    <li class = "dropdown">
-                        <a href="#" class="dropdown-toggle subrayado " data-toggle="dropdown" role="button" aria-expanded="false">
-                         Alumnos<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url(config('routes.registro.registroEstudiante')) }}"><i class="fa fa-check right" aria-hidden="true"></i> Admitidos</a></li>
-                            <li><a href="{{ url(config('routes.registro.registroProfesor')) }}"><i class="fa fa-times right" aria-hidden="true"></i> Denegados</a></li>
-                        </ul>
-                    </a></li>
-                    <li><a class="waves-effect waves-light subrayado" href="{{ url('/uso') }}">Ofertas</a></li>
+                    <!-- With session -->
+                    @if (\Auth::user()->rol === "profesor" || Session::get('rol')  === "profesor")
+                        @include('partials.nav.navProfesor')
+                    @elseif(\Auth::user()->rol === "administrador"  || Session::get('rol')  === "administrador")
+                    <!-- Admin -->
+
+                    @elseif(\Auth::user()->rol === "empresa" || Session::get('rol')  === "empresa")
+
+                    @elseif(\Auth::user()->rol === "estudiante" || Session::get('rol')  === "estudiante")
+                        <!-- Estudiante -->
+
+                    @else
+                        <!-- Sin sesión -->
+                    @endif
+                <!-- Left Side Of Navbar END -->
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -57,8 +54,8 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url(config('routes.registro.registroEstudiante')) }}"><i class="fa fa-graduation-cap right"></i> Estudiante</a></li>
-                                <li><a href="{{ url(config('routes.registro.registroProfesor')) }}"><i class="fa fa-university right"></i> Profesor</a></li>
-                                <li><a href="{{ url(config('routes.registro.registroEmpresa')) }}"><i class="fa fa-building right"></i> Empresa</a></li>
+                                <li><a href="{{ url(config('routes.registro.registroProfesor')) }}"><i class="fa fa-university right" aria-hidden="true"></i> Profesor</a></li>
+                                <li><a href="{{ url(config('routes.registro.registroEmpresa')) }}"><i class="fa fa-building right" aria-hidden="true"></i> Empresa</a></li>
                             </ul>
                         </li>
 
@@ -89,9 +86,9 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ url(\Auth::user()->rol . config('routes.perfil')) }}">Editar perfil</a></li>
-                                <li><a href="#">Cambiar contraseña</a></li>
-                                <li><a href="{{ url('/logout') }}">Logout</a></li>
+                                <li><a href="{{ url(\Auth::user()->rol . config('routes.perfil')) }}"><i class="fa fa-wrench right" aria-hidden="true"></i> Editar perfil</a></li>
+                                <li><a href="#"> Cambiar contraseña</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out right" aria-hidden="true"></i> Logout</a></li>
                             </ul>
                         </div>
                     @endif

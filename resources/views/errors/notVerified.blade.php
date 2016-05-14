@@ -6,7 +6,7 @@
             <div class="error-template text-center">
                 <h1>Debe ser validado</h1>
                 <div class="error-details">
-                    Disculpe las molestias pero usted, aún no ha sido validado por un {{$rol}}.<br>
+                    Disculpe las molestias pero usted, aún no ha sido validado por un <b>{{$rol}}</b>.<br>
                     Le rogamos sea paciente cuando sea validado, le llegará un email, confirmando su validación.
                 </div>
                 <br>

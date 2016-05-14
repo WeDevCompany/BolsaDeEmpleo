@@ -47,7 +47,7 @@
         <div class="logo-wrapper">
 
             <img src="{{ url('/img/imgUser/' . \Auth::user()->carpeta . '/' .  \Auth::user()->image) }}" alt="Imagen de perfil" class="img-responsive img-circle img-navegador">
-            
+
             <div class="rgba-stylish-strong"><p class="user white-text">Admin<br>
             admin@gmail.com</p></div>
 
@@ -90,4 +90,3 @@
         // Initialize collapsible (uncomment the line below if you use the dropdown variation)
         $('.collapsible').collapsible();
     </script>
-

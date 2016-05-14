@@ -22,7 +22,19 @@ return [
 
     'admin'    =>
         [
-            'adminIndex'     => '/admin',
+            'adminIndex'     		=> '/admin',
+			'studentNotification' 	=> '/admin/estudiantes/notificaciones',
+			'teacherNotification' 	=> '/admin/profesores/notificaciones',
+			'offertNotification' 	=> '/admin/ofertas/notificaciones',
+			'allStudents' 			=> '/admin/estudiante',
+			'allVerifiedStudents' 	=> '/admin/estudiante/verificados',
+			'allDeniedStudents' 	=> '/admin/estudiante/denegados',
+			'allOffers' 			=> '/admin/ofertas',
+			'allVerifiedOffers' 	=> '/admin/ofertas/verificadas',
+			'allDeniedOffers' 		=> '/admin/ofertas/denegadas',
+			'allTeachers' 			=> '/admin/profesores',
+			'allVerifiedTeachers' 	=> '/admin/profesores/verificadas',
+			'allDeniedTeachers' 	=> '/admin/profesores/denegadas',
         ],
     'student'    =>
         [
@@ -30,7 +42,15 @@ return [
         ],
     'teacher'    =>
         [
-            'teacherIndex'     => '/profesor',
+            'teacherIndex'     		=> '/profesor',
+			'studentNotification' 	=> '/profesor/estudiantes/notificaciones',
+			'offertNotification' 	=> '/profesor/ofertas/notificaciones',
+			'allStudents' 			=> '/profesor/estudiante',
+			'allVerifiedStudents' 	=> '/profesor/estudiante/verificados',
+			'allDeniedStudents' 	=> '/profesor/estudiante/denegados',
+			'allOffers' 			=> '/profesor/ofertas',
+			'allVerifiedOffers' 	=> '/profesor/ofertas/verificadas',
+			'allDeniedOffers' 		=> '/profesor/ofertas/denegadas',
         ],
     'enterprise'    =>
         [
@@ -53,11 +73,6 @@ return [
     'confirmado'    => '/confirmado',
 	'pruebas'		=> '/pruebas',
 	'authors'		=> '/autores',
-		[
-			'manu'			=> '/autores/emmanuel',
-			'edu'			=> '/autores/eduardo',
-			'pedro'			=> '/autores/pedro',
-		],
 
 ];
 ?>
