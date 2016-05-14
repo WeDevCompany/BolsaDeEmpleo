@@ -377,12 +377,39 @@
             return true;
         },
 
+        validCycleYear: function(object, id, error, campo, yearToObject){
+
+            // Variables
+            objectVal = object.val();
+            yearToObjectVal = yearToObject.val();
+            console.log(objectVal);
+
+            if (objectVal >= 1990 && objectVal < yearToObjectVal) {
+
+                return true;
+            }
+
+            return this.errorObject(object, id, error, campo);
+
+        },
+
+        /**
+         * validPasswordConfirmation Metodo que comprueba si ambas contraseñas son iguales
+         * @param  Object   object          Password a validar
+         * @param  Integer  id              ID a darle al error en caso de que exista
+         * @param  String   error           Error a selecionar
+         * @param  String   campo           El nombre del campo
+         * @param  Object   passObject      Password a comparar
+         * @return Booblean false | true    False = En caso de que haya error
+         *                                  True = En caso de que no haya error
+         */
         validPasswordConfirmation: function(object, id, error, campo, passObject){
 
             // Variables
             objectVal = object.val();
             passObjectVal = passObject.val();
 
+            // Comprobamos que son iguales las contraseñas
             if(objectVal == passObjectVal){
                 return true;
             }

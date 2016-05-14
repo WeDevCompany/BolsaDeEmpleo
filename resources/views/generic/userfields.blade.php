@@ -3,7 +3,7 @@
             <div class="input-field col-md-12">
             <i class="material-icons prefix">mail outline</i>
         {{ Form::label('email', 'Correo electrónico') }}
-        {{ Form::text('email', null, ['id' => 'puti']) }}
+        {{ Form::text('email', null, ['id' => 'email']) }}
                 </div>
     </div>
         @if ($errors->has('email'))

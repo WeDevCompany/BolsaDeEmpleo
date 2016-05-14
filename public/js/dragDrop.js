@@ -1,3 +1,7 @@
+    /**************************
+            IMAGEN
+    ***************************/
+
     /*$('document').ready(function(){
         $('#drop img').hide();
         $('#file-info').hide();
@@ -58,7 +62,7 @@
                 $(this).css("border", "2px solid #F44336");
                 $(this).css("background-color", "rgba(255, 235, 238, 0.17)");
 
-                // error
+                validaciones.errorObject($('#imagen-dragDrop'), 'error-imagen-dragDrop', 'img', 'subir imagen de perfil');
 
             }
 
@@ -119,13 +123,15 @@
                 // "Introducimos" la curriculum en el input file
                 $("#curriculum-dragDrop").prop("files", e.originalEvent.dataTransfer.files);
 
-                $(this).css("border", "2px solid green");
+                $(this).css("border", "2px solid #00E676");
+                $(this).css("background-color", "rgba(185, 246, 202, 0.17)");
 
             } else {
 
-                $(this).css("border", "2px solid red");
+                $(this).css("border", "2px solid #F44336");
+                $(this).css("background-color", "rgba(255, 235, 238, 0.17)");
 
-                // error
+                validaciones.errorObject($('#curriculum-dragDrop'), 'error-curriculum-dragDrop', 'pdf', 'subir curriculum');
 
             }
 
