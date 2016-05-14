@@ -24,15 +24,17 @@
             'check'     : "El campo :campo: ha de ser marcado",
             'DNI'       : "El campo :campo: no es un DNI/NIE valido",
             'CIF'       : "El campo :campo: no es un CIF valido",
-            'numbre'    : "El campo :campo: debe ser un número",
+            'number'    : "El campo :campo: debe ser un número",
             'alpha'     : "El campo :campo: debe contener números y letras",
             'alphaC'    : "El campo :campo: debe contener números, letras mínusculas y letras mayúsculas",
             'special'   : "El campo :campo: debe contener caracteres especiales",
             '!special'  : "El campo :campo: no debe contener caracteres especiales",
             'year'      : "El campo :campo: debe ser un año valido",
-            'date'      : "El campo :campo: debe ser una fecha valda",
+            'date'      : "El campo :campo: debe ser una fecha valida",
             'month'     : "El campo :campo: debe ser un mes valido",
             'day'       : "El campo :campo: debe ser un día valido",
+            'firstName' : "El campo :campo: debe ser un nombre valido",
+            'lastName'  : "El campo :campo: debe ser un apellido valido",
             // dateEq = dateEqual
             'dateEq'    : "El campo :campo: no se debe repetir",
             'phone'     : "El campo :campo: debe ser un número de teléfono valido",
@@ -102,6 +104,10 @@
                 case 'regexIdent':
                         // Regex para validar DNI, NIE y CIF
                         var regex = /((^[a-zA-Z]{1}[0-9]{7}[a-zA-Z0-9]{1}$|^[tT]{1}[a-zA-Z0-9]{8}$)|^[0-9]{8}[a-zA-Z]{1}$)/;
+                        return regex.test(objectVal);
+                case 'regexName':
+                        // Regex para validar nombre y apellidos
+                        var regex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ]+(\s)?[A-Za-zÁÉÍÓÚáéíóúÑñ]{1,40}$/;
                         return regex.test(objectVal);
                 default:
                     return false;
@@ -217,7 +223,7 @@
                 length = 20;
             }
 
-            if (object.val().length < length) {
+            if (object.val().length > length) {
                 return this.errorObject(object, id, error, campo);
             }
             return true;

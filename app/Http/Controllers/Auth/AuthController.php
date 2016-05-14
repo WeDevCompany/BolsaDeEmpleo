@@ -82,7 +82,7 @@ class AuthController extends Controller
 
             $student = Student::where('user_id', '=',$user['id'])->first();
             $verifiedStudent = Student::where('verifiedStudents.student_id', '=', $student['id'])
-                                        ->join('verifiedStudents', 'verifiedStudents.teacher_id', '=', 'students.id')
+                                        ->join('verifiedStudents', 'verifiedStudents.student_id', '=', 'students.id')
                                         ->first();
             
             // Si no esta verificado ...

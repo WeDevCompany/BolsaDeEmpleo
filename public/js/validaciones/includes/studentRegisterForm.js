@@ -24,6 +24,12 @@ studentRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>'
 // Script personalizado para validar DNI/NIE
 studentRegisterForm.after('<script src="/js/validaciones/dniNie.js"></script>');
 
+// Script de validación del nombre
+studentRegisterForm.after('<script src="/js/validaciones/firstName.js"></script>');
+
+// Script de validación del nombre
+studentRegisterForm.after('<script src="/js/validaciones/lastName.js"></script>');
+
 // Añadimos las funciones para añadir ciclos
 studentRegisterForm.after('<script src="/js/funcionalidad/addFamilyCycles.js" charset="utf-8"></script>');
 
