@@ -207,7 +207,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Teacher4
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('fernando@teacher.com'),
+        	'email' => mb_strtolower('emmanuel@teacher.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,

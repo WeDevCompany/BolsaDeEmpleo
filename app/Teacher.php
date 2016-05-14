@@ -17,7 +17,13 @@ class Teacher extends Model
 	protected $fillable = [
        'firstName', 'lastName', 'dni', 'phone', 'user_id',
     ];
- 
+    
+    // Relaciones one to one
+    public function user()
+    {
+    	return $this->hasOne(User::class);
+    } // user()
+
     // Relaciones one to many
     public function admins()
     {
@@ -38,7 +44,7 @@ class Teacher extends Model
     {
         return $this->belongsTo(Student::class, 'verifiedStudents')->withPivot('student_id');
     } // student()
-    
+
     // Relaciones many to many
     public function cycles()
     {
@@ -65,4 +71,11 @@ class Teacher extends Model
     	return $this->belongsToMany(ProfFamilie::class, 'teacherProfFamilies')->withPivot('profFamilie_id');
     } // profFamilies()
 
+    /**
+     * users Relación entre usuarios y profesores
+     */
+    public function users()
+    {
+    	return $this->belongsTo(Users::class, 'teachers')->withPivot('user_id');
+    } // users()
 }

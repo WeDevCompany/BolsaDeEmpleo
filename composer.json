@@ -15,7 +15,8 @@
         "anhskohbo/no-captcha": "2.*",
         "intervention/image": "^2.3",
         "enyo/dropzone": "*",
-        "barryvdh/laravel-debugbar" : "^2.0dev"
+        "barryvdh/laravel-debugbar" : "^2.0dev",
+        "yajra/laravel-datatables-oracle": "~6.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -21,7 +21,7 @@
                                 <div class="card-up">
                                     <img src="{{url("/img/authors/emmanuel-fondo.jpg")}}" class="img-responsive">
                                 </div>
-                                <div class="avatar"><img src="{{url("/img/authors/emmanuel.jpg")}}" class="img-circle img-responsive">
+                                <div class="avatar"><img src="{{url("/img/authors/emmanuel.jpg")}}" class="img-circle img-responsive" alt="Emmanuel Valverde Ramos <evrtrabajo@gmail.com>">
                                 </div>
                                 <h4>Emmanuel Valverde Ramos</h4>
                                 <h5>Desarrollador Back-End</h5>
@@ -37,9 +37,9 @@
                             <!--Back Side-->
                             <div class="face card-rotating__back z-depth-1">
                                 <h4>Emmanuel Valverde Ramos</h4>
-                                <p class="card-content text-center">
-                                    <br> Conocimientos en:</p>
-                                <hr> PHP (PDO, MVC, Laravel,...)
+                                <p class="card-content text-center sin-padding">
+                                    <br> Experto en:</p>
+                                <hr> PHP [POO, PDO, MVC, Laravel]
                                 <br> MySQl
                                 <br> Java
                                 <br> C

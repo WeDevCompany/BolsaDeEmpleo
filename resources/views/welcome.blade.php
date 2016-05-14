@@ -4,7 +4,7 @@
 @endsection()
 @section('content')
 
-    @include('partials.nav.navWelcome')
+    @include('partials.nav.navParent')
 
     @include('partials.carrousel.carrouselWelcome')
 
@@ -21,7 +21,7 @@
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up red">
                                 </div>
-                                <div class="avatar"><img src="{{ url('/img/global/estudiante_off.png')}}" class="img-circle img-responsive">
+                                <div class="avatar"><img src="{{ url('/img/global/estudiante_off.png')}}" class="img-circle img-responsive" alt="img-estudiante">
                                 </div>
                                 <div class="card-content">
                                     <h5>Alumnos</h5>
@@ -37,7 +37,7 @@
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up g light-blue">
                                 </div>
-                                <div class="avatar"><img src="{{ url('/img/global/empresario_off.png')}}">
+                                <div class="avatar"><img src="{{ url('/img/global/empresario_off.png')}}" alt="img-estudiante">
                                 </div>
                                 <div class="card-content">
                                     <h5>Empresas</h5>
@@ -53,7 +53,7 @@
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up yellow">
                                 </div>
-                                <div class="avatar"><img src="{{ url('/img/global/profesor.jpg')}}" class="img-circle img-responsive">
+                                <div class="avatar"><img src="{{ url('/img/global/profesor.jpg')}}" class="img-circle img-responsive" alt="img-estudiante">
                                 </div>
                                 <div class="card-content">
                                     <h5>Profesores</h5>
@@ -88,7 +88,7 @@
               </div>
               <div class="col-md-6 map card-panel hoverable wow fadeInUp" id="map">
               <!-- Librería de google maps + API key -->
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGyfVQZ3XHG7GRD51OlVNw1kACBKrg8Ww" type="text/javascript"></script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGyfVQZ3XHG7GRD51OlVNw1kACBKrg8Ww" type="text/javascript" titel"Google Map"></script>
                 <!-- Script que inicializa el mapa -->
                <script src="/js/maps.js" type="text/javascript"></script>
               </div>
