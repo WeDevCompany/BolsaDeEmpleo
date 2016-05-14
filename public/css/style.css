@@ -624,3 +624,12 @@ div.drop:hover {
     padding-left: 0.5em;
     color: red;
 }
+
+/***************
+  Notificaciones
+****************/
+.notificacion {
+    position: relative !important;
+    margin-left: 0px;
+    margin-top: 0px;
+}

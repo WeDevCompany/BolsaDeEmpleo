@@ -22,7 +22,7 @@
                 <!-- Left Side Of Navbar -->
                  <ul class="nav navbar-nav">
                     <li><a class="waves-effect waves-light subrayado" href="{{ url(config('routes.index')) }}">Inicio</a></li>
-                    <li><a class="waves-effect waves-light subrayado" href="{{ url('/uso') }}">FAQ</a></li>
+                    <li><a class="waves-effect waves-light subrayado" href="{{ url('/uso') }}">Notificaciones</i></a><span class="badge social-counter">5</span></a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

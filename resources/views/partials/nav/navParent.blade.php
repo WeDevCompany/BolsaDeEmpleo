@@ -4,6 +4,7 @@
         <div class="container">
             <div class="navbar-header">
 
+
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
@@ -23,7 +24,25 @@
                 <!-- Left Side Of Navbar -->
                  <ul class="nav navbar-nav">
                     <li><a class="waves-effect waves-light subrayado" href="{{ url(config('routes.index')) }}">Inicio</a></li>
-                    <li><a class="waves-effect waves-light subrayado" href="{{ url('/uso') }}">FAQ</a></li>
+                    <li class = "dropdown">
+                        <a href="#" class="dropdown-toggle subrayado " data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="badge social-counter right notificacion">10</span> Notificaciones<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url(config('routes.registro.registroEstudiante')) }}"><i class="fa fa-graduation-cap right"></i><span class="badge social-counter right notificacion">5</span> Alumnos</a></li>
+                            <li><a href="{{ url(config('routes.registro.registroProfesor')) }}"><i class="fa fa-university right"></i><span class="badge social-counter right notificacion">5</span> Ofertas</a></li>
+                        </ul>
+                    </a></li>
+                    <li class = "dropdown">
+                        <a href="#" class="dropdown-toggle subrayado " data-toggle="dropdown" role="button" aria-expanded="false">
+                         Alumnos<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url(config('routes.registro.registroEstudiante')) }}"><i class="fa fa-check right" aria-hidden="true"></i> Admitidos</a></li>
+                            <li><a href="{{ url(config('routes.registro.registroProfesor')) }}"><i class="fa fa-times right" aria-hidden="true"></i> Denegados</a></li>
+                        </ul>
+                    </a></li>
+                    <li><a class="waves-effect waves-light subrayado" href="{{ url('/uso') }}">Ofertas</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -45,6 +64,23 @@
 
                     {{-- Si Estas logeado --}}
                     @else
+                        <!-- menú de notificaciones -->
+
+
+                        <!-- FIN menú de notificaciones -->
+
+                        <!-- menú de Alumnos -->
+
+
+                        <!-- FIN de menú de Alumnos -->
+
+
+                        <!-- menú de Ofertas -->
+
+
+                        <!-- FIN de menú de Ofertas -->
+
+                        <!-- Menú de opciones del perfil -->
 
                         <div class="dropdown">
 

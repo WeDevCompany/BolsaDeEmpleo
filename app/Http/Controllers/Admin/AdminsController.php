@@ -33,6 +33,7 @@ class AdminsController extends TeachersController
         // Obtenemos los profesores que no estan validados
         $invalidTeacher = Teacher::select('*')->whereNotIn('teachers.id', array_column($validTeacher, 'teacher_id'))->join('users', 'users.id', '=', 'user_id')->paginate();
         return view('admin/notification', compact('invalidTeacher'));
+		
 
     } // getTeacherNotification()
 
