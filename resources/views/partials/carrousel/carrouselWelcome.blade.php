@@ -28,8 +28,8 @@
             <div class="carousel-caption">
                 <div class="verticalcenter">
                     <div class="animated fadeInDown">
-                        <h4>Si eres un estudiante y deseas trabajar o buscar una empresa donde hacer prácticas</h4>
-                        <h5>No dudes en darte alta y trabajar con empresas punteras en tu sector, demuestra de que eres capaz y crece junto </h5>
+                        <h4>La bolsa de empleo del instituto ingeniero de la cierva</h4>
+                        <h5>"Los hombres geniales empiezan grandes obras, los hombres trabajadores las terminan" – <i>Leonardo Da Vinci</i></h5>
                          <a href="{{config('routes.registro.registroEstudiante')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-graduation-cap right"></i>Estudiante</a>
                         <a href="{{config('routes.registro.registroEmpresa')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-building right"></i>Empresa</a>
                         <a href="{{config('routes.registro.registroProfesor')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-university right"></i>Profesor</a>
@@ -133,23 +133,6 @@
             </div>
         </div>
         <!-- /.item -->
-
-        <!-- 7 slide -->
-        <div class="item">
-            <div class="carousel-caption">
-                <div class="verticalcenter">
-                    <div class="animated fadeInDown">
-                        <h4>La bolsa de empleo del instituto ingeniero de la cierva</h4>
-                        <h5>"Los hombres geniales empiezan grandes obras, los hombres trabajadores las terminan" – <i>Leonardo Da Vinci</i></h5>
-                         <a href="{{config('routes.registro.registroEstudiante')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-graduation-cap right"></i>Estudiante</a>
-                        <a href="{{config('routes.registro.registroEmpresa')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-building right"></i>Empresa</a>
-                        <a href="{{config('routes.registro.registroProfesor')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-university right"></i>Profesor</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.item -->
-
     </div>
     <!-- /.carousel-inner -->
 

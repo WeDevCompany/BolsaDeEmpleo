@@ -217,6 +217,10 @@ body {
   margin-bottom: 50px;
 }
 
+.sin-padding {
+    padding: 0px !important;
+}
+
 /***************
   PARALLAX
 ****************/
@@ -302,8 +306,8 @@ a:hover.back-to-top {
 }
 
 .img-resize {
-  width: 300px;
-  height: 300px;
+  max-width: 300px;
+  max-height: 300px;
   margin: auto;
   margin-bottom: 25px;
   margin-top: 15px;
@@ -605,4 +609,8 @@ div.drop:hover {
     .error-actions > a{
         font-size: 10px;
     }
+}
+
+.scroll {
+    overflow: auto !important;
 }

@@ -7,7 +7,7 @@
     <script src="/js/validaciones/facada.js" charset="utf-8"></script>
 @endsection
 @section('content')
-@include('partials.nav.navProfesor')
+@include('partials.nav.navParent')
 <div class="container">
     <div class="row">
         <div class="col-md-12 sin-margen">

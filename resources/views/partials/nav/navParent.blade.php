@@ -1,5 +1,6 @@
 <!-- Probar el menú con navbar-static-top -->
-    <nav class="navbar navbar-transparent black navbar-default navbar-fixed-top" role="navigation">
+    {{-- Si la ruta es / muestra un menú transparente y fijo sino --}}
+        <nav class="navbar black navbar-default {{ Request::is('/') ? ' navbar-fixed-top navbar-transparent' : 'navbar-static-top black' }}" role="navigation">
         <div class="container">
             <div class="navbar-header">
 
@@ -28,6 +29,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
+                    {{-- Si NO estas logeado --}}
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}" class=" waves-effect waves-light subrayado"><i class="fa fa-sign-in"></i> Login</a></li>
                         <li class = "dropdown">
@@ -40,6 +42,8 @@
                                 <li><a href="{{ url(config('routes.registro.registroEmpresa')) }}"><i class="fa fa-building right"></i> Empresa</a></li>
                             </ul>
                         </li>
+
+                    {{-- Si Estas logeado --}}
                     @else
 
                         <div class="dropdown">

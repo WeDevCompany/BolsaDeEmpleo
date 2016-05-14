@@ -5,13 +5,16 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Teacher\TeachersController;
 use App\Teacher;
+use App\User;
 use App\Http\Requests;
 use App\Http\Requests\TeacherNotificationRequest;
 use App\Http\Controllers\Controller;
 
+//use Datatables;
 
 class AdminsController extends TeachersController
 {
+
 	public function index(){
         return view('admin/index');
 	} // index()
@@ -28,8 +31,7 @@ class AdminsController extends TeachersController
         $validTeacher = \DB::table('verifiedTeachers')->select('teacher_id')->get();
 
         // Obtenemos los profesores que no estan validados
-        $invalidTeacher = Teacher::select('*')->whereNotIn('id', array_column($validTeacher, 'teacher_id'))->paginate();
-
+        $invalidTeacher = Teacher::select('*')->whereNotIn('teachers.id', array_column($validTeacher, 'teacher_id'))->join('users', 'users.id', '=', 'user_id')->paginate();
         return view('admin/notification', compact('invalidTeacher'));
 
     } // getTeacherNotification()
@@ -37,7 +39,7 @@ class AdminsController extends TeachersController
     /**
      * Metodo que Valida los profesores y que admin lo ha validado
      * @return  view        redireccion a la vista en la que el admin validara a los profesores
-     * 
+     *
      */
     public function postTeacherNotification(TeacherNotificationRequest $request)
     {
@@ -57,13 +59,13 @@ class AdminsController extends TeachersController
             // Si no esta validado insertamos en la tabla su id junto al del
             // admin que lo ha validado
             if(!$verifiedTeacher){
-                
+
                 \DB::table('verifiedTeachers')->insert([
                     'teacher_id' => $value,
                     'admin_id' => $authTeacher['id'],
                     'created_at' => date('YmdHms')
                 ]);
-                
+
             }
 
         }
