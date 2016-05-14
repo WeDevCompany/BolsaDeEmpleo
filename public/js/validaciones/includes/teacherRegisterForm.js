@@ -20,3 +20,21 @@ teacherRegisterForm.after('<script src="/js/validaciones/firstName.js"></script>
 
 // Script de validación del apellido
 teacherRegisterForm.after('<script src="/js/validaciones/lastName.js"></script>');
+
+// Script personalizado para validar DNI/NIE
+teacherRegisterForm.after('<script src="/js/validaciones/dniNie.js"></script>');
+
+// Script de validación del telefono
+teacherRegisterForm.after('<script src="/js/validaciones/phone.js"></script>');
+
+// Script de validación de la dirección
+teacherRegisterForm.after('<script src="/js/validaciones/address.js"></script>');
+
+// Script de validación de la dirección
+teacherRegisterForm.after('<script src="/js/validaciones/address.js"></script>');
+
+// Script de validación de la contraseña
+teacherRegisterForm.after('<script src="/js/validaciones/password.js"></script>');
+
+// Script de validación de la confirmacion de la contraseña
+teacherRegisterForm.after('<script src="/js/validaciones/passwordConfirmation.js"></script>');

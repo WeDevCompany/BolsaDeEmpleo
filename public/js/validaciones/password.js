@@ -14,7 +14,10 @@ $('#password').blur(function(){
         return result;
     } else if (!validaciones.objectShortLength(password, idError, 'short', 'contraseña')) {
         result = (validaciones.submitDisable(submit)) ? false : true;
-        //return result;
+        return result;
+    } else if (!validaciones.objectHighLength(password, idError, 'long', 'contraseña')) {
+        result = (validaciones.submitDisable(submit)) ? false : true;
+        return result;
     } else if (!validaciones.objectValid(password, idError, 'pass', 'contraseña', 'regexPass')) {
         result = (validaciones.submitDisable(submit)) ? false : true;
         return result;

@@ -15,33 +15,35 @@
          * @type Object
          */
         typeOfErrors : {
-            'empty'     : "El campo :campo: está vacio",
-            'short'     : "El campo :campo: es demasiado corto",
-            'long'      : "El campo :campo: es demasiado largo",
-            'format'    : "El campo :campo: no cumple el formato correcto",
-            'equal'     : "El campo :campo: no es correcto",
-            'select'    : "El campo :campo: ha de ser seleccionado",
-            'check'     : "El campo :campo: ha de ser marcado",
-            'DNI'       : "El campo :campo: no es un DNI/NIE valido",
-            'CIF'       : "El campo :campo: no es un CIF valido",
-            'number'    : "El campo :campo: debe ser un número",
-            'alpha'     : "El campo :campo: debe contener números y letras",
-            'alphaC'    : "El campo :campo: debe contener números, letras mínusculas y letras mayúsculas",
-            'special'   : "El campo :campo: debe contener caracteres especiales",
-            '!special'  : "El campo :campo: no debe contener caracteres especiales",
-            'year'      : "El campo :campo: debe ser un año valido",
-            'date'      : "El campo :campo: debe ser una fecha valida",
-            'month'     : "El campo :campo: debe ser un mes valido",
-            'day'       : "El campo :campo: debe ser un día valido",
-            'firstName' : "El campo :campo: debe ser un nombre valido",
-            'lastName'  : "El campo :campo: debe ser un apellido valido",
+            'empty'      : "El campo :campo: está vacio",
+            'short'      : "El campo :campo: es demasiado corto",
+            'long'       : "El campo :campo: es demasiado largo",
+            'format'     : "El campo :campo: no cumple el formato correcto",
+            'equal'      : "El campo :campo: no es correcto",
+            'select'     : "El campo :campo: ha de ser seleccionado",
+            'check'      : "El campo :campo: ha de ser marcado",
+            'DNI'        : "El campo :campo: no es un DNI/NIE valido",
+            'CIF'        : "El campo :campo: no es un CIF valido",
+            'number'     : "El campo :campo: debe ser un número",
+            'alpha'      : "El campo :campo: debe contener números y letras",
+            'alphaC'     : "El campo :campo: debe contener números, letras mínusculas y letras mayúsculas",
+            'special'    : "El campo :campo: debe contener caracteres especiales",
+            '!special'   : "El campo :campo: no debe contener caracteres especiales",
+            'year'       : "El campo :campo: debe ser un año valido",
+            'date'       : "El campo :campo: debe ser una fecha valida",
+            'month'      : "El campo :campo: debe ser un mes valido",
+            'day'        : "El campo :campo: debe ser un día valido",
+            'firstName'  : "El campo :campo: debe ser un nombre valido",
+            'lastName'   : "El campo :campo: debe ser un apellido valido",
+            'address'    : "El campo :campo: debe ser una dirección válida",
             // dateEq = dateEqual
-            'dateEq'    : "El campo :campo: no se debe repetir",
-            'phone'     : "El campo :campo: debe ser un número de teléfono valido",
-            'img'       : "El campo :campo: debe ser una imagen",
-            'pdf'       : "El campo :campo: debe ser un pdf",
-            'email'     : "El campo :campo: debe ser un email valido",
-            'pass'      : "El campo :campo: debe contener mayúsculas, minínima y números como minínima",
+            'dateEq'     : "El campo :campo: no se debe repetir",
+            'phone'      : "El campo :campo: debe ser un número de teléfono valido",
+            'img'        : "El campo :campo: debe ser una imagen",
+            'pdf'        : "El campo :campo: debe ser un pdf",
+            'email'      : "El campo :campo: debe ser un email valido",
+            'pass'       : "El campo :campo: debe contener mayúsculas, minúsculas y números como mínimo",
+            'passConfirm': "Las contraseñas deben de ser iguales",
         },
 
         /**
@@ -71,13 +73,13 @@
                         return regex.test(objectVal);
 
                 case 'regexPass':
-                        var regex = /((?=.*d)(?=.*[a-z])(?=.*[A-Z]).{6,20})/gm;
+                        var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d).+$/;
                         return regex.test(objectVal);
 
                 case 'regexPhone':
                         // valida que el número de telefono sean simplemente
                         // 9 digitos
-                        var regex = /^[0-9+]{9}$/;
+                        var regex = /^[0-9]{9}$/;
                         return regex.test(objectVal);
 
                 case 'regexDomainHTTP':
@@ -108,6 +110,10 @@
                 case 'regexName':
                         // Regex para validar nombre y apellidos
                         var regex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ]+(\s)?[A-Za-zÁÉÍÓÚáéíóúÑñ]{1,40}$/;
+                        return regex.test(objectVal);
+                case 'regexAddress':
+                        // Regex para validar la direccion
+                        var regex = /^[0-9A-Za-zÁÉÍÓÚáéíóúÑñ º]{6,225}$/;
                         return regex.test(objectVal);
                 default:
                     return false;
@@ -371,6 +377,18 @@
             return true;
         },
 
+        validPasswordConfirmation: function(object, id, error, campo, passObject){
+
+            // Variables
+            objectVal = object.val();
+            passObjectVal = passObject.val();
+
+            if(objectVal == passObjectVal){
+                return true;
+            }
+
+            return this.errorObject(object, id, error, campo);
+        },
 
         /**
         * validDNI Método que comprueba si el dni/nie es válido

@@ -27,8 +27,23 @@ studentRegisterForm.after('<script src="/js/validaciones/dniNie.js"></script>');
 // Script de validación del nombre
 studentRegisterForm.after('<script src="/js/validaciones/firstName.js"></script>');
 
-// Script de validación del nombre
+// Script de validación del apellido
 studentRegisterForm.after('<script src="/js/validaciones/lastName.js"></script>');
+
+// Script de validación del telefono
+studentRegisterForm.after('<script src="/js/validaciones/phone.js"></script>');
+
+// Script de validación de la dirección
+studentRegisterForm.after('<script src="/js/validaciones/address.js"></script>');
+
+// Script de validación del email
+studentRegisterForm.after('<script src="/js/validaciones/email.js"></script>');
+
+// Script de validación de la contraseña
+studentRegisterForm.after('<script src="/js/validaciones/password.js"></script>');
+
+// Script de validación de la confirmacion de la contraseña
+studentRegisterForm.after('<script src="/js/validaciones/passwordConfirmation.js"></script>');
 
 // Añadimos las funciones para añadir ciclos
 studentRegisterForm.after('<script src="/js/funcionalidad/addFamilyCycles.js" charset="utf-8"></script>');
