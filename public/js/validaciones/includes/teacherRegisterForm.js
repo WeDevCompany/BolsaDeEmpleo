@@ -30,8 +30,8 @@ teacherRegisterForm.after('<script src="/js/validaciones/phone.js"></script>');
 // Script de validación de la dirección
 teacherRegisterForm.after('<script src="/js/validaciones/address.js"></script>');
 
-// Script de validación de la dirección
-teacherRegisterForm.after('<script src="/js/validaciones/address.js"></script>');
+// Script de validación del email
+teacherRegisterForm.after('<script src="/js/validaciones/email.js"></script>');
 
 // Script de validación de la contraseña
 teacherRegisterForm.after('<script src="/js/validaciones/password.js"></script>');
