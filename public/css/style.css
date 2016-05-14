@@ -614,3 +614,13 @@ div.drop:hover {
 .scroll {
     overflow: auto !important;
 }
+
+/***************
+  ERRORES AJAX
+****************/
+.ajaxError {
+    height: auto;
+    font-size: 1.2em;
+    padding-left: 0.5em;
+    color: red;
+}
