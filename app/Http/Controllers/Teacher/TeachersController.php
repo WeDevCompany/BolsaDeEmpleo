@@ -11,6 +11,7 @@ use App\Http\Requests\StudentNotificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Collection as Collection;
 
 class TeachersController extends UsersController
 {
@@ -132,8 +133,35 @@ class TeachersController extends UsersController
         // Obtenemos todos los estudiantes validados
         $validStudent = \DB::table('verifiedStudents')->select('student_id')->get();
 
-        // Obtenemos los estudiantes que no estan validados
-        $invalidStudent = Student::select('*')->whereNotIn('id', array_column($validStudent, 'student_id'))->paginate();
+        // Obtenemos las familias profesionales del profesor
+        $profFamilyTeacher = Teacher::select('profFamilies.name')
+                                        ->where('user_id', '=', \Auth::user()->id)
+                                        ->join('teacherProfFamilies', 'teacherProfFamilies.teacher_id', '=', 'teachers.id')
+                                        ->join('profFamilies', 'profFamilies.id', '=', 'teacherProfFamilies.profFamilie_id')
+                                        ->get();
+
+        $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
+
+        // Recorremos todas las familias profesionales del profesor para mostrar los alumnos
+        // que coincidan con su familia profesional
+        foreach ($profFamilyValidate as $key => $value) {
+
+            // Obtenemos los estudiantes que no estan validados, solo sacamos los datos
+            // que nos interesan debido a la forma que tiene laravel de gestionar el distinct,
+            // que necesita estar el campo en la select
+            $invalidStudent[] = Student::select('students.id', 'students.firstName', 'students.lastName','students.dni', 'users.email', 'users.carpeta', 'users.image','profFamilies.name')
+                                        ->join('users', 'users.id', '=', 'user_id')
+                                        ->join('studentCycles', 'studentCycles.student_id', '=', 'students.id')
+                                        ->join('cycles', 'cycles.id', '=', 'studentCycles.cycle_id')
+                                        ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
+                                        ->where('profFamilies.name', '=', $value)
+                                        ->whereNotIn('students.id', array_column($validStudent, 'student_id'))
+                                        ->distinct('students.id')
+                                        ->paginate();
+
+        }
+
+        //$invalidStudent = Collection::make($array);;
 
         //dd($invalidStudent);
 
@@ -144,7 +172,7 @@ class TeachersController extends UsersController
     /**
      * Metodo que Valida los estudiantes y que profesor lo ha validado
      * @return  view        redireccion a la vista en la que el profesor validara a los estudiantes
-     * 
+     *
      */
     public function postStudentNotification(StudentNotificationRequest $request)
     {
@@ -164,13 +192,13 @@ class TeachersController extends UsersController
             // Si no esta validado insertamos en la tabla su id junto al del
             // profesor que lo ha validado
             if(!$verifiedStudent){
-                
+
                 \DB::table('verifiedStudents')->insert([
                     'student_id' => $value,
                     'teacher_id' => $authTeacher['id'],
                     'created_at' => date('YmdHms')
                 ]);
-                
+
             }
 
         }

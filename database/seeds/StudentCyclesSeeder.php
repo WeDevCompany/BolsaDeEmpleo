@@ -109,5 +109,41 @@ class StudentCyclesSeeder extends Seeder
             'student_id' => 6,
             'created_at' => date('YmdHms')
         ]);
+
+        /******************************************
+                    PRUEBA1 STUDENT
+                        TUTOR
+        *******************************************/
+
+        \DB::table('studentCycles')->insert([
+            'dateFrom' => '2013',
+            'cycle_id' => 8,
+            'student_id' => 7,
+            'created_at' => date('YmdHms')
+        ]);
+
+        /******************************************
+                    PRUEBA2 STUDENT
+                        TUTOR
+        *******************************************/
+
+        \DB::table('studentCycles')->insert([
+            'dateFrom' => '2013',
+            'cycle_id' => 7,
+            'student_id' => 8,
+            'created_at' => date('YmdHms')
+        ]);
+
+        /******************************************
+                    PRUEBA2 STUDENT
+                        TUTOR
+        *******************************************/
+
+        \DB::table('studentCycles')->insert([
+            'dateFrom' => '2013',
+            'cycle_id' => 11,
+            'student_id' => 9,
+            'created_at' => date('YmdHms')
+        ]);
     }
 }
