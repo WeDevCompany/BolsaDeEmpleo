@@ -23,18 +23,15 @@ return [
     'admin'    =>
         [
             'adminIndex'     		=> '/admin',
-			'studentNotification' 	=> '/admin/estudiantes/notificaciones',
-			'teacherNotification' 	=> '/admin/profesores/notificaciones',
-			'offertNotification' 	=> '/admin/ofertas/notificaciones',
+			'studentNotification' 	=> '/admin/notificaciones/estudiantes',
+			'teacherNotification' 	=> '/admin/notificaciones/profesores',
+			'offertNotification' 	=> '/admin/notificaciones/ofertas',
+			'allVerifiedTeachers' 	=> '/admin/profesor/verificados',
+			'allDeniedTeachers' 	=> '/admin/profesor/denegados',
 			'allStudents' 			=> '/admin/estudiante',
-			'allVerifiedStudents' 	=> '/admin/estudiante/verificados',
-			'allDeniedStudents' 	=> '/admin/estudiante/denegados',
 			'allOffers' 			=> '/admin/ofertas',
-			'allVerifiedOffers' 	=> '/admin/ofertas/verificadas',
-			'allDeniedOffers' 		=> '/admin/ofertas/denegadas',
 			'allTeachers' 			=> '/admin/profesores',
-			'allVerifiedTeachers' 	=> '/admin/profesores/verificadas',
-			'allDeniedTeachers' 	=> '/admin/profesores/denegadas',
+			'statistics'			=> '/admin/estadisticas',
         ],
     'student'    =>
         [
@@ -43,12 +40,10 @@ return [
     'teacher'    =>
         [
             'teacherIndex'     		=> '/profesor',
-			'studentNotification' 	=> '/profesor/estudiantes/notificaciones',
-			'offertNotification' 	=> '/profesor/ofertas/notificaciones',
-			'allStudents' 			=> '/profesor/estudiante',
+			'studentNotification' 	=> '/profesor/notificaciones/estudiantes',
+			'offertNotification' 	=> '/profesor/notificaciones/ofertas',
 			'allVerifiedStudents' 	=> '/profesor/estudiante/verificados',
 			'allDeniedStudents' 	=> '/profesor/estudiante/denegados',
-			'allOffers' 			=> '/profesor/ofertas',
 			'allVerifiedOffers' 	=> '/profesor/ofertas/verificadas',
 			'allDeniedOffers' 		=> '/profesor/ofertas/denegadas',
         ],

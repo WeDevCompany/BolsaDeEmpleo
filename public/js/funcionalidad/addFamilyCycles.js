@@ -2,67 +2,60 @@
  * Cuando el formulario se carge se deshabilitará el botón
  * para añadir más ciclos hasta que se validen los campos dentro de el
  */
-$('document').ready(function(){
-    $('#btnAddFamilyCycle').removeClass("waves-effect waves-light");
-    $('#btnAddFamilyCycle').prop('disabled', true);
-});
 
 // ==============================================
 // Generamos los campos input según el evento click
 // Esto solo funcionará tras haber rellenado el primer formulario
 // ==============================================
-var i = 1;
-var texto = "Ciclo - ";
 var error = 0;
 // variable que ayuda a validar el estado de los ciclos
 
 $('#btnAddFamilyCycle').click(function(){
-    // Desactivamos el boton
-    $('#btnAddFamilyCycle').prop('disabled', true);
 
-    // Almacenamos su valor en una variable
+    validaciones.submitDisable($('#btnAddFamilyCycle'));
+
+    // Almacenamos su valor en una variable para el after
     var divAddFamilyCycle = $('#divAddFamilyCycle');
     
     // No permitimos mas de 7 ciclos extra
-    if(i < 8){
+    if(p < 8){
         // Creamos la estructura html
         divAddFamilyCycle.after(
         '<div>'+
-        '<fieldset><div id="spinnerF' + i + '" class="spinnerF"></div>' +
+        '<fieldset><div id="spinnerF' + p + '" class="spinnerF"></div>' +
             '<legend style="width: auto;">Familia Profesional</legend>' +
                 '<div class="form-group">' +
                     '<div class="row">' +
                         '<div class="input-field col-md-12">' +
-                           '<label for="family'+ i + '" class="hidden" style="margin-top: -2.5em">Familia profesional perteneciente al ciclo</label>' +
-                            '<select name="family" class="family form-control hidden" id="family'+ i + '">' +
+                           '<label for="family'+ p + '" class="hidden" style="margin-top: -2.5em">Familia profesional perteneciente al ciclo</label>' +
+                            '<select name="family" class="family form-control hidden" id="family'+ p + '"></select>' +
                         '</div>' +
                     '</div>' +    
                 '</div>' +
-                '</select>' +
         '</fieldset>' +
-        '<fieldset class="addFamilyCycle" id="' + i + '"><div id="spinnerC' + i + '" class="spinnerc"></div>' +
-                '<legend style="width:auto;">' + texto + i + '</legend>' +
+        '<fieldset class="addFamilyCycle" id="' + p + '"><div id="spinnerC' + p + '" class="spinnerc"></div>' +
+                '<legend style="width:auto;">' + texto + p + '</legend>' +
                 '<div class="form-group hidden">' +
                     '<div class="row">' +
                         '<div class="input-field col-md-12">' +
-                            '<label for="cycles[' + i +']" style="margin-top: -2.5em">Ciclos cursados</label>' +
-                            '<select name="cycles[' + i +']" class="form-control hidden" id="cycles'+ i +'">' +
+                            '<label for="cycles[' + p +']" style="margin-top: -2.5em">Ciclos cursados</label>' +
+                            '<select name="cycles[' + p +']" class="form-control hidden" id="cycles'+ p +'">' +
                             '</select>' +
                         '</div>' +
                     '</div>' +
                 '</div>' +
 
             '<div class="input-field col-md-6 hidden"  style="padding-top: 5px">' +
-                '<label for="yearFrom[' + i + ']" style="margin-top: -2em">A&ntilde;o de inicio</label>' +
-                funciones.generarSelectYears('yearFrom[' + i + ']', 1990) +
+                '<label for="yearFrom[' + p + ']" style="margin-top: -2em">A&ntilde;o de inicio</label>' +
+                funciones.generarSelectYears('yearFrom[' + p + ']', 1990) +
             '</div>' +
             '<div class="input-field col-md-6 hidden">' +
-                '<label for="yearTo[' + i + ']" style="margin-top: -2em">A&ntilde;o de fin</label>' +
-                funciones.generarSelectYears('yearTo[' + i + ']', 1990) +
+                '<label for="yearTo[' + p + ']" style="margin-top: -2em">A&ntilde;o de fin</label>' +
+                funciones.generarSelectYears('yearTo[' + p + ']', 1990) +
             '</div>' +
         '</fieldset>' +
         '<div class="text-center">' +
-            '<button type="button" value="'+ i +'" id="btnRemoveFamilyCycle" class="btn-danger btn btn-login-media waves-effect waves-light text-center">' +
+            '<button type="button" value="'+ p +'" id="btnRemoveFamilyCycle" class="btn-danger btn btn-login-media waves-effect waves-light text-center">' +
                 '<div class="show-responsive">' +
                     '<i class="fa fa fa-times" aria-hidden="true"></i>' +
                 '</div>' +
@@ -74,7 +67,7 @@ $('#btnAddFamilyCycle').click(function(){
         "</div>").fadeIn("slow");
         
         // Iniciamos los spinners
-        targetF = document.getElementById('spinnerF'+i);
+        targetF = document.getElementById('spinnerF'+p);
         spinnerF = new Spinner(optsF).spin(targetF);
     } else {
         // Si se ha alcanzado el limite de 7 ciclos mostramos un error
@@ -91,6 +84,9 @@ $('#btnAddFamilyCycle').click(function(){
      */
     $('#btnRemoveFamilyCycle').click( function(e){
         $(this).parent().parent().remove();
+        if(p < 8) {
+            validaciones.submitEnable($('#btnAddFamilyCycle'));
+        }
     });
 
     /*
@@ -101,23 +97,23 @@ $('#btnAddFamilyCycle').click(function(){
     $.get('/json/profFamilies', function(data){
         
         // Paramos el primer spin y borramos el div que lo contenia.
-        $('#spinnerF'+i).remove();
+        $('#spinnerF'+p).remove();
         spinnerF.stop();
         
         // Mostramos el select con las familias profesionales ya listo.
-        $('#family'+i).removeClass('hidden');
-        $('label[for="family'+i+'"]').removeClass('hidden');
+        $('#family'+p).removeClass('hidden');
+        $('label[for="family'+p+'"]').removeClass('hidden');
 
         // Iniciamos el segundo spin.
-        targetC = document.getElementById('spinnerC'+i);
+        targetC = document.getElementById('spinnerC'+p);
         spinnerC = new Spinner(optsC).spin(targetC);
 
 
-        $('#family'+i).empty();
+        $('#family'+p).empty();
 
         // Por cada familia añadimos un option al select de familias profesionales
         $.each(data, function(index, familyObj){
-            $('#family'+i).append('<option value="' + familyObj.id + '">' + familyObj.familia + '</option>');
+            $('#family'+p).append('<option value="' + familyObj.id + '">' + familyObj.familia + '</option>');
         });
 
         // Confirmamos la insercion de los option
@@ -134,36 +130,35 @@ $('#btnAddFamilyCycle').click(function(){
             $.each(data, function(index, cycleObj){
                 if ( cycleObj.level === "Básico") {
                     if( basico === true ) {
-                        $('#cycles'+i).append('<optgroup label="Grados básicos" id="basico'+i+'"></optgroup>');
+                        $('#cycles'+p).append('<optgroup label="Grados básicos" id="basico'+p+'"></optgroup>');
                         basico = false;
                     }
-                    $('#basico'+i).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                    $('#basico'+p).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
                 } else if ( cycleObj.level === "Medio" ) {
                     if ( medio === true ) {
-                        $('#cycles'+i).append('<optgroup label="Grados medios" id="medio'+i+'"></optgroup>');
+                        $('#cycles'+p).append('<optgroup label="Grados medios" id="medio'+p+'"></optgroup>');
                         medio = false;
                     }
-                    $('#medio'+i).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                    $('#medio'+p).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
                 } else if ( cycleObj.level === "Superior" ) {
                     if ( superior === true ) {
-                        $('#cycles'+i).append('<optgroup label="Grados superiores" id="superior'+i+'"></optgroup>');
+                        $('#cycles'+p).append('<optgroup label="Grados superiores" id="superior'+p+'"></optgroup>');
                         superior = false;
                     }
-                    $('#superior'+i).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                    $('#superior'+p).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
                 }
 
                 // Borramos el contenedor del spin y lo paramos
-                $('#spinnerC'+i).remove();
+                $('#spinnerC'+p).remove();
                 spinnerC.stop();
                 
                 // Mostramos el select con los ciclos.
-                $('#cycles'+i).removeClass('hidden');
-                $('fieldset[id="'+i+'"]').children('div').removeClass('hidden');
+                $('#cycles'+p).removeClass('hidden');
+                $('fieldset[id="'+p+'"]').children('div').removeClass('hidden');
             });
             
             // Confirmamos la insercion de los option
             estadoCycles = true;
-            i++;
 
             // Si los option de ambos select se han insertado bien añadimos las fechas
             if (estadoFamily && estadoCycles) {
@@ -175,10 +170,10 @@ $('#btnAddFamilyCycle').click(function(){
 
                 if(fechaInicio && fechaFin){
                     // Devolvemos el boton de añadir ciclos a la normalidad
-                    $('#btnAddFamilyCycle').addClass("waves-effect  waves-light");
-                    $('#btnAddFamilyCycle').prop('disabled', false);
+                    validaciones.submitEnable($('#btnAddFamilyCycle'));
                 }
             }
+            p++;
         });
     });
 });

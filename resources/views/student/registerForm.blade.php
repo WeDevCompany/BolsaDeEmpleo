@@ -8,7 +8,7 @@
 
 @endsection
 @section('content')
-@include('partials.nav.navEstudiante')
+@include('partials.nav.navParent')
 <div class="container">
     <div class="row">
         <div class="col-md-12 sin-margen">
@@ -25,7 +25,7 @@
                                 <legend style="width:auto;">Estudiante</legend>
                                 @include('student.partials.studentfields')
                                 <section class="family-cycle">
-                                    <fieldset>
+                                    <fieldset id="fieldFamilies">
                                         <legend style="width: auto;">Familia Profesional</legend>
                                         @include('generic.profFamiliesfields')
                                     </fieldset>

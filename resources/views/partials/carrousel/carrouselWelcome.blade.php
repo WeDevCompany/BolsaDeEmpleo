@@ -60,7 +60,7 @@
                 <div class="verticalcenter">
                     <div class="animated fadeInDown">
                         <h4>La bolsa de empleo de la actualidad</h4>
-                        <h5>“Si quieres volar, tienes que renunciar a las cosas que te pesan.” Así que olvidate de los curriculum en papel, y registrate ya.</h5>
+                        <h5>Olvidate de los curriculum en papel, y registrate ya.</h5>
                         <a href="{{config('routes.registro.registroEstudiante')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-graduation-cap right"></i>Estudiante</a>
                         <a href="{{config('routes.registro.registroEmpresa')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-building right"></i>Empresa</a>
                         <a href="{{config('routes.registro.registroProfesor')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-university right"></i>Profesor</a>
@@ -92,7 +92,7 @@
                 <div class="verticalcenter">
                     <div class="animated fadeInDown">
                         <h4>La bolsa de empleo de la actualidad</h4>
-                        <h5>“Si quieres volar, tienes que renunciar a las cosas que te pesan.” Así que olvidate de los curriculum en papel, y registrate ya.</h5>
+                        <h5>Olvidate de los curriculum en papel, y registrate ya.</h5>
                         <a href="{{config('routes.registro.registroEstudiante')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-graduation-cap right"></i>Estudiante</a>
                         <a href="{{config('routes.registro.registroEmpresa')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-building right"></i>Empresa</a>
                         <a href="{{config('routes.registro.registroProfesor')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-university right"></i>Profesor</a>
@@ -123,8 +123,8 @@
             <div class="carousel-caption">
                 <div class="verticalcenter">
                     <div class="animated fadeInDown">
-                        <h4>La bolsa de empleo del IES ingeniero de la cierva</h4>
-                        <h5>“Si quieres volar, tienes que renunciar a las cosas que te pesan.” Así que olvidate de los curriculum en papel, y registrate ya.</h5>
+                        <h4>La bolsa de empleo</h4>
+                        <h5>La nueva forma de encontrar talento</h5>
                          <a href="{{config('routes.registro.registroEstudiante')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-graduation-cap right"></i>Estudiante</a>
                         <a href="{{config('routes.registro.registroEmpresa')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-building right"></i>Empresa</a>
                         <a href="{{config('routes.registro.registroProfesor')}}" class="btn btn-default btn-stc waves-effect waves-light"><i class="fa fa-university right"></i>Profesor</a>

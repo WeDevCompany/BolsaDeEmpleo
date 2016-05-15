@@ -26,18 +26,14 @@
                      <!-- Without session -->
                     <li><a class="waves-effect waves-light subrayado" href="{{ url(config('routes.index')) }}">Inicio</a></li>
                     <!-- With session -->
-                    @if (\Auth::user()->rol === "profesor" || Session::get('rol')  === "profesor")
-                        @include('partials.nav.navProfesor')
-                    @elseif(\Auth::user()->rol === "administrador"  || Session::get('rol')  === "administrador")
-                    <!-- Admin -->
+                    @if (!Auth::guest())
+                        @if (\Auth::user()->rol === "profesor" || \Auth::user()->rol === "administrador")
+                            @include('partials.nav.navProfesor')
+                        @elseif(\Auth::user()->rol === "empresa")
 
-                    @elseif(\Auth::user()->rol === "empresa" || Session::get('rol')  === "empresa")
-
-                    @elseif(\Auth::user()->rol === "estudiante" || Session::get('rol')  === "estudiante")
-                        <!-- Estudiante -->
-
-                    @else
-                        <!-- Sin sesión -->
+                        @elseif(\Auth::user()->rol === "estudiante")
+                            <!-- Estudiante -->
+                        @endif
                     @endif
                 <!-- Left Side Of Navbar END -->
                 </ul>
@@ -61,33 +57,15 @@
 
                     {{-- Si Estas logeado --}}
                     @else
-                        <!-- menú de notificaciones -->
-
-
-                        <!-- FIN menú de notificaciones -->
-
-                        <!-- menú de Alumnos -->
-
-
-                        <!-- FIN de menú de Alumnos -->
-
-
-                        <!-- menú de Ofertas -->
-
-
-                        <!-- FIN de menú de Ofertas -->
-
-                        <!-- Menú de opciones del perfil -->
-
                         <div class="dropdown">
 
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <img src="{{ url('/img/imgUser/' . \Auth::user()->carpeta . '/' .  \Auth::user()->image) }}" alt="Imagen de perfil" class="img-responsive img-circle img-navegador">
                                 <span class="caret"></span>
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu perfil">
                                 <li><a href="{{ url(\Auth::user()->rol . config('routes.perfil')) }}"><i class="fa fa-wrench right" aria-hidden="true"></i> Editar perfil</a></li>
-                                <li><a href="#"> Cambiar contraseña</a></li>
+                                <li><a href="#"><i class="fa fa-key right" aria-hidden="true"></i> Cambiar contraseña</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out right" aria-hidden="true"></i> Logout</a></li>
                             </ul>
                         </div>
