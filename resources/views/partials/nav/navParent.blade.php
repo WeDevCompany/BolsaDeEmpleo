@@ -26,18 +26,14 @@
                      <!-- Without session -->
                     <li><a class="waves-effect waves-light subrayado" href="{{ url(config('routes.index')) }}">Inicio</a></li>
                     <!-- With session -->
-                    @if (\Auth::user()->rol === "profesor" || Session::get('rol')  === "profesor")
-                        @include('partials.nav.navProfesor')
-                    @elseif(\Auth::user()->rol === "administrador"  || Session::get('rol')  === "administrador")
-                    <!-- Admin -->
+                    @if (!Auth::guest())
+                        @if (\Auth::user()->rol === "profesor" || \Auth::user()->rol === "administrador")
+                            @include('partials.nav.navProfesor')
+                        @elseif(\Auth::user()->rol === "empresa")
 
-                    @elseif(\Auth::user()->rol === "empresa" || Session::get('rol')  === "empresa")
-
-                    @elseif(\Auth::user()->rol === "estudiante" || Session::get('rol')  === "estudiante")
-                        <!-- Estudiante -->
-
-                    @else
-                        <!-- Sin sesión -->
+                        @elseif(\Auth::user()->rol === "estudiante")
+                            <!-- Estudiante -->
+                        @endif
                     @endif
                 <!-- Left Side Of Navbar END -->
                 </ul>
