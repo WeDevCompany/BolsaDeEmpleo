@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@include('partials.nav.navAdmin')
+@include('partials.nav.navParent')
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1 sin-margen">
@@ -15,7 +15,7 @@
                             @include('admin.partials.tableValidateTeacher')
 							{{ $invalidTeacher->render() }}
                             <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4 text-center">
+                                <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light">
                                         <div class="show-responsive">
                                             <i class="fa fa-user-plus" aria-hidden="true"></i>

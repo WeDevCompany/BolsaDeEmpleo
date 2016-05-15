@@ -8,7 +8,7 @@
 
 @endsection
 @section('content')
-@include('partials.nav.navEstudiante')
+@include('partials.nav.navParent')
 <div class="container">
     <div class="row">
         <div class="col-md-12 sin-margen">

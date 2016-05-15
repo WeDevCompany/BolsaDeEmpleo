@@ -182,7 +182,6 @@ body {
     margin-bottom:0px;
   }
 
-
 }
 
 @media only screen and (max-width: 700px){
@@ -632,4 +631,12 @@ div.drop:hover {
     position: relative !important;
     margin-left: 0px;
     margin-top: 0px;
+}
+
+.dropdown-menu {
+    min-width: 200px !important;
+}
+
+.perfil{
+    min-width: 260px !important;
 }
