@@ -142,26 +142,19 @@ class TeachersController extends UsersController
 
         $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
 
-        // Recorremos todas las familias profesionales del profesor para mostrar los alumnos
-        // que coincidan con su familia profesional
-        foreach ($profFamilyValidate as $key => $value) {
+        // Obtenemos los estudiantes que no estan validados, solo sacamos los datos
+        // que nos interesan debido a la forma que tiene laravel de gestionar el distinct,
+        // que necesita estar el campo en la select
+        $invalidStudent = Student::select('students.id', 'students.firstName', 'students.lastName','students.dni', 'users.email', 'users.carpeta', 'users.image','profFamilies.name')
+                                    ->join('users', 'users.id', '=', 'user_id')
+                                    ->join('studentCycles', 'studentCycles.student_id', '=', 'students.id')
+                                    ->join('cycles', 'cycles.id', '=', 'studentCycles.cycle_id')
+                                    ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
+                                    ->whereIn('profFamilies.name', $profFamilyValidate)
+                                    ->whereNotIn('students.id', array_column($validStudent, 'student_id'))
+                                    ->distinct('students.id')
+                                    ->paginate();
 
-            // Obtenemos los estudiantes que no estan validados, solo sacamos los datos
-            // que nos interesan debido a la forma que tiene laravel de gestionar el distinct,
-            // que necesita estar el campo en la select
-            $invalidStudent[] = Student::select('students.id', 'students.firstName', 'students.lastName','students.dni', 'users.email', 'users.carpeta', 'users.image','profFamilies.name')
-                                        ->join('users', 'users.id', '=', 'user_id')
-                                        ->join('studentCycles', 'studentCycles.student_id', '=', 'students.id')
-                                        ->join('cycles', 'cycles.id', '=', 'studentCycles.cycle_id')
-                                        ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
-                                        ->where('profFamilies.name', '=', $value)
-                                        ->whereNotIn('students.id', array_column($validStudent, 'student_id'))
-                                        ->distinct('students.id')
-                                        ->paginate();
-
-        }
-
-        //$invalidStudent = Collection::make($array);;
 
         //dd($invalidStudent);
 
