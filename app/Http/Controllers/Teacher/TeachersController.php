@@ -196,8 +196,43 @@ class TeachersController extends UsersController
 
         }
 
-        return \Redirect::to('profesor/notificacion');
+        return \Redirect::to('profesor/notificaciones/estudiantes');
 
     } // postNotificationEstudiante()
+
+    public function getVerifiedStudent(Request $request)
+    {
+
+        // Obtenemos las familias profesionales del profesor
+        $profFamilyTeacher = Teacher::select('profFamilies.name')
+                                        ->where('user_id', '=', \Auth::user()->id)
+                                        ->join('teacherProfFamilies', 'teacherProfFamilies.teacher_id', '=', 'teachers.id')
+                                        ->join('profFamilies', 'profFamilies.id', '=', 'teacherProfFamilies.profFamilie_id')
+                                        ->get();
+
+        $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
+
+        // Obtenemos todos los estudiantes validados
+        $validStudent = \DB::table('verifiedStudents')->select('student_id')->get();
+
+        // Obtenemos los estudiantes que estan validados, solo sacamos los datos
+        // que nos interesan debido a la forma que tiene laravel de gestionar el distinct,
+        // que necesita estar el campo en la select
+        $verifiedStudent = Student::name($request->get('name'))
+                                    ->select('students.id', 'students.firstName', 'students.lastName','students.dni', 'users.email', 'users.carpeta', 'users.image','profFamilies.name')
+                                    ->join('users', 'users.id', '=', 'user_id')
+                                    ->join('studentCycles', 'studentCycles.student_id', '=', 'students.id')
+                                    ->join('cycles', 'cycles.id', '=', 'studentCycles.cycle_id')
+                                    ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
+                                    ->whereIn('profFamilies.name', $profFamilyValidate)
+                                    ->whereIn('students.id', array_column($validStudent, 'student_id'))
+                                    ->distinct('students.id')
+                                    ->paginate();
+
+        //dd($verifiedStudent);
+        
+        return view('teacher/verifiedStudent', compact('verifiedStudent', 'request'));
+        
+    }
 
 }

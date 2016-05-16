@@ -83,5 +83,52 @@ class TeacherProfFamiliesSeeder extends Seeder
             'created_at' => date('YmdHms')
         ]);
 
+        /******************************************
+                    PRUEBAS TEACHER
+                    PROF FAMILIES
+        *******************************************/
+
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 1,
+            'teacher_id' => 13,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 1,
+            'teacher_id' => 14,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 1,
+            'teacher_id' => 15,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 1,
+            'teacher_id' => 16,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 2,
+            'teacher_id' => 16,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 1,
+            'teacher_id' => 17,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 1,
+            'teacher_id' => 18,
+            'created_at' => date('YmdHms')
+        ]);
+
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@include('partials.nav.navProfesor')
+@include('partials.nav.navParent')
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1 sin-margen">
@@ -10,7 +10,7 @@
                         <h4><i class="fa fa-university"></i>Validar Estudiantes en la Aplicacion</h4>
                     </div>
                     <div class="panel-body">
-                         {{ Form::open(['url' => 'profesor/validStudentNotification', 'method' => 'POST']) }}
+                         {{ Form::open(['url' => 'profesor/notificaciones/validStudentNotification', 'method' => 'POST']) }}
                             {!! csrf_field() !!}
                             @include('teacher.partials.tableValidateStudent')
 							{{ $invalidStudent->render() }}

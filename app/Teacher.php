@@ -78,4 +78,18 @@ class Teacher extends Model
     {
     	return $this->belongsTo(Users::class, 'teachers')->withPivot('user_id');
     } // users()
+
+    // Funcion que obtiene el nombre completo del profesor
+    public function getFullNameAttribute()
+    {
+        return $this->firstName . ' ' . $this->lastName;
+    } // getFullNameAttribute()
+
+    // Funcion para buscar un profesor por nombre
+    public function scopeName($query, $name)
+    {
+        if(trim($name) != ""){
+            $query->where(\DB::raw("CONCAT(firstName, ' ', lastName)"),"LIKE", "%$name%");
+        }
+    } // scopeName()
 }
