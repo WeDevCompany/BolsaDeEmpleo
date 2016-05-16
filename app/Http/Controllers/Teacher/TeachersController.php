@@ -200,8 +200,10 @@ class TeachersController extends UsersController
 
     } // postNotificationEstudiante()
 
-    public function getVerifiedStudent(Request $request)
+    public function getVerifiedStudent()
     {
+
+        $request = $this->request;
 
         // Obtenemos las familias profesionales del profesor
         $profFamilyTeacher = Teacher::select('profFamilies.name')
