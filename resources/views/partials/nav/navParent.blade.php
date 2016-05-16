@@ -30,9 +30,10 @@
                         @if (\Auth::user()->rol === "profesor" || \Auth::user()->rol === "administrador")
                             @include('partials.nav.navProfesor')
                         @elseif(\Auth::user()->rol === "empresa")
-
+                            @include('partials.nav.navEmpresa')
                         @elseif(\Auth::user()->rol === "estudiante")
                             <!-- Estudiante -->
+                            @include('partials.nav.navEstudiante')
                         @endif
                     @endif
                 <!-- Left Side Of Navbar END -->

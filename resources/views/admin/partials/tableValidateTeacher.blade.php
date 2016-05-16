@@ -30,8 +30,8 @@
                                 <tr data-id="{{ $teacher->id }}">
                                     <td>
                                         <p>
-                                            <input type="checkbox" id="profesor_{{ $teacher->id }}" value="{{ $teacher->id }}" name="profesor[]"  />
-                                            <label for="profesor_{{ $teacher->id }}"></label>
+                                            <input type="checkbox" id="profesor_{!! $teacher->id !!}" value="{!! $teacher->id !!}" name="profesor[]"  />
+                                            <label for="profesor_{!! $teacher->id !!}"></label>
                                         </p>
                                     </td>
                                     <td scope="row">{!! $teacher->id !!}</td>

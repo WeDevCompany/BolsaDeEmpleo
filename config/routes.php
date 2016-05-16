@@ -35,7 +35,9 @@ return [
         ],
     'student'    =>
         [
-            'studentIndex'        => '/estudiante',
+            'studentIndex'       	=> '/estudiante',
+			'allOffersSusribed' 	=> '/estudiante/ofertas/suscripciones',
+			'allOffers' 				=> '/estudiante/ofertas',
         ],
     'teacher'    =>
         [

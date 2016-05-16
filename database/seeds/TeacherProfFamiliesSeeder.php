@@ -55,6 +55,12 @@ class TeacherProfFamiliesSeeder extends Seeder
             'created_at' => date('YmdHms')
         ]);
 
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 2,
+            'teacher_id' => 10,
+            'created_at' => date('YmdHms')
+        ]);
+
         /******************************************
     				ABEL TEACHER
     				PROF FAMILIES
