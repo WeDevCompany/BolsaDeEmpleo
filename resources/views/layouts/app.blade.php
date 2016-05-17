@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="es-ES">
+<!--
+    @autor Emmanuel Valverde Ramos
+    @autor Eduardo López Pardo
+    @autor Pedro Hernández-Mora de fuentes
+
+    La propiedad intelectual de este proyecto pertenece a los autores de este.
+-->
 <head>
     <meta name="encoding" charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

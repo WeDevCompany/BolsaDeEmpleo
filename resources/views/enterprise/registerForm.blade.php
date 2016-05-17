@@ -1,37 +1,45 @@
 @extends('layouts.app')
+@section('css')
+    @include('keyword.student.registerFormKeywords')
+@endsection
+@section('scripts')
+    {{-- Incluimos los scripts de valbolaciones --}}
+    <script src="/js/validaciones/facada.js" charset="utf-8"></script>
+
+@endsection
 @section('content')
-@include('partials.nav.navEmpresa')
+@include('partials.nav.navParent')
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-12 sin-margen">
             <div class="panel panel-default">
-                <div class="panel-heading">Alta de empresas</div>
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4><i class="fa fa-building"></i>Formulario de registro de empresas</h4>
+                    </div>
 
                 <div class="panel-body">
                      {{ Form::open(['route' => 'empresa..store', 'method' => 'POST', 'files' => 'true', 'id' => 'enterprise-register-form']) }}
                         {!! csrf_field() !!}
                         <fieldset>
-                            <legend style="width: auto;">Usuario</legend>
-                            @include('generic.userfields')
-                        </fieldset>
-                        <fieldset>
-                            <legend style="width:auto;  ">Empresa</legend>
+                            <legend style="width:auto;">Empresa</legend>
                             @include('enterprise.partials.enterprisefields')
                         </fieldset>
                         <fieldset>
                             <legend style="width: auto;">Centro de trabajo</legend>
-                            <fieldset>
                                 <legend style="width: auto;">Contacto</legend>
                                 @include('enterprise.partials.workcenterfields')
-                            </fieldset>
-                            <fieldset>
-                                <legend style="width: auto;">Localización</legend>
+
                                 @include('generic.statefields')
                                 @include('generic.citiefields')
-                            </fieldset>
+                        </fieldset>
                             <fieldset>
                                 <legend style="width: auto;">Responsable del centro de trabajo</legend>
                                 @include('enterprise.partials.enterpriseresponsablefields')
+                            </fieldset>
+                            <fieldset>
+                                <legend style="width: auto;">Usuario</legend>
+                                @include('generic.userfields')
                             </fieldset>
                         </fieldset>
                             @include('generic.terms')
@@ -54,4 +62,3 @@
     </div>
 </div>
 @endsection
-

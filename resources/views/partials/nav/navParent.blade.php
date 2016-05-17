@@ -27,7 +27,9 @@
                     <li><a class="waves-effect waves-light subrayado" href="{{ url(config('routes.index')) }}">Inicio</a></li>
                     <!-- With session -->
                     @if (!Auth::guest())
-                        @if (\Auth::user()->rol === "profesor" || \Auth::user()->rol === "administrador")
+                        @if(\Auth::user()->rol === "administrador")
+                            @include('partials.nav.navAdministrador')
+                        @elseif (\Auth::user()->rol === "profesor")
                             @include('partials.nav.navProfesor')
                         @elseif(\Auth::user()->rol === "empresa")
                             @include('partials.nav.navEmpresa')
