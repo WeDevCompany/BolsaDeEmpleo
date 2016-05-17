@@ -18,6 +18,7 @@
                             <thead class"thead-inverse">
                                 <tr>
                                     <th>Validar</th>
+                                    <th>#</th>
                                     <th>Imagen</th>
                                     <th>Nombre</th>
                                     <th>Dni</th>
@@ -36,6 +37,7 @@
                                             </p>
                                         </td>
                                         <td><img src="{!! url('/img/imgUser/' . $student->carpeta . '/' .  $student->image) !!}" alt="Imagen del Estudiante" class="img-responsive img-circle img-navegador"></td>
+                                        <td scope="row">{!! $student->id !!}</td>
                                         <td>{!! $student->FullName !!}</td>
                                         <td>{!! $student->dni !!}</td>
                                         <td>{!! $student->email !!}</td>

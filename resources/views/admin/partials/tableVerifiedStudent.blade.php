@@ -5,11 +5,11 @@
                     @endif
                     <div class="row">
                         <div class="col-sm-6">
-                            <p><b>Total por validar:</b> {{$invalidStudent->count()}}</p>
+                            <p><b>Total por estudiantes:</b> {{$verifiedStudent->count()}}</p>
                         </div>
                         <div class="col-sm-6">
                             <p>
-                                <b>Total de páginas:</b> {{$invalidStudent->lastPage()}}
+                                <b>Total de páginas:</b> {{$verifiedStudent->lastPage()}}
                             </p>
                         </div>
                     </div>
@@ -17,8 +17,8 @@
                         <table class="table table-condensed table-hover">
                             <thead class"thead-inverse">
                                 <tr>
-                                    <th>Validar</th>
                                     <th>Imagen</th>
+                                    <th>#</th>
                                     <th>Nombre</th>
                                     <th>Dni</th>
                                     <th>Email</th>
@@ -27,14 +27,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($invalidStudent as $student)
-                                    <tr data-id="{{ $student->id }}">
-                                        <td>
-                                            <p>
-                                                <input type="checkbox" id="estudiante_{!! $student->id !!}" value="{!! $student->id !!}" name="estudiante[]"  />
-                                                <label for="estudiante_{!! $student->id !!}"></label>
-                                            </p>
-                                        </td>
+                                @foreach($verifiedStudent as $student)
+                                    <tr data-id="{!! $student->id !!}">
+                                        <td scope="row">{!! $student->id !!}</td>
                                         <td><img src="{!! url('/img/imgUser/' . $student->carpeta . '/' .  $student->image) !!}" alt="Imagen del Estudiante" class="img-responsive img-circle img-navegador"></td>
                                         <td>{!! $student->FullName !!}</td>
                                         <td>{!! $student->dni !!}</td>

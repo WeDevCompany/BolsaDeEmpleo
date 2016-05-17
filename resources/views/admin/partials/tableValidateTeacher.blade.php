@@ -19,25 +19,29 @@
                                 <tr>
                                     <th>Validar</th>
                                     <th>#</th>
+                                    <th>Imagen</th>
                                     <th>Nombre</th>
                                     <th>Dni</th>
                                     <th>Email</th>
+                                    <th>Familia Profesional</th>
                                     <th colspan="2" style="text-align:center;">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($invalidTeacher as $teacher)
-                                <tr data-id="{{ $teacher->id }}">
+                                <tr data-id="{!! $teacher->teacher_id !!}">
                                     <td>
                                         <p>
-                                            <input type="checkbox" id="profesor_{{ $teacher->id }}" value="{{ $teacher->id }}" name="profesor[]"  />
-                                            <label for="profesor_{{ $teacher->id }}"></label>
+                                            <input type="checkbox" id="profesor_{!! $teacher->teacher_id !!}" value="{!! $teacher->teacher_id !!}" name="profesor[]"  />
+                                            <label for="profesor_{!! $teacher->teacher_id !!}"></label>
                                         </p>
                                     </td>
-                                    <td scope="row">{!! $teacher->id !!}</td>
-                                    <td>{!! $teacher->firstName !!}</td>
+                                    <td scope="row">{!! $teacher->teacher_id !!}</td>
+                                    <td><img src="{!! url('/img/imgUser/' . $teacher->carpeta . '/' .  $teacher->image) !!}" alt="Imagen del Profesor" class="img-responsive img-circle img-navegador"></td>
+                                    <td>{!! $teacher->FullName !!}</td>
                                     <td>{!! $teacher->dni !!}</td>
                                     <td>{!! $teacher->email !!}</td>
+                                    <td>{!! $teacher->name !!}</td>
                                     <td>
                                           <a href="#" class="btn btn-danger waves-effect waves-light btn-xs"><i class="fa fa-times" aria-hidden="true"></i></a>
                                     </td>

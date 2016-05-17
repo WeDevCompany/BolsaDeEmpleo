@@ -7,13 +7,20 @@
             <div class="panel panel-default">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <h4><i class="fa fa-university"></i>Validar Profesores en la Aplicacion</h4>
+                        <h4><i class="fa fa-university"></i>Validar Estudiantes en la Aplicacion</h4>
                     </div>
                     <div class="panel-body">
-                         {{ Form::open(['url' => 'admin/validTeacherNotification', 'method' => 'POST']) }}
+                        {{ Form::model($request->only(['name']), ['url' =>'admin/notificaciones/estudiantes', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search']) }}
+                            <div class="form-group">
+                                {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre de Usuario']) }}
+
+                            </div>
+                            <button type="submit" class="btn btn-default">Buscar</button>
+                        {{ Form::close() }}
+                        {{ Form::open(['url' => 'profesor/notificaciones/validStudentNotification', 'method' => 'POST']) }}
                             {!! csrf_field() !!}
-                            @include('admin.partials.tableValidateTeacher')
-							{{ $invalidTeacher->render() }}
+                            @include('admin.partials.tableValidateStudent')
+							{{ $invalidStudent->render() }}
                             <div class="form-group">
                                 <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light">

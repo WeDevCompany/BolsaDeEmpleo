@@ -60,4 +60,18 @@ class Student extends Model
         return $enum;
     }// Road()
 
+    // Funcion que obtiene el nombre completo del estudiante
+    public function getFullNameAttribute()
+    {
+        return $this->firstName . ' ' . $this->lastName;
+    } // getFullNameAttribute()
+
+    // Funcion para buscar un estudiante por nombre
+    public function scopeName($query, $name)
+    {
+        if(trim($name) != ""){
+            $query->where(\DB::raw("CONCAT(firstName, ' ', lastName)"),"LIKE", "%$name%");
+        }
+    } // scopeName()
+
 } // Student
