@@ -36,7 +36,7 @@
                                                 <label for="estudiante_{!! $student->id !!}"></label>
                                             </p>
                                         </td>
-                                        <td><img src="{!! url('/img/imgUser/' . $student->carpeta . '/' .  $student->image) !!}" alt="Imagen del Estudiante"></td>
+                                        <td><img src="{!! url('/img/imgUser/' . $student->carpeta . '/' .  $student->image) !!}" alt="Imagen del Estudiante" class="img-responsive img-circle img-navegador"></td>
                                         <td scope="row">{!! $student->id !!}</td>
                                         <td>{!! $student->FullName !!}</td>
                                         <td>{!! $student->dni !!}</td>

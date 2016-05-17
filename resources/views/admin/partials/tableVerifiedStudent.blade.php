@@ -30,7 +30,7 @@
                                 @foreach($verifiedStudent as $student)
                                     <tr data-id="{!! $student->id !!}">
                                         <td scope="row">{!! $student->id !!}</td>
-                                        <td><img src="{!! url('/img/imgUser/' . $student->carpeta . '/' .  $student->image) !!}" alt="Imagen del Estudiante"></td>
+                                        <td><img src="{!! url('/img/imgUser/' . $student->carpeta . '/' .  $student->image) !!}" alt="Imagen del Estudiante" class="img-responsive img-circle img-navegador"></td>
                                         <td>{!! $student->FullName !!}</td>
                                         <td>{!! $student->dni !!}</td>
                                         <td>{!! $student->email !!}</td>

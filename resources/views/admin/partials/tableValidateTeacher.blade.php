@@ -37,7 +37,7 @@
                                         </p>
                                     </td>
                                     <td scope="row">{!! $teacher->teacher_id !!}</td>
-                                    <td><img src="{!! url('/img/imgUser/' . $teacher->carpeta . '/' .  $teacher->image) !!}" alt="Imagen del Profesor"></td>
+                                    <td><img src="{!! url('/img/imgUser/' . $teacher->carpeta . '/' .  $teacher->image) !!}" alt="Imagen del Profesor" class="img-responsive img-circle img-navegador"></td>
                                     <td>{!! $teacher->FullName !!}</td>
                                     <td>{!! $teacher->dni !!}</td>
                                     <td>{!! $teacher->email !!}</td>
