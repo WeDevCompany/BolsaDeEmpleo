@@ -130,6 +130,8 @@ class TeachersController extends UsersController
                     ->paginate();
         */
 
+        $request = $this->request;
+
         // Obtenemos todos los estudiantes validados
         $validStudent = \DB::table('verifiedStudents')->select('student_id')->get();
 
@@ -145,7 +147,8 @@ class TeachersController extends UsersController
         // Obtenemos los estudiantes que no estan validados, solo sacamos los datos
         // que nos interesan debido a la forma que tiene laravel de gestionar el distinct,
         // que necesita estar el campo en la select
-        $invalidStudent = Student::select('students.id', 'students.firstName', 'students.lastName','students.dni', 'users.email', 'users.carpeta', 'users.image','profFamilies.name')
+        $invalidStudent = Student::name($request->get('name'))
+                                    ->select('students.id', 'students.firstName', 'students.lastName','students.dni', 'users.email', 'users.carpeta', 'users.image','profFamilies.name')
                                     ->join('users', 'users.id', '=', 'user_id')
                                     ->join('studentCycles', 'studentCycles.student_id', '=', 'students.id')
                                     ->join('cycles', 'cycles.id', '=', 'studentCycles.cycle_id')
@@ -158,7 +161,7 @@ class TeachersController extends UsersController
 
         //dd($invalidStudent);
 
-        return view('teacher/notification', compact('invalidStudent'));
+        return view('teacher/studentNotification', compact('invalidStudent', 'request'));
 
     } // getNotificationEstudiante()
 

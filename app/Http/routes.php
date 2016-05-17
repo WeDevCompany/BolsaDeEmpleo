@@ -97,8 +97,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'
     Route::post(config('routes.UploadImg'), 'AdminsController@uploadImage');
 
     // Validacion del Profesor
-    Route::get('notificaciones/profesor', 'AdminsController@getTeacherNotification');
+    Route::get('notificaciones/profesores', 'AdminsController@getTeacherNotification');
     Route::post('validTeacherNotification', 'AdminsController@postTeacherNotification');
+
+    // Validacion del Estudiante
+    Route::get('notificaciones/estudiantes', 'AdminsController@getStudentNotification');
+    Route::post('notificaciones/validStudentNotification', 'AdminsController@postStudentNotification');
+
+    // Alumnos admitidos
+    Route::get('estudiante/verificados', 'AdminsController@getVerifiedStudent');
 
 });
 
