@@ -1,10 +1,10 @@
 <!-- Profesor -->
 <li class = "dropdown">
-    <a href="#" class="dropdown-toggle subrayado " data-toggle="dropdown" role="button" aria-expanded="false">
+    <a href="#" class="dropdown-toggle subrayado" data-toggle="dropdown" role="button" aria-expanded="false">
         <span class="badge social-counter right notificacion">10</span> <i class="fa fa-bell" aria-hidden="true"></i> <span class="caret"></span>
     </a>
-    <ul class="dropdown-menu" role="menu"  aria-labelledby="notificaciones">
-        <li><a href="{{ url(config('routes.teacher.studentNotification')) }}"><i class="fa fa-graduation-cap right"  aria-hidden="true"></i><span class="badge social-counter right notificacion">5</span> Alumnos</a></li>
+    <ul class="dropdown-menu" role="menu" id="notifications" aria-labelledby="notificaciones">
+        <li><a href="{{ url(config('routes.teacher.studentNotification')) }}"><i class="fa fa-graduation-cap right" aria-hidden="true"></i><span class="badge social-counter right notificacion" id="resultado">5</span> Alumnos</a></li>
         <li><a href="{{ url(config('routes.teacher.offertNotification')) }}"><i class="fa fa-cart-plus right"  aria-hidden="true"></i><span class="badge social-counter right notificacion">5</span> Ofertas</a></li>
     </ul>
 </a></li>

@@ -111,8 +111,11 @@
     <!-- Script con los parametros del spin -->
     <script src="{{ asset('/js/spin/spin.js') }}"></script>
 
-    <!-- Script queautomatiza el carrusel -->
+    <!-- Script que automatiza el carrusel -->
     <script src="{{url("/js/carrusel.js")}}" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Script que calcula las notificaciones -->
+    <script src="{{url("/js/funcionalidad/notifications.js")}}" type="text/javascript" charset="utf-8"></script>
 
     @yield('scripts')
 
