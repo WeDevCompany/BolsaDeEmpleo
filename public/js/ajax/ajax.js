@@ -1,30 +1,19 @@
 /**
  * Clase ajax, esta clase contendrá un objeto de tipo Ajax encargado de realizar 
- * todas las peticiones necesarias al servidor.
+ * todas las peticiones necesarias al servidor y de devolver false o el objeto json.
  * @author Eduardo López Pardo
  * @version  11/05/16
  */
-
-    // Declaracion de variables
-    var estadoCycles;
-    var estadoFamilies;
-    var fechaInicio;
-    var fechaFin;
-    var texto = "Ciclo - ";
 
     // Objeto de Ajax
     var ajax = {
 
         // Envia la petición ajax
-        callAjax : function(method, url, func, identifier, variable) {
+        callAjax : function(method, url, object, func, method_params) {
             // Si cualquier variable no esta definida, mostraré un error por consola.
             if (typeof method == "undefined" || typeof url == "undefined"
-             || typeof func == "undefined" || typeof identifier == "undefined"
-             || typeof variable == "undefined") {
-                $('#spinnerC'+variable).remove();
-                spinnerC.stop();
-                $(identifier).append('<span class="ajaxError">Se ha producido un error, intente registrarse más tarde.</span>');
-                console.log("No ha podido llevarse a cabo la petición");
+             || typeof object == "undefined" || typeof func == "undefined") {
+                return false;
             } else {
                 $.ajax({
                     // la URL para la petición
@@ -34,7 +23,7 @@
                     type : method,
                  
                     // Establecemos su asincronia
-                    async : true,
+                    async : false,
 
                     // Establecemos el tipo de respuesta
                     dataType : 'json',
@@ -50,17 +39,15 @@
                         // Si cualquier variable no esta definida, success sera false.
                         if (typeof json == "undefined" || typeof status == "undefined"
                          || typeof response == "undefined") {
-                            success = false;
+                            return false;
                         } else {
                             success = json;
                         }
-                        error = false;
                     }, // success
                  
                     // Función en caso de error
                     error : function(response, status) {
                         success = false;
-                        error = true;
                     }, // error
                  
                     // código a ejecutar sin importar si la petición falló o no
@@ -73,23 +60,18 @@
                             if (success !== false) {
                                 // Compruebo la respuesta del servidor
                                 check = this.getResponse(response, status);
-                                params = [success, identifier, variable];
 
-                                // Si la respuesta es correcta llamo al metodo
+                                // Si la respuesta es correcta llamo al metodo al que le paso los datos recibidos
                                 if (check == true) {
-                                    response = this[func].apply(null, params);
-                                    if (response == false) {
-                                        error = true;
+                                    if (method_params) {
+                                        method_params[0] = success;
+                                        window[object][func].apply(this, method_params);
+                                    } else {
+                                        window[object][func](success);
                                     }
                                 }
-                            }
-
-                            if (error == true) {
-                                $('#spinnerC'+variable).remove();
-                                spinnerC.stop();
-                                $(identifier).children('div[class = "row"]').remove();
-                                $(identifier).append('<span class="ajaxError"></span>');
-                                console.log("Se ha producido un error realizando su petición");
+                            } else {
+                                return false;
                             }
                         }
                     } // complete
@@ -107,229 +89,4 @@
                 return false;
             }
         }, // getResponse
-
-        addFamily : function (json, identifier, variable) {
-            // Si la variable variable no esta definida, devuelvo false.
-            if (typeof json == "undefined" || typeof identifier == "undefined"
-             || typeof variable == "undefined"){
-                return false;
-            } else {
-                // Iniciamos el sppinner de profFamilie
-                targetF = document.getElementById('spinnerF'+variable);
-                spinnerF = new Spinner(optsF).spin(targetF);
-
-                // Añado la estructura HTML
-                $(identifier).append(
-                    '<div class="form-group">' +
-                        '<div class="row">' +
-                            '<div class="input-field col-md-12">' +
-                               '<label for="family'+ variable + '" class="hidden" style="margin-top: -2.5em">Familia profesional perteneciente al ciclo</label>' +
-                                '<select name="family" class="family form-control hidden" id="family'+ variable + '"></select>' +
-                            '</div>' +
-                        '</div>' +    
-                    '</div>'
-                );
-
-                $('#family'+variable).empty();
-
-                // Por cada familia añadimos un option al select de familias profesionales
-                result = $.each(json, function(index, familyObj){
-                    if (typeof index == "undefined" || typeof cycleObj == "undefined") {
-                        estadoFamilies = false;
-                    } else {
-                        estadoFamilies = true;
-                        $('#family'+variable).append('<option value="' + familyObj.id + '">' + familyObj.familia + '</option>');
-                    }
-                });
-
-                // Paramos el primer spin y borramos el div que lo contenia.
-                $('#spinnerF'+variable).remove();
-                spinnerF.stop();
-                
-                // Mostramos el select con las familias profesionales ya listo.
-                $('#family'+variable).removeClass('hidden');
-                $('label[for="family'+variable+'"]').removeClass('hidden');
-
-                if (result == '') {
-                    return false;
-                } else {                
-                    return true;
-                }
-            }  
-        }, // addFamily
-
-        addCycle : function (json, identifier, variable) {
-            // Si la variable variable no esta definida, devuelvo false.
-            if (typeof json == "undefined" || typeof identifier == "undefined"
-             || typeof variable == "undefined" || estadoFamilies == false){
-                return false;
-            } else {
-                // Iniciamos el spin de ciclos
-                targetC = document.getElementById('spinnerC'+variable);
-                spinnerC = new Spinner(optsC).spin(targetC);
-
-                // Añado la estructura HTML del ciclo
-                $(identifier).append(
-                    '<div class="form-group">' +
-                        '<div class="row">' +
-                            '<div class="input-field col-md-12">' +
-                                '<label for="cycles" style="margin-top: -2.5em">Ciclo actual</label>' +
-                                '<select name="cycles[' + variable + ']" class="form-control" id="cycles' + variable + '"></select>' +
-                                '<section id="fieldDates' + variable + '"></section>' +
-                            '</div>' +
-                        '</div>' +
-                    '</div>'
-                );
-
-                // Vacío el campo select.
-                $('#cycles'+variable).empty();
-                
-                // Declaro las variables
-                basico = true;
-                medio = true;
-                superior = true;
-
-                // Por cada resultado del json repartimos los option
-                result = $.each(json, function(index, cycleObj){
-                    if (typeof index == "undefined" || typeof cycleObj == "undefined") {
-                        estadoCycles = false;
-                    } else {
-                        estadoCycles = true;
-                        if ( cycleObj.level === "Básico") {
-                            if( basico === true ) {
-                                $('#cycles'+variable).append('<optgroup label="Grados básicos" id="basico'+variable+'"></optgroup>');
-                                basico = false;
-                            }
-                            $('#basico'+variable).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
-                        } else if ( cycleObj.level === "Medio" ) {
-                            if ( medio === true ) {
-                                $('#cycles'+variable).append('<optgroup label="Grados medios" id="medio'+variable+'"></optgroup>');
-                                medio = false;
-                            }
-                            $('#medio'+variable).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
-                        } else if ( cycleObj.level === "Superior" ) {
-                            if ( superior === true ) {
-                                $('#cycles'+variable).append('<optgroup label="Grados superiores" id="superior'+variable+'"></optgroup>');
-                                superior = false;
-                            }
-                            $('#superior'+variable).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
-                        }
-                    }
-                });
-
-                if (result == '') {
-                    return false;
-                } else {
-                    console.log(ajax);
-                    identifier = 'fieldDates'+variable;
-                    date = $(ajax).addDate(identifier, variable);
-                    if (date == true) {
-                        
-                        
-                    } else {
-                        return false;
-                    }
-                }
-            }
-        }, // addCycle
-
-        addDate : function (identifier, variable) {
-            // Si la variable variable no esta definida, devuelvo false.
-            if (typeof identifier == "undefined" || typeof variable == "undefined"
-             || estadoCycles == false){
-                return false;
-            } else {
-                // Añado la estructura HTML de las fechas
-                $(identifier).append(
-                    '<div class="input-field col-md-6"  style="padding-top: 5px">' +
-                        '<label for="yearFrom[' + variable + ']" style="margin-top: -2em">A&ntilde;o de inicio</label>' +
-                        funciones.generarSelectYears('yearFrom[' + variable + ']', 1990) +
-                    '</div>' +
-                    '<div class="input-field col-md-6">' +
-                        '<label for="yearTo[' + variable + ']" style="margin-top: -2em">A&ntilde;o de fin</label>' +
-                        funciones.generarSelectYears('yearTo[' + variable + ']', 1990) +
-                    '</div>'
-                );
-
-                // Compruebo si se han añadido bien
-                fechaInicio = $('#yearFrom[' + variable + ']');
-                fechaFin = $('#yearTo[' + variable +']');
-
-                if(fechaInicio && fechaFin){
-                    validaciones.submitEnable($('#btnAddFamilyCycle'));
-                    $('#spinnerC').remove();
-                    spinnerC.stop();
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        }, // addDate
-
-        addCycleStructure : function (identifier) {
-            
-        }, // addFamily
-
-        addFamilyStructure : function (identifier) {
-            
-        }, // addFamily
-
-        newFamilyCycle : function (json, identifier, variable) {
-            // Si la variable variable no esta definida, devuelvo false.
-            if (typeof json == "undefined" || typeof identifier == "undefined"
-             || typeof variable == "undefined"){
-                return false;
-            } else if (variable < 8) {
-                // Almacenamos su valor en una variable para el after
-                var divAddFamilyCycle = $('#divAddFamilyCycle');
-
-                // Añadimos la nueva estructura
-                divAddFamilyCycle.after(
-                '<div id="newFamilyCycle' + variable + '">' +
-                    '<fieldset id="fieldFamilies' + variable + '">' + 
-                        '<div id="spinnerF' + variable + '" class="spinnerF"></div>' +
-                        '<legend style="width: auto;">Familia Profesional</legend>' +
-                    '</fieldset>' +
-                    '<fieldset class="addFamilyCycle" id="fieldCycles' + variable + '">' +
-                        '<div id="spinnerC' + variable + '" class="spinnerc"></div>' +
-                        '<legend style="width:auto;">' + texto + variable + '</legend>' +
-                    '</fieldset>' +
-                    '<div class="text-center">' +
-                        '<button type="button" value="'+ variable +'" id="btnRemoveFamilyCycle" class="btn-danger btn btn-login-media waves-effect waves-light text-center">' +
-                            '<div class="show-responsive">' +
-                                '<i class="fa fa fa-times" aria-hidden="true"></i>' +
-                            '</div>' +
-                            '<div class="hidden-media">' +
-                                '<i class="fa fa-btn fa fa-times"></i> <span class="hidden-media">Eliminar ciclo</span>' +
-                            '</div>' +
-                        '</button>' +
-                    '</div>' +
-                '</div>').fadeIn("slow");
-
-                identifier = 'fieldFamilies'+variable;
-                // Añadimos la parte de familias profesionales
-                family = $(this).addFamily(json, identifier, variable);
-
-                if (family == true) {
-                    identifier = 'fieldCycles'+variable;
-                    cycle = $(this).addCycle(json, identifier, variable);
-                    if (cycle == true) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } else {
-                    return false;
-                }
-            } else {
-                // Si se ha alcanzado el limite de 7 ciclos mostramos un error
-                var mensaje = "Has excedido el máximo número de ciclos si quieres añadir más hazlo una vez registrado/a";
-                if(error < 1){
-                    divAddFamilyCycle.after('<div id="error-prof-family" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>').fadeIn("slow");
-                }
-                error++;
-                return false;
-            }
-        }, // addAllStructure
-
     }; // ajax

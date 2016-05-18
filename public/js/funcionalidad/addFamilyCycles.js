@@ -1,233 +1,245 @@
 /**
- * Cuando el formulario se carge se deshabilitará el botón
- * para añadir más ciclos hasta que se validen los campos dentro de el
+ * Clase familyCycles, esta clase contendrá un objeto de tipo familyCycles encargado de 
+ * añadir todas las estructuras necesarias de estos dos campos a cualquier formulario.
+ * @author Eduardo López Pardo
+ * @version  15/05/16
  */
 
-// ==============================================
-// Generamos los campos input según el evento click
-// Esto solo funcionará tras haber rellenado el primer formulario
-// ==============================================
-var error = 0;
-// variable que ayuda a validar el estado de los ciclos
+    // Declaracion de variables
+    var estadoCycles;
+    var estadoFamilies;
+    var fechaInicio;
+    var fechaFin;
+    var texto = "Ciclo - ";
 
-$('#btnAddFamilyCycle').click(function(){
+    // Objeto de familyCycles
+    var familyCycles = {
+        addFamily : function (json, identifier, variable) {
+            // Si la variable variable no esta definida, devuelvo false.
+            if (typeof json == "undefined" || typeof identifier == "undefined"
+             || typeof variable == "undefined"){
+                return false;
+            } else {
+                // Iniciamos el sppinner de profFamilie
+                targetF = document.getElementById('spinnerF'+variable);
+                spinnerF = new Spinner(optsF).spin(targetF);
 
-    validaciones.submitDisable($('#btnAddFamilyCycle'));
+                // Añado la estructura HTML
+                $(identifier).append(
+                    '<div class="form-group">' +
+                        '<div class="row">' +
+                            '<div class="input-field col-md-12">' +
+                               '<label for="family'+ variable + '" class="hidden" style="margin-top: -2.5em">Familia profesional perteneciente al ciclo</label>' +
+                                '<select name="family" class="family form-control hidden" id="family'+ variable + '"></select>' +
+                            '</div>' +
+                        '</div>' +    
+                    '</div>'
+                );
 
-    // Almacenamos su valor en una variable para el after
-    var divAddFamilyCycle = $('#divAddFamilyCycle');
-    
-    // No permitimos mas de 7 ciclos extra
-    if(p < 8){
-        // Creamos la estructura html
-        divAddFamilyCycle.after(
-        '<div>'+
-        '<fieldset><div id="spinnerF' + p + '" class="spinnerF"></div>' +
-            '<legend style="width: auto;">Familia Profesional</legend>' +
-                '<div class="form-group">' +
-                    '<div class="row">' +
-                        '<div class="input-field col-md-12">' +
-                           '<label for="family'+ p + '" class="hidden" style="margin-top: -2.5em">Familia profesional perteneciente al ciclo</label>' +
-                            '<select name="family" class="family form-control hidden" id="family'+ p + '"></select>' +
-                        '</div>' +
-                    '</div>' +    
-                '</div>' +
-        '</fieldset>' +
-        '<fieldset class="addFamilyCycle" id="' + p + '"><div id="spinnerC' + p + '" class="spinnerc"></div>' +
-                '<legend style="width:auto;">' + texto + p + '</legend>' +
-                '<div class="form-group hidden">' +
-                    '<div class="row">' +
-                        '<div class="input-field col-md-12">' +
-                            '<label for="cycles[' + p +']" style="margin-top: -2.5em">Ciclos cursados</label>' +
-                            '<select name="cycles[' + p +']" class="form-control hidden" id="cycles'+ p +'">' +
-                            '</select>' +
-                        '</div>' +
-                    '</div>' +
-                '</div>' +
+                $('#family'+variable).empty();
 
-            '<div class="input-field col-md-6 hidden"  style="padding-top: 5px">' +
-                '<label for="yearFrom[' + p + ']" style="margin-top: -2em">A&ntilde;o de inicio</label>' +
-                funciones.generarSelectYears('yearFrom[' + p + ']', 1990) +
-            '</div>' +
-            '<div class="input-field col-md-6 hidden">' +
-                '<label for="yearTo[' + p + ']" style="margin-top: -2em">A&ntilde;o de fin</label>' +
-                funciones.generarSelectYears('yearTo[' + p + ']', 1990) +
-            '</div>' +
-        '</fieldset>' +
-        '<div class="text-center">' +
-            '<button type="button" value="'+ p +'" id="btnRemoveFamilyCycle" class="btn-danger btn btn-login-media waves-effect waves-light text-center">' +
-                '<div class="show-responsive">' +
-                    '<i class="fa fa fa-times" aria-hidden="true"></i>' +
-                '</div>' +
-                '<div class="hidden-media">' +
-                    '<i class="fa fa-btn fa fa-times"></i> <span class="hidden-media">Eliminar ciclo</span>' +
-                '</div>' +
-            '</button>' +
-        '</div>' +
-        "</div>").fadeIn("slow");
-        
-        // Iniciamos los spinners
-        targetF = document.getElementById('spinnerF'+p);
-        spinnerF = new Spinner(optsF).spin(targetF);
-    } else {
-        // Si se ha alcanzado el limite de 7 ciclos mostramos un error
-        var mensaje = "Has excedido el máximo número de ciclos si quieres añadir más hazlo una vez registrado/a";
-        if(error < 1){
-            divAddFamilyCycle.after('<div id="error-prof-family" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>').fadeIn("slow");
-        }
-        error++;
-    }
-
-    /*
-        Borramos el elemento abuelo (el div que contiene al ciclo y su familia profesional)
-        del boton que haya dado lugar a un evento click
-     */
-    $('#btnRemoveFamilyCycle').click( function(e){
-        $(this).parent().parent().remove();
-        if(p < 8) {
-            validaciones.submitEnable($('#btnAddFamilyCycle'));
-        }
-    });
-
-    /*
-        Obtenemos la información por JSON
-        con las familias profesionales
-     */
-    // Llamar a objeto AJAX
-    $.get('/json/profFamilies', function(data){
-        
-        // Paramos el primer spin y borramos el div que lo contenia.
-        $('#spinnerF'+p).remove();
-        spinnerF.stop();
-        
-        // Mostramos el select con las familias profesionales ya listo.
-        $('#family'+p).removeClass('hidden');
-        $('label[for="family'+p+'"]').removeClass('hidden');
-
-        // Iniciamos el segundo spin.
-        targetC = document.getElementById('spinnerC'+p);
-        spinnerC = new Spinner(optsC).spin(targetC);
-
-
-        $('#family'+p).empty();
-
-        // Por cada familia añadimos un option al select de familias profesionales
-        $.each(data, function(index, familyObj){
-            $('#family'+p).append('<option value="' + familyObj.id + '">' + familyObj.familia + '</option>');
-        });
-
-        // Confirmamos la insercion de los option
-        estadoFamily = true;
-
-        // Declaramos las variables para los distintos optgroups 
-        basico = true;
-        medio = true;
-        superior = true;
-
-        // Lanzamos la peticion de los ciclos
-        $.get('/json/cycles/' + data[0].id, function(data){
-            // Clasificamos dentro del select de ciclos cada resultado
-            $.each(data, function(index, cycleObj){
-                if ( cycleObj.level === "Básico") {
-                    if( basico === true ) {
-                        $('#cycles'+p).append('<optgroup label="Grados básicos" id="basico'+p+'"></optgroup>');
-                        basico = false;
+                // Por cada familia añadimos un option al select de familias profesionales
+                result = $.each(json, function(index, familyObj){
+                    if (typeof index == "undefined" || typeof cycleObj == "undefined") {
+                        estadoFamilies = false;
+                    } else {
+                        estadoFamilies = true;
+                        $('#family'+variable).append('<option value="' + familyObj.id + '">' + familyObj.familia + '</option>');
                     }
-                    $('#basico'+p).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
-                } else if ( cycleObj.level === "Medio" ) {
-                    if ( medio === true ) {
-                        $('#cycles'+p).append('<optgroup label="Grados medios" id="medio'+p+'"></optgroup>');
-                        medio = false;
-                    }
-                    $('#medio'+p).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
-                } else if ( cycleObj.level === "Superior" ) {
-                    if ( superior === true ) {
-                        $('#cycles'+p).append('<optgroup label="Grados superiores" id="superior'+p+'"></optgroup>');
-                        superior = false;
-                    }
-                    $('#superior'+p).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
-                }
+                });
 
-                // Borramos el contenedor del spin y lo paramos
-                $('#spinnerC'+p).remove();
-                spinnerC.stop();
+                // Paramos el primer spin y borramos el div que lo contenia.
+                $('#spinnerF'+variable).remove();
+                spinnerF.stop();
                 
-                // Mostramos el select con los ciclos.
-                $('#cycles'+p).removeClass('hidden');
-                $('fieldset[id="'+p+'"]').children('div').removeClass('hidden');
-            });
-            
-            // Confirmamos la insercion de los option
-            estadoCycles = true;
+                // Mostramos el select con las familias profesionales ya listo.
+                $('#family'+variable).removeClass('hidden');
+                $('label[for="family'+variable+'"]').removeClass('hidden');
 
-            // Si los option de ambos select se han insertado bien añadimos las fechas
-            if (estadoFamily && estadoCycles) {
-                // si existen los campos habilitamos el botón
-                // porque no podemos acceder a un elemento generado
-                // ya que no sabemos cuando va a ser generado dicho elemento
-                fechaInicio = $('#yearFrom[' + p + ']');
-                fechaFin = $('#yearTo[' + p +']');
+                if (result == '') {
+                    return false;
+                } else {                
+                    return true;
+                }
+            }  
+        }, // addFamily
 
-                if(fechaInicio && fechaFin){
-                    // Devolvemos el boton de añadir ciclos a la normalidad
-                    validaciones.submitEnable($('#btnAddFamilyCycle'));
+        addCycle : function (json, identifier, variable) {
+            // Si la variable variable no esta definida, devuelvo false.
+            if (typeof json == "undefined" || typeof identifier == "undefined"
+             || typeof variable == "undefined" || estadoFamilies == false){
+                return false;
+            } else {
+                // Iniciamos el spin de ciclos
+                targetC = document.getElementById('spinnerC'+variable);
+                spinnerC = new Spinner(optsC).spin(targetC);
+
+                // Añado la estructura HTML del ciclo
+                $(identifier).append(
+                    '<div class="form-group">' +
+                        '<div class="row">' +
+                            '<div class="input-field col-md-12">' +
+                                '<label for="cycles" style="margin-top: -2.5em">Ciclo actual</label>' +
+                                '<select name="cycles[' + variable + ']" class="form-control" id="cycles' + variable + '"></select>' +
+                                '<section id="fieldDates' + variable + '"></section>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>'
+                );
+
+                // Vacío el campo select.
+                $('#cycles'+variable).empty();
+                
+                // Declaro las variables
+                basico = true;
+                medio = true;
+                superior = true;
+
+                // Por cada resultado del json repartimos los option
+                result = $.each(json, function(index, cycleObj){
+                    if (typeof index == "undefined" || typeof cycleObj == "undefined") {
+                        estadoCycles = false;
+                    } else {
+                        estadoCycles = true;
+                        if ( cycleObj.level === "Básico") {
+                            if( basico === true ) {
+                                $('#cycles'+variable).append('<optgroup label="Grados básicos" id="basico'+variable+'"></optgroup>');
+                                basico = false;
+                            }
+                            $('#basico'+variable).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                        } else if ( cycleObj.level === "Medio" ) {
+                            if ( medio === true ) {
+                                $('#cycles'+variable).append('<optgroup label="Grados medios" id="medio'+variable+'"></optgroup>');
+                                medio = false;
+                            }
+                            $('#medio'+variable).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                        } else if ( cycleObj.level === "Superior" ) {
+                            if ( superior === true ) {
+                                $('#cycles'+variable).append('<optgroup label="Grados superiores" id="superior'+variable+'"></optgroup>');
+                                superior = false;
+                            }
+                            $('#superior'+variable).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                        }
+                    }
+                });
+
+                if (result == '') {
+                    return false;
+                } else {
+                    identifier = '#fieldDates'+variable;
+                    date = familyCycles.addDate(identifier, variable);
+                    if (date == true) {
+                        return true
+                    } else {
+                        return false;
+                    }
                 }
             }
-            p++;
-        });
-    });
-});
+        }, // addCycle
 
-$('.family-cycle').on('change', function(e) {
+        /*test : function () {
+            console.log('guay');
+        },*/
 
-    // Almaceno el valor que ha tomado el select
-    var familyId = e.target.value;
-    var identifier = e.target.id;
+        addDate : function (identifier, variable) {
+            // Si la variable variable no esta definida, devuelvo false.
+            if (typeof identifier == "undefined" || typeof variable == "undefined"
+             || estadoCycles == false){
+                return false;
+            } else {
+                // Añado la estructura HTML de las fechas
+                $(identifier).append(
+                    '<div class="input-field col-md-6"  style="padding-top: 5px">' +
+                        '<label for="yearFrom[' + variable + ']" style="margin-top: -2em">A&ntilde;o de inicio</label>' +
+                        funciones.generarSelectYears('yearFrom[' + variable + ']', 1990) +
+                    '</div>' +
+                    '<div class="input-field col-md-6">' +
+                        '<label for="yearTo[' + variable + ']" style="margin-top: -2em">A&ntilde;o de fin</label>' +
+                        funciones.generarSelectYears('yearTo[' + variable + ']', 1990) +
+                    '</div>'
+                );
 
-    if( identifier.substring(0,6) == 'family' ){
-        identifier = identifier.substring(6,7);
-        
-        // Oculto el select
-        $('#cycles'+identifier).before('<div id="spinnerC'+identifier+'" class="spinnerF"></div>');
-        $('#cycles'+identifier).addClass('hidden');
+                // Compruebo si se han añadido bien
+                fechaInicio = $('#yearFrom[' + variable + ']');
+                fechaFin = $('#yearTo[' + variable +']');
 
-        // Inicio el spin
-        targetC = document.getElementById('spinnerC'+identifier);
-        spinnerC = new Spinner(optsC).spin(targetC);
-        
-        // Peticion Ajax
-        // Tomo los datos de la ruta establecida a la que le concateno el identificador
-        $.get('/json/cycles/' + familyId, function(data){
-            $('#cycles'+identifier).empty();
-            basico = true;
-            medio = true;
-            superior = true;
-            $.each(data, function(index, cycleObj){
-                if ( cycleObj.level === "Básico") {
-                    if( basico === true ) {
-                        $('#cycles'+identifier).append('<optgroup label="Grados básicos" id="basico'+identifier+'"></optgroup>');
-                        basico = false;
+                if(fechaInicio && fechaFin){
+                    validaciones.submitEnable($('#btnAddFamilyCycle'));
+                    if (spinnerC) {
+                        $('#spinnerC').remove();
+                        spinnerC.stop();
                     }
-                    $('#basico'+identifier).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
-                } else if ( cycleObj.level === "Medio" ) {
-                    if ( medio === true ) {
-                        $('#cycles'+identifier).append('<optgroup label="Grados medios" id="medio'+identifier+'"></optgroup>');
-                        medio = false;
-                    }
-                    $('#medio'+identifier).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
-                } else if ( cycleObj.level === "Superior" ) {
-                    if ( superior === true ) {
-                        $('#cycles'+identifier).append('<optgroup label="Grados superiores" id="superior'+identifier+'"></optgroup>');
-                        superior = false;
-                    }
-                    $('#superior'+identifier).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
+                    return true;
+                } else {
+                    return false;
                 }
-            });
+            }
+        }, // addDate
 
-            // Paro el spin, elimino su div y muestro el campo select
-            spinnerC.stop();
-            $('#spinnerC'+identifier).remove();
-            $('#cycles'+identifier).removeClass('hidden');
-        });
-    }
-});
+        addCycleStructure : function (identifier) {
+            
+        }, // addFamily
+
+        addFamilyStructure : function (identifier) {
+            
+        }, // addFamily
+
+        newFamilyCycle : function (json, identifier, variable) {
+            // Si la variable variable no esta definida, devuelvo false.
+            if (typeof json == "undefined" || typeof identifier == "undefined"
+             || typeof variable == "undefined"){
+                return false;
+            } else if (variable < 8) {
+                // Almacenamos su valor en una variable para el after
+                var divAddFamilyCycle = $('#divAddFamilyCycle');
+
+                // Añadimos la nueva estructura
+                divAddFamilyCycle.after(
+                '<div id="newFamilyCycle' + variable + '">' +
+                    '<fieldset id="fieldFamilies' + variable + '">' + 
+                        '<div id="spinnerF' + variable + '" class="spinnerF"></div>' +
+                        '<legend style="width: auto;">Familia Profesional</legend>' +
+                    '</fieldset>' +
+                    '<fieldset class="addFamilyCycle" id="fieldCycles' + variable + '">' +
+                        '<div id="spinnerC' + variable + '" class="spinnerc"></div>' +
+                        '<legend style="width:auto;">' + texto + variable + '</legend>' +
+                    '</fieldset>' +
+                    '<div class="text-center">' +
+                        '<button type="button" value="'+ variable +'" id="btnRemoveFamilyCycle" class="btn-danger btn btn-login-media waves-effect waves-light text-center">' +
+                            '<div class="show-responsive">' +
+                                '<i class="fa fa fa-times" aria-hidden="true"></i>' +
+                            '</div>' +
+                            '<div class="hidden-media">' +
+                                '<i class="fa fa-btn fa fa-times"></i> <span class="hidden-media">Eliminar ciclo</span>' +
+                            '</div>' +
+                        '</button>' +
+                    '</div>' +
+                '</div>').fadeIn("slow");
+
+                identifier = 'fieldFamilies'+variable;
+                // Añadimos la parte de familias profesionales
+                family = $(this).addFamily(json, identifier, variable);
+
+                if (family == true) {
+                    identifier = 'fieldCycles'+variable;
+                    cycle = $(this).addCycle(json, identifier, variable);
+                    if (cycle == true) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                // Si se ha alcanzado el limite de 7 ciclos mostramos un error
+                var mensaje = "Has excedido el máximo número de ciclos si quieres añadir más hazlo una vez registrado/a";
+                if(error < 1){
+                    divAddFamilyCycle.after('<div id="error-prof-family" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>').fadeIn("slow");
+                }
+                error++;
+                return false;
+            }
+        }, // addAllStructure
+        
+    }; // familyCycles
