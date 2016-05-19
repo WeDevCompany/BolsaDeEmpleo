@@ -92,6 +92,7 @@ $('#btnAddFamilyCycle').click(function(){
                 identifier = '#fieldDates'+p;
                 date = familyCycles.addDate(identifier, p);
                 if (date == true) {
+                	validaciones.submitEnable($('#btnAddFamilyCycle'));
                     p++;
                 } else {
                     console.log("Problema al cargar los nuevos años.");

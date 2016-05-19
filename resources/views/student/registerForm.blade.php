@@ -25,11 +25,11 @@
                                 <legend style="width:auto;">Estudiante</legend>
                                 @include('student.partials.studentfields')
                                 <section class="family-cycle">
-                                    <fieldset id="fieldFamilies">
+                                    <fieldset id="fieldFamilies0">
                                         <legend style="width: auto;">Familia Profesional</legend>
                                         @include('generic.profFamiliesfields')
                                     </fieldset>
-                                    <fieldset id="fieldCycles">
+                                    <fieldset id="fieldCycles0">
                                     <div id="spinnerC0" class="spinner"></div>
                                         <legend style="width: auto;">Ciclos</legend>
                                     </fieldset>

@@ -51,13 +51,13 @@ studentRegisterForm.after('<script src="/js/validaciones/cycleYear.js"></script>
 // Script de validación del nre
 studentRegisterForm.after('<script src="/js/validaciones/nre.js"></script>');
 
-// Añadimos las funciones para añadir ciclos
+// Añadimos el objeto que nos añadira los ciclos y familias
 studentRegisterForm.after('<script src="/js/funcionalidad/addFamilyCycles.js" charset="utf-8"></script>');
 
-// Añadimos las funciones para las peticiones ajax
+// Añadimos el objeto de ajax
 studentRegisterForm.after('<script src="/js/ajax/ajax.js" charset="utf-8"></script>');
 
-// Añadimos el cargado por ajax de la información de los ciclos
+// Añadimos el js encargado de gestionar las peticiones ajax
 studentRegisterForm.after('<script src="/js/ajax/cycles.js" charset="utf-8"></script>');
 
 // Añadimos la configuracion de datepicker
