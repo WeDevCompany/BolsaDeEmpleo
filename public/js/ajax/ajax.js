@@ -23,7 +23,7 @@
                     type : method,
                  
                     // Establecemos su asincronia
-                    async : false,
+                    async : true,
 
                     // Establecemos el tipo de respuesta
                     dataType : 'json',

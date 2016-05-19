@@ -3,12 +3,5 @@
 	width: 100%;
 	background-clip: #FFF;
 	border-radius: 3px;
-}
-
-.spinnerC {
-	padding-bottom: 2em;
-}
-
-.spinnerF {
-	padding-bottom: 0em;
+	padding-bottom: 1.5em;
 }

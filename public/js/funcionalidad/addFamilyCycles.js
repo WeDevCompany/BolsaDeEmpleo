@@ -21,12 +21,9 @@
              || typeof variable == "undefined"){
                 return false;
             } else {
-                // Iniciamos el sppinner de profFamilie
-                targetF = document.getElementById('spinnerF'+variable);
-                spinnerF = new Spinner(optsF).spin(targetF);
 
                 // Añado la estructura HTML
-                $(identifier).append(
+                $('#'+identifier).append(
                     '<div class="form-group">' +
                         '<div class="row">' +
                             '<div class="input-field col-md-12">' +
@@ -46,10 +43,6 @@
                         $('#family'+variable).append('<option value="' + familyObj.id + '">' + familyObj.familia + '</option>');
                     }
                 });
-
-                // Paramos el primer spin y borramos el div que lo contenia.
-                $('#spinnerF'+variable).remove();
-                spinnerF.stop();
                 
                 // Mostramos el select con las familias profesionales ya listo.
                 $('#family'+variable).removeClass('hidden');
@@ -57,7 +50,11 @@
 
                 if (result == '') {
                     return false;
-                } else {                
+                } else {
+                    if (spinnerF) {
+                        $('#spinnerF'+variable).remove();
+                        spinnerF.stop();
+                    }
                     return true;
                 }
             }  
@@ -70,7 +67,7 @@
                 return false;
             } else {
                 // Añado la estructura HTML del ciclo
-                $(identifier).append(
+                $('#'+identifier).append(
                     '<div class="form-group">' +
                         '<div class="row">' +
                             '<div class="input-field col-md-12">' +
@@ -118,6 +115,12 @@
                 if (result == '') {
                     return false;
                 } else {
+                    if (spinnerC) {
+                        $('#spinnerC'+variable).remove();
+                        spinnerC.stop();
+                    }
+                    identifier = 'fieldDates'+variable;
+                    familyCycles.addDate(identifier, variable);
                     return true;
                 }
             }
@@ -134,7 +137,7 @@
                 return false;
             } else {
                 // Añado la estructura HTML de las fechas
-                $(identifier).append(
+                $('#'+identifier).append(
                     '<div class="input-field col-md-6"  style="padding-top: 5px">' +
                         '<label for="yearFrom[' + variable + ']" style="margin-top: -2em">A&ntilde;o de inicio</label>' +
                         funciones.generarSelectYears('yearFrom[' + variable + ']', 1990) +
@@ -159,11 +162,11 @@
 
         addStructure : function (identificador, variable) {
             // Si la variable variable no esta definida, devuelvo false.
-            if (typeof variable == "undefined"){
+            if (typeof identificador == "undefined" || typeof variable == "undefined"){
                 return false;
             } else if (variable < 8) {
                 // Almacenamos su valor en una variable para el after
-                identificador = $(identificador);
+                identificador = $('#'+identificador);
 
                 // Añadimos la nueva estructura
                 identificador.after(
@@ -173,7 +176,7 @@
                         '<legend style="width: auto;">Familia Profesional</legend>' +
                     '</fieldset>' +
                     '<fieldset class="addFamilyCycle" id="fieldCycles' + variable + '">' +
-                        '<div id="spinnerC' + variable + '" class="spinnerc"></div>' +
+                        '<div id="spinnerC' + variable + '" class="spinnerC"></div>' +
                         '<legend style="width:auto;">' + texto + variable + '</legend>' +
                     '</fieldset>' +
                     '<div class="text-center">' +
