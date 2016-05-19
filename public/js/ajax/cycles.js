@@ -27,7 +27,7 @@ $(document).ready(function () {
 
 		// Lanzamos la peticion de los primeros ciclos.
 	    ajax.callAjax('GET', '/json/cycles/'+familyId, "familyCycles", "addCycle", method_params);
-        
+
         // Comprobamos si ha funcionado
         cycle = document.getElementById('cycles'+p);
 
@@ -78,7 +78,7 @@ $('#btnAddFamilyCycle').click(function(){
         if (family) {
             // Obtengo el identificador del primer option de familias
             familyId = $('#family'+p).children('option:first').val();
-            
+
             // Preparo los parametros
             method_params = [null, '#fieldCycles'+p, p];
 
@@ -116,7 +116,7 @@ $('.family-cycle').on('change', function(e) {
 
     if( variable.substring(0,6) == 'family' ){
         variable = variable.substring(6,7);
-        
+
         // Oculto el select
         $('#cycles'+variable).before('<div id="spinnerC'+variable+'" class="spinnerF"></div>');
         $('#cycles'+variable).addClass('hidden');
@@ -129,7 +129,7 @@ $('.family-cycle').on('change', function(e) {
 
         // Lanzo la peticion ajax con los ciclos
         ajax.callAjax('GET', '/json/cycles/'+familyId, "familyCycles", "addCycle", method_params);
-        
+
         // Comprobamos si ha funcionado
         cycle = document.getElementById('cycles'+variable);
 
@@ -142,6 +142,6 @@ $('.family-cycle').on('change', function(e) {
         } else {
             console.log("Problema al cargar el nuevo ciclo.");
         }
-    
+
     }
 }); // $('.family-cycle').on

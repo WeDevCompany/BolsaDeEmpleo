@@ -26,12 +26,15 @@
                             @include('enterprise.partials.enterprisefields')
                         </fieldset>
                         <fieldset>
-                            <legend style="width: auto;">Centro de trabajo</legend>
+                            <legend style="width: auto;">Centro de trabajo principal</legend>
                                 <legend style="width: auto;">Contacto</legend>
                                 @include('enterprise.partials.workcenterfields')
+                                <div class="extra-padding">
+                                    <div class="col-md-12 input-field">
+                                        @include('generic.statefields')
+                                        @include('generic.citiefields')
+                                    </div>
 
-                                @include('generic.statefields')
-                                @include('generic.citiefields')
                         </fieldset>
                             <fieldset>
                                 <legend style="width: auto;">Responsable del centro de trabajo</legend>

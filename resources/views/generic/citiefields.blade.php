@@ -1,7 +1,7 @@
 <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
     <div class="row">
-        <div class="input-field col-md-6">
-            {{ Form::label('city', 'Ciudad',['style' => 'margin-top: -8%']) }}
+        <div class="input-field col-md-12">
+            {{ Form::label('city', 'Ciudad',['class' => "label-select"]) }}
             {{ Form::select('city',array('1' => 'A', '2' => 'B', '50' => 'C', '4' => 'D', '5' => 'E', '6' => 'F'), null,['class' => 'chosen-select form-control']) }}
         </div>
     </div>
