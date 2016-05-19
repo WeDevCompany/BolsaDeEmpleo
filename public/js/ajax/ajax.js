@@ -69,15 +69,17 @@
                                     } else {
                                         window[object][func](success);
                                     }
+                                } else {
+                                    return false;
                                 }
                             } else {
                                 return false;
                             }
                         }
                     } // complete
-                }); // callAjax
+                }); // ajax
             }
-        },
+        }, // callAjax
 
         // Comprueba la respuesta del servidor
         getResponse : function(response, status) {

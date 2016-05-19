@@ -11,6 +11,7 @@
     var fechaInicio;
     var fechaFin;
     var texto = "Ciclo - ";
+    var error = 0;
 
     // Objeto de familyCycles
     var familyCycles = {
@@ -36,11 +37,9 @@
                     '</div>'
                 );
 
-                $('#family'+variable).empty();
-
                 // Por cada familia añadimos un option al select de familias profesionales
                 result = $.each(json, function(index, familyObj){
-                    if (typeof index == "undefined" || typeof cycleObj == "undefined") {
+                    if (typeof index == "undefined" || typeof familyObj == "undefined") {
                         estadoFamilies = false;
                     } else {
                         estadoFamilies = true;
@@ -70,10 +69,6 @@
              || typeof variable == "undefined" || estadoFamilies == false){
                 return false;
             } else {
-                // Iniciamos el spin de ciclos
-                targetC = document.getElementById('spinnerC'+variable);
-                spinnerC = new Spinner(optsC).spin(targetC);
-
                 // Añado la estructura HTML del ciclo
                 $(identifier).append(
                     '<div class="form-group">' +
@@ -86,9 +81,6 @@
                         '</div>' +
                     '</div>'
                 );
-
-                // Vacío el campo select.
-                $('#cycles'+variable).empty();
                 
                 // Declaro las variables
                 basico = true;
@@ -126,13 +118,7 @@
                 if (result == '') {
                     return false;
                 } else {
-                    identifier = '#fieldDates'+variable;
-                    date = familyCycles.addDate(identifier, variable);
-                    if (date == true) {
-                        return true
-                    } else {
-                        return false;
-                    }
+                    return true;
                 }
             }
         }, // addCycle
@@ -164,11 +150,6 @@
                 fechaFin = $('#yearTo[' + variable +']');
 
                 if(fechaInicio && fechaFin){
-                    validaciones.submitEnable($('#btnAddFamilyCycle'));
-                    if (spinnerC) {
-                        $('#spinnerC').remove();
-                        spinnerC.stop();
-                    }
                     return true;
                 } else {
                     return false;
@@ -176,25 +157,16 @@
             }
         }, // addDate
 
-        addCycleStructure : function (identifier) {
-            
-        }, // addFamily
-
-        addFamilyStructure : function (identifier) {
-            
-        }, // addFamily
-
-        newFamilyCycle : function (json, identifier, variable) {
+        addStructure : function (identificador, variable) {
             // Si la variable variable no esta definida, devuelvo false.
-            if (typeof json == "undefined" || typeof identifier == "undefined"
-             || typeof variable == "undefined"){
+            if (typeof variable == "undefined"){
                 return false;
             } else if (variable < 8) {
                 // Almacenamos su valor en una variable para el after
-                var divAddFamilyCycle = $('#divAddFamilyCycle');
+                identificador = $(identificador);
 
                 // Añadimos la nueva estructura
-                divAddFamilyCycle.after(
+                identificador.after(
                 '<div id="newFamilyCycle' + variable + '">' +
                     '<fieldset id="fieldFamilies' + variable + '">' + 
                         '<div id="spinnerF' + variable + '" class="spinnerF"></div>' +
@@ -216,30 +188,24 @@
                     '</div>' +
                 '</div>').fadeIn("slow");
 
-                identifier = 'fieldFamilies'+variable;
-                // Añadimos la parte de familias profesionales
-                family = $(this).addFamily(json, identifier, variable);
-
-                if (family == true) {
-                    identifier = 'fieldCycles'+variable;
-                    cycle = $(this).addCycle(json, identifier, variable);
-                    if (cycle == true) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } else {
+                if ( $('#newFamilyCycle'+variable).length == 0) {
                     return false;
+                } else {
+                    return true;
                 }
             } else {
                 // Si se ha alcanzado el limite de 7 ciclos mostramos un error
-                var mensaje = "Has excedido el máximo número de ciclos si quieres añadir más hazlo una vez registrado/a";
+                mensaje = "Has excedido el máximo número de ciclos si quieres añadir más hazlo una vez registrado/a";
                 if(error < 1){
-                    divAddFamilyCycle.after('<div id="error-prof-family" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>').fadeIn("slow");
+                    identificador.after('<div id="error-prof-family" class="text-center"><span class="help-block"><strong>'+ mensaje +'<strong></span></div>').fadeIn("slow");
                 }
                 error++;
                 return false;
             }
         }, // addAllStructure
         
+        newFamilyCycle : function() {
+
+        }
+
     }; // familyCycles
