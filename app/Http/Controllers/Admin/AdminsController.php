@@ -17,33 +17,44 @@ use App\Http\Controllers\Controller;
 class AdminsController extends TeachersController
 {
 
+    public function __construct(Request $request)
+    {
+        Parent::__construct($request);
+
+        $this->rol = 'admin';
+        $this->redirectTo = "/admin";
+    }
+
 	public function index(){
         return view('admin/index');
 	} // index()
 
 	/**
      * Metodo que obtiene los profesores
-     * @return  view        vista en la que el profesor validara a los profesores
+     * @return  view        vista en la que el admin validara a los profesores
      * @return  estudiante  Todos los datos de los profesores no validados
      */
     public function getTeacherNotification()
     {
 
-        $request = $this->request;
-
         // Obtenemos todos los profesores validados
-        $validTeacher = \DB::table('verifiedTeachers')->select('teacher_id')->get();
+        $validTeacher = $this->search->validTeacher();
 
-        // Obtenemos los profesores que no estan validados
-        $invalidTeacher = Teacher::name($request->get('name'))
-                                    ->select('*')
-                                    ->join('users', 'users.id', '=', 'user_id')
-                                    ->join('teacherProfFamilies', 'teacherProfFamilies.teacher_id', '=', 'teachers.id')
-                                    ->join('profFamilies', 'profFamilies.id', '=', 'teacherProfFamilies.profFamilie_id')
-                                    ->whereNotIn('teachers.id', array_column($validTeacher, 'teacher_id'))
-                                    ->paginate();
+        // Ontenemos todos los profesores que no estan validados
+        $notValidateTeacher = Teacher::select('teachers.id')
+                                        ->whereNotIn('teachers.id', array_column($validTeacher, 'teacher_id'))
+                                        ->get();
 
-        return view('admin/teacherNotification', compact('invalidTeacher', 'request'));
+        // Obtenemos todos los datos de los profesores que no estan validados
+        $invalidTeacher = $this->search->invalidOrValidTeacher($notValidateTeacher, $this->request);
+
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
+
+            return $invalidTeacher;
+        }
+
+        return view('admin/teacherNotification', compact('invalidTeacher'));
 		
 
     } // getTeacherNotification()
@@ -61,12 +72,7 @@ class AdminsController extends TeachersController
         foreach ($profesor['profesor'] as $id => $value) {
 
             // Comprobamos si el profesor se encuentra validado o no
-            $verifiedTeacher = Teacher::where('verifiedTeachers.teacher_id', '=', $value)
-                                        ->join('verifiedTeachers', 'verifiedTeachers.teacher_id', '=', 'teachers.id')
-                                        ->first();
-
-            // Obtenemos el id del admin logueado actualmente
-            $authTeacher = Teacher::where('user_id', '=', \Auth::user()->id)->first();
+            $verifiedTeacher = $this->search->verifiedTeacher($value);
 
             // Si no esta validado insertamos en la tabla su id junto al del
             // admin que lo ha validado
@@ -74,7 +80,7 @@ class AdminsController extends TeachersController
 
                 \DB::table('verifiedTeachers')->insert([
                     'teacher_id' => $value,
-                    'admin_id' => $authTeacher['id'],
+                    'admin_id' => \Auth::user()->id,
                     'created_at' => date('YmdHms')
                 ]);
 
@@ -87,6 +93,58 @@ class AdminsController extends TeachersController
     } // postTeacherNotification()
 
     /**
+     * Metodo que se encarga de filtrar los profesores a validar con un buscador
+     * @return view Vista con los profesores a validar filtrados por el buscador
+     */
+    public function postSearchTeacherNotification()
+    {   
+
+        // Obtenemos los profesores filtrados por el buscador
+        $invalidTeacher = $this->getTeacherNotification();
+
+        return view('admin/teacherNotification', compact('invalidTeacher'));
+
+    } // postSearchStudentNotification()
+
+    /**
+     * Metodo que obtiene todos los profesores validados por los admin
+     * y los muestra en una tabla
+     * @return view Vista en la que se listan los profesores
+     */
+    public function getVerifiedTeacher()
+    {
+        // Obtenemos todos los profesores validados
+        $validTeacher = $this->search->validTeacher();
+
+        // Convertimos el objeto devuelto en un array
+        $validTeacher = array_column($validTeacher, 'teacher_id');
+
+        // Obtenemos los profesores que estan validados
+        $verifiedTeacher = $this->search->invalidOrValidTeacher($validTeacher, $this->request);
+
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
+            
+            return $verifiedTeacher;
+        }
+        
+        return view('admin/verifiedTeacher', compact('verifiedTeacher'));
+
+    } // getVerifiedTeacher()
+
+    /**
+     * Metodo que se encarga de filtrar los profesores dados de alta con un buscador
+     * @return view Vista con los profesores validados filtrados por el buscador
+     */
+    public function postSearchVerifiedTeacher()
+    {
+        $verifiedTeacher = $this->getVerifiedTeacher();
+
+        return view('admin/verifiedTeacher', compact('verifiedTeacher'));
+
+    } // postSearchVerifiedTeacher()
+
+    /**
      * Metodo que obtiene los estudiantes
      * @return  view        vista en la que el admin validara a los estudiantes
      * @return  estudiante  Todos los datos de los estudiantes no validados
@@ -94,28 +152,24 @@ class AdminsController extends TeachersController
     public function getStudentNotification()
     {
 
-        $request = $this->request;
-
         // Obtenemos todos los estudiantes validados
-        $validStudent = \DB::table('verifiedStudents')->select('student_id')->get();
+        $validStudent = $this->search->validStudent();
 
-        // Obtenemos los estudiantes que no estan validados, solo sacamos los datos
-        // que nos interesan debido a la forma que tiene laravel de gestionar el distinct,
-        // que necesita estar el campo en la select
-        $invalidStudent = Student::name($request->get('name'))
-                                    ->select('students.id', 'students.firstName', 'students.lastName','students.dni', 'users.email', 'users.carpeta', 'users.image','profFamilies.name')
-                                    ->join('users', 'users.id', '=', 'user_id')
-                                    ->join('studentCycles', 'studentCycles.student_id', '=', 'students.id')
-                                    ->join('cycles', 'cycles.id', '=', 'studentCycles.cycle_id')
-                                    ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
-                                    ->whereNotIn('students.id', array_column($validStudent, 'student_id'))
-                                    ->distinct('students.id')
-                                    ->paginate();
+        // Ontenemos todos los estudiantes que no estan validados
+        $notValidateStudents = Student::select('students.id')
+                                        ->whereNotIn('students.id', array_column($validStudent, 'student_id'))
+                                        ->get();
 
+        // Obtenemos los estudiantes que no estan validados
+        $invalidStudent = $this->search->invalidOrValidStudent($notValidateStudents, $this->request);
 
-        //dd($invalidStudent);
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
 
-        return view('admin/studentNotification', compact('invalidStudent', 'request'));
+            return $invalidStudent;
+        }
+
+        return view('admin/studentNotification', compact('invalidStudent'));
 
     } // getNotificationEstudiante()
 
@@ -126,62 +180,64 @@ class AdminsController extends TeachersController
      */
     public function postStudentNotification(StudentNotificationRequest $request)
     {
-        // Array de los estudiantes a validar
-        $estudiante = $request->toArray();
 
-        foreach ($estudiante['estudiante'] as $id => $value) {
-
-            // Comprobamos si el alumno se encuentra validado o no
-            $verifiedStudent = Student::where('verifiedStudents.student_id', '=', $value)
-                                        ->join('verifiedStudents', 'verifiedStudents.student_id', '=', 'students.id')
-                                        ->first();
-
-            // Obtenemos el id del admin logueado actualmente
-            $authTeacher = Teacher::where('user_id', '=', \Auth::user()->id)->first();
-
-            // Si no esta validado insertamos en la tabla su id junto al del
-            // admin que lo ha validado
-            if(!$verifiedStudent){
-
-                \DB::table('verifiedStudents')->insert([
-                    'student_id' => $value,
-                    'teacher_id' => $authTeacher['id'],
-                    'created_at' => date('YmdHms')
-                ]);
-
-            }
-
-        }
+        Parent::insertValidateStudent($request);
 
         return \Redirect::to('admin/notificaciones/estudiantes');
 
     } // postNotificationEstudiante()
 
+    /**
+     * Metodo que se encarga de filtrar los estudiantes a validar con un buscador
+     * @return view Vista con los estudiantes a validar filtrados por el buscador
+     */
+    public function postSearchStudentNotification()
+    {   
+
+        // Obtenemos los estudiantes filtrados por el buscador
+        $invalidStudent = $this->getStudentNotification();
+
+        return view('admin/studentNotification', compact('invalidStudent'));
+
+    } // postSearchStudentNotification()
+
+    /**
+     * Metodo que obtiene todos los estudiantes validados, filtrados por la rama
+     * profesional del profesor logueado, y los muestra en una tabla
+     * @return view Vista en la que se listan los estudiantes
+     */
     public function getVerifiedStudent()
     {
 
-        $request = $this->request;
-
         // Obtenemos todos los estudiantes validados
-        $validStudent = \DB::table('verifiedStudents')->select('student_id')->get();
+        $validStudent = $this->search->validStudent();
 
-        // Obtenemos los estudiantes que estan validados, solo sacamos los datos
-        // que nos interesan debido a la forma que tiene laravel de gestionar el distinct,
-        // que necesita estar el campo en la select
-        $verifiedStudent = Student::name($request->get('name'))
-                                    ->select('students.id', 'students.firstName', 'students.lastName','students.dni', 'users.email', 'users.carpeta', 'users.image','profFamilies.name')
-                                    ->join('users', 'users.id', '=', 'user_id')
-                                    ->join('studentCycles', 'studentCycles.student_id', '=', 'students.id')
-                                    ->join('cycles', 'cycles.id', '=', 'studentCycles.cycle_id')
-                                    ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
-                                    ->whereIn('students.id', array_column($validStudent, 'student_id'))
-                                    ->distinct('students.id')
-                                    ->paginate();
+        // Convertimos el objeto devuelto en un array
+        $validStudent = array_column($validStudent, 'student_id');
 
-        //dd($verifiedStudent);
+        // Obtenemos los estudiantes que estan validados
+        $verifiedStudent = $this->search->invalidOrValidStudent($validStudent, $this->request);
+
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
+            
+            return $verifiedStudent;
+        }
         
-        return view('admin/verifiedStudent', compact('verifiedStudent', 'request'));
+        return view('admin/verifiedStudent', compact('verifiedStudent'));
         
-    }
+    } // getVerifiedStudent()
+
+    /**
+     * Metodo que se encarga de filtrar los estudiantes dados de alta con un buscador
+     * @return view Vista con los estudiantes validados filtrados por el buscador
+     */
+    public function postSearchVerifiedStudent()
+    {
+        $verifiedStudent = $this->getVerifiedStudent();
+
+        return view('admin/verifiedStudent', compact('verifiedStudent'));
+
+    } // postSearchVerifiedStudent()
 
 }

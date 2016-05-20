@@ -11,10 +11,10 @@
             <div class="panel panel-default">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <h4><i class="fa fa-graduation-cap"></i>Estudiantes admitidos en la Aplicacion</h4>
+                        <h4><i class="fa fa-university"></i>Profesores admitidos en la Aplicacion</h4>
                     </div>
                     <div class="panel-body">
-                        {{ Form::open(['url' =>'profesor/estudiante/verificados-buscador', 'method' => 'POST', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search', 'id' => 'search-form']) }}
+                        {{ Form::open(['url' =>'admin/profesor/verificados-buscador', 'method' => 'POST', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search', 'id' => 'search-form']) }}
                             {!! csrf_field() !!}
                             <div class="form-group">
                             {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre de Usuario']) }}
@@ -22,8 +22,8 @@
                             </div>
                         <button type="submit" class="btn btn-default">Buscar</button>
                         {{ Form::close() }}
-                        @include('teacher.partials.tableVerifiedStudent')
-						{{ $verifiedStudent->render() }}
+                        @include('admin.partials.tableVerifiedTeacher')
+						{{ $verifiedTeacher->render() }}
                         
                     </div>
                 </div>

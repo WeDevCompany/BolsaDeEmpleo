@@ -3,9 +3,10 @@
                             <strong>{{ $errors->first('estudiante') }}</strong>
                         </span>
                     @endif
+                    <div class="row"></div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <p><b>Total por validar:</b> {{$invalidStudent->count()}}</p>
+                            <p><b>Total estudiantes por validar:</b> {{$invalidStudent->count()}}</p>
                         </div>
                         <div class="col-sm-6">
                             <p>

@@ -1,16 +1,16 @@
-                    @if ($errors->has('estudiante'))
+                    @if ($errors->has('profesor'))
                         <span class="help-block">
-                            <strong>{{ $errors->first('estudiante') }}</strong>
+                            <strong>{{ $errors->first('profesor') }}</strong>
                         </span>
                     @endif
                     <div class="row"></div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <p><b>Total estudiantes validados:</b> {{$verifiedStudent->count()}}</p>
+                            <p><b>Total profesores validados:</b> {{$verifiedTeacher->count()}}</p>
                         </div>
                         <div class="col-sm-6">
                             <p>
-                                <b>Total de páginas:</b> {{$verifiedStudent->lastPage()}}
+                                <b>Total de páginas:</b> {{$verifiedTeacher->lastPage()}}
                             </p>
                         </div>
                     </div>
@@ -28,14 +28,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($verifiedStudent as $student)
-                                    <tr data-id="{!! $student->id !!}">
-                                        <td><img src="{!! url('/img/imgUser/' . $student->carpeta . '/' .  $student->image) !!}" alt="Imagen del Estudiante" class="img-responsive img-circle img-navegador"></td>
-                                        <td scope="row">{!! $student->id !!}</td>
-                                        <td>{!! $student->FullName !!}</td>
-                                        <td>{!! $student->dni !!}</td>
-                                        <td>{!! $student->email !!}</td>
-                                        <td>{!! $student->name !!}</td>
+                                @foreach($verifiedTeacher as $teacher)
+                                    <tr data-id="{!! $teacher->id !!}">
+                                        <td><img src="{!! url('/img/imgUser/' . $teacher->carpeta . '/' .  $teacher->image) !!}" alt="Imagen del Estudiante" class="img-responsive img-circle img-navegador"></td>
+                                        <td scope="row">{!! $teacher->id !!}</td>
+                                        <td>{!! $teacher->FullName !!}</td>
+                                        <td>{!! $teacher->dni !!}</td>
+                                        <td>{!! $teacher->email !!}</td>
+                                        <td>{!! $teacher->name !!}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger waves-effect waves-light btn-xs"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </td>

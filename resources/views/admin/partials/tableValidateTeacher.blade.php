@@ -3,9 +3,10 @@
                             <strong>{{ $errors->first('profesor') }}</strong>
                         </span>
                     @endif
+                   
                     <div class="row">
                         <div class="col-sm-6">
-                            <p><b>Total por validar:</b> {{$invalidTeacher->count()}}</p>
+                            <p><b>Total profesores por validar:</b> {{$invalidTeacher->count()}}</p>
                         </div>
                         <div class="col-sm-6">
                             <p>
@@ -18,8 +19,8 @@
                             <thead class"thead-inverse">
                                 <tr>
                                     <th>Validar</th>
-                                    <th>#</th>
                                     <th>Imagen</th>
+                                    <th>#</th>
                                     <th>Nombre</th>
                                     <th>Dni</th>
                                     <th>Email</th>
@@ -36,8 +37,8 @@
                                             <label for="profesor_{!! $teacher->teacher_id !!}"></label>
                                         </p>
                                     </td>
-                                    <td scope="row">{!! $teacher->teacher_id !!}</td>
                                     <td><img src="{!! url('/img/imgUser/' . $teacher->carpeta . '/' .  $teacher->image) !!}" alt="Imagen del Profesor" class="img-responsive img-circle img-navegador"></td>
+                                    <td scope="row">{!! $teacher->teacher_id !!}</td>
                                     <td>{!! $teacher->FullName !!}</td>
                                     <td>{!! $teacher->dni !!}</td>
                                     <td>{!! $teacher->email !!}</td>

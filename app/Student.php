@@ -74,4 +74,12 @@ class Student extends Model
         }
     } // scopeName()
 
+    // Funcion que compara la familia profesional del profesor y el alumno ppara filtrar
+    public function scopeProfFamilyTeacher($query, $profFamilyTeacher)
+    {
+        if ($profFamilyTeacher) {
+            $query->whereIn('profFamilies.name', $profFamilyTeacher);
+        }
+    }
+
 } // Student

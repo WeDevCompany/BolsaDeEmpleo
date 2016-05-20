@@ -35,6 +35,7 @@ $(document).ready(function(){
     teacherRegisterForm = $('#teacher-register-form');
     studentRegisterForm = $('#student-register-form');
     enterpriseRegisterForm = $('#enterprise-register-form');
+    searchForm = $('#search-form')
 
 
     // Comprobamos en
@@ -87,5 +88,13 @@ $(document).ready(function(){
         enterpriseRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
 
     }// Comprobación de que el formulario es el de las empresas
+
+    // Comprobamos si el formulario
+    // es el formulario de buscador
+    if (searchForm.length) {
+
+        // Script del search
+        searchForm.after('<script src="/js/search/search.js" charset="utf-8"></script>');
+    }
 
 })// document.ready

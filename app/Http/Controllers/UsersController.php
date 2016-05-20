@@ -23,6 +23,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\SearchController;
 
 // Incluimos la librería faker para poder hacer pruebas
 use Faker\Factory as Faker;
@@ -36,6 +37,7 @@ class UsersController extends Controller
     protected $request = null;          // Inicializada a null
 	protected $rol = null;              // Inicializada a null
 	protected $redirectTo = '/';        // Donde redireccionaremos
+    protected $search = null;           // Buscador
 
     /**
      * Constructor del Controlador de usuarios
@@ -59,6 +61,9 @@ class UsersController extends Controller
         $this->rules_image = [
             'file' => 'required|image'
         ];
+
+        $this->search = new SearchController();
+
     }
 
     protected function store()

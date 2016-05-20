@@ -98,14 +98,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'
 
     // Validacion del Profesor
     Route::get('notificaciones/profesores', 'AdminsController@getTeacherNotification');
-    Route::post('validTeacherNotification', 'AdminsController@postTeacherNotification');
+    Route::post('notificaciones/validTeacherNotification', 'AdminsController@postTeacherNotification');
+    Route::post('notificaciones/profesores-buscador', 'AdminsController@postSearchTeacherNotification');
+
+    // Profesores admitidos
+    Route::get('profesor/verificados', 'AdminsController@getVerifiedTeacher');
+    Route::post('profesor/verificados-buscador', 'AdminsController@postSearchVerifiedTeacher');
 
     // Validacion del Estudiante
     Route::get('notificaciones/estudiantes', 'AdminsController@getStudentNotification');
     Route::post('notificaciones/validStudentNotification', 'AdminsController@postStudentNotification');
+    Route::post('notificaciones/estudiantes-buscador', 'AdminsController@postSearchStudentNotification');
 
     // Alumnos admitidos
     Route::get('estudiante/verificados', 'AdminsController@getVerifiedStudent');
+    Route::post('estudiante/verificados-buscador', 'AdminsController@postSearchVerifiedStudent');
 
 });
 
@@ -122,9 +129,11 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web'], 'namespace' => 'T
     // Validacion del Estudiante
     Route::get('notificaciones/estudiantes', 'TeachersController@getStudentNotification');
     Route::post('notificaciones/validStudentNotification', 'TeachersController@postStudentNotification');
+    Route::post('notificaciones/estudiantes-buscador', 'TeachersController@postSearchStudentNotification');
 
     // Alumnos admitidos
     Route::get('estudiante/verificados', 'TeachersController@getVerifiedStudent');
+    Route::post('estudiante/verificados-buscador', 'TeachersController@postSearchVerifiedStudent');
 
 });
 

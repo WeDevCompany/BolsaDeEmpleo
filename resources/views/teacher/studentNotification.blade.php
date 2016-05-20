@@ -1,21 +1,25 @@
 @extends('layouts.app')
+@section('scripts')
+    {{-- Incluimos los scripts de validaciones --}}
+    <script src="/js/validaciones/facada.js" charset="utf-8"></script>
+@endsection
 @section('content')
 @include('partials.nav.navParent')
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1 sin-margen">
+        <div class="col-md-12 sin-margen">
             <div class="panel panel-default">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <h4><i class="fa fa-university"></i>Validar Estudiantes en la Aplicacion</h4>
+                        <h4><i class="fa fa-graduation-cap"></i>Validar Estudiantes en la Aplicacion</h4>
                     </div>
                     <div class="panel-body">
-                        {{ Form::model($request->only(['name']), ['url' =>'profesor/notificaciones/estudiantes', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search']) }}
+                        {{ Form::open(['url' =>'profesor/notificaciones/estudiantes-buscador', 'method' => 'POST', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search', 'id' => 'search-form']) }}
                             <div class="form-group">
-                                {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre de Usuario']) }}
+                            {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre de Usuario']) }}
 
                             </div>
-                            <button type="submit" class="btn btn-default">Buscar</button>
+                        <button type="submit" class="btn btn-default">Buscar</button>
                         {{ Form::close() }}
                         {{ Form::open(['url' => 'profesor/notificaciones/validStudentNotification', 'method' => 'POST']) }}
                             {!! csrf_field() !!}
