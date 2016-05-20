@@ -5,6 +5,7 @@ namespace App\Providers;
 use Validator;
 use App\Student;
 use App\Teacher;
+use App\JobOffer;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -143,6 +144,27 @@ class AppServiceProvider extends ServiceProvider
             return true;
 
         });// Validator validTeacherNotification fin
+
+        /**
+         * Validacion en la que comprobamos que es una oferta
+         * para luego validarla en la aplicacion por un admin
+         */
+        Validator::extend('validOfferNotification', function($attribute, $id, $parameters){
+
+            foreach ($id as $key => $value) {
+                
+                $offer = JobOffer::where('id', '=', $value)->first();
+
+                if (!$offer) {
+
+                    return false;
+
+                }
+            }
+
+            return true;
+
+        });// Validator validOfferNotification fin
 
     }
 

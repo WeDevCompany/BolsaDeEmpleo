@@ -135,6 +135,11 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web'], 'namespace' => 'T
     Route::get('estudiante/verificados', 'TeachersController@getVerifiedStudent');
     Route::post('estudiante/verificados-buscador', 'TeachersController@postSearchVerifiedStudent');
 
+    // Validacion de ofertas de trabajo
+    Route::get('notificaciones/ofertas', 'TeachersController@getOfferNotification');
+    Route::post('notificaciones/validOfferNotification', 'TeachersController@postOfferNotification');
+    Route::post('notificaciones/ofertas-buscador', 'TeachersController@postSearchOfferNotification');
+
 });
 
 // Grupo de rutas para los estudiantes

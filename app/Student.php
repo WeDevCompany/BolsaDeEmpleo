@@ -80,6 +80,6 @@ class Student extends Model
         if ($profFamilyTeacher) {
             $query->whereIn('profFamilies.name', $profFamilyTeacher);
         }
-    }
+    } // scopeProfFamilyTeacher()
 
 } // Student

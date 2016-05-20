@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Teacher\TeachersController;
+use App\JobOffer;
 use App\Teacher;
 use App\User;
 use App\Student;
@@ -40,7 +41,7 @@ class AdminsController extends TeachersController
         // Obtenemos todos los profesores validados
         $validTeacher = $this->search->validTeacher();
 
-        // Ontenemos todos los profesores que no estan validados
+        // Obtenemos todos los profesores que no estan validados
         $notValidateTeacher = Teacher::select('teachers.id')
                                         ->whereNotIn('teachers.id', array_column($validTeacher, 'teacher_id'))
                                         ->get();
@@ -155,7 +156,7 @@ class AdminsController extends TeachersController
         // Obtenemos todos los estudiantes validados
         $validStudent = $this->search->validStudent();
 
-        // Ontenemos todos los estudiantes que no estan validados
+        // Obtenemos todos los estudiantes que no estan validados
         $notValidateStudents = Student::select('students.id')
                                         ->whereNotIn('students.id', array_column($validStudent, 'student_id'))
                                         ->get();

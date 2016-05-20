@@ -95,6 +95,7 @@ return [
     'cycle_year_from' => 'Las fechas de los ciclos no son válidas',
     'valid_student_notification' => 'Uno o varios estudiantes no son válidos',
     'valid_teacher_notification' => 'Uno o varios profesores no son válidos',
+    'valid_offer_notification'   => 'Uno o varias ofertas no son válidas',
 
     /*
     |--------------------------------------------------------------------------
