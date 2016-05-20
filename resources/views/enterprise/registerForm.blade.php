@@ -34,7 +34,7 @@
                                         @include('generic.statefields')
                                         @include('generic.citiefields')
                                     </div>
-
+                                </div>
                         </fieldset>
                             <fieldset>
                                 <legend style="width: auto;">Responsable del centro de trabajo</legend>

@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="form-group{{ $errors->has('web') ? ' has-error' : '' }}">
-    <div class="row">
+        <div class="row">
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">language</i>
                 {{ Form::label('web', 'Página Web') }}
@@ -55,4 +55,3 @@
         </div>
     </div>
     @include('partials.upload.dragDrop')
-    </div>
