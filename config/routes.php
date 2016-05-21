@@ -29,17 +29,36 @@ return [
 			'enterpriseNotification'=> '/admin/notificaciones/empresas',
 			'allVerifiedTeachers' 	=> '/admin/profesor/verificados',
 			'allDeniedTeachers' 	=> '/admin/profesor/denegados',
-            'allVerifiedStudents'   => '/admin/estudiantes/verificados',
-            'allDeniedStudents'     => '/admin/estudiantes/denegados',
-            'allVerifiedOffers'     => '/admin/ofertas/verificadas',
-            'allDeniedOffers'       => '/admin/ofertas/denegadas',
+            'allVerifiedStudents'   => '/admin/estudiante/verificados',
+            'allDeniedStudents'     => '/admin/estudiante/denegados',
+            'allVerifiedOffers'     => '/admin/oferta/verificadas',
+            'allDeniedOffers'       => '/admin/oferta/denegadas',
 			'statistics'			=> '/admin/estadisticas',
+        ],
+    'adminRoutes' =>
+        [
+            'studentNotification'   => '/notificaciones/estudiantes',
+            'teacherNotification'   => '/notificaciones/profesores',
+            'offerNotification'     => '/notificaciones/ofertas',
+            'enterpriseNotification'=> '/notificaciones/empresas',
+            'allVerifiedTeachers'   => '/profesor/verificados',
+            'allDeniedTeachers'     => '/profesor/denegados',
+            'allVerifiedStudents'   => '/estudiante/verificados',
+            'allDeniedStudents'     => '/estudiante/denegados',
+            'allVerifiedOffers'     => '/oferta/verificadas',
+            'allDeniedOffers'       => '/oferta/denegadas',
+            'statistics'            => '/estadisticas',
         ],
     'student'    =>
         [
             'studentIndex'       	=> '/estudiante',
 			'allOffersSusribed' 	=> '/estudiante/ofertas/suscripciones',
 			'allOffers' 			=> '/estudiante/ofertas',
+        ],
+    'studentRoutes' =>
+        [
+            'allOffersSusribed'     => '/ofertas/suscripciones',
+            'allOffers'             => '/ofertas',
         ],
     'teacher'    =>
         [
@@ -51,11 +70,25 @@ return [
 			'allVerifiedOffers' 	=> '/profesor/ofertas/verificadas',
 			'allDeniedOffers' 		=> '/profesor/ofertas/denegadas',
         ],
+    'teacherRoutes'    =>
+        [
+            'studentNotification'   => '/notificaciones/estudiantes',
+            'offertNotification'    => '/notificaciones/ofertas',
+            'allVerifiedStudents'   => '/estudiante/verificados',
+            'allDeniedStudents'     => '/estudiante/denegados',
+            'allVerifiedOffers'     => '/ofertas/verificadas',
+            'allDeniedOffers'       => '/ofertas/denegadas',
+        ],
     'enterprise'    =>
         [
             'enterpriseIndex'     => '/empresa',
             'enterprisePerfil'    => '/empresa/perfil',
             'enterpriseUploadImg' => '/empresa/uploadImage',
+        ],
+    'enterpriseRoutes'    =>
+        [
+            'enterprisePerfil'    => '/perfil',
+            'enterpriseUploadImg' => '/uploadImage',
         ],
     'files'    =>
         [
