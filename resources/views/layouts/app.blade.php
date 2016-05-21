@@ -117,6 +117,9 @@
     <!-- Script que calcula las notificaciones -->
     <script src="{{url("/js/funcionalidad/notifications.js")}}" type="text/javascript" charset="utf-8"></script>
 
+    <!-- Script que permite a la imagen ponerse blanca con un mouse over -->
+    <script src="{{url("/js/funcionalidad/imgPerfilMouseOver.js")}}" type="text/javascript" charset="utf-8"></script>
+
     @yield('scripts')
 
 </body>

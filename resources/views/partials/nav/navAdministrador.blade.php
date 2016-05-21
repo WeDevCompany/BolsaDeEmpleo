@@ -26,7 +26,7 @@
     <ul class="dropdown-menu" role="menu"  aria-labelledby="alumnos">
         <!-- ADMIN -->
         <li role="presentation" class="dropdown-header">Administrador</li>
-        <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}"><i class="fa fa-check right" aria-hidden="true"></i> Admitidos</a></li>
+        <li><a href="{{ url(config('routes.admin.allVerifiedStudents')) }}"><i class="fa fa-check right" aria-hidden="true"></i> Admitidos</a></li>
         <li><a href="{{ url(config('routes.admin.allDeniedTeachers')) }}"><i class="fa fa-times right" aria-hidden="true"></i> Denegados</a></li>
 
         <!-- PROFESORES -->

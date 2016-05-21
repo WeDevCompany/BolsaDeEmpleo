@@ -299,10 +299,13 @@ a:hover.back-to-top {
   display: inline-block;
   transition:all 0.25s ease-in-out;
 }
-
-.img-navegador:hover{
+/*
+  Funciona tanto para escritorio como para telefonos
+  gracias a JQuery
+ */
+/*.img-navegador:hover{
   background-color:white;
-}
+}*/
 
 .img-resize {
   max-width: 300px;
@@ -680,3 +683,6 @@ div.drop:hover {
     }
 }
 
+.background-white {
+  background-color:rgba(255, 255, 255, 0.20 );
+}
