@@ -431,6 +431,13 @@ a:hover.back-to-top {
   padding-bottom: 20px;
   padding-top: 20px;
 }
+.extra-padding-top{
+  padding-top: 20px;
+}
+.extra-padding-bottom{
+  padding-bottom: 20px;
+}
+
 .label-select{
   margin-top: -3em;
 }
@@ -682,7 +689,29 @@ div.drop:hover {
       display:none;
     }
 }
-
+/* IMAGEN DE PERFIL */
 .background-white {
   background-color:rgba(255, 255, 255, 0.20 );
+}
+
+/***************
+  Ofertas
+****************/
+.oferta {
+  border: 2px #CFD8DC solid;
+  margin-bottom: 5px;
+  border-radius:5px;
+}
+
+.titulo {
+  font-weight:bolder;
+  text-transform:uppercase;
+}
+
+/*.titulo:hover {
+  text-decoration:underline;
+}*/
+
+.descripcion {
+  color:#607D8B;
 }

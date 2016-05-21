@@ -94,7 +94,7 @@ $(document).ready(function(){
     if (searchForm.length) {
 
         // Script del search
-        searchForm.after('<script src="/js/search/search.js" charset="utf-8"></script>');
+        //searchForm.after('<script src="/js/search/search.js" charset="utf-8"></script>');
     }
 
 })// document.ready
