@@ -23,7 +23,7 @@
                         {{ Form::close() }}
                         {{ Form::open(['url' => 'profesor/notificaciones/validOfferNotification', 'method' => 'POST']) }}
                             {!! csrf_field() !!}
-                            @include('teacher.partials.tableValidateOffer')
+                            @include('partials.table.tableValidateOffer')
 							{{ $invalidOffer->render() }}
                             <div class="form-group">
                                 <div class="col-md-12 text-center">

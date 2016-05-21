@@ -11,6 +11,7 @@ use App\Student;
 use App\Http\Requests;
 use App\Http\Requests\TeacherNotificationRequest;
 use App\Http\Requests\StudentNotificationRequest;
+use App\Http\Requests\OfferNotificationRequest;
 use App\Http\Controllers\Controller;
 
 //use Datatables;
@@ -56,7 +57,7 @@ class AdminsController extends TeachersController
         }
 
         return view('admin/teacherNotification', compact('invalidTeacher'));
-		
+
 
     } // getTeacherNotification()
 
@@ -98,14 +99,14 @@ class AdminsController extends TeachersController
      * @return view Vista con los profesores a validar filtrados por el buscador
      */
     public function postSearchTeacherNotification()
-    {   
+    {
 
         // Obtenemos los profesores filtrados por el buscador
         $invalidTeacher = $this->getTeacherNotification();
 
         return view('admin/teacherNotification', compact('invalidTeacher'));
 
-    } // postSearchStudentNotification()
+    } // postSearchTeacherNotification()
 
     /**
      * Metodo que obtiene todos los profesores validados por los admin
@@ -125,10 +126,10 @@ class AdminsController extends TeachersController
 
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {
-            
+
             return $verifiedTeacher;
         }
-        
+
         return view('admin/verifiedTeacher', compact('verifiedTeacher'));
 
     } // getVerifiedTeacher()
@@ -144,6 +145,19 @@ class AdminsController extends TeachersController
         return view('admin/verifiedTeacher', compact('verifiedTeacher'));
 
     } // postSearchVerifiedTeacher()
+
+    /*
+    |---------------------------------------------------------------------------|
+    | ESTUDIANTES -> Validacion, listado, borrado y restauracion.               |
+    |---------------------------------------------------------------------------|
+    |                                                                           |
+    | En esta seccion tendremos:                                                |
+    |       -> Validacion de todos los estudiantes                              |
+    |       -> Listado de todos los estudiantes validados en la aplicacion      |
+    |       -> Borrado de estudiantes con softDeletes                           |
+    |       -> Restauracion de estudiantes "borrados" mediante softDeletes      |
+    |                                                                           |
+    */
 
     /**
      * Metodo que obtiene los estudiantes
@@ -172,7 +186,7 @@ class AdminsController extends TeachersController
 
         return view('admin/studentNotification', compact('invalidStudent'));
 
-    } // getNotificationEstudiante()
+    } // getStudentNotification()
 
     /**
      * Metodo que Valida los estudiantes y que admin lo ha validado
@@ -186,14 +200,14 @@ class AdminsController extends TeachersController
 
         return \Redirect::to('admin/notificaciones/estudiantes');
 
-    } // postNotificationEstudiante()
+    } // postStudentNotification()
 
     /**
      * Metodo que se encarga de filtrar los estudiantes a validar con un buscador
      * @return view Vista con los estudiantes a validar filtrados por el buscador
      */
     public function postSearchStudentNotification()
-    {   
+    {
 
         // Obtenemos los estudiantes filtrados por el buscador
         $invalidStudent = $this->getStudentNotification();
@@ -203,8 +217,7 @@ class AdminsController extends TeachersController
     } // postSearchStudentNotification()
 
     /**
-     * Metodo que obtiene todos los estudiantes validados, filtrados por la rama
-     * profesional del profesor logueado, y los muestra en una tabla
+     * Metodo que obtiene todos los estudiantes validados y los muestra en una tabla
      * @return view Vista en la que se listan los estudiantes
      */
     public function getVerifiedStudent()
@@ -221,12 +234,12 @@ class AdminsController extends TeachersController
 
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {
-            
+
             return $verifiedStudent;
         }
-        
+
         return view('admin/verifiedStudent', compact('verifiedStudent'));
-        
+
     } // getVerifiedStudent()
 
     /**
@@ -240,5 +253,114 @@ class AdminsController extends TeachersController
         return view('admin/verifiedStudent', compact('verifiedStudent'));
 
     } // postSearchVerifiedStudent()
+
+    /*
+    |---------------------------------------------------------------------------|
+    | OFERTAS -> Validacion, listado, borrado y restauracion.                   |
+    |---------------------------------------------------------------------------|
+    |                                                                           |
+    | En esta seccion tendremos:                                                |
+    |       -> Validacion de todas las ofertas                                  |
+    |       -> Listado de todas las ofertas validadas en la aplicacion          |
+    |       -> "Borrado" de las ofertas con softDeletes                         |
+    |       -> Restauracion de las ofertas "borradas" mediante softDeletes      |
+    |                                                                           |
+    */
+
+   /**
+     * Metodo que obtiene las ofertas
+     * @return  view        vista en la que el admin validara las ofertas
+     * @return  ofertas     Todos los datos de las ofertas no validadas
+     */
+    public function getOfferNotification()
+    {
+
+        // Obtenemos todas las ofertas validadas
+        $validOffer = $this->search->validOffer();
+
+        // Obtenemos todas las ofertas que no estan validadas
+        $notValidateOffers = JobOffer::select('jobOffers.id')
+                                        ->whereNotIn('jobOffers.id', array_column($validOffer, 'jobOffer_id'))
+                                        ->get();
+
+        // Obtenemos las ofertas que no estan validadas
+        $invalidOffer = $this->search->invalidOrValidOffer($notValidateOffers, $this->request);
+
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
+
+            return $invalidOffer;
+        }
+
+        return view('admin/offerNotification', compact('invalidOffer'));
+
+    } // getOfferNotification()
+
+    /**
+     * Metodo que Valida las ofertas y que admin lo ha validado
+     * @return  view        redireccion a la vista en la que el admin validara las ofertas
+     *
+     */
+    public function postOfferNotification(OfferNotificationRequest $request)
+    {
+
+        Parent::insertValidateOffer($request);
+
+        return \Redirect::to('admin/notificaciones/ofertas');
+
+    } // postOfferNotification()
+
+    /**
+     * Metodo que se encarga de filtrar las ofertas a validar con un buscador
+     * @return view Vista con las ofertas a validar filtrados por el buscador
+     */
+    public function postSearchOfferNotification()
+    {
+
+        // Obtenemos las ofertas filtrados por el buscador
+        $invalidOffer = $this->getOfferNotification();
+
+        return view('admin/offerNotification', compact('invalidOffer'));
+
+    } // postSearchOfferNotification()
+
+    /**
+     * Metodo que obtiene todas las ofertas validadas y las muestra
+     * @return view Vista en la que se listan las ofertas
+     */
+    public function getVerifiedOffer()
+    {
+
+        // Obtenemos todos los estudiantes validados
+        $validOffer = $this->search->validOffer();
+
+        // Convertimos el objeto devuelto en un array
+        $validOffer = array_column($validOffer, 'jobOffer_id');
+
+        // Obtenemos los estudiantes que estan validados
+        $verifiedOffer = $this->search->invalidOrValidOffer($validOffer, $this->request);
+
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
+
+            return $verifiedOffer;
+        }
+
+        return view('admin/verifiedOffer', compact('verifiedOffer'));
+
+    } // getVerifiedOffer()
+
+    /**
+     * Metodo que se encarga de filtrar las ofertas dados de alta con un buscador
+     * @return view Vista con las ofertas validadas filtradas por el buscador
+     */
+    public function postSearchVerifiedOffer()
+    {
+        $verifiedOffer = $this->getVerifiedOffer();
+
+        return view('admin/verifiedOffer', compact('verifiedOffer'));
+
+    } // postSearchVerifiedOffer()
+
 
 }

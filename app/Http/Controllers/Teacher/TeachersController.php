@@ -119,7 +119,7 @@ class TeachersController extends UsersController
     |---------------------------------------------------------------------------|
     |                                                                           |
     | En esta seccion tendremos:                                                |
-    |        -> Validacion de los estudiantes segun la familia profesional      |
+    |       -> Validacion de los estudiantes segun la familia profesional       |
     |           del profesor logueado actualmente                               |
     |       -> Listado de los estudiantes validados en la aplicacion filtrados  |
     |           por la familia profesional del profesor logueado                |
@@ -164,7 +164,7 @@ class TeachersController extends UsersController
 
         return view('teacher/studentNotification', compact('invalidStudent'));
 
-    } // getNotificationEstudiante()
+    } // getStudentNotification()
 
     /**
      * Metodo que Valida los estudiantes y que profesor lo ha validado
@@ -177,7 +177,7 @@ class TeachersController extends UsersController
 
         return \Redirect::to('profesor/notificaciones/estudiantes');
 
-    } // postNotificationEstudiante()
+    } // postStudentNotification()
 
     // Metodo que inserta los estudiantes validados por un profesor
     public function insertValidateStudent($request)
@@ -273,7 +273,7 @@ class TeachersController extends UsersController
     |---------------------------------------------------------------------------|
     |                                                                           |
     | En esta seccion tendremos:                                                |
-    |        -> Validacion de las ofertas segun la familia profesional          |
+    |       -> Validacion de las ofertas segun la familia profesional           |
     |           del profesor logueado actualmente                               |
     |       -> Listado de las ofertas validadas en la aplicacion filtrados      |
     |           por la familia profesional del profesor logueado                |

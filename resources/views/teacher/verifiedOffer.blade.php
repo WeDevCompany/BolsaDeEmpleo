@@ -22,7 +22,7 @@
                             </div>
                         <button type="submit" class="btn btn-default">Buscar</button>
                         {{ Form::close() }}
-                        @include('teacher.partials.tableVerifiedOffer')
+                        @include('partials.table.tableVerifiedOffer')
 						{{ $verifiedOffer->render() }}
 
                     </div>

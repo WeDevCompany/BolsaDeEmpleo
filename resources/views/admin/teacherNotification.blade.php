@@ -24,7 +24,7 @@
                         {{ Form::close() }}
                         {{ Form::open(['url' => 'admin/notificaciones/validTeacherNotification', 'method' => 'POST']) }}
                             {!! csrf_field() !!}
-                            @include('admin.partials.tableValidateTeacher')
+                            @include('partials.table.tableValidateTeacher')
 							{{ $invalidTeacher->render() }}
                             <div class="form-group">
                                 <div class="col-md-12 text-center">
