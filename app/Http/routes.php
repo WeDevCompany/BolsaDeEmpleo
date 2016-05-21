@@ -97,31 +97,31 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'
     Route::post(config('routes.UploadImg'), 'AdminsController@uploadImage');
 
     // Validacion del Profesor
-    Route::get('notificaciones/profesores', 'AdminsController@getTeacherNotification');
-    Route::post('notificaciones/validTeacherNotification', 'AdminsController@postTeacherNotification');
-    Route::post('notificaciones/profesores-buscador', 'AdminsController@postSearchTeacherNotification');
+    Route::get(config('routes.adminRoutes.teacherNotification'), 'AdminsController@getTeacherNotification');
+    Route::post(config('routes.adminRoutes.teacherValidNotification'), 'AdminsController@postTeacherNotification');
+    Route::post(config('routes.adminRoutes.teacherSearchNotification'), 'AdminsController@postSearchTeacherNotification');
 
     // Profesores admitidos
-    Route::get('profesor/verificados', 'AdminsController@getVerifiedTeacher');
-    Route::post('profesor/verificados-buscador', 'AdminsController@postSearchVerifiedTeacher');
+    Route::get(config('routes.adminRoutes.allVerifiedTeachers'), 'AdminsController@getVerifiedTeacher');
+    Route::post(config('routes.adminRoutes.allVerifiedTeachersSearch'), 'AdminsController@postSearchVerifiedTeacher');
 
     // Validacion del Estudiante
-    Route::get('notificaciones/estudiantes', 'AdminsController@getStudentNotification');
-    Route::post('notificaciones/validStudentNotification', 'AdminsController@postStudentNotification');
-    Route::post('notificaciones/estudiantes-buscador', 'AdminsController@postSearchStudentNotification');
+    Route::get(config('routes.adminRoutes.studentNotification'), 'AdminsController@getStudentNotification');
+    Route::post(config('routes.adminRoutes.studentValidNotification'), 'AdminsController@postStudentNotification');
+    Route::post(config('routes.adminRoutes.studentSearchNotification'), 'AdminsController@postSearchStudentNotification');
 
     // Alumnos admitidos
-    Route::get('estudiante/verificados', 'AdminsController@getVerifiedStudent');
-    Route::post('estudiante/verificados-buscador', 'AdminsController@postSearchVerifiedStudent');
+    Route::get(config('routes.adminRoutes.allVerifiedStudents'), 'AdminsController@getVerifiedStudent');
+    Route::post(config('routes.adminRoutes.allVerifiedStudentsSearch'), 'AdminsController@postSearchVerifiedStudent');
 
     // Validacion de ofertas de trabajo
-    Route::get('notificaciones/ofertas', 'AdminsController@getOfferNotification');
-    Route::post('notificaciones/validOfferNotification', 'AdminsController@postOfferNotification');
-    Route::post('notificaciones/ofertas-buscador', 'AdminsController@postSearchOfferNotification');
+    Route::get(config('routes.adminRoutes.offerNotification'), 'AdminsController@getOfferNotification');
+    Route::post(config('routes.adminRoutes.offerValidNotification'), 'AdminsController@postOfferNotification');
+    Route::post(config('routes.adminRoutes.offerSearchNotification'), 'AdminsController@postSearchOfferNotification');
 
     // Ofertas admitidas
-    Route::get('ofertas/verificadas', 'AdminsController@getVerifiedOffer');
-    Route::post('ofertas/verificadas-buscador', 'AdminsController@postSearchVerifiedOffer');
+    Route::get(config('routes.adminRoutes.allVerifiedOffers'), 'AdminsController@getVerifiedOffer');
+    Route::post(config('routes.adminRoutes.allVerifiedOffersSearch'), 'AdminsController@postSearchVerifiedOffer');
 
 });
 
@@ -136,22 +136,22 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web'], 'namespace' => 'T
     Route::post(config('routes.UploadImg'), 'TeachersController@uploadImage');
 
     // Validacion del Estudiante
-    Route::get('notificaciones/estudiantes', 'TeachersController@getStudentNotification');
-    Route::post('notificaciones/validStudentNotification', 'TeachersController@postStudentNotification');
-    Route::post('notificaciones/estudiantes-buscador', 'TeachersController@postSearchStudentNotification');
+    Route::get(config('routes.teacherRoutes.studentNotification'), 'TeachersController@getStudentNotification');
+    Route::post(config('routes.teacherRoutes.studentValidNotification'), 'TeachersController@postStudentNotification');
+    Route::post(config('routes.teacherRoutes.studentSearchNotification'), 'TeachersController@postSearchStudentNotification');
 
     // Alumnos admitidos
-    Route::get('estudiante/verificados', 'TeachersController@getVerifiedStudent');
-    Route::post('estudiante/verificados-buscador', 'TeachersController@postSearchVerifiedStudent');
+    Route::get(config('routes.teacherRoutes.allVerifiedStudents'), 'TeachersController@getVerifiedStudent');
+    Route::post(config('routes.teacherRoutes.allVerifiedStudentsSearch'), 'TeachersController@postSearchVerifiedStudent');
 
     // Validacion de ofertas de trabajo
-    Route::get('notificaciones/ofertas', 'TeachersController@getOfferNotification');
-    Route::post('notificaciones/validOfferNotification', 'TeachersController@postOfferNotification');
-    Route::post('notificaciones/ofertas-buscador', 'TeachersController@postSearchOfferNotification');
+    Route::get(config('routes.teacherRoutes.offerNotification'), 'TeachersController@getOfferNotification');
+    Route::post(config('routes.teacherRoutes.offerValidNotification'), 'TeachersController@postOfferNotification');
+    Route::post(config('routes.teacherRoutes.offerSearchNotification'), 'TeachersController@postSearchOfferNotification');
 
     // Ofertas admitidas
-    Route::get('ofertas/verificadas', 'TeachersController@getVerifiedOffer');
-    Route::post('ofertas/verificadas-buscador', 'TeachersController@postSearchVerifiedOffer');
+    Route::get(config('routes.teacherRoutes.allVerifiedOffers'), 'TeachersController@getVerifiedOffer');
+    Route::post(config('routes.teacherRoutes.allVerifiedOffersSearch'), 'TeachersController@postSearchVerifiedOffer');
 
 });
 
