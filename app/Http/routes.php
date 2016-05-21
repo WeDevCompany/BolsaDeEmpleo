@@ -114,6 +114,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'
     Route::get('estudiante/verificados', 'AdminsController@getVerifiedStudent');
     Route::post('estudiante/verificados-buscador', 'AdminsController@postSearchVerifiedStudent');
 
+    // Validacion de ofertas de trabajo
+    Route::get('notificaciones/ofertas', 'AdminsController@getOfferNotification');
+    Route::post('notificaciones/validOfferNotification', 'AdminsController@postOfferNotification');
+    Route::post('notificaciones/ofertas-buscador', 'AdminsController@postSearchOfferNotification');
+
+    // Ofertas admitidas
+    Route::get('ofertas/verificadas', 'AdminsController@getVerifiedOffer');
+    Route::post('ofertas/verificadas-buscador', 'AdminsController@postSearchVerifiedOffer');
+
 });
 
 // Grupo de rutas para los profesores
@@ -139,6 +148,10 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web'], 'namespace' => 'T
     Route::get('notificaciones/ofertas', 'TeachersController@getOfferNotification');
     Route::post('notificaciones/validOfferNotification', 'TeachersController@postOfferNotification');
     Route::post('notificaciones/ofertas-buscador', 'TeachersController@postSearchOfferNotification');
+
+    // Ofertas admitidas
+    Route::get('ofertas/verificadas', 'TeachersController@getVerifiedOffer');
+    Route::post('ofertas/verificadas-buscador', 'TeachersController@postSearchVerifiedOffer');
 
 });
 
