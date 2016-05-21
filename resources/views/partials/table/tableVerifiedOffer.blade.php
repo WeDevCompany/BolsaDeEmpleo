@@ -14,6 +14,7 @@
                             <thead class"thead-inverse">
                                 <tr>
                                     <th>Imagen</th>
+                                    <th>#</th>
                                     <th>Oferta</th>
                                     <th>Empresa</th>
                                     <th>Cif</th>
@@ -27,6 +28,7 @@
                                 @foreach($verifiedOffer as $offer)
                                     <tr data-id="{{ $offer->id }}">
                                         <td><img src="{!! url('/img/imgUser/' . $offer->carpeta . '/' .  $offer->image) !!}" alt="Imagen del Estudiante" class="img-responsive img-circle img-navegador"></td>
+                                        <td>{!! $offer->id !!}</td>
                                         <td>{!! $offer->title !!}</td>
                                         <td>{!! $offer->enterpriseName !!}</td>
                                         <td>{!! $offer->cif !!}</td>

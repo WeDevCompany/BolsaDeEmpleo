@@ -11,7 +11,7 @@
             <div class="panel panel-default">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <h4><i class="fa fa-university"></i>Profesores admitidos en la Aplicacion</h4>
+                        <h4><i class="fa fa-university"></i>Profesores admitidos en la Aplicación</h4>
                     </div>
                     <div class="panel-body">
                         {{ Form::open(['url' =>'admin/profesor/verificados-buscador', 'method' => 'POST', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search', 'id' => 'search-form']) }}

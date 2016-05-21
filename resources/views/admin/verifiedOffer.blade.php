@@ -11,10 +11,10 @@
             <div class="panel panel-default">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <h4><i class="fa fa-graduation-cap"></i>Estudiantes admitidos en la Aplicación</h4>
+                        <h4><i class="fa fa-graduation-cap"></i>Ofertas de trabajo admitidas en la Aplicación</h4>
                     </div>
                     <div class="panel-body">
-                        {{ Form::open(['url' =>'profesor/estudiante/verificados-buscador', 'method' => 'POST', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search', 'id' => 'search-form']) }}
+                        {{ Form::open(['url' =>'admin/ofertas/verificadas-buscador', 'method' => 'POST', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search', 'id' => 'search-form']) }}
                             {!! csrf_field() !!}
                             <div class="form-group">
                             {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre de Usuario']) }}
@@ -22,8 +22,8 @@
                             </div>
                         <button type="submit" class="btn btn-default">Buscar</button>
                         {{ Form::close() }}
-                        @include('partials.table.tableVerifiedStudent')
-						{{ $verifiedStudent->render() }}
+                        @include('partials.table.tableVerifiedOffer')
+						{{ $verifiedOffer->render() }}
 
                     </div>
                 </div>

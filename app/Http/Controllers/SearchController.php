@@ -144,7 +144,7 @@ class SearchController extends Controller
     	// Obtenemos los profesores que no estan validados
     	// o si lo estan segun los parametros recibidos
         $invalidOrValidTeacher = Teacher::name($request->get('name'))
-                                    ->select('*')
+                                    ->select('profFamilies.*', 'users.*', 'teachers.*')
                                     ->join('users', 'users.id', '=', 'user_id')
                                     ->join('teacherProfFamilies', 'teacherProfFamilies.teacher_id', '=', 'teachers.id')
                                     ->join('profFamilies', 'profFamilies.id', '=', 'teacherProfFamilies.profFamilie_id')
