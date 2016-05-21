@@ -184,7 +184,10 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
 
         // Datatables
-        Yajra\Datatables\DatatablesServiceProvider::class
+        Yajra\Datatables\DatatablesServiceProvider::class,
+
+        //Generar Javascript desde PHP
+        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
 
     ],
 
@@ -244,6 +247,9 @@ return [
 
         // Libreria de Datatables
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+
+        // Librería que permite generar javascript desde PHP
+        'JavaScript' => Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
 
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,

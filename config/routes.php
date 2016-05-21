@@ -25,7 +25,8 @@ return [
             'adminIndex'     		=> '/admin',
 			'studentNotification' 	=> '/admin/notificaciones/estudiantes',
             'teacherNotification'   => '/admin/notificaciones/profesores',
-			'offerNotification' 	=> '/admin/notificaciones/ofertas',
+            'offerNotification'     => '/admin/notificaciones/ofertas',
+			'enterpriseNotification'=> '/admin/notificaciones/empresas',
 			'allVerifiedTeachers' 	=> '/admin/profesor/verificados',
 			'allDeniedTeachers' 	=> '/admin/profesor/denegados',
             'allVerifiedStudents'   => '/admin/estudiantes/verificados',
@@ -38,7 +39,7 @@ return [
         [
             'studentIndex'       	=> '/estudiante',
 			'allOffersSusribed' 	=> '/estudiante/ofertas/suscripciones',
-			'allOffers' 				=> '/estudiante/ofertas',
+			'allOffers' 			=> '/estudiante/ofertas',
         ],
     'teacher'    =>
         [

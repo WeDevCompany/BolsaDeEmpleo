@@ -59,6 +59,7 @@ body {
 
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
+
   .navbar {
     background-color: #000000 !important;
   }
@@ -181,7 +182,6 @@ body {
   .carousel-caption {
     margin-bottom:0px;
   }
-
 }
 
 @media only screen and (max-width: 700px){
@@ -662,11 +662,21 @@ div.drop:hover {
 .dropdown-menu {
     padding: 0px 0px;
 }
+
 /***************
-  ToolTips
+  Menús Drop Down admin
 ****************/
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
+.icon-hidden {
+  display:none;
+
 }
+
+@media only screen and (max-width: 1000px) {
+    .icon-hidden {
+      display:block;
+    }
+    .label-show {
+      display:none;
+    }
+}
+

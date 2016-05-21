@@ -10,11 +10,21 @@ $('document').ready(function() {
 		// Iteramos todos los
 		$('#notifications li a span').each(function(i)
 		{
+
 			// comprobamos que son súmeros y son positivos
 			if($(this).html() !== null && parseInt($(this).html()) > 0){
-				suma += parseInt($(this).html());
+				if (parseInt($(this).html()) > 99) {
+					suma += parseInt($(this).html());
+					$(this).html('99+')
+				} else {
+					suma += parseInt($(this).html());
+				}
+
+
 			}
 		});
+		// Casteamos el total por si acaso
+		suma = parseInt(suma);
 		// Comprobamos que si el medidor de notificacíones
 		// es superior a 999 se pondrá 999+
 		if(suma > 999) {
