@@ -11,6 +11,7 @@ use Session;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\ConfirmationRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SearchController;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -44,6 +45,8 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+
+        $this->search = new SearchController();
     }
 
     /**
@@ -82,9 +85,7 @@ class AuthController extends Controller
         } else if ($user->rol == 'estudiante'){
 
             $student = Student::where('user_id', '=',$user['id'])->first();
-            $verifiedStudent = Student::where('verifiedStudents.student_id', '=', $student['id'])
-                                        ->join('verifiedStudents', 'verifiedStudents.student_id', '=', 'students.id')
-                                        ->first();
+            $verifiedStudent = $this->search->verifiedStudent($student['id']);
 
             // Si no esta verificado ...
             if(!$verifiedStudent){
@@ -98,9 +99,7 @@ class AuthController extends Controller
         } else if ($user->rol == 'profesor'){
 
             $teacher = Teacher::where('user_id', '=',$user['id'])->first();
-            $verifiedTeacher = Teacher::where('verifiedTeachers.teacher_id', '=', $teacher['id'])
-                                        ->join('verifiedTeachers', 'verifiedTeachers.teacher_id', '=', 'teachers.id')
-                                        ->first();
+            $verifiedTeacher = $this->search->verifiedTeacher($teacher['id']);
 
             // Si no esta verificado ...
             if(!$verifiedTeacher){
