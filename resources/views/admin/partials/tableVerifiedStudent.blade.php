@@ -1,8 +1,3 @@
-                    @if ($errors->has('estudiante'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('estudiante') }}</strong>
-                        </span>
-                    @endif
                     <div class="row"></div>
                     <div class="row">
                         <div class="col-sm-6">

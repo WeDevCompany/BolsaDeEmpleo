@@ -122,7 +122,7 @@ class SearchController extends Controller
                                         ->first();
 
         return $verifiedTeacher;
-                                       
+
     } // verifiedTeacher()
 
     // Metodo que obtiene todos los profesores validados
@@ -176,7 +176,7 @@ class SearchController extends Controller
     {
     	$invalidOrValidOffer = JobOffer::name($request->get('name'))
     									->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y las ofertas
-    									->select('jobOffers.id', 'jobOffers.title', 'workCenters.name as workCenterName', 'workCenters.email', 'enterprises.name as enterpriseName', 'enterprises.cif', 'profFamilies.name', 'users.carpeta', 'users.image')
+    									->select('workCenters.name as workCenterName', 'workCenters.email as workCenterEmail', 'enterprises.name as enterpriseName', 'workCenters.*', 'enterprises.*', 'profFamilies.*', 'users.*', 'jobOffers.*')
     									->join('profFamilies', 'profFamilies.id', '=', 'jobOffers.profFamilie_id')
     									->join('workCenters', 'workCenters.id', '=', 'jobOffers.workCenter_id')
     									->join('enterprises', 'enterprises.id', '=', 'workCenters.enterprise_id')

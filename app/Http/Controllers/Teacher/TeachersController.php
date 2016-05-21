@@ -18,7 +18,7 @@ use App\Http\Controllers\SearchController;
 
 class TeachersController extends UsersController
 {
-    
+
     public function __construct(Request $request)
     {
         Parent::__construct($request);
@@ -117,19 +117,19 @@ class TeachersController extends UsersController
     |---------------------------------------------------------------------------|
     | ESTUDIANTES -> Validacion, listado, borrado y restauracion.               |
     |---------------------------------------------------------------------------|
-    |                                                                           | 
+    |                                                                           |
     | En esta seccion tendremos:                                                |
     |        -> Validacion de los estudiantes segun la familia profesional      |
     |           del profesor logueado actualmente                               |
-    |       -> Listado de los estudiantes validados en la aplicacion filtrados  | 
+    |       -> Listado de los estudiantes validados en la aplicacion filtrados  |
     |           por la familia profesional del profesor logueado                |
     |       -> "Borrado" de estudiantes con softDeletes segun la familia        |
     |           profesional del profesor logueado actualmente                   |
     |       -> Restauracion de estudiantes "borrados" mediante softDeletes      |
-    |           segun la familia profesional del profesor logueado actualmente  | 
+    |           segun la familia profesional del profesor logueado actualmente  |
     |                                                                           |
     */
-   
+
     /**
      * Metodo que obtiene los estudiantes
      * @return  view        vista en la que el profesor validara a los estudiantes
@@ -137,7 +137,7 @@ class TeachersController extends UsersController
      */
     public function getStudentNotification()
     {
-        
+
         // Obtenemos todos los estudiantes validados
         $validStudent = $this->search->validStudent();
 
@@ -213,7 +213,7 @@ class TeachersController extends UsersController
      * @return view Vista con los estudiantes a validar filtrados por el buscador
      */
     public function postSearchStudentNotification()
-    {   
+    {
 
         // Obtenemos los estudiantes filtrados por el buscador
         $invalidStudent = $this->getStudentNotification();
@@ -247,12 +247,12 @@ class TeachersController extends UsersController
 
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {
-            
+
             return $verifiedStudent;
         }
-        
+
         return view('teacher/verifiedStudent', compact('verifiedStudent'));
-        
+
     } // getVerifiedStudent()
 
     /**
@@ -271,19 +271,19 @@ class TeachersController extends UsersController
     |---------------------------------------------------------------------------|
     | OFERTAS -> Validacion, listado, borrado y restauracion.                   |
     |---------------------------------------------------------------------------|
-    |                                                                           | 
+    |                                                                           |
     | En esta seccion tendremos:                                                |
     |        -> Validacion de las ofertas segun la familia profesional          |
     |           del profesor logueado actualmente                               |
-    |       -> Listado de las ofertas validadas en la aplicacion filtrados      | 
+    |       -> Listado de las ofertas validadas en la aplicacion filtrados      |
     |           por la familia profesional del profesor logueado                |
     |       -> "Borrado" de las ofertas con softDeletes segun la familia        |
     |           profesional del profesor logueado actualmente                   |
-    |       -> Restauracion de las ofertas "borrados" mediante softDeletes      |
-    |           segun la familia profesional del profesor logueado actualmente  | 
+    |       -> Restauracion de las ofertas "borradas" mediante softDeletes      |
+    |           segun la familia profesional del profesor logueado actualmente  |
     |                                                                           |
     */
-   
+
     /**
      * Metodo que obtiene las ofertas
      * @return  view        vista en la que el profesor validara las ofertas
@@ -372,4 +372,49 @@ class TeachersController extends UsersController
         return view('teacher/offerNotification', compact('invalidOffer'));
 
     } // postSearchOfferNotification()
+
+    /**
+     * Metodo que obtiene todas las ofertas validadas, filtradas por la rama
+     * profesional del profesor logueado, y los muestra
+     * @return view Vista en la que se listan las ofertas
+     */
+    public function getVerifiedOffer()
+    {
+
+        // Obtenemos las familias profesionales del profesor
+        $profFamilyTeacher = $this->search->profFamilyTeacher();
+
+        // Convertimos el objeto devuelto en un array
+        $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
+
+        // Obtenemos todas las ofertas validadas
+        $validOffer = $this->search->validOffer();
+
+        // Convertimos el objeto devuelto en un array
+        $validOffer = array_column($validOffer, 'jobOffer_id');
+
+        // Obtenemos los estudiantes que estan validados
+        $verifiedOffer = $this->search->invalidOrValidOffer($validOffer, $this->request, $profFamilyValidate);
+
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
+
+            return $verifiedOffer;
+        }
+
+        return view('teacher/verifiedOffer', compact('verifiedOffer'));
+
+    } // getVerifiedOffer()
+
+    /**
+     * Metodo que se encarga de filtrar las ofertas dadas de alta con un buscador
+     * @return view Vista con las ofertas validadas filtradas por el buscador
+     */
+    public function postSearchVerifiedOffer()
+    {
+        $verifiedOffer = $this->getVerifiedOffer();
+
+        return view('teacher/verifiedOffer', compact('verifiedOffer'));
+
+    } // postSearchVerifiedOffer()
 }
