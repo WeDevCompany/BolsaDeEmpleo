@@ -220,7 +220,7 @@ class SearchController extends Controller
 
     public function offerTag($idJobOffer)
     {
-        $tag = Tag::select('tags.tag', 'jobOffers.id')
+        $tag = Tag::select(\DB::raw('count(jobOffer_id)'), 'jobOffer_id as idAdd')
                     ->join('offerTags', 'offerTags.tag_id', '=', 'tags.id')
                     ->join('jobOffers', 'jobOffers.id', '=', 'offerTags.jobOffer_id')
                     ->whereIn('jobOffers.id', $idJobOffer)
@@ -248,11 +248,41 @@ class SearchController extends Controller
 
     public function studentsSubscriptions($idJobOffer)
     {
-        $studentsSubscriptions = \DB::table('subcriptions')->select('jobOffer_id', 'id')
+        $studentsSubcriptions = \DB::table('subcriptions')->select(\DB::raw('count(jobOffer_id)'), 'jobOffer_id as idAdd')
                                         ->whereIn('subcriptions.jobOffer_id', $idJobOffer)
+                                        ->groupBy('jobOffer_id')
                                         ->get();
 
-        return $studentsSubscriptions;
+        return $studentsSubcriptions;
+    }
+
+    public function arrayMap($query, $add, $nameKey)
+    {
+        $tag = 'tag';
+        $subcription = 'subcription';
+
+        foreach ($query as $key => $value) {
+
+            foreach ($add as $keys => $id) {
+
+                if ($value->id == $id->idAdd) {
+
+                    if ($nameKey == $tag) {
+
+                        $value->tagCount = $id->idAdd;
+
+                    } elseif ($nameKey == $subcription) {
+
+                        $value->subcriptionCount = $id->idAdd;
+
+                    }
+
+                }
+
+            }
+        }
+
+        return $query;
     }
 
 }
