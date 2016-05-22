@@ -22,6 +22,17 @@
             <span class="caret"></span>
         </a>
         <ul class="dropdown-menu perfil">
+            @if(\Auth::user()->rol == "administrador" || \Auth::user()->rol == "profesor")
+                <!-- Profesores -->
+                <li role="presentation" class="dropdown-header">Profesor</li>
+                <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Asignaturas</a></li>
+                <li><a href="{{ url(config('routes.admin.allDeniedTeachers')) }}">Ciclos</a></li>
+            @elseif(\Auth::user()->rol == "empresa")
+                <!-- Empresa -->
+                <li role="presentation" class="dropdown-header">Empresa</li>
+                <li><a href="{{ url(config('routes.admin.allDeniedTeachers')) }}">Información de la empresa</a></li>
+            @endif
+            <li role="presentation" class="dropdown-header">Usuario</li>
             <li><a href="{{ url(\Auth::user()->rol . config('routes.perfil')) }}"><i class="fa fa-wrench right" aria-hidden="true"></i> Editar perfil</a></li>
             <li><a href="#"><i class="fa fa-key right" aria-hidden="true"></i> Cambiar contraseña</a></li>
             <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out right" aria-hidden="true"></i> Logout</a></li>
