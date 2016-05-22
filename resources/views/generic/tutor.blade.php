@@ -1,6 +1,2 @@
-<div class="control-group row">
-	<div class="input-field{{ $errors->has('tutor') ? ' has-error' : '' }} col-md-12 tutor">
-	    {{ Form::checkbox('tutor', 'tutor', false, ['id' => 'tutor']) }}
-	    {{ Form::label('tutor', '¿Es tutor?', ['for' => 'tutor']) }}
-	</div>
-</div>
+{{ Form::checkbox('tutor', 'tutor', false, ['id' => 'tutor']) }}
+{{ Form::label('tutor', '¿Tutor?', ['for' => 'tutor']) }}

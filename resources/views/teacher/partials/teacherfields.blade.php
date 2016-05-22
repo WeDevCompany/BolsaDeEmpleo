@@ -61,9 +61,6 @@
             </span>
         @endif
 </div>
-
-@include('generic.tutor')
-
 <!-- Drag and drop -->
 <div class="control-group row extra-padding">
     @include('partials.upload.dragDrop')
@@ -83,3 +80,4 @@
         @endif
 </div>
 </fieldset>
+@include('teacher.partials.teacherSubjects')
