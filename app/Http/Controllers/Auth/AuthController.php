@@ -175,7 +175,7 @@ class AuthController extends Controller
         // Si ya ha verificado el email se redirecciona a welcome
         if($user->verifiedEmail){
 
-            return \Redirect::to('/');
+            return \Redirect::to('/login');
 
         }
 
@@ -184,13 +184,13 @@ class AuthController extends Controller
         $user->save();
 
         // Logeamos al usuario automaticamente y lo redireccionamos
-        \Auth::loginUsingId($user['id']);
-        return \Redirect::to('/');
+        return \Redirect::to('/login');
     }
 
     protected function getConfirmation()
     {
-        return view('auth.emails.confirmation');
+        $zona = "Formulario de confirmación";
+        return view('auth.emails.confirmation', compact('zona'));
     }
 
     /**
@@ -206,7 +206,7 @@ class AuthController extends Controller
         // Si ya ha verificado el email salta error 404
         if($user->verifiedEmail){
 
-            return \Redirect::to('/');
+            return \Redirect::to('/login');
         }
 
         // Modificamos el campo y lo guardamos
@@ -214,8 +214,7 @@ class AuthController extends Controller
         $user->save();
 
         // Logeamos al usuario automaticamente y lo redireccionamos
-        \Auth::loginUsingId($user['id']);
-        return \Redirect::to('/');
+        return \Redirect::to('/login');
 
     }
 
