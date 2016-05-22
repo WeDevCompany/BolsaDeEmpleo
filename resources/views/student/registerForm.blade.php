@@ -30,12 +30,12 @@
                                         @include('generic.profFamiliesfields')
                                     </fieldset>
                                     <fieldset id="fieldCycles0">
-                                    <div id="spinnerC0" class="spinner"></div>
                                         <legend style="width: auto;">Ciclos</legend>
+                                        @include('student.partials.cyclesFields')
                                     </fieldset>
-                                <div id="divAddFamilyCycle" class="text-center">
-                                    @include('student.partials.btnAddFamilyCycle')
-                                </div>
+                                    <div id="divAddFamilyCycle" class="text-center">
+                                        @include('student.partials.btnAddFamilyCycle')
+                                    </div>
                                 </section>
                             </fieldset>
                             <fieldset>
