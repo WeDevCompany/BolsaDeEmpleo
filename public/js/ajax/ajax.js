@@ -1,4 +1,4 @@
-/**
+/*
  * Clase ajax, esta clase contendrá un objeto de tipo Ajax encargado de realizar 
  * todas las peticiones necesarias al servidor y de devolver false o el objeto json.
  * @author Eduardo López Pardo
@@ -35,9 +35,9 @@
                     context : ajax,
 
                     // Función en caso de éxito
-                    success : function(json, status, response) {
+                    success : function(json, textStatus, response) {
                         // Si cualquier variable no esta definida, success sera false.
-                        if (typeof json == "undefined" || typeof status == "undefined"
+                        if (typeof json == "undefined" || typeof textStatus == "undefined"
                          || typeof response == "undefined") {
                             return false;
                         } else {
@@ -46,20 +46,42 @@
                     }, // success
                  
                     // Función en caso de error
-                    error : function(response, status) {
+                    error : function(response, textStatus) {
+                        if (response.status === 0) {
+                            console.log('Not connect: Verify Network.');
+                        } else if (response.status == 404) {
+                            console.log('Requested page not found [404]');
+                        } else if (response.status == 500) {
+                            console.log('Internal Server Error [500].');
+                        } else if (textStatus === 'parsererror') {
+                            console.log('Requested JSON parse failed.');
+                        } else if (textStatus === 'timeout') {
+                            console.log('Time out error.');
+                        } else if (textStatus === 'abort') {
+                            console.log('Ajax request aborted.');
+                        } else {
+                            console.log('Uncaught Error: ' + response.responseText);
+                        }
                         success = false;
+                        if (typeof spinnerC != "undefined") {
+                            spin.spinOff('C', method_params[2], true);
+                        } else if(typeof spinnerF != "undefined") {
+                            spin.spinOff('F', method_params[2], true);
+                        } else {
+                            spin.spinOff('Other', method_params[2], true);
+                        }
                     }, // error
                  
                     // código a ejecutar sin importar si la petición falló o no
-                    complete : function(response, status) {
+                    complete : function(response, textStatus) {
                         // Si la variable no esta definida, devuelvo false.
-                        if (typeof response == "undefined" || typeof status == "undefined"
+                        if (typeof response == "undefined" || typeof textStatus == "undefined"
                          || typeof success == "undefined"){
                             return false;
                         } else {
                             if (success !== false) {
                                 // Compruebo la respuesta del servidor
-                                check = this.getResponse(response, status);
+                                check = this.getResponse(response, textStatus);
 
                                 // Si la respuesta es correcta llamo al metodo al que le paso los datos recibidos
                                 if (check == true) {
@@ -82,10 +104,10 @@
         }, // callAjax
 
         // Comprueba la respuesta del servidor
-        getResponse : function(response, status) {
-            if ((response.status == "200" && response.statusText == "OK" && status == "success")) {
+        getResponse : function(response, textStatus) {
+            if ((response.status == "200" && response.statusText == "OK" && textStatus == "success")) {
                 return true;
-            } else if (typeof response == "undefined" || typeof status == "undefined") {
+            } else if (typeof response == "undefined" || typeof textStatus == "undefined") {
                 return false;
             } else {
                 return false;

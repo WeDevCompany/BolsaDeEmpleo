@@ -718,3 +718,22 @@ div.drop:hover {
 fieldset {
   border:none;
 }
+
+/*
+ * Formularios con chosen, campos problematicos
+ */
+
+.selectcol3 {
+  margin-top:2.5em;
+  margin-left:1.7em;
+  margin-right:1.3em
+}
+
+.divdate {
+  margin-top: 2em;
+  padding-top: 15px
+}
+
+.divdatelab {
+  margin-top: -1.5em;
+}
