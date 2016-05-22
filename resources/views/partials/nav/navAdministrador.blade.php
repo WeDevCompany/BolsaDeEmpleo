@@ -73,3 +73,16 @@
         <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}"><i class="fa fa-check right" aria-hidden="true"></i> Todas</a></li>
     </ul>
 </a></li>
+<li class = "dropdown">
+    <a href="#" class="dropdown-toggle subrayado " data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="label-show">Configuración <span class="caret"></span></span><span class="icon-hidden"><i class="fa fa-cog fa-spin fa-fw"  aria-hidden="true"></i> <span class="caret"></span></span>
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="profesores">
+        <!-- ADMIN -->
+        <li role="presentation" class="dropdown-header">Administrador</li>
+        <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}"></i>Familias profesionales</a></li>
+        <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Ciclos</a></li>
+        <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Asignaturas</a></li>
+        <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Tags</a></li>
+    </ul>
+</a></li>

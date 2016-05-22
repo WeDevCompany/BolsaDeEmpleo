@@ -28,14 +28,15 @@
                             <p><b>Descripción de la oferta:</b></p><span class="descripcion">{!! $offer->description !!}</span>
                         </div>
                         <div class="row extra-padding-top">
-                            <div class="col-sm-4"><b>Duración: </b>{!! $offer->duration !!}</div>
-                            <div class="col-sm-4 offset4"><b>Tipo: </b>{!! $offer->kind !!}</div>
-                            <div class="col-sm-4 offset8"><b>Nivel: </b>{!! $offer->level !!}</div>
+                            <div class="col-sm-3"><b>Duración: </b>{!! $offer->duration !!}</div>
+                            <div class="col-sm-3 offset3"><b>Tipo: </b>{!! $offer->kind !!}</div>
+                            <div class="col-sm-3 offset6"><b>Suscriptores: </b>10</div>
+                            <div class="col-sm-3 offset9"><b>Nivel: </b>{!! $offer->level !!}</div>
                         </div>
                         <div class="row extra-padding-top">
                             <div class="col-sm-4"><b>Se busca contratar: </b>{{ $offer->wanted }}</div>
                             <div class="col-sm-4 offset4"><b>Contratados en la actualidad: </b>{!! $offer->hired !!}</div>
-                            <div class="col-sm-4 offset8"><b>Fecha de vencimiento: </b>{{ $offer->dueDate }}</div>
+                            <div class="col-sm-4 offset8"><b>Fecha de vencimiento: </b><time datetime="{{ $offer->dueDate }}"></time>{{ $offer->dueDate }}</div>
                         </div>
                     </div>
                 </div>
