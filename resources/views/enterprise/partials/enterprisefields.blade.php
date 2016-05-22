@@ -1,6 +1,6 @@
-    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} form-group{{ $errors->has('cif') ? ' has-error' : '' }}">
         <div class="row">
-            <div class="input-field col-md-12">
+            <div class="input-field col-md-8">
                 <i class="material-icons prefix">copyright</i>
                 {{ Form::label('name', 'Nombre') }}
                 {{ Form::text('name', null, ['class' => 'form-control']) }}
@@ -10,11 +10,7 @@
                     </span>
                 @endif
             </div>
-        </div>
-    </div>
-    <div class="form-group{{ $errors->has('cif') ? ' has-error' : '' }}">
-        <div class="row">
-            <div class="input-field col-md-12">
+            <div class="input-field col-md-4">
                 <i class="material-icons prefix">fingerprint</i>
                 {{ Form::label('cif', 'CIF') }}
                 {{ Form::text('cif', null, ['class' => 'form-control']) }}

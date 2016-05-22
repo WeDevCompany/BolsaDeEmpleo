@@ -25,40 +25,41 @@
                             <legend style="width:auto;">Empresa</legend>
                             @include('enterprise.partials.enterprisefields')
                         </fieldset>
+                        <fieldset id="fieldWorkAll0">
+                            <legend style="width: auto;">Centro de trabajo</legend>
+                            <section>
+                                <fieldset id="fieldWorkCity0">
+                                    <legend style="width: auto;">Datos del centro</legend>
+                                    @include('enterprise.partials.workcenterfields')
+                                    @include('generic.stateCitiesFields')
+                                </fieldset>
+                                <fieldset id="fieldResponsable0">
+                                    <legend style="width: auto;">Responsable del centro</legend>
+                                    @include('enterprise.partials.enterpriseresponsablefields')
+                                </fieldset>
+                                <div id="divAddFamilyCycle" class="text-center">
+                                    @include('enterprise.partials.btnAddWorkcenter')
+                                </div>
+                            </section>
+                        </fieldset>    
                         <fieldset>
-                            <legend style="width: auto;">Centro de trabajo principal</legend>
-                                <legend style="width: auto;">Contacto</legend>
-                                @include('enterprise.partials.workcenterfields')
-                                <div class="extra-padding">
-                                    <div class="col-md-12 input-field">
-                                        @include('generic.statefields')
-                                        @include('generic.citiefields')
+                            <legend style="width: auto;">Usuario</legend>
+                            @include('generic.userfields')
+                        </fieldset>
+                        @include('generic.terms')
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light" id="submit">
+                                    <div class="show-responsive">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
                                     </div>
-                                </div>
-                        </fieldset>
-                            <fieldset>
-                                <legend style="width: auto;">Responsable del centro de trabajo</legend>
-                                @include('enterprise.partials.enterpriseresponsablefields')
-                            </fieldset>
-                            <fieldset>
-                                <legend style="width: auto;">Usuario</legend>
-                                @include('generic.userfields')
-                            </fieldset>
-                        </fieldset>
-                            @include('generic.terms')
-                            <div class="form-group">
-                                <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light" id="submit">
-                                        <div class="show-responsive">
-                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="hidden-media">
-                                            <i class="fa fa-btn fa-user"></i> <span class="hidden-media">Registrar</span>
-                                        </div>
-                                    </button>
-                                </div>
+                                    <div class="hidden-media">
+                                        <i class="fa fa-btn fa-user"></i> <span class="hidden-media">Registrar</span>
+                                    </div>
+                                </button>
                             </div>
-                        {{ Form::close() }}
+                        </div>
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>
