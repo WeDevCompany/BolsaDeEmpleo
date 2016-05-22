@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\JobOffer;
 use App\Teacher;
 use App\Student;
+use App\Tag;
 
 use App\Http\Requests;
 
@@ -86,6 +87,16 @@ class SearchController extends Controller
         return $verifiedStudent;
 
     } // verifiedStudent()
+
+    public function deniedStudent()
+    {
+        $deniedStudent = Student::select('*')
+                                    ->join('users', 'users.id', '=', 'user_id')
+                                    ->whereNotNull('delete_at')
+                                    ->paginate();
+
+        return $deniedStudent;
+    }
 
 
     /*==============================
@@ -174,7 +185,7 @@ class SearchController extends Controller
 
     public function invalidOrValidOffer($invalidOrValidOffer, $request, $profFamilyValidate = null, $truncate = null)
     {
-        //Tag::select('')
+
     	$invalidOrValidOffer = JobOffer::name($request->get('name'))
     									->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y las ofertas
     									->select('states.name as stateName', 'cities.name as cityName', 'workCenters.name as workCenterName', 'workCenters.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'workCenters.*', 'enterprises.*', 'profFamilies.*', 'users.*', 'jobOffers.*')
@@ -189,12 +200,14 @@ class SearchController extends Controller
 
         if ($truncate) {
 
+            $descriptionLength = 250;
+
             foreach ($invalidOrValidOffer as $key => $value) {
                 //dd(mb_strlen($value->description));
 
-                if (mb_strlen($value->description) > 250) {
+                if (mb_strlen($value->description) > $descriptionLength) {
 
-                    $value->description = mb_substr($value->description, 0, 250) . '...';
+                    $value->description = mb_substr($value->description, 0, $descriptionLength) . '...';
 
                 }
 
@@ -204,6 +217,17 @@ class SearchController extends Controller
         return $invalidOrValidOffer;
 
     } // invalidOrValidOffer()
+
+    public function offerTag($idJobOffer)
+    {
+        $tag = Tag::select('tags.tag', 'jobOffers.id')
+                    ->join('offerTags', 'offerTags.tag_id', '=', 'tags.id')
+                    ->join('jobOffers', 'jobOffers.id', '=', 'offerTags.jobOffer_id')
+                    ->whereIn('jobOffers.id', $idJobOffer)
+                    ->get();
+
+        return $tag;
+    }
 
     /**
      * Metodo que comprueba si la oferta pasada como parametro esta
@@ -221,5 +245,14 @@ class SearchController extends Controller
         return $verifiedOffer;
 
     } // verifiedOffer()
+
+    public function studentsSubscriptions($idJobOffer)
+    {
+        $studentsSubscriptions = \DB::table('subcriptions')->select('jobOffer_id', 'id')
+                                        ->whereIn('subcriptions.jobOffer_id', $idJobOffer)
+                                        ->get();
+
+        return $studentsSubscriptions;
+    }
 
 }

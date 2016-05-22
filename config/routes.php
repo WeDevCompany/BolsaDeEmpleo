@@ -48,7 +48,7 @@ return [
             'studentSearchNotification' => '/notificaciones/estudiantes-buscador',
             'offerSearchNotification'   => '/notificaciones/ofertas-buscador',
             'allVerifiedTeachers'       => '/profesor/verificados',
-            'allVerifiedTeachersSearch' => 'profesor/verificados-buscador',
+            'allVerifiedTeachersSearch' => '/profesor/verificados-buscador',
             'allDeniedTeachers'         => '/profesor/denegados',
             'allVerifiedStudents'       => '/estudiante/verificados',
             'allVerifiedStudentsSearch' => '/estudiante/verificados-buscador',
@@ -76,8 +76,8 @@ return [
 			'offertNotification' 	=> '/profesor/notificaciones/ofertas',
 			'allVerifiedStudents' 	=> '/profesor/estudiante/verificados',
 			'allDeniedStudents' 	=> '/profesor/estudiante/denegados',
-			'allVerifiedOffers' 	=> '/profesor/ofertas/verificadas',
-			'allDeniedOffers' 		=> '/profesor/ofertas/denegadas',
+			'allVerifiedOffers' 	=> '/profesor/oferta/verificadas',
+			'allDeniedOffers' 		=> '/profesor/oferta/denegadas',
         ],
     'teacherRoutes'    =>
         [
@@ -90,9 +90,10 @@ return [
             'allVerifiedStudents'       => '/estudiante/verificados',
             'allVerifiedStudentsSearch' => '/estudiante/verificados-buscador',
             'allDeniedStudents'         => '/estudiante/denegados',
-            'allVerifiedOffers'         => '/ofertas/verificadas',
-            'allVerifiedOffersSearch'   => '/ofertas/verificadas-buscador',
-            'allDeniedOffers'           => '/ofertas/denegadas',
+            'allDeniedStudentsSearch'   => '/estudiante/denegados-buscador',
+            'allVerifiedOffers'         => '/oferta/verificadas',
+            'allVerifiedOffersSearch'   => '/oferta/verificadas-buscador',
+            'allDeniedOffers'           => '/oferta/denegadas',
         ],
     'enterprise'    =>
         [

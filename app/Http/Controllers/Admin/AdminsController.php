@@ -340,13 +340,25 @@ class AdminsController extends TeachersController
         // Obtenemos los estudiantes que estan validados
         $verifiedOffer = $this->search->invalidOrValidOffer($validOffer, $this->request, null, true);
 
+        // Obtenemos los tags de la oferta
+        $offerTag = $this->search->offerTag($validOffer);
+
+        // Obtenemos los tags de la oferta
+        $offerTag = $this->search->offerTag($validOffer);
+
+        // Obtenemos el numero de subscripciones a la oferta
+        $studentsSubcriptions = $this->search->studentsSubscriptions($validOffer);
+
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {
 
-            return $verifiedOffer;
+            $offer = array($verifiedOffer, $offerTag, $studentsSubcriptions);
+
+            return $offer;
+
         }
 
-        return view('admin/verifiedOffer', compact('verifiedOffer'));
+        return view('admin/verifiedOffer', compact('verifiedOffer', 'offerTag', 'studentsSubcriptions'));
 
     } // getVerifiedOffer()
 
@@ -356,9 +368,15 @@ class AdminsController extends TeachersController
      */
     public function postSearchVerifiedOffer()
     {
-        $verifiedOffer = $this->getVerifiedOffer();
+        $offer = $this->getVerifiedOffer();
 
-        return view('admin/verifiedOffer', compact('verifiedOffer'));
+        $verifiedOffer = $offer[0];
+
+        $offerTag = $offer[1];
+
+        $studentsSubcriptions = $offer[2];
+
+        return view('admin/verifiedOffer', compact('verifiedOffer', 'offerTag', 'studentsSubcriptions'));
 
     } // postSearchVerifiedOffer()
 

@@ -267,6 +267,13 @@ class TeachersController extends UsersController
 
     } // postSearchVerifiedStudent()
 
+    public function getDeniedStudent()
+    {
+        $deniedStudent = $this->search->deniedStudent();
+
+        return view('teacher/deniedStudent', compact('deniedStudent'));
+    }
+
     /*
     |---------------------------------------------------------------------------|
     | OFERTAS -> Validacion, listado, borrado y restauracion.                   |
@@ -396,13 +403,21 @@ class TeachersController extends UsersController
         // Obtenemos los estudiantes que estan validados
         $verifiedOffer = $this->search->invalidOrValidOffer($validOffer, $this->request, $profFamilyValidate, true);
 
+        // Obtenemos los tags de la oferta
+        $offerTag = $this->search->offerTag($validOffer);
+
+        // Obtenemos el numero de subscripciones a la oferta
+        $studentsSubcriptions = $this->search->studentsSubscriptions($validOffer);
+
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {
 
-            return $verifiedOffer;
+            $offer = array($verifiedOffer, $offerTag, $studentsSubscriptions);
+
+            return $offer;
         }
 
-        return view('teacher/verifiedOffer', compact('verifiedOffer'));
+        return view('teacher/verifiedOffer', compact('verifiedOffer', 'offerTag', 'studentsSubcriptions'));
 
     } // getVerifiedOffer()
 
@@ -412,9 +427,15 @@ class TeachersController extends UsersController
      */
     public function postSearchVerifiedOffer()
     {
-        $verifiedOffer = $this->getVerifiedOffer();
+        $offer = $this->getVerifiedOffer();
 
-        return view('teacher/verifiedOffer', compact('verifiedOffer'));
+        $verifiedOffer = $offer[0];
+
+        $offerTag = $offer[1];
+
+        $studentsSubcriptions = $offer[2];
+
+        return view('teacher/verifiedOffer', compact('verifiedOffer', 'offerTag', 'studentsSubcriptions'));
 
     } // postSearchVerifiedOffer()
 }

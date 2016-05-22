@@ -286,14 +286,14 @@ class JobOffersSeeder extends Seeder
 
         // Oferta 15
         \DB::table('jobOffers')->insert(
-            ['title' => mb_strtolower('Desarrollador Web'),
+            ['title' => mb_strtolower('Leñador'),
              'duration' =>  $faker->randomElement(['Indefinido','Duracion determinada','Por proyectos','Desconocida']),
              'kind' => $faker->randomElement(['Fct','Job']),
              'description' => $faker->text,
              'level' => $faker->randomElement(['Grado superior', 'Grado medio', 'Grado básico', 'Bachillerato']),
              'experience' => $faker->randomElement(['Un año', 'Dos años', 'Tres años', 'Cuadro años', 'Cinco años', 'No requerida']),
              'others' => 'base de datos NoSQL, Node.js, docker',
-             'profFamilie_id' => $profFamilie_id,
+             'profFamilie_id' => 2,
              'dueDate' => $nuevafecha,
              'wanted' => 3,
              'enterpriseResponsable_id' => 15,

@@ -11,6 +11,17 @@ class TeacherProfFamiliesSeeder extends Seeder
      */
     public function run()
     {
+        /******************************************
+                    PEDRO TEACHER
+                    PROF FAMILIES
+        *******************************************/
+
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 1,
+            'teacher_id' => 3,
+            'created_at' => date('YmdHms')
+        ]);
+
     	/******************************************
     				EDUARDO TEACHER
     				PROF FAMILIES
