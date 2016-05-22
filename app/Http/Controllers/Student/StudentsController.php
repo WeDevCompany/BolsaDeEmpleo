@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\UsersController;
-use App\Http\Controllers\ProfFamilieController;
+use App\Http\Controllers\ProfFamiliesController;
+use App\Http\Controllers\CyclesController;
 use App\Http\Requests;
 use App\Student;
 use App\Cycle;
@@ -45,10 +46,23 @@ class StudentsController extends UsersController
 
     protected function index(){
         // Llamo al metodo getAllProfFamilies del controlador de las familias profesionales
-        $profFamilies = app(ProfFamilieController::class)->getAllProfFamilies();
-		$zona = 'Registro de estudiantes';
+        $profFamilies = app(ProfFamiliesController::class)->getAllProfFamilies();
+		        
+        // Obtengo el identificador de la primera familia profesional
+        $familyId = array_keys($profFamilies)[0];
+
+        // Obtengo los ciclos de la primera familia
+        $cycles = app(CyclesController::class)->getAllCycles($familyId);
+        $zona = 'Registro de estudiantes';
+
+        // Inicializo las variables que necesitare para los optgroups
+        $basico = true;
+        $medio = true;
+        $superior = true;
+
         // Devuelvo la vista junto con las familias
-        return view('student.registerForm', compact('profFamilies', 'zona'));
+        return view('student.registerForm', compact('profFamilies', 'cycles', 'zona', 'basico', 'medio', 'superior'));
+
     } // index()
 
     protected function store()

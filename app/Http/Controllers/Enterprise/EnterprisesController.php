@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Enterprise;
 
 use App\Enterprise;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\StatesController;
 use App\Http\Requests;
 use App\User;
 use Illuminate\Http\Request;

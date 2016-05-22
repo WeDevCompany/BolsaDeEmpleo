@@ -82,7 +82,10 @@ Route::group(['prefix' => 'json', 'middleware' => 'web'], function () {
     Route::get('cycles/{familyId}', 'CyclesController@getCiclesJSON');
 
     // Familias profesionales
-    Route::get('profFamilies', 'ProfFamilieController@getAllProfFamiliesJSON');
+    Route::get('profFamilies', 'ProfFamiliesController@getAllProfFamiliesJSON');
+
+    // Provincias
+    Route::get('states', 'StatesController@getAllStatesJSON');
 
 });
 
