@@ -1,4 +1,4 @@
-/**
+/*
  * Clase familyCycles, esta clase contendrá un objeto de tipo familyCycles encargado de 
  * añadir todas las estructuras necesarias de estos dos campos a cualquier formulario.
  * @author Eduardo López Pardo
@@ -27,8 +27,8 @@
                     '<div class="form-group">' +
                         '<div class="row">' +
                             '<div class="input-field col-md-12">' +
-                               '<label for="family'+ variable + '" class="hidden" style="margin-top: -2.5em">Familia profesional perteneciente al ciclo</label>' +
-                                '<select name="family" class="family form-control hidden" id="family'+ variable + '"></select>' +
+                                '<label for="family'+ variable + '" class="hidden" style="margin-top: -2.5em">Familia profesional perteneciente al ciclo</label>' +
+                                '<select name="family[' + variable + ']" class="chosen-select family form-control hidden" id="family'+ variable + '"></select>' +
                             '</div>' +
                         '</div>' +    
                     '</div>'
@@ -48,12 +48,14 @@
                 $('#family'+variable).removeClass('hidden');
                 $('label[for="family'+variable+'"]').removeClass('hidden');
 
+                // Actualizamos chosen
+                $(".chosen-select").chosen({ width: "95%" });
+
                 if (result == '') {
                     return false;
                 } else {
                     if (spinnerF) {
-                        $('#spinnerF'+variable).remove();
-                        spinnerF.stop();
+                        spin.spinOff('F', variable, true);
                     }
                     return true;
                 }
@@ -71,8 +73,8 @@
                     '<div class="form-group">' +
                         '<div class="row">' +
                             '<div class="input-field col-md-12">' +
-                                '<label for="cycles" style="margin-top: -2.5em">Ciclo actual</label>' +
-                                '<select name="cycles[' + variable + ']" class="form-control" id="cycles' + variable + '"></select>' +
+                                '<label for="cycle" style="margin-top: -2.5em">Ciclo actual</label>' +
+                                '<select name="cycle[' + variable + ']" class="chosen-select form-control" id="cycle' + variable + '"></select>' +
                                 '<section id="fieldDates' + variable + '"></section>' +
                             '</div>' +
                         '</div>' +
@@ -92,19 +94,19 @@
                         estadoCycles = true;
                         if ( cycleObj.level === "Básico") {
                             if( basico === true ) {
-                                $('#cycles'+variable).append('<optgroup label="Grados básicos" id="basico'+variable+'"></optgroup>');
+                                $('#cycle'+variable).append('<optgroup label="Grados básicos" id="basico'+variable+'"></optgroup>');
                                 basico = false;
                             }
                             $('#basico'+variable).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
                         } else if ( cycleObj.level === "Medio" ) {
                             if ( medio === true ) {
-                                $('#cycles'+variable).append('<optgroup label="Grados medios" id="medio'+variable+'"></optgroup>');
+                                $('#cycle'+variable).append('<optgroup label="Grados medios" id="medio'+variable+'"></optgroup>');
                                 medio = false;
                             }
                             $('#medio'+variable).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
                         } else if ( cycleObj.level === "Superior" ) {
                             if ( superior === true ) {
-                                $('#cycles'+variable).append('<optgroup label="Grados superiores" id="superior'+variable+'"></optgroup>');
+                                $('#cycle'+variable).append('<optgroup label="Grados superiores" id="superior'+variable+'"></optgroup>');
                                 superior = false;
                             }
                             $('#superior'+variable).append('<option value="' + cycleObj.id + '">' + '[' + cycleObj.level + '] ' + cycleObj.name + '</option>');
@@ -112,12 +114,14 @@
                     }
                 });
 
+                // Actualizamos chosen
+                $(".chosen-select").chosen({ width: "95%" });
+
                 if (result == '') {
                     return false;
                 } else {
                     if (spinnerC) {
-                        $('#spinnerC'+variable).remove();
-                        spinnerC.stop();
+                        spin.spinOff('C', variable, true);
                     }
                     identifier = 'fieldDates'+variable;
                     familyCycles.addDate(identifier, variable);
@@ -138,15 +142,18 @@
             } else {
                 // Añado la estructura HTML de las fechas
                 $('#'+identifier).append(
-                    '<div class="input-field col-md-6"  style="padding-top: 5px">' +
-                        '<label for="yearFrom[' + variable + ']" style="margin-top: -2em">A&ntilde;o de inicio</label>' +
+                    '<div class="input-field col-md-6 divdate">' +
+                        '<label for="yearFrom[' + variable + ']" class="divdatelab">A&ntilde;o de inicio</label>' +
                         funciones.generarSelectYears('yearFrom[' + variable + ']', 1990) +
                     '</div>' +
-                    '<div class="input-field col-md-6">' +
-                        '<label for="yearTo[' + variable + ']" style="margin-top: -2em">A&ntilde;o de fin</label>' +
+                    '<div class="input-field col-md-6 divdate">' +
+                        '<label for="yearTo[' + variable + ']" class="divdatelab">A&ntilde;o de fin</label>' +
                         funciones.generarSelectYears('yearTo[' + variable + ']', 1990) +
                     '</div>'
                 );
+
+                // Actualizamos chosen
+                $(".chosen-select").chosen({ width: "95%" });
 
                 // Compruebo si se han añadido bien
                 fechaInicio = $('#yearFrom[' + variable + ']');
@@ -197,6 +204,7 @@
                     return true;
                 }
             } else {
+                identificador = $('#btnAddFamilyCycle');
                 // Si se ha alcanzado el limite de 7 ciclos mostramos un error
                 mensaje = "Has excedido el máximo número de ciclos si quieres añadir más hazlo una vez registrado/a";
                 if(error < 1){
@@ -208,7 +216,7 @@
         }, // addAllStructure
         
         newFamilyCycle : function() {
-
+            // Realizará todo el proceso llamando una por una con las peticiones ajax incluidas
         }
 
     }; // familyCycles

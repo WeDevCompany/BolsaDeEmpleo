@@ -13,7 +13,7 @@
          */
         generarSelectYears: function(id, start) {
             var anyo = (new Date).getFullYear();
-        	var select = '<select class="form-control mdb-select" name="' + id + '" id="' + id + '">';
+        	var select = '<select class="chosen-select form-control" name="' + id + '" id="' + id + '">';
         	for (k = start; k <= anyo; k++)
             {
                 select += '<option value="' + k + '">' + k + '</option>';
