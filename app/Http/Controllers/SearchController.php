@@ -177,7 +177,7 @@ class SearchController extends Controller
         //Tag::select('')
     	$invalidOrValidOffer = JobOffer::name($request->get('name'))
     									->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y las ofertas
-    									->select('workCenters.name as workCenterName', 'workCenters.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'workCenters.*', 'enterprises.*', 'profFamilies.*', 'users.*', 'jobOffers.*')
+    									->select('states.name as stateName', 'cities.name as cityName', 'workCenters.name as workCenterName', 'workCenters.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'workCenters.*', 'enterprises.*', 'profFamilies.*', 'users.*', 'jobOffers.*')
     									->join('profFamilies', 'profFamilies.id', '=', 'jobOffers.profFamilie_id')
     									->join('workCenters', 'workCenters.id', '=', 'jobOffers.workCenter_id')
     									->join('enterprises', 'enterprises.id', '=', 'workCenters.enterprise_id')
