@@ -394,7 +394,7 @@ class TeachersController extends UsersController
         $validOffer = array_column($validOffer, 'jobOffer_id');
 
         // Obtenemos los estudiantes que estan validados
-        $verifiedOffer = $this->search->invalidOrValidOffer($validOffer, $this->request, $profFamilyValidate);
+        $verifiedOffer = $this->search->invalidOrValidOffer($validOffer, $this->request, $profFamilyValidate, true);
 
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {

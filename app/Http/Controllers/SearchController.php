@@ -172,17 +172,34 @@ class SearchController extends Controller
 
     } // validOffer()
 
-    public function invalidOrValidOffer($invalidOrValidOffer, $request, $profFamilyValidate = null)
+    public function invalidOrValidOffer($invalidOrValidOffer, $request, $profFamilyValidate = null, $truncate = null)
     {
+        //Tag::select('')
     	$invalidOrValidOffer = JobOffer::name($request->get('name'))
     									->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y las ofertas
-    									->select('workCenters.name as workCenterName', 'workCenters.email as workCenterEmail', 'enterprises.name as enterpriseName', 'workCenters.*', 'enterprises.*', 'profFamilies.*', 'users.*', 'jobOffers.*')
+    									->select('workCenters.name as workCenterName', 'workCenters.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'workCenters.*', 'enterprises.*', 'profFamilies.*', 'users.*', 'jobOffers.*')
     									->join('profFamilies', 'profFamilies.id', '=', 'jobOffers.profFamilie_id')
     									->join('workCenters', 'workCenters.id', '=', 'jobOffers.workCenter_id')
     									->join('enterprises', 'enterprises.id', '=', 'workCenters.enterprise_id')
     									->join('users', 'users.id', '=', 'user_id')
+                                        ->join('cities', 'cities.id', '=','workCenters.citie_id')
+                                        ->join('states', 'states.id', '=','cities.state_id')
                                     	->whereIn('jobOffers.id', $invalidOrValidOffer)
                                     	->paginate();
+
+        if ($truncate) {
+
+            foreach ($invalidOrValidOffer as $key => $value) {
+                //dd(mb_strlen($value->description));
+
+                if (mb_strlen($value->description) > 250) {
+
+                    $value->description = mb_substr($value->description, 0, 250) . '...';
+
+                }
+
+            }
+        }
 
         return $invalidOrValidOffer;
 
