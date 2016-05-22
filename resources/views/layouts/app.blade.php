@@ -108,9 +108,6 @@
     <!-- Script con la logica spin -->
     <script src="{{ asset('/js/spin/spin.min.js') }}"></script>
 
-    <!-- Script con los parametros del spin -->
-    <script src="{{ asset('/js/spin/spin.js') }}"></script>
-
     <!-- Script que automatiza el carrusel -->
     <script src="{{url("/js/carrusel.js")}}" type="text/javascript" charset="utf-8"></script>
 
