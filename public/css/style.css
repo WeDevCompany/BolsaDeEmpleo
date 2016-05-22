@@ -708,10 +708,13 @@ div.drop:hover {
   text-transform:uppercase;
 }
 
-/*.titulo:hover {
-  text-decoration:underline;
-}*/
-
 .descripcion {
   color:#607D8B;
+}
+
+/***************
+  fieldeset
+****************/
+fieldset {
+  border:none;
 }

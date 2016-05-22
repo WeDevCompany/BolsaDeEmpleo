@@ -37,4 +37,7 @@ teacherRegisterForm.after('<script src="/js/validaciones/email.js"></script>');
 teacherRegisterForm.after('<script src="/js/validaciones/password.js"></script>');
 
 // Script de validación de la confirmacion de la contraseña
-teacherRegisterForm.after('<script src="/js/validaciones/passwordConfirmation.js"></script>');
+teacherRegisterForm.after('<script src="/js/validaciones/passwordConfirmation.js"></script>')
+
+// Script que muestra el campo select con el ciclo del cual es tutor el profesor
+teacherRegisterForm.after('<script src="/js/funcionalidad/tutorShowCycle.js"></script>');
