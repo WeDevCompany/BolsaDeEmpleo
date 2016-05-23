@@ -31,6 +31,19 @@ class AdminsController extends TeachersController
         return view('admin/index');
 	} // index()
 
+    /*
+    |---------------------------------------------------------------------------|
+    | PROFESORES -> Validacion, listado, borrado y restauracion.                |
+    |---------------------------------------------------------------------------|
+    |                                                                           |
+    | En esta seccion tendremos:                                                |
+    |       -> Validacion de todos los profesores                               |
+    |       -> Listado de todos los profesores validados en la aplicacion       |
+    |       -> Borrado de profesores con softDeletes                            |
+    |       -> Restauracion de profesores "borrados" mediante softDeletes       |
+    |                                                                           |
+    */
+
 	/**
      * Metodo que obtiene los profesores
      * @return  view        vista en la que el admin validara a los profesores
@@ -352,7 +365,6 @@ class AdminsController extends TeachersController
         // Añadimos los tags
         $verifiedOffer = $this->search->arrayMap($verifiedOffer, $offerTag, 'tag');
 
-        dd($verifiedOffer);
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {
 

@@ -188,7 +188,7 @@ class SearchController extends Controller
 
     	$invalidOrValidOffer = JobOffer::name($request->get('name'))
     									->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y las ofertas
-    									->select('states.name as stateName', 'cities.name as cityName', 'workCenters.name as workCenterName', 'workCenters.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'workCenters.*', 'enterprises.*', 'profFamilies.*', 'users.*', 'jobOffers.*')
+    									->select('jobOffers.id as idJobOffer', 'states.name as stateName', 'cities.name as cityName', 'workCenters.name as workCenterName', 'workCenters.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'workCenters.*', 'enterprises.*', 'profFamilies.*', 'users.*', 'jobOffers.*')
     									->join('profFamilies', 'profFamilies.id', '=', 'jobOffers.profFamilie_id')
     									->join('workCenters', 'workCenters.id', '=', 'jobOffers.workCenter_id')
     									->join('enterprises', 'enterprises.id', '=', 'workCenters.enterprise_id')
@@ -220,7 +220,7 @@ class SearchController extends Controller
 
     public function offerTag($idJobOffer)
     {
-        $tag = Tag::select(\DB::raw('count(jobOffer_id)'), 'jobOffer_id as idAdd')
+        $tag = Tag::select('tags.tag as nameTag', 'jobOffer_id as idAdd')
                     ->join('offerTags', 'offerTags.tag_id', '=', 'tags.id')
                     ->join('jobOffers', 'jobOffers.id', '=', 'offerTags.jobOffer_id')
                     ->whereIn('jobOffers.id', $idJobOffer)
@@ -248,7 +248,7 @@ class SearchController extends Controller
 
     public function studentsSubscriptions($idJobOffer)
     {
-        $studentsSubcriptions = \DB::table('subcriptions')->select(\DB::raw('count(jobOffer_id)'), 'jobOffer_id as idAdd')
+        $studentsSubcriptions = \DB::table('subcriptions')->select(\DB::raw('count(subcriptions.jobOffer_id) as subcriptionCount'), 'jobOffer_id as idAdd')
                                         ->whereIn('subcriptions.jobOffer_id', $idJobOffer)
                                         ->groupBy('jobOffer_id')
                                         ->get();
@@ -263,23 +263,27 @@ class SearchController extends Controller
 
         foreach ($query as $key => $value) {
 
+            $tagCount = null;
+
             foreach ($add as $keys => $id) {
 
-                if ($value->id == $id->idAdd) {
+                if ($value->idJobOffer == $id->idAdd) {
 
-                    if ($nameKey == $tag) {
+                    if ($nameKey === $tag) {
 
-                        $value->tagCount = $id->idAdd;
+                        $tagCount[] = $id->nameTag;
 
-                    } elseif ($nameKey == $subcription) {
+                    } elseif ($nameKey === $subcription) {
 
-                        $value->subcriptionCount = $id->idAdd;
+                        $value->subcriptionCount = $id->subcriptionCount;
 
                     }
 
                 }
 
             }
+
+            $value->tagCount = $tagCount;
         }
 
         return $query;

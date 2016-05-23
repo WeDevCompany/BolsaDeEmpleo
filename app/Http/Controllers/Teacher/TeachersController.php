@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 //use Illuminate\Support\Collection as Collection;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\EmailController;
 
 class TeachersController extends UsersController
 {
@@ -409,15 +410,19 @@ class TeachersController extends UsersController
         // Obtenemos el numero de subscripciones a la oferta
         $studentsSubcriptions = $this->search->studentsSubscriptions($validOffer);
 
+        // Añadimos las suscripciones
+        $verifiedOffer = $this->search->arrayMap($verifiedOffer, $studentsSubcriptions, 'subcription');
+
+        // Añadimos los tags
+        $verifiedOffer = $this->search->arrayMap($verifiedOffer, $offerTag, 'tag');
+
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {
 
-            $offer = array($verifiedOffer, $offerTag, $studentsSubscriptions);
-
-            return $offer;
+            return $verifiedOffer;
         }
 
-        return view('teacher/verifiedOffer', compact('verifiedOffer', 'offerTag', 'studentsSubcriptions'));
+        return view('teacher/verifiedOffer', compact('verifiedOffer'));
 
     } // getVerifiedOffer()
 
@@ -427,15 +432,10 @@ class TeachersController extends UsersController
      */
     public function postSearchVerifiedOffer()
     {
-        $offer = $this->getVerifiedOffer();
+        $verifiedOffer = $this->getVerifiedOffer();
 
-        $verifiedOffer = $offer[0];
-
-        $offerTag = $offer[1];
-
-        $studentsSubcriptions = $offer[2];
-
-        return view('teacher/verifiedOffer', compact('verifiedOffer', 'offerTag', 'studentsSubcriptions'));
+        return view('teacher/verifiedOffer', compact('verifiedOffer'));
 
     } // postSearchVerifiedOffer()
+
 }
