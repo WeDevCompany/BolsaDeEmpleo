@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\EmailController;
 
 // Incluimos la librería faker para poder hacer pruebas
 use Faker\Factory as Faker;
@@ -38,6 +39,7 @@ class UsersController extends Controller
 	protected $rol = null;              // Inicializada a null
 	protected $redirectTo = '/';        // Donde redireccionaremos
     protected $search = null;           // Buscador
+    protected $email = null;            // Email
 
     /**
      * Constructor del Controlador de usuarios
@@ -63,6 +65,7 @@ class UsersController extends Controller
         ];
 
         $this->search = new SearchController();
+        $this->email = new EmailController();
 
     }
 
@@ -262,5 +265,6 @@ class UsersController extends Controller
         }
 
     } // sendEmail()
+
 
 }// fin del controlador
