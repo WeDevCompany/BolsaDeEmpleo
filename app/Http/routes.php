@@ -142,10 +142,17 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web'], 'namespace' => 'T
     Route::get(config('routes.teacherRoutes.studentNotification'), 'TeachersController@getStudentNotification');
     Route::post(config('routes.teacherRoutes.studentValidNotification'), 'TeachersController@postStudentNotification');
     Route::post(config('routes.teacherRoutes.studentSearchNotification'), 'TeachersController@postSearchStudentNotification');
+    Route::delete('/notificaciones/eliminar-notificacion-estudiante/{id}', 'TeachersController@destroyStudentNotification');
 
     // Alumnos admitidos
     Route::get(config('routes.teacherRoutes.allVerifiedStudents'), 'TeachersController@getVerifiedStudent');
     Route::post(config('routes.teacherRoutes.allVerifiedStudentsSearch'), 'TeachersController@postSearchVerifiedStudent');
+
+    // estudiantes borrados
+    Route::get(config('routes.teacherRoutes.allDeniedStudents'), 'TeachersController@getDeniedStudent');
+    Route::post(config('routes.teacherRoutes.restoreDeniedStudents'), 'TeachersController@postDeniedStudent');
+    Route::post(config('routes.teacherRoutes.allDeniedStudentsSearch'), 'TeachersController@postSearchDeniedStudent');
+
 
     // Validacion de ofertas de trabajo
     Route::get(config('routes.teacherRoutes.offerNotification'), 'TeachersController@getOfferNotification');

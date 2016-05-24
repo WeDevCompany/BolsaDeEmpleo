@@ -111,7 +111,17 @@ class AppServiceProvider extends ServiceProvider
 
             foreach ($id as $key => $value) {
                 
-                $student = Student::where('id', '=', $value)->first();
+                // Validacion estudiante borrado
+                if (implode($parameters) === 'deleted_at') {
+
+                    $student = Student::where('id', '=', $value)->withTrashed()->first();
+
+                // Validacion estudiante normal
+                } else {
+
+                    $student = Student::where('id', '=', $value)->first();
+
+                }
 
                 if (!$student) {
 

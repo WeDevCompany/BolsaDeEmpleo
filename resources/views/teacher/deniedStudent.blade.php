@@ -22,8 +22,23 @@
                             </div>
                         <button type="submit" class="btn btn-default">Buscar</button>
                         {{ Form::close() }}
-                        @include('partials.table.tableDeniedStudent')
-						{{ $deniedStudent->render() }}
+                        {{ Form::open(['url' => 'profesor/estudiante/restaurar', 'method' => 'POST']) }}
+                            {!! csrf_field() !!}
+                            @include('partials.table.tableDeniedStudent')
+                            {{ $deniedStudent->render() }}
+                            <div class="form-group">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light">
+                                        <div class="show-responsive">
+                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="hidden-media">
+                                            <i class="fa fa-btn fa-user"></i> <span class="hidden-media">Restaurar</span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        {{ Form::close() }}
 
                     </div>
                 </div>

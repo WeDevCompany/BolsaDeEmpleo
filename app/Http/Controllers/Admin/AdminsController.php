@@ -12,6 +12,7 @@ use App\Http\Requests;
 use App\Http\Requests\TeacherNotificationRequest;
 use App\Http\Requests\StudentNotificationRequest;
 use App\Http\Requests\OfferNotificationRequest;
+use App\Http\Requests\DeniedStudentRequest;
 use App\Http\Controllers\Controller;
 
 //use Datatables;

@@ -82,7 +82,7 @@ return [
     'teacherRoutes'    =>
         [
             'studentNotification'       => '/notificaciones/estudiantes',
-            'offertNotification'        => '/notificaciones/ofertas',
+            'offerNotification'        => '/notificaciones/ofertas',
             'studentValidNotification'  => '/notificaciones/validStudentNotification',
             'offerValidNotification'    => '/notificaciones/validOfferNotification',
             'studentSearchNotification' => '/notificaciones/estudiantes-buscador',
@@ -91,6 +91,7 @@ return [
             'allVerifiedStudentsSearch' => '/estudiante/verificados-buscador',
             'allDeniedStudents'         => '/estudiante/denegados',
             'allDeniedStudentsSearch'   => '/estudiante/denegados-buscador',
+            'restoreDeniedStudents'     => '/estudiante/restaurar',
             'allVerifiedOffers'         => '/oferta/verificadas',
             'allVerifiedOffersSearch'   => '/oferta/verificadas-buscador',
             'allDeniedOffers'           => '/oferta/denegadas',

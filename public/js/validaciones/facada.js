@@ -35,7 +35,8 @@ $(document).ready(function(){
     teacherRegisterForm = $('#teacher-register-form');
     studentRegisterForm = $('#student-register-form');
     enterpriseRegisterForm = $('#enterprise-register-form');
-    searchForm = $('#search-form')
+    searchForm = $('#search-form');
+    formDelete = $('#form-delete');
 
 
     // Comprobamos en
@@ -90,11 +91,11 @@ $(document).ready(function(){
     }// Comprobación de que el formulario es el de las empresas
 
     // Comprobamos si el formulario
-    // es el formulario de buscador
-    if (searchForm.length) {
+    // es el formulario de borrado
+    if (formDelete.length) {
 
-        // Script del search
-        //searchForm.after('<script src="/js/search/search.js" charset="utf-8"></script>');
+        // Script del borrado por ajax
+        formDelete.after('<script src="/js/ajax/deleteAjax.js" charset="utf-8"></script>');
     }
 
 })// document.ready

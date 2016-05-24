@@ -2,6 +2,7 @@
 @section('scripts')
     {{-- Incluimos los scripts de validaciones --}}
     <script src="/js/validaciones/facada.js" charset="utf-8"></script>
+
 @endsection
 @section('content')
 @include('partials.nav.navParent')
@@ -38,11 +39,14 @@
                                 </div>
                             </div>
                         {{ Form::close() }}
+                        {{ Form::open(['url' => ['/profesor/notificaciones/eliminar-notificacion-estudiante', 'USER_ID'], 'method' => 'DELETE', 'id' => 'form-delete']) }}
+                        {{ Form::close() }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@include('partials.modal.deleteModal')
 @include('partials.footer.footerWelcome')
 @endsection

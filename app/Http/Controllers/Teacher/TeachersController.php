@@ -10,6 +10,7 @@ use App\Teacher;
 use App\User;
 use App\Http\Requests\StudentNotificationRequest;
 use App\Http\Requests\OfferNotificationRequest;
+use App\Http\Requests\DeniedStudentRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -262,18 +263,125 @@ class TeachersController extends UsersController
      */
     public function postSearchVerifiedStudent()
     {
+        
         $verifiedStudent = $this->getVerifiedStudent();
 
         return view('teacher/verifiedStudent', compact('verifiedStudent'));
 
     } // postSearchVerifiedStudent()
 
+    /**
+     * Método que lista todos los estudiantes que han sido borrados a la hora
+     * de validarlos para restaurarlos, se mostraran en base a la familia profesional
+     * del profesor
+     */
     public function getDeniedStudent()
     {
-        $deniedStudent = $this->search->deniedStudent();
+        // Obtenemos las familias profesionales del profesor
+        $profFamilyTeacher = $this->search->profFamilyTeacher();
+
+        // Convertimos el objeto devuelto en un array
+        $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
+
+        // Obtenemos todos los estudiantes borrados segun la familia profesional del profesor
+        $deniedStudent = $this->search->deniedStudent($this->request, $profFamilyValidate);
+
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
+            
+            return $deniedStudent;
+        }
 
         return view('teacher/deniedStudent', compact('deniedStudent'));
-    }
+
+    } // getDeniedStudent()
+
+    /**
+     * Método que obtiene el estudiante a restaurar
+     * @param  DeniedStudentRequest $request ID del estudiante
+     */
+    public function postDeniedStudent(DeniedStudentRequest $request)
+    {
+        $this->restoreDeniedStudent($request);
+
+        return \Redirect::to('profesor/estudiante/denegados');
+
+    } // postDeniedStudent(
+
+    /**
+     * Método que restaura el estudiante pasado como parámetro
+     * @param  $request ID del estudiante
+     */
+    protected function restoreDeniedStudent($request)
+    {
+        // Array de los estudiantes a validar
+        $estudiante = $request->toArray();
+
+        foreach ($estudiante['estudiante'] as $id => $value) {
+
+            // Comprobamos que el estudiante esta borrado
+            $deniedStudent = $this->search->deniedOneStudent($value);
+
+            // Si esta borrado lo restauramos
+            if ($deniedStudent) {
+
+                $deniedStudent->deleted_at = null;
+
+                $deniedStudent->save();
+            }
+
+
+        }
+    } // restoreDeniedStudent()
+
+    /**
+     * Metodo que se encarga de filtrar los estudiantes borrados con un buscador
+     */
+    public function postSearchDeniedStudent()
+    {
+        $deniedStudent = $this->getDeniedStudent();
+
+        return view('teacher/deniedStudent', compact('deniedStudent'));
+
+    } // postSearchDeniedStudent()
+
+    /**
+     * Método para borrar un usuario mediante ajax, el borrado no sera definitivo
+     * se hará por softdeletes
+     * @param                       $id            ID del usuario a borrar
+     * @param  StudentNotificationRequest $request Validaciones y datos recibidos
+     */
+    public function destroyStudentNotification($id, StudentNotificationRequest $request)
+    {
+        $destroyStudent = Student::findorfail($id);
+
+        $verifiedStudent = $this->search->verifiedStudent($id);
+
+        
+        if ($destroyStudent->deleted_at == null && !$verifiedStudent) {
+            
+            $destroyStudent->deleted_at = date('YmdHms');
+
+            $destroyStudent->save();
+
+        } else {
+
+            $message = 'No se ha podido borrar el usuario, por favor intentelo mas tarde';
+            $fail = 'fail';
+
+            if($request->ajax()){
+                return response()->json([
+                    'id'      => $destroyStudent->id,
+                    'message' => $message,
+                    'fail'    => $fail
+                ]); 
+            }
+
+        }
+
+        return \Redirect::to('profesor/notificaciones/estudiantes');
+
+    } // destroyStudentNotification()
 
     /*
     |---------------------------------------------------------------------------|

@@ -23,6 +23,11 @@ class SearchController extends Controller
      * o si segun los parametros recibidos, en base
      * a la familia profesional del profesor a validar
      * o por un administrador sin restriccion de familia profesional
+     *
+     * @param  array  $invalidOrValidStudent Estudiantes Válidos o inválidos
+     * @param  object $request               Filtro para el buscador
+     * @param  array  $profFamilyValidate    Familia profesional del profesor si hubiera
+     * @return object                        Todos los estudiantes inválidos o válidos segun los parametro recibidos
      */
     public function invalidOrValidStudent($invalidOrValidStudent, $request, $profFamilyValidate = null)
     {
@@ -60,7 +65,9 @@ class SearchController extends Controller
 
     } // invalidOrValidStudent()
 
-    // Metodo que obtiene todos los estudiantes validados
+    /**
+     * Metodo que obtiene todos los estudiantes validados
+     */
     public function validStudent()
     {
 
@@ -88,15 +95,41 @@ class SearchController extends Controller
 
     } // verifiedStudent()
 
-    public function deniedStudent()
+    /**
+     * Método que obtiene todos los estudiantes borrados en la aplicacion a la hora de ser validados,
+     * filtrados por una familia profesional si es un profesor o todos si es un admin
+     * 
+     * @param  array  $profFamilyValidate  Familia profesional del profesor si hubiera
+     * @param  object $request             Filtro para el buscador
+     */
+    public function deniedStudent($request, $profFamilyValidate = null)
     {
-        $deniedStudent = Student::select('*')
+        $deniedStudent = Student::name($request->get('name'))
+                                    ->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y el alumno
+                                    ->select('users.*', 'students.*')
                                     ->join('users', 'users.id', '=', 'user_id')
-                                    ->whereNotNull('delete_at')
+                                    ->join('studentCycles', 'studentCycles.student_id', '=', 'students.id')
+                                    ->join('cycles', 'cycles.id', '=', 'studentCycles.cycle_id')
+                                    ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
+                                    ->whereNotNull('students.deleted_at')
+                                    ->withTrashed() // Omitimos el softdeletes por defecto
                                     ->paginate();
 
         return $deniedStudent;
-    }
+
+    } // deniedStudent()
+
+    /**
+     * Método que comprueba segun el id del estudiante pasado si esta borrado en la aplicacion
+     * @param  $idStudent Id del estudiante a comprobar
+     */
+    public function deniedOneStudent($idStudent)
+    {
+        $deniedOneStudent = Student::where('id', '=', $idStudent)->withTrashed()->first();
+
+        return $deniedOneStudent;
+
+    } // deniedOneStudent()
 
 
     /*==============================
@@ -105,7 +138,9 @@ class SearchController extends Controller
 	 *	 							*
 	 *==============================*/
 
-    // Metodo que devuelve la familia del profesor logueado
+    /**
+     * Metodo que devuelve la familia del profesor logueado
+     */
     public function profFamilyTeacher()
     {
         // Obtenemos las familias profesionales del profesor
@@ -136,7 +171,9 @@ class SearchController extends Controller
 
     } // verifiedTeacher()
 
-    // Metodo que obtiene todos los profesores validados
+    /**
+     * Metodo que obtiene todos los profesores validados
+     */
     public function validTeacher()
     {
     	// Obtenemos todos los profesores validados
@@ -149,6 +186,9 @@ class SearchController extends Controller
     /**
      * Metodo que obtiene los profesores que no han sido dados de alta
      * o si segun los parametros recibidos a validar por un administrador
+     *
+     * @param  array  $invalidOrValidTeacher Profesores Válidos o Inválidos
+     * @param  object $request               Filtro para la busqueda
      */
     public function invalidOrValidTeacher($invalidOrValidTeacher, $request)
     {
@@ -173,7 +213,9 @@ class SearchController extends Controller
 	 *	 							*
 	 *==============================*/
 
-    // Metodo que obtiene todas las ofertas de trabajo validadas
+    /**
+     * Metodo que obtiene todas las ofertas de trabajo validadas
+     */
     public function validOffer()
     {
     	// Obtenemos todos los profesores validados
@@ -183,6 +225,15 @@ class SearchController extends Controller
 
     } // validOffer()
 
+    /**
+     * Método que obtiene todas las ofertas de trabajo ya sea filtradas por una familia profesional para un profesor
+     * o todas para un administrador para validar o para mostrar las ya validadas según el parámetro recibido, 
+     * ademas de cortar el texto de la descripción de la oferta de trabajo
+     * @param  array    $invalidOrValidOffer   Oferta Válida o inválida
+     * @param  object   $request               Filtro de búsqueda
+     * @param  array    $profFamilyValidate    Familia profesional del profesor si hubiera
+     * @param  int      $truncate              Extensión máxima de la descripción
+     */
     public function invalidOrValidOffer($invalidOrValidOffer, $request, $profFamilyValidate = null, $truncate = null)
     {
 
@@ -218,6 +269,10 @@ class SearchController extends Controller
 
     } // invalidOrValidOffer()
 
+    /**
+     * Método que obtiene todos los tags de las ofertas de trabajo pasadas como parámetro
+     * @param  array $idJobOffer Ofertas de trabajo de las que se quiere obtener sus tags
+     */
     public function offerTag($idJobOffer)
     {
         $tag = Tag::select('tags.tag as nameTag', 'jobOffer_id as idAdd')
@@ -227,7 +282,8 @@ class SearchController extends Controller
                     ->get();
 
         return $tag;
-    }
+
+    } // offerTag()
 
     /**
      * Metodo que comprueba si la oferta pasada como parametro esta
@@ -246,6 +302,11 @@ class SearchController extends Controller
 
     } // verifiedOffer()
 
+    /**
+     * Método que obtiene el número de suscripciones de las oferta de trabajo pasada como parámetro
+     * @param  array $idJobOffer Ofertas de trabajo de las que se quiere
+     *                           obtener el numero de suscripciones
+     */
     public function studentsSubscriptions($idJobOffer)
     {
         $studentsSubcriptions = \DB::table('subcriptions')->select(\DB::raw('count(subcriptions.jobOffer_id) as subcriptionCount'), 'jobOffer_id as idAdd')
@@ -256,6 +317,13 @@ class SearchController extends Controller
         return $studentsSubcriptions;
     }
 
+    /**
+     * Método auxiliar que recibe como parámetro ofertas de trabajo, suscripciones y tags,
+     * uniendo cada suscripcion y tag con su oferta de trabajo correspondiente
+     * @param  object $query   Oferta de trabajo
+     * @param  object $add     Suscripcion o tag a introducir
+     * @param  string $nameKey Señalamos si es una suscripción o un tag
+     */
     public function arrayMap($query, $add, $nameKey)
     {
         $tag = 'tag';
@@ -287,6 +355,7 @@ class SearchController extends Controller
         }
 
         return $query;
-    }
 
-}
+    } // arrayMap()
+
+} // END Class SearchController
