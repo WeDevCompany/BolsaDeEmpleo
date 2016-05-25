@@ -54,6 +54,9 @@ $('#btnAddFamilyCycle').click(function(){
 }); // $('#btnAddFamilyCycle').click
 
 $('.family-cycle').on('change', function(e) {
+    if (p < 8) {
+        validaciones.submitEnable($('#btnAddFamilyCycle'));
+    }
 
     // Almaceno el valor que ha tomado el select
     var familyId = e.target.value;
