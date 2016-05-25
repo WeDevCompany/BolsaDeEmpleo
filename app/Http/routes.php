@@ -79,7 +79,7 @@ Route::group(['middleware' => 'web'], function () {
 Route::group(['prefix' => 'json', 'middleware' => 'web'], function () {
 
     // Ciclos
-    Route::get('cycles/{familyId}', 'CyclesController@getCiclesJSON');
+    Route::get('cycles/{familyId}', 'CyclesController@getCyclesJSON');
 
     // Familias profesionales
     Route::get('profFamilies', 'ProfFamiliesController@getAllProfFamiliesJSON');

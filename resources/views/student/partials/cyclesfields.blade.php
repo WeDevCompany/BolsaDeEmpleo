@@ -1,7 +1,7 @@
-        <div class="form-group{{ $errors->has('cycles') ? ' has-error' : '' }}">
+        <div class="form-group{{ $errors->has('cycle[0]') ? ' has-error' : '' }}">
             <div class="row">
                 <div class="input-field col-md-12">
-                    {{ Form::label('cycle', 'Ciclos cursados',['class' => 'label-select']) }}
+                    {{ Form::label('cycle[0]', 'Ciclos cursados',['class' => 'label-select']) }}
                     <select name="cycle[0]" class="chosen-select form-control" id="cycle0">
 				    	@foreach($cycles as $ArrayId => $cycle)
 				    		@if ($cycle['level'] === "Básico")
@@ -23,11 +23,41 @@
 							<option value="{{ $cycle['id'] }}">[{{ $cycle['level'] }}] {{ $cycle['name'] }}</option>
 						@endforeach
 				    </select>
-				    @if ($errors->has('cycle0'))
+				    @if ($errors->has('cycle[0]'))
 		                <span class="help-block">
-		                    <strong>{{ $errors->first('cycle0') }}</strong>
+		                    <strong>{{ $errors->first('cycle[0]') }}</strong>
 		                </span>
 		            @endif
                 </div>
             </div>
+        </div>
+        <div class="form-group{{ $errors->has('yearFrom[0]') ? ' has-error' : ''  }} form-group{{ $errors->has('yearTo[0]') ? ' has-error' : '' }}">
+            <div class="row">
+		        <div class="input-field col-md-6 divdate">
+        		    <label for="yearFrom[0]" class="divdatelab">A&ntilde;o de inicio</label>
+		            <select name="yearFrom[0]" class="chosen-select form-control" id="yearFrom[0]">
+						@for($i=date('Y')-26; $i<=date('Y'); $i++)
+							<option value="{{ $i }}">{{ $i }}</option>
+						@endfor
+		            </select>
+		            @if ($errors->has('yearFrom[0]'))
+		                <span class="help-block">
+		                    <strong>{{ $errors->first('yearFrom[0]') }}</strong>
+		                </span>
+		            @endif
+        		</div>
+   			    <div class="input-field col-md-6 divdate">
+            		<label for="yearTo[0]" class="divdatelab">A&ntilde;o de fin</label>
+					<select name="yearTo[0]" class="chosen-select form-control" id="yearTo[0]">
+						@for($i=date('Y')-26; $i<=date('Y'); $i++)
+							<option value="{{ $i }}">{{ $i }}</option>
+						@endfor
+		            </select>
+		            @if ($errors->has('yearTo[0]'))
+		                <span class="help-block">
+		                    <strong>{{ $errors->first('yearTo[0]') }}</strong>
+		                </span>
+		            @endif
+        		</div>
+        	</div>
         </div>

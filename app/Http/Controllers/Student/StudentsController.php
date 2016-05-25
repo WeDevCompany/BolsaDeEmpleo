@@ -29,16 +29,16 @@ class StudentsController extends UsersController
             'phone'             => 'required|digits_between:9,13',
             'road'              => 'required|in:'.$roads,
             'address'           => 'required|between:6,225',
-            'curriculum'        => 'required|mimes:pdf',
+            //'curriculum'        => 'required|mimes:pdf',
 
             // El nombre es debido a datepicker
-            'birthdate_submit'  => 'required|date',
+            'birthdate'  => 'required|date',
 
             // Reglas de los ciclos.
-            'family'            => 'required|exists:profFamilies,name',
-            'cycles'            => 'required|exists:cycles,name',
-            'yearFrom'          => 'required|digits:4|cycleYearFrom',
-            'yearTo'            => 'required|digits:4',
+            //'family'            => 'required|exists:profFamilies,name',
+            //'cycle'            => 'required|exists:cycles,name',
+            //'yearFrom'          => 'required|digits:4|cycleYearFrom',
+            //'yearTo'            => 'required|digits:4',
         ];
         $this->rol = 'estudiante';
         $this->redirectTo = "/estudiante";
@@ -133,11 +133,11 @@ class StudentsController extends UsersController
     {
         $data = $this->request->all();
         $cuantity = 0;
-        $cycles = count($data['cycles']);
+        $cycles = count($data['cycle']);
 
         try {
             // Para cada ciclo recibido hacemos una inserción
-            foreach ($data['cycles'] as $posicion => $id) {
+            foreach ($data['cycle'] as $posicion => $id) {
                 $insert = null;
 
                 $student->cycles()->attach($id, [
