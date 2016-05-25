@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ProfFamiliesController;
+use App\Http\Controllers\CyclesController;
 use App\Http\Requests;
 use App\JobOffer;
 use App\Student;
@@ -37,8 +39,17 @@ class TeachersController extends UsersController
 
     protected function index()
     {
+        // Llamo al metodo getAllProfFamilies del controlador de las familias profesionales
+        $profFamilies = app(ProfFamiliesController::class)->getAllProfFamilies();
+        $cycles = app(CyclesController::class)->getAllCycles('*', true);
+
+        // Inicializo las variables que necesitare para los optgroups
+        $basico = true;
+        $medio = true;
+        $superior = true;
+
         $zona = "Registro de profesores";
-        return view('teacher.registerForm', compact('zona'));
+        return view('teacher.registerForm', compact('profFamilies', 'cycles', 'basico', 'medio', 'superior', 'zona'));
     } // index()
 
     protected function store()

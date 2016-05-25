@@ -24,24 +24,28 @@ class CyclesController extends Controller
      * Metodo que devuelve todas las familias profesionales activas.
      * @return Array Devuelve un array asociativo 'id' => 'familia'
      */
-    public function getAllCycles($familyId = 0)
+    public function getAllCycles($familyId = 0, $bool=null)
     {
         // Tratamos el ID
+        $familyAll = (string) $familyId;
         $familyId = (int) $familyId;
+        
         // coprobamos que el id es valido
         if(is_numeric($familyId) && $familyId > 0){
             try {
                 // Almaceno el resultado en caché
-                //$cyclesDB = \Cache::remember('cyclesDB', 5, function() use ($familyId){
+                $cyclesDB = \Cache::remember('cyclesDB', 5, function() use ($familyId){
                     // Los resultados de la consulta se almacenan en la variable
                     return Cycle::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->orderBy('level', 'DESC')->orderBy('name', 'ASC')->get();
-                //});
+                });
             } catch(\PDOException $e) {
                 //dd($e);
                 abort(500);
             }
 
             return $cyclesDB;
+        } elseif($familyAll === '*' && !is_null($bool) && $bool === true) {
+            return Cycle::where('active', '=', '1')->orderBy('level', 'DESC')->orderBy('name', 'ASC')->get();
         } else {
             // Si el id de la familia profesional ha sido alterado
             abort('404');
