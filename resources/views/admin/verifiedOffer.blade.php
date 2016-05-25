@@ -14,13 +14,9 @@
                         <h4><i class="fa fa-graduation-cap"></i>Ofertas de trabajo admitidas en la Aplicación</h4>
                     </div>
                     <div class="panel-body">
-                        {{ Form::open(['url' =>'admin/oferta/verificadas-buscador', 'method' => 'POST', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search', 'id' => 'search-form']) }}
+                        {{ Form::open(['url' =>'admin/oferta/verificadas-buscador', 'method' => 'POST', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
                             {!! csrf_field() !!}
-                            <div class="form-group">
-                            {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre de Usuario']) }}
-
-                            </div>
-                        <button type="submit" class="btn btn-default">Buscar</button>
+                            @include('partials.search.searcher')
                         {{ Form::close() }}
                         @include('partials.table.tableVerifiedOffer')
 						{{ $verifiedOffer->render() }}

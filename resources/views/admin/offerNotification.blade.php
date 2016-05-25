@@ -14,12 +14,10 @@
                         <h4><i class="fa fa-graduation-cap"></i>Validar Ofertas de Trabajo en la Aplicación</h4>
                     </div>
                     <div class="panel-body">
-                        {{ Form::open(['url' =>'admin/notificaciones/ofertas-buscador', 'method' => 'POST', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search', 'id' => 'search-form']) }}
-                            <div class="form-group">
-                            {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre de Usuario']) }}
-
-                            </div>
-                        <button type="submit" class="btn btn-default">Buscar</button>
+                        {{ Form::open(['url' =>'admin/notificaciones/ofertas-buscador', 'method' => 'POST', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
+                            {!! csrf_field() !!}
+                            @include('partials.search.searcher')
+                            @include('partials.search.filters')
                         {{ Form::close() }}
                         {{ Form::open(['url' => 'admin/notificaciones/validOfferNotification', 'method' => 'POST']) }}
                             {!! csrf_field() !!}
