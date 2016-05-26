@@ -13,6 +13,7 @@ use App\User;
 use App\Http\Requests\StudentNotificationRequest;
 use App\Http\Requests\OfferNotificationRequest;
 use App\Http\Requests\DeniedStudentRequest;
+use App\Http\Requests\DeniedOfferRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -317,7 +318,7 @@ class TeachersController extends UsersController
 
         return \Redirect::to('profesor/estudiante/denegados');
 
-    } // postDeniedStudent(
+    } // postDeniedStudent()
 
     /**
      * Método que restaura el estudiante pasado como parámetro
@@ -332,17 +333,23 @@ class TeachersController extends UsersController
 
             // Comprobamos que el estudiante esta borrado
             $deniedStudent = $this->search->deniedOneStudent($value);
+            $user = $this->search->getUser($value, 'student');
 
             // Si esta borrado lo restauramos
-            if ($deniedStudent) {
+            if ($deniedStudent && $user) {
 
                 $deniedStudent->deleted_at = null;
+                $user->deleted_at = null;
 
                 $deniedStudent->save();
+                $user->save();
             }
 
 
         }
+
+        return true;
+
     } // restoreDeniedStudent()
 
     /**
@@ -362,35 +369,57 @@ class TeachersController extends UsersController
      * @param                       $id            ID del usuario a borrar
      * @param  StudentNotificationRequest $request Validaciones y datos recibidos
      */
-    public function destroyStudentNotification($id, StudentNotificationRequest $request)
+    protected function destroyStudentNotification($id, StudentNotificationRequest $request)
     {
+        // Obtenemos los datos del estudiante
         $destroyStudent = Student::findorfail($id);
 
+        // Obtenemos los estudiantes validados para luego hacer una negacion
         $verifiedStudent = $this->search->verifiedStudent($id);
 
+        // Obtenemos los datos de usuario
+        $user = $this->search->getUser($id, 'student');
         
-        if ($destroyStudent->deleted_at == null && !$verifiedStudent) {
+        if ($destroyStudent->deleted_at == null && $user->deleted_at == null && !$verifiedStudent) {
             
+            // Borramos los estudiantes y su usuario
             $destroyStudent->deleted_at = date('YmdHms');
+
+            $user->deleted_at = date('YmdHms');
 
             $destroyStudent->save();
 
-        } else {
+            $user->save();
 
-            $message = 'No se ha podido borrar el usuario, por favor intentelo mas tarde';
-            $fail = 'fail';
+            // Devolvemos un mensaje a la vista
+            $message = 'El usuario de ha borrado correctamente';
+            $status = 'success';
 
             if($request->ajax()){
                 return response()->json([
                     'id'      => $destroyStudent->id,
                     'message' => $message,
-                    'fail'    => $fail
+                    'status'  => $status
+                ]); 
+            }
+            
+
+        } else {
+
+            // Devolvemos un mensaje a la vista
+            $message = 'No se ha podido borrar el usuario, por favor intentelo mas tarde';
+            $status = 'fail';
+
+            if($request->ajax()){
+                return response()->json([
+                    'id'      => $destroyStudent->id,
+                    'message' => $message,
+                    'status'  => $status
                 ]); 
             }
 
         }
 
-        return \Redirect::to('profesor/notificaciones/estudiantes');
 
     } // destroyStudentNotification()
 
@@ -557,4 +586,136 @@ class TeachersController extends UsersController
 
     } // postSearchVerifiedOffer()
 
+    /**
+     * Método que lista todas las ofertas que han sido borrados a la hora
+     * de validarlas para restaurarlas, se mostraran en base a la familia profesional
+     * del profesor
+     */
+    public function getDeniedOffer()
+    {
+        // Obtenemos las familias profesionales del profesor
+        $profFamilyTeacher = $this->search->profFamilyTeacher();
+
+        // Convertimos el objeto devuelto en un array
+        $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
+
+        // Obtenemos todas las ofertas borrados segun la familia profesional del profesor
+        $deniedOffer = $this->search->deniedOffer($this->request, $profFamilyValidate);
+
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
+            
+            return $deniedOffer;
+        }
+
+        return view('teacher/deniedOffer', compact('deniedOffer'));
+
+    } // getDeniedOffer()
+
+    /**
+     * Método que obtiene la oferta a restaurar
+     * @param  DeniedOfferRequest $request ID de la oferta
+     */
+    public function postDeniedOffer(DeniedOfferRequest $request)
+    {
+        $this->restoreDeniedOffer($request);
+
+        return \Redirect::to('profesor/oferta/denegadas');
+
+    } // postDeniedStudent()
+
+    /**
+     * Método que restaura la oferta pasada como parámetro
+     * @param  $request ID de la oferta
+     */
+    protected function restoreDeniedOffer($request)
+    {
+        // Array de las ofertas a validar
+        $oferta = $request->toArray();
+
+        foreach ($oferta['oferta'] as $id => $value) {
+
+            // Comprobamos que el oferta esta borrado
+            $deniedOffer = $this->search->deniedOneOffer($value);
+
+            // Si esta borrado lo restauramos
+            if ($deniedOffer) {
+
+                $deniedOffer->deleted_at = null;
+
+                $deniedOffer->save();
+
+            }
+
+        }
+
+        return true;
+        
+    } // restoreDeniedStudent()
+
+    /**
+     * Metodo que se encarga de filtrar las oferta borradas con un buscador
+     */
+    public function postSearchDeniedOffer()
+    {
+        $deniedOffer = $this->getDeniedOffer();
+
+        return view('teacher/deniedOffer', compact('deniedOffer'));
+
+    } // postSearchDeniedOffer()
+
+    /**
+     * Método para borrar un usuario mediante ajax, el borrado no sera definitivo
+     * se hará por softdeletes
+     * @param                       $id            ID del usuario a borrar
+     * @param  StudentNotificationRequest $request Validaciones y datos recibidos
+     */
+    public function destroyOfferNotification($id, OfferNotificationRequest $request)
+    {   
+        // Obtenemos las ofertas de trabajo
+        $destroyOffer = JobOffer::findorfail($id);
+
+        // Obtenemos las ofertas de trabajo validadas para luego hacer una negacion
+        $verifiedOffer = $this->search->verifiedOffer($id);
+        
+        if ($destroyOffer->deleted_at == null && !$verifiedOffer) {
+            
+            // Borramos la oferta de trabajo
+            $destroyOffer->deleted_at = date('YmdHms');
+
+            $destroyOffer->save();
+
+            // Devolvemos un mensaje a la vista
+            $message = 'La oferta de ha borrado correctamente';
+            $status = 'success';
+
+            if($request->ajax()){
+                return response()->json([
+                    'id'      => $destroyOffer->id,
+                    'message' => $message,
+                    'status'  => $status
+                ]); 
+            }
+            
+
+        } else {
+
+            // Devolvemos un mensaje a la vista
+            $message = 'No se ha podido borrar la oferta, por favor intentelo mas tarde';
+            $status = 'fail';
+
+            if($request->ajax()){
+                return response()->json([
+                    'id'      => $destroyOffer->id,
+                    'message' => $message,
+                    'status'  => $status
+                ]); 
+            }
+
+        }
+
+
+    } // destroyOfferNotification()
+
 }
+

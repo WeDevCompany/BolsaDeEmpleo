@@ -13,6 +13,8 @@ use App\Http\Requests\TeacherNotificationRequest;
 use App\Http\Requests\StudentNotificationRequest;
 use App\Http\Requests\OfferNotificationRequest;
 use App\Http\Requests\DeniedStudentRequest;
+use App\Http\Requests\DeniedOfferRequest;
+use App\Http\Requests\DeniedTeacherRequest;
 use App\Http\Controllers\Controller;
 
 //use Datatables;
@@ -160,6 +162,141 @@ class AdminsController extends TeachersController
 
     } // postSearchVerifiedTeacher()
 
+    /**
+     * Método que lista todos los profesores que han sido borrados a la hora
+     * de validarlos para restaurarlos
+     */
+    public function getDeniedTeacher()
+    {
+
+        // Obtenemos todos los profesores borrados
+        $deniedTeacher = $this->search->deniedTeacher($this->request);
+
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
+            
+            return $deniedTeacher;
+        }
+
+        return view('admin/deniedTeacher', compact('deniedTeacher'));
+
+    } // getDeniedTeacher()
+
+    /**
+     * Método que obtiene el profesor a restaurar
+     * @param  DeniedTeacherRequest $request ID del profesor
+     */
+    public function postDeniedTeacher(DeniedTeacherRequest $request)
+    {
+        $this->restoreDeniedTeacher($request);
+
+        return \Redirect::to('admin/profesor/denegados');
+
+    } // postDeniedTeacher()
+
+    /**
+     * Método que restaura el profesor pasado como parámetro
+     * @param  $request ID del profesor
+     */
+    protected function restoreDeniedTeacher($request)
+    {
+        // Array de los profesors a validar
+        $profesor = $request->toArray();
+
+        foreach ($profesor['profesor'] as $id => $value) {
+
+            // Comprobamos que el profesor esta borrado
+            $deniedTeacher = $this->search->deniedOneTeacher($value);
+            $user = $this->search->getUser($value, 'teacher');
+
+            // Si esta borrado lo restauramos
+            if ($deniedTeacher && $user) {
+
+                $deniedTeacher->deleted_at = null;
+                $user->deleted_at = null;
+
+                $deniedTeacher->save();
+                $user->save();
+            }
+
+
+        }
+
+        return true;
+
+    } // restoreDeniedTeacher()
+
+    /**
+     * Metodo que se encarga de filtrar los profesores borrados con un buscador
+     */
+    public function postSearchDeniedTeacher()
+    {
+        $deniedTeacher = $this->getDeniedTeacher();
+
+        return view('admin/deniedTeacher', compact('deniedTeacher'));
+
+    } // postSearchDeniedTeacher()
+
+    /**
+     * Método para borrar un usuario mediante ajax, el borrado no sera definitivo
+     * se hará por softdeletes
+     * @param                       $id            ID del usuario a borrar
+     * @param  TeacherNotificationRequest $request Validaciones y datos recibidos
+     */
+    public function destroyTeacherNotification($id, TeacherNotificationRequest $request)
+    {
+        // Obtenemos los datos del profesor
+        $destroyTeacher = Teacher::findorfail($id);
+
+        // Obtenemos los profesores validados para luego hacer una negacion
+        $verifiedTeacher = $this->search->verifiedTeacher($id);
+
+        // Obtenemos los datos de usuario
+        $user = $this->search->getUser($id, 'teacher');
+        
+        if ($destroyTeacher->deleted_at == null && $user->deleted_at == null && !$verifiedTeacher) {
+            
+            // Borramos el profesor con su usuario
+            $destroyTeacher->deleted_at = date('YmdHms');
+
+            $user->deleted_at = date('YmdHms');
+
+            $destroyTeacher->save();
+
+            $user->save();
+
+            // Devolvemos un mensaje a la vista
+            $message = 'El usuario de ha borrado correctamente';
+            $status = 'success';
+
+            if($request->ajax()){
+                return response()->json([
+                    'id'      => $destroyTeacher->id,
+                    'message' => $message,
+                    'status'  => $status
+                ]); 
+            }
+            
+
+        } else {
+
+            // Devolvemos un mensaje a la vista
+            $message = 'No se ha podido borrar el usuario, por favor intentelo mas tarde';
+            $status = 'fail';
+
+            if($request->ajax()){
+                return response()->json([
+                    'id'      => $destroyTeacher->id,
+                    'message' => $message,
+                    'status'  => $status
+                ]); 
+            }
+
+        }
+
+
+    } // destroyTeacherNotification()
+
     /*
     |---------------------------------------------------------------------------|
     | ESTUDIANTES -> Validacion, listado, borrado y restauracion.               |
@@ -267,6 +404,49 @@ class AdminsController extends TeachersController
         return view('admin/verifiedStudent', compact('verifiedStudent'));
 
     } // postSearchVerifiedStudent()
+
+    /**
+     * Método que lista todos los estudiantes que han sido borrados a la hora
+     * de validarlos para restaurarlos
+     */
+    public function getDeniedStudent()
+    {     
+
+        // Obtenemos todos los estudiantes borrados segun la familia profesional del profesor
+        $deniedStudent = $this->search->deniedStudent($this->request);
+
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
+            
+            return $deniedStudent;
+        }
+
+        return view('admin/deniedStudent', compact('deniedStudent'));
+
+    } // getDeniedStudent()
+
+    /**
+     * Método que obtiene el estudiante a restaurar
+     * @param  DeniedStudentRequest $request ID del estudiante
+     */
+    public function postDeniedStudent(DeniedStudentRequest $request)
+    {
+        Parent::restoreDeniedStudent($request);
+
+        return \Redirect::to('admin/estudiante/denegados');
+
+    } // postDeniedStudent()
+
+    /**
+     * Metodo que se encarga de filtrar los estudiantes borrados con un buscador
+     */
+    public function postSearchDeniedStudent()
+    {
+        $deniedStudent = $this->getDeniedStudent();
+
+        return view('admin/deniedStudent', compact('deniedStudent'));
+
+    } // postSearchDeniedStudent()
 
     /*
     |---------------------------------------------------------------------------|
@@ -388,6 +568,48 @@ class AdminsController extends TeachersController
         return view('admin/verifiedOffer', compact('verifiedOffer'));
 
     } // postSearchVerifiedOffer()
+
+    /**
+     * Método que lista todas las ofertas que han sido borrados a la hora
+     * de validarlas para restaurarlas
+     */
+    public function getDeniedOffer()
+    {
+        // Obtenemos todas las ofertas borradas
+        $deniedOffer = $this->search->deniedOffer($this->request);
+
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
+            
+            return $deniedOffer;
+        }
+
+        return view('admin/deniedOffer', compact('deniedOffer'));
+
+    } // getDeniedOffer()
+
+    /**
+     * Método que obtiene la oferta a restaurar
+     * @param  DeniedOfferRequest $request ID de la oferta
+     */
+    public function postDeniedOffer(DeniedOfferRequest $request)
+    {
+        Parent::restoreDeniedOffer($request);
+
+        return \Redirect::to('admin/oferta/denegadas');
+
+    } // postDeniedStudent()
+
+    /**
+     * Metodo que se encarga de filtrar las ofertas borradas con un buscador
+     */
+    public function postSearchDeniedOffer()
+    {
+        $deniedOffer = $this->getDeniedOffer();
+
+        return view('teacher/deniedOffer', compact('deniedOffer'));
+
+    } // postSearchDeniedOffer()
 
 
 }

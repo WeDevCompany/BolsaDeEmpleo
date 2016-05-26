@@ -112,7 +112,7 @@ class AppServiceProvider extends ServiceProvider
             foreach ($id as $key => $value) {
                 
                 // Validacion estudiante borrado
-                if (implode($parameters) === 'deleted_at') {
+                if (implode($parameters) == 'deleted_at') {
 
                     $student = Student::where('id', '=', $value)->withTrashed()->first();
 
@@ -142,7 +142,17 @@ class AppServiceProvider extends ServiceProvider
 
             foreach ($id as $key => $value) {
                 
-                $teacher = Teacher::where('id', '=', $value)->first();
+                // Validacion profesor borrado
+                if (implode($parameters) == 'deleted_at') {
+
+                    $teacher = Teacher::where('id', '=', $value)->withTrashed()->first();
+
+                // Validacion profesor normal
+                } else {
+
+                    $teacher = Teacher::where('id', '=', $value)->first();
+
+                }
 
                 if (!$teacher) {
 
@@ -163,7 +173,17 @@ class AppServiceProvider extends ServiceProvider
 
             foreach ($id as $key => $value) {
                 
-                $offer = JobOffer::where('id', '=', $value)->first();
+                // Validacion oferta borrado
+                if (implode($parameters) == 'deleted_at') {
+
+                    $offer = JobOffer::where('id', '=', $value)->withTrashed()->first();
+
+                // Validacion oferta normal
+                } else {
+
+                    $offer = JobOffer::where('id', '=', $value)->first();
+
+                }
 
                 if (!$offer) {
 

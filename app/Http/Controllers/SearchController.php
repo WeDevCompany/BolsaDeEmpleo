@@ -6,12 +6,49 @@ use Illuminate\Http\Request;
 use App\JobOffer;
 use App\Teacher;
 use App\Student;
+use App\User;
+use App\Enterprise;
 use App\Tag;
 
 use App\Http\Requests;
 
 class SearchController extends Controller
 {
+
+    /*==============================
+     *                              *
+     *           U S E R            *
+     *                              *
+     *==============================*/
+
+    /**
+     * Método que obtiene los datos del usuario pasado como parámetro
+     * @param   $idUser Id del usuario
+     * @param   $rol    Rol del usuario
+     */
+    public function getUser($idUser, $rol)
+    {
+        if ($rol == 'student') {
+            
+            $param = Student::where('id', '=', $idUser)->withTrashed()->first();
+
+        } else if ($rol == 'teacher'){
+
+            $param = Teacher::where('id', '=', $idUser)->withTrashed()->first();
+
+        } else if ($rol == 'enterprise'){
+
+            $param = Enterprise::where('id', '=', $idUser)->withTrashed()->first();
+
+        }
+
+        $user = User::where('id', '=', $param['user_id'])->withTrashed()->first();
+
+        return $user;
+
+    } // getUser()
+
+
 	/*==============================
 	 *								*
 	 *		  S T U D E N T         *
@@ -106,7 +143,7 @@ class SearchController extends Controller
     {
         $deniedStudent = Student::name($request->get('name'))
                                     ->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y el alumno
-                                    ->select('users.*', 'students.*')
+                                    ->select('users.*', 'profFamilies.name', 'students.*')
                                     ->join('users', 'users.id', '=', 'user_id')
                                     ->join('studentCycles', 'studentCycles.student_id', '=', 'students.id')
                                     ->join('cycles', 'cycles.id', '=', 'studentCycles.cycle_id')
@@ -205,6 +242,38 @@ class SearchController extends Controller
         return $invalidOrValidTeacher;
 
     } // invalidOrValidTeacher()
+
+    /**
+     * Método que obtiene todos los profesores borrados en la aplicacion a la hora de ser validados
+     *
+     * @param  object $request             Filtro para el buscador
+     */
+    public function deniedTeacher($request)
+    {
+        $deniedTeacher = Teacher::name($request->get('name'))
+                                    ->select('profFamilies.*', 'users.*', 'teachers.*')
+                                    ->join('users', 'users.id', '=', 'user_id')
+                                    ->join('teacherProfFamilies', 'teacherProfFamilies.teacher_id', '=', 'teachers.id')
+                                    ->join('profFamilies', 'profFamilies.id', '=', 'teacherProfFamilies.profFamilie_id')
+                                    ->whereNotNull('teachers.deleted_at')
+                                    ->withTrashed()
+                                    ->paginate();
+
+        return $deniedTeacher;
+
+    } // deniedTeacher()
+
+    /**
+     * Método que comprueba segun el id del profesor pasado si esta borrado en la aplicacion
+     * @param  $idStudent Id del profesor a comprobar
+     */
+    public function deniedOneTeacher($idTeacher)
+    {
+        $deniedOneTeacher = Teacher::where('id', '=', $idTeacher)->withTrashed()->first();
+
+        return $deniedOneTeacher;
+
+    } // deniedOneTeacher()
 
 
     /*==============================
@@ -357,5 +426,40 @@ class SearchController extends Controller
         return $query;
 
     } // arrayMap()
+
+    /**
+     * [deniedOffer description]
+     * @return [type] [description]
+     */
+    public function deniedOffer($request, $profFamilyValidate = null)
+    {
+        $deniedOffer = JobOffer::name($request->get('name'))
+                                    ->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y las ofertas
+                                    ->select('jobOffers.id as idJobOffer', 'states.name as stateName', 'cities.name as cityName', 'workCenters.name as workCenterName', 'workCenters.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'workCenters.*', 'enterprises.*', 'profFamilies.*', 'users.*', 'jobOffers.*')
+                                    ->join('profFamilies', 'profFamilies.id', '=', 'jobOffers.profFamilie_id')
+                                    ->join('workCenters', 'workCenters.id', '=', 'jobOffers.workCenter_id')
+                                    ->join('enterprises', 'enterprises.id', '=', 'workCenters.enterprise_id')
+                                    ->join('users', 'users.id', '=', 'user_id')
+                                    ->join('cities', 'cities.id', '=','workCenters.citie_id')
+                                    ->join('states', 'states.id', '=','cities.state_id')
+                                    ->whereNotNull('jobOffers.deleted_at')
+                                    ->withTrashed() // Omitimos el softdeletes por defecto
+                                    ->paginate();
+
+        return $deniedOffer;
+
+    } // deniedOffer()
+
+    /**
+     * Método que comprueba segun el id de la oferta pasada si esta borrada en la aplicacion
+     * @param  $idOffer Id de la oferta a comprobar
+     */
+    public function deniedOneOffer($idOffer)
+    {
+        $deniedOneOffer = JobOffer::where('id', '=', $idOffer)->withTrashed()->first();
+
+        return $deniedOneOffer;
+
+    } // deniedOneOffer()
 
 } // END Class SearchController

@@ -6,11 +6,11 @@
                     <div class="row"></div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <p><b>Total ofertas por validar:</b> {{$invalidOffer->count()}}</p>
+                            <p><b>Total ofertas por validar:</b> {{$deniedOffer->count()}}</p>
                         </div>
                         <div class="col-sm-6">
                             <p>
-                                <b>Total de páginas:</b> {{$invalidOffer->lastPage()}}
+                                <b>Total de páginas:</b> {{$deniedOffer->lastPage()}}
                             </p>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($invalidOffer as $offer)
+                                @foreach($deniedOffer as $offer)
                                     <tr data-id="{{ $offer->id }}">
                                         <td>
                                             <p>
@@ -46,7 +46,7 @@
                                         <td>{!! $offer->email !!}</td>
                                         <td>{!! $offer->name !!}</td>
                                         <td>
-                                            <a href="#" class="btn btn-danger waves-effect waves-light btn-xs btn-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                            <a href="#" class="btn btn-danger waves-effect waves-light btn-xs"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </td>
                                         <td>
                                             <a href="#" class="btn btn-success waves-effect waves-light btn-xs"><i class="fa fa-check" aria-hidden="true"></i></a>

@@ -6,11 +6,11 @@
                    
                     <div class="row">
                         <div class="col-sm-6">
-                            <p><b>Total profesores por validar:</b> {{$invalidTeacher->count()}}</p>
+                            <p><b>Total profesores por validar:</b> {{$deniedTeacher->count()}}</p>
                         </div>
                         <div class="col-sm-6">
                             <p>
-                                <b>Total de páginas:</b> {{$invalidTeacher->lastPage()}}
+                                <b>Total de páginas:</b> {{$deniedTeacher->lastPage()}}
                             </p>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($invalidTeacher as $teacher)
+                                @foreach($deniedTeacher as $teacher)
                                 <tr data-id="{!! $teacher->id !!}">
                                     <td>
                                         <p>
@@ -44,7 +44,7 @@
                                     <td>{!! $teacher->email !!}</td>
                                     <td>{!! $teacher->name !!}</td>
                                     <td>
-                                          <a href="#" class="btn btn-danger waves-effect waves-light btn-xs btn-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                          <a href="#" class="btn btn-danger waves-effect waves-light btn-xs"><i class="fa fa-times" aria-hidden="true"></i></a>
                                     </td>
                                     <td>
                                           <a href="#" class="btn btn-success waves-effect waves-light btn-xs"><i class="fa fa-check" aria-hidden="true"></i></a>

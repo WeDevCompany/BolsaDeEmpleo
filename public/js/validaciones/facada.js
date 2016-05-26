@@ -94,6 +94,9 @@ $(document).ready(function(){
     // es el formulario de borrado
     if (formDelete.length) {
 
+        // Script de mensajes humane
+        //formDelete.after('<script src="/js/funcionalidad/sessionFlash.js" charset="utf-8"></script>');
+
         // Script del borrado por ajax
         formDelete.after('<script src="/js/ajax/deleteAjax.js" charset="utf-8"></script>');
     }

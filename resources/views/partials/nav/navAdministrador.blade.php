@@ -26,7 +26,7 @@
         <!-- ADMIN -->
         <li role="presentation" class="dropdown-header">Administrador</li>
         <li><a href="{{ url(config('routes.admin.allVerifiedStudents')) }}"><i class="fa fa-check right" aria-hidden="true"></i> Admitidos</a></li>
-        <li><a href="{{ url(config('routes.admin.allDeniedTeachers')) }}"><i class="fa fa-times right" aria-hidden="true"></i> Denegados</a></li>
+        <li><a href="{{ url(config('routes.admin.allDeniedStudents')) }}"><i class="fa fa-times right" aria-hidden="true"></i> Denegados</a></li>
 
         <!-- PROFESORES -->
         <li role="presentation" class="dropdown-header">Profesor</li>
@@ -58,8 +58,8 @@
     <ul class="dropdown-menu" role="menu" aria-labelledby="profesores">
         <!-- ADMIN -->
         <li role="presentation" class="dropdown-header">Administrador</li>
-        <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}"><i class="fa fa-check right" aria-hidden="true"></i> Admitidas</a></li>
-        <li><a href="{{ url(config('routes.admin.allDeniedTeachers')) }}"><i class="fa fa-times right" aria-hidden="true"></i> Denegadas</a></li>
+        <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}"><i class="fa fa-check right" aria-hidden="true"></i> Admitidos</a></li>
+        <li><a href="{{ url(config('routes.admin.allDeniedTeachers')) }}"><i class="fa fa-times right" aria-hidden="true"></i> Denegados</a></li>
     </ul>
 </a></li>
 <li class = "dropdown">

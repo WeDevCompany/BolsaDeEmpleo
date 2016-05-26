@@ -1,16 +1,10 @@
-        @if (!is_null(Session::get('message_Success')))
-            toastr["success"]("{{ Session::get('message_Success') }}");
-        @endif
-        @if (!is_null(Session::get('message_Negative')))
-            toastr["error"]("{{ Session::get('message_Negative') }}");
-        @endif
 
         toastr.options = {
             "closeButton": true,
             "debug": false,
             "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-bottom-right",
+            "progressBar": true,
+            "positionClass": "toast-top-right",
             "preventDuplicates": false,
             "onclick": null,
             "showDuration": "300",
