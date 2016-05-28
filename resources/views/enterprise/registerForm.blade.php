@@ -38,7 +38,7 @@
                                     @include('enterprise.partials.enterpriseresponsablefields')
                                 </fieldset>
                                 <div id="divAddFamilyCycle" class="text-center">
-                                    @include('enterprise.partials.btnAddWorkcenter')
+                                    @include('enterprise.partials.btnAddEnterpriseResponsable')
                                 </div>
                             </section>
                         </fieldset>    
