@@ -24,7 +24,7 @@ class StudentNotificationRequest extends Request
     public function rules()
     {
         return [
-            'estudiante' => 'validStudentNotification',
+            'estudiante' => 'required|validStudentNotification',
         ];
     }
 }

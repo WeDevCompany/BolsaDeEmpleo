@@ -24,7 +24,7 @@ class DeniedStudentRequest extends Request
     public function rules()
     {
         return [
-            'estudiante' => 'validStudentNotification:deleted_at',
+            'estudiante' => 'required|validStudentNotification:deleted_at',
         ];
     }
 }

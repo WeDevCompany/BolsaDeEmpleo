@@ -24,7 +24,7 @@ class TeacherNotificationRequest extends Request
     public function rules()
     {
         return [
-            'profesor' => 'validTeacherNotification',
+            'profesor' => 'required|validTeacherNotification',
         ];
     }
 }

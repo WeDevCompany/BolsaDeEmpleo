@@ -24,7 +24,7 @@ class DeniedOfferRequest extends Request
     public function rules()
     {
         return [
-            'offer' => 'validOfferNotification:deleted_at',
+            'oferta' => 'required|validOfferNotification:deleted_at',
         ];
     }
 }

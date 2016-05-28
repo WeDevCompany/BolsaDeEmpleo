@@ -24,7 +24,7 @@ class DeniedTeacherRequest extends Request
     public function rules()
     {
         return [
-            'teacher' => 'validTeacherNotification:deleted_at',
+            'profesor' => 'required|validTeacherNotification:deleted_at',
         ];
     }
 }

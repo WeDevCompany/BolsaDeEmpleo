@@ -24,7 +24,7 @@ class OfferNotificationRequest extends Request
     public function rules()
     {
         return [
-            'offer' => 'validOfferNotification',
+            'oferta' => 'required|validOfferNotification',
         ];
     }
 }
