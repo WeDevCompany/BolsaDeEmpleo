@@ -47,7 +47,7 @@ class StudentsController extends UsersController
     protected function index(){
         // Llamo al metodo getAllProfFamilies del controlador de las familias profesionales
         $profFamilies = app(ProfFamiliesController::class)->getAllProfFamilies();
-		        
+
         // Obtengo el identificador de la primera familia profesional
         $familyId = array_keys($profFamilies)[0];
 
@@ -170,5 +170,10 @@ class StudentsController extends UsersController
         }
         return false; // devuelvo false (temporal) debo devolver los errores
     } // createStudentCycle()
+
+    public function imagenPerfil()
+    {
+        return view(config('appViews.perfil'));
+    } // imagenPerfil()
 
 }

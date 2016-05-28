@@ -43,7 +43,7 @@
                                         <td>{!! $offer->enterpriseName !!}</td>
                                         <td>{!! $offer->cif !!}</td>
                                         <td>{!! $offer->workCenterName !!}</td>
-                                        <td>{!! $offer->email !!}</td>
+                                        <td><a href="mailto:{!! $offer->email !!}">{!! $offer->email !!}</a></td>
                                         <td>{!! $offer->name !!}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger waves-effect waves-light btn-xs btn-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times" aria-hidden="true"></i></a>

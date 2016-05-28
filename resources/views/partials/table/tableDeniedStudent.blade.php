@@ -41,7 +41,7 @@
                                         <td scope="row">{!! $student->id !!}</td>
                                         <td>{!! $student->FullName !!}</td>
                                         <td>{!! $student->dni !!}</td>
-                                        <td>{!! $student->email !!}</td>
+                                        <td><a href="mailto:{!! $student->email !!}">{!! $student->email !!}</a></td>
                                         <td>{!! $student->name !!}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger waves-effect waves-light btn-xs"><i class="fa fa-times" aria-hidden="true"></i></a>

@@ -117,7 +117,7 @@ class TeachersController extends UsersController
 
     public function imagenPerfil()
     {
-        return view('partials/globals/uploadImage');
+        return view(config('appViews.perfil'));
     } // imagenPerfil()
 
     public function uploadImage()
@@ -151,6 +151,11 @@ class TeachersController extends UsersController
      */
     public function getStudentNotification()
     {
+        // Variale de zona
+        $zona = "Notificaciones de estudiantes";
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedTeacherStudent');
 
         // Obtenemos todos los estudiantes validados
         $validStudent = $this->search->validStudent();
@@ -176,7 +181,7 @@ class TeachersController extends UsersController
             return $invalidStudent;
         }
 
-        return view('teacher/studentNotification', compact('invalidStudent'));
+        return view('teacher/studentNotification', compact('invalidStudent', 'filters', 'zona'));
 
     } // getStudentNotification()
 
@@ -275,7 +280,7 @@ class TeachersController extends UsersController
      */
     public function postSearchVerifiedStudent()
     {
-        
+
         $verifiedStudent = $this->getVerifiedStudent();
 
         return view('teacher/verifiedStudent', compact('verifiedStudent'));
@@ -300,7 +305,7 @@ class TeachersController extends UsersController
 
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {
-            
+
             return $deniedStudent;
         }
 
@@ -379,9 +384,9 @@ class TeachersController extends UsersController
 
         // Obtenemos los datos de usuario
         $user = $this->search->getUser($id, 'student');
-        
+
         if ($destroyStudent->deleted_at == null && $user->deleted_at == null && !$verifiedStudent) {
-            
+
             // Borramos los estudiantes y su usuario
             $destroyStudent->deleted_at = date('YmdHms');
 
@@ -400,9 +405,9 @@ class TeachersController extends UsersController
                     'id'      => $destroyStudent->id,
                     'message' => $message,
                     'status'  => $status
-                ]); 
+                ]);
             }
-            
+
 
         } else {
 
@@ -415,7 +420,7 @@ class TeachersController extends UsersController
                     'id'      => $destroyStudent->id,
                     'message' => $message,
                     'status'  => $status
-                ]); 
+                ]);
             }
 
         }
@@ -447,6 +452,12 @@ class TeachersController extends UsersController
      */
     public function getOfferNotification()
     {
+        // variable de zona
+        $zona = "Notificaciones de ofertas";
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedOffers');
+
         // Obtenemos todas las ofertas validadas
         $validOffer = $this->search->validOffer();
 
@@ -471,7 +482,7 @@ class TeachersController extends UsersController
             return $invalidOffer;
         }
 
-        return view('teacher/offerNotification', compact('invalidOffer'));
+        return view('teacher/offerNotification', compact('invalidOffer', 'filters', 'zona'));
 
     } // getOfferNotification()
 
@@ -604,7 +615,7 @@ class TeachersController extends UsersController
 
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {
-            
+
             return $deniedOffer;
         }
 
@@ -650,7 +661,7 @@ class TeachersController extends UsersController
         }
 
         return true;
-        
+
     } // restoreDeniedStudent()
 
     /**
@@ -671,15 +682,15 @@ class TeachersController extends UsersController
      * @param  StudentNotificationRequest $request Validaciones y datos recibidos
      */
     public function destroyOfferNotification($id, OfferNotificationRequest $request)
-    {   
+    {
         // Obtenemos las ofertas de trabajo
         $destroyOffer = JobOffer::findorfail($id);
 
         // Obtenemos las ofertas de trabajo validadas para luego hacer una negacion
         $verifiedOffer = $this->search->verifiedOffer($id);
-        
+
         if ($destroyOffer->deleted_at == null && !$verifiedOffer) {
-            
+
             // Borramos la oferta de trabajo
             $destroyOffer->deleted_at = date('YmdHms');
 
@@ -694,9 +705,9 @@ class TeachersController extends UsersController
                     'id'      => $destroyOffer->id,
                     'message' => $message,
                     'status'  => $status
-                ]); 
+                ]);
             }
-            
+
 
         } else {
 
@@ -709,7 +720,7 @@ class TeachersController extends UsersController
                     'id'      => $destroyOffer->id,
                     'message' => $message,
                     'status'  => $status
-                ]); 
+                ]);
             }
 
         }

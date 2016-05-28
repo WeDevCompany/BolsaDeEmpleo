@@ -3,7 +3,7 @@
                             <strong>{{ $errors->first('profesor') }}</strong>
                         </span>
                     @endif
-                   
+
                     <div class="row">
                         <div class="col-sm-6">
                             <p><b>Total profesores por validar:</b> {{$invalidTeacher->count()}}</p>
@@ -41,7 +41,7 @@
                                     <td scope="row">{!! $teacher->id !!}</td>
                                     <td>{!! $teacher->FullName !!}</td>
                                     <td>{!! $teacher->dni !!}</td>
-                                    <td>{!! $teacher->email !!}</td>
+                                    <td><a href="mailto:{!! $teacher->email !!}">{!! $teacher->email !!}</a></td>
                                     <td>{!! $teacher->name !!}</td>
                                     <td>
                                           <a href="#" class="btn btn-danger waves-effect waves-light btn-xs btn-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times" aria-hidden="true"></i></a>

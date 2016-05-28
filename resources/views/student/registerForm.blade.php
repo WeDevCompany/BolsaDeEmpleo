@@ -23,7 +23,7 @@
                             {!! csrf_field() !!}
                             <fieldset>
                                 <legend style="width:auto;">Estudiante</legend>
-                                @include('student.partials.studentfields')
+                                @include('student.partials.studentFields')
                                 <section class="family-cycle">
                                     <fieldset id="fieldFamilies0">
                                         <legend style="width: auto;">Familia Profesional</legend>

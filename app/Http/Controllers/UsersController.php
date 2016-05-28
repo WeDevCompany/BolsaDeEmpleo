@@ -3,8 +3,6 @@
  *   @author Emmanuel Valverde Ramos
  *   @author Pedro Hernandéz Mora
  *   @author Eduardo López Pardo
- *   @author Fernando Manuel Barcelona
- *   @author Abel Montejo
  *
  * Este controlador se encarga de gestionar todas las llamadas a la lógica
  * y a las vistas de usuario.
@@ -135,7 +133,7 @@ class UsersController extends Controller
 
             // Añado el codigo de verificacion
             $this->request['code'] = $code;
-            
+
             //Insertamos todos los campos
             $insercion = User::create($this->request->all());
 

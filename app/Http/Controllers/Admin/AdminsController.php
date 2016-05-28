@@ -55,6 +55,9 @@ class AdminsController extends TeachersController
     public function getTeacherNotification()
     {
 
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedTeacherStudent');
+
         // Obtenemos todos los profesores validados
         $validTeacher = $this->search->validTeacher();
 
@@ -72,7 +75,7 @@ class AdminsController extends TeachersController
             return $invalidTeacher;
         }
 
-        return view('admin/teacherNotification', compact('invalidTeacher'));
+        return view('admin/teacherNotification', compact('invalidTeacher', 'filters'));
 
 
     } // getTeacherNotification()
@@ -174,7 +177,7 @@ class AdminsController extends TeachersController
 
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {
-            
+
             return $deniedTeacher;
         }
 
@@ -218,8 +221,6 @@ class AdminsController extends TeachersController
                 $deniedTeacher->save();
                 $user->save();
             }
-
-
         }
 
         return true;
@@ -253,9 +254,9 @@ class AdminsController extends TeachersController
 
         // Obtenemos los datos de usuario
         $user = $this->search->getUser($id, 'teacher');
-        
+
         if ($destroyTeacher->deleted_at == null && $user->deleted_at == null && !$verifiedTeacher) {
-            
+
             // Borramos el profesor con su usuario
             $destroyTeacher->deleted_at = date('YmdHms');
 
@@ -274,9 +275,9 @@ class AdminsController extends TeachersController
                     'id'      => $destroyTeacher->id,
                     'message' => $message,
                     'status'  => $status
-                ]); 
+                ]);
             }
-            
+
 
         } else {
 
@@ -289,7 +290,7 @@ class AdminsController extends TeachersController
                     'id'      => $destroyTeacher->id,
                     'message' => $message,
                     'status'  => $status
-                ]); 
+                ]);
             }
 
         }
@@ -317,6 +318,11 @@ class AdminsController extends TeachersController
      */
     public function getStudentNotification()
     {
+        // variable de zona
+        $zona = "Notificaciones de estudiantes";
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedTeacherStudent');
 
         // Obtenemos todos los estudiantes validados
         $validStudent = $this->search->validStudent();
@@ -335,7 +341,7 @@ class AdminsController extends TeachersController
             return $invalidStudent;
         }
 
-        return view('admin/studentNotification', compact('invalidStudent'));
+        return view('admin/studentNotification', compact('invalidStudent', 'filters', 'zona'));
 
     } // getStudentNotification()
 
@@ -410,14 +416,14 @@ class AdminsController extends TeachersController
      * de validarlos para restaurarlos
      */
     public function getDeniedStudent()
-    {     
+    {
 
         // Obtenemos todos los estudiantes borrados segun la familia profesional del profesor
         $deniedStudent = $this->search->deniedStudent($this->request);
 
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {
-            
+
             return $deniedStudent;
         }
 
@@ -468,6 +474,11 @@ class AdminsController extends TeachersController
      */
     public function getOfferNotification()
     {
+        // Variable de zona
+        $zona = "Notificaciones de ofertas";
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedOffers');
 
         // Obtenemos todas las ofertas validadas
         $validOffer = $this->search->validOffer();
@@ -486,7 +497,7 @@ class AdminsController extends TeachersController
             return $invalidOffer;
         }
 
-        return view('admin/offerNotification', compact('invalidOffer'));
+        return view('admin/offerNotification', compact('invalidOffer', 'filters', 'zona'));
 
     } // getOfferNotification()
 
@@ -524,6 +535,7 @@ class AdminsController extends TeachersController
      */
     public function getVerifiedOffer()
     {
+
 
         // Obtenemos todos los estudiantes validados
         $validOffer = $this->search->validOffer();
@@ -580,7 +592,7 @@ class AdminsController extends TeachersController
 
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {
-            
+
             return $deniedOffer;
         }
 
@@ -611,5 +623,9 @@ class AdminsController extends TeachersController
 
     } // postSearchDeniedOffer()
 
+    public function imagenPerfil()
+    {
+        return view(config('appViews.perfil'));
+    } // imagenPerfil()
 
 }

@@ -31,4 +31,9 @@ class EnterprisesController extends UsersController
         return view('enterprise.registerForm');
     } // index()
 
+    public function imagenPerfil()
+    {
+        return view(config('appViews.perfil'));
+    } // imagenPerfil()
+
 }

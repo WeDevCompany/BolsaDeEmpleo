@@ -29,7 +29,7 @@
                                         <td scope="row">{!! $teacher->id !!}</td>
                                         <td>{!! $teacher->FullName !!}</td>
                                         <td>{!! $teacher->dni !!}</td>
-                                        <td>{!! $teacher->email !!}</td>
+                                        <td><a href="mailto:{!! $teacher->email !!}" target="_blank">{!! $teacher->email !!}</a></td>
                                         <td>{!! $teacher->name !!}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger waves-effect waves-light btn-xs"><i class="fa fa-times" aria-hidden="true"></i></a>
