@@ -44,6 +44,10 @@ body {
   z-index:99;
 }
 
+.navbar .navbar-collapse, .navbar .navbar-form{
+  text-align:center;
+}
+
 .top-nav-collapse {
   background-color: #000000 !important;
 }
@@ -743,6 +747,25 @@ div.drop:hover {
 .textCenter{
   padding-top:1rem;
   padding-bottom:1rem;
+}
+@media only screen and (max-width: 768px) {
+  .titulo {
+    font-size:1.2em;
+    padding-left:1px;
+    padding-right:1px;
+  }
+}
+
+@media only screen and (max-width: 468px) {
+  .titulo {
+    font-size:1em;
+    padding-left:1px;
+    padding-right:1px;
+  }
+  .margen-responsive{
+    padding-left:0px;
+    padding-right: 0px;
+  }
 }
 /***************
   fieldeset

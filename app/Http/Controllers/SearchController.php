@@ -29,7 +29,7 @@ class SearchController extends Controller
     public function getUser($idUser, $rol)
     {
         if ($rol == 'student') {
-            
+
             $param = Student::where('id', '=', $idUser)->withTrashed()->first();
 
         } else if ($rol == 'teacher'){
@@ -135,7 +135,7 @@ class SearchController extends Controller
     /**
      * Método que obtiene todos los estudiantes borrados en la aplicacion a la hora de ser validados,
      * filtrados por una familia profesional si es un profesor o todos si es un admin
-     * 
+     *
      * @param  array  $profFamilyValidate  Familia profesional del profesor si hubiera
      * @param  object $request             Filtro para el buscador
      */
@@ -296,7 +296,7 @@ class SearchController extends Controller
 
     /**
      * Método que obtiene todas las ofertas de trabajo ya sea filtradas por una familia profesional para un profesor
-     * o todas para un administrador para validar o para mostrar las ya validadas según el parámetro recibido, 
+     * o todas para un administrador para validar o para mostrar las ya validadas según el parámetro recibido,
      * ademas de cortar el texto de la descripción de la oferta de trabajo
      * @param  array    $invalidOrValidOffer   Oferta Válida o inválida
      * @param  object   $request               Filtro de búsqueda
@@ -330,12 +330,12 @@ class SearchController extends Controller
                     $value->description = mb_substr($value->description, 0, $descriptionLength) . '...';
 
                 }
-
+                //dd($value->others);
+                $aux = explode(",",$value->others);
+                $value->newOthers = $aux;
             }
-        }
-
+        }// truncar la descripción de las ofertas
         return $invalidOrValidOffer;
-
     } // invalidOrValidOffer()
 
     /**
@@ -366,7 +366,6 @@ class SearchController extends Controller
     	$verifiedOffer = JobOffer::where('verifiedOffers.jobOffer_id', '=', $idOffer)
                                         ->join('verifiedOffers', 'verifiedOffers.jobOffer_id', '=', 'jobOffers.id')
                                         ->first();
-
         return $verifiedOffer;
 
     } // verifiedOffer()
