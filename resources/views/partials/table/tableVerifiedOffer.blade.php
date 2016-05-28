@@ -21,7 +21,7 @@
                             <h5><a href="#" class="titulo btn-flat waves-effect hoverable">{!! $offer->title !!} <i class="fa fa-link" aria-hidden="true"></i></a></h5>
                         </div>
                         <div class="row extra-padding-bottom">
-                            <div class="col-sm-6" data-enterprise="{!! $offer->enterpriseName !!}"><b>Empresa: </b><a href="#">{!! $offer->enterpriseName !!} <i class="fa fa-link" aria-hidden="true"></i></a></div>
+                            <div class="col-sm-6" data-enterprise="{!! $offer->enterpriseName !!}"><b>Empresa: </b><a href="{!! (isset($offer->web)) ? $offer->web : 'https://www.google.es/#q='.$offer->enterpriseName !!}" target="_blank">{!! $offer->enterpriseName !!} <i class="fa fa-link" aria-hidden="true"></i></a></div>
                             <div class="col-sm-6 offset6" data-city="{!! $offer->cityName !!}"><b>Lugar: </b><a href="https://www.google.es/maps/place/{!! $offer->cityName !!}" target="_blank" data-lugar="{!! $offer->cityName !!}">{!! $offer->cityName !!} <i class="fa fa-link" aria-hidden="true"></i></a></div>
                         </div>
                         <div class="row" data-description="{!! $offer->description !!}">
@@ -30,7 +30,7 @@
                         <div class="row extra-padding-top">
                             <div class="col-sm-3"><b>Duración: </b>{!! $offer->duration !!}</div>
                             <div class="col-sm-3 offset3"><b>Tipo: </b>{!! $offer->kind !!}</div>
-                            <div class="col-sm-3 offset6"><b>Suscriptores: </b>10</div>
+                            <div class="col-sm-3 offset6"><b>Suscriptores: </b>{!! $offer->subcriptionCount!!}</div>
                             <div class="col-sm-3 offset9"><b>Nivel: </b>{!! $offer->level !!}</div>
                         </div>
                         <div class="row extra-padding-top">
@@ -38,6 +38,15 @@
                             <div class="col-sm-4 offset4"><b>Contratados en la actualidad: </b>{!! $offer->hired !!}</div>
                             <div class="col-sm-4 offset8"><b>Fecha de vencimiento: </b><time datetime="{{ $offer->dueDate }}"></time>{{ $offer->dueDate }}</div>
                         </div>
+                        @if($offer->tagCount)
+                            <div class="row extra-padding-top">
+                                <div class="col-md-12">
+                                    @foreach($offer->tagCount as $tags => $value)
+                                       <span class="label label-primary">{!! $value !!}</span>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             @endforeach
