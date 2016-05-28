@@ -14,11 +14,11 @@
                         <h4><i class="fa fa-graduation-cap"></i>Validar Estudiantes en la Aplicación</h4>
                     </div>
                     <div class="panel-body">
-                        {{ Form::open(['url' =>'admin/notificaciones/estudiantes-buscador', 'method' => 'POST', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
+                        {{ Form::open(['url' =>'administrador/notificaciones/estudiantes-buscador', 'method' => 'POST', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
                             {!! csrf_field() !!}
                             @include('partials.search.searcher')
                         {{ Form::close() }}
-                        {{ Form::open(['url' => 'admin/notificaciones/validStudentNotification', 'method' => 'POST']) }}
+                        {{ Form::open(['url' => 'administrador/notificaciones/validStudentNotification', 'method' => 'POST']) }}
                             {!! csrf_field() !!}
                             @include('partials.table.tableValidateStudent')
 							{{ $invalidStudent->render() }}

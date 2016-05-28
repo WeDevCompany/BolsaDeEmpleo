@@ -14,11 +14,11 @@
                         <h4><i class="fa fa-university"></i>Validar Profesores en la Aplicación</h4>
                     </div>
                     <div class="panel-body">
-                        {{ Form::open(['url' =>'admin/notificaciones/profesores-buscador', 'method' => 'POST', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
+                        {{ Form::open(['url' =>'administrador/notificaciones/profesores-buscador', 'method' => 'POST', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
                             {!! csrf_field() !!}
                             @include('partials.search.searcher')
                         {{ Form::close() }}
-                        {{ Form::open(['url' => 'admin/notificaciones/validTeacherNotification', 'method' => 'POST']) }}
+                        {{ Form::open(['url' => 'administrador/notificaciones/validTeacherNotification', 'method' => 'POST']) }}
                             {!! csrf_field() !!}
                             @include('partials.table.tableValidateTeacher')
 							{{ $invalidTeacher->render() }}

@@ -22,18 +22,18 @@ return [
 
     'admin'    =>
         [
-            'adminIndex'     		    => '/admin',
-			'studentNotification' 	    => '/admin/notificaciones/estudiantes',
-            'teacherNotification'       => '/admin/notificaciones/profesores',
-            'offerNotification'         => '/admin/notificaciones/ofertas',
-			'enterpriseNotification'    => '/admin/notificaciones/empresas',
-			'allVerifiedTeachers' 	    => '/admin/profesor/verificados',
-			'allDeniedTeachers' 	    => '/admin/profesor/denegados',
-            'allVerifiedStudents'       => '/admin/estudiante/verificados',
-            'allDeniedStudents'         => '/admin/estudiante/denegados',
-            'allVerifiedOffers'         => '/admin/oferta/verificadas',
-            'allDeniedOffers'           => '/admin/oferta/denegadas',
-			'statistics'			    => '/admin/estadisticas',
+            'adminIndex'     		    => '/administrador',
+			'studentNotification' 	    => '/administrador/notificaciones/estudiantes',
+            'teacherNotification'       => '/administrador/notificaciones/profesores',
+            'offerNotification'         => '/administrador/notificaciones/ofertas',
+			'enterpriseNotification'    => '/administrador/notificaciones/empresas',
+			'allVerifiedTeachers' 	    => '/administrador/profesor/verificados',
+			'allDeniedTeachers' 	    => '/administrador/profesor/denegados',
+            'allVerifiedStudents'       => '/administrador/estudiante/verificados',
+            'allDeniedStudents'         => '/administrador/estudiante/denegados',
+            'allVerifiedOffers'         => '/administrador/oferta/verificadas',
+            'allDeniedOffers'           => '/administrador/oferta/denegadas',
+			'statistics'			    => '/administrador/estadisticas',
         ],
     'adminRoutes' =>
         [

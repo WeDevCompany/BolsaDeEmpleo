@@ -14,7 +14,7 @@
                         <h4><i class="fa fa-graduation-cap"></i>Estudiantes admitidos en la Aplicación</h4>
                     </div>
                     <div class="panel-body">
-                        {{ Form::open(['url' =>'admin/estudiante/verificados-buscador', 'method' => 'POST', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
+                        {{ Form::open(['url' =>'administrador/estudiante/verificados-buscador', 'method' => 'POST', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
                             {!! csrf_field() !!}
                             @include('partials.search.searcher')
                         {{ Form::close() }}

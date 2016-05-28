@@ -90,7 +90,7 @@ Route::group(['prefix' => 'json', 'middleware' => 'web'], function () {
 });
 
 // Grupo de rutas para los administradores
-Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'], function(){
+Route::group(['prefix' => 'administrador', 'middleware' => 'web', 'namespace' => 'Admin'], function(){
 
     // Vista de administrador logeado
     Route::resource(config('routes.index'), 'AdminsController');
