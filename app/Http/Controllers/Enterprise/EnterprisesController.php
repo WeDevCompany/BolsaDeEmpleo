@@ -27,7 +27,7 @@ class EnterprisesController extends UsersController
         $this->redirectTo = "/empresa";
     }
 
-    public function index(){
+    protected function index(){
         return view('enterprise.registerForm');
     } // index()
 

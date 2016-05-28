@@ -201,7 +201,7 @@ Route::group(['prefix' => 'estudiante', 'middleware' => ['web'], 'namespace' => 
 });
 
 // Grupo de rutas para las empresas
-Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth'], 'namespace' => 'Enterprise'], function(){
+Route::group(['prefix' => 'empresa', 'middleware' => ['web'], 'namespace' => 'Enterprise'], function(){
 
     // Vista de empresa logeado
     Route::resource(config('routes.index'), 'EnterprisesController');
