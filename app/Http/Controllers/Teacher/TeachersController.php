@@ -152,7 +152,7 @@ class TeachersController extends UsersController
     public function getStudentNotification()
     {
         // Variale de zona
-        $zona = "Notificaciones de estudiantes";
+        $zona = config('zona.notificaciones.estudiante');
 
         // Variable que necesitamos pasarle a la vista para poder ver los fitros
         $filters = config('filters.verifiedTeacherStudent');
@@ -233,11 +233,16 @@ class TeachersController extends UsersController
      */
     public function postSearchStudentNotification()
     {
+        // Variale de zona
+        $zona = config('zona.notificaciones.estudiante');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedTeacherStudent');
 
         // Obtenemos los estudiantes filtrados por el buscador
         $invalidStudent = $this->getStudentNotification();
 
-        return view('teacher/studentNotification', compact('invalidStudent'));
+        return view('teacher/studentNotification', compact('invalidStudent', 'filters', 'zona'));
 
     } // postSearchStudentNotification()
 
@@ -248,6 +253,11 @@ class TeachersController extends UsersController
      */
     public function getVerifiedStudent()
     {
+        // Variale de zona
+        $zona = config('zona.admitidos.estudiante');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedTeacherStudent');
 
         // Obtenemos las familias profesionales del profesor
         $profFamilyTeacher = $this->search->profFamilyTeacher();
@@ -270,7 +280,7 @@ class TeachersController extends UsersController
             return $verifiedStudent;
         }
 
-        return view('teacher/verifiedStudent', compact('verifiedStudent'));
+        return view('teacher/verifiedStudent', compact('verifiedStudent', 'filters', 'zona'));
 
     } // getVerifiedStudent()
 
@@ -280,10 +290,15 @@ class TeachersController extends UsersController
      */
     public function postSearchVerifiedStudent()
     {
+        // Variale de zona
+        $zona = config('zona.admitidos.estudiante');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedTeacherStudent');
 
         $verifiedStudent = $this->getVerifiedStudent();
 
-        return view('teacher/verifiedStudent', compact('verifiedStudent'));
+        return view('teacher/verifiedStudent', compact('verifiedStudent', 'filters', 'zona'));
 
     } // postSearchVerifiedStudent()
 
@@ -294,6 +309,12 @@ class TeachersController extends UsersController
      */
     public function getDeniedStudent()
     {
+        // Variale de zona
+        $zona = config('zona.denegados.estudiante');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedTeacherStudent');
+
         // Obtenemos las familias profesionales del profesor
         $profFamilyTeacher = $this->search->profFamilyTeacher();
 
@@ -309,7 +330,7 @@ class TeachersController extends UsersController
             return $deniedStudent;
         }
 
-        return view('teacher/deniedStudent', compact('deniedStudent'));
+        return view('teacher/deniedStudent', compact('deniedStudent', 'filters', 'zona'));
 
     } // getDeniedStudent()
 
@@ -362,9 +383,15 @@ class TeachersController extends UsersController
      */
     public function postSearchDeniedStudent()
     {
+        // Variale de zona
+        $zona = config('zona.denegados.estudiante');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedTeacherStudent');
+
         $deniedStudent = $this->getDeniedStudent();
 
-        return view('teacher/deniedStudent', compact('deniedStudent'));
+        return view('teacher/deniedStudent', compact('deniedStudent', 'filters', 'zona'));
 
     } // postSearchDeniedStudent()
 
@@ -452,8 +479,8 @@ class TeachersController extends UsersController
      */
     public function getOfferNotification()
     {
-        // variable de zona
-        $zona = "Notificaciones de ofertas";
+        // Variale de zona
+        $zona = config('zona.notificaciones.empresa');
 
         // Variable que necesitamos pasarle a la vista para poder ver los fitros
         $filters = config('filters.verifiedOffers');
@@ -534,9 +561,15 @@ class TeachersController extends UsersController
      */
     public function postSearchOfferNotification()
     {
+        // Variale de zona
+        $zona = config('zona.notificaciones.empresa');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedOffers');
+
         $invalidOffer = $this->getOfferNotification();
 
-        return view('teacher/offerNotification', compact('invalidOffer'));
+        return view('teacher/offerNotification', compact('invalidOffer', 'filters', 'zona'));
 
     } // postSearchOfferNotification()
 
@@ -547,6 +580,11 @@ class TeachersController extends UsersController
      */
     public function getVerifiedOffer()
     {
+        // Variale de zona
+        $zona = config('zona.admitidos.empresa');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedOffers');
 
         // Obtenemos las familias profesionales del profesor
         $profFamilyTeacher = $this->search->profFamilyTeacher();
@@ -581,7 +619,7 @@ class TeachersController extends UsersController
             return $verifiedOffer;
         }
 
-        return view('teacher/verifiedOffer', compact('verifiedOffer'));
+        return view('teacher/verifiedOffer', compact('verifiedOffer', 'filters', 'zona'));
 
     } // getVerifiedOffer()
 
@@ -591,9 +629,15 @@ class TeachersController extends UsersController
      */
     public function postSearchVerifiedOffer()
     {
+        // Variale de zona
+        $zona = config('zona.admitidos.empresa');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedOffers');
+
         $verifiedOffer = $this->getVerifiedOffer();
 
-        return view('teacher/verifiedOffer', compact('verifiedOffer'));
+        return view('teacher/verifiedOffer', compact('verifiedOffer', 'filters', 'zona'));
 
     } // postSearchVerifiedOffer()
 
@@ -604,6 +648,12 @@ class TeachersController extends UsersController
      */
     public function getDeniedOffer()
     {
+        // Variale de zona
+        $zona = config('zona.denegados.empresa');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedOffers');
+
         // Obtenemos las familias profesionales del profesor
         $profFamilyTeacher = $this->search->profFamilyTeacher();
 
@@ -619,7 +669,7 @@ class TeachersController extends UsersController
             return $deniedOffer;
         }
 
-        return view('teacher/deniedOffer', compact('deniedOffer'));
+        return view('teacher/deniedOffer', compact('deniedOffer', 'filters', 'zona'));
 
     } // getDeniedOffer()
 
@@ -669,9 +719,15 @@ class TeachersController extends UsersController
      */
     public function postSearchDeniedOffer()
     {
+        // Variale de zona
+        $zona = config('zona.denegados.empresa');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedOffers');
+
         $deniedOffer = $this->getDeniedOffer();
 
-        return view('teacher/deniedOffer', compact('deniedOffer'));
+        return view('teacher/deniedOffer', compact('deniedOffer', 'filters', 'zona'));
 
     } // postSearchDeniedOffer()
 

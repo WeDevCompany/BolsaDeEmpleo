@@ -37,7 +37,7 @@
                                     <legend style="width: auto;">Responsable del centro</legend>
                                     @include('enterprise.partials.enterpriseresponsablefields')
                                 </fieldset>
-                                <div id="divAddFamilyCycle" class="text-center">
+                                <div id="divAddResponsable" class="text-center">
                                     @include('enterprise.partials.btnAddEnterpriseResponsable')
                                 </div>
                             </section>

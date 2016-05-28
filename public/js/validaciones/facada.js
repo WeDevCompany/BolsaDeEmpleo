@@ -43,7 +43,7 @@ $(document).ready(function(){
     // que formulario nos encontramos
     // y dependiendo de eso
     // cargamos una validaciones u otras
-    if (login.length) {
+    if (login.length > 0) {
 
         // Cargamos el archivo que se encarga únicamente de cargar los cambios
         login.after('<script src="/js/validaciones/includes/loginForm.js" charset="utf-8"></script>');
@@ -52,14 +52,14 @@ $(document).ready(function(){
 
     // Comprobamos si el formulario
     // es el formulario de send-email-reset
-    if(form.length){
+    if(form.length > 0){
         // Cargamos las validaciones del email
         form.after('<script src="/js/validaciones/email.js" charset="utf-8"></script>');
     }// Comprobación de que el formulario es el de reseteo de contraseña
 
     // Comprobamos si el formulario
     // es el formulario de registro de profesores
-    if(teacherRegisterForm.length) {
+    if(teacherRegisterForm.length > 0) {
 
         // Script personalizado de chosen
         teacherRegisterForm.after('<script src="/js/validaciones/includes/teacherRegisterForm.js"></script>');
@@ -68,7 +68,7 @@ $(document).ready(function(){
 
     // Comprobamos si el formulario
     // es el formulario de registro de alumnos
-    if(studentRegisterForm.length) {
+    if(studentRegisterForm.length > 0) {
 
         // Script personalizado para aceptar terminos
         studentRegisterForm.after('<script src="/js/validaciones/includes/studentRegisterForm.js" charset="utf-8"></script>');
@@ -77,22 +77,16 @@ $(document).ready(function(){
 
     // Comprobamos si el formulario
     // es el formulario de registro de empresas
-    if(enterpriseRegisterForm.length) {
-
-        // Script Drag and Drop Personalizado
-        enterpriseRegisterForm.after('<script src="/js/dragDrop.js" charset="utf-8"></script>');
-
-        // Script de chosen (select multiple)
-        enterpriseRegisterForm.after('<script src="/plugin/chosen/chosen.jquery.js"></script>');
+    if(enterpriseRegisterForm.length > 0) {
 
         // Script personalizado de chosen
-        enterpriseRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
+        enterpriseRegisterForm.after('<script src="/js/validaciones/includes/enterpriseRegisterForm.js"></script>');
 
     }// Comprobación de que el formulario es el de las empresas
 
     // Comprobamos si el formulario
     // es el formulario de borrado
-    if (formDelete.length) {
+    if (formDelete.length > 0) {
 
         // Script de mensajes humane
         //formDelete.after('<script src="/js/funcionalidad/sessionFlash.js" charset="utf-8"></script>');
