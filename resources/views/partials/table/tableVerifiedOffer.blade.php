@@ -30,7 +30,7 @@
                         <div class="row extra-padding-top">
                             <div class="col-sm-3"><b>Duración: </b>{!! $offer->duration !!}</div>
                             <div class="col-sm-3 offset3"><b>Tipo: </b>{!! $offer->kind !!}</div>
-                            <div class="col-sm-3 offset6"><b>Suscriptores: </b>{!! $offer->subcriptionCount!!}</div>
+                            <div class="col-sm-3 offset6"><b>Suscriptores: </b>{!! (isset($offer->subcriptionCount)) ? $offer->subcriptionCount : "0"!!}</div>
                             <div class="col-sm-3 offset9"><b>Nivel: </b>{!! $offer->level !!}</div>
                         </div>
                         <div class="row extra-padding-top">
@@ -44,6 +44,13 @@
                                     @foreach($offer->tagCount as $tags => $value)
                                        <span class="label label-primary">{!! $value !!}</span>
                                     @endforeach
+                                </div>
+                            </div>
+                        @endif
+                        @if($offer->others)
+                            <div class="row extra-padding-top">
+                                <div class="col-md-12">
+                                    {!!$offer->others !!}
                                 </div>
                             </div>
                         @endif
