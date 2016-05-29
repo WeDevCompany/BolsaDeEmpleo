@@ -49,11 +49,11 @@ class SearchController extends Controller
     } // getUser()
 
 
-	/*==============================
-	 *								*
-	 *		  S T U D E N T         *
-	 *	 							*
-	 *==============================*/
+    /*==============================
+     *                              *
+     *        S T U D E N T         *
+     *                              *
+     *==============================*/
 
     /**
      * Metodo que obtiene los estudiantes que no han sido dados de alta
@@ -87,7 +87,7 @@ class SearchController extends Controller
         // que nos interesan debido a la forma que tiene laravel de gestionar el distinct,
         // que necesita estar el campo en la select
         $invalidOrValidStudent = Student::name($request->get('name'))
-        							->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y el alumno
+                                    ->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y el alumno
                                     ->select('students.id', 'students.firstName', 'students.lastName','students.dni', 'users.email', 'users.carpeta', 'users.image','profFamilies.name')
                                     ->join('users', 'users.id', '=', 'user_id')
                                     ->join('studentCycles', 'studentCycles.student_id', '=', 'students.id')
@@ -101,6 +101,20 @@ class SearchController extends Controller
         return $invalidOrValidStudent;
 
     } // invalidOrValidStudent()
+
+    /**
+     * Metodo que obtiene los ids de estudiantes sin verificar
+     */
+    public function notVerifiedStudents($profFamilyValidate = null) {
+        $validStudent = Self::validStudent();
+        return Student::select('students.id')
+            ->profFamilyTeacher($profFamilyValidate)
+            ->join('studentCycles', 'studentCycles.student_id', '=', 'students.id')
+            ->join('cycles', 'cycles.id', '=', 'studentCycles.cycle_id')
+            ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
+            ->whereNotIn('students.id', array_column($validStudent, 'student_id'))
+            ->get();
+    } // notVerifiedStudents()
 
     /**
      * Metodo que obtiene todos los estudiantes validados
@@ -170,10 +184,10 @@ class SearchController extends Controller
 
 
     /*==============================
-	 *								*
-	 *		  T E A C H E R         *
-	 *	 							*
-	 *==============================*/
+     *                              *
+     *        T E A C H E R         *
+     *                              *
+     *==============================*/
 
     /**
      * Metodo que devuelve la familia del profesor logueado
@@ -199,8 +213,8 @@ class SearchController extends Controller
      */
     public function verifiedTeacher($idTeacher)
     {
-    	// Obtenemos el profesor dado de alta en la aplicacion
-    	$verifiedTeacher = Teacher::where('verifiedTeachers.teacher_id', '=', $idTeacher)
+        // Obtenemos el profesor dado de alta en la aplicacion
+        $verifiedTeacher = Teacher::where('verifiedTeachers.teacher_id', '=', $idTeacher)
                                         ->join('verifiedTeachers', 'verifiedTeachers.teacher_id', '=', 'teachers.id')
                                         ->first();
 
@@ -209,14 +223,24 @@ class SearchController extends Controller
     } // verifiedTeacher()
 
     /**
+     * Metodo que obtiene los ids de profesores sin verificar
+     */
+    public function notVerifiedTeachers() {
+        $validTeacher = Self::validTeacher();
+        return Teacher::select('teachers.id')
+            ->whereNotIn('teachers.id', array_column($validTeacher, 'teacher_id'))
+            ->get();
+    } // notVerifiedTeachers()
+
+    /**
      * Metodo que obtiene todos los profesores validados
      */
     public function validTeacher()
     {
-    	// Obtenemos todos los profesores validados
-    	$validTeacher = \DB::table('verifiedTeachers')->select('teacher_id')->get();
+        // Obtenemos todos los profesores validados
+        $validTeacher = \DB::table('verifiedTeachers')->select('teacher_id')->get();
 
-    	return $validTeacher;
+        return $validTeacher;
 
     } // validTeacher()
 
@@ -229,8 +253,8 @@ class SearchController extends Controller
      */
     public function invalidOrValidTeacher($invalidOrValidTeacher, $request)
     {
-    	// Obtenemos los profesores que no estan validados
-    	// o si lo estan segun los parametros recibidos
+        // Obtenemos los profesores que no estan validados
+        // o si lo estan segun los parametros recibidos
         $invalidOrValidTeacher = Teacher::name($request->get('name'))
                                     ->select('profFamilies.*', 'users.*', 'teachers.*')
                                     ->join('users', 'users.id', '=', 'user_id')
@@ -277,20 +301,20 @@ class SearchController extends Controller
 
 
     /*==============================
-	 *								*
-	 *		   O F F E R S          *
-	 *	 							*
-	 *==============================*/
+     *                              *
+     *         O F F E R S          *
+     *                              *
+     *==============================*/
 
     /**
      * Metodo que obtiene todas las ofertas de trabajo validadas
      */
     public function validOffer()
     {
-    	// Obtenemos todos los profesores validados
-    	$validTeacher = \DB::table('verifiedOffers')->select('jobOffer_id')->get();
+        // Obtenemos todas las ofertas validadas
+        $validTeacher = \DB::table('verifiedOffers')->select('jobOffer_id')->get();
 
-    	return $validTeacher;
+        return $validTeacher;
 
     } // validOffer()
 
@@ -306,17 +330,17 @@ class SearchController extends Controller
     public function invalidOrValidOffer($invalidOrValidOffer, $request, $profFamilyValidate = null, $truncate = null)
     {
 
-    	$invalidOrValidOffer = JobOffer::name($request->get('name'))
-    									->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y las ofertas
-    									->select('jobOffers.id as idJobOffer', 'states.name as stateName', 'cities.name as cityName', 'workCenters.name as workCenterName', 'workCenters.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'workCenters.*', 'enterprises.*', 'profFamilies.*', 'users.*', 'jobOffers.*')
-    									->join('profFamilies', 'profFamilies.id', '=', 'jobOffers.profFamilie_id')
-    									->join('workCenters', 'workCenters.id', '=', 'jobOffers.workCenter_id')
-    									->join('enterprises', 'enterprises.id', '=', 'workCenters.enterprise_id')
-    									->join('users', 'users.id', '=', 'user_id')
+        $invalidOrValidOffer = JobOffer::name($request->get('name'))
+                                        ->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y las ofertas
+                                        ->select('jobOffers.id as idJobOffer', 'states.name as stateName', 'cities.name as cityName', 'workCenters.name as workCenterName', 'workCenters.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'workCenters.*', 'enterprises.*', 'profFamilies.*', 'users.*', 'jobOffers.*')
+                                        ->join('profFamilies', 'profFamilies.id', '=', 'jobOffers.profFamilie_id')
+                                        ->join('workCenters', 'workCenters.id', '=', 'jobOffers.workCenter_id')
+                                        ->join('enterprises', 'enterprises.id', '=', 'workCenters.enterprise_id')
+                                        ->join('users', 'users.id', '=', 'user_id')
                                         ->join('cities', 'cities.id', '=','workCenters.citie_id')
                                         ->join('states', 'states.id', '=','cities.state_id')
-                                    	->whereIn('jobOffers.id', $invalidOrValidOffer)
-                                    	->paginate();
+                                        ->whereIn('jobOffers.id', $invalidOrValidOffer)
+                                        ->paginate();
 
         if ($truncate) {
 
@@ -339,6 +363,7 @@ class SearchController extends Controller
                         # Limpiamos los espacios detrás
                         $aux[$key1] = trim($value1);
                     }
+
                     // creamos un atributo al vuelo
                     $value->newOthers = $aux;
                 }
@@ -365,6 +390,18 @@ class SearchController extends Controller
     } // offerTag()
 
     /**
+     * Metodo que obtiene los ids de ofertas sin verificar
+     */
+    public function notVerifiedOffers($profFamilyValidate = null) {
+        $validOffer = Self::validOffer();
+        return JobOffer::select('jobOffers.id')
+            ->profFamilyTeacher($profFamilyValidate)
+            ->join('profFamilies', 'profFamilies.id', '=', 'profFamilie_id')
+            ->whereNotIn('jobOffers.id', array_column($validOffer, 'jobOffer_id'))
+            ->get();
+    } // notVerifiedOffers()
+
+    /**
      * Metodo que comprueba si la oferta pasada como parametro esta
      * dada de alta en la aplicacion
      * @param  $idOffer   Id de la oferta a comprobar
@@ -372,8 +409,8 @@ class SearchController extends Controller
      */
     public function verifiedOffer($idOffer)
     {
-    	// Obtenemos el profesor dado de alta en la aplicacion
-    	$verifiedOffer = JobOffer::where('verifiedOffers.jobOffer_id', '=', $idOffer)
+        // Obtenemos el profesor dado de alta en la aplicacion
+        $verifiedOffer = JobOffer::where('verifiedOffers.jobOffer_id', '=', $idOffer)
                                         ->join('verifiedOffers', 'verifiedOffers.jobOffer_id', '=', 'jobOffers.id')
                                         ->first();
         return $verifiedOffer;

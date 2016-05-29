@@ -51,8 +51,5 @@ enterpriseRegisterForm.after('<script src="/js/spin/spin.js"></script>');
 // Añadimos el objeto que nos añadira los nuevos responsables
 enterpriseRegisterForm.after('<script src="/js/funcionalidad/addEnterpriseResponsable.js"></script>');
 
-// Añadimos el objeto de ajax
-enterpriseRegisterForm.after('<script src="/js/ajax/ajax.js"></script>');
-
 // Añadimos el js encargado de gestionar las peticiones ajax
 enterpriseRegisterForm.after('<script src="/js/forms/enterpriseFormActions.js"></script>');

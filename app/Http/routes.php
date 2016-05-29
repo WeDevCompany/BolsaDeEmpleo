@@ -94,6 +94,8 @@ Route::group(['prefix' => 'json', 'middleware' => 'web'], function () {
     // Provincias
     Route::get('states', 'StatesController@getAllStatesJSON');
 
+    // Notificaciones
+    Route::get('notifications', 'UsersController@getNotificationsJSON');
 });
 
 // Grupo de rutas para los administradores

@@ -51,14 +51,8 @@ studentRegisterForm.after('<script src="/js/validaciones/cycleYear.js"></script>
 // Script de validación del nre
 studentRegisterForm.after('<script src="/js/validaciones/nre.js"></script>');
 
-// Script con el objeto spin
-studentRegisterForm.after('<script src="/js/spin/spin.js"></script>');
-
 // Añadimos el objeto que nos añadira los ciclos y familias
 studentRegisterForm.after('<script src="/js/funcionalidad/addFamilyCycles.js"></script>');
-
-// Añadimos el objeto de ajax
-studentRegisterForm.after('<script src="/js/ajax/ajax.js"></script>');
 
 // Añadimos el js encargado de gestionar las peticiones ajax
 studentRegisterForm.after('<script src="/js/forms/studentFormActions.js"></script>');

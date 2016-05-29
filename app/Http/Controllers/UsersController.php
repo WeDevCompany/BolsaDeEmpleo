@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ProfFamiliesController;
 use App\Http\Controllers\EmailController;
 
 // Incluimos la librería faker para poder hacer pruebas
@@ -43,7 +44,7 @@ class UsersController extends Controller
      * Constructor del Controlador de usuarios
      * @param Request $request obtenemos la petición
      */
-    protected function __construct(Request $request)
+    public function __construct(Request $request)
     {
         //$this->middleware('auth');
 
@@ -57,7 +58,7 @@ class UsersController extends Controller
             'password'  => 'required|confirmed|between:4,20|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d).+$/',
             'terminos'  => 'required'
         ];
-
+    
         $this->rules_image = [
             'file' => 'required|image'
         ];
@@ -170,6 +171,61 @@ class UsersController extends Controller
     } // create()
 
     /**
+     * [register description]
+     * @return [type] [description]
+     */
+    protected function register()
+    {
+        // Registro de profesores
+        if($this->request->is('registro/profesor')){
+
+            // Llamo al metodo getAllProfFamilies del controlador de las familias profesionales
+            $profFamilies = app(ProfFamiliesController::class)->getAllProfFamilies();
+            $cycles = app(CyclesController::class)->getAllCycles('*', true);
+
+            // Inicializo las variables que necesitare para los optgroups
+            $basico = true;
+            $medio = true;
+            $superior = true;
+
+            $zona = "Registro de profesores";
+            return view('teacher.registerForm', compact('profFamilies', 'cycles', 'basico', 'medio', 'superior', 'zona'));
+
+        // Registro de estudiantes
+        } else if ($this->request->is('registro/estudiante')) {
+
+            // Llamo al metodo getAllProfFamilies del controlador de las familias profesionales
+            $profFamilies = app(ProfFamiliesController::class)->getAllProfFamilies();
+
+            // Obtengo el identificador de la primera familia profesional
+            $familyId = array_keys($profFamilies)[0];
+
+            // Obtengo los ciclos de la primera familia
+            $cycles = app(CyclesController::class)->getAllCycles($familyId);
+            $zona = 'Registro de estudiantes';
+
+            // Inicializo las variables que necesitare para los optgroups
+            $basico = true;
+            $medio = true;
+            $superior = true;
+
+            // Devuelvo la vista junto con las familias
+            return view('student.registerForm', compact('profFamilies', 'cycles', 'zona', 'basico', 'medio', 'superior'));
+
+        // Registro de empresas
+        } else if ($this->request->is('registro/empresa')) {
+
+            return view('enterprise.registerForm');
+
+        } else {
+
+            abort(404);
+
+        }
+
+    } //register()
+
+    /**
      * Método de subida de imagenes [Pruebas]
      * @param  UploadImageRequest $request middleware hecho
      *                                     expresamente para validar la imagen
@@ -264,5 +320,97 @@ class UsersController extends Controller
 
     } // sendEmail()
 
+    public function getNotificationsJSON() {
+
+        $notifications = [];
+
+        if (\Auth::user()->rol == "profesor" || \Auth::user()->rol == "administrador") {
+            try{
+                // Obtenemos las familias profesionales del profesor
+                $profFamilyTeacher = $this->search->profFamilyTeacher();
+
+                // Convertimos el objeto devuelto en un array
+                $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
+
+            } catch (\PDOException $e){
+                //dd($e);
+                abort(500);
+            }
+
+            // Obtenemos todos los estudiantes sin verificar dependiendo de la familia
+            try{
+                // Obtenemos todos los alumnos correspondientes a sus familias profesionales
+                $query = $this->search->notVerifiedStudents($profFamilyValidate);
+
+                // Almacenamos el resultado
+                $notifications['studentNotifications'] = count($query);
+            } catch (\PDOException $e){
+                //dd($e);
+                abort(500);
+            }
+
+            // Obtenemos todas las ofertas sin verificar dependiendo de la familia
+            try{
+                // Obtenemos todos los alumnos correspondientes a sus familias profesionales
+                $query = $this->search->notVerifiedOffers($profFamilyValidate);
+
+                // Almacenamos el resultado
+                $notifications['offerNotifications'] = count($query);
+            } catch (\PDOException $e){
+                //dd($e);
+                abort(500);
+            }
+        }
+
+        if (\Auth::user()->rol == "administrador") {
+            // Obtenemos todos los profesores sin verificar
+            try{
+                // Obtenemos todos los ids de profesores no verificados aún
+                $query = $this->search->notVerifiedTeachers();
+                
+                // Almacenamos el resultado
+                $notifications['allTeacherNotifications'] = count($query);
+
+            } catch (\PDOException $e){
+                //dd($e);
+                abort(500);
+            }
+
+            // Obtenemos todos los estudiantes sin verificar
+            try{
+                // Obtenemos todos los ids de estudiantes no verificados aún
+                $query = $this->search->notVerifiedStudents();
+
+                // Almacenamos el resultado
+                $notifications['allStudentNotifications'] = count($query);
+
+            } catch (\PDOException $e){
+                //dd($e);
+                abort(500);
+            }
+
+            // Obtenemos todas las ofertas sin verificar
+            try{
+                // Obtenemos todos los ids de ofertas no verificados aún
+                $query = $this->search->notVerifiedOffers();
+                
+                // Almacenamos el resultado
+                $notifications['allOfferNotifications'] = count($query);
+
+            } catch (\PDOException $e){
+                //dd($e);
+                abort(500);
+            }
+
+        }
+
+        $result = [];
+        foreach ($notifications as $id => $count) {
+            $result[] = ['id' => $id, 'cantidad' => $count];
+        }
+
+        return \Response::json($result);
+
+    } // getNotificationsJSON()
 
 }// fin del controlador

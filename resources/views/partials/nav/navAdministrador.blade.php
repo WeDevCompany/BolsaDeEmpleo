@@ -9,13 +9,13 @@
     <ul class="dropdown-menu" role="menu" id="notifications" aria-labelledby="notificaciones">
         <!-- ADMIN -->
         <li role="presentation" class="dropdown-header">Administrador</li>
-        <li><a href="{{ url(config('routes.admin.teacherNotification')) }}"><i class="fa fa-university right" aria-hidden="true"></i><span class="badge social-counter right notificacion">5</span> Profesores</a></li>
-        <li><a href="{{ url(config('routes.admin.studentNotification')) }}"><i class="fa fa-graduation-cap right"  aria-hidden="true"></i><span class="badge social-counter right notificacion">300</span> Alumnos</a></li>
-        <li><a href="{{ url(config('routes.admin.offerNotification')) }}"><i class="fa fa-cart-plus right"  aria-hidden="true"></i><span class="badge social-counter right notificacion">5</span> Ofertas</a></li>
+        <li><a href="{{ url(config('routes.admin.teacherNotification')) }}"><i class="fa fa-university right" aria-hidden="true"></i><span class="badge social-counter right notificacion" id="adminTeacherNotifications"></span> Profesores</a></li>
+        <li><a href="{{ url(config('routes.admin.studentNotification')) }}"><i class="fa fa-graduation-cap right"  aria-hidden="true"></i><span class="badge social-counter right notificacion" id="adminStudentNotifications"></span> Alumnos</a></li>
+        <li><a href="{{ url(config('routes.admin.offerNotification')) }}"><i class="fa fa-cart-plus right"  aria-hidden="true"></i><span class="badge social-counter right notificacion" id="adminOfferNotifications"></span> Ofertas</a></li>
         <!-- PROFESORES -->
         <li role="presentation" class="dropdown-header">Profesor</li>
-        <li><a href="{{ url(config('routes.teacher.studentNotification')) }}"><i class="fa fa-graduation-cap right"  aria-hidden="true"></i><span class="badge social-counter right notificacion">5</span> Alumnos</a></li>
-        <li><a href="{{ url(config('routes.teacher.offertNotification')) }}"><i class="fa fa-cart-plus right"  aria-hidden="true"></i><span class="badge social-counter right notificacion">5</span> Ofertas</a></li>
+        <li><a href="{{ url(config('routes.teacher.studentNotification')) }}"><i class="fa fa-graduation-cap right"  aria-hidden="true"></i><span class="badge social-counter right notificacion" id="teacherStudentNotifications"></span> Alumnos</a></li>
+        <li><a href="{{ url(config('routes.teacher.offertNotification')) }}"><i class="fa fa-cart-plus right"  aria-hidden="true"></i><span class="badge social-counter right notificacion" id="teacherOfferNotifications"></span> Ofertas</a></li>
     </ul>
 </a></li>
 <li class = "dropdown">

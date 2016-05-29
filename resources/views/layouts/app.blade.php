@@ -84,6 +84,12 @@
     <!-- jQuery Validation -->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js" type="text/javascript"></script>
 
+    <!-- Objeto spin -->
+    <script src="{{ url('/js/spin/spin.js') }}" type="text/javascript"></script>
+
+    <!-- Objeto de ajax -->
+    <script src="{{ url('/js/ajax/ajax.js') }}" type="text/javascript"></script>
+
     <!-- Script TagBox -->
     <script src="{{ url('js/tagging.min.js') }}"></script>
 
@@ -109,13 +115,13 @@
     <script src="{{ asset('/js/spin/spin.min.js') }}"></script>
 
     <!-- Script que automatiza el carrusel -->
-    <script src="{{url("/js/carrusel.js")}}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{url('/js/carrusel.js')}}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Script que calcula las notificaciones -->
-    <script src="{{url("/js/funcionalidad/notifications.js")}}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{url('/js/funcionalidad/notifications.js')}}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Script que permite a la imagen ponerse blanca con un mouse over -->
-    <script src="{{url("/js/funcionalidad/imgPerfilMouseOver.js")}}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{url('/js/funcionalidad/imgPerfilMouseOver.js')}}" type="text/javascript" charset="utf-8"></script>
 
     @yield('scripts')
 
