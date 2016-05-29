@@ -64,7 +64,7 @@
                             </div>
                         @endif
                         @if(\Auth::user()->rol == "empresa")
-
+                            @include('offer.partials.adminAndEnterpriseBtn')
 
                         @elseif(\Auth::user()->rol == "administrador")
                             @include('offer.partials.adminAndEnterpriseBtn')
@@ -73,7 +73,7 @@
                             @include('offer.partials.teacherBtn')
 
                         @elseif(\Auth::user()->rol == "estudiante")
-
+                            @include('offer.partials.studentBtn')
 
                         @endif
                     </div>
