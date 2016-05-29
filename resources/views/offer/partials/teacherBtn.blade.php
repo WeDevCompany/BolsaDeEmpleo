@@ -10,7 +10,7 @@
 	    </a>
     </div>
 	<div class="col-sm-6">
-		<a href="/{{\Auth::user()->rol}}/oferta/update/{{ $offer->id }}" class="btn btn-info btn-login-media waves-effect waves-light hoverable" id="verOferta">
+		<a href="/{{\Auth::user()->rol}}/oferta/actualizar/{{ $offer->id }}" class="btn btn-info btn-login-media waves-effect waves-light hoverable" id="verOferta">
 	        <div class="show-responsive">
 	            <i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i>
 	        </div>
