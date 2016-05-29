@@ -330,9 +330,15 @@ class SearchController extends Controller
                     $value->description = mb_substr($value->description, 0, $descriptionLength) . '...';
 
                 }
-                //dd($value->others);
-                $aux = explode(",",$value->others);
-                $value->newOthers = $aux;
+                // por cada registro que tenga el campo other
+                // se generará un array el cual contendrá
+                // las otras etiquetas
+                if ($value->others) {
+                    $aux = explode(",",$value->others);
+                    // creamos un atributo al vuelo
+                    $value->newOthers = $aux;
+                }
+
             }
         }// truncar la descripción de las ofertas
         return $invalidOrValidOffer;
