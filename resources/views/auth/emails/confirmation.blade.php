@@ -11,7 +11,6 @@
                     </div>
                     <div class="panel-body">
                          {{ Form::open(['url' => 'confirmado', 'method' => 'POST']) }}
-                            {!! csrf_field() !!}
 
                             <div class="control-group{{ $errors->has('code') ? ' has-error' : '' }}">
                                 <div class="row">
