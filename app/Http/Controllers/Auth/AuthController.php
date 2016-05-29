@@ -79,7 +79,8 @@ class AuthController extends Controller
         // Comprobamos si el usuario ha validado su email
         if (!$user->verifiedEmail) {
 
-            return \Redirect::to('confirmation');
+            $zona = "Formulario de confirmación";
+            return view('auth.emails.confirmation', compact('zona'));
 
         // Comprobamos que el profesor haya verificado al alumno
         } else if ($user->rol == 'estudiante'){

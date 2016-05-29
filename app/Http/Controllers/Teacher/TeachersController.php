@@ -136,6 +136,12 @@ class TeachersController extends UsersController
      */
     public function getStudentNotification()
     {
+        // Url de buscador
+        $urlSearch = config('');
+
+        // Url de post
+        $urlPost = config('');
+
         // Variale de zona
         $zona = config('zona.notificaciones.estudiante');
 

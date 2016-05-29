@@ -18,7 +18,7 @@
                 <div class="col-md-12 oferta extra-padding-bottom mask hoverable scroll" tabindex="{{ $offer->id }}">
                     <div class="col-md-12" data-id="{{(isset($offer->id)) ? $offer->id : 0 }}" id="{{(isset($offer->id)) ? $offer->id : 0 }}">
                         <div class="row" title="{!! $offer->title !!}">
-                            <h5><a href="#" class="titulo btn-flat waves-effect hoverable">{!! $offer->title !!} <i class="fa fa-link" aria-hidden="true"></i></a></h5>
+                            <h5><a href="/{{\Auth::user()->rol}}/oferta/{{ $offer->id }}" class="titulo btn-flat waves-effect hoverable">{!! $offer->title !!} <i class="fa fa-link" aria-hidden="true"></i></a></h5>
                         </div>
                         <div class="row extra-padding-bottom">
                             <div class="col-sm-6" data-enterprise="{!! $offer->enterpriseName !!}"><b>Empresa: </b><a href="{!! (isset($offer->web)) ? $offer->web : 'https://www.google.es/#q='.$offer->enterpriseName !!}" target="_blank">{!! $offer->enterpriseName !!} <i class="fa fa-link" aria-hidden="true"></i></a></div>

@@ -59,6 +59,15 @@ class AdminsController extends TeachersController
      */
     public function getTeacherNotification()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.teacherSearchNotification');
+
+        // Url de post
+        $urlPost = config('routes.admin.teacherValidNotification');
+
+        // Url para borrar profesores
+        $urlDelete = config('routes.admin.destroyTeacherNotification');
+
         // Variable de zona
         $zona = config('zona.notificaciones.profesor');
 
@@ -82,7 +91,7 @@ class AdminsController extends TeachersController
             return $invalidTeacher;
         }
 
-        return view('admin/teacherNotification', compact('invalidTeacher', 'filters', 'zona'));
+        return view('generic/notification/teacherNotification', compact('invalidTeacher', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
 
 
     } // getTeacherNotification()
@@ -116,7 +125,7 @@ class AdminsController extends TeachersController
 
         }
 
-        return \Redirect::to('admin/notificaciones/profesores');
+        return \Redirect::to('administrador/notificaciones/profesores');
 
     } // postTeacherNotification()
 
@@ -126,6 +135,15 @@ class AdminsController extends TeachersController
      */
     public function postSearchTeacherNotification()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.teacherSearchNotification');
+
+        // Url de post
+        $urlPost = config('routes.admin.teacherValidNotification');
+
+        // Url para borrar profesores
+        $urlDelete = config('routes.admin.destroyTeacherNotification');
+
         // Variable de zona
         $zona = config('zona.notificaciones.profesor');
 
@@ -135,7 +153,7 @@ class AdminsController extends TeachersController
         // Obtenemos los profesores filtrados por el buscador
         $invalidTeacher = $this->getTeacherNotification();
 
-        return view('admin/teacherNotification', compact('invalidTeacher', 'filters', 'zona'));
+        return view('generic/notification/teacherNotification', compact('invalidTeacher', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
 
     } // postSearchTeacherNotification()
 
@@ -146,6 +164,9 @@ class AdminsController extends TeachersController
      */
     public function getVerifiedTeacher()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allVerifiedTeachersSearch');
+
         // Variable de zona
         $zona = config('zona.admitidos.profesor');
 
@@ -167,7 +188,7 @@ class AdminsController extends TeachersController
             return $verifiedTeacher;
         }
 
-        return view('admin/verifiedTeacher', compact('verifiedTeacher', 'filters', 'zona'));
+        return view('generic/verified/verifiedTeacher', compact('verifiedTeacher', 'filters', 'zona', 'urlSearch'));
 
     } // getVerifiedTeacher()
 
@@ -177,6 +198,9 @@ class AdminsController extends TeachersController
      */
     public function postSearchVerifiedTeacher()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allVerifiedTeachersSearch');
+
         // Variable de zona
         $zona = config('zona.admitidos.profesor');
 
@@ -185,7 +209,7 @@ class AdminsController extends TeachersController
 
         $verifiedTeacher = $this->getVerifiedTeacher();
 
-        return view('admin/verifiedTeacher', compact('verifiedTeacher', 'filters', 'zona'));
+        return view('generic/verified/verifiedTeacher', compact('verifiedTeacher', 'filters', 'zona', 'urlSearch'));
 
     } // postSearchVerifiedTeacher()
 
@@ -195,6 +219,12 @@ class AdminsController extends TeachersController
      */
     public function getDeniedTeacher()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allDeniedTeachersSearch');
+
+        // Url de post
+        $urlPost = config('routes.admin.restoreDeniedTeachers');
+
         // Variable de zona
         $zona = config('zona.denegados.profesor');
 
@@ -210,7 +240,7 @@ class AdminsController extends TeachersController
             return $deniedTeacher;
         }
 
-        return view('admin/deniedTeacher', compact('deniedTeacher', 'filters', 'zona'));
+        return view('generic/denied/deniedTeacher', compact('deniedTeacher', 'filters', 'zona', 'urlSearch', 'urlPost'));
 
     } // getDeniedTeacher()
 
@@ -222,7 +252,7 @@ class AdminsController extends TeachersController
     {
         $this->restoreDeniedTeacher($request);
 
-        return \Redirect::to('admin/profesor/denegados');
+        return \Redirect::to('administrador/profesor/denegados');
 
     } // postDeniedTeacher()
 
@@ -261,6 +291,12 @@ class AdminsController extends TeachersController
      */
     public function postSearchDeniedTeacher()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allDeniedTeachersSearch');
+
+        // Url de post
+        $urlPost = config('routes.admin.restoreDeniedTeachers');
+
         // Variable de zona
         $zona = config('zona.denegados.profesor');
 
@@ -269,7 +305,7 @@ class AdminsController extends TeachersController
 
         $deniedTeacher = $this->getDeniedTeacher();
 
-        return view('admin/deniedTeacher', compact('deniedTeacher', 'filters', 'zona'));
+        return view('generic/denied/deniedTeacher', compact('deniedTeacher', 'filters', 'zona', 'urlSearch', 'urlPost'));
 
     } // postSearchDeniedTeacher()
 
@@ -353,6 +389,15 @@ class AdminsController extends TeachersController
      */
     public function getStudentNotification()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.studentSearchNotification');
+
+        // Url de post
+        $urlPost = config('routes.admin.studentValidNotification');
+
+        // Url para borrar estudiantes
+        $urlDelete = config('routes.admin.destroyStudentNotification');
+
         // Variale de zona
         $zona = config('zona.notificaciones.estudiante');
 
@@ -376,7 +421,7 @@ class AdminsController extends TeachersController
             return $invalidStudent;
         }
 
-        return view('admin/studentNotification', compact('invalidStudent', 'filters', 'zona'));
+        return view('generic/notification/studentNotification', compact('invalidStudent', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
 
     } // getStudentNotification()
 
@@ -390,7 +435,7 @@ class AdminsController extends TeachersController
 
         Parent::insertValidateStudent($request);
 
-        return \Redirect::to('admin/notificaciones/estudiantes');
+        return \Redirect::to('administrador/notificaciones/estudiantes');
 
     } // postStudentNotification()
 
@@ -400,6 +445,15 @@ class AdminsController extends TeachersController
      */
     public function postSearchStudentNotification()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.studentSearchNotification');
+
+        // Url de post
+        $urlPost = config('routes.admin.studentValidNotification');
+
+        // Url para borrar profesores
+        $urlDelete = config('routes.admin.destroyTeacherNotification');
+
         // Variale de zona
         $zona = config('zona.notificaciones.estudiante');
 
@@ -409,7 +463,7 @@ class AdminsController extends TeachersController
         // Obtenemos los estudiantes filtrados por el buscador
         $invalidStudent = $this->getStudentNotification();
 
-        return view('admin/studentNotification', compact('invalidStudent', 'filters', 'zona'));
+        return view('generic/notification/studentNotification', compact('invalidStudent', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
 
     } // postSearchStudentNotification()
 
@@ -419,6 +473,9 @@ class AdminsController extends TeachersController
      */
     public function getVerifiedStudent()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allVerifiedStudentsSearch');
+
         // Variale de zona
         $zona = config('zona.admitidos.estudiante');
 
@@ -440,7 +497,7 @@ class AdminsController extends TeachersController
             return $verifiedStudent;
         }
 
-        return view('admin/verifiedStudent', compact('verifiedStudent', 'filters', 'zona'));
+        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch'));
 
     } // getVerifiedStudent()
 
@@ -450,6 +507,9 @@ class AdminsController extends TeachersController
      */
     public function postSearchVerifiedStudent()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allVerifiedStudentsSearch');
+
         // Variale de zona
         $zona = config('zona.admitidos.estudiante');
 
@@ -458,7 +518,7 @@ class AdminsController extends TeachersController
 
         $verifiedStudent = $this->getVerifiedStudent();
 
-        return view('admin/verifiedStudent', compact('verifiedStudent', 'filters', 'zona'));
+        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch'));
 
     } // postSearchVerifiedStudent()
 
@@ -468,6 +528,12 @@ class AdminsController extends TeachersController
      */
     public function getDeniedStudent()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allDeniedStudentsSearch');
+
+        // Url de post
+        $urlPost = config('routes.admin.restoreDeniedStudents');
+
         // Variale de zona
         $zona = config('zona.denegados.estudiante');
 
@@ -483,7 +549,7 @@ class AdminsController extends TeachersController
             return $deniedStudent;
         }
 
-        return view('admin/deniedStudent', compact('deniedStudent', 'filters', 'zona'));
+        return view('generic/denied/deniedStudent', compact('deniedStudent', 'filters', 'zona', 'urlSearch', 'urlPost'));
 
     } // getDeniedStudent()
 
@@ -495,7 +561,7 @@ class AdminsController extends TeachersController
     {
         Parent::restoreDeniedStudent($request);
 
-        return \Redirect::to('admin/estudiante/denegados');
+        return \Redirect::to('administrador/estudiante/denegados');
 
     } // postDeniedStudent()
 
@@ -504,6 +570,12 @@ class AdminsController extends TeachersController
      */
     public function postSearchDeniedStudent()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allDeniedStudentsSearch');
+
+        // Url de post
+        $urlPost = config('routes.admin.restoreDeniedStudents');
+
         // Variale de zona
         $zona = config('zona.denegados.estudiante');
 
@@ -512,7 +584,7 @@ class AdminsController extends TeachersController
 
         $deniedStudent = $this->getDeniedStudent();
 
-        return view('admin/deniedStudent', compact('deniedStudent', 'filters', 'zona'));
+        return view('generic/denied/deniedStudent', compact('deniedStudent', 'filters', 'zona', 'urlSearch', 'urlPost'));
 
     } // postSearchDeniedStudent()
 
@@ -536,6 +608,15 @@ class AdminsController extends TeachersController
      */
     public function getOfferNotification()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.offerSearchNotification');
+
+        // Url de post
+        $urlPost = config('routes.admin.offerValidNotification');
+
+        // Url para borrar ofertas de trabajo
+        $urlDelete = config('routes.admin.destroyOfferNotification');
+
         // Variale de zona
         $zona = config('zona.notificaciones.empresa');
 
@@ -559,7 +640,7 @@ class AdminsController extends TeachersController
             return $invalidOffer;
         }
 
-        return view('admin/offerNotification', compact('invalidOffer', 'filters', 'zona'));
+        return view('generic/notification/offerNotification', compact('invalidOffer', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
 
     } // getOfferNotification()
 
@@ -573,7 +654,7 @@ class AdminsController extends TeachersController
 
         Parent::insertValidateOffer($request);
 
-        return \Redirect::to('admin/notificaciones/ofertas');
+        return \Redirect::to('administrador/notificaciones/ofertas');
 
     } // postOfferNotification()
 
@@ -583,6 +664,15 @@ class AdminsController extends TeachersController
      */
     public function postSearchOfferNotification()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.offerSearchNotification');
+
+        // Url de post
+        $urlPost = config('routes.admin.offerValidNotification');
+
+        // Url para borrar ofertas de trabajo
+        $urlDelete = config('routes.admin.destroyOfferNotification');
+
         // Variale de zona
         $zona = config('zona.notificaciones.empresa');
 
@@ -592,7 +682,7 @@ class AdminsController extends TeachersController
         // Obtenemos las ofertas filtrados por el buscador
         $invalidOffer = $this->getOfferNotification();
 
-        return view('admin/offerNotification', compact('invalidOffer', 'filters', 'zona'));
+        return view('generic/notification/offerNotification', compact('invalidOffer', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
 
     } // postSearchOfferNotification()
 
@@ -602,6 +692,9 @@ class AdminsController extends TeachersController
      */
     public function getVerifiedOffer()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allVerifiedOffersSearch');
+
         // Variale de zona
         $zona = config('zona.admitidos.empresa');
 
@@ -636,7 +729,7 @@ class AdminsController extends TeachersController
 
         }
 
-        return view('admin/verifiedOffer', compact('verifiedOffer', 'filters', 'zona'));
+        return view('generic/verified/verifiedOffer', compact('verifiedOffer', 'filters', 'zona', 'urlSearch'));
 
     } // getVerifiedOffer()
 
@@ -646,6 +739,9 @@ class AdminsController extends TeachersController
      */
     public function postSearchVerifiedOffer()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allVerifiedOffersSearch');
+
         // Variale de zona
         $zona = config('zona.admitidos.empresa');
 
@@ -654,7 +750,7 @@ class AdminsController extends TeachersController
 
         $verifiedOffer = $this->getVerifiedOffer();
 
-        return view('admin/verifiedOffer', compact('verifiedOffer', 'filters', 'zona'));
+        return view('generic/verified/verifiedOffer', compact('verifiedOffer', 'filters', 'zona', 'urlSearch'));
 
     } // postSearchVerifiedOffer()
 
@@ -664,6 +760,12 @@ class AdminsController extends TeachersController
      */
     public function getDeniedOffer()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allVerifiedOffersSearch');
+
+        // Url de post
+        $urlPost = config('routes.admin.restoreDeniedOffers');
+
         // Variale de zona
         $zona = config('zona.denegados.empresa');
 
@@ -679,7 +781,7 @@ class AdminsController extends TeachersController
             return $deniedOffer;
         }
 
-        return view('admin/deniedOffer', compact('deniedOffer', 'filters', 'zona'));
+        return view('generic/denied/deniedOffer', compact('deniedOffer', 'filters', 'zona', 'urlSearch', 'urlPost'));
 
     } // getDeniedOffer()
 
@@ -691,7 +793,7 @@ class AdminsController extends TeachersController
     {
         Parent::restoreDeniedOffer($request);
 
-        return \Redirect::to('admin/oferta/denegadas');
+        return \Redirect::to('administrador/oferta/denegadas');
 
     } // postDeniedStudent()
 
@@ -700,6 +802,12 @@ class AdminsController extends TeachersController
      */
     public function postSearchDeniedOffer()
     {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allVerifiedOffersSearch');
+
+        // Url de post
+        $urlPost = config('routes.admin.restoreDeniedOffers');
+
         // Variale de zona
         $zona = config('zona.denegados.empresa');
 
@@ -708,7 +816,7 @@ class AdminsController extends TeachersController
 
         $deniedOffer = $this->getDeniedOffer();
 
-        return view('teacher/deniedOffer', compact('deniedOffer', 'filters', 'zona'));
+        return view('generic/denied/deniedOffer', compact('deniedOffer', 'filters', 'zona', 'urlSearch', 'urlPost'));
 
     } // postSearchDeniedOffer()
 
