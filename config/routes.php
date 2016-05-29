@@ -12,11 +12,21 @@
 return [
 
 	'registro' =>
-		 [
+		[
             'registroEstudiante' 	=> '/registro/estudiante',
 		    'registroProfesor' 	    => '/registro/profesor',
 		    'registroEmpresa' 		=> '/registro/empresa',
-		 ],
+		],
+
+    'registroRoutes' =>
+        [
+            'registroEstudiante'    => '/estudiante',
+            'registroProfesor'      => '/profesor',
+            'registroEmpresa'       => '/empresa',
+            'registerTeacher'       => '/registroProfesor',
+            'registerEnterprise'    => '/registroEmpresa',
+            'registerStudent'       => '/registroEstudiante',
+        ],
 
     'terminos' => '/terminos/',
 
@@ -75,6 +85,7 @@ return [
         [
             'allOffersSusribed'     => '/ofertas/suscripciones',
             'allOffers'             => '/ofertas',
+            'register'              => 'registro',
         ],
     'teacher'    =>
         [

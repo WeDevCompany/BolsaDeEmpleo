@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="panel-body ancho">
-                         {{ Form::open(['route' => 'estudiante..store', 'method' => 'POST', 'files' => 'true', 'id' => 'student-register-form']) }}
+                         {{ Form::open(['url' => 'registro/registroEstudiante', 'method' => 'POST', 'files' => 'true', 'id' => 'student-register-form']) }}
                             {!! csrf_field() !!}
                             <fieldset>
                                 <legend style="width:auto;">Estudiante</legend>

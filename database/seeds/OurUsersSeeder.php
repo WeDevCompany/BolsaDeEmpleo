@@ -223,7 +223,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Teacher5
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('abel@teacher.com'),
+        	'email' => mb_strtolower('eduardo@teacher.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -238,7 +238,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Teacher6
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('carlos@teacher.com'),
+        	'email' => mb_strtolower('pedro@teacher.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -263,7 +263,7 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('López Pardo'),
         	'dni' => mb_strtoupper('26834560T'),
         	'phone' => '666666661',
-        	'user_id' => $user_ids[0],
+        	'user_id' => $user_ids[4],
             'created_at' => date('YmdHms')
         ]);
         $teacher_ids[$cont_teacher] = $teacher_id;
@@ -275,7 +275,7 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Valverde Ramos'),
         	'dni' => mb_strtoupper('80946137Y'),
         	'phone' => '666666662',
-        	'user_id' => $user_ids[1],
+        	'user_id' => $user_ids[3],
             'created_at' => date('YmdHms')
         ]);
         $teacher_ids[$cont_teacher] = $teacher_id;
@@ -287,7 +287,7 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Hernández-Mora de Fuentes'),
         	'dni' => mb_strtoupper('60735733R'),
         	'phone' => '666666663',
-        	'user_id' => $user_ids[2],
+        	'user_id' => $user_ids[5],
             'created_at' => date('YmdHms')
         ]);
         $teacher_ids[$cont_teacher] = $teacher_id;
@@ -299,7 +299,7 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Barcelona Pérez'),
         	'dni' => mb_strtoupper('94776325H'),
         	'phone' => '666666664',
-        	'user_id' => $user_ids[3],
+        	'user_id' => $user_ids[2],
             'created_at' => date('YmdHms')
         ]);
         $teacher_ids[$cont_teacher] = $teacher_id;
@@ -311,7 +311,7 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Montejo Rodríguez'),
         	'dni' => mb_strtoupper('88779523Y'),
         	'phone' => '666666665',
-        	'user_id' => $user_ids[4],
+        	'user_id' => $user_ids[1],
             'created_at' => date('YmdHms')
         ]);
         $teacher_ids[$cont_teacher] = $teacher_id;
@@ -323,7 +323,7 @@ class OurUsersSeeder extends Seeder
         	'lastName' => mb_strtolower('Abrisqueta'),
         	'dni' => mb_strtoupper('27015870R'),
         	'phone' => '666666666',
-        	'user_id' => $user_ids[5],
+        	'user_id' => $user_ids[0],
             'created_at' => date('YmdHms')
         ]);
         $teacher_ids[$cont_teacher] = $teacher_id;
@@ -460,7 +460,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Student4
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('fernando@student.com'),
+        	'email' => mb_strtolower('emmanuel@student.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -475,7 +475,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Student5
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('abel@student.com'),
+        	'email' => mb_strtolower('eduardo@student.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -490,7 +490,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Student6
         $user_id = \DB::table('users')->insertGetId([
-        	'email' => mb_strtolower('carlos@student.com'),
+        	'email' => mb_strtolower('pedro@student.com'),
         	'password' => \Hash::make($pass),
         	'code' => $code_generated[$cont_user],
         	'verifiedEmail' => $verifiedEmail,
@@ -520,7 +520,7 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Rio Ring, 3',
         	'curriculum' => '/storage/app/curriculums/eduardo-' . date('d-m-Y') . '/curriculum1-' . date('dmY') . '.pdf',
         	'birthdate' => '1995-11-09',
-        	'user_id' => $user_ids[12],
+        	'user_id' => $user_ids[16],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms'),
         ]);
@@ -538,7 +538,7 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Santa Maria, 1 1ºC Escalera sur',
         	'curriculum' => '/storage/app/curriculums/emmanuel-' . date('d-m-Y') . '/curriculum21-' . date('dmY') . '.pdf',
         	'birthdate' => '1992-06-09',
-        	'user_id' => $user_ids[13],
+        	'user_id' => $user_ids[15],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
         ]);
@@ -556,7 +556,7 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Constitucion, 4 4ºA escalera norte',
         	'curriculum' => '/storage/app/curriculums/pedro-' . date('d-m-Y') . '/curriculum31-' . date('dmY') . '.pdf',
         	'birthdate' => '1992-04-17',
-        	'user_id' => $user_ids[14],
+        	'user_id' => $user_ids[17],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
         ]);
@@ -574,7 +574,7 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Girona, 3 4ºC',
         	'curriculum' => '/storage/app/curriculums/fernando-' . date('d-m-Y') . '/curriculum41-' . date('dmY') . '.pdf',
         	'birthdate' => '1987-08-20',
-        	'user_id' => $user_ids[15],
+        	'user_id' => $user_ids[14],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
         ]);
@@ -592,7 +592,7 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Rio Pisuerga, 8 1ºB',
         	'curriculum' => '/storage/app/curriculums/abel-' . date('d-m-Y') . '/curriculum5-' . date('dmY') . '.pdf',
         	'birthdate' => '1984-11-17',
-        	'user_id' => $user_ids[16],
+        	'user_id' => $user_ids[13],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
         ]);
@@ -610,7 +610,7 @@ class OurUsersSeeder extends Seeder
         	'address' => 'Marques de rozalejo, 9',
         	'curriculum' => '/storage/app/curriculums/carlos-' . date('d-m-Y') . '/curriculum6-' . date('dmY') . '.pdf',
         	'birthdate' => '1990-01-06',
-        	'user_id' => $user_ids[17],
+        	'user_id' => $user_ids[12],
             'created_at' => date('YmdHms'),
             'updated_at' => date('YmdHms')
         ]);

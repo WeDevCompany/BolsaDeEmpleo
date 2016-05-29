@@ -19,7 +19,7 @@
                     </div>
 
                 <div class="panel-body">
-                     {{ Form::open(['route' => 'empresa..store', 'method' => 'POST', 'files' => 'true', 'id' => 'enterprise-register-form']) }}
+                     {{ Form::open(['url' => 'registro/registroEmpresa', 'method' => 'POST', 'files' => 'true', 'id' => 'enterprise-register-form']) }}
                         {!! csrf_field() !!}
                         <fieldset>
                             <legend style="width:auto;">Empresa</legend>
@@ -41,7 +41,7 @@
                                     @include('enterprise.partials.btnAddEnterpriseResponsable')
                                 </div>
                             </section>
-                        </fieldset>    
+                        </fieldset>
                         <fieldset>
                             <legend style="width: auto;">Usuario</legend>
                             @include('generic.userfields')
