@@ -5,6 +5,6 @@
 	{{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar...']) }}
 </div>
 <div class="col-md-2 text-center">
-	<button type="submit" class="btn btn-primary" type="button" id="buscador" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
+	<button type="submit" class="btn btn-primary hoverable btn-login-media waves-effect waves-light" type="button" id="buscador" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
 </div>
 

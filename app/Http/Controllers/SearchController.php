@@ -335,6 +335,10 @@ class SearchController extends Controller
                 // las otras etiquetas
                 if ($value->others) {
                     $aux = explode(",",$value->others);
+                    foreach ($aux as $key1 => $value1) {
+                        # Limpiamos los espacios detrás
+                        $aux[$key1] = trim($value1);
+                    }
                     // creamos un atributo al vuelo
                     $value->newOthers = $aux;
                 }

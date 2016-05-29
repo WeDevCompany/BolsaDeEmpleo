@@ -41,18 +41,18 @@
                         </div>
                         @if($offer->tagCount)
                             <div class="row extra-padding-top">
-                                <div class="col-md-12">
+                                <div class="col-md-12 text-center">
                                     @foreach($offer->tagCount as $tags => $value)
-                                       <a href="https://www.google.es/#q={!! $value !!}" target="_blank" class="hoverable"><span class="label label-primary">{!! $value !!}</span></a>
+                                       <a href="https://www.google.es/#q={!! $value !!}" target="_blank" class="hoverable"><span class="label label-primary"><i class="fa fa-hashtag" aria-hidden="true"></i>{!! $value !!}</span></a>
                                     @endforeach
                                 </div>
                             </div>
                         @endif
                         @if(isset($offer->newOthers))
-                            <div class="row extra-padding-top">
-                                <div class="col-md-12">
+                            <div class="row extra-padding">
+                                <div class="col-md-12 text-center">
                                 @foreach($offer->newOthers as $other => $value)
-                                       <a href="https://www.google.es/#q={!! $value !!}" target="_blank" class="hoverable"><span class="label label-default">{!! $value !!}</span></a>
+                                       <a href="https://www.google.es/#q={!! $value !!}" target="_blank" class="hoverable"><span class="label label-default"><i class="fa fa-hashtag" aria-hidden="true"></i>{!! $value !!}</span></a>
                                 @endforeach
                                 </div>
                             </div>
@@ -62,6 +62,19 @@
                                     {!!$offer->others !!}
                                 </div>
                             </div>
+                        @endif
+                        @if(\Auth::user()->rol == "empresa")
+
+
+                        @elseif(\Auth::user()->rol == "administrador")
+                            @include('offer.partials.adminAndEnterpriseBtn')
+
+                        @elseif(\Auth::user()->rol == "profesor")
+                            @include('offer.partials.teacherBtn')
+
+                        @elseif(\Auth::user()->rol == "estudiante")
+
+
                         @endif
                     </div>
                 </div>

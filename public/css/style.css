@@ -792,3 +792,7 @@ fieldset {
 .divdatelab {
   margin-top: -1.5em;
 }
+
+.btn-group > .btn{
+    float:none;
+}
