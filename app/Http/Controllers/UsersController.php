@@ -24,7 +24,6 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProfFamiliesController;
 use App\Http\Controllers\EmailController;
-use App\Http\Controllers\ProfFamiliesController;
 use App\Http\Controllers\CyclesController;
 
 // Incluimos la librería faker para poder hacer pruebas
