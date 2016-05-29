@@ -33,17 +33,36 @@ return [
     'admin'    =>
         [
             'adminIndex'     		    => '/administrador',
-			'studentNotification' 	    => '/administrador/notificaciones/estudiantes',
-            'teacherNotification'       => '/administrador/notificaciones/profesores',
-            'offerNotification'         => '/administrador/notificaciones/ofertas',
-			'enterpriseNotification'    => '/administrador/notificaciones/empresas',
-			'allVerifiedTeachers' 	    => '/administrador/profesor/verificados',
-			'allDeniedTeachers' 	    => '/administrador/profesor/denegados',
-            'allVerifiedStudents'       => '/administrador/estudiante/verificados',
-            'allDeniedStudents'         => '/administrador/estudiante/denegados',
-            'allVerifiedOffers'         => '/administrador/oferta/verificadas',
-            'allDeniedOffers'           => '/administrador/oferta/denegadas',
-			'statistics'			    => '/administrador/estadisticas',
+			'studentNotification'       => 'administrador/notificaciones/estudiantes',
+            'teacherNotification'       => 'administrador/notificaciones/profesores',
+            'offerNotification'         => 'administrador/notificaciones/ofertas',
+            'enterpriseNotification'    => 'administrador/notificaciones/empresas',
+            'teacherValidNotification'  => 'administrador/notificaciones/validTeacherNotification',
+            'studentValidNotification'  => 'administrador/notificaciones/validStudentNotification',
+            'offerValidNotification'    => 'administrador/notificaciones/validOfferNotification',
+            'teacherSearchNotification' => 'administrador/notificaciones/profesores-buscador',
+            'studentSearchNotification' => 'administrador/notificaciones/estudiantes-buscador',
+            'offerSearchNotification'   => 'administrador/notificaciones/ofertas-buscador',
+            'destroyTeacherNotification'=> 'administrador/notificaciones/eliminar-notificacion-profesor/{id}',
+            'allVerifiedTeachers'       => 'administrador/profesor/verificados',
+            'allVerifiedTeachersSearch' => 'administrador/profesor/verificados-buscador',
+            'allDeniedTeachers'         => 'administrador/profesor/denegados',
+            'restoreDeniedTeachers'     => 'administrador/profesor/restaurar',
+            'allDeniedTeachersSearch'   => 'administrador/profesor/denegados-buscador',
+            'allVerifiedStudents'       => 'administrador/estudiante/verificados',
+            'allVerifiedStudentsSearch' => 'administrador/estudiante/verificados-buscador',
+            'allDeniedStudents'         => 'administrador/estudiante/denegados',
+            'restoreDeniedStudents'     => 'administrador/estudiante/restaurar',
+            'allDeniedStudentsSearch'   => 'administrador/estudiante/denegados-buscador',
+            'allVerifiedOffers'         => 'administrador/oferta/verificadas',
+            'allVerifiedOffersSearch'   => 'administrador/oferta/verificadas-buscador',
+            'allDeniedOffers'           => 'administrador/oferta/denegadas',
+            'restoreDeniedOffers'       => 'administrador/oferta/restaurar',
+            'allDeniedOffersSearch'     => 'administrador/oferta/denegadas-buscador',
+            'statistics'                => 'administrador/estadisticas',
+            'viewOffer'                 => '/admin/oferta/{$idOffer}',
+            'updateOffer'               => '/admin/oferta/actualizar/{$idOffer}',
+            'comment'                   => '/admin/oferta/comentario/{$idOffer}',
         ],
     'adminRoutes' =>
         [
@@ -74,18 +93,25 @@ return [
             'restoreDeniedOffers'       => '/oferta/restaurar',
             'allDeniedOffersSearch'     => '/oferta/denegadas-buscador',
             'statistics'                => '/estadisticas',
+            'viewOffer'                 => '/oferta/{$idOffer}',
+            'updateOffer'               => '/oferta/actualizar/{$idOffer}',
+            'comment'                   => '/oferta/comentario/{$idOffer}',
         ],
     'student'    =>
         [
             'studentIndex'       	=> '/estudiante',
-			'allOffersSusribed' 	=> '/estudiante/ofertas/suscripciones',
+			'allOffersSusribed' 	=> '/estudiante/oferta/suscripciones',
 			'allOffers' 			=> '/estudiante/ofertas',
+            'subcriptionOffer'      => '/estudiante/oferta/suscripcion/{$idOffer}',
+            'viewOffer'             => '/estudiante/oferta/{$idOffer}',
         ],
     'studentRoutes' =>
         [
             'allOffersSusribed'     => '/ofertas/suscripciones',
             'allOffers'             => '/ofertas',
             'register'              => 'registro',
+            'subcriptionOffer'      => '/oferta/suscripcion/{$idOffer}',
+            'viewOffer'             => '/oferta/{$idOffer}',
         ],
     'teacher'    =>
         [
@@ -96,6 +122,9 @@ return [
 			'allDeniedStudents' 	=> '/profesor/estudiante/denegados',
 			'allVerifiedOffers' 	=> '/profesor/oferta/verificadas',
 			'allDeniedOffers' 		=> '/profesor/oferta/denegadas',
+            'viewOffer'             => '/profesor/oferta/{$idOffer}',
+            'updateOffer'           => '/profesor/oferta/actualizar/{$idOffer}',
+            'comment'               => '/profesor/oferta/comentario/{$idOffer}',
         ],
     'teacherRoutes'    =>
         [
@@ -117,17 +146,29 @@ return [
             'restoreDeniedOffers'       => '/oferta/restaurar',
             'allVerifiedOffers'         => '/oferta/verificadas',
             'allVerifiedOffersSearch'   => '/oferta/verificadas-buscador',
+            'viewOffer'                 => '/oferta/{$idOffer}',
+            'updateOffer'               => '/oferta/actualizar/{$idOffer}',
+            'comment'                   => '/oferta/comentario/{$idOffer}',
         ],
     'enterprise'    =>
         [
             'enterpriseIndex'     => '/empresa',
             'enterprisePerfil'    => '/empresa/perfil',
             'enterpriseUploadImg' => '/empresa/uploadImage',
+            'viewOffer'           => '/empresa/oferta/{$idOffer}',
+            'updateOffer'         => '/empresa/oferta/actualizar/{$idOffer}',
+
         ],
     'enterpriseRoutes'    =>
         [
-            'enterprisePerfil'    => '/perfil',
-            'enterpriseUploadImg' => '/uploadImage',
+            'enterprisePerfil'      => '/perfil',
+            'enterpriseUploadImg'   => '/uploadImage',
+            'viewOffer'             => '/oferta/{$idOffer}',
+            'updateOffer'           => '/oferta/actualizar/{$idOffer}',
+        ],
+    'offer' =>
+        [
+            'viewOffer'     => '/',
         ],
     'files'    =>
         [

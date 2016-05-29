@@ -24,6 +24,8 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProfFamiliesController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\ProfFamiliesController;
+use App\Http\Controllers\CyclesController;
 
 // Incluimos la librería faker para poder hacer pruebas
 use Faker\Factory as Faker;
@@ -54,11 +56,11 @@ class UsersController extends Controller
 
         // Reglas de usuarios.
         $this->rules = [
-            'email'     => 'required|email|min:6|unique:users',
+            'email'     => 'required|email|min:6|unique:users,email',
             'password'  => 'required|confirmed|between:4,20|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d).+$/',
             'terminos'  => 'required'
         ];
-    
+
         $this->rules_image = [
             'file' => 'required|image'
         ];
@@ -367,7 +369,7 @@ class UsersController extends Controller
             try{
                 // Obtenemos todos los ids de profesores no verificados aún
                 $query = $this->search->notVerifiedTeachers();
-                
+
                 // Almacenamos el resultado
                 $notifications['allTeacherNotifications'] = count($query);
 
@@ -393,7 +395,7 @@ class UsersController extends Controller
             try{
                 // Obtenemos todos los ids de ofertas no verificados aún
                 $query = $this->search->notVerifiedOffers();
-                
+
                 // Almacenamos el resultado
                 $notifications['allOfferNotifications'] = count($query);
 
