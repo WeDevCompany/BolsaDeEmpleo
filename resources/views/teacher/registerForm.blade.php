@@ -17,7 +17,7 @@
                         <h4><i class="fa fa-university"></i>Formulario de alta de profesores</h4>
                     </div>
                     <div class="panel-body">
-                         {{ Form::open(['route' => 'profesor..store', 'method' => 'POST', 'files' => 'true', 'id' => 'teacher-register-form']) }}
+                         {{ Form::open(['url' => 'registro/registroProfesor', 'method' => 'POST', 'files' => 'true', 'id' => 'teacher-register-form']) }}
                             {!! csrf_field() !!}
                             @include('teacher.partials.teacherfields')
                             <fieldset>
