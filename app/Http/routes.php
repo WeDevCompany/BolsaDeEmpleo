@@ -12,18 +12,19 @@
 */
 // La función config no funciona con Route::resource
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['prefix' => 'registro', 'middleware' => 'web'], function () {
 
-    // Ruta de la pagina principal
-    Route::get('/' , function () {
-        $zona = "Inicio";
-        return view('welcome', compact('zona'));
-    });
+    // Registro de profesores
+    Route::get(config('routes.registroRoutes.registroProfesor'), 'UsersController@register');
+    Route::post(config('routes.registroRoutes.registerTeacher'), 'Teacher\TeachersController@store');
 
-    // Rutas para el registro de profesor, estudiante y empresa
-    Route::get(config('routes.registro.registroProfesor'), 'Teacher\TeachersController@index');
-    Route::get(config('routes.registro.registroEstudiante'), 'Student\StudentsController@index');
-    Route::get(config('routes.registro.registroEmpresa'), 'Enterprise\EnterprisesController@index');
+    // Registro de estudiantes
+    Route::get(config('routes.registroRoutes.registroEstudiante'), 'UsersController@register');
+    Route::post(config('routes.registroRoutes.registerStudent'), 'Student\StudentsController@store');
+
+    // Registro de empresas
+    Route::get(config('routes.registroRoutes.registroEmpresa'), 'UsersController@register');
+    Route::post(config('routes.registroRoutes.registerEnterprise'), 'Enterprise\EnterprisesController@store');
 
 });
 
@@ -32,13 +33,19 @@ Route::get(config('routes.pruebas'), function(){
     return view('errors.notVerified', ['rol' => "Administrador"]);
 });
 
-// Ruta para pruebas
-Route::get(config('routes.authors'), function(){
-    return view('authors.authors');
-});
-
 // Grupo de rutas para la autentificacion
 Route::group(['middleware' => 'web'], function () {
+
+    // Autores
+    Route::get(config('routes.authors'), function(){
+        return view('authors.authors');
+    });
+
+    // Ruta de la pagina principal
+    Route::get('/' , function () {
+        $zona = "Inicio";
+        return view('welcome', compact('zona'));
+    });
 
     // Ruta que recibe el formulario de login
     Route::post('/authLogin', 'Auth\AuthController@authLogin');
@@ -90,7 +97,7 @@ Route::group(['prefix' => 'json', 'middleware' => 'web'], function () {
 });
 
 // Grupo de rutas para los administradores
-Route::group(['prefix' => 'administrador', 'middleware' => 'web', 'namespace' => 'Admin'], function(){
+Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'namespace' => 'Admin'], function(){
 
     // Vista de administrador logeado
     Route::resource(config('routes.index'), 'AdminsController');
@@ -118,7 +125,7 @@ Route::group(['prefix' => 'administrador', 'middleware' => 'web', 'namespace' =>
     Route::get(config('routes.adminRoutes.studentNotification'), 'AdminsController@getStudentNotification');
     Route::post(config('routes.adminRoutes.studentValidNotification'), 'AdminsController@postStudentNotification');
     Route::post(config('routes.adminRoutes.studentSearchNotification'), 'AdminsController@postSearchStudentNotification');
-    Route::delete(config('routes.adminRoutes.destroyStudentNotification'), 'TeachersController@destroyStudentNotification');
+    //Route::delete(config('routes.adminRoutes.destroyStudentNotification'), 'TeachersController@destroyStudentNotification');
 
     // Alumnos admitidos
     Route::get(config('routes.adminRoutes.allVerifiedStudents'), 'AdminsController@getVerifiedStudent');
@@ -133,7 +140,7 @@ Route::group(['prefix' => 'administrador', 'middleware' => 'web', 'namespace' =>
     Route::get(config('routes.adminRoutes.offerNotification'), 'AdminsController@getOfferNotification');
     Route::post(config('routes.adminRoutes.offerValidNotification'), 'AdminsController@postOfferNotification');
     Route::post(config('routes.adminRoutes.offerSearchNotification'), 'AdminsController@postSearchOfferNotification');
-    Route::delete(config('routes.adminRoutes.destroyOfferNotification'), 'TeachersController@destroyOfferNotification');
+    //Route::delete(config('routes.adminRoutes.destroyOfferNotification'), 'TeachersController@destroyOfferNotification');
 
     // Ofertas admitidas
     Route::get(config('routes.adminRoutes.allVerifiedOffers'), 'AdminsController@getVerifiedOffer');
@@ -147,7 +154,7 @@ Route::group(['prefix' => 'administrador', 'middleware' => 'web', 'namespace' =>
 });
 
 // Grupo de rutas para los profesores
-Route::group(['prefix' => 'profesor', 'middleware' => ['web'], 'namespace' => 'Teacher'], function(){
+Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespace' => 'Teacher'], function(){
 
     // Vista de profesor logeado
     Route::resource(config('routes.index'), 'TeachersController');
@@ -189,7 +196,10 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web'], 'namespace' => 'T
 });
 
 // Grupo de rutas para los estudiantes
-Route::group(['prefix' => 'estudiante', 'middleware' => ['web'], 'namespace' => 'Student'], function(){
+Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth'], 'namespace' => 'Student'], function(){
+
+    // Registro de estudiantes
+    Route::post(config('routes.studentRoutes.register'), 'StudentsController@store');
 
     // Vista de estudiante logeado
     Route::resource(config('routes.index'), 'StudentsController');
@@ -201,7 +211,10 @@ Route::group(['prefix' => 'estudiante', 'middleware' => ['web'], 'namespace' => 
 });
 
 // Grupo de rutas para las empresas
-Route::group(['prefix' => 'empresa', 'middleware' => ['web'], 'namespace' => 'Enterprise'], function(){
+Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth'], 'namespace' => 'Enterprise'], function(){
+
+    // Registro de empresas
+    Route::post(config('routes.enterpriseRoutes.register'), 'EnterprisesController@store');
 
     // Vista de empresa logeado
     Route::resource(config('routes.index'), 'EnterprisesController');
@@ -212,9 +225,3 @@ Route::group(['prefix' => 'empresa', 'middleware' => ['web'], 'namespace' => 'En
 
 });
 
-
-Route::group(['prefix' => 'uso', 'middleware' => 'web', 'namespace' => 'Uso'], function(){
-
-    Route::resource(config('routes.index'), 'UsoController');
-
-});
