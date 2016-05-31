@@ -858,16 +858,17 @@ class TeachersController extends UsersController
         }
     } // ajaxDestroyOffer()
 
-     /**
+    /**
      * Método para borrar mediante ajax una oferta, el borrado no sera definitivo
      * se hará por softdeletes
      * @param   $id  id de la oferta de
      */
-    public function getOfferById($id)
+    public function getOfferById($idOffer)
     {
-        $id = (int) $id;
+        dd("safdsa");
+        $idOffer = (int) $idOffer;
         // Llamamos al Search para obtener la oferta seleccionada
-        $offer = $this->search->invalidOrValidOffer($id, $this->request);
+        $offer = $this->search->invalidOrValidOffer($idOffer, $this->request);
         // Generamos el nombre de la zona de forma dinámica para que
         // los buscadores puedan mejorar las posibilidades de indexación
         $zona = $offer->title ." - " . $offer->enterpriseName;
