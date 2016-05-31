@@ -202,7 +202,7 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespac
     Route::post(config('routes.teacherRoutes.allDeniedOffersSearch'), 'TeachersController@postSearchDeniedOffer');
 
     // Visualización de una sola empresa
-    Route::get(config('routes.teacherRoutes.viewOffer'), 'TeachersController@getOffer');
+    Route::get(config('routes.teacherRoutes.viewOffer'), 'TeachersController@getOfferById');
 
 });
 
