@@ -43,7 +43,7 @@ return [
             'teacherSearchNotification' => 'administrador/notificaciones/profesores-buscador',
             'studentSearchNotification' => 'administrador/notificaciones/estudiantes-buscador',
             'offerSearchNotification'   => 'administrador/notificaciones/ofertas-buscador',
-            'destroyTeacherNotification'=> 'administrador/notificaciones/eliminar-notificacion-profesor/{id}',
+            'destroyTeacherNotification'=> 'administrador/notificaciones/eliminar-notificacion-profesor',
             'allVerifiedTeachers'       => 'administrador/profesor/verificados',
             'allVerifiedTeachersSearch' => 'administrador/profesor/verificados-buscador',
             'allDeniedTeachers'         => 'administrador/profesor/denegados',
@@ -60,9 +60,11 @@ return [
             'restoreDeniedOffers'       => 'administrador/oferta/restaurar',
             'allDeniedOffersSearch'     => 'administrador/oferta/denegadas-buscador',
             'statistics'                => 'administrador/estadisticas',
-            'viewOffer'                 => '/admin/oferta/{$idOffer}',
-            'updateOffer'               => '/admin/oferta/actualizar/{$idOffer}',
-            'comment'                   => '/admin/oferta/comentario/{$idOffer}',
+            'viewOffer'                 => '/administrador/oferta/{$idOffer}',
+            'updateOffer'               => '/administrador/oferta/actualizar/{$idOffer}',
+            'comment'                   => '/administrador/oferta/comentario/{$idOffer}',
+            'destroyStudentNotification'=> 'administrador/notificaciones/eliminar-notificacion-estudiante',
+            'destroyOfferNotification'  => 'administrador/notificaciones/eliminar-notificacion-oferta',
         ],
     'adminRoutes' =>
         [
@@ -96,6 +98,8 @@ return [
             'viewOffer'                 => '/oferta/{$idOffer}',
             'updateOffer'               => '/oferta/actualizar/{$idOffer}',
             'comment'                   => '/oferta/comentario/{$idOffer}',
+            'destroyStudentNotification'=> '/notificaciones/eliminar-notificacion-estudiante/{id}',
+            'destroyOfferNotification'  => '/notificaciones/eliminar-notificacion-oferta/{id}',
         ],
     'student'    =>
         [
@@ -115,16 +119,18 @@ return [
         ],
     'teacher'    =>
         [
-            'teacherIndex'     		=> '/profesor',
-			'studentNotification' 	=> '/profesor/notificaciones/estudiantes',
-			'offertNotification' 	=> '/profesor/notificaciones/ofertas',
-			'allVerifiedStudents' 	=> '/profesor/estudiante/verificados',
-			'allDeniedStudents' 	=> '/profesor/estudiante/denegados',
-			'allVerifiedOffers' 	=> '/profesor/oferta/verificadas',
-			'allDeniedOffers' 		=> '/profesor/oferta/denegadas',
-            'viewOffer'             => '/profesor/oferta/{$idOffer}',
-            'updateOffer'           => '/profesor/oferta/actualizar/{$idOffer}',
-            'comment'               => '/profesor/oferta/comentario/{$idOffer}',
+            'teacherIndex'     		    => '/profesor',
+			'studentNotification' 	    => '/profesor/notificaciones/estudiantes',
+			'offertNotification' 	    => '/profesor/notificaciones/ofertas',
+			'allVerifiedStudents' 	    => '/profesor/estudiante/verificados',
+			'allDeniedStudents' 	    => '/profesor/estudiante/denegados',
+			'allVerifiedOffers' 	    => '/profesor/oferta/verificadas',
+			'allDeniedOffers' 		    => '/profesor/oferta/denegadas',
+            'viewOffer'                 => '/profesor/oferta/{$idOffer}',
+            'updateOffer'               => '/profesor/oferta/actualizar/{$idOffer}',
+            'comment'                   => '/profesor/oferta/comentario/{$idOffer}',
+            'destroyStudentNotification'=> '/notificaciones/eliminar-notificacion-estudiante',
+            'destroyOfferNotification'  => '/notificaciones/eliminar-notificacion-oferta',
         ],
     'teacherRoutes'    =>
         [

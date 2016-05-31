@@ -33,9 +33,10 @@ Route::get(config('routes.pruebas'), function(){
     return view('errors.notVerified', ['rol' => "Administrador"]);
 });
 
+
 // Grupo de rutas para la autentificacion
 Route::group(['middleware' => 'web'], function () {
-
+    
     // Autores
     Route::get(config('routes.authors'), function(){
         return view('authors.authors');
@@ -127,7 +128,7 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
     Route::get(config('routes.adminRoutes.studentNotification'), 'AdminsController@getStudentNotification');
     Route::post(config('routes.adminRoutes.studentValidNotification'), 'AdminsController@postStudentNotification');
     Route::post(config('routes.adminRoutes.studentSearchNotification'), 'AdminsController@postSearchStudentNotification');
-    //Route::delete(config('routes.adminRoutes.destroyStudentNotification'), 'TeachersController@destroyStudentNotification');
+    Route::delete(config('routes.adminRoutes.destroyStudentNotification'), 'AdminsController@destroyStudentNotification');
 
     // Alumnos admitidos
     Route::get(config('routes.adminRoutes.allVerifiedStudents'), 'AdminsController@getVerifiedStudent');
@@ -142,7 +143,7 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
     Route::get(config('routes.adminRoutes.offerNotification'), 'AdminsController@getOfferNotification');
     Route::post(config('routes.adminRoutes.offerValidNotification'), 'AdminsController@postOfferNotification');
     Route::post(config('routes.adminRoutes.offerSearchNotification'), 'AdminsController@postSearchOfferNotification');
-    //Route::delete(config('routes.adminRoutes.destroyOfferNotification'), 'TeachersController@destroyOfferNotification');
+    Route::delete(config('routes.adminRoutes.destroyOfferNotification'), 'AdminsController@destroyOfferNotification');
 
     // Ofertas admitidas
     Route::get(config('routes.adminRoutes.allVerifiedOffers'), 'AdminsController@getVerifiedOffer');

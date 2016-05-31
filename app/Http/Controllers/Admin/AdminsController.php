@@ -310,12 +310,24 @@ class AdminsController extends TeachersController
     } // postSearchDeniedTeacher()
 
     /**
-     * Método para borrar un usuario mediante ajax, el borrado no sera definitivo
+     * Método para borrar una notificacion de profesor mediante ajax, el borrado no sera definitivo
      * se hará por softdeletes
      * @param                       $id            ID del usuario a borrar
-     * @param  TeacherNotificationRequest $request Validaciones y datos recibidos
      */
-    public function destroyTeacherNotification($id, TeacherNotificationRequest $request)
+    public function destroyTeacherNotification($id)
+    {
+        $ajax = $this->ajaxDestroyTeacher($id);
+
+        return response()->json($ajax);
+
+    } // destroyTeacherNotification()
+
+    /**
+     * Método para borrar un usuario mediante ajax un profesor, el borrado no sera definitivo
+     * se hará por softdeletes
+     * @param                       $id            ID del usuario a borrar
+     */
+    public function ajaxDestroyTeacher($id)
     {
         // Obtenemos los datos del profesor
         $destroyTeacher = Teacher::findorfail($id);
@@ -341,12 +353,12 @@ class AdminsController extends TeachersController
             $message = 'El usuario de ha borrado correctamente';
             $status = 'success';
 
-            if($request->ajax()){
-                return response()->json([
+            if($destroyTeacher->deleted_at != null && $user->deleted_at != null){
+                return $ajax = [
                     'id'      => $destroyTeacher->id,
                     'message' => $message,
                     'status'  => $status
-                ]);
+                ];
             }
 
 
@@ -356,18 +368,18 @@ class AdminsController extends TeachersController
             $message = 'No se ha podido borrar el usuario, por favor intentelo mas tarde';
             $status = 'fail';
 
-            if($request->ajax()){
-                return response()->json([
-                    'id'      => $destroyTeacher->id,
-                    'message' => $message,
-                    'status'  => $status
-                ]);
-            }
+
+            return $ajax = [
+                'id'      => $destroyTeacher->id,
+                'message' => $message,
+                'status'  => $status
+            ];
+
 
         }
 
 
-    } // destroyTeacherNotification()
+    } // ajaxDestroyTeacher()
 
     /*
     |---------------------------------------------------------------------------|
@@ -587,6 +599,19 @@ class AdminsController extends TeachersController
         return view('generic/denied/deniedStudent', compact('deniedStudent', 'filters', 'zona', 'urlSearch', 'urlPost'));
 
     } // postSearchDeniedStudent()
+
+    /**
+     * Método para borrar una notificacion de estudiante mediante ajax, el borrado no sera definitivo
+     * se hará por softdeletes
+     * @param                       $id            ID del usuario a borrar
+     */
+    public function destroyStudentNotification($id)
+    {
+        $ajax = Parent::ajaxDestroyStudent($id);
+
+        return response()->json($ajax);
+
+    } // destroyStudentNotification()
 
     /*
     |---------------------------------------------------------------------------|
@@ -819,5 +844,18 @@ class AdminsController extends TeachersController
         return view('generic/denied/deniedOffer', compact('deniedOffer', 'filters', 'zona', 'urlSearch', 'urlPost'));
 
     } // postSearchDeniedOffer()
+
+    /**
+     * Método para borrar una notificacion de oferta mediante ajax, el borrado no sera definitivo
+     * se hará por softdeletes
+     * @param                       $id            ID del usuario a borrar
+     */
+    public function destroyOfferNotification($id)
+    {
+        $ajax = Parent::ajaxDestroyOffer($id);
+
+        return response()->json($ajax);
+
+    } // destroyOfferNotification()
 
 }

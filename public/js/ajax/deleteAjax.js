@@ -44,7 +44,7 @@
 
             }).fail(function(){
 
-                toastr["error"]('No se ha podido borrar el usuario, por favor intentelo mas tarde');
+                toastr["error"]('Ha ocurrido un error durante el borrado, por favor intentelo mas tarde');
                 row.show();
 
             });

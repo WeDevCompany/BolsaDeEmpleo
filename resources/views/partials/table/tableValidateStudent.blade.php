@@ -30,7 +30,7 @@
                             </thead>
                             <tbody>
                                 @foreach($invalidStudent as $student)
-                                    <tr data-id="{{ $student->id }}">
+                                    <tr data-id="{!! $student->id !!}">
                                         <td>
                                             <p>
                                                 <input type="checkbox" id="estudiante_{!! $student->id !!}" value="{!! $student->id !!}" name="estudiante[]"  />
