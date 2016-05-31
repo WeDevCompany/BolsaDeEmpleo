@@ -137,10 +137,13 @@ class TeachersController extends UsersController
     public function getStudentNotification()
     {
         // Url de buscador
-        $urlSearch = config('');
+        $urlSearch = config('routes.teacher.studentSearchNotification');
 
         // Url de post
-        $urlPost = config('');
+        $urlPost = config('routes.teacher.studentValidNotification');
+
+        // Url para borrar estudiantes
+        $urlDelete = config('routes.teacher.destroyStudentNotification');
 
         // Variale de zona
         $zona = config('zona.notificaciones.estudiante');
@@ -172,7 +175,7 @@ class TeachersController extends UsersController
             return $invalidStudent;
         }
 
-        return view('teacher/studentNotification', compact('invalidStudent', 'filters', 'zona'));
+        return view('generic/notification/studentNotification', compact('invalidStudent', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
 
     } // getStudentNotification()
 
@@ -224,6 +227,15 @@ class TeachersController extends UsersController
      */
     public function postSearchStudentNotification()
     {
+        // Url de buscador
+        $urlSearch = config('routes.teacher.studentSearchNotification');
+
+        // Url de post
+        $urlPost = config('routes.teacher.studentValidNotification');
+
+        // Url para borrar profesores
+        $urlDelete = config('routes.teacher.destroyTeacherNotification');
+
         // Variale de zona
         $zona = config('zona.notificaciones.estudiante');
 
@@ -233,7 +245,7 @@ class TeachersController extends UsersController
         // Obtenemos los estudiantes filtrados por el buscador
         $invalidStudent = $this->getStudentNotification();
 
-        return view('teacher/studentNotification', compact('invalidStudent', 'filters', 'zona'));
+        return view('generic/notification/studentNotification', compact('invalidStudent', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
 
     } // postSearchStudentNotification()
 
@@ -244,6 +256,9 @@ class TeachersController extends UsersController
      */
     public function getVerifiedStudent()
     {
+        // Url de buscador
+        $urlSearch = config('routes.teacher.allVerifiedStudentsSearch');
+
         // Variale de zona
         $zona = config('zona.admitidos.estudiante');
 
@@ -271,7 +286,7 @@ class TeachersController extends UsersController
             return $verifiedStudent;
         }
 
-        return view('teacher/verifiedStudent', compact('verifiedStudent', 'filters', 'zona'));
+        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch'));
 
     } // getVerifiedStudent()
 
@@ -281,6 +296,9 @@ class TeachersController extends UsersController
      */
     public function postSearchVerifiedStudent()
     {
+        // Url de buscador
+        $urlSearch = config('routes.teacher.allVerifiedStudentsSearch');
+
         // Variale de zona
         $zona = config('zona.admitidos.estudiante');
 
@@ -289,7 +307,7 @@ class TeachersController extends UsersController
 
         $verifiedStudent = $this->getVerifiedStudent();
 
-        return view('teacher/verifiedStudent', compact('verifiedStudent', 'filters', 'zona'));
+        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch'));
 
     } // postSearchVerifiedStudent()
 
@@ -300,6 +318,12 @@ class TeachersController extends UsersController
      */
     public function getDeniedStudent()
     {
+        // Url de buscador
+        $urlSearch = config('routes.teacher.allDeniedStudentsSearch');
+
+        // Url de post
+        $urlPost = config('routes.teacher.restoreDeniedStudents');
+
         // Variale de zona
         $zona = config('zona.denegados.estudiante');
 
@@ -321,7 +345,7 @@ class TeachersController extends UsersController
             return $deniedStudent;
         }
 
-        return view('teacher/deniedStudent', compact('deniedStudent', 'filters', 'zona'));
+        return view('generic/denied/deniedStudent', compact('deniedStudent', 'filters', 'zona', 'urlSearch', 'urlPost'));
 
     } // getDeniedStudent()
 
@@ -374,6 +398,12 @@ class TeachersController extends UsersController
      */
     public function postSearchDeniedStudent()
     {
+        // Url de buscador
+        $urlSearch = config('routes.teacher.allDeniedStudentsSearch');
+
+        // Url de post
+        $urlPost = config('routes.teacher.restoreDeniedStudents');
+
         // Variale de zona
         $zona = config('zona.denegados.estudiante');
 
@@ -382,17 +412,29 @@ class TeachersController extends UsersController
 
         $deniedStudent = $this->getDeniedStudent();
 
-        return view('teacher/deniedStudent', compact('deniedStudent', 'filters', 'zona'));
+        return view('generic/denied/deniedStudent', compact('deniedStudent', 'filters', 'zona', 'urlSearch', 'urlPost'));
 
     } // postSearchDeniedStudent()
 
     /**
-     * Método para borrar un usuario mediante ajax, el borrado no sera definitivo
+     * Método para borrar una notificacion de estudiante mediante ajax, el borrado no sera definitivo
      * se hará por softdeletes
      * @param                       $id            ID del usuario a borrar
-     * @param  StudentNotificationRequest $request Validaciones y datos recibidos
      */
-    protected function destroyStudentNotification($id, StudentNotificationRequest $request)
+    public function destroyStudentNotification($id)
+    {
+        $ajax = $this->ajaxDestroyStudent($id);
+
+        return response()->json($ajax);
+
+    } // destroyStudentNotification()
+
+    /**
+     * Método para borrar mediante ajax un estudiante, el borrado no sera definitivo
+     * se hará por softdeletes
+     * @param                       $id            ID del usuario a borrar
+     */
+    public function ajaxDestroyStudent($id)
     {
         // Obtenemos los datos del estudiante
         $destroyStudent = Student::findorfail($id);
@@ -418,12 +460,12 @@ class TeachersController extends UsersController
             $message = 'El usuario de ha borrado correctamente';
             $status = 'success';
 
-            if($request->ajax()){
-                return response()->json([
+            if($destroyStudent->deleted_at != null && $user->deleted_at != null){
+                return $ajax = [
                     'id'      => $destroyStudent->id,
                     'message' => $message,
                     'status'  => $status
-                ]);
+                ];
             }
 
 
@@ -433,18 +475,17 @@ class TeachersController extends UsersController
             $message = 'No se ha podido borrar el usuario, por favor intentelo mas tarde';
             $status = 'fail';
 
-            if($request->ajax()){
-                return response()->json([
-                    'id'      => $destroyStudent->id,
-                    'message' => $message,
-                    'status'  => $status
-                ]);
-            }
+
+            return $ajax = [
+                'id'      => $destroyStudent->id,
+                'message' => $message,
+                'status'  => $status
+            ];
+
 
         }
 
-
-    } // destroyStudentNotification()
+    } // ajaxDestroyStudent()
 
     /*
     |---------------------------------------------------------------------------|
@@ -470,6 +511,15 @@ class TeachersController extends UsersController
      */
     public function getOfferNotification()
     {
+        // Url de buscador
+        $urlSearch = config('routes.teacher.offerSearchNotification');
+
+        // Url de post
+        $urlPost = config('routes.teacher.offerValidNotification');
+
+        // Url para borrar ofertas de trabajo
+        $urlDelete = config('routes.teacher.destroyOfferNotification');
+
         // Variale de zona
         $zona = config('zona.notificaciones.empresa');
 
@@ -500,7 +550,7 @@ class TeachersController extends UsersController
             return $invalidOffer;
         }
 
-        return view('teacher/offerNotification', compact('invalidOffer', 'filters', 'zona'));
+        return view('generic/notification/offerNotification', compact('invalidOffer', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
 
     } // getOfferNotification()
 
@@ -552,6 +602,15 @@ class TeachersController extends UsersController
      */
     public function postSearchOfferNotification()
     {
+        // Url de buscador
+        $urlSearch = config('routes.teacher.offerSearchNotification');
+
+        // Url de post
+        $urlPost = config('routes.teacher.offerValidNotification');
+
+        // Url para borrar ofertas de trabajo
+        $urlDelete = config('routes.teacher.destroyOfferNotification');
+
         // Variale de zona
         $zona = config('zona.notificaciones.empresa');
 
@@ -560,7 +619,7 @@ class TeachersController extends UsersController
 
         $invalidOffer = $this->getOfferNotification();
 
-        return view('teacher/offerNotification', compact('invalidOffer', 'filters', 'zona'));
+        return view('generic/notification/offerNotification', compact('invalidOffer', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
 
     } // postSearchOfferNotification()
 
@@ -571,6 +630,9 @@ class TeachersController extends UsersController
      */
     public function getVerifiedOffer()
     {
+        // Url de buscador
+        $urlSearch = config('routes.teacher.allVerifiedOffersSearch');
+
         // Variale de zona
         $zona = config('zona.admitidos.empresa');
 
@@ -610,7 +672,7 @@ class TeachersController extends UsersController
             return $verifiedOffer;
         }
 
-        return view('teacher/verifiedOffer', compact('verifiedOffer', 'filters', 'zona'));
+        return view('generic/verified/verifiedOffer', compact('verifiedOffer', 'filters', 'zona', 'urlSearch'));
 
     } // getVerifiedOffer()
 
@@ -620,6 +682,9 @@ class TeachersController extends UsersController
      */
     public function postSearchVerifiedOffer()
     {
+        // Url de buscador
+        $urlSearch = config('routes.teacher.allVerifiedOffersSearch');
+
         // Variale de zona
         $zona = config('zona.admitidos.empresa');
 
@@ -628,7 +693,7 @@ class TeachersController extends UsersController
 
         $verifiedOffer = $this->getVerifiedOffer();
 
-        return view('teacher/verifiedOffer', compact('verifiedOffer', 'filters', 'zona'));
+        return view('generic/verified/verifiedOffer', compact('verifiedOffer', 'filters', 'zona', 'urlSearch'));
 
     } // postSearchVerifiedOffer()
 
@@ -639,6 +704,12 @@ class TeachersController extends UsersController
      */
     public function getDeniedOffer()
     {
+        // Url de buscador
+        $urlSearch = config('routes.teacher.allVerifiedOffersSearch');
+
+        // Url de post
+        $urlPost = config('routes.teacher.restoreDeniedOffers');
+
         // Variale de zona
         $zona = config('zona.denegados.empresa');
 
@@ -660,7 +731,7 @@ class TeachersController extends UsersController
             return $deniedOffer;
         }
 
-        return view('teacher/deniedOffer', compact('deniedOffer', 'filters', 'zona'));
+        return view('generic/denied/deniedOffer', compact('deniedOffer', 'filters', 'zona', 'urlSearch', 'urlPost'));
 
     } // getDeniedOffer()
 
@@ -710,6 +781,12 @@ class TeachersController extends UsersController
      */
     public function postSearchDeniedOffer()
     {
+        // Url de buscador
+        $urlSearch = config('routes.teacher.allVerifiedOffersSearch');
+
+        // Url de post
+        $urlPost = config('routes.teacher.restoreDeniedOffers');
+
         // Variale de zona
         $zona = config('zona.denegados.empresa');
 
@@ -718,17 +795,29 @@ class TeachersController extends UsersController
 
         $deniedOffer = $this->getDeniedOffer();
 
-        return view('teacher/deniedOffer', compact('deniedOffer', 'filters', 'zona'));
+        return view('generic/denied/deniedOffer', compact('deniedOffer', 'filters', 'zona', 'urlSearch', 'urlPost'));
 
     } // postSearchDeniedOffer()
 
     /**
-     * Método para borrar un usuario mediante ajax, el borrado no sera definitivo
+     * Método para borrar una notificacion de oferta mediante ajax, el borrado no sera definitivo
      * se hará por softdeletes
      * @param                       $id            ID del usuario a borrar
-     * @param  StudentNotificationRequest $request Validaciones y datos recibidos
      */
-    public function destroyOfferNotification($id, OfferNotificationRequest $request)
+    public function destroyOfferNotification($id)
+    {
+        $ajax = $this->ajaxDestroyOffer($id);
+
+        return response()->json($ajax);
+
+    } // destroyOfferNotification()
+
+    /**
+     * Método para borrar mediante ajax una oferta, el borrado no sera definitivo
+     * se hará por softdeletes
+     * @param                       $id            ID del usuario a borrar
+     */
+    public function ajaxDestroyOffer($id)
     {
         // Obtenemos las ofertas de trabajo
         $destroyOffer = JobOffer::findorfail($id);
@@ -747,33 +836,44 @@ class TeachersController extends UsersController
             $message = 'La oferta de ha borrado correctamente';
             $status = 'success';
 
-            if($request->ajax()){
-                return response()->json([
+            if($destroyOffer->deleted_at != null){
+                return $ajax = [
                     'id'      => $destroyOffer->id,
                     'message' => $message,
                     'status'  => $status
-                ]);
+                ];
             }
-
 
         } else {
 
             // Devolvemos un mensaje a la vista
             $message = 'No se ha podido borrar la oferta, por favor intentelo mas tarde';
             $status = 'fail';
-
-            if($request->ajax()){
-                return response()->json([
-                    'id'      => $destroyOffer->id,
-                    'message' => $message,
-                    'status'  => $status
-                ]);
-            }
+            return $ajax = [
+                'id'      => $destroyOffer->id,
+                'message' => $message,
+                'status'  => $status
+            ];
 
         }
+    } // ajaxDestroyOffer()
 
+     /**
+     * Método para borrar mediante ajax una oferta, el borrado no sera definitivo
+     * se hará por softdeletes
+     * @param   $id  id de la oferta de
+     */
+    public function getOfferById($id)
+    {
+        $id = (int) $id;
+        // Llamamos al Search para obtener la oferta seleccionada
+        $offer = $this->search->invalidOrValidOffer($id, $this->request);
+        // Generamos el nombre de la zona de forma dinámica para que
+        // los buscadores puedan mejorar las posibilidades de indexación
+        $zona = $offer->title ." - " . $offer->enterpriseName;
+        //
+        return view('offer.offer', compact('offer','zona'));
 
-    } // destroyOfferNotification()
+    } // getOfferById()
 
 }
-

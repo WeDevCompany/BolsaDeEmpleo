@@ -36,7 +36,7 @@ Route::get(config('routes.pruebas'), function(){
 
 // Grupo de rutas para la autentificacion
 Route::group(['middleware' => 'web'], function () {
-    
+
     // Autores
     Route::get(config('routes.authors'), function(){
         return view('authors.authors');
@@ -83,7 +83,9 @@ Route::group(['middleware' => 'web'], function () {
 });
 
 // Rutas de peticiones Ajax  JSON
-// NO SE UTILIZA NAMESPACES SINO SE ENCUENTRA EN LA CARPETA CON EL MISMO NOMBRE
+/**********************************
+        Grupo json
+************************************/
 Route::group(['prefix' => 'json', 'middleware' => 'web'], function () {
 
     // Ciclos
@@ -157,6 +159,9 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
 });
 
 // Grupo de rutas para los profesores
+/**********************************
+        Grupo profesor
+************************************/
 Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespace' => 'Teacher'], function(){
 
     // Vista de profesor logeado
@@ -196,9 +201,15 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespac
     Route::post(config('routes.teacherRoutes.restoreDeniedOffers'), 'TeachersController@postDeniedOffer');
     Route::post(config('routes.teacherRoutes.allDeniedOffersSearch'), 'TeachersController@postSearchDeniedOffer');
 
+    // Visualización de una sola empresa
+    Route::get(config('routes.teacherRoutes.viewOffer'), 'TeachersController@getOffer');
+
 });
 
 // Grupo de rutas para los estudiantes
+/**********************************
+        Grupo estudiante
+************************************/
 Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth'], 'namespace' => 'Student'], function(){
 
     // Registro de estudiantes
@@ -214,6 +225,9 @@ Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth'], 'namesp
 });
 
 // Grupo de rutas para las empresas
+/**********************************
+        Grupo empresa
+************************************/
 Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth'], 'namespace' => 'Enterprise'], function(){
 
     // Registro de empresas
