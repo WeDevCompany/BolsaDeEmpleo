@@ -6,6 +6,7 @@ use Validator;
 use App\Student;
 use App\Teacher;
 use App\JobOffer;
+use App\Enterprise;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -195,6 +196,36 @@ class AppServiceProvider extends ServiceProvider
             return true;
 
         });// Validator validOfferNotification fin
+
+        /**
+         * Validacion en la que comprobamos que es una empresa
+         */
+        Validator::extend('validEnterpriseNotification', function($attribute, $id, $parameters){
+
+            foreach ($id as $key => $value) {
+                
+                // Validacion oferta borrado
+                if (implode($parameters) == 'deleted_at') {
+
+                    $Enterprise = Enterprise::where('id', '=', $value)->withTrashed()->first();
+
+                // Validacion oferta normal
+                } else {
+
+                    $Enterprise = Enterprise::where('id', '=', $value)->first();
+
+                }
+
+                if (!$Enterprise) {
+
+                    return false;
+
+                }
+            }
+
+            return true;
+
+        });// Validator validEnterpriseNotification fin
 
     }
 

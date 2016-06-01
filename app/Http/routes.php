@@ -159,6 +159,7 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
     // Empresas admitidas
     Route::get(config('routes.adminRoutes.allVerifiedEnterprises'), 'AdminsController@getVerifiedEnterprise');
     Route::post(config('routes.adminRoutes.allVerifiedEnterprisesSearch'), 'AdminsController@postSearchVerifiedEnterprise');
+    Route::delete(config('routes.adminRoutes.destroyVerifiedEnterprise'), 'AdminsController@destroyVerifiedEnterprise');
 
     // Empresas borradas
     Route::get(config('routes.adminRoutes.allDeniedEnterprises'), 'AdminsController@getDeniedEnterprise');

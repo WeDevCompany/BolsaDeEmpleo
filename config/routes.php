@@ -70,6 +70,7 @@ return [
             'allDeniedEnterprises'         => 'administrador/empresa/denegadas',
             'restoreDeniedEnterprises'     => 'administrador/empresa/restaurar',
             'allDeniedEnterprisesSearch'   => 'administrador/empresa/denegadas-buscador',
+            'destroyVerifiedEnterprise'    => 'administrador/empresa/eliminar-empresa-verificada',
         ],
     'adminRoutes' =>
         [
@@ -110,6 +111,7 @@ return [
             'allDeniedEnterprises'         => '/empresa/denegadas',
             'restoreDeniedEnterprises'     => '/empresa/restaurar',
             'allDeniedEnterprisesSearch'   => '/empresa/denegadas-buscador',
+            'destroyVerifiedEnterprise'    => '/empresa/eliminar-empresa-verificada/{id}',
         ],
     'student'    =>
         [

@@ -8,6 +8,7 @@ use App\JobOffer;
 use App\Teacher;
 use App\User;
 use App\Student;
+use App\Enterprise;
 use App\Http\Requests;
 use App\Http\Requests\TeacherNotificationRequest;
 use App\Http\Requests\StudentNotificationRequest;
@@ -15,6 +16,7 @@ use App\Http\Requests\OfferNotificationRequest;
 use App\Http\Requests\DeniedStudentRequest;
 use App\Http\Requests\DeniedOfferRequest;
 use App\Http\Requests\DeniedTeacherRequest;
+use App\Http\Requests\DeniedEnterpriseRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
@@ -880,6 +882,9 @@ class AdminsController extends TeachersController
         // Url de buscador
         $urlSearch = config('routes.admin.allVerifiedEnterprisesSearch');
 
+        // Url para borrar la empresa
+        $urlDelete = config('routes.admin.destroyVerifiedEnterprise');
+
         // Variale de zona
         $zona = config('zona.admitidos.empresa');
 
@@ -896,7 +901,7 @@ class AdminsController extends TeachersController
 
         }
 
-        return view('generic/verified/verifiedEnterprise', compact('verifiedEnterprise', 'filters', 'zona', 'urlSearch'));
+        return view('generic/verified/verifiedEnterprise', compact('verifiedEnterprise', 'filters', 'zona', 'urlSearch', 'urlDelete'));
 
     } // getVerifiedEnterprise()
 
@@ -909,6 +914,9 @@ class AdminsController extends TeachersController
         // Url de buscador
         $urlSearch = config('routes.admin.allVerifiedEnterprisesSearch');
 
+        // Url para borrar la empresa
+        $urlDelete = config('routes.admin.destroyVerifiedEnterprise');
+
         // Variale de zona
         $zona = config('zona.admitidos.empresa');
 
@@ -917,7 +925,7 @@ class AdminsController extends TeachersController
 
         $verifiedEnterprise = $this->getVerifiedEnterprise();
 
-        return view('generic/verified/verifiedEnterprise', compact('verifiedEnterprise', 'filters', 'zona', 'urlSearch'));
+        return view('generic/verified/verifiedEnterprise', compact('verifiedEnterprise', 'filters', 'zona', 'urlSearch', 'urlDelete'));
 
     } // postSearchVerifiedEnterprise()
 
@@ -965,6 +973,36 @@ class AdminsController extends TeachersController
     } // postDeniedStudent()
 
     /**
+     * Método que restaura la empresa pasado como parámetro
+     * @param  $request ID de la empresa
+     */
+    protected function restoreDeniedEnterprise($request)
+    {
+        // Array de los empresas a validar
+        $empresa = $request->toArray();
+
+        foreach ($empresa['empresa'] as $id => $value) {
+
+            // Comprobamos que la empresa esta borrado
+            $deniedEnterprise = $this->search->deniedOneEnterprise($value);
+            $user = $this->search->getUser($value, 'enterprise');
+
+            // Si esta borrado lo restauramos
+            if ($deniedEnterprise && $user) {
+
+                $deniedEnterprise->deleted_at = null;
+                $user->deleted_at = null;
+
+                $deniedEnterprise->save();
+                $user->save();
+            }
+        }
+
+        return true;
+
+    } // restoreDeniedEnterprise()
+
+    /**
      * Metodo que se encarga de filtrar las enpresas borradas con un buscador
      */
     public function postSearchDeniedEnterprise()
@@ -988,16 +1026,72 @@ class AdminsController extends TeachersController
     } // postSearchDeniedEnterprise()
 
     /**
-     * Método para borrar una notificacion de empresa mediante ajax, el borrado no sera definitivo
+     * Método para borrar una empresa verificada mediante ajax, el borrado no sera definitivo
      * se hará por softdeletes
      * @param                       $id            ID del usuario a borrar
      */
-    public function destroyEnterpriseNotification($id)
+    public function destroyVerifiedEnterprise($id)
     {
         $ajax = $this->ajaxDestroyEnterprise($id);
 
         return response()->json($ajax);
 
-    } // destroyEnterpriseNotification()
+    } // destroyVerifiedEnterprise()
+
+    /**
+     * Método para borrar un usuario mediante ajax una empresa, el borrado no sera definitivo
+     * se hará por softdeletes
+     * @param                       $id            ID del usuario a borrar
+     */
+    public function ajaxDestroyEnterprise($id)
+    {
+        // Obtenemos los datos del profesor
+        $destroyEnterprise = Enterprise::findorfail($id);
+
+        // Obtenemos los datos de usuario
+        $user = $this->search->getUser($id, 'enterprise');
+
+        if ($destroyEnterprise->deleted_at == null && $user->deleted_at == null) {
+
+            // Borramos la empresa con su usuario
+            $destroyEnterprise->deleted_at = date('YmdHms');
+
+            $user->deleted_at = date('YmdHms');
+
+            $destroyEnterprise->save();
+
+            $user->save();
+
+            // Devolvemos un mensaje a la vista
+            $message = 'La empresa de ha borrado correctamente';
+            $status = 'success';
+
+            if($destroyEnterprise->deleted_at != null && $user->deleted_at != null){
+                return $ajax = [
+                    'id'      => $destroyEnterprise->id,
+                    'message' => $message,
+                    'status'  => $status
+                ];
+            }
+
+
+        } else {
+
+            // Devolvemos un mensaje a la vista
+            $message = 'No se ha podido borrar la empresa, por favor intentelo mas tarde';
+            $status = 'fail';
+
+
+            return $ajax = [
+                'id'      => $destroyEnterprise->id,
+                'message' => $message,
+                'status'  => $status
+            ];
+
+
+        }
+
+
+    } // ajaxDestroyEnterprise()
 
 }
