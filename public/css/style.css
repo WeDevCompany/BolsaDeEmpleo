@@ -302,6 +302,7 @@ a:hover.back-to-top {
   margin-top: 5px;
   display: inline-block;
   transition:all 0.25s ease-in-out;
+  border:2px transparent solid;
 }
 /*
   Funciona tanto para escritorio como para telefonos
@@ -571,6 +572,10 @@ input[type = "file"]{
     overflow: hidden;
 }
 
+.perfil {
+
+}
+
 .drop{
   border:2px dotted #bdc3c7;
   padding:20px;
@@ -730,23 +735,23 @@ div.drop:hover {
   Ofertas
 ****************/
 .oferta {
-  border: 2px #CFD8DC solid;
-  margin-bottom: 5px;
-  border-radius:5px;
+    border: 2px #CFD8DC solid;
+    margin-bottom: 5px;
+    border-radius:5px;
 }
 
 .titulo {
-  font-weight:bolder;
-  text-transform:uppercase;
+    font-weight:bolder;
+    text-transform:uppercase;
 }
 
 .descripcion {
-  color:#607D8B;
+    color:#607D8B;
 }
 
 .textCenter{
-  padding-top:1rem;
-  padding-bottom:1rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
 }
 @media only screen and (max-width: 768px) {
   .titulo {
@@ -771,7 +776,7 @@ div.drop:hover {
   fieldeset
 ****************/
 fieldset {
-  border:none;
+    border:none;
 }
 
 /*
@@ -779,18 +784,18 @@ fieldset {
  */
 
 .selectcol3 {
-  margin-top:2.5em;
-  margin-left:1.7em;
-  margin-right:1.3em;
+    margin-top:2.5em;
+    margin-left:1.7em;
+    margin-right:1.3em;
 }
 
 .divdate {
-  margin-top: 2em;
-  padding-top: 15px;
+    margin-top: 2em;
+    padding-top: 15px;
 }
 
 .divdatelab {
-  margin-top: -1.5em;
+    margin-top: -1.5em;
 }
 
 .btn-group > .btn{
