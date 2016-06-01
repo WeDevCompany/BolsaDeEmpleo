@@ -16,6 +16,7 @@ use App\Http\Requests\DeniedStudentRequest;
 use App\Http\Requests\DeniedOfferRequest;
 use App\Http\Requests\DeniedTeacherRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 //use Datatables;
 
@@ -726,13 +727,13 @@ class AdminsController extends TeachersController
         // Variable que necesitamos pasarle a la vista para poder ver los fitros
         $filters = config('filters.verifiedOffers');
 
-        // Obtenemos todos los estudiantes validados
+        // Obtenemos todas las ofertas validadas
         $validOffer = $this->search->validOffer();
 
         // Convertimos el objeto devuelto en un array
         $validOffer = array_column($validOffer, 'jobOffer_id');
 
-        // Obtenemos los estudiantes que estan validados
+        // Obtenemos llas ofertas que estan validados
         $verifiedOffer = $this->search->invalidOrValidOffer($validOffer, $this->request, null, true);
 
         // Obtenemos los tags de la oferta
@@ -786,7 +787,7 @@ class AdminsController extends TeachersController
     public function getDeniedOffer()
     {
         // Url de buscador
-        $urlSearch = config('routes.admin.allVerifiedOffersSearch');
+        $urlSearch = config('routes.admin.allDeniedOffersSearch');
 
         // Url de post
         $urlPost = config('routes.admin.restoreDeniedOffers');
@@ -828,7 +829,7 @@ class AdminsController extends TeachersController
     public function postSearchDeniedOffer()
     {
         // Url de buscador
-        $urlSearch = config('routes.admin.allVerifiedOffersSearch');
+        $urlSearch = config('routes.admin.allDeniedOffersSearch');
 
         // Url de post
         $urlPost = config('routes.admin.restoreDeniedOffers');
@@ -857,5 +858,146 @@ class AdminsController extends TeachersController
         return response()->json($ajax);
 
     } // destroyOfferNotification()
+
+    /*
+    |---------------------------------------------------------------------------|
+    | EMPRESAS -> Listado, borrado y restauracion.                              |
+    |---------------------------------------------------------------------------|
+    |                                                                           |
+    | En esta seccion tendremos:                                                |
+    |       -> Listado de todas las empresas validadas en la aplicacion         |
+    |       -> "Borrado" de las empresas con softDeletes                        |
+    |       -> Restauracion de las empresas "borradas" mediante softDeletes     |
+    |                                                                           |
+    */
+   
+   /**
+     * Metodo que obtiene todas las ofertas validadas y las muestra
+     * @return view Vista en la que se listan las ofertas
+     */
+    public function getVerifiedEnterprise()
+    {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allVerifiedEnterprisesSearch');
+
+        // Variale de zona
+        $zona = config('zona.admitidos.empresa');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedEnterprises');
+
+        // Obtenemos todas las empresas registradas
+        $verifiedEnterprise = $this->search->verifiedEnterprise($this->request);
+
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
+
+            return $verifiedEnterprise;
+
+        }
+
+        return view('generic/verified/verifiedEnterprise', compact('verifiedEnterprise', 'filters', 'zona', 'urlSearch'));
+
+    } // getVerifiedEnterprise()
+
+    /**
+     * Metodo que se encarga de filtrar las enpresas dados de alta con un buscador
+     * @return view Vista con las enpresas validadas filtradas por el buscador
+     */
+    public function postSearchVerifiedEnterprise()
+    {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allVerifiedEnterprisesSearch');
+
+        // Variale de zona
+        $zona = config('zona.admitidos.empresa');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedEnterprises');
+
+        $verifiedEnterprise = $this->getVerifiedEnterprise();
+
+        return view('generic/verified/verifiedEnterprise', compact('verifiedEnterprise', 'filters', 'zona', 'urlSearch'));
+
+    } // postSearchVerifiedEnterprise()
+
+    /**
+     * Método que lista todas las enpresas que han sido borrados a la hora
+     * de validarlas para restaurarlas
+     */
+    public function getDeniedEnterprise()
+    {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allDeniedEnterprisesSearch');
+
+        // Url de post
+        $urlPost = config('routes.admin.restoreDeniedEnterprises');
+
+        // Variale de zona
+        $zona = config('zona.denegados.empresa');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedEnterprises');
+
+        // Obtenemos todas las enpresas borradas
+        $deniedEnterprise = $this->search->deniedEnterprise($this->request);
+
+        // Si recibimos request es porque queremos filtrar por buscador
+        if (!empty($this->request->toArray())) {
+
+            return $deniedEnterprise;
+        }
+
+        return view('generic/denied/deniedEnterprise', compact('deniedEnterprise', 'filters', 'zona', 'urlSearch', 'urlPost'));
+
+    } // getDeniedEnterprise()
+
+    /**
+     * Método que obtiene la empresa a restaurar
+     * @param  DeniedEnterpriseRequest $request ID de la empresa
+     */
+    public function postDeniedEnterprise(DeniedEnterpriseRequest $request)
+    {
+        $this->restoreDeniedEnterprise($request);
+
+        return \Redirect::to('administrador/empresa/denegadas');
+
+    } // postDeniedStudent()
+
+    /**
+     * Metodo que se encarga de filtrar las enpresas borradas con un buscador
+     */
+    public function postSearchDeniedEnterprise()
+    {
+        // Url de buscador
+        $urlSearch = config('routes.admin.allDeniedEnterprisesSearch');
+
+        // Url de post
+        $urlPost = config('routes.admin.restoreDeniedEnterprises');
+
+        // Variale de zona
+        $zona = config('zona.denegados.empresa');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedEnterprises');
+
+        $deniedEnterprise = $this->getDeniedEnterprise();
+
+        return view('generic/denied/deniedEnterprise', compact('deniedEnterprise', 'filters', 'zona', 'urlSearch', 'urlPost'));
+
+    } // postSearchDeniedEnterprise()
+
+    /**
+     * Método para borrar una notificacion de empresa mediante ajax, el borrado no sera definitivo
+     * se hará por softdeletes
+     * @param                       $id            ID del usuario a borrar
+     */
+    public function destroyEnterpriseNotification($id)
+    {
+        $ajax = $this->ajaxDestroyEnterprise($id);
+
+        return response()->json($ajax);
+
+    } // destroyEnterpriseNotification()
 
 }

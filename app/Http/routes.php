@@ -132,7 +132,7 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
     Route::post(config('routes.adminRoutes.studentSearchNotification'), 'AdminsController@postSearchStudentNotification');
     Route::delete(config('routes.adminRoutes.destroyStudentNotification'), 'AdminsController@destroyStudentNotification');
 
-    // Alumnos admitidos
+    // Estudiantes admitidos
     Route::get(config('routes.adminRoutes.allVerifiedStudents'), 'AdminsController@getVerifiedStudent');
     Route::post(config('routes.adminRoutes.allVerifiedStudentsSearch'), 'AdminsController@postSearchVerifiedStudent');
 
@@ -155,6 +155,15 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
     Route::get(config('routes.adminRoutes.allDeniedOffers'), 'AdminsController@getDeniedOffer');
     Route::post(config('routes.adminRoutes.restoreDeniedOffers'), 'AdminsController@postDeniedOffer');
     Route::post(config('routes.adminRoutes.allDeniedOffersSearch'), 'AdminsController@postSearchDeniedOffer');
+
+    // Empresas admitidas
+    Route::get(config('routes.adminRoutes.allVerifiedEnterprises'), 'AdminsController@getVerifiedEnterprise');
+    Route::post(config('routes.adminRoutes.allVerifiedEnterprisesSearch'), 'AdminsController@postSearchVerifiedEnterprise');
+
+    // Empresas borradas
+    Route::get(config('routes.adminRoutes.allDeniedEnterprises'), 'AdminsController@getDeniedEnterprise');
+    Route::post(config('routes.adminRoutes.restoreDeniedEnterprises'), 'AdminsController@postDeniedEnterprise');
+    Route::post(config('routes.adminRoutes.allDeniedEnterprisesSearch'), 'AdminsController@postSearchDeniedEnterprise');
 
 });
 

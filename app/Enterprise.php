@@ -27,4 +27,12 @@ class Enterprise extends Model
     	return $this->belongsTo(User::class);
     } // user()
 
+    // Funcion para buscar un profesor por nombre
+    public function scopeName($query, $name)
+    {
+        if(trim($name) != ""){
+            $query->where("enterprises.name", "LIKE", "%$name%");
+        }
+    } // scopeName()
+
 }

@@ -1,16 +1,16 @@
-                    @if ($errors->has('oferta'))
+                    @if ($errors->has('empresa'))
                         <span class="help-block">
-                            <strong>{{ $errors->first('oferta') }}</strong>
+                            <strong>{{ $errors->first('empresa') }}</strong>
                         </span>
                     @endif
                     <div class="row"></div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <p><b>Total ofertas borradas:</b> {{$deniedOffer->count()}}</p>
+                            <p><b>Total empresas borradas:</b> {{$deniedEnterprise->count()}}</p>
                         </div>
                         <div class="col-sm-6">
                             <p>
-                                <b>Total de páginas:</b> {{$deniedOffer->lastPage()}}
+                                <b>Total de páginas:</b> {{$deniedEnterprise->lastPage()}}
                             </p>
                         </div>
                     </div>
@@ -20,31 +20,29 @@
                                 <tr>
                                     <th>Validar</th>
                                     <th>Imagen</th>
-                                    <th>Oferta</th>
+                                    <th>#</th>
                                     <th>Empresa</th>
                                     <th>Cif</th>
-                                    <th>Centro de trabajo</th>
                                     <th>Email</th>
-                                    <th>Familia Profesional</th>
+                                    <th>Centro de trabajo principal</th>
                                     <th colspan="2" style="text-align:center;">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($deniedOffer as $offer)
-                                    <tr data-id="{{ $offer->id }}">
+                                @foreach($deniedEnterprise as $enterprise)
+                                    <tr data-id="{{ $enterprise->id }}">
                                         <td>
                                             <p>
-                                                <input type="checkbox" id="oferta_{!! $offer->id !!}" value="{!! $offer->id !!}" name="oferta[]"  />
-                                                <label for="oferta_{!! $offer->id !!}"></label>
+                                                <input type="checkbox" id="empresa_{!! $enterprise->id !!}" value="{!! $enterprise->id !!}" name="empresa[]"  />
+                                                <label for="empresa_{!! $enterprise->id !!}"></label>
                                             </p>
                                         </td>
-                                        <td><img src="{!! url('/img/imgUser/' . $offer->carpeta . '/' .  $offer->image) !!}" alt="Imagen de la Empresa" class="img-responsive img-circle img-navegador"></td>
-                                        <td>{!! $offer->title !!}</td>
-                                        <td>{!! $offer->enterpriseName !!}</td>
-                                        <td>{!! $offer->cif !!}</td>
-                                        <td>{!! $offer->workCenterName !!}</td>
-                                        <td><a href="mailto:{!! $offer->email !!}">{!! $offer->email !!}</a></td>
-                                        <td>{!! $offer->name !!}</td>
+                                        <td><img src="{!! url('/img/imgUser/' . $enterprise->carpeta . '/' .  $enterprise->image) !!}" alt="Imagen del Estudiante" class="img-responsive img-circle img-navegador"></td>
+                                        <td scope="row">{!! $enterprise->id !!}</td>
+                                        <td>{!! $enterprise->name !!}</td>
+                                        <td>{!! $enterprise->cif !!}</td>
+                                        <td><a href="mailto:{!! $enterprise->email !!}">{!! $enterprise->email !!}</a></td>
+                                        <td>{!! $enterprise->workCenterName !!}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger waves-effect waves-light btn-xs"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </td>

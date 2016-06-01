@@ -69,7 +69,8 @@
     <ul class="dropdown-menu" role="menu" aria-labelledby="profesores">
         <!-- ADMIN -->
         <li role="presentation" class="dropdown-header">Administrador</li>
-        <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Empresas</a></li>
+        <li><a href="{{ url(config('routes.admin.allVerifiedEnterprises')) }}">Admitidas</a></li>
+        <li><a href="{{ url(config('routes.admin.allDeniedEnterprises')) }}">Denegadas</a></li>
         <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Centros de Trabajo</a></li>
         <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Responsables</a></li>
     </ul>

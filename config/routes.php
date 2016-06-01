@@ -65,6 +65,11 @@ return [
             'comment'                   => '/administrador/oferta/comentario/{idOffer}',
             'destroyStudentNotification'=> 'administrador/notificaciones/eliminar-notificacion-estudiante',
             'destroyOfferNotification'  => 'administrador/notificaciones/eliminar-notificacion-oferta',
+            'allVerifiedEnterprises'       => 'administrador/empresa/verificadas',
+            'allVerifiedEnterprisesSearch' => 'administrador/empresa/verificadas-buscador',
+            'allDeniedEnterprises'         => 'administrador/empresa/denegadas',
+            'restoreDeniedEnterprises'     => 'administrador/empresa/restaurar',
+            'allDeniedEnterprisesSearch'   => 'administrador/empresa/denegadas-buscador',
         ],
     'adminRoutes' =>
         [
@@ -100,6 +105,11 @@ return [
             'comment'                   => '/oferta/comentario/{idOffer}',
             'destroyStudentNotification'=> '/notificaciones/eliminar-notificacion-estudiante/{id}',
             'destroyOfferNotification'  => '/notificaciones/eliminar-notificacion-oferta/{id}',
+            'allVerifiedEnterprises'       => '/empresa/verificadas',
+            'allVerifiedEnterprisesSearch' => '/empresa/verificadas-buscador',
+            'allDeniedEnterprises'         => '/empresa/denegadas',
+            'restoreDeniedEnterprises'     => '/empresa/restaurar',
+            'allDeniedEnterprisesSearch'   => '/empresa/denegadas-buscador',
         ],
     'student'    =>
         [
@@ -158,19 +168,20 @@ return [
         ],
     'enterprise'    =>
         [
-            'enterpriseIndex'     => '/empresa',
-            'enterprisePerfil'    => '/empresa/perfil',
-            'enterpriseUploadImg' => '/empresa/uploadImage',
-            'viewOffer'           => '/empresa/oferta/{idOffer}',
-            'updateOffer'         => '/empresa/oferta/actualizar/{idOffer}',
+            'enterpriseIndex'              => '/empresa',
+            'enterprisePerfil'             => '/empresa/perfil',
+            'enterpriseUploadImg'          => '/empresa/uploadImage',
+            'viewOffer'                    => '/empresa/oferta/{idOffer}',
+            'updateOffer'                  => '/empresa/oferta/actualizar/{idOffer}',
 
         ],
     'enterpriseRoutes'    =>
         [
-            'enterprisePerfil'      => '/perfil',
-            'enterpriseUploadImg'   => '/uploadImage',
-            'viewOffer'             => '/oferta/{idOffer}',
-            'updateOffer'           => '/oferta/actualizar/{idOffer}',
+            'enterprisePerfil'             => '/perfil',
+            'enterpriseUploadImg'          => '/uploadImage',
+            'viewOffer'                    => '/oferta/{idOffer}',
+            'updateOffer'                  => '/oferta/actualizar/{idOffer}',
+            
         ],
     'offer' =>
         [

@@ -6,7 +6,7 @@
 
                     <div class="row">
                         <div class="col-sm-6">
-                            <p><b>Total profesores por validar:</b> {{$deniedTeacher->count()}}</p>
+                            <p><b>Total profesores borrados:</b> {{$deniedTeacher->count()}}</p>
                         </div>
                         <div class="col-sm-6">
                             <p>
