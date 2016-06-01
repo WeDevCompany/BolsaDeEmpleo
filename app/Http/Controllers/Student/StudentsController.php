@@ -116,7 +116,22 @@ class StudentsController extends UsersController
     private function create()
     {
         try {
-            $insert = Student::create($this->request->all());
+
+            // Obtenemos el curriculum
+           $curriculum = $this->request->file('curriculum');
+
+           // Obtenemos el nombre del curriculum del cliente
+           $nombreCurriculum = $curriculum->getClientOriginalName();
+
+           // Sustituimos el archivo por el nombre del curriculum para insertar solo el nombre en la base de datos
+           $this->request['curriculum'] = $nombreCurriculum;
+
+           // Insertamos el estudiante
+           $insert = Student::create($this->request->all());
+
+           // Creamos la carpeta de curriculum del usuario y lo guardamos
+           $save = $curriculum->move(storage_path() . '/app/curriculum/' . $this->request['carpeta'], $nombreCurriculum);
+
         } catch(\PDOException $e){
             //dd($e);
             abort(500);
