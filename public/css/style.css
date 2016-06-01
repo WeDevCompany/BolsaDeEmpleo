@@ -801,3 +801,22 @@ fieldset {
 .btn-group > .btn{
     float:none;
 }
+
+/***************
+  VISTA DE UNA OFERTA
+****************/
+.title, .modal-header h4 {
+    font-weight: bold;
+    text-transform: uppercase;
+    overflow-x:auto;
+    overflow-y:hidden;
+}
+
+@media only screen and (max-width: 468px) {
+    .title, .modal-header h4 {
+        font-size:8vw;
+    }
+    .modal-header {
+        padding: 5px;
+    }
+}

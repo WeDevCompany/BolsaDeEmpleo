@@ -8,17 +8,21 @@
 @endsection
 
 @section('content')
-	<div class="container">
-    <div class="row">
-        <div class="col-md-12 sin-margen">
-            <div class="panel panel-default">
-                <div class="modal-content">
-                    <div class="modal-header text-center">
-                        <h4>$offer->title</h4>
-                    </div>
-                </div>
-           	</div>
-        </div>
-    </div>
+@include('partials.nav.navParent')
+	<main>
+		<div class="container">
+		    <div class="row sin-margen">
+		        <div class="col-md-12 sin-margen">
+		            <div class="panel panel-default">
+		                <div class="modal-content">
+		                    <div class="modal-header text-center">
+		                        <h4 class="title" data-title="{{mb_strtoupper($offer->title)}}">{{mb_strtoupper($offer->title)}}</h4>
+		                    </div>
+		                </div>
+		           	</div>
+		        </div>
+		    </div>
+		</div>
+	</main>
 @include('partials.footer.footerWelcome')
 @endsection

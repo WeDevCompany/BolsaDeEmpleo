@@ -859,19 +859,29 @@ class TeachersController extends UsersController
     } // ajaxDestroyOffer()
 
     /**
-     * Método para borrar mediante ajax una oferta, el borrado no sera definitivo
+     * Método para mostrar las ofertas de un profesor
      * se hará por softdeletes
      * @param   $id  id de la oferta de
      */
     public function getOfferById($idOffer)
     {
-        dd("safdsa");
+        // Saneamos el id que se nos pasa como parametro
         $idOffer = (int) $idOffer;
+        $aux = [$idOffer];
+
+        // Obtenemos la familia profesional a la que pertenece
+        // el profesor
+        $profFamilie = $this->search->profFamilyTeacher();
+
         // Llamamos al Search para obtener la oferta seleccionada
-        $offer = $this->search->invalidOrValidOffer($idOffer, $this->request);
+        $offer = $this->search->invalidOrValidOffer($aux, $this->request,$profFamilie);
+        dd($offer);
+        if (isset($offer[0])) {
+            $offer = $offer[0];
+        }
         // Generamos el nombre de la zona de forma dinámica para que
         // los buscadores puedan mejorar las posibilidades de indexación
-        $zona = $offer->title ." - " . $offer->enterpriseName;
+        $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";
         //
         return view('offer.offer', compact('offer','zona'));
 
