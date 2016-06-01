@@ -218,9 +218,11 @@ Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth'], 'namesp
     // Vista de estudiante logeado
     Route::resource(config('routes.index'), 'StudentsController');
 
-    // Modificacion de la imagen de perfil de los estudiantes
+    // Modificacion de la imagen de perfil y el curriculum de los estudiantes
     Route::get(config('routes.perfil'), 'StudentsController@imagenPerfil');
     Route::post(config('routes.UploadImg'), 'StudentsController@uploadImage');
+    Route::get(config('routes.curriculum'), 'StudentsController@studentCurriculum');
+    Route::post(config('routes.UploadCurriculum'), 'StudentsController@uploadCurriculum');
 
 });
 

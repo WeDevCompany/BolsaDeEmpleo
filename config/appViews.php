@@ -5,5 +5,6 @@
  */
 return [
     'perfil'         => 'partials/upload/uploadImage',
+    'curriculum'     => 'partials/upload/uploadCurriculum',
 ];
 ?>
