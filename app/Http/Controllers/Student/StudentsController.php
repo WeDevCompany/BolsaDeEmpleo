@@ -40,6 +40,9 @@ class StudentsController extends UsersController
             //'yearFrom'          => 'required|digits:4|cycleYearFrom',
             //'yearTo'            => 'required|digits:4',
         ];
+        $this->rules_curriculum = [
+            'file' => 'required|mimes:pdf',
+        ];
         $this->rol = 'estudiante';
         $this->redirectTo = "/estudiante";
     }
@@ -190,5 +193,41 @@ class StudentsController extends UsersController
     {
         return view(config('appViews.perfil'));
     } // imagenPerfil()
+
+    public function studentCurriculum()
+    {
+        return view(config('appViews.curriculum'));
+    }
+
+    /**
+     * Método de subida de curriculum
+     */
+    public function uploadCurriculum()
+    {
+
+        // Validamos el curriculum
+        $this->validate($this->request, $this->rules_curriculum);
+
+        //obtenemos el campo curriculum definido en el formulario
+        $curriculum = $this->request->file('file');
+
+        //obtenemos el nombre del archivo
+        $nombre = Parent::generarCodigo() . '.pdf';
+
+        //indicamos que queremos guardar un nuevo archivo en el disco local
+        $save = $curriculum->move(storage_path() . '/app/curriculum/' . \Auth::user()->carpeta, $nombre);
+
+        // Si tengo la imagen guargo el nombre en la base de datos
+        if ($save) {
+
+            Student::where('user_id', '=', \Auth::user()->id)->update(['curriculum' => $nombre]);
+
+            Session::flash('message_Success', 'Se ha cambiado el curriculum correctamente.');
+
+        } else {
+            Session::flash('message_Negative', 'No se ha podido cambiar el curriculum, por favor intentelo mas tarde');
+        }
+
+    } // uploadImage()
 
 }

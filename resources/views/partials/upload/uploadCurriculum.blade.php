@@ -13,18 +13,17 @@
                 <div class="modal-content">
                     <div class="modal-header text-center">
 
-                        <h4><i class="fa fa-user"></i> Perfil de Usuario</h4>
+                        <h4><i class="fa fa-user"></i> Cambiar Curriculum</h4>
 
                     </div>
                     <div class="row">
                         <div class="col-md-12">
 
-                            <img src="{{ url('/img/imgUser/' . \Auth::user()->carpeta . '/' .  \Auth::user()->image) }}" alt="Imagen_de_usuario" class="img-responsive img-circle img-resize">
+                            <img src="{{ url('/img/global/Pdf-icon.png') }}" alt="Curriculum_de_usuario" class="img-responsive img-resize">
 
                         </div>
                     </div>
-
-                    {!! Form::open(['url' => \Auth::user()->rol . config('routes.UploadImg'), 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone dropzone-width']) !!}
+                    {!! Form::open(['url' => \Auth::user()->rol . config('routes.UploadCurriculum'), 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone dropzone-width']) !!}
                         <div class="dz-message">
                             <h4><i class="fa fa-file-image-o" aria-hidden="true"></i></h4>
                         </div>

@@ -228,9 +228,6 @@ class UsersController extends Controller
 
     /**
      * Método de subida de imagenes [Pruebas]
-     * @param  UploadImageRequest $request middleware hecho
-     *                                     expresamente para validar la imagen
-     * @return [type]                      [description]
      */
     protected function uploadImage()
     {
@@ -253,6 +250,13 @@ class UsersController extends Controller
         if ($save) {
             $user = new User;
             $user->where('id', '=', \Auth::user()->id)->update(['image' => $nombre]);
+
+            Session::flash('message_Success', 'Se ha cambiado la imagen correctamente.');
+
+        } else {
+
+            Session::flash('message_Negative', 'No se ha podido cambiar la imagen, por favor intentelo mas tarde');
+
         }
 
     } // uploadImage()
