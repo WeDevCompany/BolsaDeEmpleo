@@ -143,7 +143,7 @@ class TeachersController extends UsersController
         $urlPost = config('routes.teacher.studentValidNotification');
 
         // Url para borrar estudiantes
-        $urlDelete = config('routes.teacher.destroyStudentNotification');
+        $urlDelete = config('routes.teacher.destroyStudent');
 
         // Variale de zona
         $zona = config('zona.notificaciones.estudiante');
@@ -234,7 +234,7 @@ class TeachersController extends UsersController
         $urlPost = config('routes.teacher.studentValidNotification');
 
         // Url para borrar profesores
-        $urlDelete = config('routes.teacher.destroyTeacherNotification');
+        $urlDelete = config('routes.teacher.destroyStudent');
 
         // Variale de zona
         $zona = config('zona.notificaciones.estudiante');
@@ -421,7 +421,7 @@ class TeachersController extends UsersController
      * se hará por softdeletes
      * @param                       $id            ID del usuario a borrar
      */
-    public function destroyStudentNotification($id)
+    public function destroyStudent($id)
     {
         $ajax = $this->ajaxDestroyStudent($id);
 
@@ -439,13 +439,10 @@ class TeachersController extends UsersController
         // Obtenemos los datos del estudiante
         $destroyStudent = Student::findorfail($id);
 
-        // Obtenemos los estudiantes validados para luego hacer una negacion
-        $verifiedStudent = $this->search->verifiedStudent($id);
-
         // Obtenemos los datos de usuario
         $user = $this->search->getUser($id, 'student');
 
-        if ($destroyStudent->deleted_at == null && $user->deleted_at == null && !$verifiedStudent) {
+        if ($destroyStudent->deleted_at == null && $user->deleted_at == null) {
 
             // Borramos los estudiantes y su usuario
             $destroyStudent->deleted_at = date('YmdHms');
@@ -518,7 +515,7 @@ class TeachersController extends UsersController
         $urlPost = config('routes.teacher.offerValidNotification');
 
         // Url para borrar ofertas de trabajo
-        $urlDelete = config('routes.teacher.destroyOfferNotification');
+        $urlDelete = config('routes.teacher.destroyOffer');
 
         // Variale de zona
         $zona = config('zona.notificaciones.empresa');
@@ -609,7 +606,7 @@ class TeachersController extends UsersController
         $urlPost = config('routes.teacher.offerValidNotification');
 
         // Url para borrar ofertas de trabajo
-        $urlDelete = config('routes.teacher.destroyOfferNotification');
+        $urlDelete = config('routes.teacher.destroyOffer');
 
         // Variale de zona
         $zona = config('zona.notificaciones.empresa');
@@ -632,6 +629,9 @@ class TeachersController extends UsersController
     {
         // Url de buscador
         $urlSearch = config('routes.teacher.allVerifiedOffersSearch');
+
+        // Url para borrar ofertas de trabajo
+        $urlDelete = config('routes.teacher.destroyOffer');
 
         // Variale de zona
         $zona = config('zona.admitidos.empresa');
@@ -672,7 +672,7 @@ class TeachersController extends UsersController
             return $verifiedOffer;
         }
 
-        return view('generic/verified/verifiedOffer', compact('verifiedOffer', 'filters', 'zona', 'urlSearch'));
+        return view('generic/verified/verifiedOffer', compact('verifiedOffer', 'filters', 'zona', 'urlSearch', 'urlDelete'));
 
     } // getVerifiedOffer()
 
@@ -685,6 +685,9 @@ class TeachersController extends UsersController
         // Url de buscador
         $urlSearch = config('routes.teacher.allVerifiedOffersSearch');
 
+        // Url para borrar ofertas de trabajo
+        $urlDelete = config('routes.teacher.destroyOffer');
+
         // Variale de zona
         $zona = config('zona.admitidos.empresa');
 
@@ -693,7 +696,7 @@ class TeachersController extends UsersController
 
         $verifiedOffer = $this->getVerifiedOffer();
 
-        return view('generic/verified/verifiedOffer', compact('verifiedOffer', 'filters', 'zona', 'urlSearch'));
+        return view('generic/verified/verifiedOffer', compact('verifiedOffer', 'filters', 'zona', 'urlSearch', 'urlDelete'));
 
     } // postSearchVerifiedOffer()
 
@@ -705,7 +708,7 @@ class TeachersController extends UsersController
     public function getDeniedOffer()
     {
         // Url de buscador
-        $urlSearch = config('routes.teacher.allVerifiedOffersSearch');
+        $urlSearch = config('routes.teacher.allDeniedOffersSearch');
 
         // Url de post
         $urlPost = config('routes.teacher.restoreDeniedOffers');
@@ -782,7 +785,7 @@ class TeachersController extends UsersController
     public function postSearchDeniedOffer()
     {
         // Url de buscador
-        $urlSearch = config('routes.teacher.allVerifiedOffersSearch');
+        $urlSearch = config('routes.teacher.allDeniedOffersSearch');
 
         // Url de post
         $urlPost = config('routes.teacher.restoreDeniedOffers');
@@ -804,7 +807,7 @@ class TeachersController extends UsersController
      * se hará por softdeletes
      * @param                       $id            ID del usuario a borrar
      */
-    public function destroyOfferNotification($id)
+    public function destroyOffer($id)
     {
         $ajax = $this->ajaxDestroyOffer($id);
 
@@ -822,10 +825,7 @@ class TeachersController extends UsersController
         // Obtenemos las ofertas de trabajo
         $destroyOffer = JobOffer::findorfail($id);
 
-        // Obtenemos las ofertas de trabajo validadas para luego hacer una negacion
-        $verifiedOffer = $this->search->verifiedOffer($id);
-
-        if ($destroyOffer->deleted_at == null && !$verifiedOffer) {
+        if ($destroyOffer->deleted_at == null) {
 
             // Borramos la oferta de trabajo
             $destroyOffer->deleted_at = date('YmdHms');
@@ -875,7 +875,7 @@ class TeachersController extends UsersController
 
         // Llamamos al Search para obtener la oferta seleccionada
         $offer = $this->search->invalidOrValidOffer($aux, $this->request,$profFamilie);
-        dd($offer);
+        //dd($offer);
         if (isset($offer[0])) {
             $offer = $offer[0];
         }

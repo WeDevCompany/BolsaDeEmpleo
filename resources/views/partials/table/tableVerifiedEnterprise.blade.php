@@ -19,7 +19,7 @@
                                     <th>Cif</th>
                                     <th>Email</th>
                                     <th>Centro de trabajo principal</th>
-                                    <th colspan="2" style="text-align:center;">Acciones</th>
+                                    <th>Borrar</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,9 +33,6 @@
                                         <td>{!! $enterprise->workCenterName !!}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger waves-effect waves-light btn-xs btn-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-success waves-effect waves-light btn-xs"><i class="fa fa-check" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

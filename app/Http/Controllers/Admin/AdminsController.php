@@ -69,7 +69,7 @@ class AdminsController extends TeachersController
         $urlPost = config('routes.admin.teacherValidNotification');
 
         // Url para borrar profesores
-        $urlDelete = config('routes.admin.destroyTeacherNotification');
+        $urlDelete = config('routes.admin.destroyTeacher');
 
         // Variable de zona
         $zona = config('zona.notificaciones.profesor');
@@ -145,7 +145,7 @@ class AdminsController extends TeachersController
         $urlPost = config('routes.admin.teacherValidNotification');
 
         // Url para borrar profesores
-        $urlDelete = config('routes.admin.destroyTeacherNotification');
+        $urlDelete = config('routes.admin.destroyTeacher');
 
         // Variable de zona
         $zona = config('zona.notificaciones.profesor');
@@ -170,6 +170,9 @@ class AdminsController extends TeachersController
         // Url de buscador
         $urlSearch = config('routes.admin.allVerifiedTeachersSearch');
 
+        // Url para borrar profesores
+        $urlDelete = config('routes.admin.destroyTeacher');
+
         // Variable de zona
         $zona = config('zona.admitidos.profesor');
 
@@ -191,7 +194,7 @@ class AdminsController extends TeachersController
             return $verifiedTeacher;
         }
 
-        return view('generic/verified/verifiedTeacher', compact('verifiedTeacher', 'filters', 'zona', 'urlSearch'));
+        return view('generic/verified/verifiedTeacher', compact('verifiedTeacher', 'filters', 'zona', 'urlSearch', 'urlDelete'));
 
     } // getVerifiedTeacher()
 
@@ -204,6 +207,9 @@ class AdminsController extends TeachersController
         // Url de buscador
         $urlSearch = config('routes.admin.allVerifiedTeachersSearch');
 
+        // Url para borrar profesores
+        $urlDelete = config('routes.admin.destroyTeacher');
+
         // Variable de zona
         $zona = config('zona.admitidos.profesor');
 
@@ -212,7 +218,7 @@ class AdminsController extends TeachersController
 
         $verifiedTeacher = $this->getVerifiedTeacher();
 
-        return view('generic/verified/verifiedTeacher', compact('verifiedTeacher', 'filters', 'zona', 'urlSearch'));
+        return view('generic/verified/verifiedTeacher', compact('verifiedTeacher', 'filters', 'zona', 'urlSearch', 'urlDelete'));
 
     } // postSearchVerifiedTeacher()
 
@@ -313,17 +319,17 @@ class AdminsController extends TeachersController
     } // postSearchDeniedTeacher()
 
     /**
-     * Método para borrar una notificacion de profesor mediante ajax, el borrado no sera definitivo
+     * Método para borrar un profesor mediante ajax, el borrado no sera definitivo
      * se hará por softdeletes
      * @param                       $id            ID del usuario a borrar
      */
-    public function destroyTeacherNotification($id)
+    public function destroyTeacher($id)
     {
         $ajax = $this->ajaxDestroyTeacher($id);
 
         return response()->json($ajax);
 
-    } // destroyTeacherNotification()
+    } // destroyTeacher()
 
     /**
      * Método para borrar un usuario mediante ajax un profesor, el borrado no sera definitivo
@@ -335,13 +341,10 @@ class AdminsController extends TeachersController
         // Obtenemos los datos del profesor
         $destroyTeacher = Teacher::findorfail($id);
 
-        // Obtenemos los profesores validados para luego hacer una negacion
-        $verifiedTeacher = $this->search->verifiedTeacher($id);
-
         // Obtenemos los datos de usuario
         $user = $this->search->getUser($id, 'teacher');
 
-        if ($destroyTeacher->deleted_at == null && $user->deleted_at == null && !$verifiedTeacher) {
+        if ($destroyTeacher->deleted_at == null && $user->deleted_at == null) {
 
             // Borramos el profesor con su usuario
             $destroyTeacher->deleted_at = date('YmdHms');
@@ -411,7 +414,7 @@ class AdminsController extends TeachersController
         $urlPost = config('routes.admin.studentValidNotification');
 
         // Url para borrar estudiantes
-        $urlDelete = config('routes.admin.destroyStudentNotification');
+        $urlDelete = config('routes.admin.destroyStudent');
 
         // Variale de zona
         $zona = config('zona.notificaciones.estudiante');
@@ -467,7 +470,7 @@ class AdminsController extends TeachersController
         $urlPost = config('routes.admin.studentValidNotification');
 
         // Url para borrar profesores
-        $urlDelete = config('routes.admin.destroyTeacherNotification');
+        $urlDelete = config('routes.admin.destroyStudent');
 
         // Variale de zona
         $zona = config('zona.notificaciones.estudiante');
@@ -491,6 +494,9 @@ class AdminsController extends TeachersController
         // Url de buscador
         $urlSearch = config('routes.admin.allVerifiedStudentsSearch');
 
+        // Url para borrar estudiantes
+        $urlDelete = config('routes.admin.destroyStudent');
+
         // Variale de zona
         $zona = config('zona.admitidos.estudiante');
 
@@ -512,7 +518,7 @@ class AdminsController extends TeachersController
             return $verifiedStudent;
         }
 
-        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch'));
+        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch', 'urlDelete'));
 
     } // getVerifiedStudent()
 
@@ -525,6 +531,9 @@ class AdminsController extends TeachersController
         // Url de buscador
         $urlSearch = config('routes.admin.allVerifiedStudentsSearch');
 
+        // Url para borrar estudiantes
+        $urlDelete = config('routes.admin.destroyStudent');
+
         // Variale de zona
         $zona = config('zona.admitidos.estudiante');
 
@@ -533,7 +542,7 @@ class AdminsController extends TeachersController
 
         $verifiedStudent = $this->getVerifiedStudent();
 
-        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch'));
+        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch', 'urlDelete'));
 
     } // postSearchVerifiedStudent()
 
@@ -608,7 +617,7 @@ class AdminsController extends TeachersController
      * se hará por softdeletes
      * @param                       $id            ID del usuario a borrar
      */
-    public function destroyStudentNotification($id)
+    public function destroyStudent($id)
     {
         $ajax = Parent::ajaxDestroyStudent($id);
 
@@ -643,7 +652,7 @@ class AdminsController extends TeachersController
         $urlPost = config('routes.admin.offerValidNotification');
 
         // Url para borrar ofertas de trabajo
-        $urlDelete = config('routes.admin.destroyOfferNotification');
+        $urlDelete = config('routes.admin.destroyOffer');
 
         // Variale de zona
         $zona = config('zona.notificaciones.empresa');
@@ -699,7 +708,7 @@ class AdminsController extends TeachersController
         $urlPost = config('routes.admin.offerValidNotification');
 
         // Url para borrar ofertas de trabajo
-        $urlDelete = config('routes.admin.destroyOfferNotification');
+        $urlDelete = config('routes.admin.destroyOffer');
 
         // Variale de zona
         $zona = config('zona.notificaciones.empresa');
@@ -853,7 +862,7 @@ class AdminsController extends TeachersController
      * se hará por softdeletes
      * @param                       $id            ID del usuario a borrar
      */
-    public function destroyOfferNotification($id)
+    public function destroyOffer($id)
     {
         $ajax = Parent::ajaxDestroyOffer($id);
 
@@ -883,7 +892,7 @@ class AdminsController extends TeachersController
         $urlSearch = config('routes.admin.allVerifiedEnterprisesSearch');
 
         // Url para borrar la empresa
-        $urlDelete = config('routes.admin.destroyVerifiedEnterprise');
+        $urlDelete = config('routes.admin.destroyEnterprise');
 
         // Variale de zona
         $zona = config('zona.admitidos.empresa');
@@ -915,7 +924,7 @@ class AdminsController extends TeachersController
         $urlSearch = config('routes.admin.allVerifiedEnterprisesSearch');
 
         // Url para borrar la empresa
-        $urlDelete = config('routes.admin.destroyVerifiedEnterprise');
+        $urlDelete = config('routes.admin.destroyEnterprise');
 
         // Variale de zona
         $zona = config('zona.admitidos.empresa');
@@ -1030,7 +1039,7 @@ class AdminsController extends TeachersController
      * se hará por softdeletes
      * @param                       $id            ID del usuario a borrar
      */
-    public function destroyVerifiedEnterprise($id)
+    public function destroyEnterprise($id)
     {
         $ajax = $this->ajaxDestroyEnterprise($id);
 

@@ -115,7 +115,9 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
     Route::get(config('routes.adminRoutes.teacherNotification'), 'AdminsController@getTeacherNotification');
     Route::post(config('routes.adminRoutes.teacherValidNotification'), 'AdminsController@postTeacherNotification');
     Route::post(config('routes.adminRoutes.teacherSearchNotification'), 'AdminsController@postSearchTeacherNotification');
-    Route::delete(config('routes.adminRoutes.destroyTeacherNotification'), 'AdminsController@destroyTeacherNotification');
+
+    // Borrar profesor
+    Route::delete(config('routes.adminRoutes.destroyTeacher'), 'AdminsController@destroyTeacher');
 
     // Profesores admitidos
     Route::get(config('routes.adminRoutes.allVerifiedTeachers'), 'AdminsController@getVerifiedTeacher');
@@ -130,7 +132,9 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
     Route::get(config('routes.adminRoutes.studentNotification'), 'AdminsController@getStudentNotification');
     Route::post(config('routes.adminRoutes.studentValidNotification'), 'AdminsController@postStudentNotification');
     Route::post(config('routes.adminRoutes.studentSearchNotification'), 'AdminsController@postSearchStudentNotification');
-    Route::delete(config('routes.adminRoutes.destroyStudentNotification'), 'AdminsController@destroyStudentNotification');
+
+    // Borrar Estudiante
+    Route::delete(config('routes.adminRoutes.destroyStudent'), 'AdminsController@destroyStudent');
 
     // Estudiantes admitidos
     Route::get(config('routes.adminRoutes.allVerifiedStudents'), 'AdminsController@getVerifiedStudent');
@@ -145,7 +149,9 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
     Route::get(config('routes.adminRoutes.offerNotification'), 'AdminsController@getOfferNotification');
     Route::post(config('routes.adminRoutes.offerValidNotification'), 'AdminsController@postOfferNotification');
     Route::post(config('routes.adminRoutes.offerSearchNotification'), 'AdminsController@postSearchOfferNotification');
-    Route::delete(config('routes.adminRoutes.destroyOfferNotification'), 'AdminsController@destroyOfferNotification');
+
+    // Borrar Oferta
+    Route::delete(config('routes.adminRoutes.destroyOffer'), 'AdminsController@destroyOffer');
 
     // Ofertas admitidas
     Route::get(config('routes.adminRoutes.allVerifiedOffers'), 'AdminsController@getVerifiedOffer');
@@ -159,7 +165,9 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
     // Empresas admitidas
     Route::get(config('routes.adminRoutes.allVerifiedEnterprises'), 'AdminsController@getVerifiedEnterprise');
     Route::post(config('routes.adminRoutes.allVerifiedEnterprisesSearch'), 'AdminsController@postSearchVerifiedEnterprise');
-    Route::delete(config('routes.adminRoutes.destroyVerifiedEnterprise'), 'AdminsController@destroyVerifiedEnterprise');
+
+    // Borrar empresas
+    Route::delete(config('routes.adminRoutes.destroyEnterprise'), 'AdminsController@destroyEnterprise');
 
     // Empresas borradas
     Route::get(config('routes.adminRoutes.allDeniedEnterprises'), 'AdminsController@getDeniedEnterprise');
@@ -185,7 +193,9 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespac
     Route::get(config('routes.teacherRoutes.studentNotification'), 'TeachersController@getStudentNotification');
     Route::post(config('routes.teacherRoutes.studentValidNotification'), 'TeachersController@postStudentNotification');
     Route::post(config('routes.teacherRoutes.studentSearchNotification'), 'TeachersController@postSearchStudentNotification');
-    Route::delete(config('routes.teacherRoutes.destroyStudentNotification'), 'TeachersController@destroyStudentNotification');
+
+    // Borrar estudiantes
+    Route::delete(config('routes.teacherRoutes.destroyStudent'), 'TeachersController@destroyStudent');
 
     // Alumnos admitidos
     Route::get(config('routes.teacherRoutes.allVerifiedStudents'), 'TeachersController@getVerifiedStudent');
@@ -200,7 +210,9 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespac
     Route::get(config('routes.teacherRoutes.offerNotification'), 'TeachersController@getOfferNotification');
     Route::post(config('routes.teacherRoutes.offerValidNotification'), 'TeachersController@postOfferNotification');
     Route::post(config('routes.teacherRoutes.offerSearchNotification'), 'TeachersController@postSearchOfferNotification');
-    Route::delete(config('routes.teacherRoutes.destroyOfferNotification'), 'TeachersController@destroyOfferNotification');
+
+    // Borrar ofertas
+    Route::delete(config('routes.teacherRoutes.destroyOffer'), 'TeachersController@destroyOffer');
 
     // Ofertas admitidas
     Route::get(config('routes.teacherRoutes.allVerifiedOffers'), 'TeachersController@getVerifiedOffer');

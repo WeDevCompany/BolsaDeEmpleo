@@ -27,5 +27,6 @@
         </div>
     </div>
 </div>
+@include('partials.form.formDelete')
 @include('partials.footer.footerWelcome')
 @endsection
