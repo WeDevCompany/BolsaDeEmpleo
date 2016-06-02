@@ -302,7 +302,6 @@ a:hover.back-to-top {
   margin-top: 5px;
   display: inline-block;
   transition:all 0.25s ease-in-out;
-  border:2px transparent solid;
 }
 /*
   Funciona tanto para escritorio como para telefonos
@@ -313,12 +312,21 @@ a:hover.back-to-top {
 }*/
 
 .img-resize {
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 200px;
+  max-height: 200px;
+  width: 100%;
   margin: auto;
   margin-bottom: 25px;
   margin-top: 15px;
-  border: 2px solid black;
+}
+
+@media only screen and (max-width: 768px){
+  #my-dropzone button {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+    display: block;
+  }
 }
 
 /****************

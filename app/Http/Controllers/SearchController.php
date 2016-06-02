@@ -474,8 +474,9 @@ class SearchController extends Controller
     } // arrayMap()
 
     /**
-     * [deniedOffer description]
-     * @return [type] [description]
+     * Método que obtiene todas las ofertas borradas de la aplicacion con softDeletes
+     * @param  object $request            Filtro para las búsquedas
+     * @param  array  $profFamilyValidate Familias profesionales del profesor si hubiera
      */
     public function deniedOffer($request, $profFamilyValidate = null)
     {
@@ -507,5 +508,55 @@ class SearchController extends Controller
         return $deniedOneOffer;
 
     } // deniedOneOffer()
+
+    /*==============================
+     *                              *
+     *     E N T E R P R I S E      *
+     *                              *
+     *==============================*/
+
+    /**
+     * Método que muestra todas las empresas dadas de alta en la aplicacion
+     * @param  object $request Filtro de búsqueda
+     */
+    public function verifiedEnterprise($request)
+    {
+        $verifiedEnterprise = Enterprise::name($request->get('name'))
+                                            ->select('workCenters.name as workCenterName','workCenters.*','users.*','enterprises.*')
+                                            ->join('users', 'users.id', '=', 'enterprises.user_id')
+                                            ->join('workCenters', 'workCenters.enterprise_id', '=', 'enterprises.id')
+                                            ->where('workCenters.principalCenter', '=', '1')
+                                            ->paginate();
+
+        return $verifiedEnterprise;
+
+    } // verifiedEnterprise()
+
+    public function deniedEnterprise($request)
+    {
+        $verifiedEnterprise = Enterprise::name($request->get('name'))
+                                            ->select('workCenters.name as workCenterName','workCenters.*','users.*','enterprises.*')
+                                            ->join('users', 'users.id', '=', 'enterprises.user_id')
+                                            ->join('workCenters', 'workCenters.enterprise_id', '=', 'enterprises.id')
+                                            ->where('workCenters.principalCenter', '=', '1')
+                                            ->whereNotNull('enterprises.deleted_at')
+                                            ->withTrashed() // Omitimos el softdeletes por defecto
+                                            ->paginate();
+
+        return $verifiedEnterprise;
+
+    } // deniedEnterprise()
+
+    /**
+     * Método que comprueba segun el id de la empresa pasada si esta borrada en la aplicacion
+     * @param  $idEnterprise Id de la oferta a comprobar
+     */
+    public function deniedOneEnterprise($idEnterprise)
+    {
+        $deniedOneEnterprise = Enterprise::where('id', '=', $idEnterprise)->withTrashed()->first();
+
+        return $deniedOneEnterprise;
+
+    } // deniedOneEnterprise()
 
 } // END Class SearchController
