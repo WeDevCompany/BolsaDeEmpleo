@@ -11,8 +11,7 @@
         // Envia la petición ajax
         callAjax : function(method, url, object, func, method_params) {
             // Si cualquier variable no esta definida, mostraré un error por consola.
-            if (typeof method == "undefined" || typeof url == "undefined"
-             || typeof object == "undefined" || typeof func == "undefined") {
+            if (typeof method == "undefined" || typeof url == "undefined") {
                 return false;
             } else {
                 $.ajax({
@@ -67,6 +66,8 @@
                             spin.spinOff('C', method_params[2], true);
                         } else if(typeof spinnerF != "undefined") {
                             spin.spinOff('F', method_params[2], true);
+                        } else if(typeof spinnerF != "undefined") {
+                            spin.spinOff('N', method_params[2], true);
                         } else {
                             spin.spinOff('Other', method_params[2], true);
                         }
@@ -85,11 +86,15 @@
 
                                 // Si la respuesta es correcta llamo al metodo al que le paso los datos recibidos
                                 if (check == true) {
-                                    if (method_params) {
-                                        method_params[0] = success;
-                                        window[object][func].apply(this, method_params);
-                                    } else {
-                                        window[object][func](success);
+                                    // Llamamos a la funcion si se la hemos pasado
+                                    if (typeof object != "undefined" && typeof func != "undefined") {
+                                        // Si tiene parametros se los pasamos
+                                        if (method_params) {
+                                            method_params[0] = success;
+                                            window[object][func].apply(this, method_params);
+                                        } else {
+                                            window[object][func](success);
+                                        }
                                     }
                                 } else {
                                     return false;
