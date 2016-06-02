@@ -11,7 +11,7 @@
             <div class="panel panel-default">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <h4><i class="fa fa-graduation-cap"></i>Ofertas de trabajo admitidas en la Aplicación</h4>
+                        <h4><i class="fa fa-graduation-cap"></i> Empresas admitidas en la Aplicación</h4>
                     </div>
                     <div class="panel-body">
                         {{ Form::open(['url' => $urlSearch, 'method' => 'POST', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}

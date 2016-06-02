@@ -11,13 +11,12 @@
             <div class="panel panel-default">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <h4><i class="fa fa-graduation-cap"></i>Validar Ofertas de Trabajo en la Aplicación</h4>
+                        <h4><i class="fa fa-graduation-cap"></i> Validar Ofertas de Trabajo en la Aplicación</h4>
                     </div>
                     <div class="panel-body">
                         {{ Form::open(['url' => $urlSearch, 'method' => 'POST', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
                             {!! csrf_field() !!}
                             @include('partials.search.searcher')
-                            @include('partials.search.filters')
                         {{ Form::close() }}
                         {{ Form::open(['url' => $urlPost, 'method' => 'POST']) }}
                             {!! csrf_field() !!}
