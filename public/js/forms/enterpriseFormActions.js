@@ -19,7 +19,7 @@ $('#btnAddEnterpriseResponsable').click(function(){
         setTimeout(function(){
             e++;
             validaciones.submitEnable($('#btnAddEnterpriseResponsable'));
-        }, 10);
+        }, 5000);
     } else {
         identificador = $('#btnAddEnterpriseResponsable');
         if(error < 1){
