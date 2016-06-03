@@ -309,21 +309,20 @@ class SearchController extends Controller
     /**
      * Metodo que obtiene todas las ofertas de trabajo validadas
      */
-    public function validOffer()
+    public function validOffer($id = null)
     {
         // Obtenemos todas las ofertas validadas
+       $validOffer = \DB::table('verifiedOffers')->select('jobOffer_id');
 
-       $validOffer = \DB::table('verifiedOffers')->select('jobOffer_id')->get();
+       // Si recibimos el id filtramos por el
+       if ($id != null) {
+            $id = [$id];
+           $validOffer = $validOffer->whereIn('jobOffer_id', $id);
+       }
 
-       return $validOffer;
+       return $validOffer->get();
 
     } // validOffer()
-
-    public function validOfferById($id) {
-        $validOffer = \DB::table('verifiedOffers')->select('jobOffer_id')
-                                    ->whereIn('jobOffer_id', $id)->get();
-        return $validOffer;
-    }
 
     /**
      * Método que obtiene todas las ofertas de trabajo ya sea filtradas por una familia profesional para un profesor

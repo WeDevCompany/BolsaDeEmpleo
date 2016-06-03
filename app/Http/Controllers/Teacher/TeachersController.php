@@ -861,8 +861,8 @@ class TeachersController extends UsersController
     {
         // Saneamos el id que se nos pasa como parametro
         $idOffer = (int) $idOffer;
-        if(!$this->search->validOffer($idOffer)){
-            $aux = [$idOffer];
+        $aux = [$idOffer];
+        if(is_array($this->search->validOffer($idOffer))){
 
             // Obtenemos la familia profesional a la que pertenece
             // el profesor
@@ -882,7 +882,6 @@ class TeachersController extends UsersController
             return view('offer.offer', compact('offer','zona'));
         }
         abort('400');
-
 
     } // getOfferById()
 
