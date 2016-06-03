@@ -862,8 +862,9 @@ class TeachersController extends UsersController
         // Saneamos el id que se nos pasa como parametro
         $idOffer = (int) $idOffer;
         $aux = [$idOffer];
-        if(is_array($this->search->validOffer($idOffer))){
-
+        // comprobamos si lo que nos devuelve es un array y si este está vacio o no, en caso de estar vacio
+        // se enviará un error 404
+        if(is_array($this->search->validOffer($idOffer)) && !empty($this->search->validOffer($idOffer)) ){
             // Obtenemos la familia profesional a la que pertenece
             // el profesor
             $profFamilie = $this->search->profFamilyTeacher();
@@ -872,16 +873,24 @@ class TeachersController extends UsersController
             $offer = $this->search->invalidOrValidOffer($aux, $this->request,$profFamilie);
             //dd($offer);
             if (isset($offer[0])) {
-                $offer = $offer[0];
+                $offer = (Object) $offer[0];
+
+                // Añadimos las suscripciones
+                //$offer = Parent::getSubscriptions($aux, $offer);
+
+                // Añadimos los tags
+                $offer = Parent::getTags($aux, $offer);
+                // Generamos el nombre de la zona de forma dinámica para que
+                // los buscadores puedan mejorar las posibilidades de indexación
+                $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";
+                //
+                return view('offer.offer', compact('offer','zona'));
+            } else {
+                abort('404');
             }
 
-            // Generamos el nombre de la zona de forma dinámica para que
-            // los buscadores puedan mejorar las posibilidades de indexación
-            $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";
-            //
-            return view('offer.offer', compact('offer','zona'));
         }
-        abort('400');
+        abort('404');
 
     } // getOfferById()
 

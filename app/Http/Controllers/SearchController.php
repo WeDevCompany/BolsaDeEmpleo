@@ -485,9 +485,9 @@ class SearchController extends Controller
         foreach ($query as $key => $value) {
 
             $tagCount = null;
+                dd($query);
 
             foreach ($add as $keys => $id) {
-
                 if ($value->idJobOffer == $id->idAdd) {
 
                     if ($nameKey === $tag) {
