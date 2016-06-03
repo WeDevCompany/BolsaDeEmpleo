@@ -654,17 +654,11 @@ class TeachersController extends UsersController
         // Obtenemos los estudiantes que estan validados
         $verifiedOffer = $this->search->invalidOrValidOffer($validOffer, $this->request, $profFamilyValidate, true);
 
-        // Obtenemos los tags de la oferta
-        $offerTag = $this->search->offerTag($validOffer);
-
-        // Obtenemos el numero de subscripciones a la oferta
-        $studentsSubcriptions = $this->search->studentsSubscriptions($validOffer);
-
         // Añadimos las suscripciones
-        $verifiedOffer = $this->search->arrayMap($verifiedOffer, $studentsSubcriptions, 'subcription');
+        $verifiedOffer = Parent::getSubscriptions($validOffer, $verifiedOffer);
 
         // Añadimos los tags
-        $verifiedOffer = $this->search->arrayMap($verifiedOffer, $offerTag, 'tag');
+        $verifiedOffer = Parent::getTags($validOffer, $verifiedOffer);
 
         // Si recibimos request es porque queremos filtrar por buscador
         if (!empty($this->request->toArray())) {
@@ -867,23 +861,28 @@ class TeachersController extends UsersController
     {
         // Saneamos el id que se nos pasa como parametro
         $idOffer = (int) $idOffer;
-        $aux = [$idOffer];
+        if(!$this->search->validOffer($idOffer)){
+            $aux = [$idOffer];
 
-        // Obtenemos la familia profesional a la que pertenece
-        // el profesor
-        $profFamilie = $this->search->profFamilyTeacher();
+            // Obtenemos la familia profesional a la que pertenece
+            // el profesor
+            $profFamilie = $this->search->profFamilyTeacher();
 
-        // Llamamos al Search para obtener la oferta seleccionada
-        $offer = $this->search->invalidOrValidOffer($aux, $this->request,$profFamilie);
-        //dd($offer);
-        if (isset($offer[0])) {
-            $offer = $offer[0];
+            // Llamamos al Search para obtener la oferta seleccionada
+            $offer = $this->search->invalidOrValidOffer($aux, $this->request,$profFamilie);
+            //dd($offer);
+            if (isset($offer[0])) {
+                $offer = $offer[0];
+            }
+
+            // Generamos el nombre de la zona de forma dinámica para que
+            // los buscadores puedan mejorar las posibilidades de indexación
+            $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";
+            //
+            return view('offer.offer', compact('offer','zona'));
         }
-        // Generamos el nombre de la zona de forma dinámica para que
-        // los buscadores puedan mejorar las posibilidades de indexación
-        $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";
-        //
-        return view('offer.offer', compact('offer','zona'));
+        abort('400');
+
 
     } // getOfferById()
 

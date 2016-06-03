@@ -27,8 +27,7 @@ class JobOffersSeeder extends Seeder
         // de la base de datos
         $nuevafecha = strtotime ( '+4 month' , strtotime($fecha)) ;
         // Generamos una fecha nueva con 4 meses más
-        $nuevafecha = date ( 'Ymj' , $nuevafecha );
-
+        $nuevafecha = date ( 'YmdHms' , $nuevafecha );
 
     	// Ofertas para la empresa de Eduardo
         // OFERTA 1 - Primera oferta de la empresa de Eduardo

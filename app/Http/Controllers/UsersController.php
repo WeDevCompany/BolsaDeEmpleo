@@ -327,7 +327,7 @@ class UsersController extends Controller
 
     public function getNotificationsJSON() {
         if(!is_null(\Auth::guest())) {
-        
+
             $notifications = [];
 
             if (!is_null(\Auth::user()) && (\Auth::user()->rol == "profesor" || \Auth::user()->rol == "administrador")) {
@@ -373,7 +373,7 @@ class UsersController extends Controller
                 try{
                     // Obtenemos todos los ids de profesores no verificados aún
                     $query = $this->search->notVerifiedTeachers();
-                    
+
                     // Almacenamos el resultado
                     $notifications['allTeacherNotifications'] = count($query);
 
@@ -399,7 +399,7 @@ class UsersController extends Controller
                 try{
                     // Obtenemos todos los ids de ofertas no verificados aún
                     $query = $this->search->notVerifiedOffers();
-                    
+
                     // Almacenamos el resultado
                     $notifications['allOfferNotifications'] = count($query);
 
@@ -422,5 +422,51 @@ class UsersController extends Controller
         return false;
 
     } // getNotificationsJSON()
+
+    /*************************************************
+        Métodod auxiliares para las ofertas
+    *************************************************/
+
+    /**
+     * Método que devuelve los estudiantes subscritos a un oferta valida
+     * @param Object $validOffer object
+     */
+    protected function setSubscriptions($validOffer){
+        // Obtenemos el numero de subscripciones a la oferta
+        return $this->search->studentsSubscriptions($validOffer);
+    }
+
+    /**
+     * Método que recive una oferta valida y que es lo que quiere
+     * @param  Object $validOffer subscripciones de una oferta valida
+     * @param  String $nameParam  Nombre que se le ha dado a las 2 maneras de obtener la información del método arrayMap
+     * @return Número de subscripciones a cada oferta
+     */
+    protected function getSubscriptions($validOffer, $queryResults ,$nameParam = 'subcription'){
+        $subscriptions = $this->setSubscriptions($validOffer);
+        // Añadimos las suscripciones
+        return $this->search->arrayMap($queryResults, $subscriptions, $nameParam);
+    }
+
+    /**
+     * Método que te devuelve las tags validas de una oferta
+     * @param Object $validOffer object
+     */
+    protected function setTags($validOffer){
+        // Obtenemos los tags de la oferta
+        return $this->search->offerTag($validOffer);
+    }
+
+    /**
+     * Método que te devuelve un array de tagas asociados a una oferta
+     * @param  Object $validOffer
+     * @param  Object $queryResults
+     * @param  string $nameParam
+     * @return Object
+     */
+    protected function getTags($validOffer, $queryResults ,$nameParam = 'tag'){
+        $tags = $this->setTags($validOffer);
+        return $this->search->arrayMap($queryResults, $tags, $nameParam);
+    }
 
 }// fin del controlador

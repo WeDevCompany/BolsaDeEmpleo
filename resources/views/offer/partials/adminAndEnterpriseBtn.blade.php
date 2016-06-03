@@ -24,7 +24,7 @@
 	            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 	        </div>
 	        <div class="hidden-media">
-	            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span class="hidden-media">Actualizar oferta</span>
+	            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span class="hidden-media">Editar oferta</span>
 	        </div>
 	    </a>
 
@@ -33,7 +33,7 @@
 	            <i class="fa fa-times" aria-hidden="true"></i>
 	        </div>
 	        <div class="hidden-media">
-	            <i class="fa fa-times" aria-hidden="true"></i> <span class="hidden-media">Actualizar oferta</span>
+	            <i class="fa fa-times" aria-hidden="true"></i> <span class="hidden-media">Borrar oferta</span>
 	        </div>
 	    </a>
 

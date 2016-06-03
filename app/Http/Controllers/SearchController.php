@@ -312,11 +312,18 @@ class SearchController extends Controller
     public function validOffer()
     {
         // Obtenemos todas las ofertas validadas
-        $validTeacher = \DB::table('verifiedOffers')->select('jobOffer_id')->get();
 
-        return $validTeacher;
+       $validOffer = \DB::table('verifiedOffers')->select('jobOffer_id')->get();
+
+       return $validOffer;
 
     } // validOffer()
+
+    public function validOfferById($id) {
+        $validOffer = \DB::table('verifiedOffers')->select('jobOffer_id')
+                                    ->whereIn('jobOffer_id', $id)->get();
+        return $validOffer;
+    }
 
     /**
      * Método que obtiene todas las ofertas de trabajo ya sea filtradas por una familia profesional para un profesor
@@ -354,24 +361,42 @@ class SearchController extends Controller
                     $value->description = mb_substr($value->description, 0, $descriptionLength) . '...';
 
                 }
-                // por cada registro que tenga el campo other
-                // se generará un array el cual contendrá
-                // las otras etiquetas
-                if ($value->others) {
-                    $aux = explode(",",$value->others);
-                    foreach ($aux as $key1 => $value1) {
-                        # Limpiamos los espacios detrás
-                        $aux[$key1] = trim($value1);
-                    }
-
-                    // creamos un atributo al vuelo
-                    $value->newOthers = $aux;
-                }
+                // llamamos al método que nos seteará las otras etiquetas en caso de haberlas
+                $this->cleanOtherTags($value);
 
             }
-        }// truncar la descripción de las ofertas
+        } else {
+            $this->setOtherTags($invalidOrValidOffer);
+        }
         return $invalidOrValidOffer;
     } // invalidOrValidOffer()
+
+    /**
+     * Método que limpia las etiqujetas
+     * @param  Object $value Resultado de la consulta que obtiene las otras etiquetas puestas por la empresas
+     * @return Object $value Con un nuevo parametro
+     */
+    public function cleanOtherTags($value){
+        // por cada registro que tenga el campo other
+        // se generará un array el cual contendrá
+        // las otras etiquetas
+        if ($value->others) {
+            $aux = explode(",",$value->others);
+            foreach ($aux as $key1 => $value1) {
+                # Limpiamos los espacios detrás
+                $aux[$key1] = trim($value1);
+            }
+
+            // creamos un atributo al vuelo
+            return $value->newOthers = $aux;
+        }
+    }// cleanOtherTags()
+
+    public function setOtherTags($queryResults) {
+        foreach ($queryResults as $key => $value) {
+            $this->cleanOtherTags($value);
+        }
+    }
 
     /**
      * Método que obtiene todos los tags de las ofertas de trabajo pasadas como parámetro
