@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Student;
 use App\Cycle;
 use App\User;
+use App\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -119,21 +120,21 @@ class StudentsController extends UsersController
     private function create()
     {
         try {
-
+            
             // Obtenemos el curriculum
-           $curriculum = $this->request->file('curriculum');
+            $curriculum = $this->request->file('curriculum');
 
-           // Obtenemos el nombre del curriculum del cliente
-           $nombreCurriculum = $curriculum->getClientOriginalName();
+            // Obtenemos el nombre del curriculum del cliente
+            $nombreCurriculum = $curriculum->getClientOriginalName();
 
-           // Sustituimos el archivo por el nombre del curriculum para insertar solo el nombre en la base de datos
-           $this->request['curriculum'] = $nombreCurriculum;
+            // Sustituimos el archivo por el nombre del curriculum para insertar solo el nombre en la base de datos
+            $this->request['curriculum'] = $nombreCurriculum;
 
-           // Insertamos el estudiante
-           $insert = Student::create($this->request->all());
-
-           // Creamos la carpeta de curriculum del usuario y lo guardamos
-           $save = $curriculum->move(storage_path() . '/app/curriculum/' . $this->request['carpeta'], $nombreCurriculum);
+            // Insertamos el estudiante
+            $insert = Student::create($this->request->all());
+            $this->sendEmailTeacher($insert);
+            // Creamos la carpeta de curriculum del usuario y lo guardamos
+            $save = $curriculum->move(storage_path() . '/app/curriculum/' . $this->request['carpeta'], $nombreCurriculum);
 
         } catch(\PDOException $e){
             //dd($e);
@@ -229,5 +230,79 @@ class StudentsController extends UsersController
         }
 
     } // uploadImage()
+
+    /**
+     * Método que envia correos a todos los profesores con las mismas ramas profesionales
+     * que el estudiante que se acaba de registrar.
+     * @param  object $insert Datos del estudiante nuevo
+     */
+    public function sendEmailTeacher($insert)
+    {
+        // Variables con el contenido del email
+        $subject = 'Validar Estudiante';
+        $cuerpo = 'El estudiante con nombre y apellidos: ' . $this->request['firstName'] . ' ' . $this->request['lastName'] . ', dni: ' . $this->request['dni'] . ' y email: ' . $this->request['email'] . ' se ha registrado correctamente, necesita ser validado por un profesor para poder entrar en la aplicación, si usted conoce a este estudiante por favor validelo.';
+
+        // Obtenemos los profesores validados
+        $validTeacher = $this->search->validTeacher();
+
+        // Convertimos el objeto devuelto en un array
+        $validTeacher = array_column($validTeacher, 'teacher_id');
+
+        // Obtenemos los profesores de las mismas ramas profesionales que el estudiante
+        $teacher = Teacher::select('users.email', 'teachers.*')
+                            ->join('users', 'users.id', '=', 'teachers.user_id')
+                            ->join('teacherProfFamilies', 'teacherProfFamilies.teacher_id', '=', 'teachers.id')
+                            ->whereIn('teacherProfFamilies.profFamilie_id', $this->request['family'])
+                            ->whereIn('teachers.id', $validTeacher)
+                            ->get();
+
+        // Si hay algun profesor                    
+        if ($teacher) {
+
+            foreach ($teacher as $key => $value) {
+
+                // Enviamos el email con los datos declarados antes
+                $email = $this->email->sendEmail($value->email, $subject, null, $cuerpo);
+
+                // Si hemos mandado el email registramos quien lo ha hecho y cuando
+                if ($email) {
+                    
+                    \DB::table('sentEmailStudents')->insert([
+                        'student_id' => $insert['id'],
+                        'teacher_id' => $value->id,
+                        'sent'       => true,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                }
+            }
+
+        // Si no hay ningun profesor por defecto se le enviara al administrador
+        } else {
+
+            // Obtenemos los administradores
+            $admin = $this->search->admin();
+
+            foreach ($admin as $key => $value) {
+
+                // Enviamos el email con los datos declarados antes
+                $email = $this->email->sendEmail($value->email, $subject, null, $cuerpo);
+
+                // Si hemos mandado el email registramos quien lo ha hecho y cuando
+                if ($email) {
+                    
+                    \DB::table('sentEmailStudents')->insert([
+                        'student_id' => $insert['id'],
+                        'teacher_id' => $value->id,
+                        'sent'       => true,
+                        'created_at' => date('YmdHms')
+                    ]);
+
+                }
+
+            }
+        }
+             
+    } // sendEmailTeacher()
 
 }
