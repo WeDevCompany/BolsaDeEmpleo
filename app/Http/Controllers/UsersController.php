@@ -326,95 +326,100 @@ class UsersController extends Controller
     } // sendEmail()
 
     public function getNotificationsJSON() {
+        if(!is_null(\Auth::guest())) {
+        
+            $notifications = [];
 
-        $notifications = [];
+            if (!is_null(\Auth::user()) && (\Auth::user()->rol == "profesor" || \Auth::user()->rol == "administrador")) {
+                try{
+                    // Obtenemos las familias profesionales del profesor
+                    $profFamilyTeacher = $this->search->profFamilyTeacher();
 
-        if (\Auth::user()->rol == "profesor" || \Auth::user()->rol == "administrador") {
-            try{
-                // Obtenemos las familias profesionales del profesor
-                $profFamilyTeacher = $this->search->profFamilyTeacher();
+                    // Convertimos el objeto devuelto en un array
+                    $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
 
-                // Convertimos el objeto devuelto en un array
-                $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
+                } catch (\PDOException $e){
+                    //dd($e);
+                    abort(500);
+                }
 
-            } catch (\PDOException $e){
-                //dd($e);
-                abort(500);
+                // Obtenemos todos los estudiantes sin verificar dependiendo de la familia
+                try{
+                    // Obtenemos todos los alumnos correspondientes a sus familias profesionales
+                    $query = $this->search->notVerifiedStudents($profFamilyValidate);
+
+                    // Almacenamos el resultado
+                    $notifications['studentNotifications'] = count($query);
+                } catch (\PDOException $e){
+                    //dd($e);
+                    abort(500);
+                }
+
+                // Obtenemos todas las ofertas sin verificar dependiendo de la familia
+                try{
+                    // Obtenemos todos los alumnos correspondientes a sus familias profesionales
+                    $query = $this->search->notVerifiedOffers($profFamilyValidate);
+
+                    // Almacenamos el resultado
+                    $notifications['offerNotifications'] = count($query);
+                } catch (\PDOException $e){
+                    //dd($e);
+                    abort(500);
+                }
             }
 
-            // Obtenemos todos los estudiantes sin verificar dependiendo de la familia
-            try{
-                // Obtenemos todos los alumnos correspondientes a sus familias profesionales
-                $query = $this->search->notVerifiedStudents($profFamilyValidate);
+            if (!is_null(\Auth::user()) && (\Auth::user()->rol == "administrador")) {
+                // Obtenemos todos los profesores sin verificar
+                try{
+                    // Obtenemos todos los ids de profesores no verificados aún
+                    $query = $this->search->notVerifiedTeachers();
+                    
+                    // Almacenamos el resultado
+                    $notifications['allTeacherNotifications'] = count($query);
 
-                // Almacenamos el resultado
-                $notifications['studentNotifications'] = count($query);
-            } catch (\PDOException $e){
-                //dd($e);
-                abort(500);
+                } catch (\PDOException $e){
+                    //dd($e);
+                    abort(500);
+                }
+
+                // Obtenemos todos los estudiantes sin verificar
+                try{
+                    // Obtenemos todos los ids de estudiantes no verificados aún
+                    $query = $this->search->notVerifiedStudents();
+
+                    // Almacenamos el resultado
+                    $notifications['allStudentNotifications'] = count($query);
+
+                } catch (\PDOException $e){
+                    //dd($e);
+                    abort(500);
+                }
+
+                // Obtenemos todas las ofertas sin verificar
+                try{
+                    // Obtenemos todos los ids de ofertas no verificados aún
+                    $query = $this->search->notVerifiedOffers();
+                    
+                    // Almacenamos el resultado
+                    $notifications['allOfferNotifications'] = count($query);
+
+                } catch (\PDOException $e){
+                    //dd($e);
+                    abort(500);
+                }
+
             }
 
-            // Obtenemos todas las ofertas sin verificar dependiendo de la familia
-            try{
-                // Obtenemos todos los alumnos correspondientes a sus familias profesionales
-                $query = $this->search->notVerifiedOffers($profFamilyValidate);
-
-                // Almacenamos el resultado
-                $notifications['offerNotifications'] = count($query);
-            } catch (\PDOException $e){
-                //dd($e);
-                abort(500);
+            $result = [];
+            foreach ($notifications as $id => $count) {
+                $result[] = ['id' => $id, 'cantidad' => $count];
             }
+
+            return \Response::json($result);
+
         }
 
-        if (\Auth::user()->rol == "administrador") {
-            // Obtenemos todos los profesores sin verificar
-            try{
-                // Obtenemos todos los ids de profesores no verificados aún
-                $query = $this->search->notVerifiedTeachers();
-
-                // Almacenamos el resultado
-                $notifications['allTeacherNotifications'] = count($query);
-
-            } catch (\PDOException $e){
-                //dd($e);
-                abort(500);
-            }
-
-            // Obtenemos todos los estudiantes sin verificar
-            try{
-                // Obtenemos todos los ids de estudiantes no verificados aún
-                $query = $this->search->notVerifiedStudents();
-
-                // Almacenamos el resultado
-                $notifications['allStudentNotifications'] = count($query);
-
-            } catch (\PDOException $e){
-                //dd($e);
-                abort(500);
-            }
-
-            // Obtenemos todas las ofertas sin verificar
-            try{
-                // Obtenemos todos los ids de ofertas no verificados aún
-                $query = $this->search->notVerifiedOffers();
-
-                // Almacenamos el resultado
-                $notifications['allOfferNotifications'] = count($query);
-
-            } catch (\PDOException $e){
-                //dd($e);
-                abort(500);
-            }
-
-        }
-
-        $result = [];
-        foreach ($notifications as $id => $count) {
-            $result[] = ['id' => $id, 'cantidad' => $count];
-        }
-
-        return \Response::json($result);
+        return false;
 
     } // getNotificationsJSON()
 
