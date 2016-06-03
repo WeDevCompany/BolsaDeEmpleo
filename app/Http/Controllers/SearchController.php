@@ -299,6 +299,20 @@ class SearchController extends Controller
 
     } // deniedOneTeacher()
 
+    /**
+     * Método que obtiene todos los administradores
+     */
+    public function admin()
+    {
+        // Obtenemos los administradores
+        $admin = Teacher::select('users.email', 'teachers.*')
+                        ->join('users', 'users.id', '=', 'teachers.user_id')
+                        ->where('users.rol', '=', 'administrador')
+                        ->get();
+
+        return $admin;
+    }
+
 
     /*==============================
      *                              *

@@ -1,4 +1,3 @@
-<p>holi</p>
 
 @if ($cuerpo != null)
 
