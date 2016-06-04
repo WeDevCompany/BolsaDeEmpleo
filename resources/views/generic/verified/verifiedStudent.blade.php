@@ -20,7 +20,6 @@
                         {{ Form::close() }}
                         @include('partials.table.tableVerifiedStudent')
 						{{ $verifiedStudent->render() }}
-
                     </div>
                 </div>
             </div>

@@ -256,6 +256,9 @@ class TeachersController extends UsersController
      */
     public function getVerifiedStudent()
     {
+        // Url para borrar student
+       $urlDelete = config('routes.teacher.destroyStudent');
+
         // Url de buscador
         $urlSearch = config('routes.teacher.allVerifiedStudentsSearch');
 
@@ -286,7 +289,7 @@ class TeachersController extends UsersController
             return $verifiedStudent;
         }
 
-        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch'));
+        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch', 'urlDelete'));
 
     } // getVerifiedStudent()
 
@@ -296,6 +299,9 @@ class TeachersController extends UsersController
      */
     public function postSearchVerifiedStudent()
     {
+        // Url para borrar student
+        $urlDelete = config('routes.teacher.destroyStudent');
+
         // Url de buscador
         $urlSearch = config('routes.teacher.allVerifiedStudentsSearch');
 
@@ -307,7 +313,7 @@ class TeachersController extends UsersController
 
         $verifiedStudent = $this->getVerifiedStudent();
 
-        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch'));
+        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch', 'urlDelete'));
 
     } // postSearchVerifiedStudent()
 
