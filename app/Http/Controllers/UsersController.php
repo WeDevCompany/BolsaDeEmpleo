@@ -442,9 +442,12 @@ class UsersController extends Controller
      * @param  String $nameParam  Nombre que se le ha dado a las 2 maneras de obtener la información del método arrayMap
      * @return Número de subscripciones a cada oferta
      */
-    protected function getSubscriptions($validOffer, $queryResults ,$nameParam = 'subcription'){
+    protected function getSubscriptions($validOffer, $queryResults, $onlyOne = null, $nameParam = 'subcription'){
         $subscriptions = $this->setSubscriptions($validOffer);
         // Añadimos las suscripciones
+        if (isset($onlyOne)) {
+            return $this->search->arrayMap($queryResults, $subscriptions, $nameParam, $onlyOne);
+        }
         return $this->search->arrayMap($queryResults, $subscriptions, $nameParam);
     }
 
@@ -464,8 +467,11 @@ class UsersController extends Controller
      * @param  string $nameParam
      * @return Object
      */
-    protected function getTags($validOffer, $queryResults ,$nameParam = 'tag'){
+    protected function getTags($validOffer, $queryResults, $onlyOne = null,$nameParam = 'tag'){
         $tags = $this->setTags($validOffer);
+        if (isset($onlyOne)) {
+            return $this->search->arrayMap($queryResults, $tags, $nameParam, $onlyOne);
+        }
         return $this->search->arrayMap($queryResults, $tags, $nameParam);
     }
 

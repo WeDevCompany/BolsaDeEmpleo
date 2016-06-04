@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<div class="loggin-background">
 @include('partials.nav.navGuest')
 <div class="container sin-padding">
     <div class="row">
@@ -73,5 +74,7 @@
         </div>
     </div>
 
+</div>
+<!-- loggin-background -->
 </div>
 @endsection

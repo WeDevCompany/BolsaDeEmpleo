@@ -1,4 +1,4 @@
-<div class="col-sm-4 text-center fixed">
+<div class="col-md-12 text-center">
 	@if(\Auth::user()->rol === "profesor")
 		{{-- incluimos la navegación de profesor --}}
 		@include('partials.nav.navLeftPartials.navLeftProfesor')

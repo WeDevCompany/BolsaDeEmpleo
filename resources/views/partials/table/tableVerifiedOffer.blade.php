@@ -15,10 +15,10 @@
         @if(isset($verifiedOffer))
             {{-- recorremos las ofertas verificadas --}}
             @foreach($verifiedOffer as $offer)
-                <div class="col-md-12 oferta extra-padding-bottom mask hoverable scroll" tabindex="{{ $offer->id }}">
+                <div class="col-md-12 oferta extra-padding-bottom mask hoverable scroll z-depth-1" tabindex="{{ $offer->id }}">
                     <div class="col-md-12" data-id="{{(isset($offer->id)) ? $offer->id : 0 }}" id="{{(isset($offer->id)) ? $offer->id : 0 }}">
                         <div class="row" title="{!! $offer->title !!}">
-                            <h5><a href="/{{\Auth::user()->rol}}/oferta/{{ $offer->id }}" class="titulo btn-flat waves-effect hoverable">{!! $offer->title !!} <i class="fa fa-link" aria-hidden="true"></i></a></h5>
+                            <h5><a href="/{{\Auth::user()->rol}}/oferta/{{ $offer->id }}" class="titulo btn-flat waves-effect hoverable">{!! $offer->title !!} <i class="fa fa-eye" aria-hidden="true"></i></a></h5>
                         </div>
                         <div class="row extra-padding-bottom">
                             <div class="col-sm-6" data-enterprise="{!! $offer->enterpriseName !!}"><b>Empresa: </b><a href="{!! (isset($offer->web)) ? $offer->web : 'https://www.google.es/#q='.$offer->enterpriseName !!}" target="_blank">{!! $offer->enterpriseName !!} <i class="fa fa-link" aria-hidden="true"></i></a></div>
@@ -28,19 +28,6 @@
                             <p><b>Descripción de la oferta:</b></p><span class="descripcion">{!! $offer->description !!}</span>
                         </div>
                         @include('offer.partials.offerInformation')
-                        @if(\Auth::user()->rol == "empresa")
-                            @include('offer.partials.adminAndEnterpriseBtn')
-
-                        @elseif(\Auth::user()->rol == "administrador")
-                            @include('offer.partials.adminAndEnterpriseBtn')
-
-                        @elseif(\Auth::user()->rol == "profesor")
-                            @include('offer.partials.teacherBtn')
-
-                        @elseif(\Auth::user()->rol == "estudiante")
-                            @include('offer.partials.studentBtn')
-
-                        @endif
                     </div>
                 </div>
             @endforeach

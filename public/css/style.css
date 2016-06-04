@@ -835,9 +835,58 @@ fieldset {
 
 legend {
     font-weight: bold;
+    width: auto;
 }
-
-.box {
+.box-description {
     overflow:auto;
     border: 3px #2196F3 solid;
+    border-radius: 5px;
+}
+.box-requirements {
+  border: 3px #F57470 solid;
+  border-radius: 5px;
+}
+
+/***************
+  Background aleatorio
+****************/
+.random-background-1 {
+  background: url('/img/pattern/1.png');
+  height: 100%;
+  width: 100%;
+}
+
+.random-background-2 {
+  background: url('/img/pattern/2.png');
+  height: 100%;
+  width: 100%;
+}
+
+.random-background-3 {
+  background: url('/img/pattern/3.png');
+  height: 100%;
+  width: 100%;
+}
+
+.random-background-4 {
+  background: url('/img/pattern/4.png');
+  height: 100%;
+  width: 100%;
+}
+
+.random-background-5 {
+  background: url('/img/pattern/5.png');
+  height: 100%;
+  width: 100%;
+}
+
+.random-background-6 {
+  background: url('/img/pattern/6.png');
+  height: 100%;
+  width: 100%;
+}
+.random-background-7 {
+  background: url('/img/pattern/7.png');
+  height: 100%;
+  width: 100%;
 }

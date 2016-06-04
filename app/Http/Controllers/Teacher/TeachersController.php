@@ -876,10 +876,10 @@ class TeachersController extends UsersController
                 $offer = (Object) $offer[0];
 
                 // Añadimos las suscripciones
-                //$offer = Parent::getSubscriptions($aux, $offer);
+                $offer = Parent::getSubscriptions($aux, $offer, $onlyOne = true);
 
                 // Añadimos los tags
-                $offer = Parent::getTags($aux, $offer);
+                $offer = Parent::getTags($aux, $offer, $onlyOne = true);
                 // Generamos el nombre de la zona de forma dinámica para que
                 // los buscadores puedan mejorar las posibilidades de indexación
                 $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";

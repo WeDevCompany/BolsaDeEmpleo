@@ -181,13 +181,13 @@ return [
         Intervention\Image\ImageServiceProvider::class,
 
         // Librerías barra de debug
-        Barryvdh\Debugbar\ServiceProvider::class,
+        //Barryvdh\Debugbar\ServiceProvider::class,
 
         // Datatables
         Yajra\Datatables\DatatablesServiceProvider::class,
 
         //Generar Javascript desde PHP
-        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
+        //Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
 
     ],
 

@@ -126,6 +126,9 @@
     <!-- Script que permite a la imagen ponerse blanca con un mouse over -->
     <script src="{{url('/js/funcionalidad/imgPerfilMouseOver.js')}}" type="text/javascript" charset="utf-8"></script>
 
+    <!-- Script que hace random el fondo -->
+    <script src="{{url('/js/funcionalidad/backgroundPattern.js')}}" type="text/javascript" charset="utf-8"></script>
+
     @yield('scripts')
 
 </body>
