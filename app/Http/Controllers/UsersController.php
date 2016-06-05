@@ -475,4 +475,14 @@ class UsersController extends Controller
         return $this->search->arrayMap($queryResults, $tags, $nameParam);
     }
 
+
+
+    protected function getComment($validOffer, $queryResults, $onlyOne = null,$nameParam = 'comment') {
+        $comment = $this->setComment($validOffer);
+        if (isset($onlyOne)) {
+            return $this->search->arrayMap($queryResults, $comment, $nameParam, $onlyOne);
+        }
+        return $this->search->arrayMap($queryResults, $comment, $nameParam);
+    }
+
 }// fin del controlador

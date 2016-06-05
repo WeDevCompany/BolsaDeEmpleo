@@ -890,3 +890,49 @@ legend {
   height: 100%;
   width: 100%;
 }
+.random-background-8 {
+  background: url('/img/pattern/8.png');
+  height: 100%;
+  width: 100%;
+}
+.random-background-9 {
+  background: url('/img/pattern/9.png');
+  height: 100%;
+  width: 100%;
+}
+.random-background-10 {
+  background: url('/img/pattern/10.png');
+  height: 100%;
+  width: 100%;
+}
+.random-background-11 {
+  background: url('/img/pattern/11.png');
+  height: 100%;
+  width: 100%;
+}
+
+/***************
+  Comentarios
+****************/
+@media only screen and (max-width: 768px) {
+  .collection .collection-item.avatar .circle {
+    display: block !important;
+    margin:auto;
+    position: relative !important;
+    height: 50px;
+    width: 50px;
+  }
+  .collection .collection-item.avatar figcaption {
+    text-align: center;
+  }
+  .collection .collection-item.avatar address {
+    text-align: center;
+    font-weight: bold;
+  }
+  .collection .collection-item.avatar {
+    width: 100%;
+    margin:auto;
+    display: block;
+    padding: 5px !important;
+  }
+}

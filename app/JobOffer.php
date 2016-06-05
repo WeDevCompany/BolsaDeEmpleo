@@ -15,7 +15,7 @@ class JobOffer extends Model
 {
 
 	use SoftDeletes;
-    
+
 	public $table = 'jobOffers';
 
     // Relaciones one to many
@@ -70,7 +70,7 @@ class JobOffer extends Model
 
     // Funcion que compara la familia profesional del profesor y la oferta para filtrar
     public function scopeProfFamilyTeacher($query, $profFamilyTeacher)
-    {   
+    {
 
         if ($profFamilyTeacher) {
             $query->whereIn('profFamilies.name', $profFamilyTeacher);

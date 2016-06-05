@@ -25,7 +25,8 @@ class CommentsSeeder extends Seeder
 	            ['title'=> $faker->realText($maxNbChars = 50, $indexSize = 1),
 	            'body'=> $faker->realText($maxNbChars = 200, $indexSize = 2),
 	 			'teacher_id' => $faker->numberBetween($min = 7, $max = 12),
-	 			'jobOffer_id' => $faker->numberBetween($min = 1, $max = 15)
+	 			'jobOffer_id' => $faker->numberBetween($min = 1, $max = 15),
+                'created_at' => date('YmdHms'),
 				]
             );
         }
