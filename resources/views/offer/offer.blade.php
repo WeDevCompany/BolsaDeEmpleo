@@ -12,7 +12,7 @@
 	<main>
 		<div class="container">
 			<div class="row">
-	            <div class="panel panel-default sin-margen ancho">
+	            <div class="panel panel-default sin-margen ancho modal-content">
 		    		<div class="row sin-margen extra-padding">
 		            	<!-- Titulo -->
 		                <div class="modal-header text-center">
@@ -41,7 +41,7 @@
 		@if(isset($comments) && !$comments->isEmpty())
 			<div class="container">
 				<div class="row">
-		            <div class="panel panel-default sin-margen ancho">
+		            <div class="panel panel-default sin-margen ancho modal-content">
 			    		<div class="row sin-margen extra-padding">
 			            	<!-- Titulo -->
 			                <div class="modal-header text-center">
