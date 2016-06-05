@@ -385,6 +385,27 @@ class SearchController extends Controller
     } // invalidOrValidOffer()
 
     /**
+     * Método que extrae todos los comentarios de una oferta
+     * @param  Integer $idOffer Id de la oferta que queremos obtener
+     * @return Resultados
+     */
+    public function getComments($idOffer) {
+        // sino es un array lo convierto
+        if (! is_array($idOffer)) {
+            $idOffer = [$idOffer];
+        }
+
+        $comments = JobOffer::select('comments.*', 'image', 'carpeta', 'teachers.firstName', 'teachers.lastName')
+                            ->join('comments', 'jobOffer_id' ,'=' , 'jobOffers.id')
+                            ->join('teachers', 'teachers.id', "=", 'comments.teacher_id')
+                            ->join('users', 'users.id', '=', 'teachers.user_id')
+                            ->whereIn('jobOffers.id', $idOffer)
+                            ->get();
+
+        return $comments;
+    }
+
+    /**
      * Método que limpia las etiqujetas
      * @param  Object $value Resultado de la consulta que obtiene las otras etiquetas puestas por la empresas
      * @return Object $value Con un nuevo parametro
@@ -477,18 +498,21 @@ class SearchController extends Controller
      * @param  object $add     Suscripcion o tag a introducir
      * @param  string $nameKey Señalamos si es una suscripción o un tag
      */
-    public function arrayMap($query, $add, $nameKey)
+    public function arrayMap($query, $add, $nameKey, $onlyOne = null)
     {
         $tag = 'tag';
         $subcription = 'subcription';
-
-        foreach ($query as $key => $value) {
-
-            $tagCount = null;
-                dd($query);
-
-            foreach ($add as $keys => $id) {
-                if ($value->idJobOffer == $id->idAdd) {
+        $comment = 'comment';
+        // si es solamente una oferta, al intentar acceder a varios objetos
+        // en el primer bucle foreach daba un error, para solucionarlo
+        // hemos permitido que se le pase un parametro más el cúal se encargará
+        // de controlar si viene una sola oferta o no
+        // este método es llamado desde otros métodos los cuales nos dan una abstracción al uso de este método
+        if(isset($onlyOne)){
+             $tagCount = null;
+             $comments = null;
+              foreach ($add as $keys => $id) {
+                if ($query->idJobOffer == $id->idAdd) {
 
                     if ($nameKey === $tag) {
 
@@ -496,16 +520,49 @@ class SearchController extends Controller
 
                     } elseif ($nameKey === $subcription) {
 
-                        $value->subcriptionCount = $id->subcriptionCount;
+                        $query->subcriptionCount = $id->subcriptionCount;
 
+                    } elseif ($nameKey === $comment) {
+                        $comments[] = $id->idComment;
                     }
 
                 }
 
             }
 
-            $value->tagCount = $tagCount;
+            $query->tagCount = $tagCount;
+
+            $query->coments = $comments;
+        } else {
+            foreach ($query as $key => $value) {
+
+                $tagCount = null;
+                $comments = null;
+                foreach ($add as $keys => $id) {
+                    if ($value->idJobOffer == $id->idAdd) {
+
+                        if ($nameKey === $tag) {
+
+                            $tagCount[] = $id->nameTag;
+
+                        } elseif ($nameKey === $subcription) {
+
+                            $value->subcriptionCount = $id->subcriptionCount;
+
+                        } elseif ($nameKey === $comment) {
+                            $comments[] = $id->idComment;
+                        }
+
+                    }
+
+                }
+
+                $value->tagCount = $tagCount;
+
+                $value->comments = $comments;
+            }
         }
+
 
         return $query;
 
