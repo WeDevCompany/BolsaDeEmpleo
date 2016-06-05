@@ -167,6 +167,9 @@ return [
             'viewOffer'                 => '/oferta/{idOffer}',
             'updateOffer'               => '/oferta/actualizar/{idOffer}',
             'comment'                   => '/oferta/comentario/{idOffer}',
+            'commentEdit'               => '/oferta/editar',
+            'commentDelete'             => '/oferta/borrar',
+            'commentCreate'             => '/oferta/crear',
         ],
     'enterprise'    =>
         [

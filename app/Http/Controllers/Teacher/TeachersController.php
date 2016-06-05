@@ -740,4 +740,96 @@ class TeachersController extends UsersController
 
     } // getOfferById()
 
+    /**
+     * Método que actualiza un comentario
+     */
+    public function getCommentEdit()
+    {
+        // Validamos los campos que nos llegan desde el formulario en el controlador
+        // ya que los errores del comentario los mostraremos con un session flash
+        $validator = \Validator::make($this->request->all(), [
+            'idComment' => 'required|integer|validCommentUser',
+            'title'     => 'required',
+            'body'      => 'required'
+        ]);
+
+        // Si hay errores los mandamos a la vista
+        if ($validator->fails()) {
+
+            Session::flash('message_Negative', 'No se ha podido editar el comentario, titulo o comentario inválido');
+            return \Redirect::back();
+        }
+
+        // Actualizamos el comentario con los datos que hemos recibido
+        $comment = \DB::table('comments')
+                            ->where('comments.id', '=', $this->request['idComment'])
+                            ->update(['title' => $this->request['title'], 'body' => $this->request['body']]);
+
+        Session::flash('message_Success', 'El comentario de ha editado correctamente');
+        return \Redirect::back();
+
+    } // getCommentEdit()
+
+    /**
+     * Método que borra un comentario con softDeletes
+     * @param   $idComment  Id del comentario a borrar
+     */
+    public function getCommentDelete()
+    {
+        // Validamos los campos que nos llegan desde el formulario en el controlador
+        // ya que los errores del comentario los mostraremos con un session flash
+        $validator = \Validator::make($this->request->all(), [
+            'idComment' => 'required|integer|validCommentUser',
+        ]);
+
+        // Si hay errores los mandamos a la vista
+        if ($validator->fails()) {
+            
+            Session::flash('message_Negative', 'No se ha podido borrar el comentario, titulo o comentario inválido');
+            return \Redirect::back();
+        }
+
+        // Borramos el comentario con softDeletes
+        $comment = \DB::table('comments')
+                            ->where('comments.id', '=', $this->request['idComment'])
+                            ->delete();
+
+        Session::flash('message_Success', 'El comentario de ha borrado correctamente');
+        return \Redirect::back();
+
+    } // getCommentDelete()
+
+    /**
+     * Método para crear un nuevo comentario
+     */
+    public function getCommentCreate()
+    {
+        // Validamos los campos que nos llegan desde el formulario en el controlador
+        // ya que los errores del comentario los mostraremos con un session flash
+        $validator = \Validator::make($this->request->all(), [
+            'idOffer'   => 'required|integer', //|validOfferUser
+            'title'     => 'required',
+            'body'      => 'required'
+        ]);
+
+        // Si hay errores los mandamos a la vista
+        if ($validator->fails()) {
+
+            Session::flash('message_Negative', 'No se ha podido crear el comentario, titulo o comentario inválido');
+            return \Redirect::back();
+        }
+
+        // Insertamos el nuevo comentario
+        $comment = \DB::table('comments')->insert([
+            'title'       => $this->request['title'],
+            'body'        => $this->request['body'],
+            'jobOffer_id' => $this->request['idOffer'],
+            'teacher_id'  => \Auth::user()->id
+        ]);
+
+        Session::flash('message_Success', 'El comentario de ha borrado correctamente');
+        return \Redirect::back();
+
+    } // getCommentCreate()
+
 }

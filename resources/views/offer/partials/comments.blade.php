@@ -28,9 +28,20 @@
 		                	@endforeach
 		                	</ul>
 						</div>
+						<div class="col-md-12 text-center">
+                            <button type="button" class="btn btn-primary btn-login-media  waves-effect waves-light" data-toggle="modal" data-target="#myModalCreate">
+                                <div class="show-responsive">
+                                    <i class="fa fa-comment" aria-hidden="true"></i>
+                                </div>
+                                <div class="hidden-media">
+                                    <i class="fa fa-btn fa-comment"></i> <span class="hidden-media">Nuevo Comentario</span>
+                                </div>
+                            </button>
+                        </div>
                 	</div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@include('partials.modal.commentCreateModal')

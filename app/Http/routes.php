@@ -206,8 +206,11 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespac
     Route::get(config('routes.teacherRoutes.allDeniedOffers'), 'TeachersController@getDeniedOffer');
     Route::post(config('routes.teacherRoutes.restoreDeniedOffers'), 'TeachersController@postDeniedOffer');
 
-    // Visualización de una sola empresa
+    // Visualización de una sola oferta
     Route::get(config('routes.teacherRoutes.viewOffer'), 'TeachersController@getOfferById');
+    Route::post(config('routes.teacherRoutes.commentEdit'), 'TeachersController@getCommentEdit');
+    Route::post(config('routes.teacherRoutes.commentDelete'), 'TeachersController@getCommentDelete');
+    Route::post(config('routes.teacherRoutes.commentCreate'), 'TeachersController@getCommentCreate');
 
 });
 

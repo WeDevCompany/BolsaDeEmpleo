@@ -27,7 +27,8 @@ class AppServiceProvider extends ServiceProvider
         *   Recibe como parametro el atributo a validar y su valor
         *   Devuelve si es valido o no
         */
-        Validator::extend('dni', function($attribute, $dni, $parameters) {
+        Validator::extend('dni', function($attribute, $dni, $parameters) 
+        {
 
             // Separacion de la letra y los numeros
             $dni = strtoupper($dni);
@@ -58,7 +59,8 @@ class AppServiceProvider extends ServiceProvider
         *   Recibe como parametro el atributo a validar, su valor y request
         *   Devuelve si es valido o no
         */
-        Validator::extend('cycleYearFrom', function($attribute, $value, $parameters, $form) {
+        Validator::extend('cycleYearFrom', function($attribute, $value, $parameters, $form) 
+        {
 
             // Variable para la fecha actual
             $date = date('Y');
@@ -108,7 +110,8 @@ class AppServiceProvider extends ServiceProvider
          * Validacion en la que comprobamos que es un estudiante
          * para luego validarlo en la aplicacion por un profesor
          */
-        Validator::extend('validStudentNotification', function($attribute, $id, $parameters){
+        Validator::extend('validStudentNotification', function($attribute, $id, $parameters)
+        {
 
             foreach ($id as $key => $value) {
                 
@@ -139,7 +142,8 @@ class AppServiceProvider extends ServiceProvider
          * Validacion en la que comprobamos que es un profesor
          * para luego validarlo en la aplicacion por un admin
          */
-        Validator::extend('validTeacherNotification', function($attribute, $id, $parameters){
+        Validator::extend('validTeacherNotification', function($attribute, $id, $parameters)
+        {
 
             foreach ($id as $key => $value) {
                 
@@ -170,7 +174,8 @@ class AppServiceProvider extends ServiceProvider
          * Validacion en la que comprobamos que es una oferta
          * para luego validarla en la aplicacion por un admin
          */
-        Validator::extend('validOfferNotification', function($attribute, $id, $parameters){
+        Validator::extend('validOfferNotification', function($attribute, $id, $parameters)
+        {
 
             foreach ($id as $key => $value) {
                 
@@ -200,7 +205,8 @@ class AppServiceProvider extends ServiceProvider
         /**
          * Validacion en la que comprobamos que es una empresa
          */
-        Validator::extend('validEnterpriseNotification', function($attribute, $id, $parameters){
+        Validator::extend('validEnterpriseNotification', function($attribute, $id, $parameters)
+        {
 
             foreach ($id as $key => $value) {
                 
@@ -226,6 +232,24 @@ class AppServiceProvider extends ServiceProvider
             return true;
 
         });// Validator validEnterpriseNotification fin
+
+        /**
+         * Validacion en la que comprobamos que es el comentario del usuario
+         */
+        Validator::extend('validCommentUser', function($attribute, $id, $parameters)
+        {
+            $comment = Teacher::join('comments', 'comments.teacher_id', '=', 'teachers.id')
+                                ->where('comments.id', '=', $id)
+                                ->where('teachers.user_id', '=', \Auth::user()->id)
+                                ->first();
+
+            if (!$comment){
+                return false;
+            }
+
+            return true;
+
+        });
 
     }
 

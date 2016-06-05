@@ -129,6 +129,8 @@
     <!-- Script que hace random el fondo -->
     <script src="{{url('/js/funcionalidad/backgroundPattern.js')}}" type="text/javascript" charset="utf-8"></script>
 
+    @include('partials.session.sessionFlash')
+
     @yield('scripts')
 
 </body>
