@@ -395,7 +395,7 @@ class SearchController extends Controller
             $idOffer = [$idOffer];
         }
 
-        $comments = JobOffer::select('comments.*', 'image', 'carpeta', 'teachers.firstName', 'teachers.lastName')
+        $comments = JobOffer::select('comments.*', 'image', 'carpeta', 'teachers.firstName', 'teachers.lastName', 'users.id as idUser')
                             ->join('comments', 'jobOffer_id' ,'=' , 'jobOffers.id')
                             ->join('teachers', 'teachers.id', "=", 'comments.teacher_id')
                             ->join('users', 'users.id', '=', 'teachers.user_id')

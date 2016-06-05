@@ -29,6 +29,24 @@ class CommentsSeeder extends Seeder
                 'created_at' => date('YmdHms'),
 				]
             );
+            // Comentarios en ingés
+            $id = \DB::table('comments')->insert(
+                ['title'=> $faker->realText($maxNbChars = 50, $indexSize = 1),
+                'body'=> $faker->realText($maxNbChars = 200, $indexSize = 2),
+                'teacher_id' => $faker->numberBetween($min = 7, $max = 12),
+                'jobOffer_id' => $faker->numberBetween($min = 1, $max = 15),
+                'created_at' => date('YmdHms'),
+                ]
+            );
         }
+        // Comentario para emmanuel@teacher.com
+        $id = \DB::table('comments')->insert(
+            ['title'=> $faker->realText($maxNbChars = 50, $indexSize = 1),
+            'body'=> $faker->realText($maxNbChars = 200, $indexSize = 2),
+            'teacher_id' => 10,
+            'jobOffer_id' => $faker->numberBetween($min = 1, $max = 15),
+            'created_at' => date('YmdHms'),
+            ]
+        );
     }
 }

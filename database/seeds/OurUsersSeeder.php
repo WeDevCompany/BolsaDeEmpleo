@@ -371,8 +371,8 @@ class OurUsersSeeder extends Seeder
 
         // Inserción de Teacher4 (teacher)
         $teacher_id = \DB::table('teachers')->insertGetId([
-            'firstName' => mb_strtolower('Fernando Teacher'),
-            'lastName' => mb_strtolower('Barcelona Pérez'),
+            'firstName' => mb_strtolower('Emmanuel Teacher'),
+            'lastName' => mb_strtolower('Valverde Pérez'),
             'dni' => mb_strtoupper('38017641K'),
             'phone' => '666666670',
             'user_id' => $user_ids[9],
