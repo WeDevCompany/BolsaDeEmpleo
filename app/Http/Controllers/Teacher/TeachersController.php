@@ -130,14 +130,14 @@ class TeachersController extends UsersController
     */
 
     /**
-     * Metodo que obtiene los estudiantes
+     * Metodo que obtiene los estudiantes, si recibe el parametro de busqueda los filtrara
      * @return  view        vista en la que el profesor validara a los estudiantes
      * @return  estudiante  Todos los datos de los estudiantes no validados
      */
     public function getStudentNotification()
     {
         // Url de buscador
-        $urlSearch = config('routes.teacher.studentSearchNotification');
+        $urlSearch = config('routes.teacher.studentNotification');
 
         // Url de post
         $urlPost = config('routes.teacher.studentValidNotification');
@@ -169,13 +169,10 @@ class TeachersController extends UsersController
         // del profesor
         $invalidStudent = $this->search->invalidOrValidStudent($notValidateStudents, $this->request, $profFamilyValidate);
 
-        // Si recibimos request es porque queremos filtrar por buscador
-        if (!empty($this->request->toArray())) {
+        // Request
+        $request = $this->request;
 
-            return $invalidStudent;
-        }
-
-        return view('generic/notification/studentNotification', compact('invalidStudent', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
+        return view('generic/notification/studentNotification', compact('invalidStudent', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete', 'request'));
 
     } // getStudentNotification()
 
@@ -222,45 +219,18 @@ class TeachersController extends UsersController
     } // insertValidateStudent()
 
     /**
-     * Metodo que se encarga de filtrar los estudiantes a validar con un buscador
-     * @return view Vista con los estudiantes a validar filtrados por el buscador
-     */
-    public function postSearchStudentNotification()
-    {
-        // Url de buscador
-        $urlSearch = config('routes.teacher.studentSearchNotification');
-
-        // Url de post
-        $urlPost = config('routes.teacher.studentValidNotification');
-
-        // Url para borrar profesores
-        $urlDelete = config('routes.teacher.destroyStudent');
-
-        // Variale de zona
-        $zona = config('zona.notificaciones.estudiante');
-
-        // Variable que necesitamos pasarle a la vista para poder ver los fitros
-        $filters = config('filters.verifiedTeacherStudent');
-
-        // Obtenemos los estudiantes filtrados por el buscador
-        $invalidStudent = $this->getStudentNotification();
-
-        return view('generic/notification/studentNotification', compact('invalidStudent', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
-
-    } // postSearchStudentNotification()
-
-    /**
      * Metodo que obtiene todos los estudiantes validados, filtrados por la rama
-     * profesional del profesor logueado, y los muestra en una tabla
+     * profesional del profesor logueado, y los muestra en una tabla, 
+     * si recibe el parametro de busqueda los filtrara
      * @return view Vista en la que se listan los estudiantes
      */
     public function getVerifiedStudent()
     {
-        // Url para borrar student
-       $urlDelete = config('routes.teacher.destroyStudent');
-
         // Url de buscador
-        $urlSearch = config('routes.teacher.allVerifiedStudentsSearch');
+        $urlSearch = config('routes.teacher.allVerifiedStudents');
+
+        // Url para borrar student
+        $urlDelete = config('routes.teacher.destroyStudent');
 
         // Variale de zona
         $zona = config('zona.admitidos.estudiante');
@@ -283,49 +253,22 @@ class TeachersController extends UsersController
         // Obtenemos los estudiantes que estan validados
         $verifiedStudent = $this->search->invalidOrValidStudent($validStudent, $this->request, $profFamilyValidate);
 
-        // Si recibimos request es porque queremos filtrar por buscador
-        if (!empty($this->request->toArray())) {
+        // Request
+        $request = $this->request;
 
-            return $verifiedStudent;
-        }
-
-        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch', 'urlDelete'));
+        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch', 'urlDelete', 'request'));
 
     } // getVerifiedStudent()
 
     /**
-     * Metodo que se encarga de filtrar los estudiantes dados de alta con un buscador
-     * @return view Vista con los estudiantes validados filtrados por el buscador
-     */
-    public function postSearchVerifiedStudent()
-    {
-        // Url para borrar student
-        $urlDelete = config('routes.teacher.destroyStudent');
-
-        // Url de buscador
-        $urlSearch = config('routes.teacher.allVerifiedStudentsSearch');
-
-        // Variale de zona
-        $zona = config('zona.admitidos.estudiante');
-
-        // Variable que necesitamos pasarle a la vista para poder ver los fitros
-        $filters = config('filters.verifiedTeacherStudent');
-
-        $verifiedStudent = $this->getVerifiedStudent();
-
-        return view('generic/verified/verifiedStudent', compact('verifiedStudent', 'filters', 'zona', 'urlSearch', 'urlDelete'));
-
-    } // postSearchVerifiedStudent()
-
-    /**
      * Método que lista todos los estudiantes que han sido borrados a la hora
      * de validarlos para restaurarlos, se mostraran en base a la familia profesional
-     * del profesor
+     * del profesor, si recibe el parametro de busqueda los filtrara
      */
     public function getDeniedStudent()
     {
         // Url de buscador
-        $urlSearch = config('routes.teacher.allDeniedStudentsSearch');
+        $urlSearch = config('routes.teacher.allDeniedStudents');
 
         // Url de post
         $urlPost = config('routes.teacher.restoreDeniedStudents');
@@ -345,13 +288,10 @@ class TeachersController extends UsersController
         // Obtenemos todos los estudiantes borrados segun la familia profesional del profesor
         $deniedStudent = $this->search->deniedStudent($this->request, $profFamilyValidate);
 
-        // Si recibimos request es porque queremos filtrar por buscador
-        if (!empty($this->request->toArray())) {
+        // Request
+        $request = $this->request;
 
-            return $deniedStudent;
-        }
-
-        return view('generic/denied/deniedStudent', compact('deniedStudent', 'filters', 'zona', 'urlSearch', 'urlPost'));
+        return view('generic/denied/deniedStudent', compact('deniedStudent', 'filters', 'zona', 'urlSearch', 'urlPost', 'request'));
 
     } // getDeniedStudent()
 
@@ -398,29 +338,6 @@ class TeachersController extends UsersController
         return true;
 
     } // restoreDeniedStudent()
-
-    /**
-     * Metodo que se encarga de filtrar los estudiantes borrados con un buscador
-     */
-    public function postSearchDeniedStudent()
-    {
-        // Url de buscador
-        $urlSearch = config('routes.teacher.allDeniedStudentsSearch');
-
-        // Url de post
-        $urlPost = config('routes.teacher.restoreDeniedStudents');
-
-        // Variale de zona
-        $zona = config('zona.denegados.estudiante');
-
-        // Variable que necesitamos pasarle a la vista para poder ver los fitros
-        $filters = config('filters.verifiedTeacherStudent');
-
-        $deniedStudent = $this->getDeniedStudent();
-
-        return view('generic/denied/deniedStudent', compact('deniedStudent', 'filters', 'zona', 'urlSearch', 'urlPost'));
-
-    } // postSearchDeniedStudent()
 
     /**
      * Método para borrar una notificacion de estudiante mediante ajax, el borrado no sera definitivo
@@ -508,14 +425,14 @@ class TeachersController extends UsersController
     */
 
     /**
-     * Metodo que obtiene las ofertas
+     * Metodo que obtiene las ofertas, si recibe el parametro de busqueda los filtrara
      * @return  view        vista en la que el profesor validara las ofertas
      * @return  estudiante  Todos los datos de las ofertas no validadas
      */
     public function getOfferNotification()
     {
         // Url de buscador
-        $urlSearch = config('routes.teacher.offerSearchNotification');
+        $urlSearch = config('routes.teacher.offerNotification');
 
         // Url de post
         $urlPost = config('routes.teacher.offerValidNotification');
@@ -547,13 +464,10 @@ class TeachersController extends UsersController
         // del profesor
         $invalidOffer = $this->search->invalidOrValidOffer($notValidateOffers, $this->request, $profFamilyValidate);
 
-        // Si recibimos request es porque queremos filtrar por buscador
-        if (!empty($this->request->toArray())) {
+        // Request
+        $request = $this->request;
 
-            return $invalidOffer;
-        }
-
-        return view('generic/notification/offerNotification', compact('invalidOffer', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
+        return view('generic/notification/offerNotification', compact('invalidOffer', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete', 'request'));
 
     } // getOfferNotification()
 
@@ -600,41 +514,14 @@ class TeachersController extends UsersController
     } // insertValidateOffer()
 
     /**
-     * Metodo que se encarga de filtrar las ofertas a validar con un buscador
-     * @return view Vista las ofertas a validar filtrados por el buscador
-     */
-    public function postSearchOfferNotification()
-    {
-        // Url de buscador
-        $urlSearch = config('routes.teacher.offerSearchNotification');
-
-        // Url de post
-        $urlPost = config('routes.teacher.offerValidNotification');
-
-        // Url para borrar ofertas de trabajo
-        $urlDelete = config('routes.teacher.destroyOffer');
-
-        // Variale de zona
-        $zona = config('zona.notificaciones.empresa');
-
-        // Variable que necesitamos pasarle a la vista para poder ver los fitros
-        $filters = config('filters.verifiedOffers');
-
-        $invalidOffer = $this->getOfferNotification();
-
-        return view('generic/notification/offerNotification', compact('invalidOffer', 'filters', 'zona', 'urlSearch', 'urlPost', 'urlDelete'));
-
-    } // postSearchOfferNotification()
-
-    /**
      * Metodo que obtiene todas las ofertas validadas, filtradas por la rama
-     * profesional del profesor logueado, y los muestra
+     * profesional del profesor logueado, y los muestra, si recibe el parametro de busqueda los filtrara
      * @return view Vista en la que se listan las ofertas
      */
     public function getVerifiedOffer()
     {
         // Url de buscador
-        $urlSearch = config('routes.teacher.allVerifiedOffersSearch');
+        $urlSearch = config('routes.teacher.allVerifiedOffers');
 
         // Url para borrar ofertas de trabajo
         $urlDelete = config('routes.teacher.destroyOffer');
@@ -666,49 +553,22 @@ class TeachersController extends UsersController
         // Añadimos los tags
         $verifiedOffer = Parent::getTags($validOffer, $verifiedOffer);
 
-        // Si recibimos request es porque queremos filtrar por buscador
-        if (!empty($this->request->toArray())) {
+        // Request
+        $request = $this->request;
 
-            return $verifiedOffer;
-        }
-
-        return view('generic/verified/verifiedOffer', compact('verifiedOffer', 'filters', 'zona', 'urlSearch', 'urlDelete'));
+        return view('generic/verified/verifiedOffer', compact('verifiedOffer', 'filters', 'zona', 'urlSearch', 'urlDelete', 'request'));
 
     } // getVerifiedOffer()
 
     /**
-     * Metodo que se encarga de filtrar las ofertas dadas de alta con un buscador
-     * @return view Vista con las ofertas validadas filtradas por el buscador
-     */
-    public function postSearchVerifiedOffer()
-    {
-        // Url de buscador
-        $urlSearch = config('routes.teacher.allVerifiedOffersSearch');
-
-        // Url para borrar ofertas de trabajo
-        $urlDelete = config('routes.teacher.destroyOffer');
-
-        // Variale de zona
-        $zona = config('zona.admitidos.empresa');
-
-        // Variable que necesitamos pasarle a la vista para poder ver los fitros
-        $filters = config('filters.verifiedOffers');
-
-        $verifiedOffer = $this->getVerifiedOffer();
-
-        return view('generic/verified/verifiedOffer', compact('verifiedOffer', 'filters', 'zona', 'urlSearch', 'urlDelete'));
-
-    } // postSearchVerifiedOffer()
-
-    /**
      * Método que lista todas las ofertas que han sido borrados a la hora
      * de validarlas para restaurarlas, se mostraran en base a la familia profesional
-     * del profesor
+     * del profesor, si recibe el parametro de busqueda los filtrara
      */
     public function getDeniedOffer()
     {
         // Url de buscador
-        $urlSearch = config('routes.teacher.allDeniedOffersSearch');
+        $urlSearch = config('routes.teacher.allDeniedOffers');
 
         // Url de post
         $urlPost = config('routes.teacher.restoreDeniedOffers');
@@ -728,13 +588,10 @@ class TeachersController extends UsersController
         // Obtenemos todas las ofertas borrados segun la familia profesional del profesor
         $deniedOffer = $this->search->deniedOffer($this->request, $profFamilyValidate);
 
-        // Si recibimos request es porque queremos filtrar por buscador
-        if (!empty($this->request->toArray())) {
+        // Request
+        $request = $this->request;
 
-            return $deniedOffer;
-        }
-
-        return view('generic/denied/deniedOffer', compact('deniedOffer', 'filters', 'zona', 'urlSearch', 'urlPost'));
+        return view('generic/denied/deniedOffer', compact('deniedOffer', 'filters', 'zona', 'urlSearch', 'urlPost', 'request'));
 
     } // getDeniedOffer()
 
@@ -778,29 +635,6 @@ class TeachersController extends UsersController
         return true;
 
     } // restoreDeniedStudent()
-
-    /**
-     * Metodo que se encarga de filtrar las oferta borradas con un buscador
-     */
-    public function postSearchDeniedOffer()
-    {
-        // Url de buscador
-        $urlSearch = config('routes.teacher.allDeniedOffersSearch');
-
-        // Url de post
-        $urlPost = config('routes.teacher.restoreDeniedOffers');
-
-        // Variale de zona
-        $zona = config('zona.denegados.empresa');
-
-        // Variable que necesitamos pasarle a la vista para poder ver los fitros
-        $filters = config('filters.verifiedOffers');
-
-        $deniedOffer = $this->getDeniedOffer();
-
-        return view('generic/denied/deniedOffer', compact('deniedOffer', 'filters', 'zona', 'urlSearch', 'urlPost'));
-
-    } // postSearchDeniedOffer()
 
     /**
      * Método para borrar una notificacion de oferta mediante ajax, el borrado no sera definitivo

@@ -114,57 +114,47 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
     // Validacion del Profesor
     Route::get(config('routes.adminRoutes.teacherNotification'), 'AdminsController@getTeacherNotification');
     Route::post(config('routes.adminRoutes.teacherValidNotification'), 'AdminsController@postTeacherNotification');
-    Route::post(config('routes.adminRoutes.teacherSearchNotification'), 'AdminsController@postSearchTeacherNotification');
 
     // Borrar profesor
     Route::delete(config('routes.adminRoutes.destroyTeacher'), 'AdminsController@destroyTeacher');
 
     // Profesores admitidos
     Route::get(config('routes.adminRoutes.allVerifiedTeachers'), 'AdminsController@getVerifiedTeacher');
-    Route::post(config('routes.adminRoutes.allVerifiedTeachersSearch'), 'AdminsController@postSearchVerifiedTeacher');
 
     // Profesores borrados
     Route::get(config('routes.adminRoutes.allDeniedTeachers'), 'AdminsController@getDeniedTeacher');
     Route::post(config('routes.adminRoutes.restoreDeniedTeachers'), 'AdminsController@postDeniedTeacher');
-    Route::post(config('routes.adminRoutes.allDeniedTeachersSearch'), 'AdminsController@postSearchDeniedTeacher');
 
     // Validacion del Estudiante
     Route::get(config('routes.adminRoutes.studentNotification'), 'AdminsController@getStudentNotification');
     Route::post(config('routes.adminRoutes.studentValidNotification'), 'AdminsController@postStudentNotification');
-    Route::post(config('routes.adminRoutes.studentSearchNotification'), 'AdminsController@postSearchStudentNotification');
 
     // Borrar Estudiante
     Route::delete(config('routes.adminRoutes.destroyStudent'), 'AdminsController@destroyStudent');
 
     // Estudiantes admitidos
     Route::get(config('routes.adminRoutes.allVerifiedStudents'), 'AdminsController@getVerifiedStudent');
-    Route::post(config('routes.adminRoutes.allVerifiedStudentsSearch'), 'AdminsController@postSearchVerifiedStudent');
 
     // Estudiantes borrados
     Route::get(config('routes.adminRoutes.allDeniedStudents'), 'AdminsController@getDeniedStudent');
     Route::post(config('routes.adminRoutes.restoreDeniedStudents'), 'AdminsController@postDeniedStudent');
-    Route::post(config('routes.adminRoutes.allDeniedStudentsSearch'), 'AdminsController@postSearchDeniedStudent');
 
     // Validacion de ofertas de trabajo
     Route::get(config('routes.adminRoutes.offerNotification'), 'AdminsController@getOfferNotification');
     Route::post(config('routes.adminRoutes.offerValidNotification'), 'AdminsController@postOfferNotification');
-    Route::post(config('routes.adminRoutes.offerSearchNotification'), 'AdminsController@postSearchOfferNotification');
 
     // Borrar Oferta
     Route::delete(config('routes.adminRoutes.destroyOffer'), 'AdminsController@destroyOffer');
 
     // Ofertas admitidas
     Route::get(config('routes.adminRoutes.allVerifiedOffers'), 'AdminsController@getVerifiedOffer');
-    Route::post(config('routes.adminRoutes.allVerifiedOffersSearch'), 'AdminsController@postSearchVerifiedOffer');
 
     // Ofertas borradas
     Route::get(config('routes.adminRoutes.allDeniedOffers'), 'AdminsController@getDeniedOffer');
     Route::post(config('routes.adminRoutes.restoreDeniedOffers'), 'AdminsController@postDeniedOffer');
-    Route::post(config('routes.adminRoutes.allDeniedOffersSearch'), 'AdminsController@postSearchDeniedOffer');
 
     // Empresas admitidas
     Route::get(config('routes.adminRoutes.allVerifiedEnterprises'), 'AdminsController@getVerifiedEnterprise');
-    Route::post(config('routes.adminRoutes.allVerifiedEnterprisesSearch'), 'AdminsController@postSearchVerifiedEnterprise');
 
     // Borrar empresas
     Route::delete(config('routes.adminRoutes.destroyEnterprise'), 'AdminsController@destroyEnterprise');
@@ -172,7 +162,6 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
     // Empresas borradas
     Route::get(config('routes.adminRoutes.allDeniedEnterprises'), 'AdminsController@getDeniedEnterprise');
     Route::post(config('routes.adminRoutes.restoreDeniedEnterprises'), 'AdminsController@postDeniedEnterprise');
-    Route::post(config('routes.adminRoutes.allDeniedEnterprisesSearch'), 'AdminsController@postSearchDeniedEnterprise');
 
 });
 
@@ -192,36 +181,30 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespac
     // Validacion del Estudiante
     Route::get(config('routes.teacherRoutes.studentNotification'), 'TeachersController@getStudentNotification');
     Route::post(config('routes.teacherRoutes.studentValidNotification'), 'TeachersController@postStudentNotification');
-    Route::post(config('routes.teacherRoutes.studentSearchNotification'), 'TeachersController@postSearchStudentNotification');
 
     // Borrar estudiantes
     Route::delete(config('routes.teacherRoutes.destroyStudent'), 'TeachersController@destroyStudent');
 
     // Alumnos admitidos
     Route::get(config('routes.teacherRoutes.allVerifiedStudents'), 'TeachersController@getVerifiedStudent');
-    Route::post(config('routes.teacherRoutes.allVerifiedStudentsSearch'), 'TeachersController@postSearchVerifiedStudent');
 
     // Estudiantes borrados
     Route::get(config('routes.teacherRoutes.allDeniedStudents'), 'TeachersController@getDeniedStudent');
     Route::post(config('routes.teacherRoutes.restoreDeniedStudents'), 'TeachersController@postDeniedStudent');
-    Route::post(config('routes.teacherRoutes.allDeniedStudentsSearch'), 'TeachersController@postSearchDeniedStudent');
 
     // Validacion de ofertas de trabajo
     Route::get(config('routes.teacherRoutes.offerNotification'), 'TeachersController@getOfferNotification');
     Route::post(config('routes.teacherRoutes.offerValidNotification'), 'TeachersController@postOfferNotification');
-    Route::post(config('routes.teacherRoutes.offerSearchNotification'), 'TeachersController@postSearchOfferNotification');
 
     // Borrar ofertas
     Route::delete(config('routes.teacherRoutes.destroyOffer'), 'TeachersController@destroyOffer');
 
     // Ofertas admitidas
     Route::get(config('routes.teacherRoutes.allVerifiedOffers'), 'TeachersController@getVerifiedOffer');
-    Route::post(config('routes.teacherRoutes.allVerifiedOffersSearch'), 'TeachersController@postSearchVerifiedOffer');
 
     // Ofertas borradas
     Route::get(config('routes.teacherRoutes.allDeniedOffers'), 'TeachersController@getDeniedOffer');
     Route::post(config('routes.teacherRoutes.restoreDeniedOffers'), 'TeachersController@postDeniedOffer');
-    Route::post(config('routes.teacherRoutes.allDeniedOffersSearch'), 'TeachersController@postSearchDeniedOffer');
 
     // Visualización de una sola empresa
     Route::get(config('routes.teacherRoutes.viewOffer'), 'TeachersController@getOfferById');

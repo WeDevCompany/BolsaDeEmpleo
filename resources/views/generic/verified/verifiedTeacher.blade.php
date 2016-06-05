@@ -14,12 +14,12 @@
                         <h4><i class="fa fa-university"></i> Profesores admitidos en la Aplicación</h4>
                     </div>
                     <div class="panel-body">
-                        {{ Form::open(['url' => $urlSearch, 'method' => 'POST', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
+                        {{ Form::model($request->only(['name']), ['url' => $urlSearch, 'method' => 'GET', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
                             {!! csrf_field() !!}
                             @include('partials.search.searcher')
                         {{ Form::close() }}
                         @include('partials.table.tableVerifiedTeacher')
-						{{ $verifiedTeacher->render() }}
+						{{ $verifiedTeacher->appends($request->only(['name']))->render() }}
 
                     </div>
                 </div>
