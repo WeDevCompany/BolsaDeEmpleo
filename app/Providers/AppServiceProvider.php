@@ -7,12 +7,19 @@ use App\Student;
 use App\Teacher;
 use App\JobOffer;
 use App\Enterprise;
+use App\Http\Controllers\SearchController;
 
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
     private $year = [];
+    protected $search = null;           // Buscador
+
+    public function __construct()
+    {
+        $this->search = new SearchController();
+    }
 
     /**
      * Bootstrap any application services.
@@ -244,6 +251,27 @@ class AppServiceProvider extends ServiceProvider
                                 ->first();
 
             if (!$comment){
+                return false;
+            }
+
+            return true;
+
+        });
+
+        /**
+         * Validacion en la que comprobamos que es el comentario del usuario
+         */
+        Validator::extend('validOfferUser', function($attribute, $id, $parameters)
+        {
+            $profFamilyTeacher = $this->search->profFamilyTeacher();
+
+            $offer = JobOffer::select('jobOffers.id')
+                                ->join('profFamilies', 'profFamilies.id', '=', 'jobOffers.profFamilie_id')
+                                ->where('jobOffers.id', '=', $id)
+                                ->whereIn('profFamilies.name', $profFamilyTeacher)
+                                ->first();
+
+            if (!$offer){
                 return false;
             }
 

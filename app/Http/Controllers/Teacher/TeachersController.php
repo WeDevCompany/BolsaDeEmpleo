@@ -807,7 +807,7 @@ class TeachersController extends UsersController
         // Validamos los campos que nos llegan desde el formulario en el controlador
         // ya que los errores del comentario los mostraremos con un session flash
         $validator = \Validator::make($this->request->all(), [
-            'idOffer'   => 'required|integer', //|validOfferUser
+            'idOffer'   => 'required|integer|validOfferUser',
             'title'     => 'required',
             'body'      => 'required'
         ]);
