@@ -167,9 +167,6 @@ return [
             'viewOffer'                 => '/oferta/{idOffer}',
             'updateOffer'               => '/oferta/actualizar/{idOffer}',
             'comment'                   => '/oferta/comentario/{idOffer}',
-            'commentEdit'               => '/oferta/editar',
-            'commentDelete'             => '/oferta/borrar',
-            'commentCreate'             => '/oferta/crear',
         ],
     'enterprise'    =>
         [
@@ -188,9 +185,22 @@ return [
             'updateOffer'                  => '/oferta/actualizar/{idOffer}',
             
         ],
-    'offer' =>
+    'offerTeacher' =>
         [
-            'viewOffer'     => '/',
+            'updateOffer'            => 'profesor/oferta/actualizar/{idOffer}',
+            'commentEdit'            => 'profesor/oferta/comentario/editar',
+            'commentDelete'          => 'profesor/oferta/comentario/borrar',
+            'commentCreate'          => 'profesor/oferta/comentario/crear',
+        ],
+        'offerAdmin' =>
+        [
+            'updateOffer'            => 'administrador/oferta/actualizar/{idOffer}',
+            'commentEdit'            => 'administrador/oferta/comentario/editar',
+            'commentDelete'          => 'administrador/oferta/comentario/borrar',
+            'commentCreate'          => 'administrador/oferta/comentario/crear',
+            'offerEdit'              => 'administrador/oferta/editar/{idOffer}',
+            'postofferEdit'          => 'administrador/oferta/editar-oferta',
+            'offerDelete'            => 'administrador/oferta/borrar/{idOffer}',
         ],
     'files'    =>
         [

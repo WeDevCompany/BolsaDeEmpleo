@@ -163,6 +163,9 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
     Route::get(config('routes.adminRoutes.allDeniedEnterprises'), 'AdminsController@getDeniedEnterprise');
     Route::post(config('routes.adminRoutes.restoreDeniedEnterprises'), 'AdminsController@postDeniedEnterprise');
 
+    // Visualización de una sola oferta
+    Route::get(config('routes.adminRoutes.viewOffer'), 'AdminsController@getOfferById');
+
 });
 
 // Grupo de rutas para los profesores
@@ -208,9 +211,6 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespac
 
     // Visualización de una sola oferta
     Route::get(config('routes.teacherRoutes.viewOffer'), 'TeachersController@getOfferById');
-    Route::post(config('routes.teacherRoutes.commentEdit'), 'TeachersController@getCommentEdit');
-    Route::post(config('routes.teacherRoutes.commentDelete'), 'TeachersController@getCommentDelete');
-    Route::post(config('routes.teacherRoutes.commentCreate'), 'TeachersController@getCommentCreate');
 
 });
 
@@ -252,3 +252,35 @@ Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth'], 'namespace
 
 });
 
+// Grupo de rutas para las ofertas
+/**********************************
+        Grupo oferta
+************************************/
+Route::group(['middleware' => ['web', 'auth']], function(){
+
+    /**********************************
+        Oferta Profesor
+    ************************************/
+    // Comentarios: creacion, edicion y borrado
+    Route::post(config('routes.offerTeacher.commentEdit'), 'OffersController@getCommentEdit');
+    Route::post(config('routes.offerTeacher.commentDelete'), 'OffersController@getCommentDelete');
+    Route::post(config('routes.offerTeacher.commentCreate'), 'OffersController@getCommentCreate');
+
+    // Actualizar oferta
+    Route::get(config('routes.offerTeacher.updateOffer'), 'OffersController@getOfferUpdate');
+
+    /**********************************
+        Oferta Administrador
+    ************************************/
+    // Comentarios: creacion, edicion y borrado
+    Route::post(config('routes.offerAdmin.commentEdit'), 'OffersController@getCommentEdit');
+    Route::post(config('routes.offerAdmin.commentDelete'), 'OffersController@getCommentDelete');
+    Route::post(config('routes.offerAdmin.commentCreate'), 'OffersController@getCommentCreate');
+
+    // Actualizar, editar, borrar oferta
+    Route::get(config('routes.offerAdmin.updateOffer'), 'OffersController@getOfferUpdate');
+    Route::get(config('routes.offerAdmin.offerEdit'), 'OffersController@getOfferEdit');
+    Route::get(config('routes.offerAdmin.postOfferEdit'), 'OffersController@postOfferEdit');
+    Route::get(config('routes.offerAdmin.offerDelete'), 'OffersController@getOfferDelete');
+
+});

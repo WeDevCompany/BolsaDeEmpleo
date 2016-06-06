@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="myModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        {{ Form::model($comment, ['url' => \Auth::user()->rol . '/oferta/borrar', 'method' => 'post']) }}
+        {{ Form::model($comment, ['url' => \Auth::user()->rol . '/oferta/comentario/borrar', 'method' => 'post']) }}
             <!--Content-->
             <div class="modal-content">
                 <!--Header-->

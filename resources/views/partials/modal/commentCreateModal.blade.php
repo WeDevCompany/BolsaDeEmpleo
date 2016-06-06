@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="myModalCreate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        {{ Form::open(['url' => \Auth::user()->rol . '/oferta/crear', 'method' => 'post']) }}
+        {{ Form::open(['url' => \Auth::user()->rol . '/oferta/comentario/crear', 'method' => 'post']) }}
             <!--Content-->
             <div class="modal-content">
                 <!--Header-->
