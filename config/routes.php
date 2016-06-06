@@ -199,7 +199,7 @@ return [
             'commentDelete'          => 'administrador/oferta/comentario/borrar',
             'commentCreate'          => 'administrador/oferta/comentario/crear',
             'offerEdit'              => 'administrador/oferta/editar/{idOffer}',
-            'postofferEdit'          => 'administrador/oferta/editar-oferta',
+            'postOfferEdit'          => 'administrador/oferta/editar-oferta',
             'offerDelete'            => 'administrador/oferta/borrar/{idOffer}',
         ],
     'files'    =>

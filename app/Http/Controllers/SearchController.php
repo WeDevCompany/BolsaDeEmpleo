@@ -384,6 +384,19 @@ class SearchController extends Controller
         return $invalidOrValidOffer;
     } // invalidOrValidOffer()
 
+    // Funcion que obtiene todas las tags
+    public function allMapTags()
+    {
+        $tag = Tag::select('tag')->get();
+
+        foreach ($tag as $key => $value) {
+            $allTags[$value->tag] = $value->tag;
+        }
+
+        return $allTags;
+
+    } // allTags()
+
     /**
      * Método que extrae todos los comentarios de una oferta
      * @param  Integer $idOffer Id de la oferta que queremos obtener
@@ -438,6 +451,10 @@ class SearchController extends Controller
      */
     public function offerTag($idJobOffer)
     {
+        if (! is_array($idJobOffer)) {
+            $idJobOffer = [$idJobOffer];
+        }
+
         $tag = Tag::select('tags.tag as nameTag', 'jobOffer_id as idAdd')
                     ->join('offerTags', 'offerTags.tag_id', '=', 'tags.id')
                     ->join('jobOffers', 'jobOffers.id', '=', 'offerTags.jobOffer_id')

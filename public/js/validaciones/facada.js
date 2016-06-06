@@ -35,8 +35,10 @@ $(document).ready(function(){
     teacherRegisterForm = $('#teacher-register-form');
     studentRegisterForm = $('#student-register-form');
     enterpriseRegisterForm = $('#enterprise-register-form');
+    offerRegisterForm = $('#offer-register-form');
     searchForm = $('#search-form');
     formDelete = $('#form-delete');
+    myDropzone = $('my-dropzone');
 
 
     // Comprobamos en
@@ -93,6 +95,15 @@ $(document).ready(function(){
 
         // Script del borrado por ajax
         formDelete.after('<script src="/js/ajax/deleteAjax.js" charset="utf-8"></script>');
+    }
+    // Comprobamos si el formulario es el formulario de oferta
+    if (offerRegisterForm.length > 0) {
+
+        // Script de chosen (select multiple)
+        offerRegisterForm.after('<script src="/plugin/chosen/chosen.jquery.js"></script>');
+
+        // Script personalizado de chosen
+        offerRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
     }
 
 })// document.ready

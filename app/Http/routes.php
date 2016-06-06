@@ -280,7 +280,7 @@ Route::group(['middleware' => ['web', 'auth']], function(){
     // Actualizar, editar, borrar oferta
     Route::get(config('routes.offerAdmin.updateOffer'), 'OffersController@getOfferUpdate');
     Route::get(config('routes.offerAdmin.offerEdit'), 'OffersController@getOfferEdit');
-    Route::get(config('routes.offerAdmin.postOfferEdit'), 'OffersController@postOfferEdit');
+    Route::post(config('routes.offerAdmin.postOfferEdit'), 'OffersController@postOfferEdit');
     Route::get(config('routes.offerAdmin.offerDelete'), 'OffersController@getOfferDelete');
 
 });

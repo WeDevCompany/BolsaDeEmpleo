@@ -1,4 +1,4 @@
-<div style="margin: 1em 0 1em" class="control-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                                <div style="margin: 1em 0 1em" class="control-group{{ $errors->has('title') ? ' has-error' : '' }}">
                                     <div class="row">
                                         <div class="input-field col-md-12">
                                             <i class="material-icons prefix">account_circle</i>
@@ -16,7 +16,7 @@
                                 <div style="margin: 1em 0 1em" class="control-group{{ $errors->has('duration') ? ' has-error' : '' }} control-group{{ $errors->has('level') ? ' has-error' : '' }} control-group{{ $errors->has('experience') ? ' has-error' : '' }} control-group{{ $errors->has('kind') ? ' has-error' : '' }}">
                                     <div class="row">
                                         <div class="input-field col-md-3 select-minor">
-                                            {{ Form::select('duration', ['L' => 'Large', 'S' => 'Small'], null,['id' => "duration", 'class' => 'select form-control']) }}
+                                            {{ Form::select('duration', config('select.duration'), null,['id' => "duration", 'class' => 'select form-control']) }}
                                             {{ Form::label('duration', 'Duración', ['class' => 'label-select-minor']) }}
                                             @if ($errors->has('duration'))
                                                 <span class="help-block">
@@ -25,7 +25,7 @@
                                             @endif
                                         </div>
                                         <div class="input-field col-md-3 select-minor">
-                                            {{ Form::select('level', ['L' => 'Large', 'S' => 'Small'], null,['id' => "level", 'class' => 'select form-control']) }}
+                                            {{ Form::select('level', config('select.level'), null,['id' => "level", 'class' => 'select form-control']) }}
                                             {{ Form::label('level', 'Nivel', ['class' => 'label-select-minor']) }}
                                             @if ($errors->has('level'))
                                                <span class="help-block">
@@ -34,7 +34,7 @@
                                             @endif
                                         </div>
                                         <div class="input-field col-md-3 select-minor">
-                                            {{ Form::select('experience', ['L' => 'Large', 'S' => 'Small'], null,['id' => "experience", 'class' => 'select form-control']) }}
+                                            {{ Form::select('experience', config('select.experience'), null,['id' => "experience", 'class' => 'select form-control']) }}
                                             {{ Form::label('experience', 'Experiencia', ['class' => 'label-select-minor']) }}
                                             @if ($errors->has('experience'))
                                                <span class="help-block">
@@ -43,7 +43,7 @@
                                             @endif
                                         </div>
                                         <div class="input-field col-md-3 select-minor">
-                                            {{ Form::select('kind', ['L' => 'Large', 'S' => 'Small'], null,['id' => "kind", 'class' => 'select form-control']) }}
+                                            {{ Form::select('kind', config('select.kind'), null,['id' => "kind", 'class' => 'select form-control']) }}
                                             {{ Form::label('kind', 'Tipo', ['class' => 'label-select-minor']) }}
                                             @if ($errors->has('kind'))
                                                <span class="help-block">
@@ -53,15 +53,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div style="margin: 1em 0 1em" class="control-group{{ $errors->has('wanted') ? ' has-error' : '' }} control-group{{ $errors->has('profFamily') ? ' has-error' : '' }}">
+                                <div style="margin: 1em 0 1em" class="control-group{{ $errors->has('wanted') ? ' has-error' : '' }} control-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                     <div class="row">
                                         <div class="input-field col-md-6">
                                             <i class="fa fa-book prefix" aria-hidden="true"></i>
-                                            {{ Form::text('profFamily', null,['id' => "profFamily"]) }}
-                                            {{ Form::label('profFamily', 'Familia profesional') }}
-                                            @if ($errors->has('profFamily'))
+                                            {{ Form::text('name', null,['id' => "name"]) }}
+                                            {{ Form::label('name', 'Familia profesional') }}
+                                            @if ($errors->has('name'))
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('profFamily') }}</strong>
+                                                    <strong>{{ $errors->first('name') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
@@ -92,16 +92,16 @@
                                             </span>
                                         @endif
                                 </div>
-                                <div style="margin: 1em 0 1em" class="control-group{{ $errors->has('tag') ? ' has-error' : '' }}">
+                                <div style="margin: 1em 0 1em" class="control-group{{ $errors->has('tagCount') ? ' has-error' : '' }}">
                                     <div class="row">
                                         <div class="input-field col-md-12">
-                                            {{ Form::select('tag', ['L' => 'Large', 'S' => 'Small'], null,['id' => "tag", 'class' => 'select form-control']) }}
-                                            {{ Form::label('tag', 'Tags', ['class' => 'label-select-minor']) }}
+                                            {{ Form::select('tagCount[]', $allTags , null,['id' => "tagCount", 'class' => 'chosen-select form-control', 'multiple' => 'multiple']) }}
+                                            {{ Form::label('tagCount', 'Tags', ['class' => 'label-select-minor']) }}
                                         </div>
                                     </div>
-                                        @if ($errors->has('tag'))
+                                        @if ($errors->has('tagCount'))
                                             <span class="help-block">
-                                                <strong>{{ $errors->first('tag') }}</strong>
+                                                <strong>{{ $errors->first('tagCount') }}</strong>
                                             </span>
                                         @endif
                                 </div>

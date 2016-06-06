@@ -18,9 +18,9 @@
                             <h4><i class="fa fa-university"></i>Formulario de edición de la oferta de trabajo</h4>
                         </div>
                         <div class="panel-body">
-                             {{ Form::model($offer, ['url' => \Auth::user()->rol . 'oferta/editar', 'method' => 'POST', 'id' => 'offer-register-form']) }}
+                             {{ Form::model($offer, ['url' => \Auth::user()->rol . '/oferta/editar-oferta', 'method' => 'POST', 'id' => 'offer-register-form']) }}
                                 {!! csrf_field() !!}
-                                {{ Form::hidden('idOffer', $offer->id, ['class' => 'form-control']) }}
+                                {{ Form::hidden('id', $offer->id, ['class' => 'form-control']) }}
                                 @include('offer.partials.offerFields')
                                 <div class="form-group">
                                     <div class="col-md-12 text-center">

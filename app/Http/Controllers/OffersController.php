@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\JobOffer;
 use App\Tag;
+use App\ProfFamilie;
 use App\Http\Requests;
 use App\Http\Controllers\SearchController;
 use App\Http\Requests\DeniedOfferRequest;
@@ -143,9 +144,15 @@ class OffersController extends UsersController
             $offer = $offer[0];
         }
 
+        $tag = $this->search->offerTag($idOffer);
+
+        $offer = $this->search->arrayMap($offer, $tag, 'tag', true);
+
+        $allTags = $this->search->allMapTags();
+
         $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";
 
-        return view('offer/editForm', compact('offer','zona'));
+        return view('offer/editForm', compact('offer','zona', 'allTags'));
 
     } // getOfferEdit()
 
@@ -158,47 +165,74 @@ class OffersController extends UsersController
      * @param   $idOffer                Id de la oferta de trabajo
      * @param   OfferEditRequest        Validación de los parámetros recibidos por post
      */
-    public function postOfferEdit($idOffer, OfferEditRequest $request)
+    public function postOfferEdit()
     {
+        // Variables
+        $rollback = false;
+
         // Comprobamos que el id de la oferta
-        $offer = JobOffer::findOrFail($idOffer);
+        $offer = JobOffer::findOrFail($this->request->id);
+
+        // Obtenemos el id de la familia profesional
+        $profFamily = ProfFamilie::where('name', '=', $this->request->name)->first();
 
         // Actualizamos todos los datos de la oferta que hemos recibido
-        $insertOffer = JobOffer::update($this->request->all());
+        $insertOffer = JobOffer::where('id', '=', $this->request->id)->update([
+            'title'          => $this->request->title,
+            'duration'       => $this->request->duration,
+            'level'          => $this->request->level,
+            'experience'     => $this->request->experience,
+            'kind'           => $this->request->kind,
+            'wanted'         => $this->request->wanted,
+            'description'    => $this->request->description,
+            'others'         => $this->request->others,
+            'profFamilie_id' => $profFamily->id,
+        ]);
 
-        foreach ($request['tagCount'] as $key => $value) {
+        foreach ($this->request['tagCount'] as $key => $value) {
             
             // Comprobamos si la oferta tenia ya en la base de datos esa oferta, si ya estaba
             // continuara con la siguiente, si no esta la insertará
-            $tag = Tag::where('name', '=', $value)->get();
-            $offerTag = \DB::table('offerTags')->where('jobOffer_id', '=', $offer->id)
+            $tag = Tag::select('*')->where('tag', '=', $value)->first();
+
+            $offerTag = \DB::table('offerTags')->where('jobOffer_id', '=', $this->request->id)
                                                 ->where('tag_id', '=', $tag->id)
-                                                ->get();
+                                                ->first();
 
             if (!$offerTag) {
 
                 // Insertamos las nuevas ofertas
-                \DB::table('offerTags')->insert([
-                    'jobOffer_id' => $offer->id,
+                $insertTags = \DB::table('offerTags')->insert([
+                    'jobOffer_id' => $this->request->id,
                     'tag_id'      => $tag->id,
+                    'created_at'  => date('YmdHms'),
                 ]);
+
+                if (!$insertTags) {
+                    $rollback = true;
+                }
             }
         }
 
-        // Obtenemos todas las tags
+        // Obtenemos todas las tags de la oferta
         $newTag = Tag::select('*')
                         ->join('offerTags', 'offerTags.tag_id', '=', 'tags.id')
+                        ->where('jobOffer_id', '=', $this->request->id)
                         ->get();
+
 
         foreach ($newTag as $key => $value) {
             
             // Si el valor en la base de datos no se encuentra entre los valores recibidos del formulario
             // borraremos de la base de datos los sobrantes para que sea igual al del cliente
-            if (!in_array($value->id, $request['tagCount'])) {
-                
-                \DB::table('offerTags')->where('jobOffer_id', '=', $offer->id)
+            if (!in_array($value->tag, $this->request['tagCount'])) {
+
+                $deleteTags = \DB::table('offerTags')->where('jobOffer_id', '=', $this->request->id)
                                         ->where('tag_id', '=', $value->id)
-                                        ->delete();
+                                        ->first();
+
+                $deleteTags->deleted_at = date('YmdHms');
+                $deleteTags->save();
 
             }
 
@@ -207,7 +241,7 @@ class OffersController extends UsersController
 
 
 
-        return \Redirect::to('');
+        return \Redirect::to(\Auth::user()->rol . '/oferta/' . $this->request->id);
 
     } // postOfferEdit()
 
