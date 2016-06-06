@@ -456,6 +456,10 @@ a:hover.back-to-top {
   margin-top: -3em;
 }
 
+.label-select-minor {
+  margin-top: -2.2em;
+}
+
 .family-cycle{
     /*margin-top: 80px;*/
     display: block;
