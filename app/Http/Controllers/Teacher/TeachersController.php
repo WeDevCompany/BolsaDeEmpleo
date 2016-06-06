@@ -824,7 +824,8 @@ class TeachersController extends UsersController
             'title'       => $this->request['title'],
             'body'        => $this->request['body'],
             'jobOffer_id' => $this->request['idOffer'],
-            'teacher_id'  => \Auth::user()->id
+            'teacher_id'  => \Auth::user()->id,
+            'created_at'  => date('YmdHms')
         ]);
 
         Session::flash('message_Success', 'El comentario de ha borrado correctamente');

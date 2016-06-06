@@ -38,7 +38,7 @@
 				</div>
 			</div>
 		</div>
-		@if(isset($comments) && !$comments->isEmpty())
+		@if(\Auth::user()->rol != 'empresa')
 			@include('offer.partials.comments')
 		@endif
 	</main>

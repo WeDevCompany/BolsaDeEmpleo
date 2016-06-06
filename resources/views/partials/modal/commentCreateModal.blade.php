@@ -29,7 +29,7 @@
                             </button>
                         </div>
                         <div class="col-md-6">
-                            <button type="submit" class="btn btn-default waves-effect waves-light" id="softDeletes">
+                            <button type="submit" class="btn btn-primary waves-effect waves-light" id="softDeletes">
                                 <div class="show-responsive">
                                     <i class="fa fa-btn fa-user" aria-hidden="true"></i>
                                 </div>
