@@ -440,6 +440,30 @@ class SearchController extends Controller
 
     } // validOffer()
 
+
+    public function getEnterpriseId($idUser){
+        $enterprise = Enterprise::select('enterprises.id')
+                        ->join('users as u', 'u.id', '=', 'user_id')
+                        ->where('u.id', $idUser)
+                        ->get();
+        return $enterprise;
+    }
+
+    /**
+     * Metodo que obtiene todas las ofertas de trabajo validadas
+     */
+    public function validOfferEnterprise($id)
+    {
+        // Obtenemos todas las ofertas validadas
+       $validOffer = Enterprise::select('jo.id')
+                            ->join('workCenters as wc', 'wc.enterprise_id', '=', 'enterprises.id')
+                            ->join('jobOffers as jo', 'jo.workCenter_id', '=', 'wc.id')
+                            ->join('verifiedOffers as vo', 'vo.jobOffer_id' , '=', 'jo.id')
+                            ->where('enterprises.id', $id);
+       return $validOffer->get();
+
+    } // validOffer()
+
     /**
      * Método que obtiene todas las ofertas de trabajo ya sea filtradas por una familia profesional para un profesor
      * o todas para un administrador para validar o para mostrar las ya validadas según el parámetro recibido,

@@ -1,6 +1,10 @@
 <!-- Empresas -->
 <li class = "dropdown">
-    <li><a class="waves-effect waves-light subrayado" href="{{ url(config('routes.index')) }}">Centros de trabajo</a></li>
-    <li><a class="waves-effect waves-light subrayado" href="{{ url(config('routes.index')) }}">Responsables de practicas</a></li>
-    <li><a class="waves-effect waves-light subrayado" href="{{ url(config('routes.index')) }}">Ofertas</a></li>
+    <a href="#" class="dropdown-toggle subrayado " data-toggle="dropdown" role="button" aria-expanded="false">
+     Ofertas<span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="ofertas">
+        <li><a href="{{ url(config('routes.offerEnterprise.allOffers')) }}"><i class="fa fa-cart-plus right" aria-hidden="true"></i> Mis ofertas</a></li>
+        <li><a href="{{ url(config('routes.student.allOffersSusribed')) }}"><i class="fa fa-plus right" aria-hidden="true"></i> Nueva oferta</a></li>
+    </ul>
 </a></li>

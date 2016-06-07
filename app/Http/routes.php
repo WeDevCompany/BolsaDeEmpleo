@@ -283,6 +283,12 @@ Route::group(['middleware' => ['web', 'auth']], function(){
     Route::post(config('routes.offerAdmin.postOfferEdit'), 'OffersController@postOfferEdit');
     Route::get(config('routes.offerAdmin.offerDelete'), 'OffersController@getOfferDelete');
 
+    /**********************************
+        Oferta Empresa
+    ************************************/
+    Route::get(config('routes.offerEnterprise.allOffers'), 'OffersController@getEnterpriseOffers');
+
+
 });
 
 /**********************************

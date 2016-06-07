@@ -11,12 +11,12 @@
  */
 return [
 
-	'registro' =>
-		[
-            'registroEstudiante' 	=> '/registro/estudiante',
-		    'registroProfesor' 	    => '/registro/profesor',
-		    'registroEmpresa' 		=> '/registro/empresa',
-		],
+    'registro' =>
+        [
+            'registroEstudiante'    => '/registro/estudiante',
+            'registroProfesor'      => '/registro/profesor',
+            'registroEmpresa'       => '/registro/empresa',
+        ],
 
     'registroRoutes' =>
         [
@@ -32,8 +32,8 @@ return [
 
     'admin'    =>
         [
-            'adminIndex'     		    => '/administrador',
-			'studentNotification'       => 'administrador/notificaciones/estudiantes',
+            'adminIndex'                => '/administrador',
+            'studentNotification'       => 'administrador/notificaciones/estudiantes',
             'teacherNotification'       => 'administrador/notificaciones/profesores',
             'offerNotification'         => 'administrador/notificaciones/ofertas',
             'enterpriseNotification'    => 'administrador/notificaciones/empresas',
@@ -72,6 +72,7 @@ return [
             'allDeniedEnterprisesSearch'   => 'administrador/empresa/denegadas-buscador',
             'destroyEnterprise'            => 'administrador/empresa/eliminar-empresa',
             'subjects'                  => '/administrador/asignaturas',
+
         ],
     'adminRoutes' =>
         [
@@ -116,9 +117,9 @@ return [
         ],
     'student'    =>
         [
-            'studentIndex'       	=> '/estudiante',
-			'allOffersSusribed' 	=> '/estudiante/oferta/suscripciones',
-			'allOffers' 			=> '/estudiante/ofertas',
+            'studentIndex'          => '/estudiante',
+            'allOffersSusribed'     => '/estudiante/oferta/suscripciones',
+            'allOffers'             => '/estudiante/ofertas',
             'subcriptionOffer'      => '/estudiante/oferta/suscripcion/{idOffer}',
             'viewOffer'             => '/estudiante/oferta/{idOffer}',
         ],
@@ -132,19 +133,20 @@ return [
         ],
     'teacher'    =>
         [
-            'teacherIndex'     		    => '/profesor',
-			'studentNotification' 	    => '/profesor/notificaciones/estudiantes',
-			'offertNotification' 	    => '/profesor/notificaciones/ofertas',
-			'allVerifiedStudents' 	    => '/profesor/estudiante/verificados',
-			'allDeniedStudents' 	    => '/profesor/estudiante/denegados',
-			'allVerifiedOffers' 	    => '/profesor/oferta/verificadas',
-			'allDeniedOffers' 		    => '/profesor/oferta/denegadas',
+            'teacherIndex'              => '/profesor',
+            'studentNotification'       => '/profesor/notificaciones/estudiantes',
+            'offertNotification'        => '/profesor/notificaciones/ofertas',
+            'allVerifiedStudents'       => '/profesor/estudiante/verificados',
+            'allDeniedStudents'         => '/profesor/estudiante/denegados',
+            'allVerifiedOffers'         => '/profesor/oferta/verificadas',
+            'allDeniedOffers'           => '/profesor/oferta/denegadas',
             'viewOffer'                 => '/profesor/oferta/{idOffer}',
             'updateOffer'               => '/profesor/oferta/actualizar/{idOffer}',
             'comment'                   => '/profesor/oferta/comentario/{idOffer}',
             'destroyStudent'            => '/profesor/estudiante/eliminar-estudiante',
             'destroyOffer'              => '/profesor/oferta/eliminar-oferta',
             'subjects'                  => '/profesor/asignaturas',
+
         ],
     'teacherRoutes'    =>
         [
@@ -169,7 +171,6 @@ return [
             'viewOffer'                 => '/oferta/{idOffer}',
             'updateOffer'               => '/oferta/actualizar/{idOffer}',
             'comment'                   => '/oferta/comentario/{idOffer}',
-            'subjects'                  => '/asignaturas',
         ],
     'enterprise'    =>
         [
@@ -186,7 +187,7 @@ return [
             'enterpriseUploadImg'          => '/uploadImage',
             'viewOffer'                    => '/oferta/{idOffer}',
             'updateOffer'                  => '/oferta/actualizar/{idOffer}',
-            
+
         ],
     'offerTeacher' =>
         [
@@ -195,7 +196,7 @@ return [
             'commentDelete'          => 'profesor/oferta/comentario/borrar',
             'commentCreate'          => 'profesor/oferta/comentario/crear',
         ],
-        'offerAdmin' =>
+    'offerAdmin' =>
         [
             'updateOffer'            => 'administrador/oferta/actualizar/{idOffer}',
             'commentEdit'            => 'administrador/oferta/comentario/editar',
@@ -204,6 +205,15 @@ return [
             'offerEdit'              => 'administrador/oferta/editar/{idOffer}',
             'postOfferEdit'          => 'administrador/oferta/editar-oferta',
             'offerDelete'            => 'administrador/oferta/borrar/{idOffer}',
+        ],
+    'offerEnterprise' =>
+        [
+            'allOffers'             => 'ofertas',
+            'newOffer'              => 'empresa/oferta/nueva-offerta',
+            'offerEdit'             => 'empresa/oferta/editar/{idOffer}',
+            'postOfferEdit'         => 'empresa/oferta/editar-oferta',
+            'offerDelete'           => 'administrador/oferta/borrar/{idOffer}',
+            'updateOffer'           => 'administrador/oferta/actualizar/{idOffer}',
         ],
     'files'    =>
         [
@@ -215,13 +225,13 @@ return [
     'curriculum'        => '/curriculum',
     'UploadImg'         => '/UploadImg',
     'UploadCurriculum'  => '/UploadCurriculum',
-	'uso'		        => '/uso',
+    'uso'               => '/uso',
     'authLogin'         => '/authLogin',
     'confirmation'      => '/confirmation/{token}',
     'confirmacion'      => '/confirmacion',
     'confirmado'        => '/confirmado',
-	'pruebas'		    => '/pruebas',
-	'authors'		    => '/autores',
+    'pruebas'           => '/pruebas',
+    'authors'           => '/autores',
 
 ];
 ?>

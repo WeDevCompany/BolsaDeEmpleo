@@ -30,7 +30,8 @@
             @elseif(\Auth::user()->rol == "empresa")
                 <!-- Empresa -->
                 <li role="presentation" class="dropdown-header">Empresa</li>
-                <li><a href="{{ url(config('routes.admin.allDeniedTeachers')) }}">Información de la empresa</a></li>
+                <li><a href="{{ url(config('routes.admin.allDeniedTeachers')) }}"><i class="fa fa-building-o right" aria-hidden="true"></i></i>Centro de trabajo</a></li>
+                <li><a href="{{ url(config('routes.admin.allDeniedTeachers')) }}"><i class="fa fa-users right" aria-hidden="true"></i>Responsable de practicas</a></li>
             @endif
             <li role="presentation" class="dropdown-header">Usuario</li>
             <li><a href="{{ url(\Auth::user()->rol . config('routes.perfil')) }}"><i class="fa fa-wrench right" aria-hidden="true"></i> Editar perfil</a></li>

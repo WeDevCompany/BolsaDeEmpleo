@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\JobOffer;
 use App\Tag;
 use App\ProfFamilie;
+use App\Enterprise;
 use App\Http\Requests;
 use App\Http\Controllers\SearchController;
 use App\Http\Requests\DeniedOfferRequest;
@@ -74,7 +75,7 @@ class OffersController extends UsersController
 
         // Si hay errores los mandamos a la vista
         if ($validator->fails()) {
-            
+
             Session::flash('message_Negative', 'No se ha podido borrar el comentario, titulo o comentario inválido');
             return \Redirect::back();
         }
@@ -162,7 +163,6 @@ class OffersController extends UsersController
      * borrar, a continuación una vez insertadas las obtenemos y las comparamos con las tags recibidas, si una de ellas
      * no se encuentra en las recibidas por post la borraremos;
      *
-     * @param   $idOffer                Id de la oferta de trabajo
      * @param   OfferEditRequest        Validación de los parámetros recibidos por post
      */
     public function postOfferEdit()
@@ -190,7 +190,7 @@ class OffersController extends UsersController
         ]);
 
         foreach ($this->request['tagCount'] as $key => $value) {
-            
+
             // Comprobamos si la oferta tenia ya en la base de datos esa oferta, si ya estaba
             // continuara con la siguiente, si no esta la insertará
             $tag = Tag::select('*')->where('tag', '=', $value)->first();
@@ -222,7 +222,7 @@ class OffersController extends UsersController
 
 
         foreach ($newTag as $key => $value) {
-            
+
             // Si el valor en la base de datos no se encuentra entre los valores recibidos del formulario
             // borraremos de la base de datos los sobrantes para que sea igual al del cliente
             if (!in_array($value->tag, $this->request['tagCount'])) {
@@ -270,9 +270,18 @@ class OffersController extends UsersController
 
     } // getOfferUpdate()
 
-    public function prueba()
-    {
-        return view('offer.registerForm');
+
+    public function getEnterpriseOffers(){
+        $idUser = \Auth::user()->id;
+        // comprobamos obtenemos el id de la empresa
+       $enterprise = $this->search->getEnterpriseId($idUser);
+        if(isset($enterprise) && isset($enterprise[0]->id)) {
+            $idEnterprise = $enterprise[0]->id;
+            $validOffer = $this->search->validOfferEnterprise($idEnterprise);
+            $error = "true";
+            abort('404', with('error'));
+            dd($validOffer);
+        }
     }
-    
+
 }
