@@ -452,15 +452,20 @@ class SearchController extends Controller
     /**
      * Metodo que obtiene todas las ofertas de trabajo validadas
      */
-    public function validOfferEnterprise($id)
+    public function validOfferEnterprise($id, $request)
     {
         // Obtenemos todas las ofertas validadas
-       $validOffer = Enterprise::select('jo.id')
+       $validOffer = Enterprise::name($request->get('name'))
+                            ->select('jo.id as idJobOffer', 'states.name as stateName', 'cities.name as cityName', 'wc.name as workCenterName', 'wc.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'wc.*', 'enterprises.*', 'pf.*', 'users.*', 'jo.*')
                             ->join('workCenters as wc', 'wc.enterprise_id', '=', 'enterprises.id')
                             ->join('jobOffers as jo', 'jo.workCenter_id', '=', 'wc.id')
                             ->join('verifiedOffers as vo', 'vo.jobOffer_id' , '=', 'jo.id')
+                            ->join('profFamilies as pf', 'pf.id', '=', 'jo.profFamilie_id')
+                            ->join('users', 'users.id', '=', 'user_id')
+                            ->join('cities', 'cities.id', '=','wc.citie_id')
+                            ->join('states', 'states.id', '=','cities.state_id')
                             ->where('enterprises.id', $id);
-       return $validOffer->get();
+       return $validOffer->paginate();
 
     } // validOffer()
 
@@ -796,5 +801,21 @@ class SearchController extends Controller
         return $deniedOneEnterprise;
 
     } // deniedOneEnterprise()
+
+    // Funcion que obtiene todas las tags de una oferta en concreto
+    public function allMapOfferTags($idOffer)
+    {
+        $tag = Tag::select('*')
+                    ->join('offerTags', 'offerTags.tag_id', '=', 'tags.id')
+                    ->where('jobOffer_id', '=', $idOffer)
+                    ->get();
+
+        foreach ($tag as $key => $value) {
+            $allTags[$value->tag_id] = $value->tag;
+        }
+
+        return $allTags;
+
+    } // allMapOfferTags()
 
 } // END Class SearchController

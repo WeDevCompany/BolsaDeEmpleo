@@ -21,13 +21,11 @@
                             </div>
                         </div>
                         @if(isset($error))
-                            <div id="ip"></div>
-                            <script type="application/javascript">
-                                // solicitud por ajax para obtener el json con la ip
-                                $.post("http://jsonip.appspot.com/",function(data){
-                                    $("#ip").html("Tu ip es: " + data.ip + " No deberias hacer cosas raras");
-                                },"json");
-                            </script>
+                            <div class="row text-center">
+                                <div class="col-md-12">
+                                    <p>Tú ip es está yo dejaría de intentar cosas extrañas: <b>{{Request::getClientIp()}}<b><p>
+                                </div>
+                            </div>
                         @endif
                     </div>
                 </div>
@@ -35,4 +33,9 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <!--  Script que controla el número de veces que entras -->
+   <script src="/js/funcionalidad/security.js" type="text/javascript" charset="utf-8" async defer></script>
 @endsection

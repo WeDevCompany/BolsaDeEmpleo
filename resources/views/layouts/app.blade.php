@@ -129,6 +129,10 @@
     <!-- Script que hace random el fondo -->
     <script src="{{url('/js/funcionalidad/backgroundPattern.js')}}" type="text/javascript" charset="utf-8"></script>
 
+    <!-- Script que gestiona la sesión  -->
+    <script src="{{url('/plugin/jquerysession.js')}}" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Script que hace random el fondo -->
     @include('partials.session.sessionFlash')
 
     @yield('scripts')

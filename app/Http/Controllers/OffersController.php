@@ -165,10 +165,24 @@ class OffersController extends UsersController
      *
      * @param   OfferEditRequest        Validación de los parámetros recibidos por post
      */
-    public function postOfferEdit()
+    public function postOfferEdit(OfferEditRequest $request)
     {
-        // Variables
-        $rollback = false;
+
+        // Validamos los campos que nos llegan desde el formulario en el controlador
+        // ya que los errores del comentario los mostraremos con un session flash
+        $validator = \Validator::make($this->request->all(), [
+            'id'   => 'required|integer|validOfferEnterprise',
+        ]);
+
+        // Si hay errores los mandamos a la vista
+        if ($validator->fails()) {
+
+            Session::flash('message_Negative', 'La oferta que intenta editar es inválida');
+            return \Redirect::back();
+        }
+
+        // Comenzamos la transaccion.
+        \DB::beginTransaction();
 
         // Comprobamos que el id de la oferta
         $offer = JobOffer::findOrFail($this->request->id);
@@ -189,6 +203,12 @@ class OffersController extends UsersController
             'profFamilie_id' => $profFamily->id,
         ]);
 
+        if (!$insertOffer) {
+            \DB::rollBack();
+            Session::flash('message_Negative', 'Ha ocurrido un error durante la actualización de la oferta, por favor intentelo mas tarde');
+            return \Redirect::back();
+        }
+
         foreach ($this->request['tagCount'] as $key => $value) {
 
             // Comprobamos si la oferta tenia ya en la base de datos esa oferta, si ya estaba
@@ -208,39 +228,41 @@ class OffersController extends UsersController
                     'created_at'  => date('YmdHms'),
                 ]);
 
+
                 if (!$insertTags) {
-                    $rollback = true;
+                    \DB::rollBack();
+                    Session::flash('message_Negative', 'Ha ocurrido un error durante la actualización de la oferta, por favor intentelo mas tarde');
+                    return \Redirect::back();
                 }
             }
         }
 
         // Obtenemos todas las tags de la oferta
-        $newTag = Tag::select('*')
-                        ->join('offerTags', 'offerTags.tag_id', '=', 'tags.id')
-                        ->where('jobOffer_id', '=', $this->request->id)
-                        ->get();
-
+        $newTag = $this->search->allMapOfferTags($this->request->id);
 
         foreach ($newTag as $key => $value) {
 
             // Si el valor en la base de datos no se encuentra entre los valores recibidos del formulario
             // borraremos de la base de datos los sobrantes para que sea igual al del cliente
-            if (!in_array($value->tag, $this->request['tagCount'])) {
+            if (!in_array($value, $this->request['tagCount'])) {
 
                 $deleteTags = \DB::table('offerTags')->where('jobOffer_id', '=', $this->request->id)
-                                        ->where('tag_id', '=', $value->id)
-                                        ->first();
+                                        ->where('tag_id', '=', $key)
+                                        ->delete();
 
-                $deleteTags->deleted_at = date('YmdHms');
-                $deleteTags->save();
+                if (!$deleteTags) {
+                    \DB::rollBack();
+                    Session::flash('message_Negative', 'Ha ocurrido un error durante la actualización de la oferta, por favor intentelo mas tarde');
+                    return \Redirect::back();
+                }
 
             }
 
 
         }
 
-
-
+        \DB::commit();
+        Session::flash('message_Success', 'La oferta se ha actualizado correctamente');
         return \Redirect::to(\Auth::user()->rol . '/oferta/' . $this->request->id);
 
     } // postOfferEdit()
@@ -277,11 +299,21 @@ class OffersController extends UsersController
        $enterprise = $this->search->getEnterpriseId($idUser);
         if(isset($enterprise) && isset($enterprise[0]->id)) {
             $idEnterprise = $enterprise[0]->id;
-            $validOffer = $this->search->validOfferEnterprise($idEnterprise);
-            $error = "true";
-            abort('404', with('error'));
-            dd($validOffer);
+            $request = $this->request;
+            $verifiedOffer = $this->search->validOfferEnterprise($idEnterprise, $request);
+            $urlSearch = config('routes.offerEnterprise.allOffers');
+            /*dd($verifiedOffer);
+            $tag = $this->search->offerTag($idOffer);
+            $verifiedOffer = $this->search->arrayMap($verifiedOffer, $tag, 'tag', true);
+
+            $allTags = $this->search->allMapTags();*/
+
+            return view('generic.verified.verifiedOffer', compact('verifiedOffer', 'urlSearch' , 'request'));
         }
+
+        // sino eres una empresa, desconfiamos
+        $error = true;
+        return view('errors.404', compact('error'));
     }
 
 }
