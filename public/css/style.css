@@ -964,3 +964,17 @@ legend {
       margin: 30px auto;
   }
 }
+
+/**************************
+  Estilos de asignatura
+***************************/
+.subjectArrow {
+  font-size: 180%;
+  text-align:center;
+  vertical-align: middle;
+}
+
+.subjectName {
+  width:100%;
+  word-wrap: break-word;
+}

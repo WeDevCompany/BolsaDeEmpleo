@@ -106,4 +106,12 @@ $(document).ready(function(){
         offerRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
     }
 
+    // Comprobamos si el formulario es el formulario de asignaturas
+    if(subjectForm.length > 0) {
+
+        // Cargamos los scripts del formulario de asignaturas
+        subjectForm.after('<script src="/js/validaciones/includes/subjectForm.js"></script>');
+
+    }
+
 })// document.ready
