@@ -71,6 +71,7 @@ return [
             'restoreDeniedEnterprises'     => 'administrador/empresa/restaurar',
             'allDeniedEnterprisesSearch'   => 'administrador/empresa/denegadas-buscador',
             'destroyEnterprise'            => 'administrador/empresa/eliminar-empresa',
+            'subjects'                  => '/administrador/asignaturas',
         ],
     'adminRoutes' =>
         [
@@ -143,6 +144,7 @@ return [
             'comment'                   => '/profesor/oferta/comentario/{idOffer}',
             'destroyStudent'            => '/profesor/estudiante/eliminar-estudiante',
             'destroyOffer'              => '/profesor/oferta/eliminar-oferta',
+            'subjects'                  => '/profesor/asignaturas',
         ],
     'teacherRoutes'    =>
         [
@@ -167,6 +169,7 @@ return [
             'viewOffer'                 => '/oferta/{idOffer}',
             'updateOffer'               => '/oferta/actualizar/{idOffer}',
             'comment'                   => '/oferta/comentario/{idOffer}',
+            'subjects'                  => '/asignaturas',
         ],
     'enterprise'    =>
         [

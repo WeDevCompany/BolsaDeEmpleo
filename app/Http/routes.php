@@ -284,3 +284,18 @@ Route::group(['middleware' => ['web', 'auth']], function(){
     Route::get(config('routes.offerAdmin.offerDelete'), 'OffersController@getOfferDelete');
 
 });
+
+/**********************************
+        Grupo asignaturas
+************************************/
+Route::group(['middleware' => ['web', 'auth']], function(){
+
+    // Asignaturas profesor
+    Route::get(config('routes.teacher.subjects'), 'SubjectsController@index');
+    Route::post(config('routes.teacher.subjects'), 'SubjectsController@store');
+
+    // Asignaturas administrador
+    Route::get(config('routes.admin.subjects'), 'SubjectsController@index');
+    Route::post(config('routes.admin.subjects'), 'SubjectsController@store');
+
+});

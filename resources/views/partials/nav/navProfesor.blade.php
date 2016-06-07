@@ -8,6 +8,7 @@
         <li><a href="{{ url(config('routes.teacher.offertNotification')) }}"><i class="fa fa-cart-plus right"  aria-hidden="true"></i><span class="badge social-counter right notificacion" id="offerNotifications"></span> Ofertas</a></li>
     </ul>
 </a></li>
+<li><a class="waves-effect waves-light subrayado" href="{{ url(config('routes.teacher.subjects')) }}">Asignaturas</a></li>
 <li class = "dropdown">
     <a href="#" class="dropdown-toggle subrayado " data-toggle="dropdown" role="button" aria-expanded="false">
      Alumnos<span class="caret"></span>
