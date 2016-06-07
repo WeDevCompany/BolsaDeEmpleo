@@ -36,6 +36,7 @@ $(document).ready(function(){
     studentRegisterForm = $('#student-register-form');
     enterpriseRegisterForm = $('#enterprise-register-form');
     offerRegisterForm = $('#offer-register-form');
+    subjectForm = $('#subject-form');
     searchForm = $('#search-form');
     formDelete = $('#form-delete');
     myDropzone = $('my-dropzone');
