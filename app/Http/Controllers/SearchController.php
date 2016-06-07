@@ -7,6 +7,8 @@ use App\JobOffer;
 use App\Teacher;
 use App\Student;
 use App\User;
+use App\Cycle;
+use App\Subject;
 use App\Enterprise;
 use App\Tag;
 
