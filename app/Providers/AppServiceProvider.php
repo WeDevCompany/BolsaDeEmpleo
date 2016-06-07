@@ -279,6 +279,35 @@ class AppServiceProvider extends ServiceProvider
 
         });
 
+        /**
+         * Validacion en la que comprobamos que es el comentario del usuario
+         */
+        Validator::extend('validOfferEnterprise', function($attribute, $id, $parameters)
+        {
+            if (\Auth::user()->rol == 'empresa') {
+            
+            $offer = JobOffer::select('jobOffers.id')
+                                ->join('workCenters', 'workCenters.id', '=', 'jobOffers.workCenter_id')
+                                ->join('enterprises', 'enterprises.id', '=', 'workCenters.enterprise_id')
+                                ->where('jobOffers.id', '=', $id)
+                                ->where('enterprises.user_id', '=', \Auth::user()->id)
+                                ->first();
+
+            } else if (\Auth::user()->rol == 'administrador') {
+
+                $offer = JobOffer::select('jobOffers.id')
+                                    ->where('jobOffers.id', '=', $id)
+                                    ->first();
+            }
+
+            if (!$offer){
+                return false;
+            }
+
+            return true;
+
+        });
+
     }
 
     /**
