@@ -166,6 +166,9 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
     // Visualización de una sola oferta
     Route::get(config('routes.adminRoutes.viewOffer'), 'AdminsController@getOfferById');
 
+    // Ciclos
+     Route::get('cities/{stateId}', 'CyclesController@getCyclesJSON');
+
 });
 
 // Grupo de rutas para los profesores
