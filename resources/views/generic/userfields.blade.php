@@ -2,7 +2,7 @@
         <div class="row">
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">mail outline</i>
-                {{ Form::label('email', 'Correo electrónico') }}
+                {{ Form::label('email', 'Correo electrónico(*)') }}
                 {{ Form::text('email', null, ['id' => 'email']) }}
                 @if ($errors->has('email'))
                     <span class="help-block">
@@ -16,7 +16,7 @@
         <div class="row">
             <div class="input-field col-md-6">
                 <i class="material-icons prefix">lock</i>
-                {{ Form::label('password', 'Contraseña') }}
+                {{ Form::label('password', 'Contraseña(*)') }}
                 {{ Form::password('password', null, ['id' => 'password']) }}
                 @if ($errors->has('password'))
                     <span class="help-block">
@@ -26,7 +26,7 @@
             </div>
             <div class="input-field col-md-6">
                 <i class="material-icons prefix">lock</i>
-                {{ Form::label('password_confirmation', 'Confirmar contraseña') }}
+                {{ Form::label('password_confirmation', 'Confirmar contraseña(*)') }}
                 {{ Form::password('password_confirmation', null, ['id' => 'password_confirmation']) }}
                 @if ($errors->has('password_confirmation'))
                     <span class="help-block">

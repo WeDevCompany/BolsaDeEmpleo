@@ -47,10 +47,8 @@ class AppServiceProvider extends ServiceProvider
                 
                 return true;
 
-            }
-
-            // Validacion dni, generamos la letra y comprobamos que coincida
-            if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numero % 23, 1) == $letra && strlen($letra) == 1 && strlen ($numero) == 8){
+                // Validacion dni, generamos la letra y comprobamos que coincida
+            } else if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numero % 23, 1) == $letra && strlen($letra) == 1 && strlen ($numero) == 8){
 
                 return true;
 
@@ -60,6 +58,43 @@ class AppServiceProvider extends ServiceProvider
 
 
         }); // Validator dni fin
+
+        /**
+        *   Validacion para el dni
+        *   Recibe como parametro el atributo a validar y su valor
+        *   Devuelve si es valido o no
+        */
+        Validator::extend('allDni', function($attribute, $dni, $parameters) 
+        {
+            foreach ($dni as $key => $value) {
+                # code...
+                $valid = false;
+                // Separacion de la letra y los numeros
+                $dni = strtoupper($value);
+                $letra = substr($dni, -1);
+                $numero = substr($dni, 0, -1);
+
+                // Validacion del nie, sustituimos caracteres especiales y el resto de la validacion es como el dni
+                if (preg_match('/^[XYZ]{1}/', $numero[0]) && substr("TRWAGMYFPDXBNJZSQVHLCKE", str_replace('Z', '2', str_replace('Y' ,'1', str_replace('X', '0', $numero))) % 23, 1) == $letra && strlen($letra) == 1 && strlen ($numero) == 8) {
+                    
+                    $valid = true;
+
+                    // Validacion dni, generamos la letra y comprobamos que coincida
+                } else if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numero % 23, 1) == $letra && strlen($letra) == 1 && strlen ($numero) == 8){
+
+                    $valid = true;
+
+                }
+
+                if ($valid = false) {
+                    return false;
+                }
+            }
+
+            return true;
+
+
+        }); // Validator allDni fin
 
         /**
         *   Validacion para las fechas de los ciclos cursados
