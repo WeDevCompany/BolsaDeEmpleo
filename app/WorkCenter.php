@@ -14,6 +14,11 @@ class WorkCenter extends Model
     
     use SoftDeletes;
     
+    protected $fillable = [
+       'road', 'address', 'name', 'email', 'phone1', 'phone2',
+       'fax', 'enterprise_id', 'citie_id', 'principalCenter',
+    ];
+
     public $table = 'workCenters';
     
     // Relaciones one to many

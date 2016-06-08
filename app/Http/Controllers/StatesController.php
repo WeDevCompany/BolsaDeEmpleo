@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Response;
+use App\State;
 
 class StatesController extends Controller
 {
-/**
+	/**
 	 * Metodo que devuelve todas las provincias activas.
-	 * @author Eduardo López Pardo
-	 * @version 22/05/16
 	 * @return Array Devuelve un array asociativo 'id' => 'provincia'
 	 */
     public function getAllStates()
@@ -38,7 +37,7 @@ class StatesController extends Controller
 		try{
 			// Añadimos a la caché los resultados de las provincias por 24h
 			$states = \Cache::remember('states', 1440, function(){
-			    return State::orderBy('name', 'ASC')->lists('name', 'id');
+			    return State::select('*')->orderBy('name', 'ASC')->lists('name', 'id');
 		    });
 			// Formamos un array con las familias validas
 	        $valid_states = [];

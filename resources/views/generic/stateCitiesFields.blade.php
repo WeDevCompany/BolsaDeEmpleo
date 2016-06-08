@@ -2,7 +2,15 @@
     <div class="row extra-padding">
         <div class="input-field col-md-4">
             {{ Form::label('state', 'Provincia',['class' => "label-select"]) }}
-            {{ Form::select('state',array('1' => 'A', '2' => 'B', '50' => 'C', '4' => 'D', '5' => 'E', '6' => 'F'), null,['class' => 'chosen-select  chosen-search form-control']) }}
+            <select name="state" class="chosen-select chosen-search form-control" id="state">
+                @foreach($states as $id => $state)
+                    @if ($id == 0)
+                        <option value="{{ $id }}" selected="selected">{{ $state }}</option>
+                    @else
+                        <option value="{{ $id }}">{{ $state }}</option>
+                    @endif
+                @endforeach
+            </select>
             @if ($errors->has('state'))
                 <span class="help-block">
                     <strong>{{ $errors->first('state') }}</strong>
@@ -10,8 +18,12 @@
             @endif
         </div>
         <div class="input-field col-md-8">
-            {{ Form::label('city', 'Ciudad',['class' => "label-select"]) }}
-            {{ Form::select('city',array('1' => 'A', '2' => 'B', '50' => 'C', '4' => 'D', '5' => 'E', '6' => 'F'), null,['class' => 'chosen-select form-control']) }}
+            {{ Form::label('citie', 'Ciudad',['class' => "label-select"]) }}
+            <select name="citie" class="chosen-select form-control" id="citie">
+                @foreach($cities as $ArrayId => $citie)
+                    <option value="{{ $citie['id'] }}">{{ $citie['name'] }}</option>
+                @endforeach
+            </select>
             @if ($errors->has('city'))
                 <span class="help-block">
                     <strong>{{ $errors->first('city') }}</strong>

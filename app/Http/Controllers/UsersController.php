@@ -216,7 +216,18 @@ class UsersController extends Controller
         // Registro de empresas
         } else if ($this->request->is('registro/empresa')) {
 
-            return view('enterprise.registerForm');
+            // Llamo al metodo getAllStates del controlador de las provincias
+            $states = app(StatesController::class)->getAllStates();
+
+            // Obtengo el identificador de la primera provincia
+            $stateId = array_keys($states)[0];
+
+            // Obtengo los ciclos de la primera familia
+            $cities = app(CitiesController::class)->getAllCities($stateId);
+
+            $zona = 'Registro de empresas';
+
+            return view('enterprise.registerForm', compact('states', 'cities', 'zona'));
 
         } else {
 

@@ -11,6 +11,10 @@ class EnterpriseResponsable extends Model
 {
     
     use SoftDeletes;
+
+    protected $fillable = [
+       'firstName', 'lastName', 'dni',
+    ];
 	
     public $table = 'enterpriseResponsables';
 
