@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Traits;
 
 use Illuminate\Http\Request;
 use App\JobOffer;
@@ -15,7 +15,7 @@ use App\ProfFamilie;
 
 use App\Http\Requests;
 
-class SearchController extends Controller
+trait Search
 {
 
     /*==============================

@@ -4,19 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Http\Traits\Search;;
 
 class SubjectsController extends Controller
 {
+    use Search;
+    
 	protected $request = null;          // Inicializada a null
 	protected $rules = null;          // Inicializada a null
-    protected $search = null;           // Buscador
 
     public function __construct(Request $request)
     {
         $this->rules = [
             'allSubjects' => 'required',
         ];
-        $this->search = new SearchController();
+
         $this->request = $request;
     }
 
@@ -32,7 +34,7 @@ class SubjectsController extends Controller
         }
 
         // Obtenemos los ciclos a los que pertenece un profesor.
-        $cycles = $this->search->teacherCycles()->lists('name', 'id')->toArray();
+        $cycles = $this->teacherCycles()->lists('name', 'id')->toArray();
 
         // Obtengo el primer año seleccionado o, si existe, el valor de $_GET
         if($_GET && isset($_GET['yearFrom'])){
@@ -49,10 +51,10 @@ class SubjectsController extends Controller
         }
 
         // Obtengo las asignaturas de un profesor
-        $mySubjects = $this->search->cycleSubjectsYear($cycle_id, $subjectYear, true)->lists('name', 'id')->toArray();
+        $mySubjects = $this->cycleSubjectsYear($cycle_id, $subjectYear, true)->lists('name', 'id')->toArray();
 
         // Obtenemos las asignaturas que no ha impartido
-        $allSubjects = $this->search->cycleFreeSubjects($cycle_id, $subjectYear)->lists('name', 'id')->toArray();
+        $allSubjects = $this->cycleFreeSubjects($cycle_id, $subjectYear)->lists('name', 'id')->toArray();
 
         return view('subject/subjects', compact('zona', 'cycles', 'years', 'allSubjects', 'mySubjects'));
 

@@ -10,7 +10,6 @@ use App\ProfFamilie;
 use App\Enterprise;
 use App\User;
 use App\Http\Requests;
-use App\Http\Controllers\SearchController;
 use App\Http\Requests\DeniedOfferRequest;
 use App\Http\Requests\OfferNotificationRequest;
 use Illuminate\Support\Facades\Session;
@@ -30,7 +29,6 @@ class OffersController extends UsersController
         // Almacenamos la petición realizada
         // en una variable de clase
         $this->request = $request;
-        $this->search = new SearchController();
 
     }
 
@@ -139,19 +137,19 @@ class OffersController extends UsersController
         $aux = [$idOffer];
 
         // Llamamos al Search para obtener la oferta seleccionada
-        $offer = $this->search->invalidOrValidOffer($aux, $this->request);
+        $offer = $this->invalidOrValidOffer($aux, $this->request);
 
         if (isset($offer[0])) {
             $offer = $offer[0];
         }
 
-        $tag = $this->search->offerTag($idOffer);
+        $tag = $this->offerTag($idOffer);
 
-        $offer = $this->search->arrayMap($offer, $tag, 'tag', true);
+        $offer = $this->arrayMap($offer, $tag, 'tag', true);
 
-        $allTags = $this->search->allMapTags();
+        $allTags = $this->allMapTags();
 
-        $allProfFamilies = $this->search->allMapProfFamilies();
+        $allProfFamilies = $this->allMapProfFamilies();
 
         $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";
 
@@ -240,7 +238,7 @@ class OffersController extends UsersController
         }
 
         // Obtenemos todas las tags de la oferta
-        $newTag = $this->search->allMapOfferTags($this->request->id);
+        $newTag = $this->allMapOfferTags($this->request->id);
 
         foreach ($newTag as $key => $value) {
 
@@ -301,22 +299,22 @@ class OffersController extends UsersController
     public function getEnterpriseOffers($truncate = true){
         $idUser = \Auth::user()->id;
         // comprobamos obtenemos el id de la empresa
-       $enterprise = $this->search->getEnterpriseId($idUser);
+       $enterprise = $this->getEnterpriseId($idUser);
         if(isset($enterprise) && isset($enterprise[0]->id)) {
             $idEnterprise = $enterprise[0]->id;
             $request = $this->request;
-            $verifiedOffer = $this->search->validOfferEnterprise($idEnterprise, $request);
+            $verifiedOffer = $this->validOfferEnterprise($idEnterprise, $request);
             $urlSearch = config('routes.offerEnterprise.allOffers');
             $idOffer = [];
             foreach ($verifiedOffer as $key => $value) {
                 $idOffer[] = $value->idJobOffer;
             }
             //dd($verifiedOffer);
-            $tag = $this->search->offerTag($idOffer);
+            $tag = $this->offerTag($idOffer);
 
-            $verifiedOffer = $this->search->arrayMap($verifiedOffer, $tag, 'tag');
+            $verifiedOffer = $this->arrayMap($verifiedOffer, $tag, 'tag');
 
-            $allTags = $this->search->allMapTags();
+            $allTags = $this->allMapTags();
 
             if ($truncate) {
 
@@ -331,11 +329,11 @@ class OffersController extends UsersController
 
                 }
                 // llamamos al método que nos seteará las otras etiquetas en caso de haberlas
-                $this->search->cleanOtherTags($value);
+                $this->cleanOtherTags($value);
 
             }
         } else {
-            $this->search->setOtherTags($verifiedOffer);
+            $this->setOtherTags($verifiedOffer);
         }
             // Variable que necesitamos pasarle a la vista para poder ver los fitros
             $filters = config('filters.verifiedOffers');

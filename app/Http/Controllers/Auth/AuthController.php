@@ -17,6 +17,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
+    use Search;
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -46,7 +47,6 @@ class AuthController extends Controller
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
 
-        $this->search = new SearchController();
     }
 
     /**
@@ -86,7 +86,7 @@ class AuthController extends Controller
         } else if ($user->rol == 'estudiante'){
 
             $student = Student::where('user_id', '=',$user['id'])->first();
-            $verifiedStudent = $this->search->verifiedStudent($student['id']);
+            $verifiedStudent = $this->verifiedStudent($student['id']);
 
             // Si no esta verificado ...
             if(!$verifiedStudent){
@@ -100,7 +100,7 @@ class AuthController extends Controller
         } else if ($user->rol == 'profesor'){
 
             $teacher = Teacher::where('user_id', '=',$user['id'])->first();
-            $verifiedTeacher = $this->search->verifiedTeacher($teacher['id']);
+            $verifiedTeacher = $this->verifiedTeacher($teacher['id']);
 
             // Si no esta verificado ...
             if(!$verifiedTeacher){

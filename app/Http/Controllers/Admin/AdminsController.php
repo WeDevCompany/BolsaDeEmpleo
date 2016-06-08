@@ -78,7 +78,7 @@ class AdminsController extends TeachersController
         $filters = config('filters.verifiedTeacherStudent');
 
         // Obtenemos todos los profesores validados
-        $validTeacher = $this->search->validTeacher();
+        $validTeacher = $this->validTeacher();
 
         // Obtenemos todos los profesores que no estan validados
         $notValidateTeacher = Teacher::select('teachers.id')
@@ -86,7 +86,7 @@ class AdminsController extends TeachersController
                                         ->get();
 
         // Obtenemos todos los datos de los profesores que no estan validados
-        $invalidTeacher = $this->search->invalidOrValidTeacher($notValidateTeacher, $this->request);
+        $invalidTeacher = $this->invalidOrValidTeacher($notValidateTeacher, $this->request);
 
         // Request
         $request = $this->request;
@@ -109,7 +109,7 @@ class AdminsController extends TeachersController
         foreach ($profesor['profesor'] as $id => $value) {
 
             // Comprobamos si el profesor se encuentra validado o no
-            $verifiedTeacher = $this->search->verifiedTeacher($value);
+            $verifiedTeacher = $this->verifiedTeacher($value);
 
             // Si no esta validado insertamos en la tabla su id junto al del
             // admin que lo ha validado
@@ -149,13 +149,13 @@ class AdminsController extends TeachersController
         $filters = config('filters.verifiedTeacherStudent');
 
         // Obtenemos todos los profesores validados
-        $validTeacher = $this->search->validTeacher();
+        $validTeacher = $this->validTeacher();
 
         // Convertimos el objeto devuelto en un array
         $validTeacher = array_column($validTeacher, 'teacher_id');
 
         // Obtenemos los profesores que estan validados
-        $verifiedTeacher = $this->search->invalidOrValidTeacher($validTeacher, $this->request);
+        $verifiedTeacher = $this->invalidOrValidTeacher($validTeacher, $this->request);
 
         // Request
         $request = $this->request;
@@ -183,7 +183,7 @@ class AdminsController extends TeachersController
         $filters = config('filters.verifiedTeacherStudent');
 
         // Obtenemos todos los profesores borrados
-        $deniedTeacher = $this->search->deniedTeacher($this->request);
+        $deniedTeacher = $this->deniedTeacher($this->request);
 
         // Request
         $request = $this->request;
@@ -216,8 +216,8 @@ class AdminsController extends TeachersController
         foreach ($profesor['profesor'] as $id => $value) {
 
             // Comprobamos que el profesor esta borrado
-            $deniedTeacher = $this->search->deniedOneTeacher($value);
-            $user = $this->search->getUser($value, 'teacher');
+            $deniedTeacher = $this->deniedOneTeacher($value);
+            $user = $this->getUser($value, 'teacher');
 
             // Si esta borrado lo restauramos
             if ($deniedTeacher && $user) {
@@ -258,7 +258,7 @@ class AdminsController extends TeachersController
         $destroyTeacher = Teacher::findorfail($id);
 
         // Obtenemos los datos de usuario
-        $user = $this->search->getUser($id, 'teacher');
+        $user = $this->getUser($id, 'teacher');
 
         if ($destroyTeacher->deleted_at == null && $user->deleted_at == null) {
 
@@ -339,7 +339,7 @@ class AdminsController extends TeachersController
         $filters = config('filters.verifiedTeacherStudent');
 
         // Obtenemos todos los estudiantes validados
-        $validStudent = $this->search->validStudent();
+        $validStudent = $this->validStudent();
 
         // Obtenemos todos los estudiantes que no estan validados
         $notValidateStudents = Student::select('students.id')
@@ -347,7 +347,7 @@ class AdminsController extends TeachersController
                                         ->get();
 
         // Obtenemos los estudiantes que no estan validados
-        $invalidStudent = $this->search->invalidOrValidStudent($notValidateStudents, $this->request);
+        $invalidStudent = $this->invalidOrValidStudent($notValidateStudents, $this->request);
 
         // Request
         $request = $this->request;
@@ -390,13 +390,13 @@ class AdminsController extends TeachersController
         $filters = config('filters.verifiedTeacherStudent');
 
         // Obtenemos todos los estudiantes validados
-        $validStudent = $this->search->validStudent();
+        $validStudent = $this->validStudent();
 
         // Convertimos el objeto devuelto en un array
         $validStudent = array_column($validStudent, 'student_id');
 
         // Obtenemos los estudiantes que estan validados
-        $verifiedStudent = $this->search->invalidOrValidStudent($validStudent, $this->request);
+        $verifiedStudent = $this->invalidOrValidStudent($validStudent, $this->request);
 
         // Request
         $request = $this->request;
@@ -424,7 +424,7 @@ class AdminsController extends TeachersController
         $filters = config('filters.verifiedTeacherStudent');
 
         // Obtenemos todos los estudiantes borrados segun la familia profesional del profesor
-        $deniedStudent = $this->search->deniedStudent($this->request);
+        $deniedStudent = $this->deniedStudent($this->request);
 
         // Request
         $request = $this->request;
@@ -494,7 +494,7 @@ class AdminsController extends TeachersController
         $filters = config('filters.verifiedOffers');
 
         // Obtenemos todas las ofertas validadas
-        $validOffer = $this->search->validOffer();
+        $validOffer = $this->validOffer();
 
         // Obtenemos todas las ofertas que no estan validadas
         $notValidateOffers = JobOffer::select('jobOffers.id')
@@ -502,7 +502,7 @@ class AdminsController extends TeachersController
                                         ->get();
 
         // Obtenemos las ofertas que no estan validadas
-        $invalidOffer = $this->search->invalidOrValidOffer($notValidateOffers, $this->request);
+        $invalidOffer = $this->invalidOrValidOffer($notValidateOffers, $this->request);
 
         // Request
         $request = $this->request;
@@ -541,25 +541,25 @@ class AdminsController extends TeachersController
         $filters = config('filters.verifiedOffers');
 
         // Obtenemos todas las ofertas validadas
-        $validOffer = $this->search->validOffer();
+        $validOffer = $this->validOffer();
 
         // Convertimos el objeto devuelto en un array
         $validOffer = array_column($validOffer, 'jobOffer_id');
 
         // Obtenemos llas ofertas que estan validados
-        $verifiedOffer = $this->search->invalidOrValidOffer($validOffer, $this->request, null, true);
+        $verifiedOffer = $this->invalidOrValidOffer($validOffer, $this->request, null, true);
 
         // Obtenemos los tags de la oferta
-        $offerTag = $this->search->offerTag($validOffer);
+        $offerTag = $this->offerTag($validOffer);
 
         // Obtenemos el numero de subscripciones a la oferta
-        $studentsSubcriptions = $this->search->studentsSubscriptions($validOffer);
+        $studentsSubcriptions = $this->studentsSubscriptions($validOffer);
 
         // Añadimos las suscripciones
-        $verifiedOffer = $this->search->arrayMap($verifiedOffer, $studentsSubcriptions, 'subcription');
+        $verifiedOffer = $this->arrayMap($verifiedOffer, $studentsSubcriptions, 'subcription');
 
         // Añadimos los tags
-        $verifiedOffer = $this->search->arrayMap($verifiedOffer, $offerTag, 'tag');
+        $verifiedOffer = $this->arrayMap($verifiedOffer, $offerTag, 'tag');
 
         // Request
         $request = $this->request;
@@ -587,7 +587,7 @@ class AdminsController extends TeachersController
         $filters = config('filters.verifiedOffers');
 
         // Obtenemos todas las ofertas borradas
-        $deniedOffer = $this->search->deniedOffer($this->request);
+        $deniedOffer = $this->deniedOffer($this->request);
 
         // Request
         $request = $this->request;
@@ -652,7 +652,7 @@ class AdminsController extends TeachersController
         $filters = config('filters.verifiedEnterprises');
 
         // Obtenemos todas las empresas registradas
-        $verifiedEnterprise = $this->search->verifiedEnterprise($this->request);
+        $verifiedEnterprise = $this->verifiedEnterprise($this->request);
 
         // Request
         $request = $this->request;
@@ -680,7 +680,7 @@ class AdminsController extends TeachersController
         $filters = config('filters.verifiedEnterprises');
 
         // Obtenemos todas las enpresas borradas
-        $deniedEnterprise = $this->search->deniedEnterprise($this->request);
+        $deniedEnterprise = $this->deniedEnterprise($this->request);
 
         // Request
         $request = $this->request;
@@ -713,8 +713,8 @@ class AdminsController extends TeachersController
         foreach ($empresa['empresa'] as $id => $value) {
 
             // Comprobamos que la empresa esta borrado
-            $deniedEnterprise = $this->search->deniedOneEnterprise($value);
-            $user = $this->search->getUser($value, 'enterprise');
+            $deniedEnterprise = $this->deniedOneEnterprise($value);
+            $user = $this->getUser($value, 'enterprise');
 
             // Si esta borrado lo restauramos
             if ($deniedEnterprise && $user) {
@@ -755,7 +755,7 @@ class AdminsController extends TeachersController
         $destroyEnterprise = Enterprise::findorfail($id);
 
         // Obtenemos los datos de usuario
-        $user = $this->search->getUser($id, 'enterprise');
+        $user = $this->getUser($id, 'enterprise');
 
         if ($destroyEnterprise->deleted_at == null && $user->deleted_at == null) {
 

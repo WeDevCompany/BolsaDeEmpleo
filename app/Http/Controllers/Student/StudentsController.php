@@ -243,7 +243,7 @@ class StudentsController extends UsersController
         $cuerpo = 'El estudiante con nombre y apellidos: ' . $this->request['firstName'] . ' ' . $this->request['lastName'] . ', dni: ' . $this->request['dni'] . ' y email: ' . $this->request['email'] . ' se ha registrado correctamente, necesita ser validado por un profesor para poder entrar en la aplicación, si usted conoce a este estudiante por favor validelo.';
 
         // Obtenemos los profesores validados
-        $validTeacher = $this->search->validTeacher();
+        $validTeacher = $this->validTeacher();
 
         // Convertimos el objeto devuelto en un array
         $validTeacher = array_column($validTeacher, 'teacher_id');
@@ -281,7 +281,7 @@ class StudentsController extends UsersController
         } else {
 
             // Obtenemos los administradores
-            $admin = $this->search->admin();
+            $admin = $this->admin();
 
             foreach ($admin as $key => $value) {
 

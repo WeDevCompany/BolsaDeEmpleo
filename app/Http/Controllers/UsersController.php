@@ -21,7 +21,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
-use App\Http\Controllers\SearchController;
+use App\Http\Traits\Search;;
 use App\Http\Controllers\ProfFamiliesController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\CyclesController;
@@ -31,6 +31,7 @@ use Faker\Factory as Faker;
 
 class UsersController extends Controller
 {
+    use Search;
 
     // =====================================
     // Variables
@@ -38,7 +39,6 @@ class UsersController extends Controller
     protected $request = null;          // Inicializada a null
     protected $rol = null;              // Inicializada a null
     protected $redirectTo = '/';        // Donde redireccionaremos
-    protected $search = null;           // Buscador
     protected $email = null;            // Email
 
     /**
@@ -64,7 +64,6 @@ class UsersController extends Controller
             'file' => 'required|image'
         ];
 
-        $this->search = new SearchController();
         $this->email = new EmailController();
 
     }
@@ -345,7 +344,7 @@ class UsersController extends Controller
             if (!is_null(\Auth::user()) && (\Auth::user()->rol == "profesor" || \Auth::user()->rol == "administrador")) {
                 try{
                     // Obtenemos las familias profesionales del profesor
-                    $profFamilyTeacher = $this->search->profFamilyTeacher();
+                    $profFamilyTeacher = $this->profFamilyTeacher();
 
                     // Convertimos el objeto devuelto en un array
                     $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
@@ -358,7 +357,7 @@ class UsersController extends Controller
                 // Obtenemos todos los estudiantes sin verificar dependiendo de la familia
                 try{
                     // Obtenemos todos los alumnos correspondientes a sus familias profesionales
-                    $query = $this->search->notVerifiedStudents($profFamilyValidate);
+                    $query = $this->notVerifiedStudents($profFamilyValidate);
 
                     // Almacenamos el resultado
                     $notifications['studentNotifications'] = count($query);
@@ -370,7 +369,7 @@ class UsersController extends Controller
                 // Obtenemos todas las ofertas sin verificar dependiendo de la familia
                 try{
                     // Obtenemos todos los alumnos correspondientes a sus familias profesionales
-                    $query = $this->search->notVerifiedOffers($profFamilyValidate);
+                    $query = $this->notVerifiedOffers($profFamilyValidate);
 
                     // Almacenamos el resultado
                     $notifications['offerNotifications'] = count($query);
@@ -384,7 +383,7 @@ class UsersController extends Controller
                 // Obtenemos todos los profesores sin verificar
                 try{
                     // Obtenemos todos los ids de profesores no verificados aún
-                    $query = $this->search->notVerifiedTeachers();
+                    $query = $this->notVerifiedTeachers();
 
                     // Almacenamos el resultado
                     $notifications['allTeacherNotifications'] = count($query);
@@ -397,7 +396,7 @@ class UsersController extends Controller
                 // Obtenemos todos los estudiantes sin verificar
                 try{
                     // Obtenemos todos los ids de estudiantes no verificados aún
-                    $query = $this->search->notVerifiedStudents();
+                    $query = $this->notVerifiedStudents();
 
                     // Almacenamos el resultado
                     $notifications['allStudentNotifications'] = count($query);
@@ -410,7 +409,7 @@ class UsersController extends Controller
                 // Obtenemos todas las ofertas sin verificar
                 try{
                     // Obtenemos todos los ids de ofertas no verificados aún
-                    $query = $this->search->notVerifiedOffers();
+                    $query = $this->notVerifiedOffers();
 
                     // Almacenamos el resultado
                     $notifications['allOfferNotifications'] = count($query);
@@ -445,7 +444,7 @@ class UsersController extends Controller
      */
     protected function setSubscriptions($validOffer){
         // Obtenemos el numero de subscripciones a la oferta
-        return $this->search->studentsSubscriptions($validOffer);
+        return $this->studentsSubscriptions($validOffer);
     }
 
     /**
@@ -458,9 +457,9 @@ class UsersController extends Controller
         $subscriptions = $this->setSubscriptions($validOffer);
         // Añadimos las suscripciones
         if (isset($onlyOne)) {
-            return $this->search->arrayMap($queryResults, $subscriptions, $nameParam, $onlyOne);
+            return $this->arrayMap($queryResults, $subscriptions, $nameParam, $onlyOne);
         }
-        return $this->search->arrayMap($queryResults, $subscriptions, $nameParam);
+        return $this->arrayMap($queryResults, $subscriptions, $nameParam);
     }
 
     /**
@@ -469,7 +468,7 @@ class UsersController extends Controller
      */
     protected function setTags($validOffer){
         // Obtenemos los tags de la oferta
-        return $this->search->offerTag($validOffer);
+        return $this->offerTag($validOffer);
     }
 
     /**
@@ -482,9 +481,9 @@ class UsersController extends Controller
     protected function getTags($validOffer, $queryResults, $onlyOne = null,$nameParam = 'tag'){
         $tags = $this->setTags($validOffer);
         if (isset($onlyOne)) {
-            return $this->search->arrayMap($queryResults, $tags, $nameParam, $onlyOne);
+            return $this->arrayMap($queryResults, $tags, $nameParam, $onlyOne);
         }
-        return $this->search->arrayMap($queryResults, $tags, $nameParam);
+        return $this->arrayMap($queryResults, $tags, $nameParam);
     }
 
 
@@ -492,9 +491,9 @@ class UsersController extends Controller
     protected function getComment($validOffer, $queryResults, $onlyOne = null,$nameParam = 'comment') {
         $comment = $this->setComment($validOffer);
         if (isset($onlyOne)) {
-            return $this->search->arrayMap($queryResults, $comment, $nameParam, $onlyOne);
+            return $this->arrayMap($queryResults, $comment, $nameParam, $onlyOne);
         }
-        return $this->search->arrayMap($queryResults, $comment, $nameParam);
+        return $this->arrayMap($queryResults, $comment, $nameParam);
     }
 
     /**
@@ -511,19 +510,19 @@ class UsersController extends Controller
         $aux = [$idOffer];
         // comprobamos si lo que nos devuelve es un array y si este está vacio o no, en caso de estar vacio
         // se enviará un error 404
-        if(is_array($this->search->validOffer($idOffer)) && !empty($this->search->validOffer($idOffer)) ){
+        if(is_array($this->validOffer($idOffer)) && !empty($this->validOffer($idOffer)) ){
             // Obtenemos la familia profesional a la que pertenece
             // el profesor
-            $profFamilie = $this->search->profFamilyTeacher();
+            $profFamilie = $this->profFamilyTeacher();
 
             // Llamamos al Search para obtener la oferta seleccionada
-            $offer = $this->search->invalidOrValidOffer($aux, $this->request,$profFamilie);
+            $offer = $this->invalidOrValidOffer($aux, $this->request,$profFamilie);
             //dd($offer);
             if (isset($offer[0])) {
                 $offer = (Object) $offer[0];
 
                 // obtenemos todos los comentarios de la oferta una vez sepamos que la oferta es valida y existe
-                $comments  = $this->search->getComments($idOffer);
+                $comments  = $this->getComments($idOffer);
 
                 // Añadimos las suscripciones
                 $offer = $this->getSubscriptions($aux, $offer, $onlyOne = true);
@@ -559,9 +558,9 @@ class UsersController extends Controller
         $aux = [$idOffer];
         // comprobamos si lo que nos devuelve es un array y si este está vacio o no, en caso de estar vacio
         // se enviará un error 404
-        if($this->search->validOfferEnterprise($idOffer, $this->request, $id = true, $onlyOne = true)){
+        if($this->validOfferEnterprise($idOffer, $this->request, $id = true, $onlyOne = true)){
             // Llamamos al Search para obtener la oferta seleccionada
-            $offer = $this->search->validOfferEnterprise($idOffer, $this->request, $id);
+            $offer = $this->validOfferEnterprise($idOffer, $this->request, $id);
             if (isset($offer[0])) {
 
                 $offer = (Object) $offer[0];
@@ -571,13 +570,13 @@ class UsersController extends Controller
                 // Añadimos los tags
                 $offer = $this->getTags($aux, $offer, $onlyOne);
 
-                $this->search->cleanOtherTags($offer);
+                $this->cleanOtherTags($offer);
                 // Generamos el nombre de la zona de forma dinámica para que
                 // los buscadores puedan mejorar las posibilidades de indexación
                 $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";
                 if($edit) {
-                    $allTags = $this->search->allMapTags();
-                    $allProfFamilies = $this->search->allMapProfFamilies();
+                    $allTags = $this->allMapTags();
+                    $allProfFamilies = $this->allMapProfFamilies();
                     return view('offer.editForm', compact('offer','zona', 'allTags', 'allProfFamilies'));
                 }
                 return view('offer.offer', compact('offer','zona'));

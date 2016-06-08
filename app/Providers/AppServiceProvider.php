@@ -7,19 +7,16 @@ use App\Student;
 use App\Teacher;
 use App\JobOffer;
 use App\Enterprise;
-use App\Http\Controllers\SearchController;
+use App\Http\Traits\Search;
 
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    private $year = [];
-    protected $search = null;           // Buscador
+    use Search;
 
-    public function __construct()
-    {
-        $this->search = new SearchController();
-    }
+    private $year = [];
+
 
     /**
      * Bootstrap any application services.
@@ -299,7 +296,7 @@ class AppServiceProvider extends ServiceProvider
          */
         Validator::extend('validOfferUser', function($attribute, $id, $parameters)
         {
-            $profFamilyTeacher = $this->search->profFamilyTeacher();
+            $profFamilyTeacher = $this->profFamilyTeacher();
 
             $offer = JobOffer::select('jobOffers.id')
                                 ->join('profFamilies', 'profFamilies.id', '=', 'jobOffers.profFamilie_id')
@@ -347,7 +344,7 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('validStudentProfFamilies', function($attribute, $id, $parameters)
         {
             foreach ($id as $key => $value) {
-                $profFamilies = $this->search->existsProfFamily($value);
+                $profFamilies = $this->existsProfFamily($value);
 
                 if (!$profFamilies) {
                     return false;
@@ -359,7 +356,7 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('validStudentCycles', function($attribute, $id, $parameters)
         {
             foreach ($id as $key => $value) {
-                $cycles = $this->search->existsCycle($value);
+                $cycles = $this->existsCycle($value);
 
                 if (!$cycles) {
                     return false;

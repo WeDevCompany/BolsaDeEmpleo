@@ -18,7 +18,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 //use Illuminate\Support\Collection as Collection;
-use App\Http\Controllers\SearchController;
 use App\Http\Controllers\EmailController;
 
 class TeachersController extends UsersController
@@ -152,7 +151,7 @@ class TeachersController extends UsersController
         $filters = config('filters.verifiedTeacherStudent');
 
         // Obtenemos todos los estudiantes validados
-        $validStudent = $this->search->validStudent();
+        $validStudent = $this->validStudent();
 
         // Obtenemos todos los estudiantes que no estan validados
         $notValidateStudents = Student::select('students.id')
@@ -160,14 +159,14 @@ class TeachersController extends UsersController
                                         ->get();
 
         // Obtenemos las familias profesionales del profesor
-        $profFamilyTeacher = $this->search->profFamilyTeacher();
+        $profFamilyTeacher = $this->profFamilyTeacher();
 
         // Convertimos el objeto devuelto en un array
         $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
 
         // Obtenemos los estudiantes que no estan validados en base a la familia profesional
         // del profesor
-        $invalidStudent = $this->search->invalidOrValidStudent($notValidateStudents, $this->request, $profFamilyValidate);
+        $invalidStudent = $this->invalidOrValidStudent($notValidateStudents, $this->request, $profFamilyValidate);
 
         // Request
         $request = $this->request;
@@ -198,7 +197,7 @@ class TeachersController extends UsersController
         foreach ($estudiante['estudiante'] as $id => $value) {
 
             // Comprobamos si el alumno se encuentra validado o no
-            $verifiedStudent = $this->search->verifiedStudent($value);
+            $verifiedStudent = $this->verifiedStudent($value);
 
             // Si no esta validado insertamos en la tabla su id junto al del
             // profesor que lo ha validado
@@ -239,19 +238,19 @@ class TeachersController extends UsersController
         $filters = config('filters.verifiedTeacherStudent');
 
         // Obtenemos las familias profesionales del profesor
-        $profFamilyTeacher = $this->search->profFamilyTeacher();
+        $profFamilyTeacher = $this->profFamilyTeacher();
 
         // Convertimos el objeto devuelto en un array
         $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
 
         // Obtenemos todos los estudiantes validados
-        $validStudent = $this->search->validStudent();
+        $validStudent = $this->validStudent();
 
         // Convertimos el objeto devuelto en un array
         $validStudent = array_column($validStudent, 'student_id');
 
         // Obtenemos los estudiantes que estan validados
-        $verifiedStudent = $this->search->invalidOrValidStudent($validStudent, $this->request, $profFamilyValidate);
+        $verifiedStudent = $this->invalidOrValidStudent($validStudent, $this->request, $profFamilyValidate);
 
         // Request
         $request = $this->request;
@@ -280,13 +279,13 @@ class TeachersController extends UsersController
         $filters = config('filters.verifiedTeacherStudent');
 
         // Obtenemos las familias profesionales del profesor
-        $profFamilyTeacher = $this->search->profFamilyTeacher();
+        $profFamilyTeacher = $this->profFamilyTeacher();
 
         // Convertimos el objeto devuelto en un array
         $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
 
         // Obtenemos todos los estudiantes borrados segun la familia profesional del profesor
-        $deniedStudent = $this->search->deniedStudent($this->request, $profFamilyValidate);
+        $deniedStudent = $this->deniedStudent($this->request, $profFamilyValidate);
 
         // Request
         $request = $this->request;
@@ -319,8 +318,8 @@ class TeachersController extends UsersController
         foreach ($estudiante['estudiante'] as $id => $value) {
 
             // Comprobamos que el estudiante esta borrado
-            $deniedStudent = $this->search->deniedOneStudent($value);
-            $user = $this->search->getUser($value, 'student');
+            $deniedStudent = $this->deniedOneStudent($value);
+            $user = $this->getUser($value, 'student');
 
             // Si esta borrado lo restauramos
             if ($deniedStudent && $user) {
@@ -363,7 +362,7 @@ class TeachersController extends UsersController
         $destroyStudent = Student::findorfail($id);
 
         // Obtenemos los datos de usuario
-        $user = $this->search->getUser($id, 'student');
+        $user = $this->getUser($id, 'student');
 
         if ($destroyStudent->deleted_at == null && $user->deleted_at == null) {
 
@@ -447,7 +446,7 @@ class TeachersController extends UsersController
         $filters = config('filters.verifiedOffers');
 
         // Obtenemos todas las ofertas validadas
-        $validOffer = $this->search->validOffer();
+        $validOffer = $this->validOffer();
 
         // Obtenemos todas las ofertas que no estan validadas
         $notValidateOffers = JobOffer::select('jobOffers.id')
@@ -455,14 +454,14 @@ class TeachersController extends UsersController
                                         ->get();
 
         // Obtenemos las familias profesionales del profesor
-        $profFamilyTeacher = $this->search->profFamilyTeacher();
+        $profFamilyTeacher = $this->profFamilyTeacher();
 
         // Convertimos el objeto devuelto en un array
         $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
 
         // Obtenemos las ofertas que no estan validadas en base a la familia profesional
         // del profesor
-        $invalidOffer = $this->search->invalidOrValidOffer($notValidateOffers, $this->request, $profFamilyValidate);
+        $invalidOffer = $this->invalidOrValidOffer($notValidateOffers, $this->request, $profFamilyValidate);
 
         // Request
         $request = $this->request;
@@ -493,7 +492,7 @@ class TeachersController extends UsersController
         foreach ($oferta['oferta'] as $id => $value) {
 
             // Comprobamos si el alumno se encuentra validado o no
-            $verifiedOffer = $this->search->verifiedOffer($value);
+            $verifiedOffer = $this->verifiedOffer($value);
 
             // Si no esta validado insertamos en la tabla su id junto al del
             // profesor que lo ha validado
@@ -533,19 +532,19 @@ class TeachersController extends UsersController
         $filters = config('filters.verifiedOffers');
 
         // Obtenemos las familias profesionales del profesor
-        $profFamilyTeacher = $this->search->profFamilyTeacher();
+        $profFamilyTeacher = $this->profFamilyTeacher();
 
         // Convertimos el objeto devuelto en un array
         $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
 
         // Obtenemos todas las ofertas validadas
-        $validOffer = $this->search->validOffer();
+        $validOffer = $this->validOffer();
 
         // Convertimos el objeto devuelto en un array
         $validOffer = array_column($validOffer, 'jobOffer_id');
 
         // Obtenemos los estudiantes que estan validados
-        $verifiedOffer = $this->search->invalidOrValidOffer($validOffer, $this->request, $profFamilyValidate, true);
+        $verifiedOffer = $this->invalidOrValidOffer($validOffer, $this->request, $profFamilyValidate, true);
 
         // Añadimos las suscripciones
         $verifiedOffer = Parent::getSubscriptions($validOffer, $verifiedOffer);
@@ -580,13 +579,13 @@ class TeachersController extends UsersController
         $filters = config('filters.verifiedOffers');
 
         // Obtenemos las familias profesionales del profesor
-        $profFamilyTeacher = $this->search->profFamilyTeacher();
+        $profFamilyTeacher = $this->profFamilyTeacher();
 
         // Convertimos el objeto devuelto en un array
         $profFamilyValidate = array_column($profFamilyTeacher->toArray(), 'name');
 
         // Obtenemos todas las ofertas borrados segun la familia profesional del profesor
-        $deniedOffer = $this->search->deniedOffer($this->request, $profFamilyValidate);
+        $deniedOffer = $this->deniedOffer($this->request, $profFamilyValidate);
 
         // Request
         $request = $this->request;
@@ -619,7 +618,7 @@ class TeachersController extends UsersController
         foreach ($oferta['oferta'] as $id => $value) {
 
             // Comprobamos que el oferta esta borrado
-            $deniedOffer = $this->search->deniedOneOffer($value);
+            $deniedOffer = $this->deniedOneOffer($value);
 
             // Si esta borrado lo restauramos
             if ($deniedOffer) {
