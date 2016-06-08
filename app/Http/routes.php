@@ -288,6 +288,9 @@ Route::group(['middleware' => ['web', 'auth']], function(){
     ************************************/
     Route::get(config('routes.offerEnterprise.allOffers'), 'OffersController@getEnterpriseOffers');
     Route::get(config('routes.offerEnterprise.viewOffer'), 'OffersController@getOneEnterpriseOffer');
+    Route::get(config('routes.offerEnterprise.offerEdit'), 'OffersController@getOneEnterpriseOfferEdit');
+    Route::post(config('routes.offerEnterprise.postOfferEdit'), 'OffersController@postOfferEdit');
+    Route::get(config('routes.offerEnterprise.updateOffer'), 'OffersController@getOfferUpdate');
 
 
 });

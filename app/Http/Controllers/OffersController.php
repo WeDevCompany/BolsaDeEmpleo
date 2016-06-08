@@ -15,6 +15,8 @@ use App\Http\Requests\DeniedOfferRequest;
 use App\Http\Requests\OfferNotificationRequest;
 use Illuminate\Support\Facades\Session;
 
+use App\Http\Requests\OfferEditRequest;
+
 class OffersController extends UsersController
 {
     // =====================================
@@ -136,11 +138,8 @@ class OffersController extends UsersController
         $idOffer = (int) $idOffer;
         $aux = [$idOffer];
 
-        // Obtenemos las familias profesionales del usuario logueado
-        $profFamilie = $this->search->profFamilyTeacher();
-
         // Llamamos al Search para obtener la oferta seleccionada
-        $offer = $this->search->invalidOrValidOffer($aux, $this->request,$profFamilie);
+        $offer = $this->search->invalidOrValidOffer($aux, $this->request);
 
         if (isset($offer[0])) {
             $offer = $offer[0];
@@ -356,7 +355,14 @@ class OffersController extends UsersController
      */
     public function getOneEnterpriseOffer($idOffer){
         $request = $this->request;
+        //
         return Parent::getOfferByIdEnterprise($idOffer, $request);
+    }
+
+    public function getOneEnterpriseOfferEdit($idOffer){
+        $request = $this->request;
+        // Llamamos al método en modo de edición
+        return Parent::getOfferByIdEnterprise($idOffer, $request, $edit = true);
     }
 
 }

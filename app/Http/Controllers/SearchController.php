@@ -580,6 +580,7 @@ class SearchController extends Controller
         // por cada registro que tenga el campo other
         // se generará un array el cual contendrá
         // las otras etiquetas
+        //dd($value);
         if ($value->others) {
             $aux = explode(",",$value->others);
             foreach ($aux as $key1 => $value1) {
@@ -681,6 +682,7 @@ class SearchController extends Controller
         if(isset($onlyOne)){
              $tagCount = null;
              $comments = null;
+             //dd($query);
               foreach ($add as $keys => $id) {
                 if ($query->idJobOffer == $id->idAdd) {
 

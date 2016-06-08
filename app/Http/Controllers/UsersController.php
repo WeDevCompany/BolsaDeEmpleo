@@ -550,7 +550,7 @@ class UsersController extends Controller
      * se hará por softdeletes
      * @param   $id  id de la oferta de
      */
-    public function getOfferByIdEnterprise($idOffer, $request)
+    public function getOfferByIdEnterprise($idOffer, $request, $edit = false, $onlyOne = false)
     {
         // Saneamos el id que se nos pasa como parametro
         $idOffer = (int) $idOffer;
@@ -559,24 +559,27 @@ class UsersController extends Controller
         $aux = [$idOffer];
         // comprobamos si lo que nos devuelve es un array y si este está vacio o no, en caso de estar vacio
         // se enviará un error 404
-        if($this->search->validOfferEnterprise($idOffer, $this->request, true)){
+        if($this->search->validOfferEnterprise($idOffer, $this->request, $id = true, $onlyOne = true)){
             // Llamamos al Search para obtener la oferta seleccionada
-            $offer = $this->search->validOfferEnterprise($idOffer, $this->request, true);
+            $offer = $this->search->validOfferEnterprise($idOffer, $this->request, $id);
             if (isset($offer[0])) {
-                $offer = (Object) $offer[0];
-                // obtenemos todos los comentarios de la oferta una vez sepamos que la oferta es valida y existe
-                $comments  = $this->search->getComments($idOffer);
 
+                $offer = (Object) $offer[0];
                 // Añadimos las suscripciones
-                $offer = $this->getSubscriptions($aux, $offer, $onlyOne = true);
+                $offer = $this->getSubscriptions($aux, $offer, $onlyOne);
 
                 // Añadimos los tags
-                $offer = $this->getTags($aux, $offer, $onlyOne = true);
-                //dd($comments);
+                $offer = $this->getTags($aux, $offer, $onlyOne);
+
+                $this->search->cleanOtherTags($offer);
                 // Generamos el nombre de la zona de forma dinámica para que
                 // los buscadores puedan mejorar las posibilidades de indexación
                 $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";
-                return view('offer.offer', compact('offer','zona', 'comments'));
+                if($edit) {
+                     $allTags = $this->search->allMapTags();
+                    return view('offer.editForm', compact('offer','zona', 'allTags'));
+                }
+                return view('offer.offer', compact('offer','zona'));
             } else {
                // dd("fuera del 2º if");
                 abort('404');
