@@ -1,4 +1,4 @@
-<div class="form-group{{ $errors->has('family[0]') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('family') ? ' has-error' : '' }}">
     <div class="row">
         <div class="input-field col-md-12">
 	        {{ Form::label('family[0]', 'Familia profesional correspondiente',['style' => 'margin-top: -3em']) }}
@@ -11,9 +11,9 @@
 					@endif
 				@endforeach
 		    </select>
-		    @if ($errors->has('family[0]'))
+		    @if ($errors->has('family'))
                 <span class="help-block">
-                    <strong>{{ $errors->first('family[0]') }}</strong>
+                    <strong>{{ $errors->first('family') }}</strong>
                 </span>
             @endif
 		</div>

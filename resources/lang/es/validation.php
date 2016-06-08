@@ -96,6 +96,8 @@ return [
     'valid_student_notification' => 'Uno o varios estudiantes no son válidos',
     'valid_teacher_notification' => 'Uno o varios profesores no son válidos',
     'valid_offer_notification'   => 'Uno o varias ofertas no son válidas',
+    'valid_student_profFamilies' => 'La familia profesional es inválida',
+    'valid_student_cycles' => 'El ciclo es inválido',
 
     /*
     |--------------------------------------------------------------------------

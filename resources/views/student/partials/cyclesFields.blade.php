@@ -1,4 +1,4 @@
-        <div class="form-group{{ $errors->has('cycle[0]') ? ' has-error' : '' }}">
+        <div class="form-group{{ $errors->has('cycle') ? ' has-error' : '' }}">
             <div class="row">
                 <div class="input-field col-md-12">
                     {{ Form::label('cycle[0]', 'Ciclos cursados',['class' => 'label-select']) }}
@@ -23,15 +23,15 @@
 							<option value="{{ $cycle['id'] }}">[{{ $cycle['level'] }}] {{ $cycle['name'] }}</option>
 						@endforeach
 				    </select>
-				    @if ($errors->has('cycle[0]'))
+				    @if ($errors->has('cycle'))
 		                <span class="help-block">
-		                    <strong>{{ $errors->first('cycle[0]') }}</strong>
+		                    <strong>{{ $errors->first('cycle') }}</strong>
 		                </span>
 		            @endif
                 </div>
             </div>
         </div>
-        <div class="form-group{{ $errors->has('yearFrom[0]') ? ' has-error' : ''  }} form-group{{ $errors->has('yearTo[0]') ? ' has-error' : '' }}">
+        <div class="form-group{{ $errors->has('yearFrom') ? ' has-error' : ''  }} form-group{{ $errors->has('yearTo') ? ' has-error' : '' }}">
             <div class="row">
 		        <div class="input-field col-md-6 divdate">
         		    <label for="yearFrom[0]" class="divdatelab">A&ntilde;o de inicio</label>
@@ -40,9 +40,9 @@
 							<option value="{{ $i }}">{{ $i }}</option>
 						@endfor
 		            </select>
-		            @if ($errors->has('yearFrom[0]'))
+		            @if ($errors->has('yearFrom'))
 		                <span class="help-block">
-		                    <strong>{{ $errors->first('yearFrom[0]') }}</strong>
+		                    <strong>{{ $errors->first('yearFrom') }}</strong>
 		                </span>
 		            @endif
         		</div>
@@ -53,9 +53,9 @@
 							<option value="{{ $i }}">{{ $i }}</option>
 						@endfor
 		            </select>
-		            @if ($errors->has('yearTo[0]'))
+		            @if ($errors->has('yearTo'))
 		                <span class="help-block">
-		                    <strong>{{ $errors->first('yearTo[0]') }}</strong>
+		                    <strong>{{ $errors->first('yearTo') }}</strong>
 		                </span>
 		            @endif
         		</div>

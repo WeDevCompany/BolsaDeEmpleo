@@ -68,7 +68,6 @@ class AppServiceProvider extends ServiceProvider
         */
         Validator::extend('cycleYearFrom', function($attribute, $value, $parameters, $form) 
         {
-
             // Variable para la fecha actual
             $date = date('Y');
             $fechaActual = (int)$date;
@@ -79,35 +78,37 @@ class AppServiceProvider extends ServiceProvider
             // Recorremos todas las fechas
             for ($a = 0; $a < count($value) ; $a++) { 
                 
-                $yearTo = (int)$field['yearTo'][$a];
-                $yearFrom = (int)$field['yearFrom'][$a];
-                $z = 0;
-                
-                if ($yearFrom < 1990 || $yearFrom > $fechaActual || $yearTo > $fechaActual || $yearTo == $yearFrom || $yearTo < $yearFrom) {
-                    return false;
+                if (isset($field['yearTo'][$a]) && isset($field['yearFrom'][$a])) {
 
-                }
+                    $yearTo = (int)$field['yearTo'][$a];
+                    $yearFrom = (int)$field['yearFrom'][$a];
+                    $z = 0;
 
-                // Recorremos los años guardados y si coinciden con alguno de 
-                // los que el alumno escribio anteriormente dara error la validacion
-                if (count($this->year) != 0) {
+                    if ($yearFrom < 1990 || $yearFrom > $fechaActual || $yearTo > $fechaActual || $yearTo == $yearFrom || $yearTo < $yearFrom) {
+                        return false;
 
-                    for ($i = 0; $i < count($this->year); $i++) {
-                    
-                        if($this->year[$i] == $yearFrom || $this->year[$i] == $yearTo){
-                            return false;
-                        }
                     }
 
+                    // Recorremos los años guardados y si coinciden con alguno de 
+                    // los que el alumno escribio anteriormente dara error la validacion
+                    if (count($this->year) != 0) {
+
+                        for ($i = 0; $i < count($this->year); $i++) {
+                        
+                            if($this->year[$i] == $yearFrom || $this->year[$i] == $yearTo){
+                                return false;
+                            }
+                        }
+
+                    }
+                        
+                    // Recorremos los años de un ciclo y los guardamos en una variable
+                    for ($j = $yearFrom + 1; $j < $yearTo; $j++) {
+                        
+                        $this->year[$z] = $j;
+                        $z++;
+                    }
                 }
-                    
-                // Recorremos los años de un ciclo y los guardamos en una variable
-                for ($j = $yearFrom + 1; $j < $yearTo; $j++) {
-                    
-                    $this->year[$z] = $j;
-                    $z++;
-                }
-                
             }
             return true;
 
@@ -306,6 +307,30 @@ class AppServiceProvider extends ServiceProvider
 
             return true;
 
+        });
+
+        Validator::extend('validStudentProfFamilies', function($attribute, $id, $parameters)
+        {
+            foreach ($id as $key => $value) {
+                $profFamilies = $this->search->existsProfFamily($value);
+
+                if (!$profFamilies) {
+                    return false;
+                }
+            }
+            return true;
+        });
+
+        Validator::extend('validStudentCycles', function($attribute, $id, $parameters)
+        {
+            foreach ($id as $key => $value) {
+                $cycles = $this->search->existsCycle($value);
+
+                if (!$cycles) {
+                    return false;
+                }
+            }
+            return true;
         });
 
     }

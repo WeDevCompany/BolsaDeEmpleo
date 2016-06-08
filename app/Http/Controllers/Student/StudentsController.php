@@ -30,16 +30,16 @@ class StudentsController extends UsersController
             'phone'             => 'required|digits_between:9,13',
             'road'              => 'required|in:'.$roads,
             'address'           => 'required|between:6,225',
-            //'curriculum'        => 'required|mimes:pdf',
+            'curriculum'        => 'required|mimes:pdf',
 
             // El nombre es debido a datepicker
             'birthdate'  => 'required|date',
 
             // Reglas de los ciclos.
-            //'family'            => 'required|exists:profFamilies,name',
-            //'cycle'            => 'required|exists:cycles,name',
-            //'yearFrom'          => 'required|digits:4|cycleYearFrom',
-            //'yearTo'            => 'required|digits:4',
+            'family'            => 'required|validStudentProfFamilies',
+            'cycle'            => 'required|validStudentCycles',
+            'yearFrom'          => 'required|cycleYearFrom',
+            'yearTo'            => 'required',
         ];
         $this->rules_curriculum = [
             'file' => 'required|mimes:pdf',

@@ -16,7 +16,7 @@ class Student extends Model
 
 	protected $fillable = [
        'firstName', 'lastName', 'dni', 'nre', 'phone', 'road',
-       'address', /*'curriculum',*/ 'birthdate', 'user_id',
+       'address', 'curriculum', 'birthdate', 'user_id',
     ];
 
     // Relaciones one to one
