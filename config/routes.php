@@ -177,9 +177,6 @@ return [
             'enterpriseIndex'              => '/empresa',
             'enterprisePerfil'             => '/empresa/perfil',
             'enterpriseUploadImg'          => '/empresa/uploadImage',
-            'viewOffer'                    => '/empresa/oferta/{idOffer}',
-            'updateOffer'                  => '/empresa/oferta/actualizar/{idOffer}',
-
         ],
     'enterpriseRoutes'    =>
         [
@@ -209,11 +206,12 @@ return [
     'offerEnterprise' =>
         [
             'allOffers'             => 'ofertas',
+            'viewOffer'             => 'empresa/oferta/{idOffer}',
             'newOffer'              => 'empresa/oferta/nueva-offerta',
             'offerEdit'             => 'empresa/oferta/editar/{idOffer}',
             'postOfferEdit'         => 'empresa/oferta/editar-oferta',
-            'offerDelete'           => 'administrador/oferta/borrar/{idOffer}',
-            'updateOffer'           => 'administrador/oferta/actualizar/{idOffer}',
+            'offerDelete'           => 'empresa/oferta/borrar/{idOffer}',
+            'updateOffer'           => 'empresa/oferta/actualizar/{idOffer}',
         ],
     'files'    =>
         [

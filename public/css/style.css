@@ -754,7 +754,8 @@ div.drop:hover {
   Ofertas
 ****************/
 .oferta {
-    border: 2px #CFD8DC solid;
+    /*border: 2px #CFD8DC solid;*/
+    border: 2px #00E676 solid;
     margin-bottom: 5px;
     border-radius:5px;
 }

@@ -287,6 +287,7 @@ Route::group(['middleware' => ['web', 'auth']], function(){
         Oferta Empresa
     ************************************/
     Route::get(config('routes.offerEnterprise.allOffers'), 'OffersController@getEnterpriseOffers');
+    Route::get(config('routes.offerEnterprise.viewOffer'), 'OffersController@getOneEnterpriseOffer');
 
 
 });

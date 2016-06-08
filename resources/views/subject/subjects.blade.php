@@ -11,7 +11,7 @@
 	<div class="container">
 	    <div class="row sin-margen">
 	    	<div class="col-md-12 sin-margen">
-	    		<div class="panel panel-default">
+	    		<div class="panel panel-default animated zoomIn">
 	    			<div class="modal-content">
 	    				<!-- Titulo -->
 			            <div class="modal-header text-center">

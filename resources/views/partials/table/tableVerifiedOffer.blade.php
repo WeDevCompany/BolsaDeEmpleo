@@ -9,7 +9,7 @@
         </p>
     </div>
 </div>
-<main>
+<main class="animated zoomIn">
     <div class="scroll">
     {{-- Comprobamos si existen ofertas verificadas --}}
         @if(isset($verifiedOffer))

@@ -9,7 +9,7 @@
 
 @section('content')
 @include('partials.nav.navParent')
-	<main>
+	<main class="animated zoomIn">
 		<div class="container">
 			<div class="row">
 	            <div class="panel panel-default sin-margen ancho modal-content">

@@ -8,6 +8,7 @@ use App\JobOffer;
 use App\Tag;
 use App\ProfFamilie;
 use App\Enterprise;
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\SearchController;
 use App\Http\Requests\DeniedOfferRequest;
@@ -292,8 +293,11 @@ class OffersController extends UsersController
 
     } // getOfferUpdate()
 
-
-    public function getEnterpriseOffers(){
+    /**
+     * método que muestra todas las ofertas de una empresa
+     * @param  boolean $truncate Si queremos truncar la oferta o no, por defecto se trunca
+     */
+    public function getEnterpriseOffers($truncate = true){
         $idUser = \Auth::user()->id;
         // comprobamos obtenemos el id de la empresa
        $enterprise = $this->search->getEnterpriseId($idUser);
@@ -302,18 +306,57 @@ class OffersController extends UsersController
             $request = $this->request;
             $verifiedOffer = $this->search->validOfferEnterprise($idEnterprise, $request);
             $urlSearch = config('routes.offerEnterprise.allOffers');
-            /*dd($verifiedOffer);
+            $idOffer = [];
+            foreach ($verifiedOffer as $key => $value) {
+                $idOffer[] = $value->idJobOffer;
+            }
+            //dd($verifiedOffer);
             $tag = $this->search->offerTag($idOffer);
-            $verifiedOffer = $this->search->arrayMap($verifiedOffer, $tag, 'tag', true);
 
-            $allTags = $this->search->allMapTags();*/
+            $verifiedOffer = $this->search->arrayMap($verifiedOffer, $tag, 'tag');
 
-            return view('generic.verified.verifiedOffer', compact('verifiedOffer', 'urlSearch' , 'request'));
+            $allTags = $this->search->allMapTags();
+
+            if ($truncate) {
+
+            $descriptionLength = 250;
+
+            foreach ($verifiedOffer as $key => $value) {
+                //dd(mb_strlen($value->description));
+
+                if (mb_strlen($value->description) > $descriptionLength) {
+
+                    $value->description = mb_substr($value->description, 0, $descriptionLength) . '...';
+
+                }
+                // llamamos al método que nos seteará las otras etiquetas en caso de haberlas
+                $this->search->cleanOtherTags($value);
+
+            }
+        } else {
+            $this->search->setOtherTags($verifiedOffer);
+        }
+            // Variable que necesitamos pasarle a la vista para poder ver los fitros
+            $filters = config('filters.verifiedOffers');
+
+            // Variale de zona
+            $zona = config('zona.admitidos.empresa');
+
+            return view('generic.verified.verifiedOffer', compact('verifiedOffer', 'filters', 'zona','urlSearch' , 'request'));
         }
 
         // sino eres una empresa, desconfiamos
         $error = true;
         return view('errors.404', compact('error'));
+    }// getEnterpriseOffers()
+
+    /**
+     * Método que muestra una oferta perteneciente a una empresa
+     * @param  Integer $idOffer ID de la ofeta a vere
+     */
+    public function getOneEnterpriseOffer($idOffer){
+        $request = $this->request;
+        return Parent::getOfferByIdEnterprise($idOffer, $request);
     }
 
 }

@@ -11,7 +11,7 @@
         <!-- titulo de la section-->
 
         <!--Cards section-->
-        <div class="container page-content container-card">
+        <div class="container page-content container-card animated zoomIn">
         <div class="container-fluid centrado">
             <h3>¿Qué hacemos?</h3>
         </div>
@@ -69,7 +69,7 @@
         @include('partials.parallax.parallaxWelcome')
 
         <!-- Contact information-->
-        <div class="container-fluid">
+        <div class="container-fluid animated zoomIn">
             <div class="row">
               <div class="col-md-6 centrado">
                     <h3><i class="fa fa-paper-plane"></i> Información de contacto</h3>

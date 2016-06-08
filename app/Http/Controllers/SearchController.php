@@ -11,6 +11,7 @@ use App\Cycle;
 use App\Subject;
 use App\Enterprise;
 use App\Tag;
+use App\ProfFamilie;
 
 use App\Http\Requests;
 
@@ -452,7 +453,7 @@ class SearchController extends Controller
     /**
      * Metodo que obtiene todas las ofertas de trabajo validadas
      */
-    public function validOfferEnterprise($id, $request)
+    public function validOfferEnterprise($id, $request, $idOffer = false)
     {
         // Obtenemos todas las ofertas validadas
        $validOffer = Enterprise::name($request->get('name'))
@@ -463,11 +464,32 @@ class SearchController extends Controller
                             ->join('profFamilies as pf', 'pf.id', '=', 'jo.profFamilie_id')
                             ->join('users', 'users.id', '=', 'user_id')
                             ->join('cities', 'cities.id', '=','wc.citie_id')
-                            ->join('states', 'states.id', '=','cities.state_id')
-                            ->where('enterprises.id', $id);
+                            ->join('states', 'states.id', '=','cities.state_id');
+                            if(!$idOffer) {
+                               $validOffer = $validOffer->where('enterprises.id', $id);
+                            } else {
+                                $validOffer = $validOffer->where('jo.id', $id);
+                            }
+
        return $validOffer->paginate();
 
     } // validOffer()
+
+    public function existsProfFamily($idProfFamily)
+        {
+            $profFamilies = ProfFamilie::where('id', '=', $idProfFamily)->first();
+
+            return $profFamilies;
+
+        } // existsProfFamily()
+
+        public function existsCycle($idCycle)
+        {
+            $Cycles = Cycle::where('id', '=', $idCycle)->first();
+
+            return $Cycles;
+
+        } // existsCycle()
 
     /**
      * Método que obtiene todas las ofertas de trabajo ya sea filtradas por una familia profesional para un profesor

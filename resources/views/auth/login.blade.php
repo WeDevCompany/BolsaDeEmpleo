@@ -10,7 +10,7 @@
 <div class="container sin-padding">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+            <div class="panel panel-default animated zoomIn">
                 <div class="modal-content">
                 <div class="modal-header text-center">
                     <h4><i class="fa fa-user"></i> Login</h4>

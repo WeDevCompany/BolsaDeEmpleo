@@ -11,7 +11,7 @@
 @include('partials.nav.navParent')
 <div class="container">
     <div class="row">
-        <div class="col-md-12 sin-margen">
+        <div class="col-md-12 sin-margen animated zoomIn">
             <div class="panel panel-default">
                 <div class="modal-content">
                     <div class="modal-header text-center">

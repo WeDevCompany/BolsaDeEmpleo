@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 sin-margen">
-            <div class="panel panel-default">
+            <div class="panel panel-default animated zoomIn">
                 <div class="modal-content">
                     <div class="modal-header text-center">
                         <h4><i class="fa fa-university"></i>Formulario de alta de profesores</h4>
