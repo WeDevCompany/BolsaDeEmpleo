@@ -550,6 +550,19 @@ class SearchController extends Controller
 
     } // allTags()
 
+    // Funcion que obtiene todas las ProfFamilies
+    public function allMapProfFamilies()
+    {
+        $profFamilie = ProfFamilie::select('name')->where('active', '=', 1)->get();
+
+        foreach ($profFamilie as $key => $value) {
+            $allProfFamilies[$value->name] = $value->name;
+        }
+
+        return $allProfFamilies;
+
+    } // allProfFamilies()
+
     /**
      * Método que extrae todos los comentarios de una oferta
      * @param  Integer $idOffer Id de la oferta que queremos obtener

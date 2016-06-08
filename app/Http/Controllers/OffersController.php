@@ -151,9 +151,11 @@ class OffersController extends UsersController
 
         $allTags = $this->search->allMapTags();
 
+        $allProfFamilies = $this->search->allMapProfFamilies();
+
         $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";
 
-        return view('offer/editForm', compact('offer','zona', 'allTags'));
+        return view('offer/editForm', compact('offer','zona', 'allTags', 'allProfFamilies'));
 
     } // getOfferEdit()
 
