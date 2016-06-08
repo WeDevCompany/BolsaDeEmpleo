@@ -68,3 +68,6 @@ enterpriseRegisterForm.after('<script src="/js/funcionalidad/addEnterpriseRespon
 
 // Añadimos el js encargado de gestionar las peticiones ajax
 enterpriseRegisterForm.after('<script src="/js/forms/enterpriseFormActions.js"></script>');
+
+// Añadimos el js encargado de gestionar las peticiones ajax
+enterpriseRegisterForm.after('<script src="/js/funcionalidad/addCities.js"></script>');

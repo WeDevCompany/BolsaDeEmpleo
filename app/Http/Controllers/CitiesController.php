@@ -59,7 +59,7 @@ class CitiesController extends Controller
      * @return JSON | abort      JSON con la información de la consulta
      *                           Abort en caso de que el ID no sea valido
      */
-    public function getCyclesJSON($stateId = 0){
+    public function getCitiesJSON($stateId = 0){
         // Tratamos el ID
         $stateId = (int) $stateId;
         // coprobamos que el id es valido

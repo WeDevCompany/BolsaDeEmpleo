@@ -29,3 +29,25 @@ $('#btnAddEnterpriseResponsable').click(function(){
     }
 
 }); // $('#btnAddEnterpriseResponsable').click
+
+$('#state').on('change', function(e) {
+
+    // Almaceno el valor que ha tomado el select
+    var stateId = e.target.value;
+    var variable = e.target.id;
+
+    if( variable.substring(0,5) == 'state' ){
+
+        // Borramos todo el campo
+        $('#restore-citie').children().remove();
+
+        // Iniciamos el spin de ciclos
+        //spin.spinOn('C', null, true, 'restore-citie');
+
+        // Preparo los parametros
+        method_params = [null, 'restore-citie'];
+
+        // Lanzo la peticion ajax con los ciclos
+        ajax.callAjax('GET', '/json/cities/'+stateId, "cities", "addCity", method_params);
+    }
+}); // $('#state').on

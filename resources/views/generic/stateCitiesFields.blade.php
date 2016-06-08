@@ -17,13 +17,17 @@
                 </span>
             @endif
         </div>
-        <div class="input-field col-md-8">
+        <div class="input-field col-md-8 media-margin">
             {{ Form::label('citie', 'Ciudad(*)',['class' => "label-select"]) }}
-            <select name="citie" class="chosen-select form-control" id="citie">
-                @foreach($cities as $ArrayId => $citie)
-                    <option value="{{ $citie['id'] }}">{{ $citie['name'] }}</option>
-                @endforeach
-            </select>
+            <div id="restore-citie">
+                <div id="citie-div">
+                    <select name="citie" class="chosen-select form-control" id="citie">
+                        @foreach($cities as $ArrayId => $citie)
+                            <option value="{{ $citie['id'] }}">{{ $citie['name'] }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
             @if ($errors->has('city'))
                 <span class="help-block">
                     <strong>{{ $errors->first('city') }}</strong>
