@@ -33,9 +33,9 @@ class EnterprisesController extends UsersController
             'address'           => 'required|between:6,225',
             'state'             => 'required',
             'citie'             => 'required',
-            'firstName'         => 'required|between:2,45|regex:/^[A-Za-z0-9 ]+$/',
-            'dni'               => 'required|min:9|unique:enterpriseResponsables,dni|allDni',
-            'lastName'          => 'required|between:2,75|regex:/^[A-Za-z0-9 ]+$/',
+            'firstName'         => 'required',
+            'dni'               => 'required|unique:enterpriseResponsables,dni|allDni',
+            'lastName'          => 'required',
         ];
         $this->rol = 'empresa';
         $this->redirectTo = "/empresa";
@@ -121,7 +121,7 @@ class EnterprisesController extends UsersController
         $data = $this->request->all();
 
         try {
-            
+
             $insertWorkCenter = WorkCenter::create([
                 'road'              => $data['road'],
                 'address'           => $data['address'],
@@ -131,7 +131,7 @@ class EnterprisesController extends UsersController
                 'phone2'            => $data['phone2'],
                 'fax'               => $data['fax'],
                 'enterprise_id'     => $enterprise['id'],
-                'citie_id'          => $data['city'][0],
+                'citie_id'          => $data['citie'],
                 'principalCenter'   => true,
                 'created_at'        => date('YmdHmsY')
             ]);

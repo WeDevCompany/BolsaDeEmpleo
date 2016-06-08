@@ -463,7 +463,7 @@
         * @return Booblean false | true    False = En caso de que haya error
         *                                  True = En caso de que no haya error
         */
-        ValidCIF: function (object, id, error, campo){
+        validCIF: function (object, id, error, campo){
 
             // Declaracion de variables
             var sum, num = [], controlDigit;
