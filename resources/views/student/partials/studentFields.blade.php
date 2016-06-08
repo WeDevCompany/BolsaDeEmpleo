@@ -62,7 +62,7 @@
             <div class="input-field col-md-4">
                 <i class="material-icons prefix">fingerprint</i>
                 {{ Form::label('nre', 'NRE') }}
-                {{ Form::text('nre', null, ['class' => 'form-control']) }}
+                {{ Form::text('nre', null, ['class' => 'form-control', 'id' => '']) }}
                 @if ($errors->has('nre'))
                     <span class="help-block">
                         <strong>{{ $errors->first('nre') }}</strong>

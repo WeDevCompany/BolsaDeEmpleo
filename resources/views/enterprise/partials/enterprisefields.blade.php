@@ -2,8 +2,8 @@
         <div class="row">
             <div class="input-field col-md-8">
                 <i class="material-icons prefix">copyright</i>
-                {{ Form::label('name', 'Nombre') }}
-                {{ Form::text('name', null, ['class' => 'form-control']) }}
+                {{ Form::label('name', 'Nombre(*)') }}
+                {{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
                 @if ($errors->has('name'))
                     <span class="help-block">
                         <strong>{{ $errors->first('name') }}</strong>
@@ -12,8 +12,8 @@
             </div>
             <div class="input-field col-md-4">
                 <i class="material-icons prefix">fingerprint</i>
-                {{ Form::label('cif', 'CIF') }}
-                {{ Form::text('cif', null, ['class' => 'form-control']) }}
+                {{ Form::label('cif', 'CIF(*)') }}
+                {{ Form::text('cif', null, ['class' => 'form-control', 'id' => 'cif']) }}
                 @if ($errors->has('cif'))
                     <span class="help-block">
                         <strong>{{ $errors->first('cif') }}</strong>
@@ -40,7 +40,7 @@
         <div class="row">
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">info</i>
-                {{ Form::label('description', 'Descripción') }}
+                {{ Form::label('description', 'Descripción(*)') }}
                 {{ Form::text('description', null, ['max-lenght' => '200', 'class' => 'form-control']) }}
                 @if ($errors->has('description'))
                     <span class="help-block">

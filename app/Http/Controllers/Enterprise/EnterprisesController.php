@@ -18,24 +18,24 @@ class EnterprisesController extends UsersController
 
 	public function __construct(Request $request)
     {
+        $roads = implode(',', config('roads.road'));
         Parent::__construct($request);
         $this->rules += [
-            'name'              => 'required',
+            'name'              => 'required|between:2,145|regex:/^[A-Za-z0-9 ]+$/',
             'cif'               => 'required',
-            'web'               => 'required',
-            'description'       => 'required',
-            'nameWorkCenter'    => 'required',
-            'emailContact'      => 'required',
-            'phone1'            => 'required',
-            'phone2'            => 'required',
-            'fax'               => 'required',
-            'road'              => 'required',
-            'address'           => 'required',
+            'web'               => 'between:2,200',
+            'description'       => 'required|between:6,225',
+            'nameWorkCenter'    => 'required|between:2,200|regex:/^[A-Za-z0-9 ]+$/|unique:workCenters,name',
+            'emailContact'      => 'required|between:2,75|email',
+            'phone1'            => 'required|digits_between:9,13',
+            'phone2'            => 'digits_between:9,13',
+            'road'              => 'required|in:'.$roads,
+            'address'           => 'required|between:6,225',
             'state'             => 'required',
             'citie'             => 'required',
-            'firstName'         => 'required',
-            'dni'               => 'required',
-            'lastName'          => 'required',
+            'firstName'         => 'required|between:2,45|regex:/^[A-Za-z0-9 ]+$/',
+            'dni'               => 'required|min:9|unique:enterpriseResponsables,dni|allDni',
+            'lastName'          => 'required|between:2,75|regex:/^[A-Za-z0-9 ]+$/',
         ];
         $this->rol = 'empresa';
         $this->redirectTo = "/empresa";
@@ -45,7 +45,7 @@ class EnterprisesController extends UsersController
     {
         // Comenzamos la transaccion.
         \DB::beginTransaction();
-dd($this->request);
+
         $user = Parent::store();
 
         if($user === false){
