@@ -53,7 +53,7 @@
                                                 <br>
 
                                                 <!--Triggering button-->
-                                                <a class="rotate-btn" data-card="card-1"><i class="fa fa-undo"> Volver</i></a>
+                                                <a class="rotate-btn btn btn-primary" data-card="card-1">Volver</a>
                                                 <div class="sm-container">
                                                     <ul class="list-inline card-sm">
                                                         <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a></li>
@@ -107,7 +107,7 @@
                                                 <br>
 
                                                 <!--Triggering button-->
-                                                <a class="rotate-btn" data-card="card-2"><i class="fa fa-undo"> Volver</i></a>
+                                                <a class="rotate-btn btn btn-primary" data-card="card-2">Volver</a>
                                                 <div class="sm-container">
                                                     <ul class="list-inline card-sm">
                                                         <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a></li>
@@ -160,7 +160,7 @@
                                                 <br>
 
                                                 <!--Triggering button-->
-                                                <a class="rotate-btn" data-card="card-3"><i class="fa fa-undo"> Volver</i></a>
+                                                <a class="rotate-btn btn btn-primary" data-card="card-3">Volver</a>
                                                 <div class="sm-container">
                                                     <ul class="list-inline card-sm">
                                                         <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a></li>
