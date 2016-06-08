@@ -22,7 +22,7 @@ class EnterprisesController extends UsersController
         Parent::__construct($request);
         $this->rules += [
             'name'              => 'required|between:2,145|regex:/^[A-Za-z0-9 ]+$/',
-            'cif'               => 'required',
+            'cif'               => 'required|unique:enterprises,cif|cif',
             'web'               => 'between:2,200',
             'description'       => 'required|between:6,225',
             'nameWorkCenter'    => 'required|between:2,200|regex:/^[A-Za-z0-9 ]+$/|unique:workCenters,name',

@@ -11,7 +11,7 @@ use Session;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\ConfirmationRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\SearchController;
+use App\Http\Traits\Search;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
