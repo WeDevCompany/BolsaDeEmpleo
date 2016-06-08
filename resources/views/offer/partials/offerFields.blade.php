@@ -56,9 +56,8 @@
                                 <div style="margin: 1em 0 1em" class="control-group{{ $errors->has('wanted') ? ' has-error' : '' }} control-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                     <div class="row">
                                         <div class="input-field col-md-6">
-                                            <i class="fa fa-book prefix" aria-hidden="true"></i>
-                                            {{ Form::text('name', null,['id' => "name"]) }}
-                                            {{ Form::label('name', 'Familia profesional') }}
+                                            {{ Form::select('name', $allProfFamilies, null,['id' => "name", 'class' => 'select form-control']) }}
+                                            {{ Form::label('name', 'Familia profesional', ['class' => 'label-select-minor']) }}
                                             @if ($errors->has('name'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('name') }}</strong>

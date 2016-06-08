@@ -576,8 +576,9 @@ class UsersController extends Controller
                 // los buscadores puedan mejorar las posibilidades de indexación
                 $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";
                 if($edit) {
-                     $allTags = $this->search->allMapTags();
-                    return view('offer.editForm', compact('offer','zona', 'allTags'));
+                    $allTags = $this->search->allMapTags();
+                    $allProfFamilies = $this->search->allMapProfFamilies();
+                    return view('offer.editForm', compact('offer','zona', 'allTags', 'allProfFamilies'));
                 }
                 return view('offer.offer', compact('offer','zona'));
             } else {
