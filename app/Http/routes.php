@@ -99,6 +99,10 @@ Route::group(['prefix' => 'json', 'middleware' => 'web'], function () {
 
     // Notificaciones
     Route::get('notifications', 'UsersController@getNotificationsJSON');
+
+    // Ciclos
+    Route::get('cities/{stateId}', 'CyclesController@getCyclesJSON');
+
 });
 
 // Grupo de rutas para los administradores
@@ -165,9 +169,6 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
 
     // Visualización de una sola oferta
     Route::get(config('routes.adminRoutes.viewOffer'), 'AdminsController@getOfferById');
-
-    // Ciclos
-     Route::get('cities/{stateId}', 'CyclesController@getCyclesJSON');
 
 });
 
@@ -294,6 +295,8 @@ Route::group(['middleware' => ['web', 'auth']], function(){
     Route::get(config('routes.offerEnterprise.offerEdit'), 'OffersController@getOneEnterpriseOfferEdit');
     Route::post(config('routes.offerEnterprise.postOfferEdit'), 'OffersController@postOfferEdit');
     Route::get(config('routes.offerEnterprise.updateOffer'), 'OffersController@getOfferUpdate');
+    Route::get(config('routes.offerEnterprise.newOffer'), 'OffersController@getNewOffer');
+    Route::post(config('routes.offerEnterprise.newOffer'), 'OffersController@getOfferUpdate');
 
 
 });

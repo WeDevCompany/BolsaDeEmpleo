@@ -8,7 +8,7 @@
     <div class="container page-content">
     <div class="row">
         <div class="col-md-12 sin-margen">
-            <div class="panel panel-default animated zoomIn">
+            <div class="panel panel-default wow animated zoomIn">
                 <div class="modal-content">
                     <div class="modal-header text-center">
                         <h4>¿Quiénes Somos?</h4>

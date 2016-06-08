@@ -358,7 +358,10 @@ class OffersController extends UsersController
         //
         return Parent::getOfferByIdEnterprise($idOffer, $request);
     }
-
+    /**
+     * método que
+     * @param  Integer $idOffer ID de la oferta
+     */
     public function getOneEnterpriseOfferEdit($idOffer){
         $request = $this->request;
         // Llamamos al método en modo de edición
