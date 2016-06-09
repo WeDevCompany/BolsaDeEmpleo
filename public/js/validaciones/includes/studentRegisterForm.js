@@ -45,9 +45,6 @@ studentRegisterForm.after('<script src="/js/validaciones/password.js"></script>'
 // Script de validación de la confirmacion de la contraseña
 studentRegisterForm.after('<script src="/js/validaciones/passwordConfirmation.js"></script>');
 
-// Script de validación de los años cursados
-studentRegisterForm.after('<script src="/js/validaciones/cycleYear.js"></script>');
-
 // Script de validación del nre
 studentRegisterForm.after('<script src="/js/validaciones/nre.js"></script>');
 

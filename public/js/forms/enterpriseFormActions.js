@@ -42,7 +42,7 @@ $('#state').on('change', function(e) {
         $('#restore-citie').children().remove();
 
         // Iniciamos el spin de ciclos
-        //spin.spinOn('C', null, true, 'restore-citie');
+        //spin.spinOn('C', '', true, 'restore-citie');
 
         // Preparo los parametros
         method_params = [null, 'restore-citie'];

@@ -48,27 +48,6 @@ class StudentsController extends UsersController
         $this->redirectTo = "/estudiante";
     }
 
-    protected function index(){
-        // Llamo al metodo getAllProfFamilies del controlador de las familias profesionales
-        $profFamilies = app(ProfFamiliesController::class)->getAllProfFamilies();
-
-        // Obtengo el identificador de la primera familia profesional
-        $familyId = array_keys($profFamilies)[0];
-
-        // Obtengo los ciclos de la primera familia
-        $cycles = app(CyclesController::class)->getAllCycles($familyId);
-        $zona = 'Registro de estudiantes';
-
-        // Inicializo las variables que necesitare para los optgroups
-        $basico = true;
-        $medio = true;
-        $superior = true;
-
-        // Devuelvo la vista junto con las familias
-        return view('student.registerForm', compact('profFamilies', 'cycles', 'zona', 'basico', 'medio', 'superior'));
-
-    } // index()
-
     protected function store()
     {
 
@@ -141,12 +120,19 @@ class StudentsController extends UsersController
             // Obtenemos el nombre del curriculum del cliente
             $nombreCurriculum = $this->generarCodigo();
 
-            // Sustituimos el archivo por el nombre del curriculum para insertar solo el nombre en la base de datos
-            $this->request['curriculum'] = $nombreCurriculum;
-            dd($this->request['curriculum']);
             // Insertamos el estudiante
             $insert = Student::create([
-                
+                'firstName' => $this->request['firstName'],
+                'lastName' => $this->request['lastName'],
+                'dni' => $this->request['dni'],
+                'nre' => $this->request['nre'],
+                'phone' => $this->request['phone'],
+                'road' => $this->request['road'],
+                'address' => $this->request['address'],
+                'curriculum' => $nombreCurriculum,
+                'birthdate' => $this->request['birthdate'],
+                'user_id' => $this->request['user_id'],
+                'created_at' => date('YmdHms'),
             ]);
 
             // Creamos la carpeta de curriculum del usuario y lo guardamos
@@ -318,6 +304,8 @@ class StudentsController extends UsersController
 
             }
         }
+
+        return true;
              
     } // sendEmailTeacher()
 
