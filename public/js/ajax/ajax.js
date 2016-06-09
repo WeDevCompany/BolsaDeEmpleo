@@ -1,5 +1,5 @@
 /*
- * Clase ajax, esta clase contendrá un objeto de tipo Ajax encargado de realizar 
+ * Clase ajax, esta clase contendrá un objeto de tipo Ajax encargado de realizar
  * todas las peticiones necesarias al servidor y de devolver false o el objeto json.
  * @author Eduardo López Pardo
  * @version  11/05/16
@@ -17,16 +17,16 @@
                 $.ajax({
                     // la URL para la petición
                     url : url,
-                 
+
                     // Asignamos el metodo de la peticion (GET, POST...)
                     type : method,
-                 
+
                     // Establecemos su asincronia
                     async : true,
 
                     // Establecemos el tipo de respuesta
                     dataType : 'json',
-                 
+
                     // Marcamos como true el uso de la memoria caché
                     cache : true,
 
@@ -43,7 +43,7 @@
                             success = json;
                         }
                     }, // success
-                 
+
                     // Función en caso de error
                     error : function(response, textStatus) {
                         if (response.status === 0) {
@@ -72,7 +72,7 @@
                             spin.spinOff('Other', method_params[2], true);
                         }
                     }, // error
-                 
+
                     // código a ejecutar sin importar si la petición falló o no
                     complete : function(response, textStatus) {
                         // Si la variable no esta definida, devuelvo false.

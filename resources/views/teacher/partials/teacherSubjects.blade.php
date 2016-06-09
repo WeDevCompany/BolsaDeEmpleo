@@ -39,7 +39,7 @@
 		</div>
 		<div class="col-md-12">
 			{{ Form::label('cycles', 'Ciclos que impartes',['class' => 'label-select']) }}
-			<select name="cycle1" class="chosen-select form-control" id="cycle1" multiple="multiple">
+			<select name="cycle1" class="chosen-select form-control" id="cycle1" multiple="multiple" required="true" title="Ciclos que impartes" data-toggle="tooltip">
 		    	@foreach($cycles as $ArrayId => $cycle)
 		    		@if ($cycle['level'] === "Básico")
 		    			@if ($basico == true)

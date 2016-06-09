@@ -9,13 +9,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class EnterpriseResponsable extends Model
 {
-    
+
     use SoftDeletes;
 
     protected $fillable = [
        'firstName', 'lastName', 'dni',
     ];
-	
+
     public $table = 'enterpriseResponsables';
 
     // Relaciones one to many
@@ -30,4 +30,9 @@ class EnterpriseResponsable extends Model
         return $this->belongsToMany(WorkCenter::class, 'enterpriseCenterResponsables')->withPivot('workCenter_id');
     } // workCenters()
 
+    // Funcion que obtiene el nombre completo
+    public function getFullNameAttribute()
+    {
+        return $this->firstName . ' ' . $this->lastName;
+    } // getFullNameAttribute()
 }

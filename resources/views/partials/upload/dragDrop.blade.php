@@ -6,7 +6,7 @@
         <a id="file-select">
             <div class="drop hoverable" id="drop">
                 <img id="show" class="hidden" src="">
-                <div class="text-center">
+                <div class="text-center" title="Arrastra una imagen" data-toggle="tooltip">
                     <span class="fa fa-file-image-o" aria-hidden="true"></span>
                 </div>
             </div>

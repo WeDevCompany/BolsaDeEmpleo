@@ -15,7 +15,7 @@
                 <div class="panel panel-default">
                     <div class="modal-content">
                         <div class="modal-header text-center">
-                            <h4><i class="fa fa-university"></i>Formulario de creación de la oferta de trabajo</h4>
+                            <h4><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Formulario de creación de la oferta de trabajo</h4>
                         </div>
                         <div class="panel-body">
                              {{ Form::open(['url' => config('routes.offerEnterprise.newOffer'), 'method' => 'POST', 'id' => 'offer-register-form']) }}
@@ -26,10 +26,10 @@
                                     <div class="col-md-12 text-center">
                                         <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light">
                                             <div class="show-responsive">
-                                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
                                             </div>
                                             <div class="hidden-media">
-                                                <i class="fa fa-btn fa-user"></i> <span class="hidden-media">Crear Oferta</span>
+                                                <i class="fa fa-paper-plane" aria-hidden="true"></i></i> <span class="hidden-media">Crear Oferta</span>
                                             </div>
                                         </button>
                                     </div>

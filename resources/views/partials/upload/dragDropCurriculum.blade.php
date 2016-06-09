@@ -7,7 +7,7 @@
             <a id="file-select">
                 <div class="drop hoverable" id="drop-curriculum">
                     <img id="show" class="hidden" src="{{ url('/img/global/Pdf-icon.png') }}">
-                    <div class="text-center">
+                    <div class="text-center" title="Responsable de la oferta de trabajo" data-toggle="tooltip">
                         <span class="fa fa-file-image-o" aria-hidden="true"></span>
                     </div>
                 </div>
@@ -15,7 +15,7 @@
 
 
             <span class="alert alert-info hidden" id="curriculum-info">No hay archivo aún</span>
-            {{ Form::file('curriculum', ['id' => 'curriculum-dragDrop', 'class' => 'hidden'], null) }}
+            {{ Form::file('curriculum', ['id' => 'curriculum-dragDrop', 'class' => 'hidden' , 'required' => 'true'], null) }}
 
             @if ($errors->has('curriculum'))
                 <span class="help-block">

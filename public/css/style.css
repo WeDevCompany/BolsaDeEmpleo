@@ -521,18 +521,20 @@ input[type = "file"]{
 }
 
 .select > option {
-  font-size:1.2rem !important;
-  display:block !important;
-  -webkit-tap-highlight-color:transparent !important;
-  cursor:pointer !important;
-  color:#4285F4;
-  padding:1rem 1rem !important;
-  box-shadow: none !important;
-  background-color: transparent !important;
-  white-space:nowrap !important;
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  appearance: none !important;
+    position: relative;
+    font-size:1.2rem !important;
+    display:block !important;
+    -webkit-tap-highlight-color:transparent !important;
+    cursor:pointer !important;
+    color:#4285F4;
+    padding:1rem 1rem !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    white-space:nowrap !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    z-index: 999px;
 }
 
 .select:focus {

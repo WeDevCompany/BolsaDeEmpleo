@@ -91,28 +91,28 @@
     <script src="{{ url('/js/ajax/ajax.js') }}" type="text/javascript"></script>
 
     <!-- Script TagBox -->
-    <script src="{{ url('js/tagging.min.js') }}"></script>
+    <script src="{{ url('js/tagging.min.js') }}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Script Jquery -->
-    <script src="{{ url('js/jquery-2.2.3.js') }}"></script>
+    <script src="{{ url('js/jquery-2.2.3.js') }}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="{{ url('js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('js/bootstrap.min.js') }}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Material Design Bootstrap -->
-    <script type="text/javascript" src="{{ url('js/mdb.js') }}"></script>
+    <script type="text/javascript" src="{{ url('js/mdb.js') }}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Script que permite crear un procesador de texto en un textarea -->
-    <script src="{{ asset('/js/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('/js/ckeditor/ckeditor.js') }}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Script que permite crear un dropzone -->
-    <script src="{{ asset('/js/dropzone/dropzone.js') }}"></script>
+    <script src="{{ asset('/js/dropzone/dropzone.js') }}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Script que permite el back-to-top -->
-    <script src="{{ asset('/js/back-to-top.js') }}"></script>
+    <script src="{{ asset('/js/back-to-top.js') }}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Script con la logica spin -->
-    <script src="{{ asset('/js/spin/spin.min.js') }}"></script>
+    <script src="{{ asset('/js/spin/spin.min.js') }}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Script que automatiza el carrusel -->
     <script src="{{url('/js/carrusel.js')}}" type="text/javascript" charset="utf-8"></script>
@@ -128,6 +128,8 @@
 
     <!-- Script que hace random el fondo -->
     <script src="{{url('/js/funcionalidad/backgroundPattern.js')}}" type="text/javascript" charset="utf-8"></script>
+
+    <script src="{{url('/js/funcionalidad/tooltip.js')}}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Script que gestiona la sesión  -->
     <script src="{{url('/plugin/jquerysession.js')}}" type="text/javascript" charset="utf-8"></script>

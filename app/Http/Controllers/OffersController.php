@@ -370,11 +370,20 @@ class OffersController extends UsersController
     }
 
     public function getNewOffer() {
+        //obtenemos todas las familias profesionales
         $allProfFamilies = $this->allMapProfFamilies();
+        //obtenemos todas las tags, mapeadas como array
         $allTags = $this->allMapTags();
+        // obtenemos los centros de trabajo
         $workCenters = $this->getWorkCenter();
-        $workCenters = $this->mapWorCenters($workCenters);
-        return view('offer.registerForm', compact('allProfFamilies', 'allTags', 'workCenters'));
+        // convertimos los centros de trabajo  en arrays
+        $workCenters = $this->mapArray($workCenters);
+
+        $enterpriseResponsable = $this->getEnterpriseResponsable();
+
+        $enterpriseResponsable = $this->mapArray($enterpriseResponsable);
+
+        return view('offer.registerForm', compact('allProfFamilies', 'allTags', 'workCenters', 'enterpriseResponsable'));
     }
 
     public function postNewOffer() {

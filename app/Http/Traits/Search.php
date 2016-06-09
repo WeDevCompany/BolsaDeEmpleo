@@ -334,7 +334,7 @@ trait Search
         // Obtenemos los ids de las familias profesionales del profesor
         $profFamilies = Self::profFamilyTeacher(true);
         // Obtenemos las familias profesionales del profesor
-        
+
         if($onlyId === true) {
             $cycles = Cycle::select('id')
                                     ->where('cycles.active', '=', '1')
@@ -991,12 +991,72 @@ trait Search
         }
     }// getWorkCenter()
 
-    public function mapWorCenters($queryResults){
-        $workCenters = [];
+    /**
+     * Método que mapea los centros de trabajo como arrays
+     * @param  Array $queryResults Resultados de la consulta
+     */
+    public function mapArray($queryResults){
+        $result = [];
         foreach ($queryResults as $key => $value) {
-            $workCenters [$value->id] = $value->name;
+                $result [$value->id] = $value->name;
         }
-        return $workCenters;
+        return $result;
+    }// mapWorCenters()
+
+    /**
+     * Método que obtiene el centro de trabajo tanto para empresas, como para administradores
+     * @param  Integer $id Id del botón
+     */
+    public function getEnterpriseResponsable($id = null, $paginate = false){
+
+        // Hacemo que este método pueda funcionar con empresas y con Administradores
+        // Si el parametro se le envia es porque eres administrador
+        // sino es porque eres empresa
+        if (!isset($id)) {
+            $idAux = \Auth::user()->id;
+            try {
+                $id = Enterprise::select('id')->where('user_id', '=',$idAux)->get();
+                if (!$id->isEmpty() && $id[0]) {
+                    $id= $id[0]->id;
+                } else {
+                    abort('500');
+                }
+            } catch (Exception $e) {
+                abort('500');
+            }
+
+        } else {
+            $id = (int) $id;
+        }
+        try {
+            $enterpriseResponsable = \DB::table('workCenters as wc')
+                                ->select('er.*')
+                                ->join('enterpriseCenterResponsables as ecr', 'ecr.workCenter_id' , '=', 'wc.id')
+                                ->join('enterpriseResponsables as er', 'er.id', '=', 'ecr.enterpriseResponsable_id')
+                                ->where('wc.enterprise_id', '=', $id);
+            // si se quiere
+            // con pagionación o toda de golpe
+            if(isset($paginate) && $paginate === true){
+                $enterpriseResponsable = $enterpriseResponsable->paginate();
+            } else {
+                $enterpriseResponsable = $enterpriseResponsable->get();
+            }
+            $enterpriseResponsable = $this->addName($enterpriseResponsable);
+            return $enterpriseResponsable;
+        } catch (Exception $e) {
+            abort('500');
+        }
+    }// getWorkCenter()
+    /**
+     * Métyodo que le añade un nombre completo al responsable de trabajo
+     * @param [type] $object [description]
+     */
+    public function addName($object)
+    {
+        foreach ($object as $key => $value) {
+            $value->name = $value->firstName . " " . $value->lastName;
+        }
+        return $object;
     }
 
 } // END Class SearchController

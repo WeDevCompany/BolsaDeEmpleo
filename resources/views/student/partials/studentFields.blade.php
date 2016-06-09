@@ -3,7 +3,7 @@
         <div class="row">
             <div class="input-field col-md-8">
                 <i class="material-icons prefix">account_circle</i>
-                {{ Form::text('firstName', null,['id' => "firstName"]) }}
+                {{ Form::text('firstName', null,['id' => "firstName", 'required' => 'true', 'title' => 'Nombre del alumno', 'data-toggle' => 'tooltip']) }}
                 {{ Form::label('firstName', 'Nombre(*)') }}
                 @if ($errors->has('firstName'))
                     <span class="help-block">
@@ -13,7 +13,7 @@
             </div>
             <div class="input-field col-md-4">
                 <i class="material-icons prefix">assignment_ind</i>
-                {{ Form::text('dni', null,['id' => "dni", 'class' => 'validate', 'pattern' => '(([x-zX-Z]{1})(\d{7})([a-zA-Z]{1}))|((\d{8})([a-zA-Z]{1}))']) }}
+                {{ Form::text('dni', null,['id' => "dni", 'class' => 'validate', 'pattern' => '(([x-zX-Z]{1})(\d{7})([a-zA-Z]{1}))|((\d{8})([a-zA-Z]{1}))', 'required' => 'true', 'title' => 'Documento nacional de identificación', 'data-toggle' => 'tooltip']) }}
                 {{ Form::label('dni', 'DNI(*)') }}
                 @if ($errors->has('dni'))
                     <span class="help-block">
@@ -27,7 +27,7 @@
         <div class="row">
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">account_circle</i>
-                {{ Form::text('lastName', null,['id' => "lastName"]) }}
+                {{ Form::text('lastName', null,['id' => "lastName", 'required' => 'true', 'title' => 'Apellidos del aulmno', 'data-toggle' => 'tooltip']) }}
                 {{ Form::label('lastName', 'Apellidos(*)') }}
                 @if ($errors->has('lastName'))
                     <span class="help-block">
@@ -42,7 +42,7 @@
             <div class="input-field col-md-4">
                 <i class="material-icons prefix">today</i>
                 {{ Form::label('birthdate', 'Fecha de nacimiento(*)', ['class' => 'labelpicker']) }}
-                {{ Form::text('birthdate',null, ['class' => 'datepicker', 'id' => 'picker']) }}
+                {{ Form::text('birthdate',null, ['class' => 'datepicker', 'id' => 'picker', 'required' => 'true', 'title' => 'Fecha de nacimiento', 'data-toggle' => 'tooltip']) }}
                 @if ($errors->has('birthdate'))
                     <span class="help-block">
                         <strong>{{ $errors->first('birthdate') }}</strong>
@@ -51,7 +51,7 @@
             </div>
             <div class="input-field col-md-4">
                 <i class="material-icons prefix">phone</i>
-                {{ Form::text('phone', null,['id' => "phone"]) }}
+                {{ Form::text('phone', null,['id' => "phone", 'required' => 'true', 'title' => 'Teléfono de contacto', 'data-toggle' => 'tooltip']) }}
                 {{ Form::label('phone', 'Teléfono(*)') }}
                 @if ($errors->has('phone'))
                     <span class="help-block">
@@ -62,7 +62,7 @@
             <div class="input-field col-md-4">
                 <i class="material-icons prefix">fingerprint</i>
                 {{ Form::label('nre', 'NRE') }}
-                {{ Form::text('nre', null, ['class' => 'form-control', 'id' => '']) }}
+                {{ Form::text('nre', null, ['class' => 'form-control', 'id' => 'nre', 'title' => 'Número regional del estudiante', 'data-toggle' => 'tooltip']) }}
                 @if ($errors->has('nre'))
                     <span class="help-block">
                         <strong>{{ $errors->first('nre') }}</strong>
@@ -76,7 +76,7 @@
             <div class="extra-padding">
                 <div class="input-field col-md-3 selectcol3">
                     {{ Form::label('road', 'Tipo de vía(*)', ['class' => "label-select"]) }}
-                    {{ Form::select('road', config('roads.road'), null,['class' => 'chosen-select form-control']) }}
+                    {{ Form::select('road', config('roads.road'), null,['class' => 'chosen-select form-control', 'required' => 'true', 'title' => 'Tipo de via en el que reside', 'data-toggle' => 'tooltip']) }}
                     @if ($errors->has('road'))
                         <span class="help-block">
                             <strong>{{ $errors->first('road') }}</strong>
@@ -86,7 +86,7 @@
                 <div class="input-field col-md-8">
                     <i class="material-icons prefix">person_pin_circle</i>
                     {{ Form::label('address', 'Dirección(*)') }}
-                    {{ Form::text('address', null, ['class' => 'form-control']) }}
+                    {{ Form::text('address', null, ['class' => 'form-control', 'required' => 'true', 'title' => 'Dirección de su residencia', 'data-toggle' => 'tooltip']) }}
                     @if ($errors->has('address'))
                         <span class="help-block">
                             <strong>{{ $errors->first('address') }}</strong>
