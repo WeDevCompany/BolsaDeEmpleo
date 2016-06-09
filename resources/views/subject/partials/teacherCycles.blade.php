@@ -1,4 +1,4 @@
-{{ Form::label('cycle', 'Nombre del ciclo',['style' => 'margin-top: -3em']) }}
+{{ Form::label('cycle', 'Nombre del ciclo',['class' => 'label-select']) }}
 <select name="cycle" class="chosen-select form-control" id="cycle">
 	@foreach($cycles as $id => $cycle)
 		@if ($id == 0 && !$_GET)

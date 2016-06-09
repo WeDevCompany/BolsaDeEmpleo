@@ -85,6 +85,11 @@
 	                                </div>
 	                            </div>
 							{{ Form::close() }}
+							<div id="allModals">
+								@foreach($mySubjects as $id => $subject)
+						            @include('partials.modal.tagsEditModal')
+						        @endforeach
+							</div>
 						</div>
 	    			</div>
 	    		</div>
