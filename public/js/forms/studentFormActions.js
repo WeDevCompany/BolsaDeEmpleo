@@ -78,3 +78,10 @@ $('.family-cycle').on('change', function(e) {
         ajax.callAjax('GET', '/json/cycles/'+familyId, "familyCycles", "addCycle", method_params);
     }
 }); // $('.family-cycle').on
+
+$('#submit').on('click', function(e) {
+
+    // Iniciamos el spin de ciclos
+    spin.spinOn('S', '', true, 'submit');
+
+})

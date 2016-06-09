@@ -29,6 +29,15 @@
 
             	// Actualizamos chosen
                 $(".chosen-select").chosen({ width: "95%" });
+
+                if (result == '') {
+                    return false;
+                } else {
+                    if (spinnerC) {
+                        spin.spinOff('C', variable, true);
+                    }
+                    return true;
+                }
             }
         }
     };
