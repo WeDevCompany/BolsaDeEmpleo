@@ -18,7 +18,7 @@
                             <h4><i class="fa fa-university"></i>Formulario de creación de la oferta de trabajo</h4>
                         </div>
                         <div class="panel-body">
-                             {{ Form::open(['url' => 'registro/registroProfesor', 'method' => 'POST', 'id' => 'offer-register-form']) }}
+                             {{ Form::open(['url' => config('routes.offerEnterprise.newOffer'), 'method' => 'POST', 'id' => 'offer-register-form']) }}
                                 {!! csrf_field() !!}
                                 @include('offer.partials.offerFields')
                                 @include('offer.partials.enterpriseFields')

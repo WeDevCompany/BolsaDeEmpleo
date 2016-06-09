@@ -368,4 +368,13 @@ class OffersController extends UsersController
         return Parent::getOfferByIdEnterprise($idOffer, $request, $edit = true);
     }
 
+    public function getNewOffer() {
+        dd("dslkfksjldh");
+        return view('offer.registerForm');
+    }
+
+    public function postNewOffer() {
+dd("dslkfksjldh");
+        return view('offer.registerForm');
+    }
 }
