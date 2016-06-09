@@ -329,20 +329,69 @@ trait Search
      * Metodo que devuelve el id y el nombre de los ciclos pertenecientes
      * a las familias profesionales de un profesor
      */
-    public function teacherCycles()
+    public function teacherCycles($onlyId = false)
     {
         // Obtenemos los ids de las familias profesionales del profesor
         $profFamilies = Self::profFamilyTeacher(true);
         // Obtenemos las familias profesionales del profesor
-        $cycles = Cycle::select('id', 'name')
-                                        ->where('cycles.active', '=', '1')
-                                        ->whereIn('profFamilie_id', $profFamilies)
-                                        ->orderBy('name', 'asc')
-                                        ->get();
+        
+        if($onlyId === true) {
+            $cycles = Cycle::select('id')
+                                    ->where('cycles.active', '=', '1')
+                                    ->whereIn('profFamilie_id', $profFamilies)
+                                    ->orderBy('name', 'asc')
+                                    ->get();
+        } else {
+            $cycles = Cycle::select('id', 'name')
+                                    ->where('cycles.active', '=', '1')
+                                    ->whereIn('profFamilie_id', $profFamilies)
+                                    ->orderBy('name', 'asc')
+                                    ->get();
+        }
 
         return $cycles;
 
     } // teacherCycles()
+
+    /**
+     * Metodo que devuelve una asignatura de un profesor cualquiera que se este cursando el año indicado
+     */
+    public function subjectTeachers($subjectId, $year, $user_id = false)
+    {
+        $subjectId = (int) $subjectId;
+        $year = (int) $year;
+
+        if($user_id === true) {
+            $subjects = Subject::select('subjects.id')
+                                            ->join('subjectTeachers', 'subjectTeachers.subject_id', '=', 'subjects.id')
+                                            ->join('teachers', 'teachers.id', '=', 'subjectTeachers.teacher_id')
+                                            ->where('subjectTeachers.subject_id', '=', $subjectId)
+                                            ->where('dateFrom', $year)
+                                            ->where('user_id', '=', \Auth::user()->id)
+                                            ->get();
+        } else {
+            $subjects = Subject::select('subjects.id')
+                                            ->join('subjectTeachers', 'subjectTeachers.subject_id', '=', 'subjects.id')
+                                            ->where('subjectTeachers.subject_id', '=', $subjectId)
+                                            ->where('dateFrom', $year)
+                                            ->get();
+        }
+
+        return $subjects;
+
+    } // subjectTeachers()
+
+    /**
+     * Metodo que obtiene el id de un profesor a traves de su id de usuario
+     */
+    public function getTeacherId()
+    {
+
+       $teacherId = Teacher::select('id')->where('user_id', '=', \Auth::user()->id)->get();
+
+       return $teacherId;
+
+    } // getTeacherId()
 
     /*==============================*
      *                              *
@@ -358,7 +407,7 @@ trait Search
         $cycle_id = (int) $cycle_id;
 
         // Obtenemos las familias profesionales del profesor
-        $subjects = Subject::select('subjects.id, subjects.name')
+        $subjects = Subject::select('subjects.id', 'subjects.name')
                                         ->join('cycleSubjects', 'cycleSubjects.subject_id', '=', 'subjects.id')
                                         ->where('cycle_id', '=', $cycle_id)
                                         ->orderBy('name', 'asc')
@@ -417,6 +466,48 @@ trait Search
         return $subjects;
 
     } // cycleSubjectsYear()
+
+    /**
+     * Metodo que devuelve las asignaturas de un ciclo en un año concreto que
+     * no haya cursado el profesor actual pero si otro profesor
+     */
+    public function cycleSubjectsYearTaked($cycle_id, $year)
+    {
+        $cycle_id = (int) $cycle_id;
+        $year = (int) $year;
+
+        // Obtenemos las familias profesionales del profesor
+        $subjects = Subject::select('subjects.id')
+                                        ->join('cycleSubjects', 'cycleSubjects.subject_id', '=', 'subjects.id')
+                                        ->join('subjectTeachers', 'subjectTeachers.subject_id', '=', 'subjects.id')
+                                        ->join('teachers', 'teachers.id', '=', 'subjectTeachers.teacher_id')
+                                        ->where('cycle_id', '=', $cycle_id)
+                                        ->where('dateFrom', '=', $year)
+                                        ->where('user_id', '!=', \Auth::user()->id)
+                                        ->get();
+
+        return $subjects;
+
+    } // cycleSubjectsYearTaked()
+
+    /**
+     * Metodo que devuelve el id del ciclo si lo imparte ese profesor
+     */
+    public function teacherCycleId($cycle_id)
+    {
+        $cycle_id = (int) $cycle_id;
+
+        $idTeacherCycles = self::teacherCycles(true);
+
+        $cycles = Cycle::select('id')
+                                    ->where('cycles.active', '=', '1')
+                                    ->where('cycles.id', '=', $cycle_id)
+                                    ->whereIn('cycles.id', $idTeacherCycles)
+                                    ->get();
+
+        return $cycles;
+
+    } // teacherCycleId()
 
     /*==============================
      *                              *
