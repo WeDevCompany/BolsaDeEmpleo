@@ -176,6 +176,7 @@ class AuthController extends Controller
         // Si ya ha verificado el email se redirecciona a welcome
         if($user->verifiedEmail){
 
+            Session::flash('message_Negative', 'Su email ya se encuentra confirmado');
             return \Redirect::to('/login');
 
         }
@@ -184,6 +185,8 @@ class AuthController extends Controller
         $user->verifiedEmail = 1;
         $user->save();
 
+        Session::flash('message_Success', 'Ha confirmado su email correctamente');
+        
         // Logeamos al usuario automaticamente y lo redireccionamos
         return \Redirect::to('/login');
     }
@@ -207,12 +210,15 @@ class AuthController extends Controller
         // Si ya ha verificado el email salta error 404
         if($user->verifiedEmail){
 
+            Session::flash('message_Negative', 'Su email ya se encuentra confirmado');
             return \Redirect::to('/login');
         }
 
         // Modificamos el campo y lo guardamos
         $user->verifiedEmail = 1;
         $user->save();
+
+        Session::flash('message_Success', 'Ha confirmado su email correctamente');
 
         // Logeamos al usuario automaticamente y lo redireccionamos
         return \Redirect::to('/login');

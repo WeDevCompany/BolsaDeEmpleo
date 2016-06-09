@@ -88,16 +88,28 @@ class StudentsController extends UsersController
             if($insert !== false){
 
                 // Llamo al metodo para almacenar sus grados.
-                $insert = self::createStudentCycle($insert);
+                $insercion = self::createStudentCycle($insert);
 
-                if ($insert === true){
+                if ($insercion === true){
 
                     // Llamo al metodo sendEmail del controlador de las familias profesionales
                     $email = Parent::sendEmail();
 
                     if($email === true) {
-                        \DB::commit();
-                        return \Redirect::to('login');
+
+                        $email = $this->sendEmailTeacher($insert);
+
+                        if ($email === true) {
+                   
+                            \DB::commit();
+                            Session::flash('message_Success', 'Se ha registrado correctamente.');
+                            return \Redirect::to('login');
+
+                        } else {
+
+                            \DB::rollBack();
+                            Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
+                        }
                     } else {
                         \DB::rollBack();
                         Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
@@ -113,6 +125,8 @@ class StudentsController extends UsersController
             }
         }
 
+        \DB::rollBack();
+        Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
         // Redireccionamos a la vista de validacion del email. (index provisional).
         return redirect()->route('estudiante..index');
     } // store()
@@ -125,14 +139,16 @@ class StudentsController extends UsersController
             $curriculum = $this->request->file('curriculum');
 
             // Obtenemos el nombre del curriculum del cliente
-            $nombreCurriculum = $curriculum->getClientOriginalName();
+            $nombreCurriculum = $this->generarCodigo();
 
             // Sustituimos el archivo por el nombre del curriculum para insertar solo el nombre en la base de datos
             $this->request['curriculum'] = $nombreCurriculum;
-
+            dd($this->request['curriculum']);
             // Insertamos el estudiante
-            $insert = Student::create($this->request->all());
-            $this->sendEmailTeacher($insert);
+            $insert = Student::create([
+                
+            ]);
+
             // Creamos la carpeta de curriculum del usuario y lo guardamos
             $save = $curriculum->move(storage_path() . '/app/curriculum/' . $this->request['carpeta'], $nombreCurriculum);
 

@@ -101,12 +101,12 @@ Route::group(['prefix' => 'json', 'middleware' => 'web'], function () {
     Route::get('notifications', 'UsersController@getNotificationsJSON');
 
     // Ciclos
-    Route::get('cities/{stateId}', 'CyclesController@getCyclesJSON');
+    Route::get('cities/{stateId}', 'CitiesController@getCitiesJSON');
 
 });
 
 // Grupo de rutas para los administradores
-Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'namespace' => 'Admin'], function(){
+Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth', 'isAdmin'], 'namespace' => 'Admin'], function(){
 
     // Vista de administrador logeado
     Route::resource(config('routes.index'), 'AdminsController');
@@ -176,7 +176,7 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth'], 'nam
 /**********************************
         Grupo profesor
 ************************************/
-Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespace' => 'Teacher'], function(){
+Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth', 'isTeacher'], 'namespace' => 'Teacher'], function(){
 
     // Vista de profesor logeado
     Route::resource(config('routes.index'), 'TeachersController');
@@ -222,7 +222,7 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth'], 'namespac
 /**********************************
         Grupo estudiante
 ************************************/
-Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth'], 'namespace' => 'Student'], function(){
+Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth', 'isStudent'], 'namespace' => 'Student'], function(){
 
     // Registro de estudiantes
     Route::post(config('routes.studentRoutes.register'), 'StudentsController@store');
@@ -242,7 +242,7 @@ Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth'], 'namesp
 /**********************************
         Grupo empresa
 ************************************/
-Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth'], 'namespace' => 'Enterprise'], function(){
+Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth', 'isEnterprise'], 'namespace' => 'Enterprise'], function(){
 
     // Registro de empresas
     Route::post(config('routes.enterpriseRoutes.register'), 'EnterprisesController@store');
@@ -263,41 +263,49 @@ Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth'], 'namespace
 Route::group(['middleware' => ['web', 'auth']], function(){
 
     /**********************************
-        Oferta Profesor
+            Oferta Profesor
     ************************************/
-    // Comentarios: creacion, edicion y borrado
-    Route::post(config('routes.offerTeacher.commentEdit'), 'OffersController@getCommentEdit');
-    Route::post(config('routes.offerTeacher.commentDelete'), 'OffersController@getCommentDelete');
-    Route::post(config('routes.offerTeacher.commentCreate'), 'OffersController@getCommentCreate');
+    Route::group(['middleware' => ['isTeacher']], function(){
+        
+        // Comentarios: creacion, edicion y borrado
+        Route::post(config('routes.offerTeacher.commentEdit'), 'OffersController@getCommentEdit');
+        Route::post(config('routes.offerTeacher.commentDelete'), 'OffersController@getCommentDelete');
+        Route::post(config('routes.offerTeacher.commentCreate'), 'OffersController@getCommentCreate');
 
-    // Actualizar oferta
-    Route::get(config('routes.offerTeacher.updateOffer'), 'OffersController@getOfferUpdate');
+        // Actualizar oferta
+        Route::get(config('routes.offerTeacher.updateOffer'), 'OffersController@getOfferUpdate');
+    });
 
     /**********************************
         Oferta Administrador
     ************************************/
-    // Comentarios: creacion, edicion y borrado
-    Route::post(config('routes.offerAdmin.commentEdit'), 'OffersController@getCommentEdit');
-    Route::post(config('routes.offerAdmin.commentDelete'), 'OffersController@getCommentDelete');
-    Route::post(config('routes.offerAdmin.commentCreate'), 'OffersController@getCommentCreate');
+    Route::group(['middleware' => ['isAdmin']], function(){
 
-    // Actualizar, editar, borrar oferta
-    Route::get(config('routes.offerAdmin.updateOffer'), 'OffersController@getOfferUpdate');
-    Route::get(config('routes.offerAdmin.offerEdit'), 'OffersController@getOfferEdit');
-    Route::post(config('routes.offerAdmin.postOfferEdit'), 'OffersController@postOfferEdit');
-    Route::get(config('routes.offerAdmin.offerDelete'), 'OffersController@getOfferDelete');
+        // Comentarios: creacion, edicion y borrado
+        Route::post(config('routes.offerAdmin.commentEdit'), 'OffersController@getCommentEdit');
+        Route::post(config('routes.offerAdmin.commentDelete'), 'OffersController@getCommentDelete');
+        Route::post(config('routes.offerAdmin.commentCreate'), 'OffersController@getCommentCreate');
+
+        // Actualizar, editar, borrar oferta
+        Route::get(config('routes.offerAdmin.updateOffer'), 'OffersController@getOfferUpdate');
+        Route::get(config('routes.offerAdmin.offerEdit'), 'OffersController@getOfferEdit');
+        Route::post(config('routes.offerAdmin.postOfferEdit'), 'OffersController@postOfferEdit');
+        Route::get(config('routes.offerAdmin.offerDelete'), 'OffersController@getOfferDelete');
+    });
 
     /**********************************
         Oferta Empresa
     ************************************/
-    Route::get(config('routes.offerEnterprise.allOffers'), 'OffersController@getEnterpriseOffers');
-    Route::get(config('routes.offerEnterprise.viewOffer'), 'OffersController@getOneEnterpriseOffer');
-    Route::get(config('routes.offerEnterprise.offerEdit'), 'OffersController@getOneEnterpriseOfferEdit');
-    Route::post(config('routes.offerEnterprise.postOfferEdit'), 'OffersController@postOfferEdit');
-    Route::get(config('routes.offerEnterprise.updateOffer'), 'OffersController@getOfferUpdate');
-    Route::get(config('routes.offerEnterprise.newOffer'), 'OffersController@getNewOffer');
-    Route::post(config('routes.offerEnterprise.newOffer'), 'OffersController@getOfferUpdate');
+    Route::group(['middleware' => ['isEnterprise']], function(){
 
+        Route::get(config('routes.offerEnterprise.allOffers'), 'OffersController@getEnterpriseOffers');
+        Route::get(config('routes.offerEnterprise.viewOffer'), 'OffersController@getOneEnterpriseOffer');
+        Route::get(config('routes.offerEnterprise.offerEdit'), 'OffersController@getOneEnterpriseOfferEdit');
+        Route::post(config('routes.offerEnterprise.postOfferEdit'), 'OffersController@postOfferEdit');
+        Route::get(config('routes.offerEnterprise.updateOffer'), 'OffersController@getOfferUpdate');
+        Route::get(config('routes.offerEnterprise.newOffer'), 'OffersController@getNewOffer');
+        //Route::post(config('routes.offerEnterprise.newOffer'), 'OffersController@getOfferUpdate');
+    });
 
 });
 
