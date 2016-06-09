@@ -207,7 +207,7 @@ return [
         [
             'allOffers'             => 'ofertas',
             'viewOffer'             => 'empresa/oferta/{idOffer}',
-            'newOffer'              => 'empresa/oferta/nueva-oferta',
+            'newOffer'              => 'oferta/nueva-oferta',
             'offerEdit'             => 'empresa/oferta/editar/{idOffer}',
             'postOfferEdit'         => 'empresa/oferta/editar-oferta',
             'offerDelete'           => 'empresa/oferta/borrar/{idOffer}',

@@ -369,12 +369,12 @@ class OffersController extends UsersController
     }
 
     public function getNewOffer() {
-        dd("dslkfksjldh");
-        return view('offer.registerForm');
+        $allProfFamilies = $this->allMapProfFamilies();
+        $allTags = $this->allMapTags();
+        return view('offer.registerForm', compact('allProfFamilies', 'allTags'));
     }
 
     public function postNewOffer() {
-dd("dslkfksjldh");
         return view('offer.registerForm');
     }
 }

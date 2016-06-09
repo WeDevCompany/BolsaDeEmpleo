@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Session;
 
 class EnterprisesController extends UsersController
 {
-
+    private $workCenter;
+    private $responsables;
 	public function __construct(Request $request)
     {
         $roads = implode(',', config('roads.road'));
@@ -61,7 +62,7 @@ class EnterprisesController extends UsersController
                 $insercion = Self::createWorkCenter($insercion);
 
                 if ($insercion === true) {
-                    
+
                     // Llamo al metodo sendEmail del controlador de las familias profesionales
                     $email = Parent::sendEmail();
 
@@ -115,7 +116,7 @@ class EnterprisesController extends UsersController
         return false;
     } // create()
 
-    
+
     private function createWorkCenter($enterprise)
     {
         $data = $this->request->all();
@@ -137,7 +138,7 @@ class EnterprisesController extends UsersController
             ]);
 
             foreach ($data['firstName'] as $key => $value) {
-               
+
                 $insertResponsable = EnterpriseResponsable::create([
                     'firstName'     => $value,
                     'lastName'      => $data['lastName'][$key],
@@ -150,7 +151,7 @@ class EnterprisesController extends UsersController
                     'enterpriseResponsable_id'  => $insertResponsable['id'],
                     'created_at'                 => date('YmdHms')
                 ]);
-                
+
                 if (!$insertResponsable && $insertCenterResponsable) {
                     return false;
                 }

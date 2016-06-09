@@ -514,10 +514,12 @@ class UsersController extends Controller
             // Obtenemos la familia profesional a la que pertenece
             // el profesor
             $profFamilie = $this->profFamilyTeacher();
-
-            // Llamamos al Search para obtener la oferta seleccionada
-            $offer = $this->invalidOrValidOffer($aux, $this->request,$profFamilie);
-            //dd($offer);
+            if($profFamilie->isEmpty()) {
+               $offer = $this->invalidOrValidOffer($aux, $this->request);
+            } else {
+                 // Llamamos al Search para obtener la oferta seleccionada
+                $offer = $this->invalidOrValidOffer($aux, $this->request, $profFamilie);
+            }
             if (isset($offer[0])) {
                 $offer = (Object) $offer[0];
 

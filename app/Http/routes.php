@@ -266,7 +266,7 @@ Route::group(['middleware' => ['web', 'auth']], function(){
             Oferta Profesor
     ************************************/
     Route::group(['middleware' => ['isTeacher']], function(){
-        
+
         // Comentarios: creacion, edicion y borrado
         Route::post(config('routes.offerTeacher.commentEdit'), 'OffersController@getCommentEdit');
         Route::post(config('routes.offerTeacher.commentDelete'), 'OffersController@getCommentDelete');
@@ -298,13 +298,22 @@ Route::group(['middleware' => ['web', 'auth']], function(){
     ************************************/
     Route::group(['middleware' => ['isEnterprise']], function(){
 
+        // listado de ofertas
         Route::get(config('routes.offerEnterprise.allOffers'), 'OffersController@getEnterpriseOffers');
+
+        // vista de una oferta
         Route::get(config('routes.offerEnterprise.viewOffer'), 'OffersController@getOneEnterpriseOffer');
+
+        // edición de una oferta
         Route::get(config('routes.offerEnterprise.offerEdit'), 'OffersController@getOneEnterpriseOfferEdit');
         Route::post(config('routes.offerEnterprise.postOfferEdit'), 'OffersController@postOfferEdit');
+
+        // Actualización de la fecha de la oferta
         Route::get(config('routes.offerEnterprise.updateOffer'), 'OffersController@getOfferUpdate');
+
+        // Inserción de la oferta
         Route::get(config('routes.offerEnterprise.newOffer'), 'OffersController@getNewOffer');
-        //Route::post(config('routes.offerEnterprise.newOffer'), 'OffersController@getOfferUpdate');
+        Route::post(config('routes.offerEnterprise.newOffer'), 'OffersController@postNewOffer');
     });
 
 });

@@ -212,6 +212,7 @@ trait Search
                                             ->join('profFamilies', 'profFamilies.id', '=', 'teacherProfFamilies.profFamilie_id')
                                             ->get();
         }
+
         return $profFamilyTeacher;
 
     } // profFamilyTeacher()
@@ -562,6 +563,7 @@ trait Search
         return $allProfFamilies;
 
     } // allProfFamilies()
+
 
     /**
      * Método que extrae todos los comentarios de una oferta
