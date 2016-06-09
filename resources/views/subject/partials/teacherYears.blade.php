@@ -1,4 +1,4 @@
-{{ Form::label('yearFrom', 'Curso',['style' => 'margin-top: -3em']) }}
+{{ Form::label('yearFrom', 'Curso',['class' => 'label-select']) }}
 <select name="yearFrom" class="chosen-select form-control" id="yearFrom">
 	@foreach($years as $id => $year)
 		@if ($id == 0 && !$_GET)
