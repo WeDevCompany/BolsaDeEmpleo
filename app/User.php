@@ -54,4 +54,24 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Enterprise::class);
     } // enterprises()
+
+    public function isAdmin()
+    {
+        return $this->rol === 'administrador';
+    }
+
+    public function isTeacher()
+    {
+        return $this->rol === 'profesor';
+    }
+
+    public function isStudent()
+    {
+        return $this->rol === 'estudiante';
+    }
+
+    public function isEnterprise()
+    {
+        return $this->rol === 'empresa';
+    }
 }
