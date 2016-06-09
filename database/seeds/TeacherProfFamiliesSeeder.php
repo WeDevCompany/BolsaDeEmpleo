@@ -177,5 +177,34 @@ class TeacherProfFamiliesSeeder extends Seeder
             'created_at' => date('YmdHms')
         ]);
 
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 1,
+            'teacher_id' => 1,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 1,
+            'teacher_id' => 2,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 1,
+            'teacher_id' => 4,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 1,
+            'teacher_id' => 5,
+            'created_at' => date('YmdHms')
+        ]);
+
+        \DB::table('teacherProfFamilies')->insert([
+            'profFamilie_id' => 1,
+            'teacher_id' => 6,
+            'created_at' => date('YmdHms')
+        ]);
     }
 }

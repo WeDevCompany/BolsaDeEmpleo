@@ -251,13 +251,16 @@ class StudentsController extends UsersController
         $validTeacher = array_column($validTeacher, 'teacher_id');
 
         // Obtenemos los profesores de las mismas ramas profesionales que el estudiante
-        $teacher = Teacher::select('users.email', 'teachers.*')
+        $teacher = Teacher::select('users.email', 'teachers.id')
                             ->join('users', 'users.id', '=', 'teachers.user_id')
-                            ->join('teacherProfFamilies', 'teacherProfFamilies.teacher_id', '=', 'teachers.id')
-                            ->whereIn('teacherProfFamilies.profFamilie_id', $this->request['family'])
+                            ->join('subjectTeachers', 'subjectTeachers.teacher_id', '=', 'teachers.id')
+                            ->join('subjects', 'subjects.id', '=', 'subjectTeachers.subject_id')
+                            ->join('cycleSubjects', 'cycleSubjects.subject_id', '=', 'subjects.id')
+                            ->whereIn('cycleSubjects.cycle_id', $this->request['cycle'])
                             ->whereIn('teachers.id', $validTeacher)
+                            ->distinct('teachers.id')
                             ->get();
-
+        $teacher = false;
         // Si hay algun profesor                    
         if ($teacher) {
 
@@ -269,44 +272,85 @@ class StudentsController extends UsersController
                 // Si hemos mandado el email registramos quien lo ha hecho y cuando
                 if ($email) {
                     
-                    \DB::table('sentEmailStudents')->insert([
-                        'student_id' => $insert['id'],
-                        'teacher_id' => $value->id,
-                        'sent'       => true,
-                        'created_at' => date('YmdHms')
-                    ]);
+                    $sent = $this->insertSentEmailStudent($insert['id'], $value->id);
+                        
+                    if (!$sent) {
+                        return false;
+                    }
 
                 }
             }
 
-        // Si no hay ningun profesor por defecto se le enviara al administrador
+        // Si no hay ningun profesor por defecto se le enviara al tutor del ciclo
         } else {
 
-            // Obtenemos los administradores
-            $admin = $this->admin();
+            // Obtenemos los profesores de las mismas ramas profesionales que el estudiante
+            $tutor = Teacher::select('users.email', 'teachers.*')
+                            ->join('users', 'users.id', '=', 'teachers.user_id')
+                            ->join('tutors', 'tutors.teacher_id', '=', 'teachers.id')
+                            ->join('cycles', 'cycles.id', '=', 'tutors.cycle_id')
+                            ->whereIn('cycles.id', $this->request['cycle'])
+                            ->whereIn('teachers.id', $validTeacher)
+                            ->get();
 
-            foreach ($admin as $key => $value) {
+            if ($tutor) {
 
-                // Enviamos el email con los datos declarados antes
-                $email = $this->email->sendEmail($value->email, $subject, null, $cuerpo);
+                foreach ($tutor as $key => $value) {
 
-                // Si hemos mandado el email registramos quien lo ha hecho y cuando
-                if ($email) {
-                    
-                    \DB::table('sentEmailStudents')->insert([
-                        'student_id' => $insert['id'],
-                        'teacher_id' => $value->id,
-                        'sent'       => true,
-                        'created_at' => date('YmdHms')
-                    ]);
+                    // Enviamos el email con los datos declarados antes
+                    $email = $this->email->sendEmail($value->email, $subject, null, $cuerpo);
 
+                    // Si hemos mandado el email registramos quien lo ha hecho y cuando
+                    if ($email) {
+                        
+                        $sent = $this->insertSentEmailStudent($insert['id'], $value->id);
+                        
+                        if (!$sent) {
+                            return false;
+                        }
+
+                    }
                 }
 
+            // Si no hay ningun profesor ni tutor por defecto se le enviara al administrador
+            } else {
+
+                // Obtenemos los administradores
+                $admin = $this->admin();
+
+                foreach ($admin as $key => $value) {
+
+                    // Enviamos el email con los datos declarados antes
+                    $email = $this->email->sendEmail($value->email, $subject, null, $cuerpo);
+
+                    // Si hemos mandado el email registramos quien lo ha hecho y cuando
+                    if ($email) {
+                        
+                        $sent = $this->insertSentEmailStudent($insert['id'], $value->id);
+                        
+                        if (!$sent) {
+                            return false;
+                        }
+                    }
+
+                }
             }
         }
 
         return true;
              
     } // sendEmailTeacher()
+
+    public function insertSentEmailStudent($idStudent, $idTeacher)
+    {
+        $sent =\DB::table('sentEmailStudents')->insert([
+            'student_id' => $idStudent,
+            'teacher_id' => $idTeacher,
+            'sent'       => true,
+            'created_at' => date('YmdHms')
+        ]);
+
+        return $sent;
+    }
 
 }

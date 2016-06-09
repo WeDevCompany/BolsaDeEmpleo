@@ -17,7 +17,7 @@ class CreateStudentsTable extends Migration
             $table->string('firstName', 50)->comment('Nombre del estudiante');
             $table->string('lastName', 75)->comment('Apellidos del estudiante');
             $table->string('dni', 9)->comment('DNI/NIE del estudiante')->unique();
-            $table->string('nre', 10)->comment('NRE del estudiante')->unique()->nullable();
+            $table->string('nre', 10)->comment('NRE del estudiante')->nullable();
             $table->string('phone', 12)->comment('Telefono del estudiante');
             $table->enum('road', ['Alameda','Alto','Avenida','Bulevar','Camino','Calle','Carrera','Callejon','Corredera','Costanilla','Cuesta','Carretera','Paseo','Pista','Pasaje','Rambla','Rinconada','Ronda','Senda','Travesia','Via','Glorieta','Plaza','Plazoleta','Plazuela','Rotonda'])->comment('Tipo de via de residencia del estudiante');
             $table->string('address', 255)->comment('Direccion del estudiante');
