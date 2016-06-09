@@ -583,12 +583,10 @@ class UsersController extends Controller
                 }
                 return view('offer.offer', compact('offer','zona'));
             } else {
-               // dd("fuera del 2º if");
                 abort('404');
             }
 
         }
-       // dd("Fuera del 1º if");
         abort('404');
 
     } // getOfferById()

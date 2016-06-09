@@ -857,4 +857,55 @@ trait Search
 
     } // allMapOfferTags()
 
+    /**
+     * Método que obtiene el centro de trabajo tanto para empresas, como para administradores
+     * @param  Integer $id Id del botón
+     * @return [type]     [description]
+     */
+    public function getWorkCenter($id = null, $paginate = false){
+
+        // Hacemo que este método pueda funcionar con empresas y con Administradores
+        // Si el parametro se le envia es porque eres administrador
+        // sino es porque eres empresa
+        if (!isset($id)) {
+            $idAux = \Auth::user()->id;
+            try {
+                $id = Enterprise::select('id')->where('user_id', '=',$idAux)->get();
+                if (!$id->isEmpty() && $id[0]) {
+                    $id= $id[0]->id;
+                } else {
+                    abort('500');
+                }
+            } catch (Exception $e) {
+                abort('500');
+            }
+
+        } else {
+            $id = (int) $id;
+        }
+        try {
+            $workCenters = \DB::table('workCenters')
+                                ->select('workCenters.*')
+                                ->where('enterprise_id', '=', $id);
+            // si se quiere
+            // con pagionación o toda de golpe
+            if(isset($paginate) && $paginate === true){
+                $workCenters = $workCenters->paginate();
+            } else {
+                $workCenters = $workCenters->get();
+            }
+            return $workCenters;
+        } catch (Exception $e) {
+            abort('500');
+        }
+    }// getWorkCenter()
+
+    public function mapWorCenters($queryResults){
+        $workCenters = [];
+        foreach ($queryResults as $key => $value) {
+            $workCenters [$value->id] = $value->name;
+        }
+        return $workCenters;
+    }
+
 } // END Class SearchController

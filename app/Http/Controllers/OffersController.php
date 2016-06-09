@@ -9,6 +9,7 @@ use App\Tag;
 use App\ProfFamilie;
 use App\Enterprise;
 use App\User;
+use App\WorkCenter;
 use App\Http\Requests;
 use App\Http\Requests\DeniedOfferRequest;
 use App\Http\Requests\OfferNotificationRequest;
@@ -371,7 +372,9 @@ class OffersController extends UsersController
     public function getNewOffer() {
         $allProfFamilies = $this->allMapProfFamilies();
         $allTags = $this->allMapTags();
-        return view('offer.registerForm', compact('allProfFamilies', 'allTags'));
+        $workCenters = $this->getWorkCenter();
+        $workCenters = $this->mapWorCenters($workCenters);
+        return view('offer.registerForm', compact('allProfFamilies', 'allTags', 'workCenters'));
     }
 
     public function postNewOffer() {
