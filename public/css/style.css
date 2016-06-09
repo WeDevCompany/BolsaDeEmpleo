@@ -452,6 +452,27 @@ a:hover.back-to-top {
   padding-bottom: 20px;
 }
 
+
+.no-padding{
+  padding:0;
+}
+
+.no-padding-top{
+  padding-top:0;
+}
+
+.no-padding-bottom{
+  padding-bottom:0;
+}
+
+.no-padding-right{
+  padding-right:0;
+}
+
+.no-padding-left{
+  padding-left:0;
+}
+
 .label-select{
   margin-top: -3em;
 }
@@ -973,9 +994,39 @@ legend {
   font-size: 180%;
   text-align:center;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .subjectName {
   width:100%;
   word-wrap: break-word;
+}
+
+/********************
+  Estilos de tags
+*********************/
+.editTag {
+  padding: 3px 6px;
+  margin: 0;
+}
+
+.titleTag {
+  font-weight: bold;
+}
+
+.border-orange {
+  border: 2px solid #FF8F00;
+}
+
+.border-blue {
+  border: 2px solid #448AFF;
+}
+
+.textAreaTags {
+  width:100%;
+  height: 250px;
+  border-radius: 5px;
+  resize: none;
+  outline: 0;
+  color: #FF8F00;
 }
