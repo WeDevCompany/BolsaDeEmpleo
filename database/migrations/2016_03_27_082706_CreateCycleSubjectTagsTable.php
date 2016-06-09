@@ -14,6 +14,7 @@ class CreateCycleSubjectTagsTable extends Migration
     {
         Schema::create('cycleSubjectTags', function (Blueprint $table) {
             $table->increments('id', 10)->comment('Identificador de la etiqueta de una asignatura de un ciclo');
+            $table->string('dateFrom', 4)->comment('Fecha en que el tag pertenece a la asignatura');
             $table->integer('cycleSubject_id')->unsigned()->comment('Identificador de la asignatura del ciclo');
             $table->integer('tag_id')->unsigned()->comment('Identificador del tag');
             $table->foreign('cycleSubject_id')->references('id')->on('cycleSubjects')->onUpdate('cascade')->onDelete('cascade');

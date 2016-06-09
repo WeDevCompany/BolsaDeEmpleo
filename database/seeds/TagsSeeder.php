@@ -437,6 +437,7 @@ class TagsSeeder extends Seeder
 
                     \DB::table('cycleSubjectTags')->insert([ // Luego en cycleSubjectTags
                         'cycleSubject_id' => $cycleSubject_id,
+                        'dateFrom' => '2016',
                         'tag_id' => $idTag,
                         'created_at' => date('YmdHms')
                     ]);
@@ -449,6 +450,7 @@ class TagsSeeder extends Seeder
                         if($nombre == $arrayTags[$j]){
                             \DB::table('cycleSubjectTags')->insert([
                                 'cycleSubject_id' => $cycleSubject_id,
+                                'dateFrom' => '2013',
                                 'tag_id' => $idTag,
                                 'created_at' => date('YmdHms')
                             ]);
@@ -466,6 +468,7 @@ class TagsSeeder extends Seeder
 
                         \DB::table('cycleSubjectTags')->insert([
                             'cycleSubject_id' => $cycleSubject_id,
+                            'dateFrom' => '2015',
                             'tag_id' => $idTag,
                             'created_at' => date('YmdHms')
                         ]);
