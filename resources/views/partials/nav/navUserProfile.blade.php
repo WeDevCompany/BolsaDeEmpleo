@@ -25,8 +25,11 @@
             @if(\Auth::user()->rol == "administrador" || \Auth::user()->rol == "profesor")
                 <!-- Profesores -->
                 <li role="presentation" class="dropdown-header">Profesor</li>
-                <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Asignaturas</a></li>
-                <li><a href="{{ url(config('routes.admin.allDeniedTeachers')) }}">Ciclos</a></li>
+                @if(\Auth::user()->rol == "administrador")
+                    <li><a href="{{ url(config('routes.admin.subjects')) }}">Asignaturas</a></li>
+                @else
+                    <li><a href="{{ url(config('routes.teacher.subjects')) }}">Asignaturas</a></li>
+                @endif
             @elseif(\Auth::user()->rol == "empresa")
                 <!-- Empresa -->
                 <li role="presentation" class="dropdown-header">Empresa</li>

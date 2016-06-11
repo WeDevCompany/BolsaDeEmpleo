@@ -10,7 +10,7 @@
 			</div>
 			<div class="col-sm-8 hide" id="oculto">
 				<select name="cycle0" class="chosen-select form-control" id="cycle0">
-			    	@foreach($cycles as $ArrayId => $cycle)
+			    	@foreach($allCycles as $ArrayId => $cycle)
 			    		@if ($cycle['level'] === "Básico")
 			    			@if ($basico == true)
 				    			<optgroup label="Grados básicos" id="basico0">
@@ -29,6 +29,9 @@
 						@endif
 						<option value="{{ $cycle['id'] }}">[{{ $cycle['level'] }}] {{ $cycle['name'] }}</option>
 					@endforeach
+					{{ $basico = true }}
+					{{ $medio = true }}
+					{{ $superior = true }}
 			    </select>
 			    @if ($errors->has('cycle0'))
 	                <span class="help-block">
@@ -66,9 +69,9 @@
                 </span>
             @endif
 		</div>
-		<div class="col-md-12 extra-padding">
+		<div class="col-md-12 extra-padding hidden">
 			{{ Form::label('cycles', 'Asignaturas impartidas',['class' => 'label-select']) }}
-			{{ Form::select('select[]',['L' => 'Large', 'S' => 'Small'], old('select', null),['class' => 'chosen-select form-control', 'multiple' => 'multiple']) }}
+			{{ Form::select('select[]',[], old('select', null),['class' => 'chosen-select form-control', 'multiple' => 'multiple', 'id' => 'subjects']) }}
 		</div>
 	</div>
 </fieldset>
