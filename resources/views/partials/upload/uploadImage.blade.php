@@ -2,7 +2,6 @@
 @section('scripts')
     {{-- Incluimos los scripts de validaciones --}}
     <script src="/js/dropzone/dropzoneConfig.js" charset="utf-8"></script>
-    @include('partials.session.sessionflash')
 @endsection
 @section('content')
 @include('partials.nav.navParent')
