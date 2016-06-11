@@ -1025,8 +1025,8 @@ legend {
 }
 
 .textAreaTags {
-  /*width:100%;
-  height: 250px;*/
+  width:100%;
+  height: 250px;
   border-radius: 5px;
   resize: none;
   outline: 0;
