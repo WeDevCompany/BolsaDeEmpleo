@@ -1032,3 +1032,8 @@ legend {
   outline: 0;
   color: #FF8F00;
 }
+
+textarea {
+    width:100%;
+    min-height: 250px;
+}
