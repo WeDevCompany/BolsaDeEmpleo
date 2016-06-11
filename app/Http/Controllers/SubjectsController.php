@@ -14,6 +14,7 @@ class SubjectsController extends Controller
     
 	protected $request = null;          // Inicializada a null
 	protected $rules = null;          // Inicializada a null
+    protected $route = null;
 
     public function __construct(Request $request)
     {
@@ -25,6 +26,7 @@ class SubjectsController extends Controller
         ];
 
         $this->request = $request;
+        $this->route = \Auth::user()->rol;
     }
 
 	public function index()
@@ -46,7 +48,7 @@ class SubjectsController extends Controller
             // Si el año no es valido lo redirijo
             if($_GET['yearFrom'] < 1990 || $_GET['yearFrom'] > date('Y')+5) {
                 Session::flash('message_Negative', 'Introduce un año válido.');
-                return \Redirect::to('profesor/asignaturas');
+                return \Redirect::to($this->route . '/asignaturas');
             } else {
                 $subjectYear = (int) $_GET['yearFrom'];
             }
@@ -62,7 +64,7 @@ class SubjectsController extends Controller
             // Si no es suyo lo redirijo
             if(empty($result)) {
                 Session::flash('message_Negative', 'Escoje ciclos a los que tengas acceso.');
-                return \Redirect::to('profesor/asignaturas');
+                return \Redirect::to($this->route . '/asignaturas');
             } else {        
                 $cycleId = (int) $_GET['cycle'];
             }
@@ -98,7 +100,7 @@ class SubjectsController extends Controller
             // Compruebo el año
             if($this->request['yearFromId'] <= 1990 || $this->request['yearFromId'] > date('Y')+5) {
                 // Redireccionamos en caso de no ser un año valido.
-                return \Redirect::to('profesor/asignaturas?cycle=' . $this->request['cycleId'] . '&yearFrom=' . date('Y'));
+                return \Redirect::to($this->route . '/asignaturas?cycle=' . $this->request['cycleId'] . '&yearFrom=' . date('Y'));
             } else {
                 // Obtengo las asignaturas de ese ciclo
                 $subjects = $this->cycleSubjects($this->request['cycleId'])->lists('id')->toArray();
@@ -123,7 +125,7 @@ class SubjectsController extends Controller
 
                     if ($cont != $bien) {
                         // Redireccionamos en caso de no encontrar la asignatura.
-                        return \Redirect::to('profesor/asignaturas');
+                        return \Redirect::to($this->route . '/asignaturas');
                     } else {
                         $bien = 0;
                         $cont = 0;
@@ -145,13 +147,13 @@ class SubjectsController extends Controller
 
                     if ($cont != $bien) {
                         // Redireccionamos en caso de no encontrar la asignatura.
-                        return \Redirect::to('profesor/asignaturas?cycle=' . $this->request['cycleId'] . '&yearFrom=' . $this->request['yearFromId']);
+                        return \Redirect::to($this->route . '/asignaturas?cycle=' . $this->request['cycleId'] . '&yearFrom=' . $this->request['yearFromId']);
                     }
                 }
 
                 if($mySubjects === false && $allSubjects === false) {
                     // Redireccionamos en caso de no ninguna asignatura.
-                    return \Redirect::to('profesor/asignaturas');
+                    return \Redirect::to($this->route . '/asignaturas');
                 } else {
                     $insercion = [];
                     $borrado = [];
@@ -178,7 +180,7 @@ class SubjectsController extends Controller
 
                                 if($insert === false) {
                                     Session::flash('message_Negative', 'Algunas asignaturas no han podido añadirse, intentelo de nuevo más tarde.');
-                                    return \Redirect::to('profesor/asignaturas?cycle=' . $this->request['cycleId'] . '&yearFrom=' . $this->request['yearFromId']);
+                                    return \Redirect::to($this->route . '/asignaturas?cycle=' . $this->request['cycleId'] . '&yearFrom=' . $this->request['yearFromId']);
                                 }
                             } 
                         } else {
@@ -205,7 +207,7 @@ class SubjectsController extends Controller
 
                                 if($delete === false) {
                                     Session::flash('message_Negative', 'Algunas asignaturas no han podido eliminarse, intentelo de nuevo más tarde.');
-                                    return \Redirect::to('profesor/asignaturas?cycle=' . $this->request['cycleId'] . '&yearFrom=' . $this->request['yearFromId']); 
+                                    return \Redirect::to($this->route . '/asignaturas?cycle=' . $this->request['cycleId'] . '&yearFrom=' . $this->request['yearFromId']); 
                                 }
                             } 
                         } else {
@@ -221,11 +223,11 @@ class SubjectsController extends Controller
             }
         } else {
             Session::flash('message_Negative', 'No tienes acceso a ese ciclo.');
-            return \Redirect::to('profesor/asignaturas');
+            return \Redirect::to($this->route . '/asignaturas');
         }
 
         // Redireccionamos en caso de no ser un ciclo valido.
-        return \Redirect::to('profesor/asignaturas?cycle=' . $this->request['cycleId'] . '&yearFrom=' . $this->request['yearFromId']);
+        return \Redirect::to($this->route . '/asignaturas?cycle=' . $this->request['cycleId'] . '&yearFrom=' . $this->request['yearFromId']);
 
     } // store()
 

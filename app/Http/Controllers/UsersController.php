@@ -181,7 +181,14 @@ class UsersController extends Controller
 
             // Llamo al metodo getAllProfFamilies del controlador de las familias profesionales
             $profFamilies = app(ProfFamiliesController::class)->getAllProfFamilies();
-            $cycles = app(CyclesController::class)->getAllCycles('*', true);
+            // Obtengo el identificador de la primera familia profesional
+            $familyId = array_keys($profFamilies)[0];
+
+            // Obtengo los ciclos de la primera familia
+            $cycles = app(CyclesController::class)->getAllCycles($familyId, true);
+
+            // Obtengo todos los ciclos para la opción de tutor
+            $allCycles = app(CyclesController::class)->getAllCycles('*', true);
 
             // Inicializo las variables que necesitare para los optgroups
             $basico = true;
@@ -189,7 +196,7 @@ class UsersController extends Controller
             $superior = true;
 
             $zona = "Registro de profesores";
-            return view('teacher.registerForm', compact('profFamilies', 'cycles', 'basico', 'medio', 'superior', 'zona'));
+            return view('teacher.registerForm', compact('profFamilies', 'cycles', 'basico', 'medio', 'superior', 'allCycles', 'zona'));
 
         // Registro de estudiantes
         } else if ($this->request->is('registro/estudiante')) {

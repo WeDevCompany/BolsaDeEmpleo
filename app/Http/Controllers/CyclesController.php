@@ -34,7 +34,7 @@ class CyclesController extends Controller
         if(is_numeric($familyId) && $familyId > 0){
             try {
                 // Almaceno el resultado en caché
-                $cyclesDB = \Cache::remember('cyclesDB', 5, function() use ($familyId){
+                $cyclesDB = \Cache::remember('cyclesDB', 1440, function() use ($familyId){
                     // Los resultados de la consulta se almacenan en la variable
                     return Cycle::where('active', '=', '1')->where('profFamilie_id', '=', $familyId)->orderBy('level', 'DESC')->orderBy('name', 'ASC')->get();
                 });
