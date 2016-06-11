@@ -30,6 +30,18 @@
                         <button type="submit" class="btn btn-success" id="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i><span class="hidden-media"> Save</span></button>
                     {!! Form::close() !!}
                     <div><br></div>
+                    <div class="form-group">
+                        <div class="col-md-12 text-center">
+                            <a href="{{ url(config('routes.student.downloadCurriculum')) }}" type="button" class="btn btn-primary btn-login-media  waves-effect waves-light">
+                                <div class="show-responsive">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                </div>
+                                <div class="hidden-media">
+                                        <i class="fa fa-btn fa-user"></i> <span class="hidden-media">Validar</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

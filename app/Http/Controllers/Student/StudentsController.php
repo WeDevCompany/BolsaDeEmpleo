@@ -471,15 +471,23 @@ class StudentsController extends UsersController
 
     } // getSuscriptionStudent()
 
-    /* Método Inacabado */
-    public function getFile($file, $carpeta, $mime, $name){
-        
-        $file = storage_path() . '/app/curriculum/' . $carpeta . '/' . $file;
- 
-        return (new Response($file, 200))
-              ->header('Content-Type', $mime)
-              ->header('Content-Disposition', 'attachment')
-              ->header('filename', $name);
-    }
+
+    public function downloadCurriculum()
+    {
+        $student = Student::select('users.*', 'students.*')
+                            ->where('students.user_id', '=', \Auth::user()->id)
+                            ->join('users', 'users.id', '=', 'students.user_id')
+                            ->first();
+
+        $url = storage_path() . '/app/curriculum/' . $student->carpeta . '/' . $student->curriculum;
+
+        if (\File::exists($url)) {
+            return response()->download($url);
+        }
+
+        Session::flash('message_Negative', 'En este momento no podemos atender su petición, por favor intentelo mas tarde');
+        return \Redirect::to('/estudiante/curriculum');
+
+    } // downloadCurriculum()
 
 }

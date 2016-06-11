@@ -235,6 +235,7 @@ Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth', 'isStude
     Route::post(config('routes.UploadImg'), 'StudentsController@uploadImage');
     Route::get(config('routes.curriculum'), 'StudentsController@studentCurriculum');
     Route::post(config('routes.UploadCurriculum'), 'StudentsController@uploadCurriculum');
+    Route::get(config('routes.studentRoutes.downloadCurriculum'), 'StudentsController@downloadCurriculum');
 
     // Ofertas admitidas
     Route::get(config('routes.studentRoutes.allOffers'), 'StudentsController@getVerifiedOffer');

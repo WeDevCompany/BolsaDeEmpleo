@@ -122,6 +122,7 @@ return [
             'allOffers'             => '/estudiante/ofertas',
             'subcriptionOffer'      => '/estudiante/oferta/suscripcion/{idOffer}',
             'viewOffer'             => '/estudiante/oferta/{idOffer}',
+            'downloadCurriculum'    => '/estudiante/downloadCV',
         ],
     'studentRoutes' =>
         [
@@ -130,6 +131,7 @@ return [
             'register'              => 'registro',
             'subcriptionOffer'      => '/oferta/suscripcion/{idOffer}',
             'viewOffer'             => '/oferta/{idOffer}',
+            'downloadCurriculum'    => '/downloadCV',
         ],
 
     'teacher'    =>
