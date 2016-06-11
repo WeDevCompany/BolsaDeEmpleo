@@ -13,7 +13,7 @@
                 <div class="modal-content">
                     <div class="modal-header text-center">
 
-                        <h4><i class="fa fa-user"></i> Cambiar Curriculum</h4>
+                        <h4><i class="fa fa-file-pdf-o"></i> Cambiar Curriculum</h4>
 
                     </div>
                     <div class="row">
@@ -29,15 +29,14 @@
                         </div>
                         <button type="submit" class="btn btn-success" id="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i><span class="hidden-media"> Save</span></button>
                     {!! Form::close() !!}
-                    <div><br></div>
-                    <div class="form-group">
+                    <div class="form-group extra-padding-curriculum">
                         <div class="col-md-12 text-center">
                             <a href="{{ url(config('routes.student.downloadCurriculum')) }}" type="button" class="btn btn-primary btn-login-media  waves-effect waves-light">
                                 <div class="show-responsive">
-                                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                    <i class="fa fa-download" aria-hidden="true"></i>
                                 </div>
                                 <div class="hidden-media">
-                                        <i class="fa fa-btn fa-user"></i> <span class="hidden-media">Validar</span>
+                                        <i class="fa fa-download"></i> <span class="hidden-media">Descargar Curriculum</span>
                                 </div>
                             </a>
                         </div>

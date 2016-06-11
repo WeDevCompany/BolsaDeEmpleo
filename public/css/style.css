@@ -448,6 +448,7 @@ a:hover.back-to-top {
 .extra-padding-top{
   padding-top: 20px;
 }
+
 .extra-padding-bottom{
   padding-bottom: 20px;
 }
@@ -473,6 +474,11 @@ a:hover.back-to-top {
   padding-left:0;
 }
 
+.extra-padding-curriculum{
+  padding-top: 10px;
+  padding-bottom: 60px;
+}
+
 .label-select{
   margin-top: -3em;
 }
@@ -485,6 +491,12 @@ a:hover.back-to-top {
   .select-minor {
     margin-top: 2em !important;
   }
+  .extra-padding-curriculum {
+    padding-bottom: 0px;
+  }
+  .media-margin {
+   margin-top: 3em !important;
+ }
 }
 
 .family-cycle{
