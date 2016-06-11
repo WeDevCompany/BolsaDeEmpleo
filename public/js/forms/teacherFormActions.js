@@ -1,8 +1,8 @@
-$('document').ready(function(){
-
+$(document).ready(function() {
+	// Parte de mostrar el tutor
 	var tutor = $('#tutor');
 	var oculto = $('#oculto');
-					console.log(tutor);
+
 	// si existe crearemos eventos
 	if (tutor.length > 0) {
 		// existe
@@ -17,4 +17,10 @@ $('document').ready(function(){
 			}
 		});
 	}
+
+	// Carga de las asignaturas
+	$('#cycle1').on('change', function(e) {
+		names = $('#cycle1_chosen').children('ul[class=chosen-choices]').children('li[class=search-choice]').children('span').text();
+		console.log(variable);
+	});
 });
