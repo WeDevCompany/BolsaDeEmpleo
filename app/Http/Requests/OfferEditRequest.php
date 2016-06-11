@@ -33,6 +33,8 @@ class OfferEditRequest extends Request
             'wanted'        => 'required|integer',
             'description'   => 'required',
             'tagCount'      => 'required|exists:tags,tag',
+            'workcenter'    =>'required|integer|workCenterValid',
+            'enterpriseResponsable'    =>'required|integer|enterpriseResponsable',
         ];
     }
 }

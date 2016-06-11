@@ -7,7 +7,7 @@
             <a id="file-select">
                 <div class="drop hoverable" id="drop-curriculum">
                     <img id="show" class="hidden" src="{{ url('/img/global/Pdf-icon.png') }}">
-                    <div class="text-center" title="Responsable de la oferta de trabajo" data-toggle="tooltip">
+                    <div class="text-center" title="Arrastra tu curriculum" data-toggle="tooltip">
                         <span class="fa fa-file-image-o" aria-hidden="true"></span>
                     </div>
                 </div>

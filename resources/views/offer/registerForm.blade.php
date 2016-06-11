@@ -11,14 +11,14 @@
 @include('partials.nav.navParent')
 	<div class="container">
         <div class="row">
-            <div class="col-md-12 sin-margen">
+            <div class="col-md-12 sin-margen  animated zoomIn">
                 <div class="panel panel-default">
                     <div class="modal-content">
                         <div class="modal-header text-center">
                             <h4><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Formulario de creación de la oferta de trabajo</h4>
                         </div>
                         <div class="panel-body">
-                             {{ Form::open(['url' => config('routes.offerEnterprise.newOffer'), 'method' => 'POST', 'id' => 'offer-register-form']) }}
+                             {{ Form::open(['url' => config('routes.offerEnterprise.newOfferPost'), 'method' => 'POST', 'id' => 'offer-register-form']) }}
                                 {!! csrf_field() !!}
                                 @include('offer.partials.offerFields')
                                 @include('offer.partials.enterpriseFields')

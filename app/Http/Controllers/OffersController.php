@@ -136,25 +136,30 @@ class OffersController extends UsersController
         // Saneamos el id que se nos pasa como parametro
         $idOffer = (int) $idOffer;
         $aux = [$idOffer];
+        try {
+            // Llamamos al Search para obtener la oferta seleccionada
+            $offer = $this->invalidOrValidOffer($aux, $this->request);
 
-        // Llamamos al Search para obtener la oferta seleccionada
-        $offer = $this->invalidOrValidOffer($aux, $this->request);
+            if (isset($offer[0])) {
+                $offer = $offer[0];
+            }
 
-        if (isset($offer[0])) {
-            $offer = $offer[0];
+            $tag = $this->offerTag($idOffer);
+
+            $offer = $this->arrayMap($offer, $tag, 'tag', true);
+
+            $allTags = $this->allMapTags();
+
+            $allProfFamilies = $this->allMapProfFamilies();
+
+            $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";
+
+            return view('offer/editForm', compact('offer','zona', 'allTags', 'allProfFamilies'));
+        } catch(Exception $e){
+            //dd($e);
+            abort('500');
         }
 
-        $tag = $this->offerTag($idOffer);
-
-        $offer = $this->arrayMap($offer, $tag, 'tag', true);
-
-        $allTags = $this->allMapTags();
-
-        $allProfFamilies = $this->allMapProfFamilies();
-
-        $zona = (isset($offer->title) && isset($offer->enterpriseName)) ? $offer->title ." - " . $offer->enterpriseName : "Oferta de empleo";
-
-        return view('offer/editForm', compact('offer','zona', 'allTags', 'allProfFamilies'));
 
     } // getOfferEdit()
 
@@ -201,6 +206,8 @@ class OffersController extends UsersController
             'wanted'         => $this->request->wanted,
             'description'    => $this->request->description,
             'others'         => $this->request->others,
+            'workCenter_id'  => $this->request->workcenter,
+            'enterpriseResponsable_id' => $this->request->enterpriseResponsable,
             'profFamilie_id' => $profFamily->id,
         ]);
 
@@ -368,7 +375,9 @@ class OffersController extends UsersController
         // Llamamos al método en modo de edición
         return Parent::getOfferByIdEnterprise($idOffer, $request, $edit = true);
     }
-
+    /**
+     * Método que muestra el formulario para crear una nueva ofertas
+     */
     public function getNewOffer() {
         //obtenemos todas las familias profesionales
         $allProfFamilies = $this->allMapProfFamilies();
@@ -386,7 +395,9 @@ class OffersController extends UsersController
         return view('offer.registerForm', compact('allProfFamilies', 'allTags', 'workCenters', 'enterpriseResponsable'));
     }
 
-    public function postNewOffer() {
+    public function postNewOffer(OfferEditRequest $request) {
+        dd($this->request);
+        Session::flash('message_Success', 'La oferta se ha creado correctamente');
         return view('offer.registerForm');
     }
 }

@@ -22,6 +22,9 @@
                                 {!! csrf_field() !!}
                                 {{ Form::hidden('id', $offer->id, ['class' => 'form-control']) }}
                                 @include('offer.partials.offerFields')
+                                @if(\Auth::user()->rol === "empresa")
+                                    @include('offer.partials.enterpriseFields')
+                                @endif
                                 <div class="form-group">
                                     <div class="col-md-12 text-center">
                                         <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light">

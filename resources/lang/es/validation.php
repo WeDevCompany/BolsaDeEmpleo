@@ -99,6 +99,8 @@ return [
     'valid_student_profFamilies' => 'La familia profesional es inválida',
     'valid_student_cycles'       => 'El ciclo es inválido',
     'cif'                        => 'El campo :attribute no es válido',
+    'work_center_valid'          => 'El campo :attribute no es válido',
+    'enterprise_responsable'     => 'El campo :attribute no es válido',
 
     /*
     |--------------------------------------------------------------------------
@@ -143,8 +145,10 @@ return [
         'time'                  => 'hora',
         'subject'               => 'asunto',
         'message'               => 'mensaje',
-        'family'                => 'familia',             
-        'cycle'                => 'ciclo',             
+        'family'                => 'familia',
+        'cycle'                 => 'ciclo',
+        'workcenter'            => 'centro de trabajo',
+        'enterpriseResponsable' => 'responsable de trabajo',
     ],
 
 ];

@@ -579,7 +579,15 @@ class UsersController extends Controller
                 if($edit) {
                     $allTags = $this->allMapTags();
                     $allProfFamilies = $this->allMapProfFamilies();
-                    return view('offer.editForm', compact('offer','zona', 'allTags', 'allProfFamilies'));
+                    // obtenemos los centros de trabajo
+                    $workCenters = $this->getWorkCenter();
+                    // convertimos los centros de trabajo  en arrays
+                    $workCenters = $this->mapArray($workCenters);
+
+                    $enterpriseResponsable = $this->getEnterpriseResponsable();
+
+                    $enterpriseResponsable = $this->mapArray($enterpriseResponsable);
+                    return view('offer.editForm', compact('offer','zona', 'allTags', 'allProfFamilies', 'workCenters', 'enterpriseResponsable'));
                 }
                 return view('offer.offer', compact('offer','zona'));
             } else {
