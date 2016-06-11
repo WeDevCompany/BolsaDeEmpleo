@@ -137,6 +137,9 @@
     <!-- Script que evita el conflicto con los modales  -->
     <script src="/js/funcionalidad/removeConflictiveCalss.js" charset="utf-8"></script>
 
+    <!-- Script que evita el conflicto con los modales  -->
+    <script src="/js/funcionalidad/fixCkeditor.js" charset="utf-8"></script>
+
     <!-- Script que hace random el fondo -->
     @include('partials.session.sessionFlash')
 
