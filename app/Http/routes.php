@@ -236,6 +236,15 @@ Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth', 'isStude
     Route::get(config('routes.curriculum'), 'StudentsController@studentCurriculum');
     Route::post(config('routes.UploadCurriculum'), 'StudentsController@uploadCurriculum');
 
+    // Ofertas admitidas
+    Route::get(config('routes.studentRoutes.allOffers'), 'StudentsController@getVerifiedOffer');
+
+    // Visualización de una sola oferta
+    Route::get(config('routes.studentRoutes.viewOffer'), 'StudentsController@getOfferById');
+
+    // Suscripcion a una oferta
+    Route::get(config('routes.studentRoutes.subcriptionOffer'), 'StudentsController@getSubcriptionStudent');
+
 });
 
 // Grupo de rutas para las empresas

@@ -19,6 +19,8 @@
                                     <th>Cif</th>
                                     <th>Email</th>
                                     <th>Centro de trabajo principal</th>
+                                    <th>Centros</th>
+                                    <th>Responsables</th>
                                     <th>Borrar</th>
                                 </tr>
                             </thead>
@@ -31,6 +33,12 @@
                                         <td>{!! $enterprise->cif !!}</td>
                                         <td><a href="mailto:{!! $enterprise->email !!}">{!! $enterprise->email !!}</a></td>
                                         <td>{!! $enterprise->workCenterName !!}</td>
+                                        <td>
+                                            <a href="#" class="btn btn-primary waves-effect waves-light btn-xs"><i class="fa fa-building-o" aria-hidden="true"></i></a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn btn-primary waves-effect waves-light btn-xs"><i class="fa fa-users" aria-hidden="true"></i></a>
+                                        </td>
                                         <td>
                                             <a href="#" class="btn btn-danger waves-effect waves-light btn-xs btn-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </td>

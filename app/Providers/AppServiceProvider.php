@@ -393,12 +393,17 @@ class AppServiceProvider extends ServiceProvider
          */
         Validator::extend('validOfferUser', function($attribute, $id, $parameters)
         {
-            $profFamilyTeacher = $this->profFamilyTeacher();
+
+            if (implode($parameters) == 'estudiante') {
+                $profFamily = $this->profFamilyStudent();
+            } else {
+                $profFamily = $this->profFamilyTeacher();
+            }
 
             $offer = JobOffer::select('jobOffers.id')
                                 ->join('profFamilies', 'profFamilies.id', '=', 'jobOffers.profFamilie_id')
                                 ->where('jobOffers.id', '=', $id)
-                                ->whereIn('profFamilies.name', $profFamilyTeacher)
+                                ->whereIn('profFamilies.name', $profFamily)
                                 ->first();
 
             if (!$offer){

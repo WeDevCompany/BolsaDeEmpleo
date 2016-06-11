@@ -7,12 +7,14 @@ use App\Http\Controllers\ProfFamiliesController;
 use App\Http\Controllers\CyclesController;
 use App\Http\Requests;
 use App\Student;
+use App\JobOffer;
 use App\Cycle;
 use App\User;
 use App\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Response;
 
 class StudentsController extends UsersController
 {
@@ -351,6 +353,133 @@ class StudentsController extends UsersController
         ]);
 
         return $sent;
+    }
+
+    /**
+     * Metodo que obtiene todas las ofertas validadas, filtradas por la rama
+     * profesional del profesor logueado, y los muestra, si recibe el parametro de busqueda los filtrara
+     * @return view Vista en la que se listan las ofertas
+     */
+    public function getVerifiedOffer()
+    {
+        // Url de buscador
+        $urlSearch = config('routes.student.allOffers');
+
+        // Variale de zona
+        $zona = config('zona.admitidos.empresa');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedOffers');
+
+        // Obtenemos las familias profesionales del profesor
+        $profFamilyStudent = $this->profFamilyStudent();
+
+        // Convertimos el objeto devuelto en un array
+        $profFamilyValidate = array_column($profFamilyStudent->toArray(), 'name');
+
+        // Obtenemos todas las ofertas validadas
+        $validOffer = $this->validOffer();
+
+        // Convertimos el objeto devuelto en un array
+        $validOffer = array_column($validOffer, 'jobOffer_id');
+
+        // Obtenemos los estudiantes que estan validados
+        $verifiedOffer = $this->invalidOrValidOffer($validOffer, $this->request, $profFamilyValidate, true);
+
+        // Añadimos las suscripciones
+        $verifiedOffer = Parent::getSubscriptions($validOffer, $verifiedOffer);
+
+        // Añadimos los tags
+        $verifiedOffer = Parent::getTags($validOffer, $verifiedOffer);
+
+        // Request
+        $request = $this->request;
+
+        return view('generic/verified/verifiedOffer', compact('verifiedOffer', 'filters', 'zona', 'urlSearch', 'request'));
+
+    } // getVerifiedOffer()
+
+
+    public function getSubcriptionStudent($idOffer)
+    {   
+        // Validamos los campos que nos llegan en el controlador
+        // ya que los errores del comentario los mostraremos con un session flash
+        $validator = \Validator::make((array)$idOffer, [
+            '0' => 'required|integer|validOfferUser:estudiante',
+        ]);
+
+        // Si hay errores los mandamos a la vista
+        if ($validator->fails()) {
+
+            Session::flash('message_Negative', 'No se ha podido suscribirse a la oferta. Oferta inválida');
+            return \Redirect::back();
+        }
+
+        // Todos los datos del estudiante
+        $student = Student::select('users.*', 'students.*')
+                            ->where('students.user_id', '=', \Auth::user()->id)
+                            ->join('users', 'users.id', '=', 'students.user_id')
+                            ->first();
+
+        // Comprobamos que el estudiante no esta inscrito ya en la oferta
+        $suscripcion = \DB::table('subcriptions')->where('student_id', '=', $student->id)
+                                                ->where('jobOffer_id', '=', $idOffer)
+                                                ->first();
+
+        if (!$suscripcion) {
+       
+            // Todos los datos de la oferta a la que el estudiante quiere suscribirse
+            $offer = JobOffer::join('workCenters', 'workCenters.id', '=', 'jobOffers.workCenter_id')
+                                ->where('jobOffers.id', '=', $idOffer)
+                                ->first();
+
+            // Variables para el email
+            $cuerpo = 'El estudiante con nombre y apellidos: ' . $student->firstName . ' ' . $student->lastName . ' y email: ' . $student->email . ' se ha suscrito a su oferta de trabajo cuyo titulo es: ' . $offer->title . '.';
+            $subject = 'Un Estudiante se ha suscrito a su oferta';
+            
+            // Ruta hasta el curriculum del estudiante
+            $url = storage_path() . '/app/curriculum/' . $student->carpeta . '/' . $student->curriculum;
+
+            // Enviamos el email con los datos declarados antes
+            $email = $this->email->sendEmail($offer->email, $subject, null, $cuerpo, $url);
+
+            if (!$email){
+                Session::flash('message_Negative', 'En este momento no podemos atender su peticion, por favor intentelo mas tarde');
+                return \Redirect::back();
+            }
+
+            $sentEmail = \DB::table('subcriptions')->insert([
+                'sentEmail' => true,
+                'student_id' => $student->id,
+                'jobOffer_id' => $idOffer,
+                'created_at' => date('YmdHms'),
+            ]);
+
+            if ($sentEmail) {
+                Session::flash('message_Success', 'Te has suscrito a la oferta correctamente');
+                return \Redirect::back();
+            }
+
+        } else {
+
+            Session::flash('message_Negative', 'Ya te encuentras suscrito a esta oferta');
+            return \Redirect::back();
+        }
+        
+        Session::flash('message_Negative', 'En este momento no podemos atender su petición, por favor intentelo mas tarde');
+        return \Redirect::back();
+
+    } // getSuscriptionStudent()
+
+    /* Método Inacabado */
+    public function getFile($file, $carpeta, $mime, $name){
+        
+        $file = storage_path() . '/app/curriculum/' . $carpeta . '/' . $file;
+ 
+        return (new Response($file, 200))
+              ->header('Content-Type', $mime)
+              ->header('Content-Disposition', 'attachment')
+              ->header('filename', $name);
     }
 
 }

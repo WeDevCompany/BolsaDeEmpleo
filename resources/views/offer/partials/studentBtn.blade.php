@@ -1,6 +1,6 @@
 <div class="row text-center">
 	<div class="col-md-12">
-		<a href="/{{\Auth::user()->rol}}/oferta/subscipcion/{{ $offer->id }}" class="btn btn-info btn-login-media waves-effect waves-light hoverable" id="verOferta">
+		<a href="/{{\Auth::user()->rol}}/oferta/suscripcion/{{ $offer->id }}" class="btn btn-info btn-login-media waves-effect waves-light hoverable" id="verOferta">
 	        <div class="show-responsive">
 	            <i class="fa fa-bookmark" aria-hidden="true"></i>
 	        </div>

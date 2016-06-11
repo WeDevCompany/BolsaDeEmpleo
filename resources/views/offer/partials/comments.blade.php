@@ -31,20 +31,21 @@
 			                @else
 			                	<ul class="collection col-md-12 text-center">
 			                		Actualmente no existe ningun comentario para esta oferta.</br>
-			                		¡Se el primero en aportar un comentario!
 			                	</ul>
 			                @endif
 						</div>
-						<div class="col-md-12 text-center">
-                            <button type="button" class="btn btn-primary btn-login-media  waves-effect waves-light" data-toggle="modal" data-target="#myModalCreate">
-                                <div class="show-responsive">
-                                    <i class="fa fa-comment" aria-hidden="true"></i>
-                                </div>
-                                <div class="hidden-media">
-                                    <i class="fa fa-btn fa-comment"></i> <span class="hidden-media">Nuevo Comentario</span>
-                                </div>
-                            </button>
-                        </div>
+						@if (\Auth::user()->rol !== 'estudiante')
+							<div class="col-md-12 text-center">
+	                            <button type="button" class="btn btn-primary btn-login-media waves-effect waves-light" data-toggle="modal" data-target="#myModalCreate">
+	                                <div class="show-responsive">
+	                                    <i class="fa fa-comment" aria-hidden="true"></i>
+	                                </div>
+	                                <div class="hidden-media">
+	                                    <i class="fa fa-btn fa-comment"></i> <span class="hidden-media">Nuevo Comentario</span>
+	                                </div>
+	                            </button>
+	                        </div>
+	                    @endif
                 	</div>
                 </div>
             </div>

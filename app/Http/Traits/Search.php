@@ -185,6 +185,23 @@ trait Search
 
     } // deniedOneStudent()
 
+    /**
+     * Metodo que devuelve la familia del estudiante logueado
+     */
+    public function profFamilyStudent()
+    {
+        // Obtenemos las familias profesionales del estudiante por nombre
+        $profFamilyStudent = Student::select('profFamilies.name')
+                                        ->where('user_id', '=', \Auth::user()->id)
+                                        ->join('studentCycles', 'studentCycles.student_id', '=', 'students.id')
+                                        ->join('cycles', 'cycles.id', '=', 'studentCycles.cycle_id')
+                                        ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
+                                        ->get();
+
+        return $profFamilyStudent;
+
+    } // profFamilyStudent()
+
 
     /*==============================
      *                              *

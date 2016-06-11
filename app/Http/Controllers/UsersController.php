@@ -518,9 +518,16 @@ class UsersController extends Controller
         // comprobamos si lo que nos devuelve es un array y si este está vacio o no, en caso de estar vacio
         // se enviará un error 404
         if(is_array($this->validOffer($idOffer)) && !empty($this->validOffer($idOffer)) ){
-            // Obtenemos la familia profesional a la que pertenece
-            // el profesor
-            $profFamilie = $this->profFamilyTeacher();
+            
+            if (\Auth::user()->rol == 'estudiante') {
+                // Obtenemos la familia profesional a la que pertenece
+                // el estudiante
+                $profFamilie = $this->profFamilyStudent();
+            } else {
+                // Obtenemos la familia profesional a la que pertenece
+                // el profesor
+                $profFamilie = $this->profFamilyTeacher();
+            }
             if($profFamilie->isEmpty()) {
                $offer = $this->invalidOrValidOffer($aux, $this->request);
             } else {
