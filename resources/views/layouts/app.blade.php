@@ -134,6 +134,9 @@
     <!-- Script que gestiona la sesión  -->
     <script src="{{url('/plugin/jquerysession.js')}}" type="text/javascript" charset="utf-8"></script>
 
+    <!-- Script que evita el conflicto con los modales  -->
+    <script src="/js/funcionalidad/removeConflictiveCalss.js" charset="utf-8"></script>
+
     <!-- Script que hace random el fondo -->
     @include('partials.session.sessionFlash')
 

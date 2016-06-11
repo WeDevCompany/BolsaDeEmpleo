@@ -33,6 +33,14 @@ class OffersController extends UsersController
 
     }
 
+    public function dueDate($time = '+4 month')
+    {
+         $nuevafecha = strtotime($time  , strtotime(date( 'YmdHms')));
+         // Generamos una fecha nueva con 4 meses más
+         $nuevafecha = date( 'YmdHms' , $nuevafecha );
+         return $nuevafecha;
+    }
+
     /**
      * Método que actualiza un comentario
      */
@@ -129,7 +137,6 @@ class OffersController extends UsersController
     /**
      * [getOfferEdit description]
      * @param  [type] $idOffer [description]
-     * @return [type]          [description]
      */
     public function getOfferEdit($idOffer)
     {
@@ -206,6 +213,7 @@ class OffersController extends UsersController
             'wanted'         => $this->request->wanted,
             'description'    => $this->request->description,
             'others'         => $this->request->others,
+            'dueDate'        => $this->dueDate(),
             'workCenter_id'  => $this->request->workcenter,
             'enterpriseResponsable_id' => $this->request->enterpriseResponsable,
             'profFamilie_id' => $profFamily->id,
@@ -396,8 +404,77 @@ class OffersController extends UsersController
     }
 
     public function postNewOffer(OfferEditRequest $request) {
-        dd($this->request);
-        Session::flash('message_Success', 'La oferta se ha creado correctamente');
-        return view('offer.registerForm');
+        // Comenzamos la transaccion.
+        \DB::beginTransaction();
+
+        // Obtenemos el id de la familia profesional
+        $profFamily = ProfFamilie::where('name', '=', $this->request->name)->first();
+
+        // Actualizamos todos los datos de la oferta que hemos recibido
+        $insertOffer = JobOffer::insertGetId([
+            'title'          => $this->request->title,
+            'duration'       => $this->request->duration,
+            'level'          => $this->request->level,
+            'experience'     => $this->request->experience,
+            'kind'           => $this->request->kind,
+            'wanted'         => $this->request->wanted,
+            'description'    => $this->request->description,
+            'others'         => $this->request->others,
+            'dueDate'        => $this->dueDate(),
+            'workCenter_id'  => $this->request->workcenter,
+            'enterpriseResponsable_id' => $this->request->enterpriseResponsable,
+            'profFamilie_id' => $profFamily->id,
+            'created_at'    => date('YmdHms'),
+        ]);
+
+        if (!$insertOffer) {
+            \DB::rollBack();
+            Session::flash('message_Negative', 'Ha ocurrido un error durante la inserción de la oferta, por favor intentelo mas tarde o pongase en contacto con bolsa@iescierva.net');
+            return \Redirect::back();
+        }
+
+        foreach ($this->request['tagCount'] as $key => $value) {
+
+            // Comprobamos si la oferta tenia ya en la base de datos esa oferta, si ya estaba
+            // continuara con la siguiente, si no esta la insertará
+            $tag = Tag::select('*')->where('tag', '=', $value)->first();
+
+            $offerTag = \DB::table('offerTags')->where('jobOffer_id', '=', $insertOffer)
+                                                ->where('tag_id', '=', $tag->id)
+                                                ->first();
+
+            if (!$offerTag) {
+
+                // Insertamos las nuevas ofertas
+                $insertTags = \DB::table('offerTags')->insert([
+                    'jobOffer_id' => $insertOffer,
+                    'tag_id'      => $tag->id,
+                    'created_at'  => date('YmdHms'),
+                ]);
+
+
+                if (!$insertTags) {
+                    \DB::rollBack();
+                    Session::flash('message_Negative', 'Ha ocurrido un error durante la inserción de la oferta, por favor intentelo mas tarde o pongase en contacto con bolsa@iescierva.net');
+                    return \Redirect::back();
+                }
+            }
+        }
+
+        \DB::commit();
+        //obtenemos todas las familias profesionales
+        $allProfFamilies = $this->allMapProfFamilies();
+        //obtenemos todas las tags, mapeadas como array
+        $allTags = $this->allMapTags();
+        // obtenemos los centros de trabajo
+        $workCenters = $this->getWorkCenter();
+        // convertimos los centros de trabajo  en arrays
+        $workCenters = $this->mapArray($workCenters);
+
+        $enterpriseResponsable = $this->getEnterpriseResponsable();
+
+        $enterpriseResponsable = $this->mapArray($enterpriseResponsable);
+        Session::flash('message_Success', 'La oferta se ha creado correctamente, ahora mismo esta pendiente de aprobación');
+        return \Redirect::back();
     }
 }
