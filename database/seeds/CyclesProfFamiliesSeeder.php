@@ -1385,7 +1385,7 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Administración y Gestión',
-        'active' => false,
+        'active' => true,
             'created_at' => date('YmdHms')
     ]);
 
@@ -1400,7 +1400,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Informática de Oficina',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -1501,7 +1501,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => ' Servicios Administrativos',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -1626,7 +1626,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Gestión Administrativa (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -1728,7 +1728,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Gestión Administrativa (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -1863,7 +1863,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Administración y Finanzas (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -1998,7 +1998,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Administración y Finanzas (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -2156,7 +2156,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Secretariado (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -2258,7 +2258,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Asistencia a la Dirección (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -2400,7 +2400,7 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Agraria',
-        'active' => false,
+        'active' => true,
             'created_at' => date('YmdHms')
     ]);
 
@@ -2415,7 +2415,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Actividades Agropecuarias',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -2541,7 +2541,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Agro-jardinería y Composiciones Florales',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -2679,7 +2679,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Aprovechamientos Forestales',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -2804,7 +2804,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Explotaciones Agrarias Extensivas (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -2928,7 +2928,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Explotaciones Agrícolas Intensivas (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -3041,7 +3041,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Explotaciones Ganaderas (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -3166,7 +3166,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Jardinería (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -3301,7 +3301,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Trabajos Forestales y Conservación del Medio Natural (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -3437,7 +3437,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Aprovechamiento y Conservación del Medio Natural (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -3585,7 +3585,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Jardinería y Floristería (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -3746,7 +3746,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Producción Agroecológica (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -3894,7 +3894,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Producción Agropecuaria (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -4041,7 +4041,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Gestión y Organización de Empresas Agropecuarias (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -4143,7 +4143,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Gestión y Organización de los Recursos Naturales y Paisajísticos (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -4278,7 +4278,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Ganadería y Asistencia en Sanidad Animal (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -4424,7 +4424,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Gestión Forestal y del Medio Natural (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -4603,7 +4603,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Paisajismo y Medio Rural (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -4745,7 +4745,7 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Artes Gráficas',
-        'active' => false,
+        'active' => true,
             'created_at' => date('YmdHms')
     ]);
 
@@ -4759,7 +4759,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Artes Gráficas',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -4894,7 +4894,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Encuadernación y Manipulados de Papel y Cartón (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -4985,7 +4985,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Impresión en Artes Gráficas (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -5077,7 +5077,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Preimpresión en Artes Gráficas (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -5190,7 +5190,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Impresión Gráfica (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -5303,7 +5303,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Postimpresión y Acabados Gráficos (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -5439,7 +5439,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Preimpresión Digital (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -5563,7 +5563,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Diseño y Producción Editorial (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -5665,7 +5665,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Producción en Industrias de Artes Gráficas (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -5778,7 +5778,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Diseño y Edición de Publicaciones Impresas y Multimedia (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -5924,7 +5924,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Diseño y Gestión de la Producción Gráfica (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -6056,7 +6056,7 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Comercio y Marketing',
-        'active' => false,
+        'active' => true,
             'created_at' => date('YmdHms')
     ]);
 
@@ -6071,7 +6071,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Servicios Comerciales',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -6197,7 +6197,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Comercio (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -6289,7 +6289,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Actividades Comerciales (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -6435,7 +6435,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Comercio Internacional (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -6559,7 +6559,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Comercio Internacional (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -6716,7 +6716,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Gestión Comercial y Marketing (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -6818,7 +6818,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Gestión del Transporte (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -6942,7 +6942,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Servicios al Consumidor (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -7023,7 +7023,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Gestión de Ventas y Espacios Comerciales (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -7182,7 +7182,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Marketing y Publicidad (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -7339,7 +7339,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Transporte y Logística (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -7482,7 +7482,7 @@ class CyclesProfFamiliesSeeder extends Seeder
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Edificación y Obra Civil',
-        'active' => false,
+        'active' => true,
             'created_at' => date('YmdHms')
     ]);
 
@@ -7497,7 +7497,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Reforma y Mantenimiento de Edificios',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -7621,7 +7621,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Acabados de Construcción (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -7712,7 +7712,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Obras de Albañilería (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -7814,7 +7814,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Obras de Hormigón (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -7927,7 +7927,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Operación y Mantenimiento de Maquinaria de Construcción (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -8029,7 +8029,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Construcción (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -8186,7 +8186,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Obras de Interior, Decoración y Rehabilitación (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -8333,7 +8333,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Desarrollo de Proyectos Urbanísticos y Operaciones Topográficas (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -8435,7 +8435,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Desarrollo y Aplicación de Proyectos de Construcción (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -8537,7 +8537,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Realización y Planes de Obra (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -8628,7 +8628,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Proyectos de Edificación (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -8785,7 +8785,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Proyectos de Obra Civil (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -8942,7 +8942,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Organización y Control de Obras de Construcción (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -9108,7 +9108,7 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Electricidad y Electrónica',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -9123,7 +9123,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Electricidad y Electrónica',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -9227,7 +9227,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Fabricación de Elementos Metálicos',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -9341,7 +9341,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Instalaciones Electrotécnicas y Mecánica',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -9456,7 +9456,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Equipos e Instalaciones Electrotécnicas (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -9602,7 +9602,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Equipos Electrónicos de Consumo (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -9737,7 +9737,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Instalaciones de Telecomunicaciones (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -9872,7 +9872,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Instalaciones Eléctricas y Automáticas (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -10006,7 +10006,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Desarrollo de Productos Electrónicos (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -10141,7 +10141,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Instalaciones Electrotécnicas (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -10287,7 +10287,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Sistemas de Regulación y Control Automáticos (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -10444,7 +10444,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Sistemas de Telecomunicación e Informáticos (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -10590,7 +10590,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Sistemas de Telecomunicaciones e Informáticos (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -10747,7 +10747,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Automatización y Robótica Industrial (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -10905,7 +10905,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Electromedicina Clínica (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -11064,7 +11064,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento Electrónico (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -11211,7 +11211,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Sistemas Electrotécnicos y Automatizados (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -11354,7 +11354,7 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Fabricación Mecánica',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -11369,7 +11369,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Fabricación de Elementos Metálicos',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -11484,7 +11484,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Fabricación y Montaje',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -11613,7 +11613,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Instalaciones Electrotécnicas y Mecánica',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -11730,7 +11730,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Fundición (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -11832,7 +11832,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Joyería (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -11967,7 +11967,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mecanizado (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -12091,7 +12091,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mecanizado (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -12203,7 +12203,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Soldadura y Calderería (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -12335,7 +12335,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Soldadura y Calderería (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -12449,7 +12449,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Tratamientos Superficiales y Térmicos (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -12551,7 +12551,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Conformado por Moldeo de Metales y Polímeros (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -12663,7 +12663,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Construcciones Metálicas (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -12787,7 +12787,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Construcciones Metálicas (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -12922,7 +12922,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Desarrollo de Proyectos Mecánicos (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -13046,7 +13046,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Óptica de Anteojería (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -13148,7 +13148,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Producción por Fundición y Pulvimetalurgia (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -13272,7 +13272,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Producción por Mecanizado (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -13396,7 +13396,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Diseño en Fabricación Mecánica (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -13514,7 +13514,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Programación de la Producción en Fabricación Mecánica (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -13660,7 +13660,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Programación de la Producción en Moldeo de Metales y Polímeros (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -13789,7 +13789,7 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Hostelería y Turismo',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -13805,7 +13805,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Actividades de Panadería y Pastelería',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -13919,7 +13919,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Alojamiento y Lavandería',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -14056,7 +14056,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Cocina y Restauración',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -14193,7 +14193,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Cocina (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -14307,7 +14307,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Pastelería y Panadería (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -14398,7 +14398,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Servicios de Restaurante y Bar (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -14500,7 +14500,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Cocina y Gastronomía (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -14612,7 +14612,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Servicios en Restauración (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -14744,7 +14744,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Agencias de Viajes (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -14846,7 +14846,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Alojamiento (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -14948,7 +14948,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Animación Turística (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -15050,7 +15050,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Información y Comercialización Turísticas (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -15141,7 +15141,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Restauración (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -15254,7 +15254,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Agencias de Viajes y Gestión de Eventos (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -15411,7 +15411,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Dirección de Cocina (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -15568,7 +15568,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Dirección de Servicios de Restauración (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -15736,7 +15736,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Gestión de Alojamientos Turísticos (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -15891,7 +15891,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Guía, Información y Asistencias Turísticas (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -16042,7 +16042,7 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Imagen Personal',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -16057,7 +16057,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Peluquería y Estética',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -16197,7 +16197,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Caracterización (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -16323,7 +16323,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Estética Personal Decorativa (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -16436,7 +16436,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Peluquería (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -16590,7 +16590,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Estética y Belleza (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -16746,7 +16746,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Peluquería y Cosmética Capilar (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -16887,7 +16887,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Asesoría de belleza',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -16978,7 +16978,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Estética (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -17113,7 +17113,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Asesoría de Imagen Personal y Corporativa (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -17259,7 +17259,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Caracterización y Maquillaje Profesional (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -17416,7 +17416,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Estética Integral y Bienestar (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -17573,7 +17573,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Estilismo y Dirección de Peluquería (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -17715,7 +17715,7 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Imagen y Sonido',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -17729,7 +17729,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Laboratorio de Imagen (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -17809,7 +17809,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Video Disc-Jockey y Sonido (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -17922,7 +17922,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Imagen (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -18046,7 +18046,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Producción de Audiovisuales, Radio y Espectáculos (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -18159,7 +18159,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Realización de Audiovisuales y Espectáculos (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -18272,7 +18272,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Sonido (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -18396,7 +18396,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Animaciones 3D, Juegos y Entornos Interactivos (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -18531,7 +18531,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Iluminación, Captación y Tratamiento de Imagen (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -18688,7 +18688,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Producción de Audiovisuales y Espectáculos (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -18823,7 +18823,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Realización de Proyectos Audiovisuales y Espectáculos (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -18969,7 +18969,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Sonido para Audiovisuales y Espectáculos (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -19111,7 +19111,7 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Industrias Alimentarias',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -19125,7 +19125,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Actividades de Panadería y Pastelería',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -19238,7 +19238,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Industrias Alimentarias',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -19351,7 +19351,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Conservería Vegetal, Cárnica y de Pescado (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -19456,7 +19456,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Elaboración de Aceites y jugos (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -19548,7 +19548,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Elaboración de Productos Lácteos (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -19650,7 +19650,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Elaboración de Vinos y Otras Bebidas (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -19752,7 +19752,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Matadero y Carnicería-Charcutería (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -19854,7 +19854,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Molinería e Industrias Cerealistas (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -19957,7 +19957,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Panificación y Repostería (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -20081,7 +20081,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Aceites de Oliva y Vinos (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -20228,7 +20228,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Elaboración de Productos Alimenticios (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -20363,7 +20363,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Panadería, Repostería y Confitería (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -20499,7 +20499,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Industria Alimentaria (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -20634,7 +20634,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Procesos y Calidad en la Industria Alimentaria (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -20812,7 +20812,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Vitivinicultura (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -20966,7 +20966,7 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Industrias Extractivas',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -20980,7 +20980,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Excavaciones y Sondeos (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -21117,7 +21117,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Piedra Natural (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -21262,7 +21262,7 @@ class CyclesProfFamiliesSeeder extends Seeder
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Instalación y Mantenimiento',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -21277,7 +21277,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Fabricación y Montaje',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -21400,7 +21400,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento de Viviendas',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -21514,7 +21514,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Instalación y Mantenimiento Electromecánico de Maquinaria y Conducción de Líneas (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -21651,7 +21651,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento Ferroviario (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -21766,7 +21766,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Montaje y Mantenimiento de Instalaciones de Frío, Climatización y Producción de Calor (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -21903,7 +21903,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Instalaciones de Producción de Calor (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -22030,7 +22030,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Instalaciones Frigoríficas y de Climatización (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -22143,7 +22143,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento Electromecánico (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -22259,7 +22259,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -22405,7 +22405,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento de Equipo Industrial (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -22564,7 +22564,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento y Montaje de Instalaciones de Edificio y Proceso (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -22687,7 +22687,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Prevención de Riesgos Profesionales (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -22789,7 +22789,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Desarrollo de Proyectos de Instalaciones Térmicas y de Fluidos (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -22924,7 +22924,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento de Instalaciones Térmicas y de Fluidos (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -23070,7 +23070,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mecatrónica Industrial (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -23364,7 +23364,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Fabricación a Medida e Instalación de Carpintería y Mueble (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -23466,7 +23466,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Fabricación Industrial de Carpintería y Mueble (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -23558,7 +23558,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Transformación de Madera y Corcho (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -23650,7 +23650,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Carpintería y Mueble (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -23799,7 +23799,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Instalación y Amueblamiento (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -23934,7 +23934,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Desarrollo de Productos en Carpintería y Mueble (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -24047,7 +24047,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Producción de Madera y Mueble (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -24194,7 +24194,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Diseño y Amueblamiento (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -24338,7 +24338,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Marítimo - Pesquera',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -24352,7 +24352,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Actividades Marítimo-Pesqueras',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -24476,7 +24476,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento de Embarcaciones Deportivas y de Recreo',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -24600,7 +24600,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Buceo de Media Profundidad (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -24691,7 +24691,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Operación, Control y Mantenimiento de Máquinas e Instalaciones del Buque (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -24805,7 +24805,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Operaciones de Cultivo Acuícola (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -24920,7 +24920,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Pesca y Transporte Marítimo (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -25036,7 +25036,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Cultivos Acuícolas (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -25151,7 +25151,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento y Control de la Maquinaria de Buques y Embarcaciones (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -25290,7 +25290,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Navegación y Pesca de Litoral (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -25438,7 +25438,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Operaciones Subacuáticas e Hiperbáricas (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -25573,7 +25573,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Navegación, Pesca y Transporte Marítimo (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -25686,7 +25686,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Producción Acuícola (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -25788,7 +25788,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Supervisión y Control de Máquinas e Instalaciones del Buque (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -25911,7 +25911,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Acuicultura (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -26046,7 +26046,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Organización del Mantenimiento de Maquinaria de Buques y Embarcaciones (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -26204,7 +26204,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Transporte Marítimo y Pesca de Altura (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -26336,7 +26336,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Química',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -26350,7 +26350,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Laboratorio (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -26430,7 +26430,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Operaciones de Fabricación de Productos Farmacéuticos (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -26521,7 +26521,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Operaciones de Proceso de Pasta y Papel (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -26612,7 +26612,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Operaciones de Proceso de Planta Química (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -26694,7 +26694,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Operaciones de Transformación de Plásticos y Caucho (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -26775,7 +26775,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Operaciones de Laboratorio (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -26927,7 +26927,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Planta Química (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -27054,7 +27054,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Análisis y Control (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -27156,7 +27156,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Fabricación de Productos Farmacéuticos y Afines (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -27247,7 +27247,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Industrias de Proceso de Pasta y Papel (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -27335,7 +27335,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Industrias de Proceso Químico (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -27427,7 +27427,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Plásticos y Caucho (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -27518,7 +27518,7 @@ Desarrollo de Proyectos de Instalaciones de Fluidos, Térmicas y de Manutención
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Química Ambiental (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -27608,7 +27608,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -27775,7 +27775,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Laboratorio de Análisis y de Control de Calidad (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -27912,7 +27912,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Química Industrial (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -28065,7 +28065,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Sanidad',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -28079,7 +28079,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Cuidados Auxiliares de Enfermería (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -28170,7 +28170,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Farmacia (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -28250,7 +28250,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Emergencias Sanitarias (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -28398,7 +28398,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Farmacia y Parafarmacia (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -28536,7 +28536,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Audioprótesis (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -28627,7 +28627,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Audiología Protésica (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -28750,7 +28750,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Anatomía Patológica y Citología (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -28841,7 +28841,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Anatomía Patológica y Citodiagnóstico (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -28975,7 +28975,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Dietética (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -29088,7 +29088,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Documentación Sanitaria (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -29178,7 +29178,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Documentación y Administración Sanitarias (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -29334,7 +29334,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Higiene Bucodental (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -29415,7 +29415,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Higiene Bucodental (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -29569,7 +29569,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Imagen para el Diagnóstico (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -29670,7 +29670,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Imagen para el Diagnóstico y Medicina Nuclear (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -29827,7 +29827,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Laboratorio de Diagnóstico Clínico (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -29907,7 +29907,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Laboratorio Clínico y Biomédico (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -30041,7 +30041,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Ortoprotésica (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -30154,7 +30154,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Ortoprótesis y Productos de Apoyo (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -30300,7 +30300,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Prótesis Dentales (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -30402,7 +30402,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Prótesis Dentales (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -30537,7 +30537,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Radioterapia (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -30617,7 +30617,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Radioterapia y Dosimetría (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -30752,7 +30752,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Salud Ambiental (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -30850,7 +30850,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Seguridad y Medio Ambiente',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -30864,7 +30864,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Emergencias y Protección Civil (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -31001,7 +31001,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Educación y Control Ambiental (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -31157,7 +31157,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Coordinación de Emergencias y Protección Civil (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -31308,7 +31308,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Servicios Socioculturales y a la Comunidad',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -31322,7 +31322,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Actividades Domésticas y Limpieza de edificios',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -31446,7 +31446,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Atención Sociosanitaria (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -31597,7 +31597,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Atención a Personas en Situación de Dependencia (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -31746,7 +31746,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Animación Sociocultural (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -31837,7 +31837,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Animación Sociocultural y Turística (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -32005,7 +32005,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Educación Infantil (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -32107,7 +32107,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Educación Infantil (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -32252,7 +32252,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Integración Social (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -32332,7 +32332,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Integración Social (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -32500,7 +32500,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Interpretación de la Lengua de Signos (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -32624,7 +32624,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mediación Comunicativa (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -32792,7 +32792,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Promoción de Igualdad de Género (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -32944,7 +32944,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Textil, Confección y Piel',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -32958,7 +32958,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Arreglo y Reparación de Artículos Textiles y de Piel',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -33082,7 +33082,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Tapicería y Cortinaje',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -33207,7 +33207,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Calzado y Marroquinería (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -33319,7 +33319,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Confección (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -33422,7 +33422,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Operaciones de Ennoblecimiento Textil (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -33525,7 +33525,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Producción de Hiladura y Tejeduría de Calada (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -33606,7 +33606,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Producción de Tejidos de Punto (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -33688,7 +33688,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Calzado y Complementos de Moda (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -33838,7 +33838,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Confección y Moda (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -33975,7 +33975,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Fabricación y Ennoblecimiento de Productos Textiles (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -34121,7 +34121,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Curtidos (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -34212,7 +34212,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Patronaje (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -34303,7 +34303,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Procesos de Confección Industrial (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -34405,7 +34405,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Procesos de Ennoblecimiento Textil (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -34507,7 +34507,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Procesos Textiles de Hilatura y Tejeduría de Calada (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -34598,7 +34598,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Procesos Textiles de Tejeduría de Punto (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -34689,7 +34689,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Diseño Técnico en Textil y Piel (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -34823,7 +34823,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Diseño y Producción de Calzado y Complementos (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -34981,7 +34981,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Patronaje y Moda (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -35136,7 +35136,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Vestuario a Medida y de Espectáculos (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -35266,7 +35266,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Transporte y Mantenimiento de Vehículos',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -35280,7 +35280,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento de Embarcaciones Deportivas y de Recreo',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -35404,7 +35404,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento de Vehículos',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -35518,7 +35518,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Carrocería (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -35630,7 +35630,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Carrocería (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -35743,7 +35743,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Electromecánica de Vehículos (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -35882,7 +35882,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Conducción de Vehículos de Transporte por Carretera (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -36020,7 +36020,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Electromecánica de Maquinaria (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -36160,7 +36160,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Electromecánica de Vehículos Automóviles (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -36288,7 +36288,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento de Material Rodante Ferroviario (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -36425,7 +36425,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Automoción (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -36562,7 +36562,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Automoción (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -36701,7 +36701,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento Aeromecánico (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -36858,7 +36858,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Mantenimiento de Aviónica (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -36999,7 +36999,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
         ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Vidrio y Cerámica',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -37013,7 +37013,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Vidriería y Alfarería',
                 'level' => 'Básico',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -37148,7 +37148,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Operaciones de Fabricación de Productos Cerámicos (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -37251,7 +37251,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Operaciones de Fabricación de Vidrio y Transformados (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -37352,7 +37352,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Fabricación de Productos Cerámicos (LOE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -37478,7 +37478,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Desarrollo y Fabricación de Productos Cerámicos (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -37591,7 +37591,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Desarrollo y Fabricación de Productos Cerámicos (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -37737,7 +37737,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Fabricación y Transformación de Productos de Vidrio (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -37824,7 +37824,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
     ****************************************************/
     $profFamilie_id = \DB::table('profFamilies')->insertGetId([
         'name' => 'Artes y Artesanías',
-        'active' => false,
+        'active' => true,
             'created_at' => date('YmdHms')
     ]);
 
@@ -37838,7 +37838,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Artista Fallero y Construcción de Escenografías (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -37969,7 +37969,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
     ****************************************************/
         $profFamilie_id = \DB::table('profFamilies')->insertGetId([
             'name' => 'Energía y Agua',
-            'active' => false,
+            'active' => true,
             'created_at' => date('YmdHms')
         ]);
 
@@ -37983,7 +37983,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Centrales Eléctricas (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -38118,7 +38118,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Eficiencia Energética y Energía Solar Térmica (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -38264,7 +38264,7 @@ Fabricación de Productos Farmacéuticos, Biotecnológicos y Afines (LOE)
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Energías Renovables (LOE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
