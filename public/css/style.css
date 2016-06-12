@@ -311,6 +311,9 @@ a:hover.back-to-top {
 /*.img-navegador:hover{
   background-color:white;
 }*/
+tr:hover td > img{
+    background-color:white;
+}
 
 .img-resize {
   max-width: 200px;
@@ -1048,4 +1051,14 @@ legend {
 textarea {
     width:100%;
     min-height: 250px;
+}
+.table > tbody > tr > td,
+.table > tbody > tr > th {
+    border-top-color: #FF8F00;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #fff3e0;
+  font-weight:bolder;
+  transition:all 0.25s ease-in-out;
 }
