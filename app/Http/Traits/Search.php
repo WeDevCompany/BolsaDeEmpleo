@@ -1003,8 +1003,9 @@ trait Search
             $id = (int) $id;
         }
         try {
-            $workCenters = \DB::table('workCenters')
-                                ->select('workCenters.*')
+            $workCenters = Enterprise::select('enterprises.name as enterpriseName', 'enterprises.*', 'cities.name as cityName', 'workCenters.*')
+                                ->join('workCenters', 'workCenters.enterprise_id', '=', 'enterprises.id')
+                                ->join('cities', 'cities.id', '=', 'workCenters.citie_id')
                                 ->where('enterprise_id', '=', $id);
             // si se quiere
             // con pagionación o toda de golpe
@@ -1058,7 +1059,7 @@ trait Search
         }
         try {
             $enterpriseResponsable = \DB::table('workCenters as wc')
-                                ->select('er.*')
+                                ->select('er.*', 'wc.id as idWorkCenter')
                                 ->join('enterpriseCenterResponsables as ecr', 'ecr.workCenter_id' , '=', 'wc.id')
                                 ->join('enterpriseResponsables as er', 'er.id', '=', 'ecr.enterpriseResponsable_id')
                                 ->where('wc.enterprise_id', '=', $id);

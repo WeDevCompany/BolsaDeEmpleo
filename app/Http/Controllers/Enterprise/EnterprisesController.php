@@ -191,11 +191,11 @@ class EnterprisesController extends UsersController
         $workCenters = $this->getWorkCenter();
 
         // Todos los responsables de la empresa
-        $responsable = $this->getEnterpriseResponsable();
+        $responsables = $this->getEnterpriseResponsable();
 
         $request = $this->request;
-        
-        return view('workCenter/workCenterList', compact('workCenters', 'responsable', 'filters', 'zona', 'urlSearch', 'urlPost', 'request'));
+
+        return view('workCenter/workCenterList', compact('workCenters', 'responsables', 'filters', 'zona', 'urlSearch', 'urlPost', 'request'));
 
     } // getWorkCenterEnterprise()
 
