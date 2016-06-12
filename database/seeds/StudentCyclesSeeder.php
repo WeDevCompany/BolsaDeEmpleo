@@ -73,7 +73,7 @@ class StudentCyclesSeeder extends Seeder
         ]);
 
         /******************************************
-    				FERNANDO STUDENT
+    				TESTEO1 STUDENT
     				    TUTOR
     	*******************************************/
 
@@ -87,7 +87,7 @@ class StudentCyclesSeeder extends Seeder
 
 
         /******************************************
-    				ABEL STUDENT
+    				TESTEO2 STUDENT
     				    TUTOR
     	*******************************************/
 

@@ -251,14 +251,14 @@ class WorkCentersSeeder extends Seeder
 
         /************************************************
     						WORK CENTER
-    					EMPRESA FERNANDO
+    					EMPRESA TESTEO1
     	*************************************************/
 
     	$workCenter_id = \DB::table('workCenters')->insertGetId([
         	'road' => 'Plaza',
         	'address' => strtoupper('Plaza Triangular'),
-        	'name' => strtoupper('La ferretería de Fernando'),
-        	'email' => strtoupper('fernando@workcenter.es'),
+        	'name' => strtoupper('La ferretería de testeo1'),
+        	'email' => strtoupper('testeo1@workcenter.es'),
         	'phone1' => '876409823',
         	'enterprise_id' => 4,
         	'citie_id' => 670,
@@ -450,7 +450,7 @@ class WorkCentersSeeder extends Seeder
         ]);
 
             $enterpriseResponsable_id = \DB::table('enterpriseResponsables')->insertGetId([
-                'firstName' => strtoupper('Fernando'),
+                'firstName' => strtoupper('testeo1'),
                 'lastName' => strtoupper('Lama Olmedo'),
                 'dni' => strtoupper('34249386V'),
                 'created_at' => date('YmdHms')

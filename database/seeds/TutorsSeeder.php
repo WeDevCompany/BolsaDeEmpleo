@@ -49,7 +49,7 @@ class TutorsSeeder extends Seeder
         ]);
 
         /******************************************
-    				FERNANDO TEACHER
+    				TESTEO1 TEACHER
     				    TUTOR
     	*******************************************/
 

@@ -218,6 +218,7 @@ trait Search
             // Obtenemos las familias profesionales del profesor por nombre
             $profFamilyTeacher = Teacher::select('profFamilies.name')
                                             ->where('user_id', '=', \Auth::user()->id)
+                                            ->where('profFamilies.active', '=', 1)
                                             ->join('teacherProfFamilies', 'teacherProfFamilies.teacher_id', '=', 'teachers.id')
                                             ->join('profFamilies', 'profFamilies.id', '=', 'teacherProfFamilies.profFamilie_id')
                                             ->get();
@@ -225,6 +226,7 @@ trait Search
             // Obtenemos las familias profesionales del profesor por id
             $profFamilyTeacher = Teacher::select('profFamilies.id')
                                             ->where('user_id', '=', \Auth::user()->id)
+                                            ->where('profFamilies.active', '=', 1)
                                             ->join('teacherProfFamilies', 'teacherProfFamilies.teacher_id', '=', 'teachers.id')
                                             ->join('profFamilies', 'profFamilies.id', '=', 'teacherProfFamilies.profFamilie_id')
                                             ->get();
@@ -426,6 +428,8 @@ trait Search
         // Obtenemos las familias profesionales del profesor
         $subjects = Subject::select('subjects.id', 'subjects.name')
                                         ->join('cycleSubjects', 'cycleSubjects.subject_id', '=', 'subjects.id')
+                                        ->join('cycles', 'cycles.id', '=', 'cycleSubjects.cycle_id')
+                                        ->where('cycles.active', '=', 1)
                                         ->where('cycle_id', '=', $cycle_id)
                                         ->orderBy('name', 'asc')
                                         ->get();
@@ -447,6 +451,8 @@ trait Search
         // Obtenemos las familias profesionales del profesor
         $subjects = Subject::select('subjects.id', 'subjects.name')
                                         ->join('cycleSubjects', 'cycleSubjects.subject_id', '=', 'subjects.id')
+                                        ->join('cycles', 'cycles.id', '=', 'cycleSubjects.cycle_id')
+                                        ->where('cycles.active', '=', 1)
                                         ->where('cycle_id', '=', $cycle_id)
                                         ->whereNotIn('subjects.id', $noSubjects)
                                         ->orderBy('name', 'asc')
@@ -474,6 +480,8 @@ trait Search
                                         ->join('cycleSubjects', 'cycleSubjects.subject_id', '=', 'subjects.id')
                                         ->join('subjectTeachers', 'subjectTeachers.subject_id', '=', 'subjects.id')
                                         ->join('teachers', 'teachers.id', '=', 'subjectTeachers.teacher_id')
+                                        ->join('cycles', 'cycles.id', '=', 'cycleSubjects.cycle_id')
+                                        ->where('cycles.active', '=', 1)
                                         ->where('cycle_id', '=', $cycle_id)
                                         ->where('dateFrom', '=', $year)
                                         ->where('user_id', '=', \Auth::user()->id)
@@ -498,6 +506,8 @@ trait Search
                                         ->join('cycleSubjects', 'cycleSubjects.subject_id', '=', 'subjects.id')
                                         ->join('subjectTeachers', 'subjectTeachers.subject_id', '=', 'subjects.id')
                                         ->join('teachers', 'teachers.id', '=', 'subjectTeachers.teacher_id')
+                                        ->join('cycles', 'cycles.id', '=', 'cycleSubjects.cycle_id')
+                                        ->where('cycles.active', '=', 1)
                                         ->where('cycle_id', '=', $cycle_id)
                                         ->where('dateFrom', '=', $year)
                                         ->where('user_id', '!=', \Auth::user()->id)

@@ -110,7 +110,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Admin4
         $user_id = \DB::table('users')->insertGetId([
-            'email' => mb_strtolower('fernando@admin.com'),
+            'email' => mb_strtolower('testeo1@admin.com'),
             'password' => \Hash::make($pass),
             'code' => $code_generated[$cont_user],
             'verifiedEmail' => $verifiedEmail,
@@ -125,7 +125,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Admin5
         $user_id = \DB::table('users')->insertGetId([
-            'email' => mb_strtolower('abel@admin.com'),
+            'email' => mb_strtolower('testeo2@admin.com'),
             'password' => \Hash::make($pass),
             'code' => $code_generated[$cont_user],
             'verifiedEmail' => $verifiedEmail,
@@ -223,7 +223,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Teacher5
         $user_id = \DB::table('users')->insertGetId([
-            'email' => mb_strtolower('abel@teacher.com'),
+            'email' => mb_strtolower('testeo2@teacher.com'),
             'password' => \Hash::make($pass),
             'code' => $code_generated[$cont_user],
             'verifiedEmail' => $verifiedEmail,
@@ -295,7 +295,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción de Admin4 (admin)
         $teacher_id = \DB::table('teachers')->insertGetId([
-            'firstName' => mb_strtolower('Fernando Admin'),
+            'firstName' => mb_strtolower('testeo1 Admin'),
             'lastName' => mb_strtolower('Barcelona Pérez'),
             'dni' => mb_strtoupper('94776325H'),
             'phone' => '666666664',
@@ -307,7 +307,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción de Admin5 (admin)
         $teacher_id = \DB::table('teachers')->insertGetId([
-            'firstName' => mb_strtolower('Abel Admin'),
+            'firstName' => mb_strtolower('testeo2 Admin'),
             'lastName' => mb_strtolower('Montejo Rodríguez'),
             'dni' => mb_strtoupper('88779523Y'),
             'phone' => '666666665',
@@ -383,7 +383,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción de Teacher5 (teacher)
         $teacher_id = \DB::table('teachers')->insertGetId([
-            'firstName' => mb_strtolower('Abel Teacher'),
+            'firstName' => mb_strtolower('testeo2 Teacher'),
             'lastName' => mb_strtolower('Montejo Rodríguez'),
             'dni' => mb_strtoupper('92215623K'),
             'phone' => '666666671',
@@ -460,7 +460,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Student4
         $user_id = \DB::table('users')->insertGetId([
-            'email' => mb_strtolower('fernando@student.com'),
+            'email' => mb_strtolower('testeo1@student.com'),
             'password' => \Hash::make($pass),
             'code' => $code_generated[$cont_user],
             'verifiedEmail' => $verifiedEmail,
@@ -475,7 +475,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Student5
         $user_id = \DB::table('users')->insertGetId([
-            'email' => mb_strtolower('abel@student.com'),
+            'email' => mb_strtolower('testeo2@student.com'),
             'password' => \Hash::make($pass),
             'code' => $code_generated[$cont_user],
             'verifiedEmail' => $verifiedEmail,
@@ -565,14 +565,14 @@ class OurUsersSeeder extends Seeder
 
         // Inserción de Student4 (student)
         $student_id = \DB::table('students')->insertGetId([
-            'firstName' => mb_strtolower('Fernando Student'),
+            'firstName' => mb_strtolower('testeo1 Student'),
             'lastName' => mb_strtolower('Barcelona Pérez'),
             'dni' => mb_strtoupper('04084612L'),
             'nre' => '4567890',
             'phone' => '666666676',
             'road' => 'Alameda',
             'address' => 'Girona, 3 4ºC',
-            'curriculum' => '/storage/app/curriculums/fernando-' . date('d-m-Y') . '/curriculum41-' . date('dmY') . '.pdf',
+            'curriculum' => '/storage/app/curriculums/testeo1-' . date('d-m-Y') . '/curriculum41-' . date('dmY') . '.pdf',
             'birthdate' => '1987-08-20',
             'user_id' => $user_ids[15],
             'created_at' => date('YmdHms'),
@@ -583,14 +583,14 @@ class OurUsersSeeder extends Seeder
 
         // Inserción de Student5 (student)
         $student_id = \DB::table('students')->insertGetId([
-            'firstName' => mb_strtolower('Abel Student'),
+            'firstName' => mb_strtolower('testeo2 Student'),
             'lastName' => mb_strtolower('Montejo Rodríguez'),
             'dni' => mb_strtoupper('05493598W'),
             'nre' => '5678901',
             'phone' => '666666677',
             'road' => 'Bulevar',
             'address' => 'Rio Pisuerga, 8 1ºB',
-            'curriculum' => '/storage/app/curriculums/abel-' . date('d-m-Y') . '/curriculum5-' . date('dmY') . '.pdf',
+            'curriculum' => '/storage/app/curriculums/testeo2-' . date('d-m-Y') . '/curriculum5-' . date('dmY') . '.pdf',
             'birthdate' => '1984-11-17',
             'user_id' => $user_ids[16],
             'created_at' => date('YmdHms'),
@@ -672,7 +672,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Enterprise4
         $user_id = \DB::table('users')->insertGetId([
-            'email' => mb_strtolower('fernando@enterprise.com'),
+            'email' => mb_strtolower('testeo1@enterprise.com'),
             'password' => \Hash::make($pass),
             'code' => $code_generated[$cont_user],
             'verifiedEmail' => $verifiedEmail,
@@ -687,7 +687,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción del usuario Enterprise5
         $user_id = \DB::table('users')->insertGetId([
-            'email' => mb_strtolower('abel@enterprise.com'),
+            'email' => mb_strtolower('testeo2@enterprise.com'),
             'password' => \Hash::make($pass),
             'code' => $code_generated[$cont_user],
             'verifiedEmail' => $verifiedEmail,
@@ -759,7 +759,7 @@ class OurUsersSeeder extends Seeder
 
         // Inserción de Enterprise4 (enterprise)
         $enterprise_id = \DB::table('enterprises')->insertGetId([
-            'name' => mb_strtolower('La ferretería de Fernando'),
+            'name' => mb_strtolower('La ferretería de testeo1'),
             'cif' => mb_strtoupper('P9516378H'),
             'web' => 'https://www.ferferreteros.com/',
             'description' => 'Nunca me sobran tuercas ni se me cae un solo tornillo.',
@@ -771,9 +771,9 @@ class OurUsersSeeder extends Seeder
 
         // Inserción de Enterprise5 (enterprise)
         $enterprise_id = \DB::table('enterprises')->insertGetId([
-            'name' => mb_strtolower('El hotel de Abel'),
+            'name' => mb_strtolower('El hotel de testeo2'),
             'cif' => mb_strtoupper('Q9693683F'),
-            'web' => 'https://www.elhoteldeabel.es/',
+            'web' => 'https://www.elhoteldetesteo2.es/',
             'description' => 'Hoteles de lujo a precio de pensión, vendrás solo por diversión.',
             'user_id' => $user_ids[22],
             'created_at' => date('YmdHms')
