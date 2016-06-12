@@ -27,12 +27,6 @@ class TeacherProfFamiliesSeeder extends Seeder
     				PROF FAMILIES
     	*******************************************/
 
-        \DB::table('teacherProfFamilies')->insert([
-            'profFamilie_id' => 1,
-            'teacher_id' => 1,
-            'created_at' => date('YmdHms')
-        ]);
-
     	\DB::table('teacherProfFamilies')->insert([
             'profFamilie_id' => 1,
             'teacher_id' => 7,
@@ -43,12 +37,6 @@ class TeacherProfFamiliesSeeder extends Seeder
     				ENMANUEL TEACHER
     				PROF FAMILIES
     	*******************************************/
-
-        \DB::table('teacherProfFamilies')->insert([
-            'profFamilie_id' => 1,
-            'teacher_id' => 2,
-            'created_at' => date('YmdHms')
-        ]);
 
     	\DB::table('teacherProfFamilies')->insert([
             'profFamilie_id' => 1,
@@ -130,13 +118,7 @@ class TeacherProfFamiliesSeeder extends Seeder
         ]);
 
         \DB::table('teacherProfFamilies')->insert([
-            'profFamilie_id' => 1,
-            'teacher_id' => 16,
-            'created_at' => date('YmdHms')
-        ]);
-
-        \DB::table('teacherProfFamilies')->insert([
-            'profFamilie_id' => 2,
+            'profFamilie_id' => 16,
             'teacher_id' => 16,
             'created_at' => date('YmdHms')
         ]);
