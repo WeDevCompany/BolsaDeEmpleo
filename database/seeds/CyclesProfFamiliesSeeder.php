@@ -1138,7 +1138,7 @@ class CyclesProfFamiliesSeeder extends Seeder
      ****************************************************/
      $profFamilie_id = \DB::table('profFamilies')->insertGetId([
          'name' => 'Actividades Físicas y Deportivas',
-         'active' => false,
+         'active' => true,
             'created_at' => date('YmdHms')
      ]);
 
@@ -1152,7 +1152,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Conducción de Actividades Físico-deportivas en el Medio Natural (LOGSE)',
                 'level' => 'Medio',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 
@@ -1254,7 +1254,7 @@ class CyclesProfFamiliesSeeder extends Seeder
                 'profFamilie_id' => $profFamilie_id,
                 'name' => 'Animación de Actividades Físicas y Deportivas (LOGSE)',
                 'level' => 'Superior',
-                'active' => false,
+                'active' => true,
                 'created_at' => date('YmdHms')
             ]);
 

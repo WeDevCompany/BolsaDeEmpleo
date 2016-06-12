@@ -56,7 +56,7 @@ class TeacherProfFamiliesSeeder extends Seeder
         ]);
 
         /******************************************
-    				FERNANDO TEACHER
+    				TESTEO1 TEACHER
     				PROF FAMILIES
     	*******************************************/
 
