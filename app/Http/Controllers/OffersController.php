@@ -35,7 +35,7 @@ class OffersController extends UsersController
 
     public function dueDate($time = '+4 month')
     {
-         $nuevafecha = strtotime($time  , strtotime(date( 'YmdHms')));
+         $nuevafecha = strtotime($time  , strtotime(date('YmdHms')));
          // Generamos una fecha nueva con 4 meses más
          $nuevafecha = date( 'YmdHms' , $nuevafecha );
          return $nuevafecha;
@@ -475,6 +475,38 @@ class OffersController extends UsersController
 
         $enterpriseResponsable = $this->mapArray($enterpriseResponsable);
         Session::flash('message_Success', 'La oferta se ha creado correctamente, ahora mismo esta pendiente de aprobación');
-        return \Redirect::back();
+        return \Redirect::to('ofertas');
+    }
+
+    public function postDelete()
+    {
+        //dd($this->request);
+        try {
+            $validator = \Validator::make($this->request->all(), [
+                'idOffer' => 'required|integer|validDeleteOffer',
+            ]);
+            if(!$validator->fails()){
+                // Actualizamos todos los datos de la oferta que hemos recibido
+                $delete = JobOffer::where('id', '=', $this->request->idOffer)->update([
+                    'dueDate'        => $this->dueDate(),
+                    'deleted_at'     => date('YmdHms'),
+                ]);
+                if($delete){
+                    Session::flash('message_Success', 'La oferta se ha borrado correctamente');
+                } else {
+                    Session::flash('message_Negative', 'Ha ocurrido un error durante el borrado de la oferta, por favor intentelo mas tarde o pongase en contacto con bolsa@iescierva.net');
+                }
+            } else {
+                abort('404');
+            }
+        } catch (Exception $e) {
+            abort('500');
+        }
+        if (\Auth::user()->rol === "empresa") {
+            return \Redirect::to('ofertas');
+        }
+        return \Redirect::to(\Auth::user()->rol . '/oferta/verificadas');
+
+
     }
 }

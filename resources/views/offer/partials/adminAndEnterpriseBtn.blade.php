@@ -19,7 +19,7 @@
 	        </div>
 	    </a>
 
-		<a href="/{{\Auth::user()->rol}}/oferta/borrar/{{ $offer->id }}" class="btn btn btn-danger hoverable btn-login-media waves-effect waves-light" id="verOferta">
+		<a href="#!"  data-toggle="modal" data-target="#deleteOffer" class="btn btn btn-danger hoverable btn-login-media waves-effect waves-light" id="verOferta">
 	        <div class="show-responsive">
 	            <i class="fa fa-times" aria-hidden="true"></i>
 	        </div>
@@ -30,3 +30,4 @@
 
 	</div>
 </div>
+@include('partials.modal.offerDelete')

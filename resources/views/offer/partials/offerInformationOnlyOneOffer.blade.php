@@ -5,8 +5,14 @@
             <!-- Empresa -->
             <div class="col-sm-6" data-enterprise="{!! $offer->enterpriseName !!}"><p><i class="fa fa-building" aria-hidden="true"></i> <b>Empresa: </b><a href="{!! (isset($offer->web)) ? $offer->web : 'https://www.google.es/#q='.$offer->enterpriseName !!}" target="_blank">{!! $offer->enterpriseName !!} <i class="fa fa-link" aria-hidden="true"></i></a></p></div>
             <!-- Lugar -->
-            <div class="col-sm-6 offset6" data-city="{!! $offer->cityName !!}"><p><i class="fa fa-location-arrow" aria-hidden="true"></i> <b>Lugar: </b><a href="https://www.google.es/maps/place/{!! $offer->cityName !!}" target="_blank" data-lugar="{!! $offer->cityName !!}">{!! $offer->cityName !!} <i class="fa fa-link" aria-hidden="true"></i></a></p></div>
+            <div class="col-sm-6 offset6" data-city="{!! $offer->cityName !!}, {!!$offer->stateName!!}"><p><i class="fa fa-location-arrow" aria-hidden="true"></i> <b>Lugar: </b><a href="https://www.google.es/maps/place/{!! $offer->cityName !!}, {!!$offer->stateName!!}" target="_blank" data-lugar="{!! $offer->cityName !!}">{!! $offer->cityName !!}, {!!$offer->stateName!!} <i class="fa fa-link" aria-hidden="true"></i></a></p></div>
         </div>
+    </div>
+</div>
+<div class="col-md-12 sin-margen">
+    <div class="sin-margen text-center">
+        <!-- Dirección exacta -->
+        <div class="col-sm-12" data-address="{!!$offer->road!!} {!!$offer->address!!} {!! $offer->cityName !!}, {!!$offer->stateName!!}"><p><i class="fa fa-map-marker" aria-hidden="true"></i> <b>Dirección: </b><a href="https://www.google.es/maps/place/{!!$offer->road!!} {!!$offer->address!!} {!! $offer->cityName !!}, {!!$offer->stateName!!}" target="_blank" data-lugar="{!! $offer->cityName !!}">{!!$offer->address!!}<i class="fa fa-link" aria-hidden="true"></i></a></p></div>
     </div>
 </div>
 </div>

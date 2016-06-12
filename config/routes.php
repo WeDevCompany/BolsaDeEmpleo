@@ -216,7 +216,7 @@ return [
             'commentCreate'          => 'administrador/oferta/comentario/crear',
             'offerEdit'              => 'administrador/oferta/editar/{idOffer}',
             'postOfferEdit'          => 'administrador/oferta/editar-oferta',
-            'offerDelete'            => 'administrador/oferta/borrar/{idOffer}',
+            'offerDelete'            => 'administrador/oferta/borrar',
         ],
     'offerEnterprise' =>
         [
@@ -226,7 +226,7 @@ return [
             'newOfferPost'          => 'oferta/nueva-oferta/alta',
             'offerEdit'             => 'empresa/oferta/editar/{idOffer}',
             'postOfferEdit'         => 'empresa/oferta/editar-oferta',
-            'offerDelete'           => 'empresa/oferta/borrar/{idOffer}',
+            'offerDelete'           => 'empresa/oferta/borrar',
             'updateOffer'           => 'empresa/oferta/actualizar/{idOffer}',
         ],
     'files'    =>

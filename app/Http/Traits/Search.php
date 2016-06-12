@@ -573,7 +573,8 @@ trait Search
                             ->join('profFamilies as pf', 'pf.id', '=', 'jo.profFamilie_id')
                             ->join('users', 'users.id', '=', 'user_id')
                             ->join('cities', 'cities.id', '=','wc.citie_id')
-                            ->join('states', 'states.id', '=','cities.state_id');
+                            ->join('states', 'states.id', '=','cities.state_id')
+                            ->whereNull('jo.deleted_at');
                             if(!$idOffer) {
                                $validOffer = $validOffer->where('enterprises.id', $id);
                             } else {

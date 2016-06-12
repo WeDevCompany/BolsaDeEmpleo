@@ -305,6 +305,9 @@ Route::group(['middleware' => ['web', 'auth']], function(){
         Route::post(config('routes.offerAdmin.postOfferEdit'), 'OffersController@postOfferEdit');
         Route::get(config('routes.offerAdmin.offerDelete'), 'OffersController@getOfferDelete');
 
+        //Borrado de ofertas
+        Route::post(config('routes.offerAdmin.offerDelete'), 'OffersController@postDelete');
+
     });
 
     /**********************************
@@ -328,6 +331,9 @@ Route::group(['middleware' => ['web', 'auth']], function(){
         // Inserción de la oferta
         Route::get(config('routes.offerEnterprise.newOffer'), 'OffersController@getNewOffer');
         Route::post(config('routes.offerEnterprise.newOfferPost'), 'OffersController@postNewOffer');
+
+        //Borrado de ofertas
+        Route::post(config('routes.offerEnterprise.offerDelete'), 'OffersController@postDelete');
 
     });
 

@@ -403,6 +403,7 @@ class AppServiceProvider extends ServiceProvider
             $offer = JobOffer::select('jobOffers.id')
                                 ->join('profFamilies', 'profFamilies.id', '=', 'jobOffers.profFamilie_id')
                                 ->where('jobOffers.id', '=', $id)
+                                ->where('active', '=', '1')
                                 ->whereIn('profFamilies.name', $profFamily)
                                 ->first();
 
@@ -482,6 +483,30 @@ class AppServiceProvider extends ServiceProvider
             // Obtenemos toda la informacion mandada en el formulario
             $field = $request->getData();
             return $this->validateEnterpriseResponsable(\Auth::user()->id, $field['workcenter'],$field['enterpriseResponsable'] );
+
+        });
+
+        Validator::extend('validDeleteOffer', function($attribute, $value, $parameters, $request) {
+            // Obtenemos toda la informacion mandada en el formulario
+            $field = $request->getData();
+
+            if(\Auth::user()->rol === "administrador"){
+                return true;
+            } else {
+                // si es cualquier otra cosa comprobamos que es un empresa
+                $validDeleteOffer = JobOffer::select('jobOffers.id')
+                                            ->join('workCenters as wc', 'wc.id', '=', 'jobOffers.workCenter_id')
+                                            ->join('enterprises as e', 'e.id', '=', 'wc.enterprise_id')
+                                            ->join('users as u', 'u.id', '=', 'e.user_id')
+                                            ->where('u.id', '=', \Auth::user()->id)
+                                            ->where('jobOffers.id', '=', $field['idOffer'])
+                                            ->first();
+                //dd($validDeleteOffer);
+                if (! empty($validDeleteOffer)) {
+                    return true;
+                }
+                return false;
+            }
 
         });
 
