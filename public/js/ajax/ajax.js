@@ -68,6 +68,8 @@
                             spin.spinOff('F', method_params[2], true);
                         } else if(typeof spinnerF != "undefined") {
                             spin.spinOff('N', method_params[2], true);
+                        } else if(typeof spinnerT != "undefined") {
+                            spin.spinOff('T', '0', true);
                         } else {
                             spin.spinOff('Other', method_params[2], true);
                         }
