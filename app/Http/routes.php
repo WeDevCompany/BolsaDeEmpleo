@@ -30,7 +30,7 @@ Route::group(['prefix' => 'registro', 'middleware' => 'web'], function () {
 
 // Ruta para pruebas
 Route::get(config('routes.pruebas'), function(){
-    return view('errors.notVerified', ['rol' => "Administrador"]);
+    return view('admin.profFamilies.list', ['rol' => "Administrador"]);
 });
 
 
@@ -109,6 +109,9 @@ Route::group(['prefix' => 'json', 'middleware' => 'web'], function () {
 });
 
 // Grupo de rutas para los administradores
+/**********************************
+        Grupo administradores
+************************************/
 Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth', 'isAdmin'], 'namespace' => 'Admin'], function(){
 
     // Vista de administrador logeado
@@ -274,7 +277,7 @@ Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth', 'isEnterpri
 
 // Grupo de rutas para las ofertas
 /**********************************
-        Grupo oferta
+        Grupo oferta - Y cualquir otro
 ************************************/
 Route::group(['middleware' => ['web', 'auth']], function(){
 
@@ -310,6 +313,8 @@ Route::group(['middleware' => ['web', 'auth']], function(){
 
         //Borrado de ofertas
         Route::post(config('routes.offerAdmin.offerDelete'), 'OffersController@postDelete');
+
+        Route::get(config('routes.admin.allProfFamilies'), 'ProfFamiliesController@getAllProfFamiliesView');
 
     });
 

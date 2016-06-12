@@ -30,11 +30,11 @@ class OfferEditRequest extends Request
             'experience'    => 'required|in:' . implode(config('select.experience'), ','),
             'kind'          => 'required|in:' . implode(config('select.kind'), ','),
             'name'          => 'required|exists:profFamilies,name',
-            'wanted'        => 'required|integer',
+            'wanted'        => 'required|integer|min:0',
             'description'   => 'required',
             'tagCount'      => 'required|exists:tags,tag',
             'workcenter'    =>'required|integer|workCenterValid',
-            'enterpriseResponsable'    =>'required|integer|enterpriseResponsable',
+            'enterpriseResponsable'    =>'required|integer|min:1|enterpriseResponsable',
         ];
     }
 }

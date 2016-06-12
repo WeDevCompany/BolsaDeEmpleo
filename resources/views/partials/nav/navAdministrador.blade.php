@@ -82,7 +82,7 @@
     <ul class="dropdown-menu" role="menu" aria-labelledby="profesores">
         <!-- ADMIN -->
         <li role="presentation" class="dropdown-header">Administrador</li>
-        <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}"></i>Familias profesionales</a></li>
+        <li><a href="{{ url(config('routes.admin.allProfFamilies')) }}"></i>Familias profesionales</a></li>
         <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Ciclos</a></li>
         <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Asignaturas</a></li>
         <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Tags</a></li>

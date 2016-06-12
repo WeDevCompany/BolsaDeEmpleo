@@ -60,4 +60,13 @@ class ProfFamiliesController extends Controller
 		}
 
 	}// getAllProfFamiliesJSON()
+
+	public function getAllProfFamiliesView()
+	{
+		$profFamilies = $this->getAllProfFamilies();
+
+		$zona = 'Familias profesionales';
+		dd($profFamilies);
+		return view('admin.profFamilies.list', compact('profFamilies','zona'));
+	}
 }

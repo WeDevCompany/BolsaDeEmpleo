@@ -9,6 +9,7 @@ use App\Tag;
 use App\ProfFamilie;
 use App\Enterprise;
 use App\User;
+use App\Teacher;
 use App\WorkCenter;
 use App\Http\Requests;
 use App\Http\Requests\DeniedOfferRequest;
@@ -22,15 +23,10 @@ class OffersController extends UsersController
     // =====================================
     // Variables
     // =====================================
-    protected $request = null;          // Inicializada a null
-    protected $search = null;           // Buscador
 
 	public function __construct(Request $request)
     {
-        // Almacenamos la petición realizada
-        // en una variable de clase
-        $this->request = $request;
-
+        Parent::__construct($request);
     }
 
     public function dueDate($time = '+4 month')
@@ -552,7 +548,7 @@ class OffersController extends UsersController
                             ->distinct('teachers.id')
                             ->get();
 
-        // Si hay algun profesor                    
+        // Si hay algun profesor
         if (!$teacher->isEmpty()) {
 
             foreach ($teacher as $key => $value) {
@@ -562,9 +558,9 @@ class OffersController extends UsersController
 
                 // Si hemos mandado el email registramos quien lo ha hecho y cuando
                 if ($email) {
-                    
+
                     $sent = $this->insertSentEmail($insertOffer, $value->id);
-                        
+
                     if (!$sent) {
                         return false;
                     }
@@ -585,9 +581,9 @@ class OffersController extends UsersController
 
                 // Si hemos mandado el email registramos quien lo ha hecho y cuando
                 if ($email) {
-                        
+
                     $sent = $this->insertSentEmail($insertOffer, $value->id);
-                        
+
                     if (!$sent) {
                         return false;
                     }
@@ -597,7 +593,7 @@ class OffersController extends UsersController
         }
 
         return true;
-             
+
     } // sendEmailTeacher()
 
     /**

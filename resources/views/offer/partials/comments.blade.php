@@ -4,7 +4,7 @@
     		<div class="row sin-margen extra-padding">
             	<!-- Titulo -->
                 <div class="modal-header text-center">
-                    <h4 class="title" data-title="Comentários">Comentários</h4>
+                    <h4 class="title" data-title="Comentários">Comentarios</h4>
                 </div>
                 <div class="modal-body">
                 	<div class="row">
