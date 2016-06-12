@@ -89,7 +89,7 @@ Route::group(['middleware' => 'web'], function () {
 Route::group(['prefix' => 'json', 'middleware' => 'web'], function () {
 
     // Asignaturas
-    Route::get('subjects/{cycleId}', 'CyclesController@getCyclesJSON');
+    Route::get('subjects/{cycleId}', 'SubjectsController@getSubjectsJSON');
 
     // Ciclos
     Route::get('cycles/{familyId}', 'CyclesController@getCyclesJSON');

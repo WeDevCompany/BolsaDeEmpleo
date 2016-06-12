@@ -26,7 +26,10 @@ class SubjectsController extends Controller
         ];
 
         $this->request = $request;
-        $this->route = \Auth::user()->rol;
+        
+        if(!\Auth::guest()) {
+            $this->route = \Auth::user()->rol;
+        }
     }
 
 	public function index()
@@ -298,5 +301,36 @@ class SubjectsController extends Controller
         }
         return true;
     } // delete()
+
+    /**
+     * Método que obtiene los ciclos por Ajax y devuelve los resultados
+     * en formato JSON
+     * @param  Integer $familyId ID de la familia profesional, si no se recibe
+     *                           por defecto es 0
+     * @return JSON | abort      JSON con la información de la consulta
+     *                           Abort en caso de que el ID no sea valido
+     */
+    public function getSubjectsJSON($cycleId = 0){
+        // Tratamos el ID
+        $cycleId = (int) $cycleId;
+        // coprobamos que el id es valido
+        if(is_numeric($cycleId) && $cycleId != 0){
+            try{
+                // Almacenamos el resultado en caché por un día 
+                $subjects = \Cache::remember('subject_' . $cycleId , 1440, function() use ($cycleId){
+                    // Los resultados de la consulta se almacenan en la variable
+                    return Subject::select('subjects.id', 'subjects.name')->join('cycleSubjects', 'cycleSubjects.subject_id', '=', 'subjects.id')->where('cycle_id', '=', $cycleId)->orderBy('name', 'ASC')->get();
+                });
+            } catch(\PDOException $e) {
+                abort('500');
+            }
+
+            // devolvemos el resultado de la consulta, si falla la memoria caché, en formato JSON
+            return \Response::json($subjects);
+        }
+
+        // Si el id del ciclo ha sido modificado
+        abort('404');
+    }// getSubjectsJSON()
 
 }
