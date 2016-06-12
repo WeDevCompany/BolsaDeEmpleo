@@ -173,4 +173,30 @@ class EnterprisesController extends UsersController
         return view(config('appViews.perfil'));
     } // imagenPerfil()
 
+    public function getWorkCenterEnterprise()
+    {
+        // Url de buscador
+        $urlSearch = config('routes.teacher.allDeniedOffers');
+
+        // Url de post
+        $urlPost = config('routes.teacher.restoreDeniedOffers');
+
+        // Variale de zona
+        $zona = config('zona.denegados.empresa');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.verifiedOffers');
+
+        // Centros de trabajo de la empresa
+        $workCenters = $this->getWorkCenter();
+
+        // Todos los responsables de la empresa
+        $responsable = $this->getEnterpriseResponsable();
+
+        $request = $this->request;
+        
+        return view('workCenter/workCenterList', compact('workCenters', 'responsable', 'filters', 'zona', 'urlSearch', 'urlPost', 'request'));
+
+    } // getWorkCenterEnterprise()
+
 }

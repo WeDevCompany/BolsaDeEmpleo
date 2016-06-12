@@ -262,9 +262,8 @@ class StudentsController extends UsersController
                             ->whereIn('teachers.id', $validTeacher)
                             ->distinct('teachers.id')
                             ->get();
-        $teacher = false;
         // Si hay algun profesor                    
-        if ($teacher) {
+        if (!$teacher->isEmpty()) {
 
             foreach ($teacher as $key => $value) {
 
@@ -295,7 +294,7 @@ class StudentsController extends UsersController
                             ->whereIn('teachers.id', $validTeacher)
                             ->get();
 
-            if ($tutor) {
+            if (!$tutor->isEmpty()) {
 
                 foreach ($tutor as $key => $value) {
 
@@ -343,9 +342,14 @@ class StudentsController extends UsersController
              
     } // sendEmailTeacher()
 
+    /**
+     * @param  $idStudent    Id del estudiante
+     * @param  $idTeacher    Id del profesor
+     * @return boolean       True or false si se ha insertado en la tabla o no
+     */
     public function insertSentEmailStudent($idStudent, $idTeacher)
     {
-        $sent =\DB::table('sentEmailStudents')->insert([
+        $sent = \DB::table('sentEmailStudents')->insert([
             'student_id' => $idStudent,
             'teacher_id' => $idTeacher,
             'sent'       => true,
@@ -353,7 +357,8 @@ class StudentsController extends UsersController
         ]);
 
         return $sent;
-    }
+
+    } // insertSentEmailStudent()
 
     /**
      * Metodo que obtiene todas las ofertas validadas, filtradas por la rama
@@ -399,7 +404,10 @@ class StudentsController extends UsersController
 
     } // getVerifiedOffer()
 
-
+    /**
+     * Método en el que un estudiante se suscribe a una oferta pasada por parámetro
+     * @param  $idOffer     Id de la oferta a suscribirse
+     */
     public function getSubcriptionStudent($idOffer)
     {   
         // Validamos los campos que nos llegan en el controlador
@@ -471,7 +479,10 @@ class StudentsController extends UsersController
 
     } // getSuscriptionStudent()
 
-
+    /**
+     * Método para descargarse el curriculum
+     * @return file
+     */
     public function downloadCurriculum()
     {
         $student = Student::select('users.*', 'students.*')

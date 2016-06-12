@@ -267,6 +267,9 @@ Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth', 'isEnterpri
     Route::get(config('routes.perfil'), 'EnterprisesController@imagenPerfil');
     Route::post(config('routes.UploadImg'), 'EnterprisesController@uploadImage');
 
+    // Centro de trabajo
+    Route::get('centros', 'EnterprisesController@getWorkCenterEnterprise');
+
 });
 
 // Grupo de rutas para las ofertas

@@ -461,6 +461,15 @@ class OffersController extends UsersController
             }
         }
 
+        // Mandamos un correo a los profesores para que validen la oferta
+        $email = $this->sendEmailOffer($insertOffer, $profFamily->id);
+
+        if (!$email) {
+            \DB::rollBack();
+            Session::flash('message_Negative', 'Ha ocurrido un error durante la inserción de la oferta, por favor intentelo mas tarde o pongase en contacto con bolsa@iescierva.net');
+            return \Redirect::back();
+        }
+
         \DB::commit();
         //obtenemos todas las familias profesionales
         $allProfFamilies = $this->allMapProfFamilies();
@@ -509,4 +518,104 @@ class OffersController extends UsersController
 
 
     }
+
+    /**
+     * Método que envia correos a todos los profesores con las mismas ramas profesionales
+     * que la oferta que se acaba de registrar.
+     * @param  object $insert Datos del estudiante nuevo
+     */
+    public function sendEmailOffer($insertOffer, $idProfFamily)
+    {
+        // Variables con el contenido del email
+        $subject = 'Validar oferta de trabajo';
+        $cuerpo = 'La oferta de trabajo con titulo: ' . $this->request['firstName'] . ', cuyos requisitos son: duracion ' . $this->request['duration'] . ', nivel ' . $this->request['level'] . ', tipo ' . $this->request['kind'] . ', y una experiencia mínima de ' . $this->request['experience'] . ', necesita ' . $this->request['wanted'] . ' trabajadores, tiene que ser validada por un profesor para poder entrar en la aplicación.';
+
+        // Obtenemos los profesores validados
+        $validTeacher = $this->validTeacher();
+
+        // Convertimos el objeto devuelto en un array
+        $validTeacher = array_column($validTeacher, 'teacher_id');
+
+        // Obtenemos los profesores de las mismas ramas profesionales que la oferta
+        $teacher = Teacher::select('users.email', 'teachers.id')
+                            ->join('users', 'users.id', '=', 'teachers.user_id')
+                            ->join('teacherProfFamilies', 'teacherProfFamilies.teacher_id', '=', 'teachers.id')
+                            ->join('profFamilies', 'profFamilies.id', '=', 'teacherProfFamilies.profFamilie_id')
+                            ->join('subjectTeachers', 'subjectTeachers.teacher_id', '=', 'teachers.id')
+                            ->join('subjects', 'subjects.id', '=', 'subjectTeachers.subject_id')
+                            ->join('cycleSubjects', 'cycleSubjects.subject_id', '=', 'subjects.id')
+                            ->join('cycleSubjectTags', 'cycleSubjectTags.cycleSubject_id', '=', 'cycleSubjects.id')
+                            ->join('tags', 'tags.id', '=', 'cycleSubjectTags.tag_id')
+                            ->where('profFamilies.id', '=', $idProfFamily)
+                            ->whereIn('tags.tag', $this->request['tagCount'])
+                            ->whereIn('teachers.id', $validTeacher)
+                            ->distinct('teachers.id')
+                            ->get();
+
+        // Si hay algun profesor                    
+        if (!$teacher->isEmpty()) {
+
+            foreach ($teacher as $key => $value) {
+
+                // Enviamos el email con los datos declarados antes
+                $email = $this->email->sendEmail($value->email, $subject, null, $cuerpo);
+
+                // Si hemos mandado el email registramos quien lo ha hecho y cuando
+                if ($email) {
+                    
+                    $sent = $this->insertSentEmail($insertOffer, $value->id);
+                        
+                    if (!$sent) {
+                        return false;
+                    }
+
+                }
+            }
+
+        // Si no hay ningun profesor ni tutor por defecto se le enviara al administrador
+        } else {
+
+            // Obtenemos los administradores
+            $admin = $this->admin();
+
+            foreach ($admin as $key => $value) {
+
+                // Enviamos el email con los datos declarados antes
+                $email = $this->email->sendEmail($value->email, $subject, null, $cuerpo);
+
+                // Si hemos mandado el email registramos quien lo ha hecho y cuando
+                if ($email) {
+                        
+                    $sent = $this->insertSentEmail($insertOffer, $value->id);
+                        
+                    if (!$sent) {
+                        return false;
+                    }
+                }
+
+            }
+        }
+
+        return true;
+             
+    } // sendEmailTeacher()
+
+    /**
+     * Método que registra los correos enviados a los profesores cuando se registra una nueva oferta
+     * @param  $idOffer    Id del estudiante
+     * @param  $idTeacher    Id del profesor
+     * @return boolean       True or false si se ha insertado en la tabla o no
+     */
+    public function insertSentEmail($idOffer, $idTeacher)
+    {
+        $sent = \DB::table('sentEmails')->insert([
+            'jobOffer_id' => $idOffer,
+            'teacher_id' => $idTeacher,
+            'sent'       => true,
+            'created_at' => date('YmdHms')
+        ]);
+
+        return $sent;
+
+    } // insertSentEmail()
 }
