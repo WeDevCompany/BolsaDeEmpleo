@@ -520,18 +520,26 @@ trait Search
     /**
      * Metodo que devuelve el id del ciclo si lo imparte ese profesor
      */
-    public function teacherCycleId($cycle_id)
+    public function teacherCycleId($cycle_id, $register = false)
     {
         $cycle_id = (int) $cycle_id;
 
-        $idTeacherCycles = self::teacherCycles(true);
+        if ($register) {
+            $cycles = Cycle::select('id')
+                                        ->where('cycles.active', '=', '1')
+                                        ->where('cycles.id', '=', $cycle_id)
+                                        ->get()->toArray();
+        } else {
+            
+            $idTeacherCycles = self::teacherCycles(true);
 
-        $cycles = Cycle::select('id')
-                                    ->where('cycles.active', '=', '1')
-                                    ->where('cycles.id', '=', $cycle_id)
-                                    ->whereIn('cycles.id', $idTeacherCycles)
-                                    ->get();
-
+            $cycles = Cycle::select('id')
+                                        ->where('cycles.active', '=', '1')
+                                        ->where('cycles.id', '=', $cycle_id)
+                                        ->whereIn('cycles.id', $idTeacherCycles)
+                                        ->get();
+        }
+            
         return $cycles;
 
     } // teacherCycleId()

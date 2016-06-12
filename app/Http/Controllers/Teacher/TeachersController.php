@@ -31,6 +31,7 @@ class TeachersController extends UsersController
             'lastName' => 'required|between:2,75|regex:/^[A-Za-z0-9 ]+$/',
             'dni' => 'required|min:9|unique:teachers,dni|dni',
             'phone' => 'required|digits_between:9,13',
+            'cycle0' => 'digits_between:1,10|regex:/^[0-9]+$/',
         ];
         $this->rol = 'profesor';
         $this->redirectTo = "/profesor";
@@ -39,6 +40,7 @@ class TeachersController extends UsersController
 
     protected function store()
     {
+
         // Comenzamos la transaccion.
         \DB::beginTransaction();
 
@@ -48,11 +50,21 @@ class TeachersController extends UsersController
             \DB::rollBack();
             Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
         } else {
-
             // Llamo al metodo para crear el profesor.
             $insercion = Self::create();
 
-            if($insercion === true){
+            if($insercion != false){
+
+                // Insertamos en la tabla de tutores
+                if(isset($this->request['tutor']) && $this->request['tutor'] == "tutor") {
+                    $this->request['cycle0'] = (int) $this->request['cycle0'];
+                    $tutor = $this->createTutor($insercion);
+
+                    if($tutor == false) {
+                        \DB::rollBack();
+                        Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
+                    }
+                }
 
                 // Llamo al metodo sendEmail del controlador de las familias profesionales
                 $email = Parent::sendEmail();
@@ -72,7 +84,7 @@ class TeachersController extends UsersController
         }
 
         // Redireccionamos a la vista de validacion del email. (index provisional).
-        return redirect()->route('profesor..index');
+        return \Redirect::to('registro/profesor');
     } // store()
 
     private function create()
@@ -94,10 +106,48 @@ class TeachersController extends UsersController
         }
 
         if(isset($insercion)){
-            return true;
+            return $insercion;
         }
         return false;
     } // create()
+
+    private function createTutor($teacher) {
+
+        try {
+            // Comprobamos que el ciclo existe y está activo
+            $cycle = $this->teacherCycleId($this->request['cycle0'], true);
+
+            if(empty($cycle)) {
+                return false;
+            }
+
+            $insert = null;
+
+            $teacher->cycles()->attach($this->request['cycle0'], [
+                'dateTo' => date('Y')+1,
+                'dateFrom' => date('Y'),
+                'teacher_id' => $teacher['id'],
+                'created_at' => date('YmdHms'),
+            ]);
+
+            // Comprobamos si la inserción ha sido correcta
+            $insert = $teacher->cycles()
+                            ->where('cycle_id', '=', $this->request['cycle0'])
+                            ->where('teacher_id', '=', $teacher['id'])
+                            ->select(['tutors.id'])
+                            ->get()
+                            ->toArray();
+
+        } catch(\PDOException $e){
+            //dd($e);
+            abort(500);
+        }
+
+        if(isset($insert) && !empty($insert)){
+            return true;
+        }
+        return false; 
+    } // createTutor()
 
     public function imagenPerfil()
     {
