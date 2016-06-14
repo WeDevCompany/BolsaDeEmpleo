@@ -5,13 +5,8 @@
 @endif
 <div class="row"></div>
 <div class="row">
-    <div class="col-sm-6">
-        <p><b>Total empresas borradas:</b> {{$profFamilies->count()}}</p>
-    </div>
-    <div class="col-sm-6">
-        <p>
-            <b>Total de páginas:</b> {{$profFamilies->lastPage()}}
-        </p>
+    <div class="col-sm-12 text-center">
+        <p><b>Total de familias profesionales activas:</b> {{count($profFamilies)}}</p>
     </div>
 </div>
 <div class="scroll">
@@ -21,7 +16,7 @@
                 <th>Validar</th>
                 <th>#</th>
                 <th>Nombre de la familia profesional</th>
-                <th style="text-align:center;">Acciones</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -29,7 +24,7 @@
                 <tr data-id="{{ $profFamilie->id }}">
                     <td>
                         <p>
-                            <input type="checkbox" id="profFamilie_{!! $profFamilie->id !!}" value="{!! $profFamilie->id !!}" name="empresa[]"  />
+                            <input type="checkbox" id="profFamilie_{!! $profFamilie->id !!}" value="{!! $profFamilie->id !!}" name="profFamilies[]"  />
                             <label for="profFamilie_{!! $profFamilie->id !!}"></label>
                         </p>
                     </td>

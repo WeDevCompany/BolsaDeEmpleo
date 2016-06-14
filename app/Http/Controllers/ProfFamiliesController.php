@@ -13,20 +13,28 @@ class ProfFamiliesController extends Controller
 	 * Metodo que devuelve todas las familias profesionales activas.
 	 * @return Array Devuelve un array asociativo 'id' => 'familia'
 	 */
-    public function getAllProfFamilies()
+    public function getAllProfFamilies($paginate = null)
     {
-    	try {
+		try {
 			// Añadimos a la caché los resultados de las familias profesionales
 			// la caché dura 24 horas o 1440 minutos
-			$profFamiliesDB = \Cache::remember('profFamiliesDB', 1440, function(){
-				// Los resultados de la consulta se almacenan en la variable
-			    return ProfFamilie::where('active', '=', '1')->orderBy('name', 'ASC')->lists('name', 'id')->toArray();
-		    });
-    	} catch(\PDOException $e) {
-    		//dd($e);
+            if(! isset($paginate)) {
+                // lo guardamos en caché con un nombre
+                $profFamiliesDB = \Cache::remember('profFamiliesDB', 1440, function(){
+                    // Los resultados de la consulta se almacenan en la variable
+                    return ProfFamilie::where('active', '=', '1')->orderBy('name', 'ASC')->lists('name', 'id')->toArray();
+                });
+            } else {
+                // lo guardamos en la caché de base de datos con un nombre distinto
+                $profFamiliesDB = \Cache::remember('profFamiliesDBGet', 1440, function(){
+                    // Los resultados de la consulta se almacenan en la variable
+                    return ProfFamilie::where('active', '=', '1')->orderBy('name', 'ASC')->get();
+                });
+            }
+		} catch(\PDOException $e) {
+            //dd($e);
             abort(500);
-    	}
-
+        }
     	return $profFamiliesDB;
     }// getAllProfFamilies()
 
@@ -63,10 +71,11 @@ class ProfFamiliesController extends Controller
 
 	public function getAllProfFamiliesView()
 	{
-		$profFamilies = $this->getAllProfFamilies();
-
+		// esta consulta tiene caché
+		$profFamilies = $this->getAllProfFamilies(true);
+        //dd($profFamilies);
+		// Zona en la que se encuentra la web
 		$zona = 'Familias profesionales';
-		dd($profFamilies);
 		return view('admin.profFamilies.list', compact('profFamilies','zona'));
 	}
 }

@@ -28,12 +28,15 @@
                                     <h4>Familias profesionales activas</h4>
                                 </div>
                                 <div class="col-md-12">
-                                    @include('partias.table.tableProfFamilies')
+                                    @include('partials.table.tableProfFamilies')
+
                                 </div>
                             </div>
+
                             <div class="tab-pane" id="desactivadas">
                                 <div class="col-md-12 modal-header text-center">
                                     <h4>Familias profesionales desactivas</h4>
+
                                 </div>
                                 <div class="col-md-12">
 
