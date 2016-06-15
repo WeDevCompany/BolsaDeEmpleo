@@ -72,7 +72,7 @@ return [
             'allDeniedEnterprisesSearch'   => 'administrador/empresa/denegadas-buscador',
             'destroyEnterprise'            => 'administrador/empresa/eliminar-empresa',
             'subjects'                  => '/administrador/asignaturas',
-            'allProfFamilies'      => 'administrador/configuracion/familias-prodesionales',
+            'allProfFamilies'      => 'administrador/configuracion/familias-profesionales',
 
         ],
     'adminRoutes' =>
@@ -115,7 +115,7 @@ return [
             'restoreDeniedEnterprises'     => '/empresa/restaurar',
             'allDeniedEnterprisesSearch'   => '/empresa/denegadas-buscador',
             'destroyEnterprise'    => '/empresa/eliminar-empresa/{id}',
-            'allProfFamilies'      => '/configuracion/familias-prodesionales',
+            'allProfFamilies'      => '/configuracion/familias-profesionales',
         ],
     'student'    =>
         [

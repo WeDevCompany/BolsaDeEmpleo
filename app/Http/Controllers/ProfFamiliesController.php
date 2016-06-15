@@ -13,7 +13,7 @@ class ProfFamiliesController extends Controller
 	 * Metodo que devuelve todas las familias profesionales activas.
 	 * @return Array Devuelve un array asociativo 'id' => 'familia'
 	 */
-    public function getAllProfFamilies($paginate = null)
+    public function getAllProfFamilies($paginate = null, $inactives = null)
     {
 		try {
 			// Añadimos a la caché los resultados de las familias profesionales
@@ -25,17 +25,26 @@ class ProfFamiliesController extends Controller
                     return ProfFamilie::where('active', '=', '1')->orderBy('name', 'ASC')->lists('name', 'id')->toArray();
                 });
             } else {
-                // lo guardamos en la caché de base de datos con un nombre distinto
-                $profFamiliesDB = \Cache::remember('profFamiliesDBGet', 1440, function(){
-                    // Los resultados de la consulta se almacenan en la variable
-                    return ProfFamilie::where('active', '=', '1')->orderBy('name', 'ASC')->get();
-                });
+                if(! isset($inactives)){
+                    // lo guardamos en la caché de base de datos con un nombre distinto
+                    $profFamiliesDB = \Cache::remember('profFamiliesDBGet', 1440, function(){
+                        // Los resultados de la consulta se almacenan en la variable
+                        return ProfFamilie::where('active', '=', '1')->orderBy('name', 'ASC')->get();
+                    });
+                } else {
+                    // lo guardamos en la caché de base de datos con un nombre distinto
+                    $profFamiliesDB = \Cache::remember('profFamiliesInactivesDBGet', 1440, function(){
+                        // Los resultados de la consulta se almacenan en la variable
+                        return ProfFamilie::where('active', '=', '0')->orderBy('name', 'ASC')->get();
+                    });
+                }
+
             }
 		} catch(\PDOException $e) {
             //dd($e);
             abort(500);
         }
-    	return $profFamiliesDB;
+        return  $profFamiliesDB;
     }// getAllProfFamilies()
 
 	/**
@@ -72,10 +81,13 @@ class ProfFamiliesController extends Controller
 	public function getAllProfFamiliesView()
 	{
 		// esta consulta tiene caché
-		$profFamilies = $this->getAllProfFamilies(true);
+        $paginate = true; //método ->get()
+        $inactives = true;
+		$profFamilies = $this->getAllProfFamilies($paginate);
+        $profFamiliesInactives = $this->getAllProfFamilies($paginate, $inactives);
         //dd($profFamilies);
 		// Zona en la que se encuentra la web
 		$zona = 'Familias profesionales';
-		return view('admin.profFamilies.list', compact('profFamilies','zona'));
+		return view('admin.profFamilies.list', compact('profFamilies','profFamiliesInactives','zona'));
 	}
 }
