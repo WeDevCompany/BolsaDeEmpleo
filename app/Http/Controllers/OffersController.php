@@ -315,7 +315,7 @@ class OffersController extends UsersController
         if(isset($enterprise) && isset($enterprise[0]->id)) {
             $idEnterprise = $enterprise[0]->id;
             $request = $this->request;
-            $verifiedOffer = $this->validOfferEnterprise($idEnterprise, $request);
+            $verifiedOffer = $this->validOfferEnterprise($idEnterprise, $request, false);
             $urlSearch = config('routes.offerEnterprise.allOffers');
             $idOffer = [];
             foreach ($verifiedOffer as $key => $value) {

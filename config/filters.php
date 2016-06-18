@@ -8,6 +8,13 @@
             'email'       =>  'Email',
             'profFamily'  =>  'Familia Profesional',
         ],
+        'verifiedStudent' => [
+            'name'     	  =>  'Nombre',
+            'dni'         =>  'DNI',
+            'email'       =>  'Email',
+            'profFamily'  =>  'Familia Profesional',
+            'subscription'=> ''
+        ],
         'verifiedOffers' => [
             'offer'       =>  'Nombre oferta',
             'enterprise'  =>  'Nombre empresa',

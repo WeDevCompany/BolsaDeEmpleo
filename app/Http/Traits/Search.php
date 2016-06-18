@@ -580,7 +580,7 @@ trait Search
     /**
      * Metodo que obtiene todas las ofertas de trabajo validadas
      */
-    public function validOfferEnterprise($id, $request, $idOffer = false)
+    public function validOfferEnterprise($id, $request, $idOffer = false, $studentId = null)
     {
         // Obtenemos todas las ofertas validadas
        $validOffer = Enterprise::name($request->get('name'))
@@ -597,6 +597,11 @@ trait Search
                                $validOffer = $validOffer->where('enterprises.id', $id);
                             } else {
                                 $validOffer = $validOffer->where('jo.id', $id);
+                            }
+                            if ($studentId){
+                                $studentId = (int) $studentId;
+                                $validOffer = $validOffer->join('subcriptions as s', 's.jobOffer_id','=', 'jobOffers.id')
+                                                        ->where('s.students_id' , '=', $studentId);
                             }
 
        return $validOffer->paginate();

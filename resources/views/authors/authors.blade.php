@@ -17,6 +17,60 @@
                         <div class="row">
                             <div class="container page-content col-md-12">
                                 <div class="col-md-4">
+                                    <!--Rotating card - Card-02 -->
+                                    <div class="card-wrapper hoverable">
+                                        <div id="card-2" class="card-rotating effect__click">
+
+                                            <!--Front Side-->
+                                            <div class="face card-rotating__front z-depth-1">
+                                                <div class="card-up">
+                                                    <img src="{{url("/img/authors/eduardo-fondo.jpg")}}" class="img-responsive">
+                                                </div>
+                                                <div class="avatar"><img src="{{url("/img/authors/eduardo.jpg")}}" class="img-circle img-responsive">
+                                                </div>
+                                                <h4>Eduardo López Pardo</h4>
+                                                <h5>Desarrollador Back-End</h5>
+                                                <br>
+
+                                                <!--Triggering button-->
+                                                <div class="text-center">
+                                                    <a class="rotate-btn btn btn-primary" data-card="card-2">Leer más</a>
+                                                </div>
+
+                                            </div>
+                                            <!--/.Front Side-->
+
+                                            <!--Back Side-->
+                                            <div class="face card-rotating__back z-depth-1">
+                                                <h4>Eduardo López Pardo</h4>
+                                                <p class="card-content text-center">
+                                                    <br> Conocimientos en:</p>
+                                                <hr> PHP (PDO, MVC, Laravel,...)
+                                                <br> MySQl
+                                                <br> Java
+                                                <br> C
+                                                <br> Jquery
+                                                <br> CSS
+                                                <br>
+
+                                                <!--Triggering button-->
+                                                <a class="rotate-btn btn btn-primary" data-card="card-2">Volver</a>
+                                                <div class="sm-container">
+                                                    <ul class="list-inline card-sm">
+                                                        <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a></li>
+                                                        <li><a class="icons-sm tw-ic" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                                        <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"></i></a></li>
+                                                        <li><a class="icons-sm li-ic"><i class="fa fa-linkedin"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!--/.Back Side-->
+
+                                        </div>
+                                    </div>
+                                    <!--/.Rotating card-->
+                                </div>
+                                <div class="col-md-4">
                                     <!--Rotating card - Card-01 -->
                                     <div class="card-wrapper hoverable">
                                         <div id="card-1" class="card-rotating effect__click">
@@ -61,59 +115,6 @@
                                                         <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"></i></a></li>
                                                         <li><a class="icons-sm li-ic"><i class="fa fa-linkedin"></i></a></li>
                                                         <li><a class="icons-sm git-ic" href="https://github.com/khru"><i class="fa fa-github" target="_blank"> </i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <!--/.Back Side-->
-
-                                        </div>
-                                    </div>
-                                    <!--/.Rotating card-->
-                                </div>
-                                <div class="col-md-4">
-                                    <!--Rotating card - Card-02 -->
-                                    <div class="card-wrapper hoverable">
-                                        <div id="card-2" class="card-rotating effect__click">
-
-                                            <!--Front Side-->
-                                            <div class="face card-rotating__front z-depth-1">
-                                                <div class="card-up">
-                                                    <img src="{{url("/img/authors/eduardo-fondo.jpg")}}" class="img-responsive">
-                                                </div>
-                                                <div class="avatar"><img src="{{url("/img/authors/eduardo.jpg")}}" class="img-circle img-responsive">
-                                                </div>
-                                                <h4>Eduardo López Pardo</h4>
-                                                <h5>Desarrollador Back-End</h5>
-
-                                                <!--Triggering button-->
-                                                <div class="text-center">
-                                                    <a class="rotate-btn btn btn-primary" data-card="card-2">Leer más</a>
-                                                </div>
-
-                                            </div>
-                                            <!--/.Front Side-->
-
-                                            <!--Back Side-->
-                                            <div class="face card-rotating__back z-depth-1">
-                                                <h4>Eduardo López Pardo</h4>
-                                                <p class="card-content text-center">
-                                                    <br> Conocimientos en:</p>
-                                                <hr> PHP (PDO, MVC, Laravel,...)
-                                                <br> MySQl
-                                                <br> Java
-                                                <br> C
-                                                <br> Jquery
-                                                <br> CSS
-                                                <br>
-
-                                                <!--Triggering button-->
-                                                <a class="rotate-btn btn btn-primary" data-card="card-2">Volver</a>
-                                                <div class="sm-container">
-                                                    <ul class="list-inline card-sm">
-                                                        <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a></li>
-                                                        <li><a class="icons-sm tw-ic" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                                        <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"></i></a></li>
-                                                        <li><a class="icons-sm li-ic"><i class="fa fa-linkedin"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>

@@ -333,4 +333,29 @@ class SubjectsController extends Controller
         abort('404');
     }// getSubjectsJSON()
 
+    /**
+     * [FUTURA MEJORA]
+     * Método que obtiene todas las asignaturas
+     * puede ser filtrado por el id del ciclo
+     * @param Integer $cycleId
+     */
+    public function getAllSubjects($validOrInvalid = true, $cycleId = null) {
+        if(isset($cycleId) && !is_array($cycleId)){
+            // Casteamos el id que se nos pasa
+            $cycleId = (int) $cycleId;
+
+        } elseif(is_array($cycleId)) {
+            // Aqui mostramos las asignaturas de varios ciclos
+
+        } else {
+            // Obtenemos todas las asignaturas
+            if($validOrInvalid) {
+                // Devolvemos validas e invalidas
+            } else {
+                // Devolvemos solamente las validas
+
+            }
+        }
+    }
+
 }

@@ -85,7 +85,7 @@ class ProfFamiliesController extends Controller
         $inactives = true;
 		$profFamilies = $this->getAllProfFamilies($paginate);
         $profFamiliesInactives = $this->getAllProfFamilies($paginate, $inactives);
-        //dd($profFamilies);
+        //dd($profFamiliesInactives);
 		// Zona en la que se encuentra la web
 		$zona = 'Familias profesionales';
 		return view('admin.profFamilies.list', compact('profFamilies','profFamiliesInactives','zona'));

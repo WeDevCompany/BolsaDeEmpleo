@@ -29,9 +29,10 @@ Route::group(['prefix' => 'registro', 'middleware' => 'web'], function () {
 });
 
 // Ruta para pruebas
-Route::get(config('routes.pruebas'), function(){
-    return view('admin.profFamilies.list', ['rol' => "Administrador"]);
-});
+Route::get(config('routes.pruebas'),'SubjectsController@getAllSubjects'/* function(){
+
+    //return view('admin.profFamilies.list', ['rol' => "Administrador"]);
+}*/);
 
 
 // Grupo de rutas para la autentificacion
@@ -115,7 +116,7 @@ Route::group(['prefix' => 'json', 'middleware' => 'web'], function () {
 Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth', 'isAdmin'], 'namespace' => 'Admin'], function(){
 
     // Vista de administrador logeado
-    Route::resource(config('routes.index'), 'AdminsController');
+    //Route::resource(config('routes.index'), 'AdminsController');
 
     // Modificacion de la imagen de perfil de los administradores
     Route::get(config('routes.perfil'), 'AdminsController@imagenPerfil');
@@ -185,7 +186,7 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth', 'isAd
 Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth', 'isTeacher'], 'namespace' => 'Teacher'], function(){
 
     // Vista de profesor logeado
-    Route::resource(config('routes.index'), 'TeachersController');
+    //Route::resource(config('routes.index'), 'TeachersController');
 
     // Modificacion de la imagen de perfil de los profesores
     Route::get(config('routes.perfil'), 'TeachersController@imagenPerfil');
@@ -234,7 +235,7 @@ Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth', 'isStude
     Route::post(config('routes.studentRoutes.register'), 'StudentsController@store');
 
     // Vista de estudiante logeado
-    Route::resource(config('routes.index'), 'StudentsController');
+    //Route::resource(config('routes.index'), 'StudentsController');
 
     // Modificacion de la imagen de perfil y el curriculum de los estudiantes
     Route::get(config('routes.perfil'), 'StudentsController@imagenPerfil');
@@ -264,7 +265,7 @@ Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth', 'isEnterpri
     Route::post(config('routes.enterpriseRoutes.register'), 'EnterprisesController@store');
 
     // Vista de empresa logeado
-    Route::resource(config('routes.index'), 'EnterprisesController');
+   // Route::resource(config('routes.index'), 'EnterprisesController');
 
     // Modificacion de la imagen de perfil de las empresas
     Route::get(config('routes.perfil'), 'EnterprisesController@imagenPerfil');

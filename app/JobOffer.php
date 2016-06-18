@@ -60,7 +60,7 @@ class JobOffer extends Model
         return $this->belongsToMany(Student::class, 'suscriptions')->withPivot('student_id');
     } // students()
 
-    // Funcion para buscar un profesor por nombre
+    // Funcion para buscar por nombre
     public function scopeName($query, $name)
     {
         if(trim($name) != ""){
@@ -72,6 +72,14 @@ class JobOffer extends Model
     public function scopeProfFamilyTeacher($query, $profFamilyTeacher)
     {
 
+        if ($profFamilyTeacher) {
+            $query->whereIn('profFamilies.name', $profFamilyTeacher);
+        }
+    } // scopeProfFamilyTeacher()
+
+    // Funcion que compara la familia profesional del profesor y la oferta para filtrar
+    public function scopeSuscriptors($query, $profFamilyTeacher)
+    {
         if ($profFamilyTeacher) {
             $query->whereIn('profFamilies.name', $profFamilyTeacher);
         }

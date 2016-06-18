@@ -71,7 +71,7 @@
 
             <div class="footer-copyright text-center rgba-black-light">
                 <div class="container-fluid">
-                    © 2015 - &infin; Copyright: <a target="_blank" href="/autores"> @autores</a> & <a target="_blank" href="http://www.iescierva.net/"> iescierva.net</a>
+                    © 2015 - &infin; Copyright: <a href="/autores" title="Autores"> @autores</a> & <a target="_blank" href="http://www.iescierva.net/"> www.iescierva.net</a>
                 </div>
             </div>
         </footer>
