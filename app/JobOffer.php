@@ -77,12 +77,4 @@ class JobOffer extends Model
         }
     } // scopeProfFamilyTeacher()
 
-    // Funcion que compara la familia profesional del profesor y la oferta para filtrar
-    public function scopeSuscriptors($query, $profFamilyTeacher)
-    {
-        if ($profFamilyTeacher) {
-            $query->whereIn('profFamilies.name', $profFamilyTeacher);
-        }
-    } // scopeProfFamilyTeacher()
-
 }

@@ -20,13 +20,6 @@
                                 <a href="/" class="btn btn-primary btn-lg btn-block"><i class="fa fa-home" aria-hidden="true"></i></span> Llevame al inicio</a>
                             </div>
                         </div>
-                        @if(isset($error))
-                            <div class="row text-center">
-                                <div class="col-md-12">
-                                    <p>Tú ip es está yo dejaría de intentar cosas extrañas: <b>{{Request::getClientIp()}}<b><p>
-                                </div>
-                            </div>
-                        @endif
                     </div>
                 </div>
             </div>

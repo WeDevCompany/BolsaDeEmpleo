@@ -501,4 +501,24 @@ class StudentsController extends UsersController
 
     } // downloadCurriculum()
 
+    public function getAllSusbscriptions() {
+        $validOffer = $this->validOffer();
+        // Convertimos el objeto devuelto en un array
+        $validOffer = array_column($validOffer, 'jobOffer_id');
+        //dd($validOffer);
+        $profFamilie = $this->profFamilyStudent();
+        $profFamilie = array_column($profFamilie->toArray(), 'name');
+        $studentId = Student::where('user_id', '=', \Auth::user()->id)->first();
+        if(isset($studentId->id)){
+            $studentId = $studentId->id;
+        } else {
+            abort(404);
+        }
+        $verifiedOffer =  $this->invalidOrValidOffer($validOffer, $this->request, $profFamilie, $truncate = null, $studentId );
+        $zona = "Ofertas inscritas";
+        $filters = config('filters.verifiedOffers');
+        $request = $this->request;
+        $urlSearch = config('routes.studentRoutes.allOffersSubscribed');
+        return view('generic.verified.verifiedOffer', compact('verifiedOffer', 'zona', 'filters', 'urlSearch', 'request'));
+    }
 }

@@ -580,7 +580,7 @@ trait Search
     /**
      * Metodo que obtiene todas las ofertas de trabajo validadas
      */
-    public function validOfferEnterprise($id, $request, $idOffer = false, $studentId = null)
+    public function validOfferEnterprise($id, $request, $idOffer = false)
     {
         // Obtenemos todas las ofertas validadas
        $validOffer = Enterprise::name($request->get('name'))
@@ -598,12 +598,6 @@ trait Search
                             } else {
                                 $validOffer = $validOffer->where('jo.id', $id);
                             }
-                            if ($studentId){
-                                $studentId = (int) $studentId;
-                                $validOffer = $validOffer->join('subcriptions as s', 's.jobOffer_id','=', 'jobOffers.id')
-                                                        ->where('s.students_id' , '=', $studentId);
-                            }
-
        return $validOffer->paginate();
 
     } // validOffer()
@@ -633,8 +627,11 @@ trait Search
      * @param  array    $profFamilyValidate    Familia profesional del profesor si hubiera
      * @param  int      $truncate              Extensión máxima de la descripción
      */
-    public function invalidOrValidOffer($invalidOrValidOffer, $request, $profFamilyValidate = null, $truncate = null)
+    public function invalidOrValidOffer($invalidOrValidOffer, $request, $profFamilyValidate = null, $truncate = null, $studentId = null)
     {
+    //dd($studentId);//18
+        //dd($invalidOrValidOffer);// 1,3,4,5,6,7,8,9,10,11,13,14,15
+        //dd($profFamilyValidate);// 0 Informática y Comunicaciones
 
         $invalidOrValidOffer = JobOffer::name($request->get('name'))
                                         ->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y las ofertas
@@ -645,9 +642,14 @@ trait Search
                                         ->join('users', 'users.id', '=', 'user_id')
                                         ->join('cities', 'cities.id', '=','workCenters.citie_id')
                                         ->join('states', 'states.id', '=','cities.state_id')
-                                        ->whereIn('jobOffers.id', $invalidOrValidOffer)
-                                        ->paginate();
+                                        ->whereIn('jobOffers.id', $invalidOrValidOffer);
+                                        if(isset($studentId)){
+                                            $invalidOrValidOffer = $invalidOrValidOffer->join('subcriptions', 'jobOffer_id', '=', 'jobOffers.id')
+                                                                                        ->where('student_id', '=', $studentId);
+                                        }
+        $invalidOrValidOffer = $invalidOrValidOffer->paginate();
 
+    //dd($invalidOrValidOffer->toSql());
         if ($truncate) {
 
             $descriptionLength = 250;
@@ -665,7 +667,9 @@ trait Search
 
             }
         } else {
+            //dd($invalidOrValidOffer);
             $this->setOtherTags($invalidOrValidOffer);
+
         }
         return $invalidOrValidOffer;
     } // invalidOrValidOffer()

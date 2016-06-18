@@ -253,6 +253,9 @@ Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth', 'isStude
     // Suscripcion a una oferta
     Route::get(config('routes.studentRoutes.subcriptionOffer'), 'StudentsController@getSubcriptionStudent');
 
+    // Ruta para ver las ofertas a las que estas subscrito
+    Route::get(config('routes.studentRoutes.allOffersSubscribed'), 'StudentsController@getAllSusbscriptions');
+
 });
 
 // Grupo de rutas para las empresas

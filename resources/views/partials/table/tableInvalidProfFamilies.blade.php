@@ -20,7 +20,6 @@
         <table class="table table-condensed table-hover">
             <thead class"thead-inverse">
             <tr>
-                <th>Validar</th>
                 <th>#</th>
                 <th>Nombre de la familia profesional</th>
                 <th>Acciones</th>
@@ -29,12 +28,6 @@
             <tbody>
             @foreach($profFamiliesInactives as $profFamilie)
                 <tr data-id="{{ $profFamilie->id }}">
-                    <td>
-                        <p>
-                            <input type="checkbox" id="profFamilie_{!! $profFamilie->id !!}" value="{!! $profFamilie->id !!}" name="profFamilies[]"  />
-                            <label for="profFamilie_{!! $profFamilie->id !!}"></label>
-                        </p>
-                    </td>
                     <td scope="row">{!! $profFamilie->id !!}</td>
                     <td>{!! $profFamilie->name !!}</td>
                     <td>

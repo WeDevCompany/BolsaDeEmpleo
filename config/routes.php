@@ -120,7 +120,7 @@ return [
     'student'    =>
         [
             'studentIndex'          => '/estudiante',
-            'allOffersSusribed'     => '/estudiante/oferta/suscripciones',
+            'allOffersSubscribed'    => '/estudiante/ofertas/inscritas',
             'allOffers'             => '/estudiante/ofertas',
             'subcriptionOffer'      => '/estudiante/oferta/suscripcion/{idOffer}',
             'viewOffer'             => '/estudiante/oferta/{idOffer}',
@@ -128,12 +128,12 @@ return [
         ],
     'studentRoutes' =>
         [
-            'allOffersSusribed'     => '/ofertas/suscripciones',
             'allOffers'             => '/ofertas',
             'register'              => 'registro',
             'subcriptionOffer'      => '/oferta/suscripcion/{idOffer}',
             'viewOffer'             => '/oferta/{idOffer}',
             'downloadCurriculum'    => '/downloadCV',
+            'allOffersSubscribed'    => '/ofertas/inscritas',
         ],
 
     'teacher'    =>
