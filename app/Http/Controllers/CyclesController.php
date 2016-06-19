@@ -90,4 +90,62 @@ class CyclesController extends Controller
         abort('404');
     }// getCyclesJSON()
 
+    /**
+     * Método que devuelve los ciclos de los cuales un profesor
+     * tiene opción a ser tutor
+     * @param  Integer $year     Año de la tutoría
+     * @param  Integer $cycle_id Id del ciclo (opcional) busqueda concreta
+     * @return Array|false       Devuelve los ciclos encontrados | False
+     *                           en el caso de no encontrar ninguno
+     */
+    public function posibleTutorCycles($year, $cycle_id = false) {
+        
+        $year = (int) $year;
+        $cycle_id = (int) $cycle_id;
+
+        try {
+
+            // Obtengo los posibles ciclos
+            if($cycle_id == false) {
+                $posibleTutorCycles = Cycle::distinct()
+                    ->select('cycles.id', 'cycles.name')
+                    ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
+                    ->join('cycleSubjects', 'cycleSubjects.cycle_id', '=', 'cycles.id')
+                    ->join('subjects', 'subjects.id', '=', 'cycleSubjects.subject_id')
+                    ->join('subjectTeachers', 'subjectTeachers.subject_id', '=', 'subjects.id')
+                    ->join('teachers', 'teachers.id', '=', 'subjectTeachers.teacher_id')
+                    ->where('subjectTeachers.dateFrom', '=', $year)
+                    ->where('cycles.active', '=', 1)
+                    ->where('profFamilies.active', '=', 1)
+                    ->where('teachers.user_id', '=', \Auth::user()->id)
+                    ->orderBy('cycles.name', 'ASC')->get()->toArray();
+            } else {
+                $posibleTutorCycles = Cycle::distinct()
+                    ->select('cycles.id', 'cycles.name')
+                    ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
+                    ->join('cycleSubjects', 'cycleSubjects.cycle_id', '=', 'cycles.id')
+                    ->join('subjects', 'subjects.id', '=', 'cycleSubjects.subject_id')
+                    ->join('subjectTeachers', 'subjectTeachers.subject_id', '=', 'subjects.id')
+                    ->join('teachers', 'teachers.id', '=', 'subjectTeachers.teacher_id')
+                    ->where('subjectTeachers.dateFrom', '=', $year)
+                    ->where('cycles.active', '=', 1)
+                    ->where('cycles.id', '=', $cycle_id)
+                    ->where('profFamilies.active', '=', 1)
+                    ->where('teachers.user_id', '=', \Auth::user()->id)
+                    ->orderBy('cycles.name', 'ASC')->get()->toArray();
+            }    
+
+        } catch(\PDOException $e) {
+            //dd($e);
+            abort(500);
+        }
+
+            if(isset($posibleTutorCycles) && !empty($posibleTutorCycles)) {
+                return $posibleTutorCycles;
+            } else {
+                return false;
+            }
+
+    } // posibleTutorCycles()
+
 }// final del controlador de

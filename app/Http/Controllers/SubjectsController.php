@@ -109,7 +109,13 @@ class SubjectsController extends Controller
         // Obtenemos las asignaturas cogidas
         $takedSubjects = $this->cycleSubjectsYearTaked($cycleId, $subjectYear)->lists('id')->toArray();
         
-        return view('subject/subjects', compact('zona', 'cycles', 'years', 'allSubjects', 'mySubjects', 'subjectYear', 'cycleId', 'takedSubjects', 'tags')  );
+        // Obtengo los ciclos en los que el profesor imparte alguna asignatura
+        $tutors = app(CyclesController::class)->posibleTutorCycles($subjectYear);
+
+        // Compruebo para cada uno si ese ciclo tiene ya tutor y lo elimino si lo tiene
+        
+
+        return view('subject/subjects', compact('zona', 'cycles', 'years', 'allSubjects', 'mySubjects', 'subjectYear', 'cycleId', 'takedSubjects', 'tags', 'tutors')  );
 
     } // index()
 

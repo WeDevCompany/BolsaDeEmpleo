@@ -54,18 +54,6 @@ class TeachersController extends UsersController
             $insercion = Self::create();
 
             if($insercion != false){
-
-                // Insertamos en la tabla de tutores
-                if(isset($this->request['tutor']) && $this->request['tutor'] == "tutor") {
-                    $this->request['cycle0'] = (int) $this->request['cycle0'];
-                    $tutor = $this->createTutor($insercion);
-
-                    if($tutor == false) {
-                        \DB::rollBack();
-                        Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
-                    }
-                }
-
                 // Llamo al metodo sendEmail del controlador de las familias profesionales
                 $email = Parent::sendEmail();
 
@@ -111,32 +99,57 @@ class TeachersController extends UsersController
         return false;
     } // create()
 
-    private function createTutor($teacher) {
+    private function createTutor($teacher, $cycle_id, $year) {
+
+        $cycle_id = (int) $cycle_id;
+        $year = (int) $year;
 
         try {
             // Comprobamos que el ciclo existe y está activo
-            $cycle = $this->teacherCycleId($this->request['cycle0'], true);
+            $cycle = $this->teacherCycleId($cycle_id, true);            
 
             if(empty($cycle)) {
                 return false;
             }
 
-            $insert = null;
+            // Compruebo si ya es tutor de ese ciclo
+            $check = Teacher::join('tutors', 'tutors.teacher_id', '=', 'teachers.id')
+                            ->where('tutors.dateFrom', '=', $year)
+                            ->where('teachers.id', '=', $teacher->id)
+                            ->where('tutors.cycle_id', '=', $cycle_id)
+                            ->get()->toArray();
 
-            $teacher->cycles()->attach($this->request['cycle0'], [
-                'dateTo' => date('Y')+1,
-                'dateFrom' => date('Y'),
-                'teacher_id' => $teacher['id'],
-                'created_at' => date('YmdHms'),
-            ]);
+            if(isset($check[0]) && !empty($check[0])) {
+                // Ya es tutor de este ciclo.
+                return "tutor";
+            } else {
+                // Compruebo si tiene otro tutor
+                $check = Teacher::join('tutors', 'tutors.teacher_id', '=', 'teachers.id')
+                            ->where('tutors.dateFrom', '=', $year)
+                            ->where('tutors.cycle_id', '=', $cycle_id)
+                            ->get()->toArray();
 
-            // Comprobamos si la inserción ha sido correcta
-            $insert = $teacher->cycles()
-                            ->where('cycle_id', '=', $this->request['cycle0'])
-                            ->where('teacher_id', '=', $teacher['id'])
-                            ->select(['tutors.id'])
-                            ->get()
-                            ->toArray();
+                if(isset($check) && !empty($check)) {
+                    return false;
+                } else {
+                    
+                    $insert = null;
+
+                    $teacher->cycles()->attach($cycle_id, [
+                        'dateTo' => $year+1,
+                        'dateFrom' => $year,
+                        'teacher_id' => $teacher['id'],
+                        'created_at' => date('YmdHms'),
+                    ]);
+
+                    // Comprobamos si la inserción ha sido correcta
+                    $insert = Teacher::join('tutors', 'tutors.teacher_id', '=', 'teachers.id')
+                            ->where('tutors.dateFrom', '=', $year)
+                            ->where('teachers.id', '=', $teacher->id)
+                            ->where('tutors.cycle_id', '=', $cycle_id)
+                            ->get()->toArray();
+                }
+            }  
 
         } catch(\PDOException $e){
             //dd($e);
@@ -740,5 +753,70 @@ class TeachersController extends UsersController
 
         }
     } // ajaxDestroyOffer()
+
+
+    public function imTutor()
+    {
+        if(isset($_POST['yearFromId']) && isset($_POST['cycleTutor']) && isset($_POST['tutor'])) {
+            $_POST['yearFromId'] = (int) trim($_POST['yearFromId']);
+            $_POST['cycleTutor'] = (int) trim($_POST['cycleTutor']);
+            $_POST['tutor'] = (string) trim($_POST['tutor']);
+
+            if(empty($_POST['yearFromId']) || empty($_POST['cycleTutor']) || $_POST['tutor'] != 'tutor') {
+                // Faltan los datos mínimos
+                Session::flash('message_Negative', 'Ha ocurrido un error, intentelo de nuevo más tarde.');
+                return \Redirect::to($this->redirectTo . '/asignaturas');
+            } else {
+                if($_POST['yearFromId'] <= 1990 || $_POST['yearFromId'] > date('Y')+5) {
+                    // Año inválido
+                    Session::flash('message_Negative', 'El año que ha enviado no es válido.');
+                    return \Redirect::to($this->redirectTo . '/asignaturas');
+                }
+
+                // Obtengo los ciclos a los que tiene acceso y compruebo si tiene acceso
+                $tutors = app(CyclesController::class)->posibleTutorCycles($_POST['yearFromId'], $_POST['cycleTutor']);
+
+                if($tutors != false) {
+
+                    try {
+                        $teacher = Teacher::where('user_id', '=', \Auth::user()->id)->get();
+                    } catch(\PDOException $e){
+                        //dd($e);
+                        abort(500);
+                    }
+
+                    // Inserto
+                    $insert = $this->createTutor($teacher[0], $_POST['cycleTutor'], $_POST['yearFromId']);
+
+                    if($insert === true) {
+                        // Inserción correcta
+                        Session::flash('message_Success', 'Usted ahora es tutor de ese ciclo.');
+                        return \Redirect::to($this->redirectTo . '/asignaturas?cycle='. $_POST['cycleTutor'] . '&yearFrom=' . $_POST['yearFromId']);
+                    } elseif($insert == "tutor") {
+                        // Ya es tutor del ciclo seleccionado
+                        Session::flash('message_Negative', 'Usted ya estaba asignado como tutor de este ciclo.');
+                        return \Redirect::to($this->redirectTo . '/asignaturas?cycle='. $_POST['cycleTutor'] . '&yearFrom=' . $_POST['yearFromId']);
+                    } elseif($insert == false) {
+                        // Otro tutor
+                        Session::flash('message_Negative', 'Es posible que este ciclo ya tenga otro tutor.');
+                        return \Redirect::to($this->redirectTo . '/asignaturas?cycle='. $_POST['cycleTutor'] . '&yearFrom=' . $_POST['yearFromId']);
+                    } else {
+                        // No se ha podido insertar
+                        Session::flash('message_Negative', 'Ha ocurrido un error. Trate de repetir la acción más tarde.');
+                        return \Redirect::to($this->redirectTo . '/asignaturas?cycle='. $_POST['cycleTutor'] . '&yearFrom=' . $_POST['yearFromId']);
+                    }
+                } else {
+                    // No tiene acceso al ciclo o aún no tiene asignaturas para él
+                    Session::flash('message_Negative', 'Usted no tiene la posibilidad de ser tutor en este ciclo.');
+                    return \Redirect::to($this->redirectTo . '/asignaturas');
+                }
+            }
+        } else {
+            // Faltan los datos mínimos
+            Session::flash('message_Negative', 'Ha ocurrido un error, intentelo de nuevo más tarde.');
+            return \Redirect::to($this->redirectTo . '/asignaturas');
+        }
+            
+    } // imTutor
 
 }

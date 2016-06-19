@@ -60,6 +60,12 @@ class TagsController extends Controller
         if(isset($_POST['subject']) && isset($_POST['cycleId'])
          && isset($_POST['yearFromId'])) {
 
+         	if($_POST['yearFromId'] <= 1990 || $_POST['yearFromId'] > date('Y')+5) {
+         		// Año inválido
+        		Session::flash('message_Negative', 'El año que ha enviado no es válido.');
+        		return \Redirect::to($this->route . '/asignaturas');
+         	}
+
         	// Valido los campos con las reglas
         	$this->validate($this->request, $this->rules);
 
