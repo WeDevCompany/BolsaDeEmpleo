@@ -441,6 +441,26 @@ trait Search
     } // cycleSubjects()
 
     /**
+     * Metodo que comprueba si el id de la asignatura corresponde a ese ciclo
+     */
+    public function cycleSubject($cycle_id, $subject_id)
+    {
+        $cycle_id = (int) $cycle_id;
+        $subject_id = (int) $subject_id;
+
+        $subject = Subject::select('subjects.id')
+                                        ->join('cycleSubjects', 'cycleSubjects.subject_id', '=', 'subjects.id')
+                                        ->join('cycles', 'cycles.id', '=', 'cycleSubjects.cycle_id')
+                                        ->where('cycles.active', '=', 1)
+                                        ->where('cycle_id', '=', $cycle_id)
+                                        ->where('subject_id', '=', $subject_id)
+                                        ->get();
+
+        return $subject;
+
+    } // cycleSubject()
+
+    /**
      * Metodo que devuelve las asignaturas que un profesor no cursa
      */
     public function cycleFreeSubjects($cycle_id, $year)
