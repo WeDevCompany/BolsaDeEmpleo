@@ -81,7 +81,7 @@ class StudentsController extends UsersController
                         $email = $this->sendEmailTeacher($insert);
 
                         if ($email === true) {
-                   
+
                             \DB::commit();
                             Session::flash('message_Success', 'Se ha registrado correctamente.');
                             return \Redirect::to('confirmacion');
@@ -115,7 +115,7 @@ class StudentsController extends UsersController
     private function create()
     {
         try {
-            
+
             // Obtenemos el curriculum
             $curriculum = $this->request->file('curriculum');
 
@@ -262,7 +262,7 @@ class StudentsController extends UsersController
                             ->whereIn('teachers.id', $validTeacher)
                             ->distinct('teachers.id')
                             ->get();
-        // Si hay algun profesor                    
+        // Si hay algun profesor
         if (!$teacher->isEmpty()) {
 
             foreach ($teacher as $key => $value) {
@@ -272,9 +272,9 @@ class StudentsController extends UsersController
 
                 // Si hemos mandado el email registramos quien lo ha hecho y cuando
                 if ($email) {
-                    
+
                     $sent = $this->insertSentEmailStudent($insert['id'], $value->id);
-                        
+
                     if (!$sent) {
                         return false;
                     }
@@ -303,9 +303,9 @@ class StudentsController extends UsersController
 
                     // Si hemos mandado el email registramos quien lo ha hecho y cuando
                     if ($email) {
-                        
+
                         $sent = $this->insertSentEmailStudent($insert['id'], $value->id);
-                        
+
                         if (!$sent) {
                             return false;
                         }
@@ -326,9 +326,9 @@ class StudentsController extends UsersController
 
                     // Si hemos mandado el email registramos quien lo ha hecho y cuando
                     if ($email) {
-                        
+
                         $sent = $this->insertSentEmailStudent($insert['id'], $value->id);
-                        
+
                         if (!$sent) {
                             return false;
                         }
@@ -339,7 +339,7 @@ class StudentsController extends UsersController
         }
 
         return true;
-             
+
     } // sendEmailTeacher()
 
     /**
@@ -409,7 +409,7 @@ class StudentsController extends UsersController
      * @param  $idOffer     Id de la oferta a suscribirse
      */
     public function getSubcriptionStudent($idOffer)
-    {   
+    {
         // Validamos los campos que nos llegan en el controlador
         // ya que los errores del comentario los mostraremos con un session flash
         $validator = \Validator::make((array)$idOffer, [
@@ -435,7 +435,7 @@ class StudentsController extends UsersController
                                                 ->first();
 
         if (!$suscripcion) {
-       
+
             // Todos los datos de la oferta a la que el estudiante quiere suscribirse
             $offer = JobOffer::join('workCenters', 'workCenters.id', '=', 'jobOffers.workCenter_id')
                                 ->where('jobOffers.id', '=', $idOffer)
@@ -444,7 +444,7 @@ class StudentsController extends UsersController
             // Variables para el email
             $cuerpo = 'El estudiante con nombre y apellidos: ' . $student->firstName . ' ' . $student->lastName . ' y email: ' . $student->email . ' se ha suscrito a su oferta de trabajo cuyo titulo es: ' . $offer->title . '.';
             $subject = 'Un Estudiante se ha suscrito a su oferta';
-            
+
             // Ruta hasta el curriculum del estudiante
             $url = storage_path() . '/app/curriculum/' . $student->carpeta . '/' . $student->curriculum;
 
@@ -473,7 +473,7 @@ class StudentsController extends UsersController
             Session::flash('message_Negative', 'Ya te encuentras suscrito a esta oferta');
             return \Redirect::back();
         }
-        
+
         Session::flash('message_Negative', 'En este momento no podemos atender su petición, por favor intentelo mas tarde');
         return \Redirect::back();
 
@@ -515,11 +515,17 @@ class StudentsController extends UsersController
             abort(404);
         }
         $verifiedOffer =  $this->invalidOrValidOffer($validOffer, $this->request, $profFamilie, $truncate = null, $studentId );
+		foreach ($verifiedOffer as $key => $value) {
+			$idOffer[] = $value->idJobOffer;
+		}
+		$tag = $this->offerTag($idOffer);
+		$verifiedOffer = $this->arrayMap($verifiedOffer, $tag, 'tag');
         $zona = "Ofertas inscritas";
         $filters = config('filters.verifiedOffers');
         $request = $this->request;
         $urlSearch = config('routes.studentRoutes.allOffersSubscribed');
-        return view('generic.verified.verifiedOffer', compact('verifiedOffer', 'zona', 'filters', 'urlSearch', 'request'));
+		$titulo = 'en las que estas inscrito';
+        return view('generic.verified.verifiedOffer', compact('verifiedOffer', 'zona', 'filters', 'urlSearch', 'request', 'titulo'));
     }
 
     public function updateStudent()

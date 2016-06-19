@@ -42,7 +42,7 @@
             <div class="input-field col-md-4">
                 <i class="material-icons prefix">today</i>
                 {{ Form::label('birthdate', 'Fecha de nacimiento(*)', ['class' => 'labelpicker']) }}
-                {{ Form::text('birthdate',null, ['class' => 'datepicker', 'id' => 'picker', 'required' => 'true', 'minlength' => '9', 'maxlength' => '9','title' => 'Fecha de nacimiento', 'data-toggle' => 'tooltip']) }}
+                {{ Form::text('birthdate',null, ['class' => 'datepicker', 'id' => 'picker', 'required' => 'true','title' => 'Fecha de nacimiento', 'data-toggle' => 'tooltip']) }}
                 @if ($errors->has('birthdate'))
                     <span class="help-block">
                         <strong>{{ $errors->first('birthdate') }}</strong>

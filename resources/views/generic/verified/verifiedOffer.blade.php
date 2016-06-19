@@ -11,7 +11,7 @@
             <div class="panel panel-default">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <h4><i class="fa fa-graduation-cap"></i> Ofertas de trabajo admitidas en la Aplicación</h4>
+                        <h4><i class="fa fa-graduation-cap"></i> Ofertas de trabajo @if(isset($titulo)) {{$titulo}}  @else admitidas en la Aplicación @endif</h4>
                     </div>
                     <div class="panel-body">
                         {{ Form::model($request->only(['name', 'filtros']), ['url' => $urlSearch, 'method' => 'GET', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
