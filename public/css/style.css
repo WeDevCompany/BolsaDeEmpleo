@@ -490,6 +490,11 @@ tr:hover td > img{
   margin-top: -2.2em;
 }
 
+.modal-register {
+    right: 11.2em;
+    width: 150%;
+ }
+
 @media (max-width: 991px){
   .select-minor {
     margin-top: 2em !important;
@@ -499,6 +504,10 @@ tr:hover td > img{
   }
   .media-margin {
    margin-top: 3em !important;
+ }
+ .modal-register {
+    right: 0;
+    width: 100%;
  }
 }
 

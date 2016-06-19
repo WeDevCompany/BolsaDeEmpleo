@@ -12,6 +12,8 @@ use App\Subject;
 use App\Enterprise;
 use App\Tag;
 use App\ProfFamilie;
+use App\WorkCenter;
+use App\EnterpriseResponsable;
 
 use App\Http\Requests;
 
@@ -89,7 +91,7 @@ trait Search
         // en base a los parametros recibidos, solo sacamos los datos
         // que nos interesan debido a la forma que tiene laravel de gestionar el distinct,
         // que necesita estar el campo en la select
-        $invalidOrValidStudent = Student::name($request->get('name'))
+        $invalidOrValidStudent = Student::filter($request->get('filtros'), $request->get('name'))
                                     ->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y el alumno
                                     ->select('students.id', 'students.firstName', 'students.lastName','students.dni', 'users.email', 'users.carpeta', 'users.image','profFamilies.name')
                                     ->join('users', 'users.id', '=', 'user_id')
@@ -158,7 +160,7 @@ trait Search
      */
     public function deniedStudent($request, $profFamilyValidate = null)
     {
-        $deniedStudent = Student::name($request->get('name'))
+        $deniedStudent = Student::filter($request->get('filtros'), $request->get('name'))
                                     ->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y el alumno
                                     ->select('users.*', 'profFamilies.name', 'students.*')
                                     ->join('users', 'users.id', '=', 'user_id')
@@ -286,7 +288,7 @@ trait Search
     {
         // Obtenemos los profesores que no estan validados
         // o si lo estan segun los parametros recibidos
-        $invalidOrValidTeacher = Teacher::name($request->get('name'))
+        $invalidOrValidTeacher = Teacher::filter($request->get('filtros'), $request->get('name'))
                                     ->select('profFamilies.*', 'users.*', 'teachers.*')
                                     ->join('users', 'users.id', '=', 'user_id')
                                     ->join('teacherProfFamilies', 'teacherProfFamilies.teacher_id', '=', 'teachers.id')
@@ -305,7 +307,7 @@ trait Search
      */
     public function deniedTeacher($request)
     {
-        $deniedTeacher = Teacher::name($request->get('name'))
+        $deniedTeacher = Teacher::filter($request->get('filtros'), $request->get('name'))
                                     ->select('profFamilies.*', 'users.*', 'teachers.*')
                                     ->join('users', 'users.id', '=', 'user_id')
                                     ->join('teacherProfFamilies', 'teacherProfFamilies.teacher_id', '=', 'teachers.id')
@@ -583,7 +585,7 @@ trait Search
     public function validOfferEnterprise($id, $request, $idOffer = false)
     {
         // Obtenemos todas las ofertas validadas
-       $validOffer = Enterprise::name($request->get('name'))
+       $validOffer = Enterprise::filter($request->get('filtros'), $request->get('name'))
                             ->select('jo.id as idJobOffer', 'states.name as stateName', 'cities.name as cityName', 'wc.name as workCenterName', 'wc.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'wc.*', 'enterprises.*', 'pf.*', 'users.*', 'jo.*')
                             ->join('workCenters as wc', 'wc.enterprise_id', '=', 'enterprises.id')
                             ->join('jobOffers as jo', 'jo.workCenter_id', '=', 'wc.id')
@@ -633,7 +635,7 @@ trait Search
         //dd($invalidOrValidOffer);// 1,3,4,5,6,7,8,9,10,11,13,14,15
         //dd($profFamilyValidate);// 0 Informática y Comunicaciones
 
-        $invalidOrValidOffer = JobOffer::name($request->get('name'))
+        $invalidOrValidOffer = JobOffer::filter($request->get('filtros'), $request->get('name'))
                                         ->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y las ofertas
                                         ->select('jobOffers.id as idJobOffer', 'states.name as stateName', 'cities.name as cityName', 'workCenters.name as workCenterName', 'workCenters.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'workCenters.*', 'enterprises.*', 'profFamilies.*', 'users.*', 'jobOffers.*')
                                         ->join('profFamilies', 'profFamilies.id', '=', 'jobOffers.profFamilie_id')
@@ -673,6 +675,19 @@ trait Search
         }
         return $invalidOrValidOffer;
     } // invalidOrValidOffer()
+
+    public function allMapCenters()
+    {
+        $enterpriseCenters = WorkCenter::select('workCenters.id', 'workCenters.name')->join('enterprises', 'enterprises.id', '=', 'workCenters.enterprise_id')
+                                        ->where('enterprises.user_id', '=', \Auth::user()->id)
+                                        ->get();
+
+        foreach ($enterpriseCenters as $key => $value) {
+            $allEnterpriseCenters[$value->id] = $value->name;
+        }
+
+        return $allEnterpriseCenters;
+    }
 
     // Funcion que obtiene todas las tags
     public function allMapTags()
@@ -898,7 +913,7 @@ trait Search
      */
     public function deniedOffer($request, $profFamilyValidate = null)
     {
-        $deniedOffer = JobOffer::name($request->get('name'))
+        $deniedOffer = JobOffer::filter($request->get('filtros'), $request->get('name'))
                                     ->profFamilyTeacher($profFamilyValidate) // Scope que compara las familias profesionales del profesor y las ofertas
                                     ->select('jobOffers.id as idJobOffer', 'states.name as stateName', 'cities.name as cityName', 'workCenters.name as workCenterName', 'workCenters.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'workCenters.*', 'enterprises.*', 'profFamilies.*', 'users.*', 'jobOffers.*')
                                     ->join('profFamilies', 'profFamilies.id', '=', 'jobOffers.profFamilie_id')
@@ -939,7 +954,7 @@ trait Search
      */
     public function verifiedEnterprise($request)
     {
-        $verifiedEnterprise = Enterprise::name($request->get('name'))
+        $verifiedEnterprise = Enterprise::filter($request->get('filtros'), $request->get('name'))
                                             ->select('workCenters.name as workCenterName','workCenters.*','users.*','enterprises.*')
                                             ->join('users', 'users.id', '=', 'enterprises.user_id')
                                             ->join('workCenters', 'workCenters.enterprise_id', '=', 'enterprises.id')
@@ -952,7 +967,7 @@ trait Search
 
     public function deniedEnterprise($request)
     {
-        $verifiedEnterprise = Enterprise::name($request->get('name'))
+        $verifiedEnterprise = Enterprise::filter($request->get('filtros'), $request->get('name'))
                                             ->select('workCenters.name as workCenterName','workCenters.*','users.*','enterprises.*')
                                             ->join('users', 'users.id', '=', 'enterprises.user_id')
                                             ->join('workCenters', 'workCenters.enterprise_id', '=', 'enterprises.id')
@@ -976,6 +991,24 @@ trait Search
         return $deniedOneEnterprise;
 
     } // deniedOneEnterprise()
+
+    // Funcion que obtiene todlos responsables de un centro de trabajo
+    public function allMapResponsableCenter($idEnterprise)
+    {
+        $responsables = EnterpriseResponsable::select('enterpriseResponsables.*')
+                    ->join('enterpriseCenterResponsables', 'enterpriseCenterResponsables.enterpriseResponsable_id', '=', 'enterpriseResponsables.id')
+                    ->join('workCenters', 'workCenters.id', '=', 'enterpriseCenterResponsables.workCenter_id')
+                    ->join('enterprises', 'enterprises.id', '=', 'workCenters.enterprise_id')
+                    ->where('enterprises.id', '=', $idEnterprise)
+                    ->get();
+
+        foreach ($responsables as $key => $value) {
+            $allResponsables[$value->id] = $value->firstName . $value->lastName;
+        }
+
+        return $allResponsables;
+
+    } // allMapOfferTags()
 
     // Funcion que obtiene todas las tags de una oferta en concreto
     public function allMapOfferTags($idOffer)
@@ -1020,8 +1053,8 @@ trait Search
             $id = (int) $id;
         }
         try {
-            $workCenters = Enterprise::select('enterprises.name as enterpriseName', 'enterprises.*', 'cities.name as cityName', 'workCenters.*')
-                                ->join('workCenters', 'workCenters.enterprise_id', '=', 'enterprises.id')
+            $workCenters = WorkCenter::select('enterprises.name as enterpriseName', 'enterprises.*', 'cities.name as cityName', 'workCenters.*')
+                                ->join('enterprises', 'workCenters.enterprise_id', '=', 'enterprises.id')
                                 ->join('cities', 'cities.id', '=', 'workCenters.citie_id')
                                 ->where('enterprise_id', '=', $id);
             // si se quiere
@@ -1053,7 +1086,7 @@ trait Search
      * Método que obtiene el centro de trabajo tanto para empresas, como para administradores
      * @param  Integer $id Id del botón
      */
-    public function getEnterpriseResponsable($id = null, $paginate = false){
+    public function getEnterpriseResponsable($id = null, $paginate = false, $request = null){
 
         // Hacemo que este método pueda funcionar con empresas y con Administradores
         // Si el parametro se le envia es porque eres administrador
@@ -1075,11 +1108,16 @@ trait Search
             $id = (int) $id;
         }
         try {
-            $enterpriseResponsable = \DB::table('workCenters as wc')
-                                ->select('er.*', 'wc.id as idWorkCenter')
-                                ->join('enterpriseCenterResponsables as ecr', 'ecr.workCenter_id' , '=', 'wc.id')
-                                ->join('enterpriseResponsables as er', 'er.id', '=', 'ecr.enterpriseResponsable_id')
+            $enterpriseResponsable = EnterpriseResponsable::select('enterpriseResponsables.*', 'wc.id as idWorkCenter', 'wc.name as nameWc')
+                                ->join('enterpriseCenterResponsables as ecr', 'ecr.enterpriseResponsable_id' , '=', 'enterpriseResponsables.id')
+                                ->join('workCenters as wc', 'wc.id', '=', 'ecr.workCenter_id')
                                 ->where('wc.enterprise_id', '=', $id);
+
+            // Si recibimos request para filtrar por buscador
+            if (isset($request)) {
+                $enterpriseResponsable = $enterpriseResponsable->filter($request->get('filtros'), $request->get('name'));
+            }
+            
             // si se quiere
             // con pagionación o toda de golpe
             if(isset($paginate) && $paginate === true){

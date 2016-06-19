@@ -116,6 +116,7 @@ return [
             'allDeniedEnterprisesSearch'   => '/empresa/denegadas-buscador',
             'destroyEnterprise'    => '/empresa/eliminar-empresa/{id}',
             'allProfFamilies'      => '/configuracion/familias-profesionales',
+            'teacherRol'                => '/profesor/{idTeacher}',
         ],
     'student'    =>
         [
@@ -191,9 +192,18 @@ return [
         ],
     'enterprise'    =>
         [
-            'enterpriseIndex'              => '/empresa',
-            'enterprisePerfil'             => '/empresa/perfil',
-            'enterpriseUploadImg'          => '/empresa/uploadImage',
+            'enterpriseIndex'              => 'empresa',
+            'enterprisePerfil'             => 'empresa/perfil',
+            'enterpriseUploadImg'          => 'empresa/uploadImage',
+            'workCenter'                   => 'empresa/centros',
+            'workCenterEdit'               => 'empresa/centro/editar',
+            'workCenterDelete'             => 'empresa/centro/borrar',
+            'workCenterCreate'             => 'empresa/centro/crear',
+            'responsable'                  => 'empresa/responsables',
+            'responsableEdit'              => 'empresa/responsable/editar',
+            'responsableDelete'            => 'empresa/responsable/borrar/{idResponsable}',
+            'responsableCreate'            => 'empresa/responsable/crear',
+            
         ],
     'enterpriseRoutes'    =>
         [
@@ -201,7 +211,14 @@ return [
             'enterpriseUploadImg'          => '/uploadImage',
             'viewOffer'                    => '/oferta/{idOffer}',
             'updateOffer'                  => '/oferta/actualizar/{idOffer}',
-
+            'workCenter'                   => 'centros',
+            'workCenterEdit'               => 'centro/editar',
+            'workCenterDelete'             => 'centro/borrar',
+            'workCenterCreate'             => 'centro/crear',
+            'responsable'                  => 'responsables',
+            'responsableEdit'              => 'responsable/editar',
+            'responsableDelete'            => 'responsable/borrar/{idResponsable}',
+            'responsableCreate'            => 'responsable/crear',
         ],
     'offerTeacher' =>
         [

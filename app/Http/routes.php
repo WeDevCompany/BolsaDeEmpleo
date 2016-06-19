@@ -12,7 +12,7 @@
 */
 // La función config no funciona con Route::resource
 
-Route::group(['prefix' => 'registro', 'middleware' => 'web'], function () {
+Route::group(['prefix' => 'registro', 'middleware' => ['web', 'Register']], function () {
 
     // Registro de profesores
     Route::get(config('routes.registroRoutes.registroProfesor'), 'UsersController@register');
@@ -49,21 +49,24 @@ Route::group(['middleware' => 'web'], function () {
         return view('welcome', compact('zona'));
     });
 
-    // Ruta que recibe el formulario de login
-    Route::post('/authLogin', 'Auth\AuthController@authLogin');
+    Route::group(['middleware' => ['Register']], function(){
+        // Ruta que recibe el formulario de login
+        Route::post('/authLogin', 'Auth\AuthController@authLogin');
 
-    // Ruta para la confirmacion del usuario
-    Route::get(config('routes.confirmation'), [
-        'uses'  => 'Auth\AuthController@getDirectConfirmation',
-        // Alias, para utilizarlo escribiriamos en el enlace: route('confirmation')
-        'as'    => 'confirmation'
-    ]);
+        // Ruta para la confirmacion del usuario
+        Route::get(config('routes.confirmation'), [
+            'uses'  => 'Auth\AuthController@getDirectConfirmation',
+            // Alias, para utilizarlo escribiriamos en el enlace: route('confirmation')
+            'as'    => 'confirmation'
+        ]);
 
-    // Ruta para la confirmacion del usuario
-    Route::get(config('routes.confirmacion'), [
-        'uses'  => 'Auth\AuthController@getConfirmation',
-        'as'    => 'confirmacion'
-    ]);
+        // Ruta para la confirmacion del usuario
+        Route::get(config('routes.confirmacion'), [
+            'uses'  => 'Auth\AuthController@getConfirmation',
+            'as'    => 'confirmacion'
+        ]);
+
+    });
 
     // Ruta que recibe el codigo de la confirmacion del usuario
     Route::post(config('routes.confirmado'), 'Auth\AuthController@postConfirmation');
@@ -177,6 +180,9 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth', 'isAd
     // Visualización de una sola oferta
     Route::get(config('routes.adminRoutes.viewOffer'), 'AdminsController@getOfferById');
 
+    // Cambiar el rol de profesor
+    Route::post(config('routes.adminRoutes.teacherRol'),'AdminsController@changeTeacherRol');
+
 });
 
 // Grupo de rutas para los profesores
@@ -255,6 +261,9 @@ Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth', 'isStude
 
     // Ruta para ver las ofertas a las que estas subscrito
     Route::get(config('routes.studentRoutes.allOffersSubscribed'), 'StudentsController@getAllSusbscriptions');
+    
+    // Actualizar estudiante
+    Route::get('actualizar/{idStudent}', 'StudentsController@uploadStudent');
 
 });
 
@@ -275,7 +284,16 @@ Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth', 'isEnterpri
     Route::post(config('routes.UploadImg'), 'EnterprisesController@uploadImage');
 
     // Centro de trabajo
-    Route::get('centros', 'EnterprisesController@getWorkCenterEnterprise');
+    Route::get(config('routes.enterpriseRoutes.workCenter'), 'EnterprisesController@getWorkCenterEnterprise');
+    Route::post(config('routes.enterpriseRoutes.workCenterEdit'), 'EnterprisesController@postWorkCenterEdit');
+    Route::post(config('routes.enterpriseRoutes.workCenterDelete'), 'EnterprisesController@deleteWorkCenter');
+    Route::post(config('routes.enterpriseRoutes.workCenterCreate'), 'EnterprisesController@postCreateWorkCenter');
+
+    // Responsables
+    Route::get(config('routes.enterpriseRoutes.responsable'), 'EnterprisesController@getResponsable');
+    Route::post(config('routes.enterpriseRoutes.responsableEdit'), 'EnterprisesController@editResponsable');
+    Route::delete(config('routes.enterpriseRoutes.responsableDelete'), 'EnterprisesController@deleteEnterpriseResponsable');
+    Route::post(config('routes.enterpriseRoutes.responsableCreate'), 'EnterprisesController@createEnterpriseResponsable');
 
 });
 

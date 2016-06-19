@@ -18,9 +18,18 @@
         'verifiedOffers' => [
             'offer'       =>  'Nombre oferta',
             'enterprise'  =>  'Nombre empresa',
-            'email'       =>  'Email',
-            'cif'         =>  'CIF',
-            'profFamily'  =>  'Centro de trabajo',
+            'lugar'       =>  'Lugar',
+            'description' =>  'Descripción',
+            'duration'    =>  'Duración',
+            'kind'        =>  'Tipo',
+            'experience'  =>  'Experiencia',
+            'level'       =>  'Nivel',
+        ],
+        'responsable' => [
+            'name'       => 'Nombre',
+            'workCenter' => 'Centro de trabajo',
+            'dni'        => 'DNI',
+
         ],
     ];
 

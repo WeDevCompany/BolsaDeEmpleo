@@ -72,7 +72,7 @@ class TeachersController extends UsersController
                 if($email === true) {
                     \DB::commit();
                     Session::flash('message_Success', 'Se ha registrado correctamente.');
-                    return \Redirect::to('login');
+                    return \Redirect::to('confirmacion');
                 } else {
                     \DB::rollBack();
                     Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');

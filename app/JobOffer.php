@@ -60,13 +60,30 @@ class JobOffer extends Model
         return $this->belongsToMany(Student::class, 'suscriptions')->withPivot('student_id');
     } // students()
 
-    // Funcion para buscar por nombre
-    public function scopeName($query, $name)
+    // Funcion para filtar por varios campos
+    public function scopeFilter($query, $filter, $name)
     {
-        if(trim($name) != ""){
-            $query->where("title", "LIKE", "%$name%");
+        if(isset($filter) && trim($filter) != ""){
+
+            if($filter == 'lugar') {
+                $query->where('cities.name',"LIKE", "%$name%");
+            }  else if($filter == 'description') {
+                $query->where('jobOffers.description',"LIKE", "%$name%");
+            } else if($filter == 'offer') {
+                $query->where('title',"LIKE", "%$name%");
+            } else if ($filter == 'enterprise') {
+                $query->where('enterprises.name',"LIKE", "%$name%");
+            } else if ($filter == 'duration') {
+                $query->where('duration',"LIKE", "%$name%");
+            } else if ($filter == 'kind') {
+                $query->where('kind',"LIKE", "%$name%");
+            } else if ($filter == 'experience') {
+                $query->where('experience',"LIKE", "%$name%");
+            } else if ($filter == 'level') {
+                $query->where('level',"LIKE", "%$name%");
+            }
         }
-    } // scopeName()
+    } // scopeFilter()
 
     // Funcion que compara la familia profesional del profesor y la oferta para filtrar
     public function scopeProfFamilyTeacher($query, $profFamilyTeacher)

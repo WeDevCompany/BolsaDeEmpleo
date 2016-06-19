@@ -84,7 +84,7 @@ class StudentsController extends UsersController
                    
                             \DB::commit();
                             Session::flash('message_Success', 'Se ha registrado correctamente.');
-                            return \Redirect::to('login');
+                            return \Redirect::to('confirmacion');
 
                         } else {
 
@@ -520,5 +520,27 @@ class StudentsController extends UsersController
         $request = $this->request;
         $urlSearch = config('routes.studentRoutes.allOffersSubscribed');
         return view('generic.verified.verifiedOffer', compact('verifiedOffer', 'zona', 'filters', 'urlSearch', 'request'));
+    }
+
+    public function uploadStudent($idStudent)
+    {
+        if ($idStudent = \Auth::user()->id) {
+
+            $student = Student::findOrFail($idStudent);
+
+            $nuevafecha = date( 'YmdHms' );
+
+            $student->update_at = $nuevafecha;
+
+            $student->save();
+
+            Session::flash('message_Success', 'Has actualizado correctamente tu perfil.');
+
+            return \Redirect::back();
+
+        }
+
+        Session::flash('message_Negative', 'El usuario que intenta actualizar no es su usuario');
+        return \Redirect::back();
     }
 }
