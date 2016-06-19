@@ -16,7 +16,7 @@
 	    				<!-- Titulo -->
 			            <div class="modal-header text-center">
 			                <h4 class="title" data-title="">
-			                	<i class="fa fa-graduation-cap"></i>
+			                	<i class="fa fa-book"></i>
 			                	Asignaturas impartidas
 			                </h4>
 			            </div>
@@ -35,10 +35,10 @@
 			                                <div class="col-md-12 text-center">
 			                                    <button type="submit" class="btn btn-primary btn-login-media waves-effect waves-light" id="search">
 			                                        <div class="show-responsive">
-			                                            <i class="fa fa-search" aria-hidden="true"></i>
+			                                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
 			                                        </div>
 			                                        <div class="hidden-media">
-			                                            <i class="fa fa-btn fa-search"></i>&nbsp;&nbsp;<span class="hidden-media">Filtrar</span>
+			                                            <i class="fa fa-btn fa-graduation-cap"></i>&nbsp;&nbsp;<span class="hidden-media">Filtrar</span>
 			                                        </div>
 			                                    </button>
 			                                </div>
@@ -52,17 +52,40 @@
 									<div class="col-sm-4">
 										@include('generic.tutor')
 									</div>
-									<div class="col-sm-8 hide" id="oculto">
-										<select name="cycleTutor" class="chosen-select form-control" id="cycleTutor">
-
-										</select>
-									    @if ($errors->has('cycleTutor'))
-							                <span class="help-block">
-							                    <strong>{{ $errors->first('cycleTutor') }}</strong>
-							                </span>
-							            @endif
+								@if(isset($tutors) && !empty($tutors) && is_array($tutors))
+										<div class="col-sm-8 hide" id="oculto">
+											{{ Form::label('cycleTutor', '¿De qué ciclo? (no olvide filtrar por año)',['class' => 'label-select']) }}
+											<select name="cycleTutor" class="chosen-select form-control" id="cycleTutor">
+												@foreach($tutors as $key => $array)
+													<option value="{{ $array['id'] }}">{{ $array['name'] }}</option>
+									            @endforeach
+											</select>
+											@if($_GET && isset($_GET['yearFrom']))
+											    <input class="hidden" type="hidden" name="yearFromId" value="{{ $_GET['yearFrom'] }}">
+											@else
+											    <input class="hidden" type="hidden" name="yearFromId" value="{{ $subjectYear }}">
+											@endif
+										    @if ($errors->has('cycleTutor'))
+								                <span class="help-block">
+								                    <strong>{{ $errors->first('cycleTutor') }}</strong>
+								                </span>
+								            @endif
+										</div>
 									</div>
+									<div class="col-md-12 text-center extra-padding">
+	                                    <button type="submit" class="btn btn-primary btn-login-media waves-effect waves-light hide" disabled="disabled" id="newTutor">
+	                                        <div class="show-responsive">
+	                                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+	                                        </div>
+	                                        <div class="hidden-media">
+	                                            <i class="fa fa-btn fa-graduation-cap"></i>&nbsp;&nbsp;<span class="hidden-media">Soy tutor</span>
+	                                        </div>
+	                                    </button>
+	                                </div>
+                            	@elseif(isset($tutors) && empty($tutors))
+									<p id="oculto" class="hide" style="color:red">Necesita impartir una asignatura en algún ciclo para poder ser tutor de dicho ciclo.</p>
 								</div>
+								@endif
 							{{ Form::close() }}
 	                        {{ Form::open(['url' => 'profesor/asignaturas', 'method' => 'POST', 'id' => 'subject-form']) }}
                     			{!! csrf_field() !!}

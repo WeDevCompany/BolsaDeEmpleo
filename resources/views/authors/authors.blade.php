@@ -44,13 +44,14 @@
                                             <div class="face card-rotating__back z-depth-1">
                                                 <h4>Eduardo López Pardo</h4>
                                                 <p class="card-content text-center">
-                                                    <br> Conocimientos en:</p>
-                                                <hr> PHP (PDO, MVC, Laravel,...)
-                                                <br> MySQl
-                                                <br> Java
-                                                <br> C
+                                                    <br>Experiencia con:</p>
+                                                <hr> PHP [POO,PDO,MVC,Laravel]
+                                                <br> MySQl [Correlacionadas,Normalización]
+                                                <br> Ajax [Asincronía]
                                                 <br> Jquery
-                                                <br> CSS
+                                                <br> Java
+                                                <br> CSS [Bootstrap]
+                                                <br> HTML
                                                 <br>
 
                                                 <!--Triggering button-->
@@ -58,9 +59,10 @@
                                                 <div class="sm-container">
                                                     <ul class="list-inline card-sm">
                                                         <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a></li>
-                                                        <li><a class="icons-sm tw-ic" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                                        <li><a class="icons-sm tw-ic" href="https://twitter.com/DuardoCris23" target="_blank"><i class="fa fa-twitter"></i></a></li>
                                                         <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"></i></a></li>
-                                                        <li><a class="icons-sm li-ic"><i class="fa fa-linkedin"></i></a></li>
+                                                        <li><a class="icons-sm li-ic" href="https://www.linkedin.com/in/eduardo-l%C3%B3pez-pardo-20964111b"><i class="fa fa-linkedin"></i></a></li>
+                                                        <li><a class="icons-sm git-ic" href="https://github.com/Quorum23"><i class="fa fa-github" target="_blank"> </i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>

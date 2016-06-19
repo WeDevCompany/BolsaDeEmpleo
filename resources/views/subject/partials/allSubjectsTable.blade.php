@@ -1,22 +1,15 @@
 <table class="table table-striped">
 	<tbody id="allSubjects">
 		<tr>
-            <th class="col-md-11">Nombre</th>
-            <th class="col-md-1 subjectArrow no-padding">
-                <div class="show-responsive">
-                    <i id="cabeceras" class="fa fa-btn fa-arrow-circle-down"></i>
-                </div>
-                <div class="hidden-media">
-                    <i id="cabeceras" class="fa fa-btn fa-arrow-circle-right"></i>
-                </div>         
-            </th>
+            <th class="col-md-12 text-center">Nombre</th>
+            <th class="col-md-1 subjectArrow no-padding"></th>
         </tr>
 		@foreach($allSubjects as $id => $subject)
             {{--*/ $found = false /*--}}
             @foreach($takedSubjects as $key => $subjectId)
                 @if($id == $subjectId)
                     {{--*/ $found = true; /*--}}
-                    <tr id="taked" style="background-color:#EEEEEE;" title="Esta asignatura es impartida por otro profesor.">
+                    <tr id="taked" style="background-color:#dddddd;" title="Esta asignatura es impartida por otro profesor.">
                     <?php break; ?>
                 @endif
             @endforeach
@@ -24,18 +17,18 @@
                 <tr>
             @endif
             @if($found == false)
-                <th class="col-md-11 subjectName">{{ $subject }}</th>
-                <th class="col-md-1 subjectArrow no-padding">
+                <td class="col-md-11 subjectName">{{ $subject }}</td>
+                <td class="col-md-1 subjectArrow no-padding">
                     <div class="show-responsive">
                         <i id="{{ $id }}" class="fa fa-btn fa-arrow-circle-down"></i>
                     </div>
                     <div class="hidden-media">
                         <i id="{{ $id }}" class="fa fa-btn fa-arrow-circle-right"></i>
                     </div>
-                </th>
+                </td>
             @else
-                <th class="col-md-11 subjectName">{{ $subject }}</th>
-                <th class="col-md-1 no-padding"></th>
+                <td class="col-md-11 subjectName">{{ $subject }}</td>
+                <td class="col-md-1 no-padding"></td>
             @endif
     		</tr>
         @endforeach
