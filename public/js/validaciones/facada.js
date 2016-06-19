@@ -38,6 +38,7 @@ $(document).ready(function(){
     offerRegisterForm = $('#offer-register-form');
     subjectForm = $('#subject-form');
     searchForm = $('#search-form');
+    tutorForm = $('#tutor-form');
     formDelete = $('#form-delete');
     myDropzone = $('my-dropzone');
 
@@ -113,6 +114,14 @@ $(document).ready(function(){
 
         // Cargamos los scripts del formulario de asignaturas
         subjectForm.after('<script src="/js/validaciones/includes/subjectForm.js"></script>');
+
+    }
+
+    // Comprobamos si el formulario es el formulario de tutores de un ciclo
+    if(tutorForm.length > 0) {
+
+        // Cargamos los scripts del formulario de asignaturas
+        tutorForm.after('<script src="/js/validaciones/includes/tutorForm.js"></script>');
 
     }
 
