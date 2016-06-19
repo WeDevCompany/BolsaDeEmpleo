@@ -4,7 +4,7 @@
     {{ Form::checkbox('terminos', 'acepto', true, ['id' => 'terminos']) }}
     {{ Form::label('terminos', 'Acepto los terminos de esta aplicación', ['for' => 'terminos']) }}
     <div class="">
-        <a  href="{{ url('/terminos') }}" class="btn btn-link">(Leer terminos)</a>
+        <a  href="{{ url('/terminos') }}" class="btn btn-link">(Leer términos)</a>
     </div>
 
 </div>

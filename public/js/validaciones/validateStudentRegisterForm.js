@@ -58,7 +58,7 @@ $(document).ready(function () {
                 maxlength: 9,
                 nifES: true
             },
-            direccion:{
+            address:{
                 required:true,
                 minlength: 3,
             },
