@@ -24,7 +24,8 @@
         // Rango de años que se mostraran
         selectYears: 1000,
         min: [1916,01,01],
-        max: true,
+        max: [new Date().getFullYear() - 16,new Date().getMonth() ,new Date().getDate()],
+
         darktheme: true,
     });
 
