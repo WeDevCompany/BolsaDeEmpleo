@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Subject;
+use App\Http\Controllers\TagsController;
 use Illuminate\Support\Facades\Session;
 use App\Http\Traits\Search;
 
@@ -78,22 +79,43 @@ class SubjectsController extends Controller
         // Obtengo las asignaturas de un profesor
         $mySubjects = $this->cycleSubjectsYear($cycleId, $subjectYear, true)->lists('name', 'id')->toArray();
 
+        // Para cada asignatura obtenemos sus tags
+        foreach($mySubjects as $id => $value) {
+            try {
+                // Obtengo el identificador de la tabla cycleSubjects
+                $cycleSubjectId = Subject::select('cycleSubjects.id')
+                                            ->join('cycleSubjects', 'cycleSubjects.subject_id', '=', 'subjects.id')
+                                            ->where('cycleSubjects.subject_id', '=', $id)
+                                            ->where('cycleSubjects.cycle_id', '=', $cycleId)
+                                            ->get();
+
+                // Obtengo los tags de cada asignatura seleccionada
+                $tags[$id] = app(TagsController::class)->getSubjectTags($cycleSubjectId[0]['id'], $subjectYear)->lists('tag', 'tag_id')->toArray();
+
+                // Si no tiene tags esa asignatura, lo borro del array de tags
+                if(empty($tags[$id])) {
+                    unset($tags[$id]);
+                }
+
+            } catch(\PDOException $e){
+                //dd($e);
+                abort(500);
+            }
+        }
+
         // Obtenemos las asignaturas que no ha impartido
         $allSubjects = $this->cycleFreeSubjects($cycleId, $subjectYear)->lists('name', 'id')->toArray();
 
         // Obtenemos las asignaturas cogidas
         $takedSubjects = $this->cycleSubjectsYearTaked($cycleId, $subjectYear)->lists('id')->toArray();
         
-        return view('subject/subjects', compact('zona', 'cycles', 'years', 'allSubjects', 'mySubjects', 'subjectYear', 'cycleId', 'takedSubjects'));
+        return view('subject/subjects', compact('zona', 'cycles', 'years', 'allSubjects', 'mySubjects', 'subjectYear', 'cycleId', 'takedSubjects', 'tags')  );
 
     } // index()
 
     public function store()
     {
-        // 3- Compruebo si alguna de allSubjects esta insertada
-        // 3.1- Si lo está le añado el dateTo que seria como borrarla
-        // 3.2- Si no esta no hago nada
-
+        // Valido el formulario
         $this->validate($this->request, $this->rules);
 
         // Compruebo que el ciclo recibido es valido
@@ -234,6 +256,15 @@ class SubjectsController extends Controller
 
     } // store()
 
+    /**
+     * Metodo de inserción de relaciones entre
+     * profesor y asignaturas
+     * @param  Integer $id        Id de la asignatura
+     * @param  Integer $teacherId Id del profesor
+     * @return Boolean | Abort    Devuelve true si se ha realizado
+     *                            correctamente o false si no | Abort
+     *                            en caso de error
+     */
     private function create($id, $teacherId)
     {
         $id = (int) $id;
@@ -270,6 +301,14 @@ class SubjectsController extends Controller
         return false;
     } // create()
 
+    /**
+     * Metodo que elimina la relación entre profesor y asignatura
+     * @param  Integer $id        Id de la asignatura
+     * @param  Integer $teacherId Id del profesor
+     * @return Boolean | Abort    Devuelve true si se ha realizado
+     *                            correctamente o false si no | Abort
+     *                            en caso de error
+     */
     private function delete($id, $teacherId)
     {
         $id = (int) $id;
