@@ -31,6 +31,11 @@
             'dni'        => 'DNI',
 
         ],
+        'verifiedEnterprise' => [
+            'enterprise' => 'Nombre',
+            'workCenter' => 'Centro de trabajo',
+            'cif' => 'CIF',
+        ],
     ];
 
 ?>

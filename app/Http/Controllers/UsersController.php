@@ -57,7 +57,8 @@ class UsersController extends Controller
         $this->rules = [
             'email'     => 'required|email|min:6|unique:users,email',
             'password'  => 'required|confirmed|between:4,20|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d).+$/',
-            'terminos'  => 'required'
+            'terminos'  => 'required',
+            'g-recaptcha-response' => 'required|captcha',
         ];
 
         $this->rules_image = [

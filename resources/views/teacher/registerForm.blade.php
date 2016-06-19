@@ -29,6 +29,7 @@
                                 @include('generic.userfields')
                             </fieldset>
                             @include('generic.terms')
+                            @include('generic.capcha')
                             <div class="form-group">
                                 <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light">

@@ -41,6 +41,7 @@
                             <fieldset>
                                 <legend style="width: auto;">Usuario</legend>
                                 @include('generic.userfields')
+                                @include('generic.capcha')
                             </fieldset>
                                 @include('generic.terms')
                             <div class="form-group">

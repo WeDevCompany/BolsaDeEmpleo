@@ -669,7 +669,7 @@ class AdminsController extends TeachersController
         $zona = config('zona.admitidos.empresa');
 
         // Variable que necesitamos pasarle a la vista para poder ver los fitros
-        $filters = config('filters.verifiedEnterprises');
+        $filters = config('filters.verifiedEnterprise');
 
         // Obtenemos todas las empresas registradas
         $verifiedEnterprise = $this->verifiedEnterprise($this->request);
@@ -697,7 +697,7 @@ class AdminsController extends TeachersController
         $zona = config('zona.denegados.empresa');
 
         // Variable que necesitamos pasarle a la vista para poder ver los fitros
-        $filters = config('filters.verifiedEnterprises');
+        $filters = config('filters.verifiedEnterprise');
 
         // Obtenemos todas las enpresas borradas
         $deniedEnterprise = $this->deniedEnterprise($this->request);

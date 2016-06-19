@@ -27,12 +27,19 @@ class Enterprise extends Model
     	return $this->belongsTo(User::class);
     } // user()
 
-    // Funcion para buscar un profesor por nombre
-    public function scopeName($query, $name)
+    // Funcion para filtar por varios campos
+    public function scopeFilter($query, $filter, $name)
     {
-        if(trim($name) != ""){
-            $query->where("enterprises.name", "LIKE", "%$name%");
+        if(isset($filter) && trim($filter) != ""){
+
+            if($filter == 'workCenter') {
+                $query->where('workCenters.name',"LIKE", "%$name%");
+            } else if($filter == 'cif') {
+                $query->where('cif',"LIKE", "%$name%");
+            } else if ($filter == 'enterprise') {
+                $query->where('enterprises.name',"LIKE", "%$name%");
+            }
         }
-    } // scopeName()
+    } // scopeFilter()
 
 }
