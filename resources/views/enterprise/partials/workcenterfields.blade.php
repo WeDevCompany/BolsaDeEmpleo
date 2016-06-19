@@ -3,7 +3,7 @@
             <div class="input-field col-md-4">
                 <i class="material-icons prefix">business</i>
                 {{ Form::label('nameWorkCenter', 'Nombre del centro(*)') }}
-                {{ Form::text('nameWorkCenter', null, ['class' => 'form-control', 'title' => 'Nombre del centro de trabajo en la empresa', 'data-toggle' => 'tooltip', 'required' => 'true', 'minlength' => '2']) }}
+                {{ Form::text('nameWorkCenter', (isset($workCenter)) ? $workCenter->name : null, ['class' => 'form-control', 'title' => 'Nombre del centro de trabajo en la empresa', 'data-toggle' => 'tooltip', 'required' => 'true', 'minlength' => '2']) }}
                 @if ($errors->has('nameWorkCenter'))
                     <span class="help-block">
                         <strong>{{ $errors->first('nameWorkCenter') }}</strong>
@@ -13,7 +13,7 @@
             <div class="input-field col-md-8">
                 <i class="material-icons prefix">markunread_mailbox</i>
                 {{ Form::label('emailContact', 'Email de contacto(*)') }}
-                {{ Form::email('emailContact', null, ['class' => 'form-control', 'id' => 'emailContact', 'title' => 'Email de contacto con el centro de trabajo', 'data-toggle' => 'tooltip', 'required' => 'true', 'minlength' => '6']) }}
+                {{ Form::email('emailContact', (isset($workCenter)) ? $workCenter->email : null, ['class' => 'form-control', 'id' => 'emailContact', 'title' => 'Email de contacto con el centro de trabajo', 'data-toggle' => 'tooltip', 'required' => 'true', 'minlength' => '6']) }}
                 @if ($errors->has('emailContact'))
                     <span class="help-block">
                         <strong>{{ $errors->first('emailContact') }}</strong>
