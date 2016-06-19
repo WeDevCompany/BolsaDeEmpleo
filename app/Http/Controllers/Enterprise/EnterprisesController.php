@@ -14,6 +14,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\CitiesController;
+use App\Http\Request\WorkCenterRequest;
+use App\Http\Request\WorkCenterCreateRequest;
+use App\Http\Request\EnterpriseResponsableRequest;
 
 class EnterprisesController extends UsersController
 {
@@ -34,8 +37,8 @@ class EnterprisesController extends UsersController
             'phone2'            => 'digits_between:9,13',
             'road'              => 'required|in:'.$roads,
             'address'           => 'required|between:6,225',
-            'state'             => 'required',
-            'citie'             => 'required',
+            'state'             => 'required|exists:states,id',
+            'citie'             => 'required|exists:cities,id',
             'firstName'         => 'required',
             'dni'               => 'required|unique:enterpriseResponsables,dni|allDni',
             'lastName'          => 'required',
@@ -213,23 +216,23 @@ class EnterprisesController extends UsersController
 
     } // getWorkCenterEnterprise()
 
-    public function postWorkCenterEdit()
+    public function postWorkCenterEdit(WorkCenterRequest $request)
     {
         // Comenzamos la transaccion.
         \DB::beginTransaction();
 
-        $workCenter = WorkCenter::where('id', '=', $this->request->id)->update([
-            'name' => $this->request->nameWorkCenter,
-            'email' => $this->request->emailContact,
-            'phone1' => $this->request->phone1,
-            'phone2' => $this->request->phone2,
-            'fax' => $this->request->fax,
-            'road' => $this->request->road,
-            'address' => $this->request->address,
-            'citie_id' => $this->request->citie,
+        $workCenter = WorkCenter::where('id', '=', $request->id)->update([
+            'name' => $request->nameWorkCenter,
+            'email' => $request->emailContact,
+            'phone1' => $request->phone1,
+            'phone2' => $request->phone2,
+            'fax' => $request->fax,
+            'road' => $request->road,
+            'address' => $request->address,
+            'citie_id' => $request->citie,
         ]);
 
-        $responsableDelete = \DB::table('enterpriseCenterResponsables')->where('workCenter_id', '=', $this->request->id)->delete();
+        $responsableDelete = \DB::table('enterpriseCenterResponsables')->where('workCenter_id', '=', $request->id)->delete();
 
         if (!$workCenter && !$responsableDelete) {
             \DB::rollBack();
@@ -237,10 +240,10 @@ class EnterprisesController extends UsersController
             return \Redirect::back();
         }
 
-        foreach ($this->request->responsable as $key => $value) {
+        foreach ($request->responsable as $key => $value) {
 
             $responsable = \DB::table('enterpriseCenterResponsables')->insert([
-                'workCenter_id' => $this->request->id,
+                'workCenter_id' => $request->id,
                 'enterpriseResponsable_id' => $value,
                 'created_at' => date('YmdHms'),
             ]);
@@ -259,14 +262,14 @@ class EnterprisesController extends UsersController
 
     } // postWorkCenterEdit()
 
-    public function postCreateWorkCenter()
+    public function postCreateWorkCenter(WorkCenterCreateRequest $request)
     {
         // Comenzamos la transaccion.
         \DB::beginTransaction();
 
         $responsable = false;
 
-        if ($this->request['firstName'] && $this->request['lastName'] && $this->request['dni']) {
+        if ($request['firstName'] && $request['lastName'] && $request['dni']) {
             $responsable = true;
         }
 
@@ -276,9 +279,9 @@ class EnterprisesController extends UsersController
 
         $insercion = Self::createWorkCenter($enterprise, $responsable, $principalCenter);
 
-        if ($this->request->responsable) {
+        if ($request->responsable) {
             
-            foreach ($this->request->responsable as $key => $value) {
+            foreach ($request->responsable as $key => $value) {
 
                 $responsable = \DB::table('enterpriseCenterResponsables')->insert([
                     'workCenter_id' => $insercion->id,
@@ -351,13 +354,13 @@ class EnterprisesController extends UsersController
         return view('workCenter/responsableList', compact('workCenters', 'responsables', 'filters', 'zona', 'urlSearch', 'urlDelete', 'request', 'enterpriseCenters'));
     }
 
-    public function editResponsable()
+    public function editResponsable(EnterpriseResponsableRequest $request)
     {
 
-        $insertResponsable = EnterpriseResponsable::where('id', '=', $this->request->id)->update([
-                'firstName'     => $this->request['firstName'],
-                'lastName'      => $this->request['lastName'],
-                'dni'           => $this->request['dni'],
+        $insertResponsable = EnterpriseResponsable::where('id', '=', $request->id)->update([
+                'firstName'     => $request['firstName'],
+                'lastName'      => $request['lastName'],
+                'dni'           => $request['dni'],
         ]);
 
         if (!$insertResponsable) {
@@ -426,23 +429,23 @@ class EnterprisesController extends UsersController
         ];
     } // deleteEnterpriseResponsable()
 
-    public function createEnterpriseResponsable()
+    public function createEnterpriseResponsable(EnterpriseResponsableRequest $request)
     {
         // Comenzamos la transaccion.
         \DB::beginTransaction();
 
-        foreach ($this->request['firstName'] as $key => $value) {
+        foreach ($request['firstName'] as $key => $value) {
 
 
             $insertResponsable = EnterpriseResponsable::create([
                     'firstName'     => $value,
-                    'lastName'      => $this->request['lastName'][$key],
-                    'dni'           => $this->request['dni'][$key],
+                    'lastName'      => $request['lastName'][$key],
+                    'dni'           => $request['dni'][$key],
                     'created_at'    => date('YmdHms')
             ]);
 
             $insertResponsableCenter = \DB::table('enterpriseCenterResponsables')->insert([
-                'workCenter_id' => $this->request->idWorkCenter,
+                'workCenter_id' => $request->idWorkCenter,
                 'enterpriseResponsable_id' => $insertResponsable->id,
                 'created_at'    => date('YmdHms')
             ]);
