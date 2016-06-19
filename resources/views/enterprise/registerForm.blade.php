@@ -65,4 +65,6 @@
         </div>
     </div>
 </div>
+</div>
+@include('partials.footer.footerWelcome')
 @endsection

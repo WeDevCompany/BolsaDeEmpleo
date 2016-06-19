@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <h4><i class="fa fa-university"></i>Confirmacion de cuenta</h4>
+                        <h4><i class="fa fa-university"></i>Confirmación de cuenta</h4>
 
                     </div>
                     <div class="panel-body">
@@ -34,7 +34,7 @@
                                             <i class="fa fa-user-plus" aria-hidden="true"></i>
                                         </div>
                                         <div class="hidden-media">
-                                            <i class="fa fa-btn fa-user"></i> <span class="hidden-media">Registrar</span>
+                                            <i class="fa fa-btn fa-user"></i> <span class="hidden-media">Confirmar correo</span>
                                         </div>
                                     </button>
                                 </div>

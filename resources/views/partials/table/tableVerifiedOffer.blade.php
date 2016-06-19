@@ -1,7 +1,7 @@
 <div class="row"></div>
 <div class="row sin-padding">
     <div class="col-sm-6">
-        <p><b>Total ofertas por validar:</b> {{$verifiedOffer->count()}}</p>
+        <p><b>Total ofertas de trabajo:</b> {{$verifiedOffer->count()}}</p>
     </div>
     <div class="col-sm-6">
         <p>

@@ -585,7 +585,7 @@ trait Search
     public function validOfferEnterprise($id, $request, $idOffer = false)
     {
         // Obtenemos todas las ofertas validadas
-       $validOffer = Enterprise::filter($request->get('filtros'), $request->get('name'))
+       $validOffer = Enterprise::name($request->get('name'))
                             ->select('jo.id as idJobOffer', 'states.name as stateName', 'cities.name as cityName', 'wc.name as workCenterName', 'wc.email as workCenterEmail', 'enterprises.name as enterpriseName', 'states.*', 'cities.*', 'wc.*', 'enterprises.*', 'pf.*', 'users.*', 'jo.*')
                             ->join('workCenters as wc', 'wc.enterprise_id', '=', 'enterprises.id')
                             ->join('jobOffers as jo', 'jo.workCenter_id', '=', 'wc.id')
