@@ -1,26 +1,26 @@
 $(document).ready(function () {
 
     // initialize tooltipster on text input elements
-    $('#login-form input[type="text"]').tooltipster({
+    $('#send-email-reset input[type="text"]').tooltipster({
         trigger: 'custom',
         onlyOne: false,
         position: 'right',
         animation: 'fade'
     });
-    $('#login-form input[type="password"]').tooltipster({
+    $('#send-email-reset input[type="password"]').tooltipster({
         trigger: 'custom',
         onlyOne: false,
         position: 'right',
         animation: 'fade'
     });
 
-    $('#login-form select').tooltipster({
+    $('#send-email-reset select').tooltipster({
         trigger: 'custom',
         onlyOne: false,
         position: 'right',
         animation: 'fade'
     });
-    $('#login-form input[type="email"]').tooltipster({
+    $('#send-email-reset input[type="email"]').tooltipster({
         trigger: 'custom',
         onlyOne: false,
         position: 'right',
@@ -28,7 +28,7 @@ $(document).ready(function () {
     });
 
     // initialize validate plugin on the form
-    $('#login-form').validate({
+    $('#send-email-reset').validate({
         lang: 'es',
         errorPlacement: function (error, element) {
             $(element).tooltipster('update', $(error).text());
@@ -43,26 +43,13 @@ $(document).ready(function () {
                 minlength: 6,
                 email:true
             },
-            password: {
-                required: true,
-                pwcheck: true,
-            }
         },
         submitHandler: function (form) { // for demo
             //alert('valid form');
             return true;
-        },
-        messages: {
-            password: {
-                pwcheck: "La contraseña debe tener como mínimo minúsculas, mayúsculas, y números"
-            }
         }
 
     });
 
-    $.validator.addMethod("pwcheck", function(value, element) {
-        return /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d).+$/.test(value);
-    });
-
-
 });
+submit.prop('disabled', false);

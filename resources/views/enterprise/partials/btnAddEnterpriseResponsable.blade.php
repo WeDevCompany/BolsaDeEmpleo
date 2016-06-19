@@ -3,6 +3,6 @@
         <i class="fa fa-plus-square" aria-hidden="true"></i>
     </div>
     <div class="hidden-media">
-        <i class="fa fa-btn fa-plus-square"></i> <span class="hidden-media">Añadir otros ciclos</span>
+        <i class="fa fa-btn fa-plus-square"></i> <span class="hidden-media">Añadir otros responsables</span>
     </div>
 </button>

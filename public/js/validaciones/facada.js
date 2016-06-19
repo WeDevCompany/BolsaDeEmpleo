@@ -58,6 +58,7 @@ $(document).ready(function(){
     if(form.length > 0){
         // Cargamos las validaciones del email
         form.after('<script src="/js/validaciones/email.js" charset="utf-8"></script>');
+        form.after('<script src="/js/validaciones/validateResetPasswordForm.js" charset="utf-8"></script>');
     }// Comprobación de que el formulario es el de reseteo de contraseña
 
     // Comprobamos si el formulario
