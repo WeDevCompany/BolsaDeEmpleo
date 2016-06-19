@@ -66,14 +66,6 @@ class Student extends Model
         return $this->firstName . ' ' . $this->lastName;
     } // getFullNameAttribute()
 
-    // Funcion para buscar un estudiante por nombre
-    public function scopeName($query, $name)
-    {
-        if(trim($name) != ""){
-            $query->where(\DB::raw("CONCAT(firstName, ' ', lastName)"),"LIKE", "%$name%");
-        }
-    } // scopeName()
-
     // Funcion que compara la familia profesional del profesor y el alumno ppara filtrar
     public function scopeProfFamilyTeacher($query, $profFamilyTeacher)
     {
@@ -81,5 +73,22 @@ class Student extends Model
             $query->whereIn('profFamilies.name', $profFamilyTeacher);
         }
     } // scopeProfFamilyTeacher()
+
+    // Funcion para filtar por varios campos
+    public function scopeFilter($query, $filter, $name)
+    {
+        if(isset($filter) && trim($filter) != ""){
+
+            if($filter == 'dni') {
+                $query->where('dni',"LIKE", "%$name%");
+            } else if($filter == 'email') {
+                $query->where('users.email',"LIKE", "%$name%");
+            } else if($filter == 'profFamily') {
+                $query->where('profFamilies.name',"LIKE", "%$name%");
+            } else if($filter == 'name') {
+                $query->where(\DB::raw("CONCAT(firstName, ' ', lastName)"),"LIKE", "%$name%");
+            }
+        }
+    } // scopeFilter()
 
 } // Student

@@ -9,9 +9,11 @@ use App\Http\Requests;
 use App\User;
 use App\EnterpriseResponsable;
 use App\WorkCenter;
+use App\JobOffer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\CitiesController;
 
 class EnterprisesController extends UsersController
 {
@@ -61,7 +63,7 @@ class EnterprisesController extends UsersController
 
                 $insercion = Self::createWorkCenter($insercion);
 
-                if ($insercion === true) {
+                if ($insercion !== false) {
 
                     // Llamo al metodo sendEmail del controlador de las familias profesionales
                     $email = Parent::sendEmail();
@@ -69,7 +71,7 @@ class EnterprisesController extends UsersController
                     if($email === true) {
                         \DB::commit();
                         Session::flash('message_Success', 'Se ha registrado correctamente.');
-                        return \Redirect::to('login');
+                        return \Redirect::to('confirmacion');
                     } else {
                         \DB::rollBack();
 
@@ -117,7 +119,7 @@ class EnterprisesController extends UsersController
     } // create()
 
 
-    private function createWorkCenter($enterprise)
+    private function createWorkCenter($enterprise, $responsable = true, $principalCenter = true)
     {
         $data = $this->request->all();
 
@@ -133,27 +135,30 @@ class EnterprisesController extends UsersController
                 'fax'               => $data['fax'],
                 'enterprise_id'     => $enterprise['id'],
                 'citie_id'          => $data['citie'],
-                'principalCenter'   => true,
-                'created_at'        => date('YmdHmsY')
+                'principalCenter'   => $principalCenter,
+                'created_at'        => date('YmdHms')
             ]);
 
-            foreach ($data['firstName'] as $key => $value) {
+            if ($responsable = true) {
 
-                $insertResponsable = EnterpriseResponsable::create([
-                    'firstName'     => $value,
-                    'lastName'      => $data['lastName'][$key],
-                    'dni'           => $data['dni'][$key],
-                    'created_at'    => date('YmdHmsY')
-                ]);
+                foreach ($data['firstName'] as $key => $value) {
 
-                $insertCenterResponsable = \DB::table('enterpriseCenterResponsables')->insert([
-                    'workCenter_id'             => $insertWorkCenter['id'],
-                    'enterpriseResponsable_id'  => $insertResponsable['id'],
-                    'created_at'                 => date('YmdHms')
-                ]);
+                    $insertResponsable = EnterpriseResponsable::create([
+                        'firstName'     => $value,
+                        'lastName'      => $data['lastName'][$key],
+                        'dni'           => $data['dni'][$key],
+                        'created_at'    => date('YmdHms')
+                    ]);
 
-                if (!$insertResponsable && $insertCenterResponsable) {
-                    return false;
+                    $insertCenterResponsable = \DB::table('enterpriseCenterResponsables')->insert([
+                        'workCenter_id'             => $insertWorkCenter['id'],
+                        'enterpriseResponsable_id'  => $insertResponsable['id'],
+                        'created_at'                 => date('YmdHms')
+                    ]);
+
+                    if (!$insertResponsable && $insertCenterResponsable) {
+                        return false;
+                    }
                 }
             }
 
@@ -163,7 +168,7 @@ class EnterprisesController extends UsersController
         }
 
         if(isset($insertWorkCenter)){
-            return true;
+            return $insertWorkCenter;
         }
         return false; // devuelvo false (temporal) debo devolver los errores
     } // createWorkCenter()
@@ -176,27 +181,283 @@ class EnterprisesController extends UsersController
     public function getWorkCenterEnterprise()
     {
         // Url de buscador
-        $urlSearch = config('routes.teacher.allDeniedOffers');
-
-        // Url de post
-        $urlPost = config('routes.teacher.restoreDeniedOffers');
+        $urlSearch = config('routes.enterprise.workCenter');
 
         // Variale de zona
-        $zona = config('zona.denegados.empresa');
-
-        // Variable que necesitamos pasarle a la vista para poder ver los fitros
-        $filters = config('filters.verifiedOffers');
+        $zona = config('zona.enterprise.workCenter');
 
         // Centros de trabajo de la empresa
-        $workCenters = $this->getWorkCenter();
+        $workCenters = $this->getWorkCenter(null, false, $this->request);
 
         // Todos los responsables de la empresa
-        $responsables = $this->getEnterpriseResponsable();
+        $responsables = $this->getEnterpriseResponsable(null, false, $this->request);
 
         $request = $this->request;
 
-        return view('workCenter/workCenterList', compact('workCenters', 'responsables', 'filters', 'zona', 'urlSearch', 'urlPost', 'request'));
+        // Llamo al metodo getAllStates del controlador de las provincias
+        $states = app(StatesController::class)->getAllStates();
+
+        // Obtengo el identificador de la primera provincia
+        $stateId = array_keys($states)[0];
+
+        // Obtengo los ciclos de la primera familia
+        $cities = app(CitiesController::class)->getAllCities($stateId);
+
+        $allResponsables = null;
+
+        if (isset($workCenters[0])) {
+            $allResponsables = $this->allMapResponsableCenter($workCenters[0]->enterprise_id);
+        }
+
+        return view('workCenter/workCenterList', compact('workCenters', 'responsables', 'zona', 'urlSearch', 'request', 'states', 'cities', 'allResponsables'));
 
     } // getWorkCenterEnterprise()
+
+    public function postWorkCenterEdit()
+    {
+        // Comenzamos la transaccion.
+        \DB::beginTransaction();
+
+        $workCenter = WorkCenter::where('id', '=', $this->request->id)->update([
+            'name' => $this->request->nameWorkCenter,
+            'email' => $this->request->emailContact,
+            'phone1' => $this->request->phone1,
+            'phone2' => $this->request->phone2,
+            'fax' => $this->request->fax,
+            'road' => $this->request->road,
+            'address' => $this->request->address,
+            'citie_id' => $this->request->citie,
+        ]);
+
+        $responsableDelete = \DB::table('enterpriseCenterResponsables')->where('workCenter_id', '=', $this->request->id)->delete();
+
+        if (!$workCenter && !$responsableDelete) {
+            \DB::rollBack();
+            Session::flash('message_Negative', 'No hemos podido actualizar el centro de trabajo, por favor intentelo mas tarde');
+            return \Redirect::back();
+        }
+
+        foreach ($this->request->responsable as $key => $value) {
+
+            $responsable = \DB::table('enterpriseCenterResponsables')->insert([
+                'workCenter_id' => $this->request->id,
+                'enterpriseResponsable_id' => $value,
+                'created_at' => date('YmdHms'),
+            ]);
+
+            if (!$responsable) {
+                \DB::rollBack();
+                Session::flash('message_Negative', 'No hemos podido actualizar el centro de trabajo, por favor intentelo mas tarde');
+                return \Redirect::back();
+            }
+
+        }
+
+        \DB::commit();
+        Session::flash('message_Success', 'El centro de trabajo ha sido editado correctamente');
+        return \Redirect::back();
+
+    } // postWorkCenterEdit()
+
+    public function postCreateWorkCenter()
+    {
+        // Comenzamos la transaccion.
+        \DB::beginTransaction();
+
+        $responsable = false;
+
+        if ($this->request['firstName'] && $this->request['lastName'] && $this->request['dni']) {
+            $responsable = true;
+        }
+
+        $enterprise = Enterprise::where('user_id', '=', \Auth::user()->id)->first();
+
+        $principalCenter = false;
+
+        $insercion = Self::createWorkCenter($enterprise, $responsable, $principalCenter);
+
+        if ($this->request->responsable) {
+            
+            foreach ($this->request->responsable as $key => $value) {
+
+                $responsable = \DB::table('enterpriseCenterResponsables')->insert([
+                    'workCenter_id' => $insercion->id,
+                    'enterpriseResponsable_id' => $value,
+                    'created_at' => date('YmdHms'),
+                ]);
+
+                if (!$responsable) {
+                    \DB::rollBack();
+                    Session::flash('message_Negative', 'No hemos podido crear el centro de trabajo, por favor intentelo mas tarde');
+                    return \Redirect::back();
+                }
+
+            }
+
+        }
+
+        if ($insercion !== false) {
+            \DB::commit();
+            Session::flash('message_Success', 'El centro de trabajo ha sido creado correctamente');
+            return \Redirect::back();
+        }
+
+        \DB::rollBack();
+        Session::flash('message_Negative', 'No hemos podido crear el centro de trabajo, por favor intentelo mas tarde');
+        return \Redirect::back();
+
+    } // createWorkCenter()
+
+    public function deleteWorkCenter()
+    {
+        $deleteCenter = WorkCenter::where('id', '=', $this->request->id)->first();
+
+        $deleteCenter->deleted_at = date('YmdHms');
+        $delete = $deleteCenter->save();
+
+        if ($delete) {
+            Session::flash('message_Success', 'El centro de trabajo ha sido borrado correctamente');
+            return \Redirect::back();
+        }
+
+        Session::flash('message_Negative', 'No hemos podido borrar el centro de trabajo, por favor intentelo mas tarde');
+        return \Redirect::back();
+
+    } // deleteWorkCenter()
+
+    public function getResponsable()
+    {
+        // Url de buscador
+        $urlSearch = config('routes.enterprise.responsable');
+
+        // Url de borrado
+        $urlDelete = config('routes.enterprise.responsableDelete');;
+
+        // Variale de zona
+        $zona = config('zona.enterprise.responsable');
+
+        // Variable que necesitamos pasarle a la vista para poder ver los fitros
+        $filters = config('filters.responsable');
+
+        // Obtenemos los responsables de la empresa
+        $responsables = $this->getEnterpriseResponsable(null, true, $this->request);
+
+        // Centros de trabajo de la empresa
+        $enterpriseCenters = $this->allMapCenters();
+
+        // Request
+        $request = $this->request;
+
+        return view('workCenter/responsableList', compact('workCenters', 'responsables', 'filters', 'zona', 'urlSearch', 'urlDelete', 'request', 'enterpriseCenters'));
+    }
+
+    public function editResponsable()
+    {
+
+        $insertResponsable = EnterpriseResponsable::where('id', '=', $this->request->id)->update([
+                'firstName'     => $this->request['firstName'],
+                'lastName'      => $this->request['lastName'],
+                'dni'           => $this->request['dni'],
+        ]);
+
+        if (!$insertResponsable) {
+            Session::flash('message_Negative', 'No hemos podido editar el responsable, por favor intentelo mas tarde');
+        return \Redirect::back();
+        }
+        Session::flash('message_Success', 'El responsable ha sido editado correctamente');
+        return \Redirect::back();
+
+    } // enterpriseResponsableEdit()
+
+    public function deleteEnterpriseResponsable($idResponsable)
+    {
+        // Comenzamos la transaccion.
+        \DB::beginTransaction();
+
+        $deleteResponsable = EnterpriseResponsable::where('id', '=', $idResponsable)->first();
+
+        $deleteResponsable->deleted_at = date('YmdHms');
+        $delete = $deleteResponsable->save();
+
+        $offer = JobOffer::where('enterpriseResponsable_id', '=', $idResponsable)->get();
+
+        if (!$offer->isEmpty() && $offer[0]) {
+        
+            foreach ($offer as $key => $value) {
+
+                $value->deleted_at = date('YmdHms');
+                $value->save();
+
+                if ($value->deleted_at == null) {
+                    \DB::rollBack();
+                    $message = 'No hemos podido borrar el responsable, por favor intentelo mas tarde';
+                    $status = 'fail';
+
+                    return $ajax = [
+                            'id'      => $deleteResponsable->id,
+                            'message' => $message,
+                            'status'  => $status
+                    ];
+                }
+
+            }
+        }
+
+        if ($deleteResponsable->deleted_at != null) {
+            \DB::commit();
+            $message = 'El responsable ha sido borrado correctamente';
+            $status = 'success';
+
+            return $ajax = [
+                'id'      => $deleteResponsable->id,
+                'message' => $message,
+                'status'  => $status
+            ];
+        }
+
+        \DB::rollBack();
+        $message = 'No hemos podido borrar el responsable, por favor intentelo mas tarde';
+        $status = 'fail';
+
+        return $ajax = [
+                'id'      => $deleteResponsable->id,
+                'message' => $message,
+                'status'  => $status
+        ];
+    } // deleteEnterpriseResponsable()
+
+    public function createEnterpriseResponsable()
+    {
+        // Comenzamos la transaccion.
+        \DB::beginTransaction();
+
+        foreach ($this->request['firstName'] as $key => $value) {
+
+
+            $insertResponsable = EnterpriseResponsable::create([
+                    'firstName'     => $value,
+                    'lastName'      => $this->request['lastName'][$key],
+                    'dni'           => $this->request['dni'][$key],
+                    'created_at'    => date('YmdHms')
+            ]);
+
+            $insertResponsableCenter = \DB::table('enterpriseCenterResponsables')->insert([
+                'workCenter_id' => $this->request->idWorkCenter,
+                'enterpriseResponsable_id' => $insertResponsable->id,
+                'created_at'    => date('YmdHms')
+            ]);
+
+            if (!$insertResponsable && !$insertResponsableCenter) {
+                \DB::rollBack();
+                Session::flash('message_Negative', 'No hemos podido crear el responsable, por favor intentelo mas tarde');
+                return \Redirect::back();
+            }
+        }
+
+        \DB::commit();
+        Session::flash('message_Success', 'El responsable ha sido creado correctamente');
+        return \Redirect::back();
+    } // createEnterpriseResponsable()
+
 
 }

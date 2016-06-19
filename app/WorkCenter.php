@@ -43,4 +43,11 @@ class WorkCenter extends Model
         return $this->belongsToMany(enterpriseResponsable::class, 'enterpriseCenterResponsables')->withPivot('enterpriseResponsable_id');
     } // enterpriseResponsables()
 
+    // Funcion para buscar un profesor por nombre
+    public function scopeName($query, $name)
+    {
+        if(trim($name) != ""){
+            $query->where('name',"LIKE", "%$name%");
+        }
+    } // scopeName()
 }

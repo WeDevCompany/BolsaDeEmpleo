@@ -35,4 +35,19 @@ class EnterpriseResponsable extends Model
     {
         return $this->firstName . ' ' . $this->lastName;
     } // getFullNameAttribute()
+
+    // Funcion para filtar por varios campos
+    public function scopeFilter($query, $filter, $name)
+    {
+        if(isset($filter) && trim($filter) != ""){
+
+            if($filter == 'dni') {
+                $query->where('dni',"LIKE", "%$name%");
+            } else if($filter == 'workCenter') {
+                $query->where('workCenter.name',"LIKE", "%$name%");
+            } else if($filter == 'name') {
+                $query->where(\DB::raw("CONCAT(firstName, ' ', lastName)"),"LIKE", "%$name%");
+            }
+        }
+    } // scopeFilter()
 }

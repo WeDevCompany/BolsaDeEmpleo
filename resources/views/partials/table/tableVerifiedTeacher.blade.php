@@ -19,6 +19,7 @@
                                     <th>Dni</th>
                                     <th>Email</th>
                                     <th>Familia Profesional</th>
+                                    <th>Rol Administrador</th>
                                     <th>Borrar</th>
                                 </tr>
                             </thead>
@@ -32,9 +33,17 @@
                                         <td><a href="mailto:{!! $teacher->email !!}" target="_blank">{!! $teacher->email !!}</a></td>
                                         <td>{!! $teacher->name !!}</td>
                                         <td>
+                                            @if($teacher->rol !== 'administrador')
+                                                <a href="#" class="btn btn-warning waves-effect waves-light btn-xs" data-toggle="modal" data-target="#adminModal{{ $teacher->id }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Convertir en admin</a>
+                                            @else
+                                                Ya es administrador
+                                            @endif
+                                        </td>
+                                        <td>
                                             <a href="#" class="btn btn-danger waves-effect waves-light btn-xs btn-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
+                                @include('partials.modal.adminModal')
                                 @endforeach
                             </tbody>
                         </table>

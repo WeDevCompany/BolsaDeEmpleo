@@ -31,10 +31,10 @@
                         <div class="col-md-6">
                             <button type="submit" class="btn btn-danger waves-effect waves-light" id="softDeletes">
                                 <div class="show-responsive">
-                                    <i class="fa fa-eraser" aria-hidden="true"></i>
+                                    <i class="fa fa-times" aria-hidden="true"></i>
                                 </div>
                                 <div class="hidden-media">
-                                    <i class="fa fa-eraser" aria-hidden="true"></i> <span class="hidden-media">Borrar</span>
+                                    <i class="fa fa-times" aria-hidden="true"></i> <span class="hidden-media">Borrar</span>
                                 </div>
                             </button>
                         </div>

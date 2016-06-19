@@ -303,6 +303,26 @@ class AdminsController extends TeachersController
 
     } // ajaxDestroyTeacher()
 
+    public function changeTeacherRol($idTeacher)
+    {
+        $teacher = User::join('teachers', 'teachers.user_id', '=', 'users.id')
+                            ->where('teachers.id', '=', $idTeacher)
+                            ->first();
+
+        if ($teacher->rol != 'administrador') {
+
+            $teacher->rol = 'administrador';
+            $teacher->save();
+
+            Session::flash('message_Success', 'El profesor ' . $teacher->firstName . ' ' . $teacher->lastName . ' ahora es administrador');
+            return \Redirect::back();
+        }
+
+        Session::flash('message_Negative', 'No hemos podido atender su peticion, por favor intentelo mas tarde');
+        return \Redirect::back();
+
+    } // changeTeacherRol()
+
     /*
     |---------------------------------------------------------------------------|
     | ESTUDIANTES -> Validacion, listado, borrado y restauracion.               |

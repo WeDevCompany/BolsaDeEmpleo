@@ -22,6 +22,10 @@ return [
 		'subjects' => 'Asignaturas',
 		'tags' => 'Etiquetas'
 	],
+	'enterprise' => [
+		'workcenter' => 'Centros de trabajo',
+		'responsable' => 'Responsables de la empresa',
+	],
 	'estadisticas' => [
 
 	]

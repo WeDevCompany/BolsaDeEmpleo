@@ -1,11 +1,22 @@
 <div class="row"></div>
 <main class="animated zoomIn">
     <div class="scroll">
+        <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-primary btn-login-media waves-effect waves-light" data-toggle="modal" data-target="#createWorkCenter">
+                <div class="show-responsive">
+                    <i class="fa fa-comment" aria-hidden="true"></i>
+                </div>
+                <div class="hidden-media">
+                <i class="fa fa-building-o"></i> <span class="hidden-media">Nuevo Centro de trabajo</span>
+                </div>
+            </button>
+        </div>
+        @include('partials.modal.workCenterCreate')
     {{-- Comprobamos si existen ofertas verificadas --}}
-        @if(isset($workCenters))
+        @if(isset($workCenters) && !$workCenters->isEmpty())
             {{-- recorremos las ofertas verificadas --}}
             @foreach($workCenters as $key => $workCenter)
-                <div class="{{(count($workCenters) % 2 != 0 && count($workCenters) == $key+1) ? 'col-md-12' : 'col-md-6' }} oferta extra-padding-bottom mask hoverable scroll z-depth-1" tabindex="{{ $workCenter->id }}">
+                <div class="col-md-12 oferta extra-padding-bottom mask hoverable scroll z-depth-1" tabindex="{{ $workCenter->id }}">
                     <div class="col-md-12" data-id="{{(isset($workCenter->id)) ? $workCenter->id : 0 }}" id="{{(isset($workCenter->id)) ? $workCenter->id : 0 }}">
                         <div class="row extra-padding-bottom" title="{!! $workCenter->name !!}">
                             <h5 class="text-center ">{!! $workCenter->name !!}</a></h5>
@@ -34,12 +45,14 @@
                         </div>
                         @include('workCenter.workCenterResponsable')
                         @include('workCenter.workCenterBtnActions')
+                        @include('partials.modal.workCenterEdit')
+                        @include('partials.modal.workCenterDelete')
                     </div>
                 </div>
             @endforeach
         @else
-            <div class="col-md-12 oferta extra-padding-bottom mask hoverable">
-            <h5>No hay workCenters</h5>
+            <div class="col-md-12 text-center extra-padding-bottom mask">
+            <h5>No hay Centros de trabajo</h5>
             </div>
         @endif
     </div>

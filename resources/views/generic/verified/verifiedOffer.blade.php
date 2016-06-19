@@ -14,12 +14,12 @@
                         <h4><i class="fa fa-graduation-cap"></i> Ofertas de trabajo admitidas en la Aplicación</h4>
                     </div>
                     <div class="panel-body">
-                        {{ Form::model($request->only(['name']), ['url' => $urlSearch, 'method' => 'GET', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
+                        {{ Form::model($request->only(['name', 'filtros']), ['url' => $urlSearch, 'method' => 'GET', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
                             {!! csrf_field() !!}
                             @include('partials.search.searcher')
                         {{ Form::close() }}
                         @include('partials.table.tableVerifiedOffer')
-						{{ $verifiedOffer->appends($request->only(['name']))->render() }}
+						{{ $verifiedOffer->appends($request->only(['name', 'filtros']))->render() }}
 
                     </div>
                 </div>

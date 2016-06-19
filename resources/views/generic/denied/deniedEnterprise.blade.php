@@ -14,14 +14,14 @@
                         <h4><i class="fa fa-graduation-cap"></i> Empresas Borradas de la Aplicación</h4>
                     </div>
                     <div class="panel-body">
-                        {{ Form::model($request->only(['name']), ['url' => $urlSearch, 'method' => 'GET', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
+                        {{ Form::model($request->only(['name', 'filtros']), ['url' => $urlSearch, 'method' => 'GET', 'class' => 'row', 'role' => 'search', 'id' => 'search-form']) }}
                             {!! csrf_field() !!}
                             @include('partials.search.searcher')
                         {{ Form::close() }}
                         {{ Form::open(['url' => $urlPost, 'method' => 'POST']) }}
                             {!! csrf_field() !!}
                             @include('partials.table.tableDeniedEnterprise')
-                            {{ $deniedEnterprise->appends($request->only(['name']))->render() }}
+                            {{ $deniedEnterprise->appends($request->only(['name', 'filtros']))->render() }}
                             <div class="form-group">
                                 <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary btn-login-media  waves-effect waves-light">
@@ -29,7 +29,7 @@
                                             <i class="fa fa-user-plus" aria-hidden="true"></i>
                                         </div>
                                         <div class="hidden-media">
-                                            <i class="fa fa-btn fa-user"></i> <span class="hidden-media">Restaurar</span>
+                                            <i class="fa fa-btn fa-gavel"></i> <span class="hidden-media">Restaurar</span>
                                         </div>
                                     </button>
                                 </div>

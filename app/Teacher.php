@@ -85,11 +85,20 @@ class Teacher extends Model
         return $this->firstName . ' ' . $this->lastName;
     } // getFullNameAttribute()
 
-    // Funcion para buscar un profesor por nombre
-    public function scopeName($query, $name)
+    // Funcion para filtar por varios campos
+    public function scopeFilter($query, $filter, $name)
     {
-        if(trim($name) != ""){
-            $query->where(\DB::raw("CONCAT(firstName, ' ', lastName)"),"LIKE", "%$name%");
+        if(isset($filter) && trim($filter) != ""){
+
+            if($filter == 'dni') {
+                $query->where('dni',"LIKE", "%$name%");
+            } else if($filter == 'email') {
+                $query->where('users.email',"LIKE", "%$name%");
+            } else if($filter == 'profFamily') {
+                $query->where('profFamilies.name',"LIKE", "%$name%");
+            } else if($filter == 'name') {
+                $query->where(\DB::raw("CONCAT(firstName, ' ', lastName)"),"LIKE", "%$name%");
+            }
         }
-    } // scopeName()
+    } // scopeFilter()
 }
