@@ -249,6 +249,7 @@ return [
             'postOfferEdit'         => 'empresa/oferta/editar-oferta',
             'offerDelete'           => 'empresa/oferta/borrar',
             'updateOffer'           => 'empresa/oferta/actualizar/{idOffer}',
+            'workCenterHired'       => 'empresa/oferta/contratados',
         ],
     'files'    =>
         [

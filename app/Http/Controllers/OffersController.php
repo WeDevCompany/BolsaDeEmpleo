@@ -614,4 +614,29 @@ class OffersController extends UsersController
         return $sent;
 
     } // insertSentEmail()
+
+    public function hired()
+    {
+        // Validamos los campos que nos llegan desde el formulario en el controlador
+        // ya que los errores del comentario los mostraremos con un session flash
+        $validator = \Validator::make($this->request->all(), [
+            'idOffer'   => 'required|integer|validOfferEnterprise',
+            'hired' => 'required|integer',
+        ]);
+
+        // Si hay errores los mandamos a la vista
+        if ($validator->fails()) {
+
+            Session::flash('message_Negative', 'Los datos que intenta editar son inválidos');
+            return \Redirect::back();
+        }
+
+        $offer = JobOffer::where('id', '=', $this->request->idOffer)->first();
+
+        $offer->hired = $this->request->hired;
+        $offer->save();
+
+        Session::flash('message_Success', 'La oferta se ha actualizado correctamente');
+        return \Redirect::back();
+    }
 }

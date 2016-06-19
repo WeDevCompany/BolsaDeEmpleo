@@ -297,6 +297,7 @@ Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth', 'isEnterpri
     Route::delete(config('routes.enterpriseRoutes.responsableDelete'), 'EnterprisesController@deleteEnterpriseResponsable');
     Route::post(config('routes.enterpriseRoutes.responsableCreate'), 'EnterprisesController@createEnterpriseResponsable');
 
+
 });
 
 // Grupo de rutas para las ofertas
@@ -366,6 +367,9 @@ Route::group(['middleware' => ['web', 'auth']], function(){
 
         //Borrado de ofertas
         Route::post(config('routes.offerEnterprise.offerDelete'), 'OffersController@postDelete');
+
+        // Contratados
+        Route::post(config('routes.offerEnterprise.workCenterHired'), 'OffersController@hired');
 
     });
 

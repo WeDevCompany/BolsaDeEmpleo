@@ -28,6 +28,16 @@
 	        </div>
 	    </a>
 
+	    <a href="#!"  data-toggle="modal" data-target="#hiredModal" class="btn btn btn-success hoverable btn-login-media waves-effect waves-light" id="verOferta">
+	        <div class="show-responsive">
+	            <i class="fa fa-users" aria-hidden="true"></i>
+	        </div>
+	        <div class="hidden-media">
+	            <i class="fa fa-users" aria-hidden="true"></i> <span class="hidden-media">Contratados</span>
+	        </div>
+	    </a>
+
 	</div>
 </div>
 @include('partials.modal.offerDelete')
+@include('partials.modal.hiredEdit')
