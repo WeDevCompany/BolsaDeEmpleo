@@ -24,6 +24,6 @@
     </a>
     <ul class="dropdown-menu" role="menu" aria-labelledby="ofertas">
         <li><a href="{{ url(config('routes.teacher.allVerifiedOffers')) }}"><i class="fa fa-check right" aria-hidden="true"></i> Admitidas</a></li>
-        <li><a href="{{ url(config('routes.registro.registroProfesor')) }}"><i class="fa fa-times right" aria-hidden="true"></i> Denegadas</a></li>
+        <li><a href="{{ url(config('routes.teacher.allDeniedOffers')) }}"><i class="fa fa-times right" aria-hidden="true"></i> Denegadas</a></li>
     </ul>
 </a></li>
