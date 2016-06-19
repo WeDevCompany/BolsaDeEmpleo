@@ -42,7 +42,7 @@
             <div class="input-field col-md-4">
                 <i class="material-icons prefix">today</i>
                 {{ Form::label('birthdate', 'Fecha de nacimiento(*)', ['class' => 'labelpicker']) }}
-                {{ Form::text('birthdate',null, ['class' => 'datepicker', 'id' => 'picker', 'required' => 'true', 'title' => 'Fecha de nacimiento', 'data-toggle' => 'tooltip']) }}
+                {{ Form::text('birthdate',null, ['class' => 'datepicker', 'id' => 'picker', 'required' => 'true', 'minlength' => '9', 'maxlength' => '9','title' => 'Fecha de nacimiento', 'data-toggle' => 'tooltip']) }}
                 @if ($errors->has('birthdate'))
                     <span class="help-block">
                         <strong>{{ $errors->first('birthdate') }}</strong>
@@ -51,7 +51,7 @@
             </div>
             <div class="input-field col-md-4">
                 <i class="material-icons prefix">phone</i>
-                {{ Form::text('phone', null,['id' => "phone", 'required' => 'true', 'title' => 'Teléfono de contacto', 'data-toggle' => 'tooltip']) }}
+                {{ Form::text('phone', null,['id' => "phone", 'required' => 'true', 'title' => 'Teléfono de contacto', 'minlength' => '9', 'maxlength' => '9', 'data-toggle' => 'tooltip']) }}
                 {{ Form::label('phone', 'Teléfono(*)') }}
                 @if ($errors->has('phone'))
                     <span class="help-block">
@@ -76,7 +76,7 @@
             <div class="extra-padding">
                 <div class="input-field col-md-3 selectcol3">
                     {{ Form::label('road', 'Tipo de vía(*)', ['class' => "label-select"]) }}
-                    {{ Form::select('road', config('roads.road'), null,['class' => 'chosen-select form-control', 'required' => 'true', 'title' => 'Tipo de via en el que reside', 'data-toggle' => 'tooltip']) }}
+                    {{ Form::select('road', config('roads.road'), null,['class' => 'chosen-select form-control', 'required' => 'true', 'minlength' => '3', 'title' => 'Tipo de via en el que reside', 'data-toggle' => 'tooltip']) }}
                     @if ($errors->has('road'))
                         <span class="help-block">
                             <strong>{{ $errors->first('road') }}</strong>

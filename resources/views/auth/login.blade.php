@@ -22,7 +22,7 @@
                             <div class="row">
                                 <div class="input-field{{ $errors->has('email') ? ' has-error' : '' }} col-md-12">
                                     <i class="material-icons prefix">email</i>
-                                    {{ Form::email('email', null,['class' => 'validate', 'id' => 'email', 'data-error' => 'Introduzca un email valido', 'maxlength' => '75']) }}
+                                    {{ Form::email('email', null,['required' => 'true' ,'class' => 'validate', 'id' => 'email', 'data-error' => 'Introduzca un email valido', 'minlength' => '6', 'maxlength' => '75']) }}
                                     {{ Form::label('email', 'E-Mail', ['for' => 'icon_email']) }}
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                             <div class="row">
                                 <div class="input-field{{ $errors->has('password') ? ' has-error' : '' }} col-md-12">
                                     <i class="material-icons prefix">lock</i>
-                                    {{ Form::password('password', ['class' => 'validate', 'id' => 'password','data-error' => 'Introduzca un password valido', 'maxlength' => '25']) }}
+                                    {{ Form::password('password', ['required' => 'true' ,'class' => 'validate', 'id' => 'password','data-error' => 'Introduzca un password valido', 'minlength' => '6', 'maxlength' => '25']) }}
                                     {{ Form::label('password', 'Contraseña', ['for' => 'password']) }}
                                 </div>
                             </div>

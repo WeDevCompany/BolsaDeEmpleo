@@ -5,6 +5,9 @@
 @section('scripts')
     {{-- Incluimos los scripts de validaciones --}}
     <script src="/js/validaciones/facada.js" charset="utf-8"></script>
+    <script>
+
+    </script>
 @endsection
 @section('content')
 @include('partials.nav.navParent')
@@ -17,7 +20,8 @@
                         <h4><i class="fa fa-university"></i>Formulario de alta de profesores</h4>
                     </div>
                     <div class="panel-body">
-                         {{ Form::open(['url' => 'registro/registroProfesor', 'method' => 'POST', 'files' => 'true', 'id' => 'teacher-register-form']) }}
+                        <ul id="errors"></ul>
+                         {{ Form::open(['url' => 'registro/registroProfesor', 'method' => 'POST', 'files' => 'true', 'id' => 'teacher-register-form', 'data-toggle' => "validator", 'role' => "form"]) }}
                             {!! csrf_field() !!}
                             @include('teacher.partials.teacherfields')
                             <fieldset>

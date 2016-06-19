@@ -62,14 +62,17 @@
     <!-- Estilos para TagBox -->
     <link href="{{ url('css/tag-basic-style.css') }}" rel="stylesheet">
 
-    <!-- Estilos diseñados por nosotros -->
-    <link href="{{ url('css/style.css') }}" rel="stylesheet">
-
     <!-- Estilos para chosen (select multiple) -->
     <link rel="stylesheet" href="{{ url('plugin/chosen/chosen.css') }}">
 
     <!-- Estilos de spin.js -->
     <link href="{{ url('css/spin.css') }}" rel="stylesheet">
+
+    <!-- Estilos de spin.js -->
+    <link href="{{ url('css/tooltipster.css') }}" rel="stylesheet">
+
+    <!-- Estilos diseñados por nosotros -->
+    <link href="{{ url('css/style.css') }}" rel="stylesheet">
 
 </head>
 <body id="app-layout">
@@ -139,6 +142,15 @@
 
     <!-- Script que evita el conflicto con los modales  -->
     <script src="/js/funcionalidad/fixCkeditor.js" charset="utf-8"></script>
+
+    <!-- Script que valida formularios  -->
+    <script src="/js/validaciones/validate/validate.min.js" charset="utf-8"></script>
+
+    <script src="/js/validaciones/validate/additional-methods.js" charset="utf-8"></script>
+
+    <script src="/js/validaciones/validate/localization/messages_es.js" charset="utf-8"></script>
+
+    <script src="/js/funcionalidad/tooltipser/tooltipster.core.js" charset="utf-8"></script>
 
     <!-- Script que hace random el fondo -->
     @include('partials.session.sessionFlash')

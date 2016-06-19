@@ -5,8 +5,8 @@
         <div class="row">
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">account_circle</i>
-                {{ Form::text('firstName', null,['id' => "firstName", 'required' => 'true', 'title' => 'Nombre del profesor', 'data-toggle' => 'tooltip']) }}
-                {{ Form::label('firstName', 'Nombre') }}
+                {{ Form::text('firstName', null,['id' => "firstName", 'required' => 'true', 'title' => 'Nombre del profesor', 'data-toggle' => 'tooltip', 'class' => 'form-control']) }}
+                {{ Form::label('firstName', 'Nombre', ['class' => 'control-label']) }}
 
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="row">
             <div class="input-field col-md-6">
                 <i class="material-icons prefix">phone</i>
-                {{ Form::text('phone', null,['id' => "phone", 'required' => 'true', 'title' => 'Número de teéfono del profesor', 'data-toggle' => 'tooltip']) }}
+                {{ Form::text('phone', null,['id' => "phone", 'required' => 'true', 'title' => 'Número de teléfono del profesor', 'data-toggle' => 'tooltip']) }}
                 {{ Form::label('phone', 'Phone') }}
                 @if ($errors->has('phone'))
                     <span class="help-block">
@@ -46,7 +46,7 @@
             </div>
             <div class="input-field col-md-6">
                 <i class="material-icons prefix">assignment_ind</i>
-                {{ Form::text('dni', null,['id' => "dni", 'required' => 'true', 'title' => 'DNI del profesor', 'data-toggle' => 'tooltip']) }}
+                {{ Form::text('dni', null,['id' => "dni", 'required' => 'true', 'minlength' => '9', 'maxlength' => '9', 'title' => 'DNI del profesor', 'data-toggle' => 'tooltip']) }}
                 {{ Form::label('dni', 'DNI') }}
                 @if ($errors->has('dni'))
                    <span class="help-block">

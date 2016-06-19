@@ -37,7 +37,10 @@ teacherRegisterForm.after('<script src="/js/validaciones/email.js"></script>');
 teacherRegisterForm.after('<script src="/js/validaciones/password.js"></script>');
 
 // Script de validación de la confirmacion de la contraseña
-teacherRegisterForm.after('<script src="/js/validaciones/passwordConfirmation.js"></script>')
+teacherRegisterForm.after('<script src="/js/validaciones/passwordConfirmation.js"></script>');
+
+// Script de validación de la confirmacion de la contraseña
+teacherRegisterForm.after('<script src="/js/validaciones/validateTeacherRegisterForm.js"></script>');
 
 // Script que contiene todas las acciones que hará con jQuery el formulario
 teacherRegisterForm.after('<script src="/js/forms/teacherFormActions.js"></script>');

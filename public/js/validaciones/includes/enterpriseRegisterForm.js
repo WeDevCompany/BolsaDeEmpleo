@@ -60,6 +60,8 @@ enterpriseRegisterForm.after('<script src="/js/validaciones/password.js"></scrip
 // Script de validación de la confirmacion de la contraseña
 enterpriseRegisterForm.after('<script src="/js/validaciones/passwordConfirmation.js"></script>');
 
+enterpriseRegisterForm.after('<script src="/js/validaciones/validateEnterpriseRegisterForm.js"></script>');
+
 // Script con el objeto spin
 enterpriseRegisterForm.after('<script src="/js/spin/spin.js"></script>');
 
