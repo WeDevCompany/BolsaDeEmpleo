@@ -72,7 +72,8 @@ return [
             'allDeniedEnterprisesSearch'   => 'administrador/empresa/denegadas-buscador',
             'destroyEnterprise'            => 'administrador/empresa/eliminar-empresa',
             'subjects'                  => '/administrador/asignaturas',
-            'allProfFamilies'      => 'administrador/configuracion/familias-profesionales',
+            'tags'                      => '/administrador/tags',
+            'allProfFamilies'           => 'administrador/configuracion/familias-profesionales',
 
         ],
     'adminRoutes' =>
@@ -164,6 +165,7 @@ return [
                'destroyStudent'            => '/profesor/estudiante/eliminar-estudiante',
                'destroyOffer'              => '/profesor/oferta/eliminar-oferta',
                'subjects'                  => '/profesor/asignaturas',
+               'tags'                      => '/profesor/tags',
 
            ],
     'teacherRoutes'    =>

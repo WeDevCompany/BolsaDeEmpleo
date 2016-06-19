@@ -385,3 +385,16 @@ Route::group(['middleware' => ['web', 'auth']], function(){
     Route::post(config('routes.admin.subjects'), 'SubjectsController@store');
 
 });
+
+/****************************
+        Grupo tags
+*****************************/
+Route::group(['middleware' => ['web', 'auth']], function(){
+
+    // Tags profesor
+    Route::post(config('routes.teacher.tags'), 'TagsController@store');
+
+    // Tags administrador
+    Route::post(config('routes.admin.tags'), 'TagsController@store');
+
+});
