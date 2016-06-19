@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal{{ $id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        {{ Form::open(['url' => 'profesor/tags/' . $id, 'method' => 'POST', 'id' => 'tag-form']) }}
+        {{ Form::open(['url' => 'profesor/tags', 'method' => 'POST', 'id' => 'tag-form']) }}
             {!! csrf_field() !!}
             <!--Content-->
             <div class="modal-content border-orange">
@@ -16,6 +16,17 @@
                 <div class="modal-body">
                     <h5 class="text-center">{{ $subject }}</h5>
                     @include('tag.partials.tagsFields')
+                    <input type="hidden" name="subject" value="{{ $id }}"></input>
+                    @if($_GET && isset($_GET['yearFrom']))
+                        <input class="hidden" type="hidden" name="yearFromId" value="{{ $_GET['yearFrom'] }}">
+                    @else
+                        <input class="hidden" type="hidden" name="yearFromId" value="{{ date('Y') }}">
+                    @endif
+                    @if($_GET && isset($_GET['cycle']))
+                        <input class="hidden" type="hidden" name="cycleId" value="{{ $_GET['cycle'] }}">
+                    @else
+                        <input class="hidden" type="hidden" name="cycleId" value="{{ $cycleId }}">
+                    @endif
                 </div>
                 <!--Footer-->
                 <div class="modal-footer">

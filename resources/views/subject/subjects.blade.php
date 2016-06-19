@@ -46,6 +46,24 @@
 	                                </section>
 	                            </fieldset>
 	                        {{ Form::close() }}
+							{{ Form::open(['url' => 'profesor/tutor', 'method' => 'POST', 'id' => 'tutor-form']) }}
+                    			{!! csrf_field() !!}
+		                        <div class="extra-padding-top col-md-12">
+									<div class="col-sm-4">
+										@include('generic.tutor')
+									</div>
+									<div class="col-sm-8 hide" id="oculto">
+										<select name="cycleTutor" class="chosen-select form-control" id="cycleTutor">
+
+										</select>
+									    @if ($errors->has('cycleTutor'))
+							                <span class="help-block">
+							                    <strong>{{ $errors->first('cycleTutor') }}</strong>
+							                </span>
+							            @endif
+									</div>
+								</div>
+							{{ Form::close() }}
 	                        {{ Form::open(['url' => 'profesor/asignaturas', 'method' => 'POST', 'id' => 'subject-form']) }}
                     			{!! csrf_field() !!}
 								<fieldset>

@@ -42,7 +42,7 @@
     </tbody>
 </table>
 @if($_GET && isset($_GET['cycle']))
-	<input class="hidden" type="password" name="cycleId" value="{{ $_GET['cycle'] }}">
+	<input class="hidden" type="hidden" name="cycleId" value="{{ $_GET['cycle'] }}">
 @else
-    <input class="hidden" type="password" name="cycleId" value="{{ $cycleId }}">
+    <input class="hidden" type="hidden" name="cycleId" value="{{ $cycleId }}">
 @endif

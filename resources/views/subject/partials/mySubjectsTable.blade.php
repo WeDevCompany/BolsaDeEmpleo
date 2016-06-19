@@ -33,7 +33,7 @@
     </tbody>
 </table>
 @if($_GET && isset($_GET['yearFrom']))
-    <input class="hidden" type="password" name="yearFromId" value="{{ $_GET['yearFrom'] }}">
+    <input class="hidden" type="hidden" name="yearFromId" value="{{ $_GET['yearFrom'] }}">
 @else
-    <input class="hidden" type="password" name="yearFromId" value="{{ $subjectYear }}">
+    <input class="hidden" type="hidden" name="yearFromId" value="{{ $subjectYear }}">
 @endif
