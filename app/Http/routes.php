@@ -66,6 +66,8 @@ Route::group(['middleware' => 'web'], function () {
             'as'    => 'confirmacion'
         ]);
 
+        Route::post('password/reset', 'Auth\PasswordController@reset');
+
     });
 
     // Ruta que recibe el codigo de la confirmacion del usuario
@@ -263,7 +265,7 @@ Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth', 'isStude
     Route::get(config('routes.studentRoutes.allOffersSubscribed'), 'StudentsController@getAllSusbscriptions');
     
     // Actualizar estudiante
-    Route::get('actualizar/{idStudent}', 'StudentsController@uploadStudent');
+    Route::get('actualizar', 'StudentsController@updateStudent');
 
 });
 

@@ -522,20 +522,15 @@ class StudentsController extends UsersController
         return view('generic.verified.verifiedOffer', compact('verifiedOffer', 'zona', 'filters', 'urlSearch', 'request'));
     }
 
-    public function uploadStudent($idStudent)
+    public function updateStudent()
     {
-        if ($idStudent = \Auth::user()->id) {
+        $nuevafecha = date( 'YmdHms' );
 
-            $student = Student::findOrFail($idStudent);
+        $student = Student::where('user_id', '=', \Auth::user()->id)->update(['updated_at' => $nuevafecha]);
 
-            $nuevafecha = date( 'YmdHms' );
-
-            $student->update_at = $nuevafecha;
-
-            $student->save();
+        if ($student) {
 
             Session::flash('message_Success', 'Has actualizado correctamente tu perfil.');
-
             return \Redirect::back();
 
         }

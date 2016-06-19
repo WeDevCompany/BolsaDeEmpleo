@@ -40,7 +40,7 @@
             <li><a href="{{ url(\Auth::user()->rol . config('routes.perfil')) }}"><i class="fa fa-wrench right" aria-hidden="true"></i> Editar perfil</a></li>
             @if (\Auth::user()->rol == 'estudiante')
                 <li><a href="{{ url(\Auth::user()->rol . config('routes.curriculum')) }}"><i class="fa fa-file-pdf-o right" aria-hidden="true"></i>Editar Curriculum</a></li>
-                <li><a href="{{ url(\Auth::user()->rol . '/actualizar/' . \Auth::user()->id) }}"><i class="fa fa-refresh right" aria-hidden="true"></i>Actualizar perfil</a></li>
+                <li><a href="{{ url(\Auth::user()->rol . '/actualizar') }}"><i class="fa fa-refresh right" aria-hidden="true"></i>Actualizar perfil</a></li>
             @endif
             <li><a href="#"><i class="fa fa-key right" aria-hidden="true"></i> Cambiar contraseña</a></li>
             <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out right" aria-hidden="true"></i> Logout</a></li>
