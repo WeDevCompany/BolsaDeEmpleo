@@ -28,13 +28,13 @@
                                                 </div>
                                                 <div class="avatar"><img src="{{url("/img/authors/eduardo.jpg")}}" class="img-circle img-responsive">
                                                 </div>
-                                                <h4>Eduardo López Pardo</h4>
+                                                <h4>Eduardo López <br>Pardo</h4>
                                                 <h5>Desarrollador Back-End</h5>
-                                                <br>
+                                                
 
                                                 <!--Triggering button-->
                                                 <div class="text-center">
-                                                    <a class="rotate-btn btn btn-primary" data-card="card-2">Leer más</a>
+                                                    <a class="rotate-btn btn btn-primary"  data-card="card-2">Leer más</a>
                                                 </div>
 
                                             </div>
@@ -136,7 +136,7 @@
                                                 </div>
                                                 <div class="avatar"><img src="{{url("/img/authors/pedro.jpg")}}" class="img-circle img-responsive">
                                                 </div>
-                                                <h4>Pedro Hernandez-mora de Fuentes</h4>
+                                                <h4>Pedro Hernández-Mora de Fuentes</h4>
                                                 <h5>Desarrollador Back-End</h5>
 
                                                 <!--Triggering button-->
@@ -149,7 +149,7 @@
 
                                             <!--Back Side-->
                                             <div class="face card-rotating__back z-depth-1">
-                                                <h4>Pedro Hernandez-mora de Fuentes</h4>
+                                                <h4>Pedro Hernández-Mora de Fuentes</h4>
                                                 <p class="card-content text-center">
                                                     <br> Conocimientos en:</p>
                                                 <hr> PHP (PDO, MVC, Laravel,...)
