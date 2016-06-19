@@ -118,6 +118,7 @@ return [
             'destroyEnterprise'    => '/empresa/eliminar-empresa/{id}',
             'allProfFamilies'      => '/configuracion/familias-profesionales',
             'teacherRol'                => '/profesor/{idTeacher}',
+            'imTutor'                => '/tutor',
         ],
     'student'    =>
         [
@@ -191,6 +192,7 @@ return [
             'viewOffer'                 => '/oferta/{idOffer}',
             'updateOffer'               => '/oferta/actualizar/{idOffer}',
             'comment'                   => '/oferta/comentario/{idOffer}',
+            'imTutor'                   => '/tutor',
         ],
     'enterprise'    =>
         [

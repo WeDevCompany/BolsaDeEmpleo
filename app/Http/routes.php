@@ -185,6 +185,9 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth', 'isAd
     // Cambiar el rol de profesor
     Route::post(config('routes.adminRoutes.teacherRol'),'AdminsController@changeTeacherRol');
 
+    // Seleccion de ciclos en los que el mismo es tutor
+    Route::post(config('routes.adminRoutes.imTutor'),'AdminsController@imTutor');
+
 });
 
 // Grupo de rutas para los profesores
@@ -230,6 +233,9 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth', 'isTeacher
 
     // Visualización de una sola oferta
     Route::get(config('routes.teacherRoutes.viewOffer'), 'TeachersController@getOfferById');
+
+    // Seleccion de ciclos en los que el mismo es tutor
+    Route::post(config('routes.adminRoutes.imTutor'),'TeachersController@imTutor');
 
 });
 
@@ -296,7 +302,6 @@ Route::group(['prefix' => 'empresa', 'middleware' => ['web', 'auth', 'isEnterpri
     Route::post(config('routes.enterpriseRoutes.responsableEdit'), 'EnterprisesController@editResponsable');
     Route::delete(config('routes.enterpriseRoutes.responsableDelete'), 'EnterprisesController@deleteEnterpriseResponsable');
     Route::post(config('routes.enterpriseRoutes.responsableCreate'), 'EnterprisesController@createEnterpriseResponsable');
-
 
 });
 
@@ -376,7 +381,7 @@ Route::group(['middleware' => ['web', 'auth']], function(){
 });
 
 /**********************************
-        Grupo asignaturas
+      Grupo asignaturas + tags
 ************************************/
 Route::group(['middleware' => ['web', 'auth']], function(){
 
@@ -387,13 +392,6 @@ Route::group(['middleware' => ['web', 'auth']], function(){
     // Asignaturas administrador
     Route::get(config('routes.admin.subjects'), 'SubjectsController@index');
     Route::post(config('routes.admin.subjects'), 'SubjectsController@store');
-
-});
-
-/****************************
-        Grupo tags
-*****************************/
-Route::group(['middleware' => ['web', 'auth']], function(){
 
     // Tags profesor
     Route::post(config('routes.teacher.tags'), 'TagsController@store');
