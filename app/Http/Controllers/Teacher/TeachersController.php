@@ -31,7 +31,6 @@ class TeachersController extends UsersController
             'lastName' => 'required|between:2,75|regex:/^[A-Za-z0-9 ]+$/',
             'dni' => 'required|min:9|unique:teachers,dni|dni',
             'phone' => 'required|digits_between:9,13',
-            'cycle0' => 'digits_between:1,10|regex:/^[0-9]+$/',
         ];
         $this->rol = 'profesor';
         $this->redirectTo = "/profesor";

@@ -61,5 +61,3 @@
         @include('partials.upload.dragDrop')
     </div>
 </fieldset>
-
-@include('teacher.partials.teacherSubjects')
