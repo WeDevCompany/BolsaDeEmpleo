@@ -78,6 +78,10 @@ $(document).ready(function () {
         },
         submitHandler: function (form) { // for demo
             //alert('valid form');
+            
+            // Iniciamos el spin de ciclos
+            spin.spinOn('S', '', true, 'submit');
+            
             return true;
         },
         messages: {
