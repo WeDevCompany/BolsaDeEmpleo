@@ -168,6 +168,7 @@ trait Search
                                     ->join('cycles', 'cycles.id', '=', 'studentCycles.cycle_id')
                                     ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
                                     ->whereNotNull('students.deleted_at')
+                                    ->distinct('students.id')
                                     ->withTrashed() // Omitimos el softdeletes por defecto
                                     ->paginate();
 
