@@ -185,9 +185,7 @@ class StudentsController extends UsersController
 
                     if(!empty($insert) && !is_null($insert)){
                         $cuantity++;
-                    } else {
-                        // Añado los errores para devolverlos sacar en la consulta el nombre del ciclo tambien para devolverlo en el error
-                    }
+                    } 
                 } else {
                     $cycles--;
                 }
