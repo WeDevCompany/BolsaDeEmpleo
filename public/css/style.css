@@ -1166,3 +1166,15 @@ textarea.materialize-textarea:focus.valid{
     border-bottom: 1px solid #00C851 !important;
     box-shadow:0 1px 0 0 #00C851 !important;
 }
+
+.underConstruction {
+    background: url('/../img/global/underconstruction.jpg');
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+audio, canvas, progress, video {
+    min-width:100% !important;
+}

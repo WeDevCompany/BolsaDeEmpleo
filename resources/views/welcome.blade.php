@@ -17,7 +17,7 @@
         </div>
             <div class="col-md-4">
                     <div class="testimonial-card z-depth-1 hoverable">
-                        <a href="{{ url(config('routes.registro.registroEstudiante')) }}">
+                        <a href="@if(\Auth::guest() === true)  {{url(config('routes.registro.registroEstudiante'))}}  @elseif(\Auth::user()->rol !== null &&  \Auth::user()->rol === "administrador" ||\Auth::user()->rol === "profesor" )  {{\Auth::user()->rol}}/estudiante/verificados @elseif(\Auth::user()->rol !== null &&  \Auth::user()->rol === "estudiante") {{\Auth::user()->rol}}/curriculum @endif">
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up red">
                                 </div>
@@ -33,7 +33,7 @@
             </div>
             <div class="col-md-4">
                     <div class="testimonial-card z-depth-1 hoverable">
-                        <a href="{{ url(config('routes.registro.registroEmpresa')) }}">
+                        <a href="@if(\Auth::guest() === true)  {{ url(config('routes.registro.registroEmpresa')) }}  @elseif(\Auth::user()->rol !== null &&  \Auth::user()->rol === "administrador" ||\Auth::user()->rol === "profesor" )  {{\Auth::user()->rol}}/oferta/verificadas @elseif(\Auth::user()->rol !== null &&  \Auth::user()->rol === "estudiante") {{\Auth::user()->rol}}/ofertas @endif">
                             <div class="mask waves-effect waves-light">
                                 <div class="card-up g light-blue">
                                 </div>

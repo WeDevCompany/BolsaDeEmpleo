@@ -29,10 +29,10 @@ Route::group(['prefix' => 'registro', 'middleware' => ['web', 'Register']], func
 });
 
 // Ruta para pruebas
-Route::get(config('routes.pruebas'),'SubjectsController@getAllSubjects'/* function(){
+/*Route::get(config('routes.pruebas'),'SubjectsController@getAllSubjects'/* function(){
 
     //return view('admin.profFamilies.list', ['rol' => "Administrador"]);
-}*/);
+});*/
 
 
 // Grupo de rutas para la autentificacion
@@ -269,7 +269,7 @@ Route::group(['prefix' => 'estudiante', 'middleware' => ['web', 'auth', 'isStude
 
     // Ruta para ver las ofertas a las que estas subscrito
     Route::get(config('routes.studentRoutes.allOffersSubscribed'), 'StudentsController@getAllSusbscriptions');
-    
+
     // Actualizar estudiante
     Route::get('actualizar', 'StudentsController@updateStudent');
 

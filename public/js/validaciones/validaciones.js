@@ -298,23 +298,6 @@
             return true;
         },
 
-        // Validaciones genericas que faltan
-        // Comparación de contraseñas
-        // Númericos,
-        // Alphanumericos,
-        // Caracteres especiales,
-        // Años,
-        // Fechas,
-        // Comaparción de fechas - Completas
-        // Comparación de años - Solo años
-        // Validaciones por ajax
-        //  GET - Ruta + Array de parametros
-        //  POST - Ruta + Array de parametros
-        // Telefonos
-        // DNI, NIE, CIF
-        // Imagenes
-        // PDF
-
         // ---------------------------------
         // Validaciones con particularidades
         // ---------------------------------
