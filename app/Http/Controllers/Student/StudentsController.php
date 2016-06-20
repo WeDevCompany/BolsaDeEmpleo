@@ -109,7 +109,7 @@ class StudentsController extends UsersController
         \DB::rollBack();
         Session::flash('message_Negative', 'En estos momentos no podemos llevar a cabo su registro. Por favor intentelo de nuevo más tarde.');
         // Redireccionamos a la vista de validacion del email. (index provisional).
-        return redirect()->route('estudiante..index');
+        return \Redirect::to('registro/estudiante');
     } // store()
 
     private function create()
@@ -161,27 +161,37 @@ class StudentsController extends UsersController
         try {
             // Para cada ciclo recibido hacemos una inserción
             foreach ($data['cycle'] as $posicion => $id) {
-                $insert = null;
+                // Compruebo si está ya insertado
+                $check = Student::join('studentCycles', 'studentCycles.student_id', '=', 'students.id')
+                                        ->where('student_id', '=', $student->id)
+                                        ->where('cycle_id', '=', $id)->get()->toArray();
 
-                $student->cycles()->attach($id, [
-                    'dateTo' => $data['yearTo'][$posicion],
-                    'dateFrom' => $data['yearFrom'][$posicion],
-                    'student_id' => $student['id'],
-                    'created_at' => date('YmdHms'),
-                ]);
+                // Si no lo esta lo inserto
+                if(isset($check) && empty($check)) {
+                    $insert = null;
+                    $student->cycles()->attach($id, [
+                        'dateTo' => $data['yearTo'][$posicion],
+                        'dateFrom' => $data['yearFrom'][$posicion],
+                        'student_id' => $student['id'],
+                        'created_at' => date('YmdHms'),
+                    ]);
 
-                // Comprobamos si la inserción ha sido correcta
-                $insert = $student->cycles()
-                                ->where('cycle_id', '=', $id)
-                                ->select(['studentCycles.id'])
-                                ->get()
-                                ->toArray();
+                    // Comprobamos si la inserción ha sido correcta
+                    $insert = $student->cycles()
+                                    ->where('cycle_id', '=', $id)
+                                    ->select(['studentCycles.id'])
+                                    ->get()
+                                    ->toArray();
 
-                if(!empty($insert) && !is_null($insert)){
-                    $cuantity++;
+                    if(!empty($insert) && !is_null($insert)){
+                        $cuantity++;
+                    } else {
+                        // Añado los errores para devolverlos sacar en la consulta el nombre del ciclo tambien para devolverlo en el error
+                    }
                 } else {
-                    // Añado los errores para devolverlos sacar en la consulta el nombre del ciclo tambien para devolverlo en el error
+                    $cycles--;
                 }
+        
             }
         } catch(\PDOException $e){
             //dd($e);

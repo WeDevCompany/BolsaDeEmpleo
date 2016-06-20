@@ -6,7 +6,7 @@ $('#btnAddEnterpriseResponsable').click(function(){
     // Desactivamos el boton de añadir
     validaciones.submitDisable($('#btnAddEnterpriseResponsable'));
 
-    if(e < 10) {
+    if(e < 7) {
         // Añado la estructura HTML del nuevo responsable
         enterpriseResponsable.addStructure("divAddResponsable", e);
 

@@ -7,7 +7,7 @@
 
     // Declaracion de variables
     var workCenter;
-    var legend = "Responsable - ";
+    var legend = "Responsable";
 
     // Objeto de enterpriseResponsable
     var enterpriseResponsable = {
@@ -24,7 +24,7 @@
                 identificador.after(
                 '<div class="newResponsable">' +
                     '<fieldset id="fieldResponsable' + variable + '">' +
-                        '<legend style="width: auto;">' + legend + e + '</legend>' +
+                        '<legend style="width: auto;">' + legend + '</legend>' +
                         '<div class="form-group">' +
                             '<div class="row">' +
                                 '<div class="input-field col-md-8">' +
