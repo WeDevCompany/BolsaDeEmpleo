@@ -31,6 +31,7 @@ class TeachersController extends UsersController
             'lastName' => 'required|between:2,75|regex:/^[A-Za-z0-9 ]+$/',
             'dni' => 'required|min:9|unique:teachers,dni|dni',
             'phone' => 'required|digits_between:9,13',
+            'family.0' => 'required|digits_between:1,10|exists:profFamilies,id',
         ];
         $this->rol = 'profesor';
         $this->redirectTo = "/profesor";
@@ -53,6 +54,15 @@ class TeachersController extends UsersController
             $insercion = Self::create();
 
             if($insercion != false){
+
+                // Inserto la familia profesional
+                $check = $this->createProfFamilie($this->request['family'], $insercion);
+
+                if($check === false) {
+                    Session::flash('message_Negative', 'Ha ocurrido un error. Intentelo de nuevo más tarde.');
+                    return \Redirect::back();
+                }
+
                 // Llamo al metodo sendEmail del controlador de las familias profesionales
                 $email = Parent::sendEmail();
 
@@ -97,6 +107,27 @@ class TeachersController extends UsersController
         }
         return false;
     } // create()
+
+    private function createProfFamilie($profFamilie_id, $teacher)
+    {
+        $profFamilie_id = (int) $profFamilie_id[0];
+
+        try {
+            $insercion = \DB::table('teacherProfFamilies')->insert([
+                        'teacher_id' => $teacher->id,
+                        'profFamilie_id' => $profFamilie_id,
+                        'created_at' => date('YmdHms'),
+                    ]);
+        } catch(\PDOException $e){
+            //dd($e);
+            abort(500);
+        }
+
+        if(isset($insercion)){
+            return true;
+        }
+        return false;
+    } // createProfFamilie()
 
     private function createTutor($teacher, $cycle_id, $year) {
 

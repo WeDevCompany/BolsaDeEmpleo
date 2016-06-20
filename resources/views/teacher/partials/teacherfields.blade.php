@@ -60,4 +60,5 @@
     <div class="control-group row extra-padding">
         @include('partials.upload.dragDrop')
     </div>
+    @include('teacher.partials.teacherSubjects')
 </fieldset>
