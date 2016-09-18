@@ -15,6 +15,8 @@ class ProfFamiliesController extends Controller
 	 */
     public function getAllProfFamilies($paginate = null, $inactives = null)
     {
+        // Si la cache da problemas debemos resetear
+       // \Cache::flush();
 		try {
 			// Añadimos a la caché los resultados de las familias profesionales
 			// la caché dura 24 horas o 1440 minutos

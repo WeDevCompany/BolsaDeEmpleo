@@ -179,7 +179,6 @@ class UsersController extends Controller
     {
         // Registro de profesores
         if($this->request->is('registro/profesor')){
-
             // Llamo al metodo getAllProfFamilies del controlador de las familias profesionales
             $profFamilies = app(ProfFamiliesController::class)->getAllProfFamilies();
             // Obtengo el identificador de la primera familia profesional
@@ -201,7 +200,6 @@ class UsersController extends Controller
 
         // Registro de estudiantes
         } else if ($this->request->is('registro/estudiante')) {
-
             // Llamo al metodo getAllProfFamilies del controlador de las familias profesionales
             $profFamilies = app(ProfFamiliesController::class)->getAllProfFamilies();
 
@@ -519,7 +517,7 @@ class UsersController extends Controller
         // comprobamos si lo que nos devuelve es un array y si este está vacio o no, en caso de estar vacio
         // se enviará un error 404
         if(is_array($this->validOffer($idOffer)) && !empty($this->validOffer($idOffer)) ){
-            
+
             if (\Auth::user()->rol == 'estudiante') {
                 // Obtenemos la familia profesional a la que pertenece
                 // el estudiante
