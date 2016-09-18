@@ -4,7 +4,9 @@
 <!-- Profesor -->
 <li class = "dropdown">
     <a href="#" class="dropdown-toggle subrayado " data-toggle="dropdown" role="button" aria-expanded="false">
-        <span class="badge social-counter right notificacion" id="resultado"></span> <i class="fa fa-bell" aria-hidden="true"></i> <span class="caret"></span>
+        <span class="badge social-counter right notificacion" id="resultado"></span>
+        <i class="fa fa-bell" aria-hidden="true"></i>
+        <span class="caret"></span>
     </a>
     <ul class="dropdown-menu" role="menu" id="notifications" aria-labelledby="notificaciones">
         <!-- ADMIN -->
@@ -20,7 +22,13 @@
 </a></li>
 <li class = "dropdown">
     <a href="#" class="dropdown-toggle subrayado " data-toggle="dropdown" role="button" aria-expanded="false">
-     <span class="label-show">Alumnos <span class="caret"></span></span><span class="icon-hidden"><i class="fa fa-graduation-cap"  aria-hidden="true"></i> <span class="caret"></span></span>
+        <span class="label-show">Alumnos
+            <span class="caret"></span>
+        </span>
+        <span class="icon-hidden">
+            <i class="fa fa-graduation-cap"  aria-hidden="true"></i>
+            <span class="caret"></span>
+        </span>
     </a>
     <ul class="dropdown-menu" role="menu"  aria-labelledby="alumnos">
         <!-- ADMIN -->
