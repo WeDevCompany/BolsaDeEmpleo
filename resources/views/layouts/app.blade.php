@@ -2,10 +2,32 @@
 <html lang="es-ES">
 <!--
     @autor Emmanuel Valverde Ramos
-    @autor Eduardo López Pardo
-    @autor Pedro Hernández-Mora de fuentes
+        mail: evrtrabajo@gmail.com
+        twitter: @evrtrabajo
+        linkedin:
 
-    La propiedad intelectual de este proyecto pertenece a los autores de este.
+    @autor Pedro Hernández-Mora de fuentes
+        mail: pedrohdezmora@gmail.com
+        twitter: @
+        linkedin:
+
+    @version 2016-09-18 1.0
+
+La propiedad intelectual de este proyecto pertenece a los autores de este, No se permite ninguna modificación de este código sin el consentimiento de los autores, cualquier modificación del código fuente de esta web sin el consentimiento de sus autores implica una violación de los derechos de autor de esta aplicación.
+
+Fima:
+------------------------------------------------------------------------------
+
+$$\      $$\           $$$$$$$\
+$$ | $\  $$ |          $$  __$$\
+$$ |$$$\ $$ | $$$$$$\  $$ |  $$ | $$$$$$\ $$\    $$\
+$$ $$ $$\$$ |$$  __$$\ $$ |  $$ |$$  __$$\\$$\  $$  |
+$$$$  _$$$$ |$$$$$$$$ |$$ |  $$ |$$$$$$$$ |\$$\$$  /
+$$$  / \$$$ |$$   ____|$$ |  $$ |$$   ____| \$$$  /
+$$  /   \$$ |\$$$$$$$\ $$$$$$$  |\$$$$$$$\   \$  /
+\__/     \__| \_______|\_______/  \_______|   \_/
+
+------------------------------------------------------------------------------
 -->
 <head>
     <meta name="encoding" charset="utf-8" />
@@ -17,28 +39,55 @@
     <meta name="author" content="Eduardo López Pardo" />
     <meta name="author" content="Pedro Hernandéz-Mora de Fuentes" />
     <meta name="organization" content="IES Ingeniero de la cierva" />
+    <!-- Etiquetas del protocolo Open Graph FACEBOOK-->
+    <meta property="og:title" content="Bolsa de empleo del IES ingeniero de la cierva" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:image" content="{{ url('img/favicon/ms-icon-144x144.png') }}" />
+    <meta property="og:site_name" content="bolsaempleo" />
+    <!-- Fin de las etiquetas del protocolo Open Graph -->
+    <!-- META ETIQUETAS TWITTER -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="./">
+    <meta name="twitter:title" content="Bolsa de empleo IES cierva">
+    <meta name="twitter:description" content="Si eres estudiante del IES ingeniero de la cierva o una empresa buscado nuevos talentos no dudes en buscarlos aqui. ">
+    <meta name="twitter:image" content="{{ url('img/favicon/ms-icon-144x144.png') }}">
+    <meta name="twitter:creator" content="@evrtrabajo">
+    <!-- fin de las meta etiquetas de twitter -->
+
     <!-- Etiquetas para el Posicionamiento SEO -->
     @yield('css')
     <title>Bolsa de empleo - I.E.S. Ingeniero de la cierva @if(isset($zona))| {{$zona}} @endif</title>
     <noscript>Su navegador no tiene activado javascript, por favor activelo y recarge la página</noscript>
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ url('img/favicon/apple-icon-57x57.png') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ url('img/favicon/apple-icon-60x60.png') }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ url('img/favicon/apple-icon-72x72.png') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ url('img/favicon/apple-icon-76x76.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ url('img/favicon/apple-icon-114x114.png') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ url('img/favicon/apple-icon-120x120.png') }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ url('img/favicon/apple-icon-144x144.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ url('img/favicon/apple-icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('img/favicon/apple-icon-180x180.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{ url('img/favicon/android-icon-192x192.png') }}">
+    <!-- APPLE -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ url('img/favicon/apple-touch-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ url('img/favicon/apple-touch-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ url('img/favicon/apple-touch-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ url('img/favicon/apple-touch-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ url('img/favicon/apple-touch-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ url('img/favicon/apple-touch-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ url('img/favicon/apple-touch-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ url('img/favicon/apple-touch-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('img/favicon/apple-touch-icon-180x180.png') }}">
+    <!-- FIN DE APPLE -->
+
+    <!-- ICONOS -->
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{ url('img/favicon/android-chrome-192x192.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url('img/favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ url('img/favicon/favicon-96x96.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url('img/favicon/favicon-16x16.png') }}">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <!-- FIN DE ICONOS -->
+
+    <!-- Progressive web app -->
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ url('img/favicon/ms-icon-144x144.png') }}">
+    <meta name="msapplication-TileImage" content="{{ url('img/favicon/mstile-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico">
+
+    <meta name="mobile-web-app-capable" content="yes">
     <!-- . /favicon -->
 
     <!-- Estilos diseñados por nosotros -->
@@ -138,7 +187,7 @@
     <script src="{{url('/plugin/jquerysession.js')}}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Script que evita el conflicto con los modales  -->
-    <script src="/js/funcionalidad/removeConflictiveCalss.js" charset="utf-8"></script>
+    <script src="{{url('/js/funcionalidad/removeConflictiveCalss.js')}}" charset="utf-8"></script>
 
     <!-- Script que evita el conflicto con los modales  -->
     <script src="/js/funcionalidad/fixCkeditor.js" charset="utf-8"></script>
@@ -151,6 +200,8 @@
     <script src="/js/validaciones/validate/localization/messages_es.js" charset="utf-8"></script>
 
     <script src="/js/funcionalidad/tooltipser/tooltipster.core.js" charset="utf-8"></script>
+
+    <script src="/js/modernizr-custom.js" charset="utf-8"></script>
 
     <!-- Script que hace random el fondo -->
     @include('partials.session.sessionFlash')

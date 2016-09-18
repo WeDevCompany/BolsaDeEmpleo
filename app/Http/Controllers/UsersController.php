@@ -178,7 +178,6 @@ class UsersController extends Controller
     {
         // Registro de profesores
         if($this->request->is('registro/profesor')){
-
             // Llamo al metodo getAllProfFamilies del controlador de las familias profesionales
             $profFamilies = app(ProfFamiliesController::class)->getAllProfFamilies();
             // Obtengo el identificador de la primera familia profesional
@@ -200,7 +199,6 @@ class UsersController extends Controller
 
         // Registro de estudiantes
         } else if ($this->request->is('registro/estudiante')) {
-
             // Llamo al metodo getAllProfFamilies del controlador de las familias profesionales
             $profFamilies = app(ProfFamiliesController::class)->getAllProfFamilies();
 
