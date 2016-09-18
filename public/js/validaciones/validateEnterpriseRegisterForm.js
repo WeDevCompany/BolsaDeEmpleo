@@ -81,12 +81,6 @@ $(document).ready(function () {
                 maxlength: 9,
                 number:true
             },
-            phone2: {
-                required: true,
-                minlength: 9,
-                maxlength: 9,
-                number:true
-            },
             address: {
                 required: true,
                 minlength: 3,
