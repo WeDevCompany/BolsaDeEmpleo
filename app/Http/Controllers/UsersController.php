@@ -2,7 +2,6 @@
 /**
  *   @author Emmanuel Valverde Ramos
  *   @author Pedro Hernandéz Mora
- *   @author Eduardo López Pardo
  *
  * Este controlador se encarga de gestionar todas las llamadas a la lógica
  * y a las vistas de usuario.

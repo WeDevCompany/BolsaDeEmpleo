@@ -66,7 +66,7 @@
                 <a class="btn-sm-full comm-bg rectangle waves-effect waves-light"><i class="fa fa-comments"> </i> <span>Contacto</span></a>
             </div>
             <div class="text-center extra-padding">
-                <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">bolsa de empleo</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="/autores" property="cc:attributionName" rel="cc:attributionURL"><br><b>Emmanuel Valverde Ramos</b>,<br> <b>Pedro Hernández-Mora de fuentes</b>,<br> <b>Eduardo López Pardo</b></a><br> is licensed under a<br /><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional License</a>.
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">bolsa de empleo</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="/autores" property="cc:attributionName" rel="cc:attributionURL"><br><b>Emmanuel Valverde Ramos</b>,<br> <b>Pedro Hernández-Mora de fuentes</b></a><br> is licensed under a<br /><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional License</a>.
             </div>
 
             <div class="footer-copyright text-center rgba-black-light">

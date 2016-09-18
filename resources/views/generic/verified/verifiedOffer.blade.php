@@ -2,6 +2,8 @@
 @section('scripts')
     {{-- Incluimos los scripts de validaciones --}}
     <script src="/js/validaciones/facada.js" charset="utf-8"></script>
+
+    <script src="/js/funcionalidad/offerLink.js" charset="utf-8"></script>
 @endsection
 @section('content')
 @include('partials.nav.navParent')
@@ -27,5 +29,7 @@
         </div>
     </div>
 </div>
+
 @include('partials.footer.footerWelcome')
 @endsection
+
