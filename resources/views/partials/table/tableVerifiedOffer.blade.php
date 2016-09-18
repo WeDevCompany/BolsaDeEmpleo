@@ -15,7 +15,7 @@
         @if(isset($verifiedOffer))
             {{-- recorremos las ofertas verificadas --}}
             @foreach($verifiedOffer as $offer)
-                <div class="col-md-12 oferta extra-padding-bottom mask hoverable scroll z-depth-1" tabindex="{{ $offer->id }}">
+                <div class="col-md-12 oferta extra-padding-bottom mask hoverable scroll z-depth-1 father-link" tabindex="{{ $offer->id }}"><a href="/{{\Auth::user()->rol}}/oferta/{{ $offer->id }}" class=" offer-link">
                     <div class="col-md-12" data-id="{{(isset($offer->id)) ? $offer->id : 0 }}" id="{{(isset($offer->id)) ? $offer->id : 0 }}">
                         <div class="row" title="{!! $offer->title !!}">
                             <h5><a href="/{{\Auth::user()->rol}}/oferta/{{ $offer->id }}" class="titulo btn-flat waves-effect hoverable"> <i class="fa fa-eye" aria-hidden="true"></i> {!! $offer->title !!}</a></h5>
