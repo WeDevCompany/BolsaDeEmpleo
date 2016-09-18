@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="card-content">
                                     <h5>Alumnos</h5>
-                                    <p><i class="fa fa-quote-left"></i> Esta bolsa de trabajo es una gran oportunidad para los estudiantes que tengan interés en trabajar o simplemente estén buscando una empresa donde hacer las prácticas, puesto que les ofrece la oportunidad de encontrar las ofertas que más se ajustan a sus conocimientos. <i class="fa fa-quote-right"></i></p>
+                                    <p><i class="fa fa-quote-left"></i> Esta bolsa de trabajo es una gran oportunidad para los estudiantes que tengan interés en trabajar o simplemente estén buscando una empresa donde realizar las prácticas, puesto que les ofrece la oportunidad de encontrar las ofertas que más se ajustan a sus conocimientos. <i class="fa fa-quote-right"></i></p>
                                 </div>
                             </div>
                         </a>
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="card-content">
                                     <h5>Profesores</h5>
-                                    <p><i class="fa fa-quote-left"></i> En esta web los profesores podrán gestionar toda la información sobre ofertas de trabajo y/o prácticas para sus estudiantes ya sean de su rama o de otra, permitiendo que sean los mismos estudiantes quienes se suscriban dichas ofertas, facilitando esto su labor de selección de empresas. <i class="fa fa-quote-right"></i></p>
+                                    <p><i class="fa fa-quote-left"></i> En esta web los profesores podrán gestionar toda la información sobre ofertas de trabajo y/o prácticas para sus estudiantes ya sean de su rama o de otra, permitiendo que los estudiantes sean quienes se suscriban dichas ofertas, facilitando asi la selección de empresas. <i class="fa fa-quote-right"></i></p>
                                 </div>
                             </div>
                         </a>
