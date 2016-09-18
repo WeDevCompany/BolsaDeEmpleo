@@ -1,7 +1,6 @@
 /*
- * Clase enterpriseResponsable, esta clase contendrá un objeto de tipo enterpriseResponsable encargado de 
+ * Clase enterpriseResponsable, esta clase contendrá un objeto de tipo enterpriseResponsable encargado de
  * añadir nuevos responsables de centros de trabajo.
- * @author Eduardo López Pardo
  * @version  28/05/16
  */
 
@@ -36,7 +35,7 @@
                                     '<i class="material-icons prefix">fingerprint</i>' +
                                     '<label for="dni[' + variable + ']">DNI</label>' +
                                     '<input type="text" name="dni[' + variable + ']" id="dni[' + variable + ']" class="form-control"/>' +
-                                '</div>' + 
+                                '</div>' +
                             '</div>' +
                         '</div>'+
                         '<div class="form-group">' +

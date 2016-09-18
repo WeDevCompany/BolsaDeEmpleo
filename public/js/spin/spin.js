@@ -1,7 +1,6 @@
 /*
- * Clase spin, esta clase contendrá un objeto de tipo spin encargado de controlar 
+ * Clase spin, esta clase contendrá un objeto de tipo spin encargado de controlar
  * todos los spin junto con sus variables para los diferentes tipos.
- * @author Eduardo López Pardo
  * @version  21/05/16
  */
 

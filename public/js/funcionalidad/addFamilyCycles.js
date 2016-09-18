@@ -1,7 +1,6 @@
 /*
- * Clase familyCycles, esta clase contendrá un objeto de tipo familyCycles encargado de 
+ * Clase familyCycles, esta clase contendrá un objeto de tipo familyCycles encargado de
  * añadir todas las estructuras necesarias de estos dos campos a cualquier formulario.
- * @author Eduardo López Pardo
  * @version  15/05/16
  */
 
@@ -30,7 +29,7 @@
                                 '<label for="family'+ variable + '" class="hidden" style="margin-top: -2.5em">Familia profesional perteneciente al ciclo</label>' +
                                 '<select name="family[' + variable + ']" class="chosen-select family form-control hidden" id="family'+ variable + '"></select>' +
                             '</div>' +
-                        '</div>' +    
+                        '</div>' +
                     '</div>'
                 );
 
@@ -43,7 +42,7 @@
                         $('#family'+variable).append('<option value="' + familyObj.id + '">' + familyObj.familia + '</option>');
                     }
                 });
-                
+
                 // Mostramos el select con las familias profesionales ya listo.
                 $('#family'+variable).removeClass('hidden');
                 $('label[for="family'+variable+'"]').removeClass('hidden');
@@ -59,7 +58,7 @@
                     }
                     return true;
                 }
-            }  
+            }
         }, // addFamily
 
         addCycle : function (json, identifier, variable) {
@@ -80,7 +79,7 @@
                         '</div>' +
                     '</div>'
                 );
-                
+
                 // Declaro las variables
                 basico = true;
                 medio = true;
@@ -178,7 +177,7 @@
                 // Añadimos la nueva estructura
                 identificador.after(
                 '<div id="newFamilyCycle' + variable + '">' +
-                    '<fieldset id="fieldFamilies' + variable + '">' + 
+                    '<fieldset id="fieldFamilies' + variable + '">' +
                         '<div id="spinnerF' + variable + '" class="spinnerF"></div>' +
                         '<legend style="width: auto;">Familia Profesional</legend>' +
                     '</fieldset>' +
@@ -214,7 +213,7 @@
                 return false;
             }
         }, // addAllStructure
-        
+
         newFamilyCycle : function() {
             // Realizará todo el proceso llamando una por una con las peticiones ajax incluidas
         }

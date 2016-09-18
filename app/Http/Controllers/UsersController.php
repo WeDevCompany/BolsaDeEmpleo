@@ -2,7 +2,6 @@
 /**
  *   @author Emmanuel Valverde Ramos
  *   @author Pedro Hernandéz Mora
- *   @author Eduardo López Pardo
  *
  * Este controlador se encarga de gestionar todas las llamadas a la lógica
  * y a las vistas de usuario.
@@ -519,7 +518,7 @@ class UsersController extends Controller
         // comprobamos si lo que nos devuelve es un array y si este está vacio o no, en caso de estar vacio
         // se enviará un error 404
         if(is_array($this->validOffer($idOffer)) && !empty($this->validOffer($idOffer)) ){
-            
+
             if (\Auth::user()->rol == 'estudiante') {
                 // Obtenemos la familia profesional a la que pertenece
                 // el estudiante

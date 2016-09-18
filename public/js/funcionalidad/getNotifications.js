@@ -1,6 +1,5 @@
 /*
  * Clase getNotifications, esta clase se encargará del control de las notificaciones del menú superior.
- * @author Eduardo López Pardo
  * @version  02/06/16
  */
 var getNotifications = {
