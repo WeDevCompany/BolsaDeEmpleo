@@ -21,10 +21,10 @@
                                     <th>Validar</th>
                                     <th>Imagen</th>
                                     <th>#</th>
-                                    <th>Nombre</th>
+                                    <th class="min-with-100">Nombre</th>
                                     <th>Dni</th>
                                     <th>Email</th>
-                                    <th>Familia Profesional</th>
+                                    <th class="min-with-100">Familia Profesional</th>
                                     <th>Borrardo definitivo</th>
                                 </tr>
                             </thead>

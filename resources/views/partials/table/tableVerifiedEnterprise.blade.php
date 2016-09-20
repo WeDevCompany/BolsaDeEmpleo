@@ -15,7 +15,7 @@
                                 <tr>
                                     <th>Imagen</th>
                                     <th>#</th>
-                                    <th>Empresa</th>
+                                    <th class="min-with-100">Empresa</th>
                                     <th>Cif</th>
                                     <th>Email</th>
                                     <th>Centro de trabajo principal</th>

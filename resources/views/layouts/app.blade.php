@@ -4,12 +4,12 @@
     @autor Emmanuel Valverde Ramos
         mail: evrtrabajo@gmail.com
         twitter: @evrtrabajo
-        linkedin:
+        linkedin: https://es.linkedin.com/in/emmanuel-valverde-ramos
 
     @autor Pedro Hernández-Mora de fuentes
         mail: pedrohdezmora@gmail.com
         twitter: @
-        linkedin:
+        linkedin: https://es.linkedin.com/in/pedro-hernández-mora-de-fuentes-97496a122
 
     @version 2016-09-18 1.0
 
@@ -87,10 +87,11 @@ $$  /   \$$ |\$$$$$$$\ $$$$$$$  |\$$$$$$$\   \$  /
     <meta name="theme-color" content="#ffffff">
     <link rel="shortcut icon" href="img/favicon/favicon.ico">
 
+    <!-- ¿Es la web capaz de soportar mobiles? -->
     <meta name="mobile-web-app-capable" content="yes">
     <!-- . /favicon -->
 
-    <!-- Estilos diseñados por nosotros -->
+    <!-- Estilos diseñados por nosotros para normalizar -->
     <link href="{{ url('css/normalize.css') }}" rel="stylesheet">
 
     <!-- Font Awsome Icons -->
@@ -117,7 +118,7 @@ $$  /   \$$ |\$$$$$$$\ $$$$$$$  |\$$$$$$$\   \$  /
     <!-- Estilos de spin.js -->
     <link href="{{ url('css/spin.css') }}" rel="stylesheet">
 
-    <!-- Estilos de spin.js -->
+    <!-- Estilos de tooltipster.js -->
     <link href="{{ url('css/tooltipster.css') }}" rel="stylesheet">
 
     <!-- Estilos diseñados por nosotros -->
@@ -201,7 +202,7 @@ $$  /   \$$ |\$$$$$$$\ $$$$$$$  |\$$$$$$$\   \$  /
 
     <script src="/js/funcionalidad/tooltipser/tooltipster.core.js" charset="utf-8"></script>
 
-    <script src="/js/modernizr-custom.js" charset="utf-8"></script>
+    <script src="{{url('/js/modernizr-custom.js')}}" charset="utf-8"></script>
 
     <!-- Script que hace random el fondo -->
     @include('partials.session.sessionFlash')

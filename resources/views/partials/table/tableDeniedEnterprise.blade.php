@@ -39,7 +39,7 @@
                                         </td>
                                         <td><img src="{!! url('/img/imgUser/' . $enterprise->carpeta . '/' .  $enterprise->image) !!}" alt="Imagen del Estudiante" class="img-responsive img-circle img-navegador"></td>
                                         <td scope="row">{!! $enterprise->id !!}</td>
-                                        <td>{!! $enterprise->name !!}</td>
+                                        <td class="min-with-100">{!! $enterprise->name !!}</td>
                                         <td>{!! $enterprise->cif !!}</td>
                                         <td><a href="mailto:{!! $enterprise->email !!}">{!! $enterprise->email !!}</a></td>
                                         <td>{!! $enterprise->workCenterName !!}</td>

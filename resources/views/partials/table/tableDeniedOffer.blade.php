@@ -40,7 +40,7 @@
                                         </td>
                                         <td><img src="{!! url('/img/imgUser/' . $offer->carpeta . '/' .  $offer->image) !!}" alt="Imagen de la Empresa" class="img-responsive img-circle img-navegador"></td>
                                         <td>{!! $offer->title !!}</td>
-                                        <td>{!! $offer->enterpriseName !!}</td>
+                                        <td class="min-with-100">{!! $offer->enterpriseName !!}</td>
                                         <td>{!! $offer->cif !!}</td>
                                         <td>{!! $offer->workCenterName !!}</td>
                                         <td><a href="mailto:{!! $offer->email !!}">{!! $offer->email !!}</a></td>

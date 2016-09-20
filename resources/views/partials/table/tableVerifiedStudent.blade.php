@@ -27,7 +27,7 @@
                                     <tr data-id="{!! $student->id !!}">
                                         <td><img src="{!! url('/img/imgUser/' . $student->carpeta . '/' .  $student->image) !!}" alt="Imagen del Estudiante" class="img-responsive img-circle img-navegador"></td>
                                         <td scope="row">{!! $student->id !!}</td>
-                                        <td>{!! $student->FullName !!}</td>
+                                        <td class="min-with-100">{!! $student->FullName !!}</td>
                                         <td>{!! $student->dni !!}</td>
                                         <td><a href="mailto:{!! $student->email !!}">{!! $student->email !!}</a></td>
                                         <td>{!! $student->name !!}</td>

@@ -22,7 +22,7 @@
             @foreach($profFamilies as $profFamilie)
                 <tr data-id="{{ $profFamilie->id }}">
                     <td scope="row">{!! $profFamilie->id !!}</td>
-                    <td>{!! $profFamilie->name !!}</td>
+                    <td class="min-with-100">{!! $profFamilie->name !!}</td>
                     <td>
                         <a href="#" class="btn btn-danger waves-effect waves-light btn-xs btn-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times" aria-hidden="true"></i></a>
                     </td>

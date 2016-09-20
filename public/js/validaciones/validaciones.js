@@ -4,6 +4,7 @@
  * que nos proporcionará de una capa de abstracción del lenguaje JS de forma que nos sea
  * más simple el uso de estas funciones
  * @author Emmanuel Valverde Ramos
+ * @author Pedro Hernández-Mora de Fuentes
  * @version  04/05/16
  */
 

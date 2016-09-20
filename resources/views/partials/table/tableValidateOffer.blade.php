@@ -21,7 +21,7 @@
                                     <th>Validar</th>
                                     <th>Imagen</th>
                                     <th>Oferta</th>
-                                    <th>Empresa</th>
+                                    <th class="min-with-100">Empresa</th>
                                     <th>Cif</th>
                                     <th>Centro de trabajo</th>
                                     <th>Email</th>
@@ -40,11 +40,11 @@
                                         </td>
                                         <td><img src="{!! url('/img/imgUser/' . $offer->carpeta . '/' .  $offer->image) !!}" alt="Imagen del Estudiante" class="img-responsive img-circle img-navegador"></td>
                                         <td>{!! $offer->title !!}</td>
-                                        <td>{!! $offer->enterpriseName !!}</td>
+                                        <td class="min-with-100">{!! $offer->enterpriseName !!}</td>
                                         <td>{!! $offer->cif !!}</td>
-                                        <td>{!! $offer->workCenterName !!}</td>
+                                        <td class="min-with-100">{!! $offer->workCenterName !!}</td>
                                         <td><a href="mailto:{!! $offer->email !!}">{!! $offer->email !!}</a></td>
-                                        <td>{!! $offer->name !!}</td>
+                                        <td class="min-with-100">{!! $offer->name !!}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger waves-effect waves-light btn-xs btn-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </td>
