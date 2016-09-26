@@ -71,7 +71,8 @@
         <!-- Contact information-->
         <div class="container-fluid animated zoomIn">
             <div class="row">
-              <div class="col-md-6 centrado">
+            <div class="col-md-12">
+                <div class="col-md-6 centrado">
                     <h3><i class="fa fa-paper-plane"></i> Información de contacto</h3>
                     <p class="lead"><strong><i class="fa fa-envelope"></i> Email del centro:</strong> <a href="mailto:30010978@murciaeduca.es?subject=Bolsa%20Empleo">30010978@murciaeduca.es</a></p>
                     <p class="lead"><strong><i class="fa fa-phone"></i> Teléfono:</strong> 968266922</p>
@@ -86,12 +87,14 @@
 
 
               </div>
-              <div class="col-md-6 map card-panel hoverable wow fadeInUp" id="map">
+              <div class="col-md-6 map fadeInUp wow fadeInUp" id="map">
               <!-- Librería de google maps + API key -->
                 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGyfVQZ3XHG7GRD51OlVNw1kACBKrg8Ww" type="text/javascript" titel"Google Map"></script>
                 <!-- Script que inicializa el mapa -->
                <script src="/js/maps.js" type="text/javascript"></script>
               </div>
+            </div>
+
             </div>
         </div>
 

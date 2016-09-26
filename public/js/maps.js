@@ -2,7 +2,7 @@ function initialize(){
     var myCenter=new google.maps.LatLng(37.9618960, -1.1332240);
     var mapProp = {
         center:myCenter,
-        zoom:15,
+        zoom:16,
         mapTypeId:google.maps.MapTypeId.ROADMAP
     };
 
@@ -22,5 +22,6 @@ function initialize(){
         infowindow.open(map,marker);
         });
     }
+
 
     google.maps.event.addDomListener(window, 'load', initialize);

@@ -360,6 +360,7 @@ tr:hover td > img{
 
 #map {
   min-height:600px;
+  position: relative !important;
 }
 
 /**************
@@ -1192,4 +1193,46 @@ textarea.materialize-textarea:focus.valid{
 
 .min-with-100 {
   min-width: 100px;
+}
+
+audio, canvas, progress, video {
+    min-width:100% !important;
+}
+.gm-style {
+    position: relative !important;
+    width: 93%;
+}
+/***************
+ Tooltip
+****************/
+
+.tooltip {
+   position: relative;
+   font-weight: 600 !important;
+}
+
+.tooltip > .tooltip-inner {
+   padding: 1px 4px 1px 4px !important;
+   font-size: 12px !important;
+}
+.tooltip-inner {
+   max-width: 98% !important;
+   border-radius: 5px !important;
+   background-color: #ff4444 !important;
+   border: 1px solid #cc0000 !important;
+}
+
+.tooltip.bottom .tooltip-arrow {
+   border-bottom-color: #cc0000 !important;
+}
+
+@media only screen and (max-width: 300px) {
+   .tooltip.bottom .tooltip-arrow {
+       margin-left: -10px;
+   }
+
+   .tooltip-inner {
+       max-width: 90% !important;
+       margin-left: -5px;
+   }
 }
