@@ -118,9 +118,6 @@ $$  /   \$$ |\$$$$$$$\ $$$$$$$  |\$$$$$$$\   \$  /
     <!-- Estilos de spin.js -->
     <link href="{{ url('css/spin.css') }}" rel="stylesheet">
 
-    <!-- Estilos de tooltipster.js -->
-    <link href="{{ url('css/tooltipster.css') }}" rel="stylesheet">
-
     <!-- Estilos diseñados por nosotros -->
     <link href="{{ url('css/style.css') }}" rel="stylesheet">
 
@@ -182,8 +179,6 @@ $$  /   \$$ |\$$$$$$$\ $$$$$$$  |\$$$$$$$\   \$  /
     <!-- Script que hace random el fondo -->
     <script src="{{url('/js/funcionalidad/backgroundPattern.js')}}" type="text/javascript" charset="utf-8"></script>
 
-    <script src="{{url('/js/funcionalidad/tooltip.js')}}" type="text/javascript" charset="utf-8"></script>
-
     <!-- Script que gestiona la sesión  -->
     <script src="{{url('/plugin/jquerysession.js')}}" type="text/javascript" charset="utf-8"></script>
 
@@ -199,8 +194,6 @@ $$  /   \$$ |\$$$$$$$\ $$$$$$$  |\$$$$$$$\   \$  /
     <script src="/js/validaciones/validate/additional-methods.js" charset="utf-8"></script>
 
     <script src="/js/validaciones/validate/localization/messages_es.js" charset="utf-8"></script>
-
-    <script src="/js/funcionalidad/tooltipser/tooltipster.core.js" charset="utf-8"></script>
 
     <script src="{{url('/js/modernizr-custom.js')}}" charset="utf-8"></script>
 
