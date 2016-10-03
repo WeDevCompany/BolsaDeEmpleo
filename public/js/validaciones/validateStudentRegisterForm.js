@@ -1,41 +1,14 @@
 $(document).ready(function () {
 
-    // initialize tooltipster on text input elements
-    $('#student-register-form input[type="text"]').tooltipster({
-        trigger: 'custom',
-        onlyOne: false,
-        position: 'right',
-        animation: 'fade'
-    });
-    $('#student-register-form input[type="password"]').tooltipster({
-        trigger: 'custom',
-        onlyOne: false,
-        position: 'right',
-        animation: 'fade'
-    });
-
-    $('#student-register-form select').tooltipster({
-        trigger: 'custom',
-        onlyOne: false,
-        position: 'right',
-        animation: 'fade'
-    });
-    $('#student-register-form input[type="email"]').tooltipster({
-        trigger: 'custom',
-        onlyOne: false,
-        position: 'right',
-        animation: 'fade'
-    });
-
     // initialize validate plugin on the form
     $('#student-register-form').validate({
         lang: 'es',
         errorPlacement: function (error, element) {
-            $(element).tooltipster('update', $(error).text());
-            $(element).tooltipster('show');
+            $(element).attr('data-original-title', $(error).text())
+                      .tooltip('show');
         },
         success: function (label, element) {
-            $(element).tooltipster('hide');
+            $(element).tooltip('hide');
         },
         rules: {
             firstName: {
@@ -78,10 +51,10 @@ $(document).ready(function () {
         },
         submitHandler: function (form) { // for demo
             //alert('valid form');
-            
+
             // Iniciamos el spin de ciclos
             spin.spinOn('S', '', true, 'submit');
-            
+
             return true;
         },
         messages: {

@@ -17,7 +17,7 @@ $(document).ready(function(){
     //que no se pueda enviar un formulario vacio
     // [BUG] con el auto recordar
     submit = $('#submit');
-    submit.prop('disabled', true);
+    //submit.prop('disabled', true);
     // quitamos efectos que generan un bug
     submit.removeClass("waves-effect  waves-light");
 
@@ -57,9 +57,12 @@ $(document).ready(function(){
     // Comprobamos si el formulario
     // es el formulario de send-email-reset
     if(form.length > 0){
-        // Cargamos las validaciones del email
-        form.after('<script src="/js/validaciones/email.js" charset="utf-8"></script>');
+
+        // Script que contiene la configuración del tooltip de validaciones
+        form.after('<script src="/js/funcionalidad/tooltip.js"></script>');
+
         form.after('<script src="/js/validaciones/validateResetPasswordForm.js" charset="utf-8"></script>');
+
     }// Comprobación de que el formulario es el de reseteo de contraseña
 
     // Comprobamos si el formulario
@@ -125,4 +128,4 @@ $(document).ready(function(){
 
     }
 
-})// document.ready
+});// document.ready

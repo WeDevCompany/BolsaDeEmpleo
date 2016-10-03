@@ -16,40 +16,40 @@ studentRegisterForm.after('<script src="/plugin/chosen/chosen.jquery.js"></scrip
 studentRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
 
 // Script personalizado de chosen
-studentRegisterForm.after('<script src="/js/validaciones/cycles.js"></script>');
+//studentRegisterForm.after('<script src="/js/validaciones/cycles.js"></script>');
 
 // Script personalizado para aceptar terminos
-studentRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>');
+//studentRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>');
 
 // Script personalizado para validar DNI/NIE
-studentRegisterForm.after('<script src="/js/validaciones/dniNie.js"></script>');
+//studentRegisterForm.after('<script src="/js/validaciones/dniNie.js"></script>');
 
 // Script de validación del nombre
-studentRegisterForm.after('<script src="/js/validaciones/firstName.js"></script>');
+//studentRegisterForm.after('<script src="/js/validaciones/firstName.js"></script>');
 
 // Script de validación del apellido
-studentRegisterForm.after('<script src="/js/validaciones/lastName.js"></script>');
+//studentRegisterForm.after('<script src="/js/validaciones/lastName.js"></script>');
 
 // Script de validación del telefono
-studentRegisterForm.after('<script src="/js/validaciones/phone.js"></script>');
+//studentRegisterForm.after('<script src="/js/validaciones/phone.js"></script>');
 
 // Script de validación de la dirección
-studentRegisterForm.after('<script src="/js/validaciones/address.js"></script>');
+//studentRegisterForm.after('<script src="/js/validaciones/address.js"></script>');
 
 // Script de validación del email
-studentRegisterForm.after('<script src="/js/validaciones/email.js"></script>');
+//studentRegisterForm.after('<script src="/js/validaciones/email.js"></script>');
 
 // Script de validación de la contraseña
-studentRegisterForm.after('<script src="/js/validaciones/password.js"></script>');
+//studentRegisterForm.after('<script src="/js/validaciones/password.js"></script>');
 
 // Script de validación de la confirmacion de la contraseña
-studentRegisterForm.after('<script src="/js/validaciones/passwordConfirmation.js"></script>');
+//studentRegisterForm.after('<script src="/js/validaciones/passwordConfirmation.js"></script>');
 
 // Script de validación de la confirmacion de la contraseña
 studentRegisterForm.after('<script src="/js/validaciones/validateStudentRegisterForm.js"></script>');
 
 // Script de validación del nre
-studentRegisterForm.after('<script src="/js/validaciones/nre.js"></script>');
+//studentRegisterForm.after('<script src="/js/validaciones/nre.js"></script>');
 
 // Añadimos el objeto que nos añadira los ciclos y familias
 studentRegisterForm.after('<script src="/js/funcionalidad/addFamilyCycles.js"></script>');
@@ -59,3 +59,6 @@ studentRegisterForm.after('<script src="/js/forms/studentFormActions.js"></scrip
 
 // Añadimos la configuracion de datepicker
 studentRegisterForm.after('<script src="/js/datepicker/datepickerConfig.js" charset="utf-8"></script>');
+
+// Script que contiene la configuración del tooltip de validaciones
+studentRegisterForm.after('<script src="/js/funcionalidad/tooltip.js"></script>');

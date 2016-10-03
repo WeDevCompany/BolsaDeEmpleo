@@ -16,49 +16,49 @@ enterpriseRegisterForm.after('<script src="/plugin/chosen/chosen.jquery.js"></sc
 enterpriseRegisterForm.after('<script src="/plugin/chosen/chosenConfig.js"></script>');
 
 // Script personalizado de chosen
-enterpriseRegisterForm.after('<script src="/js/validaciones/cycles.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/cycles.js"></script>');
 
 // Script personalizado para aceptar terminos
-enterpriseRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/terminos.js"></script>');
 
 // Script personalizado para validar DNI/NIE
-enterpriseRegisterForm.after('<script src="/js/validaciones/dniNie.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/dniNie.js"></script>');
 
 // Script personalizado para validar CIF
-enterpriseRegisterForm.after('<script src="/js/validaciones/cif.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/cif.js"></script>');
 
 // Script de validación del nombre
-enterpriseRegisterForm.after('<script src="/js/validaciones/firstName.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/firstName.js"></script>');
 
 // Script de validación del descripcion
-enterpriseRegisterForm.after('<script src="/js/validaciones/description.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/description.js"></script>');
 
 // Script de validación del nombre de la empresa
-enterpriseRegisterForm.after('<script src="/js/validaciones/name.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/name.js"></script>');
 
 // Script de validación del nombre del centro de trabajo
-enterpriseRegisterForm.after('<script src="/js/validaciones/nameWorkCenter.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/nameWorkCenter.js"></script>');
 
 // Script de validación del apellido
-enterpriseRegisterForm.after('<script src="/js/validaciones/lastName.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/lastName.js"></script>');
 
 // Script de validación del telefono
-enterpriseRegisterForm.after('<script src="/js/validaciones/phone.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/phone.js"></script>');
 
 // Script de validación del email de contacto
-enterpriseRegisterForm.after('<script src="/js/validaciones/emailContact.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/emailContact.js"></script>');
 
 // Script de validación de la dirección
-enterpriseRegisterForm.after('<script src="/js/validaciones/address.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/address.js"></script>');
 
 // Script de validación del email
-enterpriseRegisterForm.after('<script src="/js/validaciones/email.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/email.js"></script>');
 
 // Script de validación de la contraseña
-enterpriseRegisterForm.after('<script src="/js/validaciones/password.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/password.js"></script>');
 
 // Script de validación de la confirmacion de la contraseña
-enterpriseRegisterForm.after('<script src="/js/validaciones/passwordConfirmation.js"></script>');
+//enterpriseRegisterForm.after('<script src="/js/validaciones/passwordConfirmation.js"></script>');
 
 enterpriseRegisterForm.after('<script src="/js/validaciones/validateEnterpriseRegisterForm.js"></script>');
 
@@ -73,3 +73,6 @@ enterpriseRegisterForm.after('<script src="/js/forms/enterpriseFormActions.js"><
 
 // Añadimos el js encargado de gestionar las peticiones ajax
 enterpriseRegisterForm.after('<script src="/js/funcionalidad/addCities.js"></script>');
+
+// Script que contiene la configuración del tooltip de validaciones
+enterpriseRegisterForm.after('<script src="/js/funcionalidad/tooltip.js"></script>');

@@ -21,7 +21,7 @@
         <div class="row">
             <div class="input-field col-md-12">
                 <i class="material-icons prefix">account_circle</i>
-                {{ Form::text('lastName', null,['id' => "lastName", 'required' => 'true', 'title' => 'Apellidos del profesor', 'data-toggle' => 'tooltip']) }}
+                {{ Form::text('lastName', null,['id' => "lastName", 'required' => 'true', 'data-toggle' => 'tooltip']) }}
                 {{ Form::label('lastName', 'Apellidos') }}
             </div>
         </div>

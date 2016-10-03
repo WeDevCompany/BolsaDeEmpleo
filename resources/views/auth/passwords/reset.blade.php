@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-    @section('content')
-        @include('partials.nav.navGuest')
+@section('content')
+@include('partials.nav.navGuest')
 
 <div class="container">
     <div class="row">
@@ -16,16 +16,17 @@
                         <input type="hidden" name="token" required="true" value="{{ $token }}">
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail:</label>
-
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" required="true" minlength="6" value="{{ $email or old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                            <div class="row">
+                                <div class="input-field col-md-12">
+                                    <i class="material-icons prefix">mail outline</i>
+                                    {{ Form::label('email', 'Correo electrónico(*)') }}
+                                    {{ Form::email('email', null, ['type' => 'email','id' => 'email', 'minlength' => '6','required' => 'true', 'title' => 'email que será su usuario', 'data-toggle' => 'tooltip']) }}
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
 
