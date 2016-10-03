@@ -1,8 +1,8 @@
 <!-- Parallax effect -->
 <section class="parallax" id="parallax-1">
     <div class="container text-center">
-    <i class="fa fa-cog fa-spin fa-5x fa-fw margin-bottom"></i>
-        <div class="carousel-caption">
+    <i class="fa fa-cog fa-spin fa-5x fa-fw margin-bottom" id="tuerca"></i>
+        <div class="carousel-caption" id="parallax-caption">
 
                 <div class="verticalcenter white">
 

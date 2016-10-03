@@ -101,3 +101,7 @@
         @include('partials.footer.footerWelcome')
 
 @endsection
+
+@section('scripts')
+    <script src="/js/funcionalidad/parallaxRandom.js" charset="utf-8"></script>
+@endsection
