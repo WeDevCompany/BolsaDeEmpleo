@@ -1,5 +1,5 @@
 <?php
-
+use App\Cycle;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -46,7 +46,9 @@ Route::group(['middleware' => 'web'], function () {
     // Ruta de la pagina principal
     Route::get('/' , function () {
         $zona = "Inicio";
-        return view('welcome', compact('zona'));
+        $cycle = Cycle::all();
+        dd($cycle->teachers);
+        //return view('welcome', compact('zona'));
     });
 
     Route::group(['middleware' => ['Register']], function(){

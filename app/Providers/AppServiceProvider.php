@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Validator;
+use App\User;
 use App\Student;
 use App\Teacher;
 use App\JobOffer;
@@ -502,7 +503,7 @@ class AppServiceProvider extends ServiceProvider
                                             ->where('jobOffers.id', '=', $field['idOffer'])
                                             ->first();
                 //dd($validDeleteOffer);
-                if (! empty($validDeleteOffer)) {
+                if (!empty($validDeleteOffer)) {
                     return true;
                 }
                 return false;
@@ -510,6 +511,15 @@ class AppServiceProvider extends ServiceProvider
 
         });
 
+        Validator::extend('checkPassword', function($attribute, $value) {
+
+            $pass = \Hash::check($value, \Auth::user()->password);
+
+            if (!empty($pass)) {
+                return true;
+            }
+            return false;
+        });
 
 
     }// boot()

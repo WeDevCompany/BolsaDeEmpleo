@@ -1,5 +1,5 @@
 <?php
-
+use App\Cycle;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -29,10 +29,11 @@ Route::group(['prefix' => 'registro', 'middleware' => ['web', 'Register']], func
 });
 
 // Ruta para pruebas
-/*Route::get(config('routes.pruebas'),'SubjectsController@getAllSubjects'/* function(){
-
+Route::get(config('routes.pruebas'),/*'SubjectsController@getAllSubjects'*/ function(){
+    $cycle = Cycle::find(1);
+        dd($cycle->teachers);
     //return view('admin.profFamilies.list', ['rol' => "Administrador"]);
-});*/
+});
 
 
 // Grupo de rutas para la autentificacion
@@ -127,6 +128,10 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth', 'isAd
     Route::get(config('routes.perfil'), 'AdminsController@imagenPerfil');
     Route::post(config('routes.UploadImg'), 'AdminsController@uploadImage');
 
+    // Modificación de la contraseña del administrador
+    Route::get(config('routes.changePassword'), 'AdminsController@changePassword');
+    Route::post(config('routes.updatePassword'), 'AdminsController@updatePassword');
+
     // Validacion del Profesor
     Route::get(config('routes.adminRoutes.teacherNotification'), 'AdminsController@getTeacherNotification');
     Route::post(config('routes.adminRoutes.teacherValidNotification'), 'AdminsController@postTeacherNotification');
@@ -183,7 +188,10 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['web', 'auth', 'isAd
     Route::get(config('routes.adminRoutes.viewOffer'), 'AdminsController@getOfferById');
 
     // Cambiar el rol de profesor
-    Route::post(config('routes.adminRoutes.teacherRol'),'AdminsController@changeTeacherRol');
+    Route::post(config('routes.adminRoutes.teacherRol'),'AdminsController@changeTeacherRolToAdmin');
+
+    // Cambiar el rol de admin
+    Route::post(config('routes.adminRoutes.adminRol'),'AdminsController@changeAdminRolToTeacher');
 
     // Seleccion de ciclos en los que el mismo es tutor
     Route::post(config('routes.adminRoutes.imTutor'),'AdminsController@imTutor');
@@ -202,6 +210,10 @@ Route::group(['prefix' => 'profesor', 'middleware' => ['web', 'auth', 'isTeacher
     // Modificacion de la imagen de perfil de los profesores
     Route::get(config('routes.perfil'), 'TeachersController@imagenPerfil');
     Route::post(config('routes.UploadImg'), 'TeachersController@uploadImage');
+
+    // Modificación de la contraseña del administrador
+    Route::get(config('routes.changePassword'), 'TeachersController@changePassword');
+    Route::post(config('routes.updatePassword'), 'TeachersController@updatePassword');
 
     // Validacion del Estudiante
     Route::get(config('routes.teacherRoutes.studentNotification'), 'TeachersController@getStudentNotification');
@@ -345,6 +357,9 @@ Route::group(['middleware' => ['web', 'auth']], function(){
         Route::post(config('routes.offerAdmin.offerDelete'), 'OffersController@postDelete');
 
         Route::get(config('routes.admin.allProfFamilies'), 'ProfFamiliesController@getAllProfFamiliesView');
+
+        Route::get(config('routes.admin.profFamiliesActives'), 'ProfFamiliesController@getAllProfFamiliesViewActives');
+        Route::get(config('routes.admin.profFamiliesDenied'), 'ProfFamiliesController@getAllProfFamiliesViewInactives');
 
     });
 
