@@ -34,9 +34,9 @@
                                         <td>{!! $teacher->name !!}</td>
                                         <td>
                                             @if($teacher->rol !== 'administrador')
-                                                <a href="#" class="btn btn-warning waves-effect waves-light btn-xs" data-toggle="modal" data-target="#adminModal{{ $teacher->id }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Convertir en admin</a>
+                                                <a href="#" class="btn btn-warning waves-effect waves-light btn-xs" data-toggle="modal" data-target="#adminModal{{ $teacher->id }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Convertir en Admin</a>
                                             @else
-                                                Ya es administrador
+                                                <a href="#" class="btn btn-default waves-effect waves-light btn-xs" data-toggle="modal" data-target="#teacherModal{{ $teacher->id }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Convertir en Profesor</a>
                                             @endif
                                         </td>
                                         <td>
@@ -44,6 +44,7 @@
                                         </td>
                                     </tr>
                                 @include('partials.modal.adminModal')
+                                @include('partials.modal.teacherModal')
                                 @endforeach
                             </tbody>
                         </table>

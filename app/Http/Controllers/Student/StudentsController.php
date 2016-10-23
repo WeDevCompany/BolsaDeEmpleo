@@ -185,11 +185,11 @@ class StudentsController extends UsersController
 
                     if(!empty($insert) && !is_null($insert)){
                         $cuantity++;
-                    } 
+                    }
                 } else {
                     $cycles--;
                 }
-        
+
             }
         } catch(\PDOException $e){
             //dd($e);
@@ -241,7 +241,7 @@ class StudentsController extends UsersController
             Session::flash('message_Negative', 'No se ha podido cambiar el curriculum, por favor intentelo mas tarde');
         }
 
-    } // uploadImage()
+    } // uploadCurriculum()
 
     /**
      * Método que envia correos a todos los profesores con las mismas ramas profesionales

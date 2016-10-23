@@ -17,11 +17,11 @@ class Teacher extends Model
 	protected $fillable = [
        'firstName', 'lastName', 'dni', 'phone', 'user_id',
     ];
-    
+
     // Relaciones one to one
     public function user()
     {
-    	return $this->hasOne(User::class);
+    	return $this->belongsTo(User::class);
     } // user()
 
     // Relaciones one to many

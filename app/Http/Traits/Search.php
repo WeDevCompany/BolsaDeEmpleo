@@ -100,8 +100,8 @@ trait Search
                                     ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
                                     //->whereIn('profFamilies.name', $profFamilyValidate)
                                     ->whereIn('students.id', $invalidOrValidStudent)
-                                    ->distinct('students.id')
-                                    ->paginate();
+                                    ->groupBy('students.id')
+                                    ->paginate(1);
 
         return $invalidOrValidStudent;
 
@@ -553,7 +553,7 @@ trait Search
                                         ->where('cycles.id', '=', $cycle_id)
                                         ->get()->toArray();
         } else {
-            
+
             $idTeacherCycles = self::teacherCycles(true);
 
             $cycles = Cycle::select('id')
@@ -562,7 +562,7 @@ trait Search
                                         ->whereIn('cycles.id', $idTeacherCycles)
                                         ->get();
         }
-            
+
         return $cycles;
 
     } // teacherCycleId()
@@ -1138,7 +1138,7 @@ trait Search
             if (isset($request)) {
                 $enterpriseResponsable = $enterpriseResponsable->filter($request->get('filtros'), $request->get('name'));
             }
-            
+
             // si se quiere
             // con pagionación o toda de golpe
             if(isset($paginate) && $paginate === true){

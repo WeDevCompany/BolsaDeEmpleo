@@ -277,6 +277,36 @@ class UsersController extends Controller
 
     } // uploadImage()
 
+    public function updatePassword() {
+
+        // Validamos los campos que nos llegan desde el formulario en el controlador
+        // ya que los errores del comentario los mostraremos con un session flash
+        $validator = \Validator::make($this->request->all(), [
+            'contraseñaActual'  => 'required|between:4,20|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d).+$/|checkPassword',
+            'nuevaContraseña'  => 'required|confirmed|between:4,20|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d).+$/|different:contraseñaActual',
+        ]);
+
+        // Si hay errores los mandamos a la vista
+        if ($validator->fails()) {
+
+            return \Redirect::to(\Auth::user()->rol . config('routes.updatePassword'))
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $user = User::where('id', '=', \Auth::user()->id)->first();
+        $user->password = $this->request->nuevaContraseña;
+        $save = $user->save();
+
+        if ($save === false) {
+            Session::flash('message_Negative', 'No se ha podido editar la contraseña');
+            return \Redirect::back();
+        }
+
+        Session::flash('message_Success', 'Se ha cambiado la contraseña correctamente.');
+
+    }
+
     /**
      * Método que genera el código aleatorio
      * @return String cadena aleatoria

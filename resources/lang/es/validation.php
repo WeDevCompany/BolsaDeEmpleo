@@ -101,6 +101,7 @@ return [
     'cif'                        => 'El campo :attribute no es válido',
     'work_center_valid'          => 'El campo :attribute no es válido',
     'enterprise_responsable'     => 'El campo :attribute no es válido',
+    'check_password'             => 'La contraseña actual no es válida',
 
     /*
     |--------------------------------------------------------------------------

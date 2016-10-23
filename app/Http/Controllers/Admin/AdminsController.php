@@ -42,6 +42,11 @@ class AdminsController extends TeachersController
         return view(config('appViews.perfil'));
     } // imagenPerfil()
 
+    public function changePassword()
+    {
+        return view('partials/upload/changePassword');
+    }
+
     /*
     |---------------------------------------------------------------------------|
     | PROFESORES -> Validacion, listado, borrado y restauracion.                |
@@ -303,7 +308,7 @@ class AdminsController extends TeachersController
 
     } // ajaxDestroyTeacher()
 
-    public function changeTeacherRol($idTeacher)
+    public function changeTeacherRolToAdmin($idTeacher)
     {
         $teacher = User::join('teachers', 'teachers.user_id', '=', 'users.id')
                             ->where('teachers.id', '=', $idTeacher)
@@ -322,6 +327,26 @@ class AdminsController extends TeachersController
         return \Redirect::back();
 
     } // changeTeacherRol()
+
+    public function changeAdminRolToTeacher($idAdmin)
+    {
+        $admin = User::join('teachers', 'teachers.user_id', '=', 'users.id')
+                        ->where('teachers.id', '=', $idAdmin)->first();
+
+        if ($admin->rol != 'profesor') {
+
+            $admin->rol = 'profesor';
+            $admin->save();
+
+            Session::flash('message_Success', 'El administrador ' . $admin->firstName . ' ' . $admin->lastName . ' ahora es profesor');
+            return \Redirect::back();
+
+        }
+
+        Session::flash('message_Negative', 'No hemos podido atender su peticion, por favor intentelo mas tarde');
+        return \Redirect::back();
+
+    } // changeAdminRolToTeacher()
 
     /*
     |---------------------------------------------------------------------------|
@@ -391,7 +416,7 @@ class AdminsController extends TeachersController
     } // postStudentNotification()
 
     /**
-     * Metodo que obtiene todos los estudiantes validados y los muestra en una tabla, 
+     * Metodo que obtiene todos los estudiantes validados y los muestra en una tabla,
      * si recibe el parametro de busqueda los filtrara
      * @return view Vista en la que se listan los estudiantes
      */
@@ -652,7 +677,7 @@ class AdminsController extends TeachersController
     |       -> Restauracion de las empresas "borradas" mediante softDeletes     |
     |                                                                           |
     */
-   
+
    /**
      * Metodo que obtiene todas las ofertas validadas y las muestra, si recibe el parametro de busqueda los filtrara
      * @return view Vista en la que se listan las ofertas

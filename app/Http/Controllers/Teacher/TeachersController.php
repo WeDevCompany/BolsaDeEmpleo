@@ -136,7 +136,7 @@ class TeachersController extends UsersController
 
         try {
             // Comprobamos que el ciclo existe y está activo
-            $cycle = $this->teacherCycleId($cycle_id, true);            
+            $cycle = $this->teacherCycleId($cycle_id, true);
 
             if(empty($cycle)) {
                 return false;
@@ -162,7 +162,7 @@ class TeachersController extends UsersController
                 if(isset($check) && !empty($check)) {
                     return false;
                 } else {
-                    
+
                     $insert = null;
 
                     $teacher->cycles()->attach($cycle_id, [
@@ -179,7 +179,7 @@ class TeachersController extends UsersController
                             ->where('tutors.cycle_id', '=', $cycle_id)
                             ->get()->toArray();
                 }
-            }  
+            }
 
         } catch(\PDOException $e){
             //dd($e);
@@ -189,7 +189,7 @@ class TeachersController extends UsersController
         if(isset($insert) && !empty($insert)){
             return true;
         }
-        return false; 
+        return false;
     } // createTutor()
 
     public function imagenPerfil()
@@ -202,6 +202,13 @@ class TeachersController extends UsersController
         //$this->validate($this->request, $this->rules_image);
         Parent::uploadImage();
         return \Redirect::to('profesor/perfil');
+    }
+
+    public function updatePassword()
+    {
+        //$this->validate($this->request, $this->rules_image);
+        Parent::updatePassword();
+        return \Redirect::back();
     }
 
     /*
@@ -312,7 +319,7 @@ class TeachersController extends UsersController
 
     /**
      * Metodo que obtiene todos los estudiantes validados, filtrados por la rama
-     * profesional del profesor logueado, y los muestra en una tabla, 
+     * profesional del profesor logueado, y los muestra en una tabla,
      * si recibe el parametro de busqueda los filtrara
      * @return view Vista en la que se listan los estudiantes
      */
@@ -846,7 +853,7 @@ class TeachersController extends UsersController
             Session::flash('message_Negative', 'Ha ocurrido un error, intentelo de nuevo más tarde.');
             return \Redirect::to($this->redirectTo . '/asignaturas');
         }
-            
+
     } // imTutor
 
 }

@@ -42,17 +42,17 @@ class User extends Authenticatable
     // Relaciones one to many
     public function student()
     {
-        return $this->belongsTo(Student::class);
+        return $this->hasOne(Student::class);
     } // student()
 
     public function teachers()
     {
-        return $this->belongsTo(Teacher::class);
+        return $this->hasOne(Teacher::class);
     } // teachers()
 
     public function enterprises()
     {
-        return $this->belongsTo(Enterprise::class);
+        return $this->hasOne(Enterprise::class);
     } // enterprises()
 
     public function isAdmin()
