@@ -74,6 +74,11 @@ return [
             'subjects'                  => '/administrador/asignaturas',
             'tags'                      => '/administrador/tags',
             'allProfFamilies'           => 'administrador/configuracion/familias-profesionales',
+            'profFamiliesActives'       => 'administrador/configuracion/familias-profesionales-activas',
+            'profFamiliesDenied'        => 'administrador/configuracion/familias-profesionales-inactivas',
+            'profFamiliesEdit'        => 'administrador/configuracion/edit-familia-profesional/{$id}',
+            'profFamiliesCreate'        => 'administrador/configuracion/crear-familia-profesional',
+            'profFamiliesDelete'        => 'administrador/configuracion/delete-familias-profesional/{$id}',
 
         ],
     'adminRoutes' =>
@@ -118,6 +123,7 @@ return [
             'destroyEnterprise'    => '/empresa/eliminar-empresa/{id}',
             'allProfFamilies'      => '/configuracion/familias-profesionales',
             'teacherRol'                => '/profesor/{idTeacher}',
+            'adminRol'                  => '/profesor/rolToTeacher/{idAdmin}',
             'imTutor'                => '/tutor',
         ],
     'student'    =>
@@ -207,7 +213,7 @@ return [
             'responsableEdit'              => 'empresa/responsable/editar',
             'responsableDelete'            => 'empresa/responsable/borrar/{idResponsable}',
             'responsableCreate'            => 'empresa/responsable/crear',
-            
+
         ],
     'enterpriseRoutes'    =>
         [
@@ -270,6 +276,8 @@ return [
     'confirmado'        => '/confirmado',
     'pruebas'           => '/pruebas',
     'authors'           => '/autores',
+    'changePassword'    => '/cambiar-contraseña',
+    'updatePassword'    => '/updatePassword'
 
 ];
 ?>
