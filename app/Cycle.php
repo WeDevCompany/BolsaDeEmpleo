@@ -14,6 +14,8 @@ class Cycle extends Model
 
     use SoftDeletes;
 
+    protected $fillable = ['name', 'codCycle', 'level', 'active', 'profFamilie_id'];
+
     // Relaciones one to many
     public function profFamilie()
     {

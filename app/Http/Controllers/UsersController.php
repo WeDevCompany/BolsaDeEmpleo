@@ -20,7 +20,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
-use App\Http\Traits\Search;;
+use App\Http\Traits\Search;
 use App\Http\Controllers\ProfFamiliesController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\CyclesController;
@@ -304,7 +304,7 @@ class UsersController extends Controller
         }
 
         Session::flash('message_Success', 'Se ha cambiado la contraseña correctamente.');
-
+        return \Redirect::back();
     }
 
     /**

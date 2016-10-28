@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CycleRequest;
+use App\ProfFamilie;
+use App\Http\Traits\Search;
+use Illuminate\Support\Facades\Session;
 
 // Utilizamos las siguientes clases
 use App\Cycle;
 
 class CyclesController extends Controller
 {
+    use Search;
+
     // Variable con la petición realizada
     private $request;
 
@@ -29,7 +35,7 @@ class CyclesController extends Controller
         // Tratamos el ID
         $familyAll = (string) $familyId;
         $familyId = (int) $familyId;
-        
+
         // coprobamos que el id es valido
         if(is_numeric($familyId) && $familyId > 0){
             try {
@@ -99,7 +105,7 @@ class CyclesController extends Controller
      *                           en el caso de no encontrar ninguno
      */
     public function posibleTutorCycles($year, $cycle_id = false) {
-        
+
         $year = (int) $year;
         $cycle_id = (int) $cycle_id;
 
@@ -133,7 +139,7 @@ class CyclesController extends Controller
                     ->where('profFamilies.active', '=', 1)
                     ->where('teachers.user_id', '=', \Auth::user()->id)
                     ->orderBy('cycles.name', 'ASC')->get()->toArray();
-            }    
+            }
 
         } catch(\PDOException $e) {
             //dd($e);
@@ -147,5 +153,56 @@ class CyclesController extends Controller
             }
 
     } // posibleTutorCycles()
+
+    public function indexCycle()
+    {
+        $profFamilies = ProfFamilie::get();
+        $profFamilies = $this->mapArray($profFamilies);
+        $cycles = Cycle::select('cycles.*', 'profFamilies.name as nameProfFamily')
+                        ->join('profFamilies', 'profFamilie_id', '=', 'profFamilies.id')->paginate();
+
+        return view('cycle/index', compact('profFamilies', 'cycles'));
+    }
+
+    public function createCycle(CycleRequest $request)
+    {
+        $cycle = Cycle::create($request);
+
+        if ($cycle !== false) {
+
+            Session::flash('message_Success', 'Se ha creado el ciclo ' . $cycle->name . ' correctamente.');
+            return \Redirect::to();
+
+        }
+
+        Session::flash('message_Negative', 'No se ha podido crear el cyclo');
+        return \Redirect::to('');
+    }
+
+    public function deleteCycle(Request $request)
+    {
+
+    }
+
+    public function updateCycle($id/*, CycleRequest $request*/)
+    {
+        $cycle = Cycle::findorfail($id);
+
+        $datos = $this->request->all();
+        $datos['profFamilie_id'] = $datos['profFamilies'];
+
+        $cycle->fill($datos);
+        $save = $cycle->save();
+
+        if ($save !== false) {
+
+            Session::flash('message_Success', 'Se ha editado el ciclo ' . $cycle->name . ' correctamente.');
+            return \Redirect::back();
+
+        }
+
+        Session::flash('message_Negative', 'No se ha podido editar el cyclo');
+        return \Redirect::back('');
+    }
 
 }// final del controlador de
