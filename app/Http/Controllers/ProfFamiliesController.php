@@ -132,7 +132,8 @@ class ProfFamiliesController extends Controller
         }
     }
 
-     public function edit(Request $request, $id = null){
+     public function edit(/*Request $request,*/ $id = null){
+        dd("Dentro");
         // Evitamos tirarlo contra la base de datos
         if(isset($id)){
             $id = (int) $id;

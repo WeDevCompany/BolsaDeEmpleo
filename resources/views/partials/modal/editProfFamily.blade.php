@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="editProfFamily{{ $profFamilie->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        {{ Form::open(['url' => 'administrador/configuracion/edit-familia-profesional/' . $profFamilie->id , 'method' => 'POST']) }}
+        {{ Form::open(['url' => '/administrador/configuracion/edit-familia-profesional/' . $profFamilie->id , 'method' => 'POST']) }}
             {!! csrf_field() !!}
             <!--Content-->
             <div class="modal-content border-orange">
