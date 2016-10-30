@@ -17,14 +17,14 @@
                     <div class="scroll">
                         <table class="table table-condensed table-hover">
                             <thead class"thead-inverse">
-                                <tr>
-                                    <th>Validar</th>
-                                    <th>Imagen</th>
-                                    <th>#</th>
-                                    <th class="min-with-100">Nombre</th>
-                                    <th>Dni</th>
-                                    <th>Email</th>
-                                    <th class="min-with-100">Familia Profesional</th>
+                                <tr  class="info">
+                                    <th class="centrado">Validar</th>
+                                    <th class="centrado">Imagen</th>
+                                    <th class="centrado">#</th>
+                                    <th class="centrado min-with-100">Nombre</th>
+                                    <th class="centrado">Dni</th>
+                                    <th class="centrado">Email</th>
+                                    <th class="min-with-100 centrado">Familia Profesional</th>
                                     <th>Borrardo definitivo</th>
                                 </tr>
                             </thead>

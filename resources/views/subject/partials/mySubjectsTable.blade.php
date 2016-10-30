@@ -1,4 +1,4 @@
-<table class="table table-striped">
+<table class="table table-striped table-condensed table-hover">
 	<tbody id="mySubjects">
 		<tr id="cabecera">
 			<th class="col-md-1 subjectArrow no-padding"></th>

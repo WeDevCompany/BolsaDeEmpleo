@@ -17,16 +17,16 @@
                     <div class="scroll">
                         <table class="table table-condensed table-hover">
                             <thead class"thead-inverse">
-                                <tr>
-                                    <th>Validar</th>
-                                    <th>Imagen</th>
-                                    <th>Oferta</th>
-                                    <th>Empresa</th>
-                                    <th>Cif</th>
-                                    <th>Centro de trabajo</th>
-                                    <th>Email</th>
-                                    <th>Familia Profesional</th>
-                                    <th>Borrardo definitivo</th>
+                                <tr  class="info">
+                                    <th class="centrado">Validar</th>
+                                    <th class="centrado">Imagen</th>
+                                    <th class="centrado">Oferta</th>
+                                    <th class="centrado">Empresa</th>
+                                    <th class="centrado">Cif</th>
+                                    <th class="centrado">Centro de trabajo</th>
+                                    <th class="centrado">Email</th>
+                                    <th class="centrado">Familia Profesional</th>
+                                    <th class="centrado">Borrardo definitivo</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,13 +38,13 @@
                                                 <label for="oferta_{!! $offer->id !!}"></label>
                                             </p>
                                         </td>
-                                        <td><img src="{!! url('/img/imgUser/' . $offer->carpeta . '/' .  $offer->image) !!}" alt="Imagen de la Empresa" class="img-responsive img-circle img-navegador"></td>
-                                        <td>{!! $offer->title !!}</td>
+                                        <td class="centrado"><img src="{!! url('/img/imgUser/' . $offer->carpeta . '/' .  $offer->image) !!}" alt="Imagen de la Empresa" class="img-responsive img-circle img-navegador"></td>
+                                        <td class="centrado">{!! $offer->title !!}</td>
                                         <td class="min-with-100">{!! $offer->enterpriseName !!}</td>
-                                        <td>{!! $offer->cif !!}</td>
-                                        <td>{!! $offer->workCenterName !!}</td>
-                                        <td><a href="mailto:{!! $offer->email !!}">{!! $offer->email !!}</a></td>
-                                        <td>{!! $offer->name !!}</td>
+                                        <td class="centrado">{!! $offer->cif !!}</td>
+                                        <td class="centrado">{!! $offer->workCenterName !!}</td>
+                                        <td class="centrado"><a href="mailto:{!! $offer->email !!}">{!! $offer->email !!}</a></td>
+                                        <td class="centrado">{!! $offer->name !!}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger waves-effect waves-light btn-xs btn-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </td>

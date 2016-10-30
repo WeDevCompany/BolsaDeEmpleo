@@ -1,4 +1,4 @@
-<table class="table table-striped">
+<table class="table table-striped table-condensed table-hover">
 	<tbody id="allSubjects">
 		<tr>
             <th class="col-md-12 text-center">Nombre</th>

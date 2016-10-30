@@ -19,7 +19,7 @@
     <div class="scroll">
         <table class="table table-condensed table-hover">
             <thead class"thead-inverse">
-            <tr>
+            <tr  class="info">
                 <th>#</th>
                 <th>Nombre de la familia profesional</th>
                 <th>Acciones</th>

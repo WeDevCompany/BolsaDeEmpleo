@@ -95,13 +95,16 @@ $$  /   \$$ |\$$$$$$$\ $$$$$$$  |\$$$$$$$\   \$  /
     <link href="{{ url('css/normalize.css') }}" rel="stylesheet">
 
     <!-- Font Awsome Icons -->
-    <link title="estilo-personalizado" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!--link title="estilo-personalizado" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"-->
 
     <!-- Material Design Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Font-Awsome -->
+    <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet">
 
     <!-- Material Design Bootstrap -->
     <link href="{{ url('css/mdb.css') }}" rel="stylesheet">
@@ -168,8 +171,11 @@ $$  /   \$$ |\$$$$$$$\ $$$$$$$  |\$$$$$$$\   \$  /
     <script src="{{url('/js/carrusel.js')}}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Script que calcula las notificaciones -->
-    <script src="{{url('/js/funcionalidad/notifications.js')}}" type="text/javascript" charset="utf-8"></script>
-
+    @if (!Auth::guest())
+        @if(\Auth::user()->rol === "administrador" || \Auth::user()->rol === "profesor" )
+            <script src="{{url('/js/funcionalidad/notifications.js')}}" type="text/javascript" charset="utf-8"></script>
+        @endif
+    @endif
     <!-- Script que obtiene las notificaciones -->
     <script src="{{url('/js/funcionalidad/getNotifications.js')}}" type="text/javascript" charset="utf-8"></script>
 
@@ -196,6 +202,10 @@ $$  /   \$$ |\$$$$$$$\ $$$$$$$  |\$$$$$$$\   \$  /
     <script src="/js/validaciones/validate/localization/messages_es.js" charset="utf-8"></script>
 
     <script src="{{url('/js/modernizr-custom.js')}}" charset="utf-8"></script>
+
+    <script src="{{url('/js/particles.js')}}" charset="utf-8"></script>
+
+    <script src="{{url('/js/particlesConfig.js')}}" charset="utf-8"></script>
 
     <!-- Script que hace random el fondo -->
     @include('partials.session.sessionFlash')

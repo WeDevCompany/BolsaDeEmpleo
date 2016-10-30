@@ -9,12 +9,12 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">Editar Comentario</h4>
+                    <h4 class="modal-title centrado" id="myModalLabel">Crear centro de trabajo</h4>
                 </div>
                 <!--Body-->
                 <div class="modal-body">
                     <fieldset id="fieldWorkAll0">
-                            <legend style="width: auto;">Centro de trabajo</legend>
+                            <legend>Centro de trabajo</legend>
                             <section>
                                 <fieldset id="fieldWorkCity0">
                                     <div class="input-field col-md-12 select-minor">
@@ -41,7 +41,7 @@
                 <!--Footer-->
                     <div class="modal-footer">
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-secondary waves-effect waves-light pull-left" data-dismiss="modal">
+                            <button type="button" class="btn btn-default waves-effect waves-light pull-left" data-dismiss="modal">
                                 <div class="show-responsive">
                                     <i class="fa fa-times" aria-hidden="true"></i>
                                 </div>

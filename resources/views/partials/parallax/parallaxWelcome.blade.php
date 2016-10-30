@@ -1,4 +1,5 @@
 <!-- Parallax effect -->
+
 <section class="parallax" id="parallax-1">
     <div class="container text-center">
     <i class="fa fa-cog fa-spin fa-5x fa-fw margin-bottom" id="tuerca"></i>
@@ -14,5 +15,7 @@
                 </div>
             </div>
     </div>
+    <canvas id="myCanvas"></canvas>
 </section>
+
 <!-- / .Parallax -->

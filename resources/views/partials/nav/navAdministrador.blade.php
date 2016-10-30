@@ -1,6 +1,3 @@
-<!-- ADMIN -->
-<li><a class="waves-effect waves-light subrayado" href="{{ url(config('routes.admin.statistics')) }}"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></li>
-
 <!-- Profesor -->
 <li class = "dropdown">
     <a href="#" class="dropdown-toggle subrayado " data-toggle="dropdown" role="button" aria-expanded="false">
@@ -90,9 +87,12 @@
     <ul class="dropdown-menu" role="menu" aria-labelledby="profesores">
         <!-- ADMIN -->
         <li role="presentation" class="dropdown-header">Administrador</li>
-        <li><a href="{{ url(config('routes.admin.allProfFamilies')) }}"></i>Familias profesionales</a></li>
+        <li class="dropdown-second-header" >Familias profesionales</li>
+        <li><a href="{{ url(config('routes.admin.profFamiliesActives')) }}">Activas</a></li>
+        <li><a href="{{ url(config('routes.admin.profFamiliesDenied')) }}">Inactivas</a></li>
+        <li class="dropdown-second-header">Ciclos</li>
         <li><a href="{{ url('administrador/ciclos') }}">Ciclos</a></li>
+        <li class="dropdown-second-header">Asignaturas</li>
         <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Asignaturas</a></li>
-        <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Tags</a></li>
     </ul>
 </a></li>

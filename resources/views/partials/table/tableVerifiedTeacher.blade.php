@@ -12,7 +12,7 @@
                     <div class="scroll">
                         <table class="table table-condensed table-hover">
                             <thead class"thead-inverse">
-                                <tr>
+                                <tr class="info">
                                     <th>Imagen</th>
                                     <th>#</th>
                                     <th>Nombre</th>

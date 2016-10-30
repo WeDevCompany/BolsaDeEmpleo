@@ -101,7 +101,7 @@ trait Search
                                     //->whereIn('profFamilies.name', $profFamilyValidate)
                                     ->whereIn('students.id', $invalidOrValidStudent)
                                     ->groupBy('students.id')
-                                    ->paginate(1);
+                                    ->paginate();
 
         return $invalidOrValidStudent;
 

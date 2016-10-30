@@ -361,10 +361,12 @@ Route::group(['middleware' => ['web', 'auth']], function(){
         Route::get(config('routes.admin.profFamiliesActives'), 'ProfFamiliesController@getAllProfFamiliesViewActives');
         Route::get(config('routes.admin.profFamiliesDenied'), 'ProfFamiliesController@getAllProfFamiliesViewInactives');
         Route::post(config('routes.admin.profFamiliesCreate'), 'ProfFamiliesController@create');
+        Route::post(config('routes.admin.profFamiliesEdit'), 'ProfFamiliesController@edit');
 
         // Cyclos
         Route::get('administrador/ciclos', 'CyclesController@indexCycle');
         Route::post('administrador/ciclos/editar-ciclo/{id}', 'CyclesController@updateCycle');
+        Route::delete('administrador/ciclo/borrar/{id}', 'CyclesController@deleteCycle');
 
     });
 

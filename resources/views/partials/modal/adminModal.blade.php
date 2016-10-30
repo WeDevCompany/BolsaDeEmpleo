@@ -19,7 +19,7 @@
                 <!--Footer-->
                 <div class="modal-footer">
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-secondary waves-effect waves-light pull-left" data-dismiss="modal">
+                        <button type="button" class="btn btn btn-default waves-effect waves-light pull-left" data-dismiss="modal">
                             <div class="show-responsive">
                                 <i class="fa fa-times" aria-hidden="true"></i>
                             </div>

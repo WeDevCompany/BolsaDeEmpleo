@@ -12,6 +12,8 @@ class ProfFamilie extends Model
 {
 	use SoftDeletes;
 
+    protected $fillable = ['name', 'active'];
+
 	public $table = 'profFamilies';
 
     // Relaciones one to many
