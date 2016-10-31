@@ -76,9 +76,9 @@ return [
             'allProfFamilies'           => 'administrador/configuracion/familias-profesionales',
             'profFamiliesActives'       => 'administrador/configuracion/familias-profesionales-activas',
             'profFamiliesDenied'        => 'administrador/configuracion/familias-profesionales-inactivas',
-            'profFamiliesEdit'        => 'administrador/configuracion/edit-familia-profesional/{$id}',
+            'profFamiliesEdit'        => 'administrador/configuracion/edit-familia-profesional/{id}',
             'profFamiliesCreate'        => 'administrador/configuracion/crear-familia-profesional',
-            'profFamiliesDelete'        => 'administrador/configuracion/delete-familias-profesional/{$id}',
+            'profFamiliesDelete'        => 'administrador/configuracion/delete-familias-profesional/',
 
         ],
     'adminRoutes' =>
@@ -125,6 +125,7 @@ return [
             'teacherRol'                => '/profesor/{idTeacher}',
             'adminRol'                  => '/profesor/rolToTeacher/{idAdmin}',
             'imTutor'                => '/tutor',
+            'profFamiliesDelete'        => 'administrador/configuracion/delete-familias-profesional/{id}'
         ],
     'student'    =>
         [

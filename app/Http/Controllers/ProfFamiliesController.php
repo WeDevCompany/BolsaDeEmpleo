@@ -7,10 +7,12 @@ use App\ProfFamilie;
 use App\Http\Requests;
 use Response;
 use Illuminate\Support\Facades\Session;
+use App\Http\Traits\Functions;
 //use App\Http\Requests\ProfFamilieRequest;
 
 class ProfFamiliesController extends Controller
 {
+    use Functions;
 	/**
 	 * Metodo que devuelve todas las familias profesionales activas.
 	 * @return Array Devuelve un array asociativo 'id' => 'familia'
@@ -83,7 +85,9 @@ class ProfFamiliesController extends Controller
 
 		// Zona en la que se encuentra la web
 		$zona = 'Familias profesionales activas';
-		return view('admin.profFamilies.actives', compact('profFamilies','zona'));
+        $urlDelete = config('routes.admin.profFamiliesDelete');
+        $modalDelete = "¿Estas seguro de que quieres desactivar la familia profesional? Debes tener en cuenta que estos cambios afectaran a otros usuarios de la aplicación.";
+		return view('admin.profFamilies.actives', compact('profFamilies','zona', 'urlDelete', 'modalDelete'));
 	}
 
     public function getAllProfFamiliesViewInactives()
@@ -95,13 +99,14 @@ class ProfFamiliesController extends Controller
 
         // Zona en la que se encuentra la web
         $zona = 'Familias profesionales inactivas';
-        return view('admin.profFamilies.list', compact('profFamiliesInactives','zona'));
+        $urlDelete = config('routes.admin.profFamiliesDelete');
+        return view('admin.profFamilies.list', compact('profFamiliesInactives','zona', 'urlDelete'));
     }
 
     public function create(Request $request){
         // Realizamos las validaciones personal
          $validator = \Validator::make($request->all(), [
-            'name'      => 'required|regex:/^[a-zA-ZñÑÁÉÍÓÚáéíóú ]+$/|between:1,75|unique:profFamilies,name',
+            'name'      => 'required|regex:/^[a-zA-ZñÑÁÉÍÓÚáéíóú -]+$/|between:1,75|unique:profFamilies,name',
             'active'    => 'sometimes|required',
         ]);
 
@@ -132,53 +137,60 @@ class ProfFamiliesController extends Controller
         }
     }
 
-     public function edit(/*Request $request,*/ $id = null){
-        dd("Dentro");
-        // Evitamos tirarlo contra la base de datos
-        if(isset($id)){
-            $id = (int) $id;
-        } else {
-            Session::flash('message_Negative', 'La familia profesional que intenta editar no existe');
+     public function edit(Request $request, $id = null){
+        $id = $this->parseId($id, 'La familia profesional que intenta editar no existe');
+        if($id === false){
             return \Redirect::back();
         }
 
         // Comprobamos que la familia profesional que se desea editar existe en la base de datos
         try {
             $profFamilie = ProfFamilie::findOrFail($id);
-        } catch (PDOException $e) {
 
-        }
+            if(isset($profFamilie->id)){
 
-        // Realizamos las validaciones personal
-         $validator = \Validator::make($request->all(), [
-            'name'      => 'required|regex:/^[a-zA-ZñÑÁÉÍÓÚáéíóú ]+$/|between:1,75|unique:profFamilies,name',
-            'active'    => 'sometimes|required',
-        ]);
+                // Realizamos las validaciones personal
+                 $validator = \Validator::make($request->all(), [
+                    'name'      => 'required|regex:/^[a-zA-ZñÑÁÉÍÓÚáéíóú -]+$/|between:1,75',
+                    'active'    => 'sometimes|required',
+                    'profFamilieId' => 'sometimes'
+                ]);
 
-        // Si hay errores los mandamos a la vista
-        if ($validator->fails()) {
-            Session::flash('message_Negative', 'El nombre de la familia profesional no es valido');
-            return \Redirect::back();
-        }
+                // Si hay errores los mandamos a la vista
+                if ($validator->fails()) {
+                    Session::flash('message_Negative', 'El nombre de la familia profesional no es valido');
+                    return \Redirect::back();
+                }
 
-        try {
-            // Creamos el registro
-            $data = $request->all();
-            $insercion = ProfFamilie::create([
-                'name' => $data['name'],
-                'active' => '1',
-                'created_at' => date('YmdHms')
-            ]);
-            if ($insercion) {
-               Session::flash('message_Success', 'La familia profesional fue creda correctamente');
+                $name = $request->name;
+
+                $result = ProfFamilie::where('name', '=', $name)->where('id', '<>', $profFamilie->id)->get();
+
+                if (isset($result[0])) {
+                    Session::flash('message_Negative', 'La familia profesional no a sido editada');
+                } else {
+                    // Editamos la familia profesional
+                    $status = $profFamilie->update(['name' => $request->name]);
+                    if ($status) {
+                       Session::flash('message_Success', 'La familia profesional fue editada correctamente');
+                    } else {
+                        Session::flash('message_Negative', 'La familia profesional no a sido editada');
+                    }
+                }
+
+                return \Redirect::back();
             } else {
-                Session::flash('message_Negative', 'Lo sentimos ha sucedido un error intentelo más tarde si el error persiste comuniquese con el equipo de desarrollo');
+                Session::flash('message_Negative', 'La familia profesional que intenta editar no existe');
+                return \Redirect::back();
             }
-            return \Redirect::back();
-
         } catch (Exception $e) {
-            Session::flash('message_Negative', 'Lo sentimos ha sucedido un error inexperado más tarde');
             abort(500);
         }
     }
+
+    public function delete(Request $request,$id = null)
+    {
+        dd("sdadsf");
+    }
+
 }

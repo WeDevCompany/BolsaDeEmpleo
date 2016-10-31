@@ -362,11 +362,15 @@ Route::group(['middleware' => ['web', 'auth']], function(){
         Route::get(config('routes.admin.profFamiliesDenied'), 'ProfFamiliesController@getAllProfFamiliesViewInactives');
         Route::post(config('routes.admin.profFamiliesCreate'), 'ProfFamiliesController@create');
         Route::post(config('routes.admin.profFamiliesEdit'), 'ProfFamiliesController@edit');
+        Route::delete(config('routes.adminRoutes.profFamiliesDelete'), 'ProfFamiliesController@delete');
 
         // Cyclos
-        Route::get('administrador/ciclos', 'CyclesController@indexCycle');
-        Route::post('administrador/ciclos/editar-ciclo/{id}', 'CyclesController@updateCycle');
-        Route::delete('administrador/ciclo/borrar/{id}', 'CyclesController@deleteCycle');
+       Route::get('administrador/configuracion/ciclos', 'CyclesController@indexCycle');
+       Route::post('administrador/configuración/ciclos/editar-ciclo/{id}', 'CyclesController@updateCycle');
+       Route::post('administrador/configuración/ciclos/crear', 'CyclesController@createCycle');
+       Route::delete('administrador/configuración/ciclo/borrar/{id}', 'CyclesController@deleteCycle');
+       Route::get('/administrador/configuracion/ciclos-inactivos', 'CyclesController@indexCycleInactive');
+       Route::post('administrador/configuracion/ciclo-inactivo/restaurar', 'CyclesController@restoreCycle');
 
     });
 

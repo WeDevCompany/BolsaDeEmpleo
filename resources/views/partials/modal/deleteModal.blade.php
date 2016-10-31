@@ -12,10 +12,14 @@
             </div>
             <!--Body-->
             <div class="modal-body">
-                @if (\Auth::user()->rol == 'empresa')
-                    Tenga en cuenta que si lo borra también se borrarán todas las ofertas asociadas a este responsable.
+                @if(!isset($modalDelete))
+                    @if (\Auth::user()->rol == 'empresa')
+                        Tenga en cuenta que si lo borra también se borrarán todas las ofertas asociadas a este responsable.
+                    @else
+                        Tenga en cuenta que si lo borra también se borrará para el resto de profesores de la misma familia profesional.
+                    @endif
                 @else
-                    Tenga en cuenta que si lo borra también se borrará para el resto de profesores de la misma familia profesional.
+                    {{ $modalDelete }}
                 @endif
             </div>
             <!--Footer-->

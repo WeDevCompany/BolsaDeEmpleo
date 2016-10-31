@@ -16,7 +16,7 @@
                 <div class="modal-body">
                     {{ Form::hidden('profFamilieId', $profFamilie->id, ['class' => 'form-control']) }}
                     {{ Form::label('name', 'Nombre de la familia') }}
-                    {{ Form::text('name', $profFamilie->name, ['class' => 'form-control', 'autofocus' => 'true', 'required' => 'true', 'pattern' => '^[a-zA-ZñÑÁÉÍÓÚáéíóú ]{1,75}$', 'title' => 'Nombre de una familia profesional válida']) }}
+                    {{ Form::text('name', $profFamilie->name, ['class' => 'form-control', 'autofocus' => 'true', 'required' => 'true', 'pattern' => '^[a-zA-ZñÑÁÉÍÓÚáéíóú -]{1,75}$', 'title' => 'Nombre de una familia profesional válida']) }}
                 </div>
                 <!--Footer-->
                 <div class="modal-footer">
