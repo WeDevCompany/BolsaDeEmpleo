@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="cycleModal{{ $cycle->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        {{ Form::open(['url' => 'administrador/ciclos/editar-ciclo/' . $cycle->id, 'method' => 'POST']) }}
+        {{ Form::open(['url' => 'administrador/configuración/ciclos/editar-ciclo/' . $cycle->id, 'method' => 'POST']) }}
             {!! csrf_field() !!}
             <!--Content-->
             <div class="modal-content border-orange">

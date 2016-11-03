@@ -37,4 +37,12 @@ class Cycle extends Model
     {
         return $this->belongsToMany(Student::class, 'studentCycles')->withPivot('student_id');
     } // students()
+
+    // Funcion para filtar por varios campos
+    public function scopeFilter($query, $name)
+    {
+        if($name) {
+            $query->where('cycles.name',"LIKE", "%$name%");
+        }
+    } // scopeFilter()
 }

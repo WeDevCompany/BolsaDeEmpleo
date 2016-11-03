@@ -36,6 +36,9 @@
             'workCenter' => 'Centro de trabajo',
             'cif' => 'CIF',
         ],
+        'cycles' => [
+            'name' => 'Nombre Ciclo',
+        ],
     ];
 
 ?>

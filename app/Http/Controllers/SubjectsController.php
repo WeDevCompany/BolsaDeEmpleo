@@ -12,7 +12,7 @@ use App\Http\Traits\Search;
 class SubjectsController extends Controller
 {
     use Search;
-    
+
 	protected $request = null;          // Inicializada a null
 	protected $rules = null;          // Inicializada a null
     protected $route = null;
@@ -27,7 +27,7 @@ class SubjectsController extends Controller
         ];
 
         $this->request = $request;
-        
+
         if(!\Auth::guest()) {
             $this->route = \Auth::user()->rol;
         }
@@ -69,7 +69,7 @@ class SubjectsController extends Controller
             if(empty($result)) {
                 Session::flash('message_Negative', 'Escoje ciclos a los que tengas acceso.');
                 return \Redirect::to($this->route . '/asignaturas');
-            } else {        
+            } else {
                 $cycleId = (int) $_GET['cycle'];
             }
         } else {
@@ -108,9 +108,9 @@ class SubjectsController extends Controller
 
         // Obtenemos las asignaturas cogidas
         $takedSubjects = $this->cycleSubjectsYearTaked($cycleId, $subjectYear)->lists('id')->toArray();
-        
+
         // Obtengo los ciclos en los que el profesor imparte alguna asignatura
-        $tutors = app(CyclesController::class)->posibleTutorCycles($subjectYear);        
+        $tutors = app(CyclesController::class)->posibleTutorCycles($subjectYear);
 
         return view('subject/subjects', compact('zona', 'cycles', 'years', 'allSubjects', 'mySubjects', 'subjectYear', 'cycleId', 'takedSubjects', 'tags', 'tutors')  );
 
@@ -159,7 +159,7 @@ class SubjectsController extends Controller
                         $cont = 0;
                     }
                 }
-                
+
                 // Compruebo que todas las asignaturas pertenezcan al ciclo
                 if(isset($this->request['allSubjects'])) {
                     $allSubjects = true;
@@ -185,7 +185,7 @@ class SubjectsController extends Controller
                 } else {
                     $insercion = [];
                     $borrado = [];
-                    
+
                     // Obtengo el id del profesor que usaré como pivote
                     $teacherId = $this->getTeacherId()->toArray();
                     $teacherId = $teacherId[0]['id'];
@@ -210,11 +210,11 @@ class SubjectsController extends Controller
                                     Session::flash('message_Negative', 'Algunas asignaturas no han podido añadirse, intentelo de nuevo más tarde.');
                                     return \Redirect::to($this->route . '/asignaturas?cycle=' . $this->request['cycleId'] . '&yearFrom=' . $this->request['yearFromId']);
                                 }
-                            } 
+                            }
                         } else {
                             $mySubjects = false;
                         }
-                        
+
                     }
 
                     if($allSubjects === true) {
@@ -235,9 +235,9 @@ class SubjectsController extends Controller
 
                                 if($delete === false) {
                                     Session::flash('message_Negative', 'Algunas asignaturas no han podido eliminarse, intentelo de nuevo más tarde.');
-                                    return \Redirect::to($this->route . '/asignaturas?cycle=' . $this->request['cycleId'] . '&yearFrom=' . $this->request['yearFromId']); 
+                                    return \Redirect::to($this->route . '/asignaturas?cycle=' . $this->request['cycleId'] . '&yearFrom=' . $this->request['yearFromId']);
                                 }
-                            } 
+                            }
                         } else {
                             $allSubjects = false;
                         }
@@ -358,7 +358,7 @@ class SubjectsController extends Controller
         // coprobamos que el id es valido
         if(is_numeric($cycleId) && $cycleId != 0){
             try{
-                // Almacenamos el resultado en caché por un día 
+                // Almacenamos el resultado en caché por un día
                 $subjects = \Cache::remember('subject_' . $cycleId , 1440, function() use ($cycleId){
                     // Los resultados de la consulta se almacenan en la variable
                     return Subject::select('subjects.id', 'subjects.name')->join('cycleSubjects', 'cycleSubjects.subject_id', '=', 'subjects.id')->where('cycle_id', '=', $cycleId)->orderBy('name', 'ASC')->get();
@@ -398,6 +398,26 @@ class SubjectsController extends Controller
 
             }
         }
+    }
+
+    public function indexSubject()
+    {
+
+    }
+
+    public function createSubject(Request $request)
+    {
+
+    }
+
+    public function deleteSubject(Request $request)
+    {
+
+    }
+
+    public function updateSubject(Request $request)
+    {
+
     }
 
 }

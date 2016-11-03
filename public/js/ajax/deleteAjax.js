@@ -10,9 +10,9 @@
             // Creamos un atributo y le damos un valor para el modal
             $('#softDeletes').data('id', id);
 
-            
 
-        }); 
+
+        });
 
         $('#softDeletes').click(function (e) {
 
@@ -27,7 +27,7 @@
 
             // Obtenemos el tr padre anterior
             $('tr[data-id=' + id + ']').fadeOut();
-            
+            //console.log(id);
 
             // Hacemos la peticion
             $.post(url, data, function(result){
@@ -49,7 +49,7 @@
 
             });
 
-            
+
 
         });
 

@@ -14,9 +14,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\CitiesController;
-use App\Http\Request\WorkCenterRequest;
-use App\Http\Request\WorkCenterCreateRequest;
-use App\Http\Request\EnterpriseResponsableRequest;
+use App\Http\Requests\WorkCenterRequest;
+use App\Http\Requests\WorkCenterCreateRequest;
+use App\Http\Requests\EnterpriseResponsableRequest;
 
 class EnterprisesController extends UsersController
 {
@@ -231,7 +231,7 @@ class EnterprisesController extends UsersController
             'address' => $request->address,
             'citie_id' => $request->citie,
         ]);
-
+        dd($workCenter);
         $responsableDelete = \DB::table('enterpriseCenterResponsables')->where('workCenter_id', '=', $request->id)->delete();
 
         if (!$workCenter && !$responsableDelete) {
@@ -280,7 +280,7 @@ class EnterprisesController extends UsersController
         $insercion = Self::createWorkCenter($enterprise, $responsable, $principalCenter);
 
         if ($request->responsable) {
-            
+
             foreach ($request->responsable as $key => $value) {
 
                 $responsable = \DB::table('enterpriseCenterResponsables')->insert([
@@ -385,7 +385,7 @@ class EnterprisesController extends UsersController
         $offer = JobOffer::where('enterpriseResponsable_id', '=', $idResponsable)->get();
 
         if (!$offer->isEmpty() && $offer[0]) {
-        
+
             foreach ($offer as $key => $value) {
 
                 $value->deleted_at = date('YmdHms');

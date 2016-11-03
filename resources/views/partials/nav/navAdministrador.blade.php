@@ -91,7 +91,8 @@
         <li><a href="{{ url(config('routes.admin.profFamiliesActives')) }}">Activas</a></li>
         <li><a href="{{ url(config('routes.admin.profFamiliesDenied')) }}">Inactivas</a></li>
         <li class="dropdown-second-header">Ciclos</li>
-        <li><a href="{{ url('administrador/ciclos') }}">Ciclos</a></li>
+        <li><a href="{{ url('administrador/configuracion/ciclos') }}">Activos</a></li>
+        <li><a href="{{ url('administrador/configuracion/ciclos-inactivos') }}">Inactivos</a></li>
         <li class="dropdown-second-header">Asignaturas</li>
         <li><a href="{{ url(config('routes.admin.allVerifiedTeachers')) }}">Asignaturas</a></li>
     </ul>
