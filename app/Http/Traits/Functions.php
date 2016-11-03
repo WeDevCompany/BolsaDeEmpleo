@@ -1,4 +1,4 @@
-<?
+<?php
 namespace App\Http\Traits;
 use App\Http\Requests;
 

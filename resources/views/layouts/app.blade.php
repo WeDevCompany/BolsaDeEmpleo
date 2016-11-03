@@ -170,20 +170,23 @@ $$  /   \$$ |\$$$$$$$\ $$$$$$$  |\$$$$$$$\   \$  /
     <!-- Script que automatiza el carrusel -->
     <script src="{{url('/js/carrusel.js')}}" type="text/javascript" charset="utf-8"></script>
 
-    <!-- Script que calcula las notificaciones -->
+
     @if (!Auth::guest())
         @if(\Auth::user()->rol === "administrador" || \Auth::user()->rol === "profesor" )
+            <!-- Script que calcula las notificaciones -->
             <script src="{{url('/js/funcionalidad/notifications.js')}}" type="text/javascript" charset="utf-8"></script>
+
+            <!-- Script que obtiene las notificaciones -->
+    <script src="{{url('/js/funcionalidad/getNotifications.js')}}" type="text/javascript" charset="utf-8"></script>
         @endif
     @endif
-    <!-- Script que obtiene las notificaciones -->
-    <script src="{{url('/js/funcionalidad/getNotifications.js')}}" type="text/javascript" charset="utf-8"></script>
+
 
     <!-- Script que permite a la imagen ponerse blanca con un mouse over -->
     <script src="{{url('/js/funcionalidad/imgPerfilMouseOver.js')}}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Script que hace random el fondo -->
-    <script src="{{url('/js/funcionalidad/backgroundPattern.js')}}" type="text/javascript" charset="utf-8"></script>
+     <script src="{{--url('/js/funcionalidad/backgroundPattern.js')--}}" type="text/javascript" charset="utf-8"></script>
 
     <!-- Script que gestiona la sesión  -->
     <script src="{{url('/plugin/jquerysession.js')}}" type="text/javascript" charset="utf-8"></script>
