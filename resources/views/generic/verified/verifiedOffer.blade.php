@@ -24,7 +24,7 @@
 </div>
 <div class="container container-card">
     <div class="row">
-        <div class="col-md-12">
+        <div class="mobile-full-width">
              @include('partials.table.tableVerifiedOffer')
             {{ $verifiedOffer->appends($request->only(['name', 'filtros']))->render() }}
         </div>

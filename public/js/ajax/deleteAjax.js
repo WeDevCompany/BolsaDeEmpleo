@@ -10,8 +10,6 @@
             // Creamos un atributo y le damos un valor para el modal
             $('#softDeletes').data('id', id);
 
-
-
         });
 
         $('#softDeletes').click(function (e) {
@@ -36,6 +34,9 @@
                 if (result.status === 'fail') {
                     toastr["error"](result.message);
                     $('tr[data-id=' + result.id + ']').show();
+                    if(result.debug === true){
+                        console.log(result.debugError);
+                    }
 
                 } else if (result.status === 'success') {
                     toastr["success"](result.message);
@@ -43,10 +44,8 @@
                 }
 
             }).fail(function(){
-
                 toastr["error"]('Ha ocurrido un error durante el borrado, por favor intentelo mas tarde');
                 row.show();
-
             });
 
 

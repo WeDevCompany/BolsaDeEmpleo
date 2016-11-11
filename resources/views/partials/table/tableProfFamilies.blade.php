@@ -14,10 +14,15 @@
                 <th class="centrado">#</th>
                 <th class="centrado">Nombre de la familia profesional</th>
                 <th class="centrado">Edición</th>
-                <th class="centrado">Borrado</th>
+                <th class="centrado">Activar</th>
             </tr>
         </thead>
         <tbody>
+        {{$inactivas = false}}
+        @if(isset($profFamiliesInactives))
+            $profFamilies = $profFamiliesInactives
+            $inactivas = true
+        @endif
             @foreach($profFamilies as $profFamilie)
                 <tr data-id="{{ $profFamilie->id }}">
                     <td scope="row" class="centrado">{!! $profFamilie->id !!}</td>
@@ -29,12 +34,16 @@
                         <a href="#" class="btn btn-danger waves-effect waves-light btn-xs btn-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times" aria-hidden="true"></i></a>
                     </td>
                 </tr>
-                @include('partials.modal.deleteProfFamily')
+                @if($inactivas === false)
+                    @include('partials.modal.deleteProfFamily')
+                @endif
                 @include('partials.modal.editProfFamily')
+
             @endforeach
         </tbody>
     </table>
     {!! $profFamilies->render() !!}
-
-@include('partials.form.formDelete')
+    @if($inactivas === false)
+        @include('partials.form.formDelete')
+    @endif
 </div>

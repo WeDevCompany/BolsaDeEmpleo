@@ -18,13 +18,6 @@
 
         <!-- 0 slide -->
         <div class="item active">
-                <!--Video-->
-                <div class="homepage-hero-module" style="height: 100%; min-height: 320px;">
-                    <video autoplay="" loop="" class="fillWidth" muted>
-                        <source src="video/carrusel.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <!--/.Video-->
             <div class="carousel-caption">
                 <div class="verticalcenter">
                     <div class="animated fadeInDown">

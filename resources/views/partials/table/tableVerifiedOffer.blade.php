@@ -9,7 +9,7 @@
                         @foreach($verifiedOffer as $offer)
                             <div class="col-md-12 media oferta extra-padding-bottom mask hoverable z-depth-1 father-link scroll" tabindex="{{ $offer->id }}"><a href="/{{\Auth::user()->rol}}/oferta/{{ $offer->id }}" class=" offer-link">
                                     <div class="media" data-id="{{(isset($offer->id)) ? $offer->id : 0 }}" id="{{(isset($offer->id)) ? $offer->id : 0 }}">
-                                        <a href="{!! (isset($offer->web)) ? $offer->web : 'https://www.google.es/#q='.$offer->enterpriseName !!}" target="_blank" class="media-left col-md-2 extra-padding">
+                                        <a href="{!! (isset($offer->web)) ? $offer->web : 'https://www.google.es/#q='.$offer->enterpriseName !!}" target="_blank" class="img-hidden-media media-left col-md-2 extra-padding">
                                             <img src="/img/imgUser/{!! $offer->carpeta !!}/{!! $offer->image !!}" alt="imagen {!! $offer->enterpriseName !!}" class="img-circle hoverable img-responsive"></img>
                                         </a>
                                         <div class="row media-body" title="{!! $offer->title !!}">

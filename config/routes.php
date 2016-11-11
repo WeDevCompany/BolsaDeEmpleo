@@ -78,7 +78,7 @@ return [
             'profFamiliesDenied'        => 'administrador/configuracion/familias-profesionales-inactivas',
             'profFamiliesEdit'        => 'administrador/configuracion/edit-familia-profesional/{id}',
             'profFamiliesCreate'        => 'administrador/configuracion/crear-familia-profesional',
-            'profFamiliesDelete'        => 'administrador/configuracion/delete-familias-profesional/',
+            'profFamiliesDelete'        => 'administrador/configuracion/delete-familias-profesional',
 
         ],
     'adminRoutes' =>

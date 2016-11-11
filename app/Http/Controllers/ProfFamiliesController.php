@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Subject;
 use Illuminate\Http\Request;
 use App\ProfFamilie;
+use App\Cycle;
 use App\Http\Requests;
 use Response;
 use Illuminate\Support\Facades\Session;
@@ -28,16 +30,16 @@ class ProfFamiliesController extends Controller
                 // lo guardamos en caché con un nombre
                 $profFamiliesDB = \Cache::remember('profFamiliesDB', 1440, function(){
                     // Los resultados de la consulta se almacenan en la variable
+                    dd("dentro--");
                     return ProfFamilie::where('active', '=', '1')->orderBy('name', 'ASC')->lists('name', 'id')->toArray();
                 });
             } else {
-                if(! isset($inactives)){
+                if (!isset($inactives)) {
                     // lo guardamos en la caché de base de datos con un nombre distinto
                     $profFamiliesDB = ProfFamilie::where('active', '=', '1')->orderBy('name', 'ASC')->paginate();
                 } else {
-                  $profFamiliesDB = ProfFamilie::where('active', '=', '0')->orderBy('name', 'ASC')->paginate();
+                    $profFamiliesDB = ProfFamilie::where('active', '=', '0')->orderBy('name', 'ASC')->withTrashed()->paginate();
                 }
-
             }
 		} catch(\PDOException $e) {
             //dd($e);
@@ -99,8 +101,8 @@ class ProfFamiliesController extends Controller
 
         // Zona en la que se encuentra la web
         $zona = 'Familias profesionales inactivas';
-        $urlDelete = config('routes.admin.profFamiliesDelete');
-        return view('admin.profFamilies.list', compact('profFamiliesInactives','zona', 'urlDelete'));
+        //$urlDelete = config('routes.admin.profFamiliesDelete');
+        return view('admin.profFamilies.inactives', compact('profFamiliesInactives','zona'));
     }
 
     public function create(Request $request){
@@ -142,11 +144,9 @@ class ProfFamiliesController extends Controller
         if($id === false){
             return \Redirect::back();
         }
-
-        // Comprobamos que la familia profesional que se desea editar existe en la base de datos
-        try {
-            $profFamilie = ProfFamilie::findOrFail($id);
-
+         // Comprobamos que la familia profesional que se desea editar existe en la base de datos
+         try {
+             $profFamilie = ProfFamilie::withTrashed()->where('id', '=', $id)->first();
             if(isset($profFamilie->id)){
 
                 // Realizamos las validaciones personal
@@ -186,11 +186,67 @@ class ProfFamiliesController extends Controller
         } catch (Exception $e) {
             abort(500);
         }
+
     }
 
-    public function delete(Request $request,$id = null)
+    /**
+     * @param Request $request
+     * @param null $id
+     * @return array
+     */
+    public function delete(Request $request, $id = null)
     {
-        dd("sdadsf");
+        // Obtenemos los datos del ciclo
+        $profFamilie = ProfFamilie::findorfail($id);
+
+        if ($profFamilie->deleted_at == null) {
+
+            $cicles = Cycle::where('profFamilie_id', '=', $id)->get();
+            $subjects;
+            foreach ($cicles as $key => $cicle){
+                $subjects []  = Subject::join('cycleSubjects', 'subject_id','=', 'subjects.id')->where('cycle_id', '=', $cicle->id)->get();
+            }
+
+            // TODO: DEBUG AJAX
+            /*return $ajax = [
+                'id'      => $profFamilie->id,
+                'message' => $cicles,
+                'status'  => 'fail',
+                'debug'   => true,
+                'debugError' => $subjects
+            ];*/
+
+            // Borramos el profFamily
+            $profFamilie->deleted_at = date('YmdHms');
+            $profFamilie->active = 0;
+            $profFamilie->save();
+
+            // Devolvemos un mensaje a la vista
+            $message = 'La familia profesional ha borrado correctamente';
+            $status = 'success';
+
+            if($profFamilie->deleted_at != null){
+                return $ajax = [
+                    'id'      => $profFamilie->id,
+                    'message' => $message,
+                    'status'  => $status
+                ];
+            }
+
+        } else {
+            // Devolvemos un mensaje a la vista
+            $message = 'No se ha podido borrar la familia profesional, por favor intentelo más tarde';
+            $status = 'fail';
+
+            return $ajax = [
+                'id'      => $profFamilie->id,
+                'message' => $message,
+                'status'  => $status
+            ];
+
+        }
     }
+
+
 
 }

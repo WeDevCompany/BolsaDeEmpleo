@@ -4,7 +4,7 @@
             <i class="fa fa-plus" aria-hidden="true"></i>
         </div>
         <div class="hidden-media">
-            <i class="fa fa-plus right" aria-hidden="true"></i><span class="hidden-media">Nueva familia profesional</span>
+            <i class="fa fa-plus" aria-hidden="true"></i> &nbsp; <span class="hidden-media">Nueva familia profesional</span>
         </div>
     </button>
 </div>

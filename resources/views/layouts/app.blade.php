@@ -206,10 +206,13 @@ $$  /   \$$ |\$$$$$$$\ $$$$$$$  |\$$$$$$$\   \$  /
 
     <script src="{{url('/js/modernizr-custom.js')}}" charset="utf-8"></script>
 
-    <script src="{{url('/js/particles.js')}}" charset="utf-8"></script>
+    @if(Request::is('/'))
 
-    <script src="{{url('/js/particlesConfig.js')}}" charset="utf-8"></script>
+        <script src="{{url('/js/particles.js')}}" charset="utf-8"></script>
 
+        <script src="{{url('/js/particlesConfig.js')}}" charset="utf-8"></script>
+
+    @endif
     <!-- Script que hace random el fondo -->
     @include('partials.session.sessionFlash')
 

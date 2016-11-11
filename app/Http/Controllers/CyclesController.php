@@ -116,6 +116,7 @@ class CyclesController extends Controller
                 $posibleTutorCycles = Cycle::distinct()
                     ->select('cycles.id', 'cycles.name')
                     ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
+                    ->join('profFamilies', 'profFamilies.id', '=', 'cycles.profFamilie_id')
                     ->join('cycleSubjects', 'cycleSubjects.cycle_id', '=', 'cycles.id')
                     ->join('subjects', 'subjects.id', '=', 'cycleSubjects.subject_id')
                     ->join('subjectTeachers', 'subjectTeachers.subject_id', '=', 'subjects.id')

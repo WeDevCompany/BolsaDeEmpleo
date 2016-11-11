@@ -5,37 +5,37 @@
 @endif
 <div class="row"></div>
 <div class="row">
-    <div class="col-sm-12 text-center">
-        <p><b>Total de familias profesionales activas:</b> {{count($profFamiliesInactives)}}</p>
-    </div>
+    @include("profFamilies.partials.createNewProfFamily")
 </div>
-@if(count($profFamiliesInactives) == 0)
-    <div class="row">
-        <div class="col-sm-12 text-center">
-            <p><b>No existen familias profesionales inactivas</b></p>
-        </div>
-    </div>
-@else
-    <div class="scroll">
-        <table class="table table-condensed table-hover">
-            <thead class"thead-inverse">
-            <tr  class="info">
-                <th>#</th>
-                <th>Nombre de la familia profesional</th>
-                <th>Acciones</th>
+
+<div class="scroll">
+    <table class="table table-condensed table-hover">
+        <thead class"thead-inverse">
+        <tr class="info">
+            <th class="centrado">#</th>
+            <th class="centrado">Nombre de la familia profesional</th>
+            <th class="centrado">Edición</th>
+            <th class="centrado">Activar</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($profFamiliesInactives as $profFamilie)
+            <tr data-id="{{ $profFamilie->id }}">
+                <td scope="row" class="centrado">{!! $profFamilie->id !!}</td>
+                <td class="min-with-100">{!! $profFamilie->name !!}</td>
+                <td class="centrado">
+                    <a href="#" class="btn btn-warning waves-effect waves-light btn-xs" data-toggle="modal" data-target="#editProfFamily{{ $profFamilie->id }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                </td>
+                <td class="centrado">
+                    <a href="#" class="btn btn-danger waves-effect waves-light btn-xs btn-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times" aria-hidden="true"></i></a>
+                </td>
             </tr>
-            </thead>
-            <tbody>
-            @foreach($profFamiliesInactives as $profFamilie)
-                <tr data-id="{{ $profFamilie->id }}">
-                    <td scope="row">{!! $profFamilie->id !!}</td>
-                    <td>{!! $profFamilie->name !!}</td>
-                    <td>
-                        <a href="#" class="btn btn-danger waves-effect waves-light btn-xs btn-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-times" aria-hidden="true"></i></a>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-    </div>
-@endif()
+
+            @include('partials.modal.editProfFamily')
+
+        @endforeach
+        </tbody>
+    </table>
+    {!! $profFamiliesInactives->render() !!}
+
+</div>
