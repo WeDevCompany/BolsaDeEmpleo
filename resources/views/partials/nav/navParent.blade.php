@@ -1,7 +1,7 @@
 <!-- Probar el menú con navbar-static-top -->
     {{-- Si la ruta es / muestra un menú transparente y fijo sino --}}
         <nav class="navbar black navbar-default {{ Request::is('/') ? ' navbar-fixed-top navbar-transparent' : 'navbar-static-top black' }}" role="navigation">
-        <div class="container">
+        <div class="container container-menu">
             <div class="navbar-header">
 
 

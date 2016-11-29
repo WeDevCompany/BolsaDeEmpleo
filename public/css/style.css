@@ -1415,3 +1415,9 @@ audio, canvas, progress, video {
         padding: 0px;
     }
 }
+
+@media only screen and (min-width: 1100px) and (max-width: 1300px){
+    .container-menu {
+        width: 95%;
+    }
+}
